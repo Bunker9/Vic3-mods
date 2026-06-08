@@ -1,0 +1,12 @@
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Paradox / launcher artifacts
+*.zip
+.cache/
+descriptor.mod
