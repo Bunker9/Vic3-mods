@@ -1,0 +1,25 @@
+namespace = versiontest
+
+# =============================================================================
+# versiontestMod — standalone load-confirmation popup.
+# Fires once on game start, to EVERY country, so whichever country you load
+# (or any AI) surfaces it. Pure diagnostic: no gameplay effect.
+#
+# The build stamp shown to the player is HARDCODED in the localization file
+# (versiontest_l_english.yml). Bump it each time you rebuild so the in-game
+# popup tells you exactly which state of your mods the running game loaded.
+# =============================================================================
+
+versiontest.1 = {
+	type = country_event
+
+	title = versiontest.1.t
+	desc = versiontest.1.d
+
+	duration = 3
+
+	option = {
+		name = versiontest.1.a
+		default_option = yes
+	}
+}
