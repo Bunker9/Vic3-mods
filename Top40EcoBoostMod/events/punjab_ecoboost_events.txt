@@ -78,7 +78,11 @@ punjab_ecoboost.2 = {
 			order_by = gdp
 			position = 0
 			check_range_bounds = no
-			add_building_level = { building = building_opium_plantation level = 1 }
+			create_building = {
+				building = "building_opium_plantation"
+				add_ownership = { country = { country = ROOT levels = 1 } }
+				reserves = 1
+			}
 		}
 		# SUPPORT: +1 / year on the under-cap supports (silk, cotton)
 		ordered_scope_state = {
@@ -86,14 +90,22 @@ punjab_ecoboost.2 = {
 			order_by = gdp
 			position = 0
 			check_range_bounds = no
-			add_building_level = { building = building_silk_plantation level = 1 }
+			create_building = {
+				building = "building_silk_plantation"
+				add_ownership = { country = { country = ROOT levels = 1 } }
+				reserves = 1
+			}
 		}
 		ordered_scope_state = {
 			limit = { is_incorporated = yes has_building = building_cotton_plantation }
 			order_by = gdp
 			position = 0
 			check_range_bounds = no
-			add_building_level = { building = building_cotton_plantation level = 1 }
+			create_building = {
+				building = "building_cotton_plantation"
+				add_ownership = { country = { country = ROOT levels = 1 } }
+				reserves = 1
+			}
 		}
 
 		# advance year; reschedule until 5 pulses done

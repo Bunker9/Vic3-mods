@@ -27,34 +27,36 @@ diplo_test.1 = {
 			}
 
 			# 1) Punjab gets cores on every Sindh state -> minimal conquest infamy + easy incorporation
+			#    add_homeland / add_claim require STATE_REGION scope (state -> state_region).
 			c:SIN ?= {
 				every_scope_state = {
-					add_homeland = cu:panjabi   # Punjab homeland -> lower conquest infamy + low post-conquest unrest
-					add_claim = c:PAN           # claim -> reduced infamy when seizing the state
+					state_region = {
+						add_homeland = cu:panjabi   # Punjab homeland -> lower conquest infamy + low post-conquest unrest
+						add_claim = c:PAN           # claim -> reduced infamy when seizing the state
+					}
 				}
 			}
 
-			# 2) Start the war immediately (Punjab is the initiator, Sindh the target)
-			c:SIN ?= {
-				create_diplomatic_play = {
-					war = yes
-					initiator = c:PAN
-					type = dp_conquer_state
-					# Punjab's goal: take Sindh's capital
-					add_war_goal = {
-						holder = c:PAN
-						type = conquer_state
-						target_country = c:SIN
-						target_state = c:SIN.capital
-						primary_demand = yes
-					}
-					# Sindh's counter-goal: take Punjab's capital ("each other's capital")
-					add_war_goal = {
-						holder = c:SIN
-						type = conquer_state
-						target_country = c:PAN
-						target_state = c:PAN.capital
-					}
+			# 2) Start the war immediately. Called in ROOT (= c:PAN) scope -> Punjab is the
+			#    initiator; target is set explicitly via target_country.
+			create_diplomatic_play = {
+				war = yes
+				target_country = c:SIN
+				type = dp_conquer_state
+				# Punjab's goal: take Sindh's capital
+				add_war_goal = {
+					holder = c:PAN
+					type = conquer_state
+					target_country = c:SIN
+					target_state = c:SIN.capital
+					primary_demand = yes
+				}
+				# Sindh's counter-goal: take Punjab's capital ("each other's capital")
+				add_war_goal = {
+					holder = c:SIN
+					type = conquer_state
+					target_country = c:PAN
+					target_state = c:PAN.capital
 				}
 			}
 		}
