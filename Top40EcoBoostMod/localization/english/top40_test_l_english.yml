@@ -1,0 +1,4 @@
+﻿l_english:
+ top40_test.1.t:0 "Top40EcoBoostMod — Pipeline Test"
+ top40_test.1.d:0 "Day-1 test event fired. One tooling workshop has been placed in our highest-GDP eligible state via dynamic (no hardcoded ID) selection. The Mod 1 bootstrap pipeline works."
+ top40_test.1.a:0 "Excellent."

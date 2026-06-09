@@ -1,0 +1,22 @@
+﻿# =============================================================================
+# Top40EcoBoostMod — on_action hook (PIPELINE PROOF)
+# Additive pattern: we DO NOT add a second `effect` to vanilla's
+# on_game_started_after_lobby (that triggers "more than one effect defined").
+# Instead we append our own custom on_action to its `on_actions` sub-list, which
+# merges cleanly with vanilla.
+#
+# NOTE: on_actions do NOT hotload — changes here need a return to main menu.
+# Targeting a COUNTRY tag (c:PRU) is fine; the no-hardcoded-ID rule applies to
+# STATE / geography selection, which top40_test.1 does dynamically.
+# Prussia (PRU) is the 1836 stand-in for "Germany" (GER does not exist at start).
+# =============================================================================
+
+on_game_started_after_lobby = {
+	on_actions = { top40_test_startup }
+}
+
+top40_test_startup = {
+	effect = {
+		c:PRU ?= { trigger_event = { id = top40_test.1 } }
+	}
+}

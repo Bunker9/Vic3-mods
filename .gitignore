@@ -10,3 +10,6 @@ Desktop.ini
 *.zip
 .cache/
 descriptor.mod
+
+# Local-only working notes — never committed/pushed to ANY branch (incl. master)
+TODO-CI.md

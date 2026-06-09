@@ -1,0 +1,48 @@
+﻿namespace = top40_test
+
+# =============================================================================
+# Top40EcoBoostMod — PIPELINE PROOF (Mod 1, first testable slice)
+# Visible day-1 event for the test country: proves event firing + dynamic
+# (no-hardcoded-ID) state selection + building creation all work in-game.
+#
+# Behaviour: places ONE tooling workshop in the test country's best-scored
+# eligible state (scored by GDP here as a stand-in for the future suitability
+# score), then shows a confirmation popup naming that state.
+# Verify (-debug_mode, play Prussia 1836): popup on day 1 + the named state
+# gains a tooling workshop + clean error.log.
+# =============================================================================
+
+top40_test.1 = {
+	type = country_event
+	title = top40_test.1.t
+	desc = top40_test.1.d
+	duration = 3
+
+	immediate = {
+		ordered_scope_state = {
+			limit = {
+				is_incorporated = yes
+				NOT = { has_building = building_tooling_workshop }
+			}
+			order_by = gdp          # TODO: replace with trait-based suitability score
+			position = 0            # 0 = best (highest gdp)
+			check_range_bounds = no
+			save_scope_as = top40_test_state
+			create_building = {
+				building = "building_tooling_workshop"
+				add_ownership = {
+					country = {
+						country = ROOT
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+
+	option = {
+		name = top40_test.1.a
+		default_option = yes
+	}
+}
