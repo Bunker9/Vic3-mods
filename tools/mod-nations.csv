@@ -1,0 +1,41 @@
+tag,country,X,must_include,expanding,formable
+CHI,China,10,no,no,
+RUS,Russia,10,no,no,
+BIC,East India,10,yes,yes,
+USA,United States,9,no,no,
+FRA,France,9,no,no,
+GBR,Great Britain,9,no,no,
+TUR,Ottomans,9,no,no,
+JAP,Japan,8,no,no,
+PRU,Prussia,7,yes,yes,Germany
+SPA,Spain,6,no,no,
+AUS,Austria,6,no,no,
+MEX,Mexico,6,yes,yes,
+KOR,Korea,5,no,no,
+BRZ,Brazil,5,yes,yes,
+PER,Persia,5,yes,yes,
+EGY,Egypt,5,yes,yes,
+PAN,Punjab,5,yes,yes,
+DEI,Dutch East Indies,5,yes,yes,
+HUN,Hungary,4,no,no,
+POR,Portugal,4,no,no,
+SIC,Two Sicilies,4,no,no,
+NET,Netherlands,4,no,no,
+SOK,Sokoto,4,yes,yes,
+SAR,Sardinia-Piedmont,4,yes,yes,Italy
+SWE,Sweden,4,yes,yes,Scandinavia
+HYD,Hyderabad,3,no,no,
+GRE,Greece,3,no,no,
+DAI,Dai Nam,3,yes,yes,
+NEP,Nepal,3,yes,yes,
+CLM,Colombia,3,yes,yes,Gran Colombia
+ARG,Argentina,3,yes,yes,
+SIA,Siam,2,yes,yes,
+MOR,Morocco,2,yes,yes,Maghreb
+OMA,Oman,2,yes,yes,Arabia
+SHW,Shewa,2,yes,yes,Ethiopia
+SAF,South Africa,2,yes,yes,
+PHI,Philippines,2,no,no,
+BEL,Belgium,2,no,no,
+BAV,Bavaria,2,no,no,
+BUR,Burma,2,no,no,

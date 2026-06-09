@@ -33,12 +33,10 @@ Copy-Item "$root\mod1\TODO-CI.md"                             "$hk\config\"     
 Copy-Item "$root\*.md"          "$hk\docs\" -Force
 Copy-Item "$root\roadmap\*.md"  "$hk\docs\" -Force
 
-# --- tooling scripts + generated data ---
-Copy-Item "$root\tools\parse_country_stats.py" "$hk\tools\" -Force
-Copy-Item "$root\tools\sync-hk.ps1"            "$hk\tools\" -Force
-if (Test-Path "$root\tools\country_stats.csv") {
-    Copy-Item "$root\tools\country_stats.csv" "$hk\tools\" -Force
-}
+# --- tooling scripts + generated data (everything in tools/) ---
+Copy-Item "$root\tools\*.py"  "$hk\tools\" -Force
+Copy-Item "$root\tools\*.ps1" "$hk\tools\" -Force
+Copy-Item "$root\tools\*.csv" "$hk\tools\" -Force -ErrorAction SilentlyContinue
 
 # --- commit + push only if there are changes ---
 Push-Location $hk
