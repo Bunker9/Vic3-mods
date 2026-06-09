@@ -1,0 +1,62 @@
+﻿namespace = diplo_test
+
+# =============================================================================
+# MyDiploPlayMod — start Punjab (c:PAN) ALREADY AT WAR with independent Sindh (c:SIN)
+# at game start, mutual "conquer the capital" goals, and grant Punjab claims (cores)
+# on Sindh so the land-grab costs no infamy / aggressive-expansion.
+#
+# - war = yes  -> the play is created already as a WAR (no maneuvering phase, so no
+#   great-power intervention window).
+# - HARD GUARD: only fires if Sindh is independent (is_subject = no) -> Punjab will
+#   NEVER be at war with an EIC/BIC subject (e.g. Bahawalpur is a BIC protectorate).
+# - Sindh (capital STATE_SINDH) is the coastal neighbour (Karachi) -> coast access.
+# =============================================================================
+
+diplo_test.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				c:SIN ?= {
+					exists = yes
+					is_subject = no                      # never an EIC/BIC (or any) subject
+					NOT = { is_country_type = decentralized }
+				}
+			}
+
+			# 1) Punjab gets cores on every Sindh state -> minimal conquest infamy + easy incorporation
+			c:SIN ?= {
+				every_scope_state = {
+					add_homeland = cu:panjabi   # Punjab homeland -> lower conquest infamy + low post-conquest unrest
+					add_claim = c:PAN           # claim -> reduced infamy when seizing the state
+				}
+			}
+
+			# 2) Start the war immediately (Punjab is the initiator, Sindh the target)
+			c:SIN ?= {
+				create_diplomatic_play = {
+					war = yes
+					initiator = c:PAN
+					type = dp_conquer_state
+					# Punjab's goal: take Sindh's capital
+					add_war_goal = {
+						holder = c:PAN
+						type = conquer_state
+						target_country = c:SIN
+						target_state = c:SIN.capital
+						primary_demand = yes
+					}
+					# Sindh's counter-goal: take Punjab's capital ("each other's capital")
+					add_war_goal = {
+						holder = c:SIN
+						type = conquer_state
+						target_country = c:PAN
+						target_state = c:PAN.capital
+					}
+				}
+			}
+		}
+	}
+}
