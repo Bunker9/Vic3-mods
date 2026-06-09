@@ -37,28 +37,10 @@ diplo_test.1 = {
 				}
 			}
 
-			# 2) Start the war immediately. Called in ROOT (= c:PAN) scope -> Punjab is the
-			#    initiator; target is set explicitly via target_country.
-			create_diplomatic_play = {
-				war = yes
-				target_country = c:SIN
-				type = dp_conquer_state
-				# Punjab's goal: take Sindh's capital
-				add_war_goal = {
-					holder = c:PAN
-					type = conquer_state
-					target_country = c:SIN
-					target_state = c:SIN.capital
-					primary_demand = yes
-				}
-				# Sindh's counter-goal: take Punjab's capital ("each other's capital")
-				add_war_goal = {
-					holder = c:SIN
-					type = conquer_state
-					target_country = c:PAN
-					target_state = c:PAN.capital
-				}
-			}
+			# NOTE: the WAR itself is set up at game-setup in
+			# common/history/diplomatic_plays/00_punjab_sindh_war.txt (war = yes).
+			# Start-of-game wars must be defined there, not via an event — so this event
+			# only grants the cores above (which lower the conquest infamy of that war).
 		}
 	}
 }
