@@ -1,0 +1,17 @@
+{
+	"name": "Top40EcoBoostMod",
+	"id": "Top40EcoBoostMod",
+	"game_id": "victoria3",
+	"version": "0.0.1",
+	"supported_game_version": "1.13.*",
+	"short_description": "Top 40 economy-boost tweaks for Victoria 3.",
+	"tags": [
+		"Economy",
+		"Balance",
+		"Gameplay"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

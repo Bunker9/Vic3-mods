@@ -1,0 +1,16 @@
+{
+	"name": "MyDiploPlayMod",
+	"id": "MyDiploPlayMod",
+	"game_id": "victoria3",
+	"version": "0.0.1",
+	"supported_game_version": "1.13.*",
+	"short_description": "Test mod: Punjab opens a conquest diplomatic play against independent Sindh (coast access) at game start. Hard-guarded to never target an EIC/BIC subject.",
+	"tags": [
+		"Gameplay",
+		"Alternative History"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

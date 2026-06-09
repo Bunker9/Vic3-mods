@@ -1,0 +1,46 @@
+﻿namespace = diplo_test
+
+# =============================================================================
+# MyDiploPlayMod — start Punjab (c:PAN) ALREADY AT WAR with independent Sindh (c:SIN)
+# at game start, mutual "conquer the capital" goals, and grant Punjab claims (cores)
+# on Sindh so the land-grab costs no infamy / aggressive-expansion.
+#
+# - war = yes  -> the play is created already as a WAR (no maneuvering phase, so no
+#   great-power intervention window).
+# - HARD GUARD: only fires if Sindh is independent (is_subject = no) -> Punjab will
+#   NEVER be at war with an EIC/BIC subject (e.g. Bahawalpur is a BIC protectorate).
+# - Sindh (capital STATE_SINDH) is the coastal neighbour (Karachi) -> coast access.
+# =============================================================================
+
+diplo_test.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				c:SIN ?= {
+					exists = yes
+					is_subject = no                      # never an EIC/BIC (or any) subject
+					NOT = { is_country_type = decentralized }
+				}
+			}
+
+			# 1) Punjab gets cores on every Sindh state -> minimal conquest infamy + easy incorporation
+			#    add_homeland / add_claim require STATE_REGION scope (state -> state_region).
+			c:SIN ?= {
+				every_scope_state = {
+					state_region = {
+						add_homeland = cu:panjabi   # Punjab homeland -> lower conquest infamy + low post-conquest unrest
+						add_claim = c:PAN           # claim -> reduced infamy when seizing the state
+					}
+				}
+			}
+
+			# NOTE: the WAR itself is set up at game-setup in
+			# common/history/diplomatic_plays/00_punjab_sindh_war.txt (war = yes).
+			# Start-of-game wars must be defined there, not via an event — so this event
+			# only grants the cores above (which lower the conquest infamy of that war).
+		}
+	}
+}
