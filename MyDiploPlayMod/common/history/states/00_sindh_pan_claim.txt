@@ -13,5 +13,7 @@ STATES = {
 	s:STATE_SINDH = {
 		add_claim = c:PAN          # the "core" -> enables low-infamy return_state
 		add_homeland = cu:panjabi  # easy incorporation + low post-conquest unrest
+		debug_log = diplo_claim_row   # -> test report "Claims & cores" table
+		debug_log = diplo_core_row
 	}
 }

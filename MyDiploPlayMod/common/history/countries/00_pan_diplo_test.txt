@@ -1,0 +1,11 @@
+﻿# =============================================================================
+# MyDiploPlayMod — Punjab country-history setup (additive; merges with vanilla PAN history).
+# The 50/yr infamy-decay TEST modifier now lives here instead of a startup event, so the mod
+# needs no on_action / event (war = history, claim = history, infamy = history).
+# country_infamy_decay_mult base 5/yr -> x10 = 50/yr, for 120 months (10 yr).
+# =============================================================================
+COUNTRIES = {
+	c:PAN ?= {
+		add_modifier = { name = diplo_infamy_decay_test months = 120 }
+	}
+}

@@ -32,5 +32,6 @@ DIPLOMATIC_PLAYS = {
 				target_state = s:STATE_PUNJAB.region_state:PAN
 			}
 		}
+		debug_log = diplo_war_row   # -> test report "War & goal" table
 	}
 }

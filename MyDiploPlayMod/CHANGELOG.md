@@ -2,6 +2,19 @@
 
 > Updated after every change set (per process). Newest on top.
 
+## v0.3.0 — all-history architecture (no event/on_action)  (2026-06-10)
+
+Slimmed to setup-only files — the mod now needs **no runtime event or on_action**:
+- **Infamy-decay test modifier moved to country history** — new
+  `common/history/countries/00_pan_diplo_test.txt` (`add_modifier ... months = 120`), like
+  vanilla BIC/Brazil/France. (Country history supports timed add_modifier.)
+- **Removed** `common/on_actions/diplo_test_on_actions.txt` + `events/diplo_test_events.txt`.
+  The runtime fallback claim grant was redundant (the claim is in state history).
+- **Test-report logging moved into the history files:** `debug_log = diplo_war_row` in the
+  diplomatic_plays file; `diplo_claim_row` + `diplo_core_row` in the state file. The framework
+  reads these for the "War & goal" / "Claims & cores" tables (props source_file updated).
+- Now war + claim + infamy + test-logging are ALL in `common/history/` — 7 files, no plumbing.
+
 ## v0.2.0 — lowest-infamy return_state war + setup claim + infamy-decay test modifier  (2026-06-10)
 
 **War goal switched to the lowest-infamy full takeover.** Verified all war-goal infamy
