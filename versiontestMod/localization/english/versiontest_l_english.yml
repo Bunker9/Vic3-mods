@@ -1,5 +1,5 @@
 ﻿l_english:
  versiontest.1.t:0 "versiontestMod loaded"
- versiontest.1.d:0 "BUILD 2026-06-10 v0.2.5 — diplo war/claims table + eco Have/Need/Country columns + wage P1 + versiontest TESTER mode"
+ versiontest.1.d:0 "BUILD 2026-06-10 v0.2.7 — flavour ALWAYS +1 (additive seed) vs champ/support deficit; country logged up-front"
  versiontest.1.a:0 "TESTER - verify this build & sign off"
  versiontest_log:0 "VTEST_LOG TESTER - verify this build & sign off"

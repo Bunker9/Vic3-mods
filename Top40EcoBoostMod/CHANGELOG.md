@@ -2,7 +2,29 @@
 
 > Updated after every change set (per process). Newest on top.
 
-## v0.2.3 — remainder actually builds (create_building level=, not add_building_level)  (2026-06-10)
+## v0.2.5 — flavour is ALWAYS +1 (additive seed), not deficit  (2026-06-10)
+
+Restored the correct flavour rule (the v0.2.4 deficit unification wrongly applied to flavour
+too, so a nation already owning the building got 0). Champ/support stay deficit-based;
+**flavour gets its own `eco_seed_flavour`**: ALWAYS add **+1 level in the single most-productive
+(highest-gdp) constructible state, regardless of what the nation already owns** (a guaranteed
+seed so AI build chains don't fail — a floor, not a cap). 6 PAN flavour calls routed to it.
+- Census made type-aware via props `additive_types = ["flavour"]`: additive rows check
+  `OK = placed >= cap` (built the seed), deficit rows keep `have + placed >= cap`.
+- Also: log the country (`debug_log_scopes`) up-front so deficit buildings with `need = 0`
+  (nation already at/over cap) still get a country label instead of `?`.
+
+The Have/Need test columns exposed an overbuild: v1 built the full cap `N` even when a nation
+already owned some of the good (e.g. Punjab starts with 1 opium -> ended with 6 vs cap 5;
+Prussia 3 steel -> 17 vs 14). `eco_seed_capped` now builds **only the deficit**:
+- `need = max(0, cap - have)`; the best-state share + per-state spread are computed over `need`.
+- Each constructible state's target level = **its current level + its share**, so
+  `create_building (level = max(scripted, existing))` ADDS exactly `share` levels. Final total
+  lands on the cap exactly -> census `have + placed == cap` goes green.
+- Reads per-state current level via `b:<building>.level` (guarded by `has_building`); new vars
+  `eco_need / eco_share / eco_cur` cleaned up.
+Also (this build): `building_minimum_wage_mult = 1.5` added to `eco_*_sol_p1` (P1 wage; note
+1.5 = +150%).
 
 **Bug from v0.2.2 test:** the remainder phase used `add_building_level`, which is **not a
 real scripted effect** ("Unknown effect" ×15 in error.log) — so the bulk levels never got
