@@ -23,14 +23,19 @@ eco_PRU_champ_tp_p1 = {
 }
 
 # ---- champ + support SoL, Phase 1 (0-20 yr), +2 ---------------------------
+# NOTE on the wage lever: building_minimum_wage_mult is additive-percent (vanilla uses
+# 0.1–0.2 = +10–20%). 1.5 = +150% (×2.5 total). If the design intent was wage ×1.5 TOTAL,
+# use 0.5 instead. Set to the user's stated 1.5 — adjust here if ×1.5-total was meant.
 eco_PAN_sol_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
 	building_group_bg_plantations_standard_of_living_add = 2
 	building_group_bg_manufacturing_standard_of_living_add = 2
+	building_minimum_wage_mult = 1.5
 }
 eco_PRU_sol_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
 	building_group_bg_manufacturing_standard_of_living_add = 2
+	building_minimum_wage_mult = 1.5
 }
 
 # ---- champ STATE modifier, Phase 2 (from yr 20 to END OF GAME) -------------

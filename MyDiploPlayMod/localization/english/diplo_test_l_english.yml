@@ -1,3 +1,6 @@
 ﻿l_english:
  punjab_sindh_war:0 "Punjab's Conquest of Sindh"
  diplo_infamy_decay_test:0 "Test — Rapid Infamy Decay (50/yr)"
+ diplo_war_row:0 "DIPLO_WAR Punjab (PAN) | Sindh (SIN) | return_state (infamy 2)"
+ diplo_claim_row:0 "DIPLO_TERR Sindh | SIN | PAN | claim"
+ diplo_core_row:0 "DIPLO_TERR Sindh | SIN | PAN | homeland(panjabi)"

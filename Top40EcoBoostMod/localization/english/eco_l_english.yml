@@ -7,3 +7,6 @@
  eco_hit_champ:0 "ECO_PLACED champ"
  eco_hit_support:0 "ECO_PLACED support"
  eco_hit_flavour:0 "ECO_PLACED flavour"
+ eco_have_champ:0 "ECO_HAVE champ"
+ eco_have_support:0 "ECO_HAVE support"
+ eco_have_flavour:0 "ECO_HAVE flavour"

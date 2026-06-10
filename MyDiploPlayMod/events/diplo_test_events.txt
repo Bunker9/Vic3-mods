@@ -45,6 +45,19 @@ diplo_test.1 = {
 				}
 			}
 
+			# 3) TEST-REPORT logging (debug.log -> the framework's "War & goal" + "Claims &
+			#    cores" tables). The war row is static; the claim/core rows are CONDITIONAL on
+			#    the state actually having the claim/homeland, so they VERIFY rather than echo.
+			debug_log = diplo_war_row
+			s:STATE_SINDH.region_state:SIN ?= {
+				if = { limit = { has_claim_by = c:PAN } debug_log = diplo_claim_row }
+			}
+			s:STATE_SINDH ?= {
+				state_region = {
+					if = { limit = { is_homeland = cu:panjabi } debug_log = diplo_core_row }
+				}
+			}
+
 			# NOTE: the WAR itself is set up at game-setup in
 			# common/history/diplomatic_plays/00_punjab_sindh_war.txt (war = yes,
 			# return_state = lowest infamy). Start-of-game wars must be defined there.

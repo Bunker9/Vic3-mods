@@ -29,5 +29,14 @@ versiontest.1 = {
 	option = {
 		name = versiontest.1.a
 		default_option = yes
+		# Log the mode to debug.log (player only -> one line, not one per AI country).
+		# The logged string is kept in sync with the branch by tools\set-versiontest-mode.ps1
+		# and surfaces in the test report's "Load marker" table.
+		effect = {
+			if = {
+				limit = { is_player = yes }
+				debug_log = versiontest_log
+			}
+		}
 	}
 }

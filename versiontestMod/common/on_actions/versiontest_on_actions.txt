@@ -10,8 +10,12 @@ on_game_started_after_lobby = {
 
 versiontest_startup = {
 	effect = {
-		every_country = {
-			trigger_event = { id = versiontest.1 }
+		# gated by versiontest_enabled (flipped to NO on master -> soft-disabled).
+		if = {
+			limit = { versiontest_enabled = yes }
+			every_country = {
+				trigger_event = { id = versiontest.1 }
+			}
 		}
 	}
 }

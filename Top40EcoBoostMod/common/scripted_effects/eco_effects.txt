@@ -28,6 +28,22 @@ eco_grant_military_techs = {
 eco_seed_capped = {
 	debug_log = $B$                                  # header: building display name
 
+	# 0) how many levels of $B$ does the country ALREADY own? (for needed = cap - have)
+	#    Reported via one ECO_HAVE marker per pre-existing level. (v1 still builds the full
+	#    cap below; building only the deficit lands with the yearly-cadence rework.)
+	set_variable = { name = eco_have value = 0 }
+	every_scope_state = {
+		limit = { has_building = $B$ }
+		save_temporary_scope_value_as = { name = eco_lvl value = b:$B$.level }
+		ROOT = { change_variable = { name = eco_have add = scope:eco_lvl } }
+	}
+	set_variable = { name = eco_mark value = 0 }
+	while = {
+		limit = { var:eco_mark < var:eco_have }
+		debug_log = eco_have_$TYPE$
+		change_variable = { name = eco_mark add = 1 }
+	}
+
 	# 1) count constructible states (S) into a country var.
 	set_variable = { name = eco_S value = 0 }
 	every_scope_state = {
@@ -85,6 +101,7 @@ eco_cleanup_flags = {
 	remove_variable = eco_S
 	remove_variable = eco_bestlevel
 	remove_variable = eco_mark
+	remove_variable = eco_have
 	every_scope_state = {
 		limit = {
 			OR = {
