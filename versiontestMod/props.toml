@@ -1,0 +1,13 @@
+# versiontestMod — test properties.
+# A pure load-confirmation popup: no census, no special log keywords.
+
+[errors]
+extra_signatures = ["versiontest.1", "versiontest_log"]
+benign = []
+
+# The popup's option effect logs the mode (player only). Shows here as a 1-row table.
+[[tables]]
+title       = "Load marker (mode logged when the player closed the popup)"
+marker      = "VTEST_LOG"
+source_file = "versiontest_events.txt"
+columns     = ["Mode"]

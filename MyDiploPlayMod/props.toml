@@ -1,0 +1,22 @@
+# MyDiploPlayMod — test properties.
+# No placement census (this mod sets up a war, it doesn't log build markers), so [census]
+# is omitted. The generic scripts still auto-attribute log errors via the mod's filenames;
+# add any extra identifiers / benign substrings below.
+
+[errors]
+extra_signatures = ["punjab_sindh_war", "sindh_pan_claim", "diplo_infamy_decay_test"]
+benign = []
+
+# Generic tables — the mod logs `MARKER cellA | cellB | ...` rows from its HISTORY files
+# (no event/on_action; war + claim + infamy are all set up in common/history/).
+[[tables]]
+title       = "War & goal"
+marker      = "DIPLO_WAR"
+source_file = "00_punjab_sindh_war.txt"
+columns     = ["Attacker", "Defender", "War goal"]
+
+[[tables]]
+title       = "Claims & cores  (state : owner / claimant)"
+marker      = "DIPLO_TERR"
+source_file = "00_sindh_pan_claim.txt"
+columns     = ["State", "Owner", "Claimant", "Kind"]

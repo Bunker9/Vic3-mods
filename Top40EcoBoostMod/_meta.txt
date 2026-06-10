@@ -1,0 +1,4 @@
+﻿tested: 2026-06-10 21:27
+branch: test/versiontest
+commit: fe4d3cf
+bdd:    11 PASS / 0 FAIL / 0 NA
