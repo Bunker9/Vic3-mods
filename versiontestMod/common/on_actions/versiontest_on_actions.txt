@@ -1,4 +1,4 @@
-# =============================================================================
+﻿# =============================================================================
 # versiontestMod — fire the load-confirmation popup on game start, to everyone.
 # Additive on_actions sub-list pattern (does NOT add a 2nd `effect` to vanilla).
 # NOTE: on_actions do NOT hotload — changes need a return to the main menu.

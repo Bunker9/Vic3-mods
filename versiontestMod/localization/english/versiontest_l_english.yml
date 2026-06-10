@@ -1,4 +1,4 @@
 ﻿l_english:
  versiontest.1.t:0 "versiontestMod loaded"
- versiontest.1.d:0 "BUILD 2026-06-10 09:19 (UTC+10:00) — this is the mod's latest state. Enjoy the debugging!"
+ versiontest.1.d:0 "BUILD 2026-06-10 v0.2.4 — EcoBoost remainder FIX (create_building level=, best state gets full count) + MyDiploPlay (validated). Test as PAN: expect 10 cotton, no 'unknown effect' errors."
  versiontest.1.a:0 "Enjoy!"

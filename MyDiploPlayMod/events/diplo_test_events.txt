@@ -26,7 +26,15 @@ diplo_test.1 = {
 				}
 			}
 
-			# 1) Punjab gets cores on every Sindh state -> minimal conquest infamy + easy incorporation
+			# 1) Fast infamy decay for the test (50/yr) so Punjab shrugs off the war's
+			#    infamy inside the 10-year expander-war window. 120 mo = 10 yr.
+			c:PAN ?= {
+				add_modifier = { name = diplo_infamy_decay_test months = 120 }
+			}
+
+			# 2) Fallback claim/homeland grant. PRIMARY grant is at game SETUP in
+			#    common/history/states/00_sindh_pan_claim.txt so the return_state goal has
+			#    its claim from turn 0; this re-asserts it at runtime as a safety net.
 			#    add_homeland / add_claim require STATE_REGION scope (state -> state_region).
 			c:SIN ?= {
 				every_scope_state = {
@@ -38,9 +46,8 @@ diplo_test.1 = {
 			}
 
 			# NOTE: the WAR itself is set up at game-setup in
-			# common/history/diplomatic_plays/00_punjab_sindh_war.txt (war = yes).
-			# Start-of-game wars must be defined there, not via an event — so this event
-			# only grants the cores above (which lower the conquest infamy of that war).
+			# common/history/diplomatic_plays/00_punjab_sindh_war.txt (war = yes,
+			# return_state = lowest infamy). Start-of-game wars must be defined there.
 		}
 	}
 }

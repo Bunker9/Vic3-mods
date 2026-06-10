@@ -1,0 +1,145 @@
+﻿# =============================================================================
+# Top40EcoBoostMod — generic eco-boost effects + per-nation config.
+#
+# PLACEMENT RULE (eco_seed_capped) — v2, user 2026-06-10:
+#   Build a TARGET number of levels (N) of a building, distributed as:
+#     1) one level in each constructible state, MOST-PRODUCTIVE (highest gdp) first,
+#     2) any remainder (when N > #states) dumped into the single most-productive state.
+#   Both regimes total exactly N:
+#     - N <= #states : 1 level in the top-N states only (cap respected, no overflow).
+#     - N >  #states : 1 level in every state + (N-#states) extra in the best state.
+#   Caps (roadmap): champ = 2*X, support = 1*X each, flavour = 1.  X: PAN=5, PRU=7.
+#
+# Logging: debug_log = $B$ (building name header) + debug_log_scopes (state identity)
+#   land in debug.log. (Data-function loc in debug_log does NOT resolve — removed.)
+# State "flags": eco_<type>_here + eco_best_here (state vars), cleared by
+#   eco_cleanup_flags. eco_placed is a COUNTRY var, reset at the top of each call.
+# =============================================================================
+
+# ---- grant the military-readiness techs (line infantry + artillery) ---------
+eco_grant_military_techs = {
+	add_technology_researched = line_infantry   # line infantry units
+	add_technology_researched = artillery       # cannon artillery units (pm_cannons)
+	add_technology_researched = gunsmithing     # unlocks the artillery foundry building
+}
+
+# ---- CAPPED SPREAD: place N levels of $B$, best-first, remainder to best state -
+# params: $B$ = building type, $TYPE$ = champ|support|flavour, $N$ = target levels
+eco_seed_capped = {
+	debug_log = $B$                                  # header: building display name
+
+	# 1) count constructible states (S) into a country var.
+	set_variable = { name = eco_S value = 0 }
+	every_scope_state = {
+		limit = { can_construct_building = $B$ }
+		ROOT = { change_variable = { name = eco_S add = 1 } }
+	}
+
+	# 2) the best (highest-gdp) state's level = 1 + remainder when N > S, else 1.
+	#    (create_building level = max(scripted, existing), so one call sets the level.)
+	set_variable = { name = eco_bestlevel value = 1 }
+	if = {
+		limit = { var:eco_S > 0  var:eco_S < $N$ }       # remainder exists (N > #states)
+		set_variable    = { name = eco_bestlevel value = $N$ }
+		change_variable = { name = eco_bestlevel subtract = var:eco_S }
+		change_variable = { name = eco_bestlevel add = 1 }
+	}
+
+	# 3) place: best state gets the bulk, every other constructible state gets 1,
+	#    highest-gdp first, capped at N TOTAL LEVELS.
+	set_variable = { name = eco_placed value = 0 }
+	ordered_scope_state = {
+		order_by = gdp
+		limit = { can_construct_building = $B$ }
+		if = {
+			limit = { ROOT = { var:eco_placed < $N$ } }
+			set_variable = eco_$TYPE$_here
+			if = {                                            # BEST (first) state — the bulk
+				limit = { ROOT = { var:eco_placed = 0 } }
+				set_variable = eco_best_here
+				create_building = { building = $B$ level = ROOT.var:eco_bestlevel reserves = 1 }
+				ROOT = { change_variable = { name = eco_placed add = var:eco_bestlevel } }
+				# census: emit one ECO_PLACED marker per LEVEL built in the best state
+				ROOT = {
+					set_variable = { name = eco_mark value = 0 }
+					while = {
+						limit = { var:eco_mark < var:eco_bestlevel }
+						debug_log = eco_hit_$TYPE$
+						change_variable = { name = eco_mark add = 1 }
+					}
+				}
+			}
+			else = {                                          # other states — 1 level each
+				create_building = { building = $B$ level = 1 reserves = 1 }
+				ROOT = { change_variable = { name = eco_placed add = 1 } }
+				debug_log = eco_hit_$TYPE$
+			}
+			debug_log_scopes = yes                            # logs this state's identity
+		}
+	}
+}
+
+# ---- cleanup: strip every eco state flag + the country counters --------------
+eco_cleanup_flags = {
+	remove_variable = eco_placed
+	remove_variable = eco_S
+	remove_variable = eco_bestlevel
+	remove_variable = eco_mark
+	every_scope_state = {
+		limit = {
+			OR = {
+				has_variable = eco_champ_here
+				has_variable = eco_support_here
+				has_variable = eco_flavour_here
+				has_variable = eco_best_here
+			}
+		}
+		remove_variable = eco_champ_here
+		remove_variable = eco_support_here
+		remove_variable = eco_flavour_here
+		remove_variable = eco_best_here
+	}
+}
+
+# =============================================================================
+# Per-nation config (the hard-coded table -> effects). Adding a nation = one of these.
+# N = champ 2*X, support 1*X, flavour 1.  X(PAN)=5 -> champ 10 / support 5 / flavour 1.
+# =============================================================================
+
+# ---- PUNJAB (PAN): champ cotton(10); support opium/sugar/tea/textile(5); flavour(1) x6
+eco_setup_PAN = {
+	eco_seed_capped = { B = building_cotton_plantation TYPE = champ   N = 10 }
+
+	eco_seed_capped = { B = building_opium_plantation  TYPE = support N = 5 }
+	eco_seed_capped = { B = building_sugar_plantation  TYPE = support N = 5 }
+	eco_seed_capped = { B = building_tea_plantation    TYPE = support N = 5 }
+	eco_seed_capped = { B = building_textile_mill      TYPE = support N = 5 }
+
+	eco_seed_capped = { B = building_artillery_foundry TYPE = flavour N = 1 }
+	eco_seed_capped = { B = building_paper_mill        TYPE = flavour N = 1 }
+	eco_seed_capped = { B = building_coffee_plantation TYPE = flavour N = 1 }
+	eco_seed_capped = { B = building_tooling_workshop  TYPE = flavour N = 1 }
+	eco_seed_capped = { B = building_iron_mine         TYPE = flavour N = 1 }
+	eco_seed_capped = { B = building_logging_camp      TYPE = flavour N = 1 }
+
+	add_modifier = { name = eco_PAN_champ_tp_p1 months = 240 }   # cotton throughput +200%, 20 yr
+	add_modifier = { name = eco_PAN_sol_p1     months = 240 }    # champ+support group SoL +2, 20 yr
+	trigger_event = { id = eco.3 years = 20 }                    # phase-2 champ SoL swap
+
+	eco_cleanup_flags = yes
+}
+
+# ---- PRUSSIA (PRU): champ steel(14); support explosives/chemical/motor(7); flavour none
+eco_setup_PRU = {
+	eco_seed_capped = { B = building_steel_mill         TYPE = champ   N = 14 }
+
+	eco_seed_capped = { B = building_explosives_factory TYPE = support N = 7 }
+	eco_seed_capped = { B = building_chemical_plant     TYPE = support N = 7 }
+	eco_seed_capped = { B = building_motor_industry     TYPE = support N = 7 }
+
+	add_modifier = { name = eco_PRU_champ_tp_p1 months = 240 }   # steel throughput +200%, 20 yr
+	add_modifier = { name = eco_PRU_sol_p1     months = 240 }    # champ+support group SoL +2, 20 yr
+	trigger_event = { id = eco.3 years = 20 }
+
+	eco_cleanup_flags = yes
+}

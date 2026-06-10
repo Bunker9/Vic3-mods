@@ -1,0 +1,9 @@
+﻿l_english:
+ eco_PAN_champ_tp_p1:0 "EcoBoost — Cotton Throughput (Phase 1)"
+ eco_PRU_champ_tp_p1:0 "EcoBoost — Steel Throughput (Phase 1)"
+ eco_PAN_sol_p1:0 "EcoBoost — Champ/Support Living Standards (Phase 1)"
+ eco_PRU_sol_p1:0 "EcoBoost — Champ/Support Living Standards (Phase 1)"
+ eco_champ_state_p2:0 "EcoBoost — Champ State Uplift (Phase 2)"
+ eco_hit_champ:0 "ECO_PLACED champ"
+ eco_hit_support:0 "ECO_PLACED support"
+ eco_hit_flavour:0 "ECO_PLACED flavour"

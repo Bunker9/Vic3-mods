@@ -1,0 +1,45 @@
+﻿namespace = eco
+
+# =============================================================================
+# Top40EcoBoostMod — event pipeline.
+#  eco.2  per-nation build pass (champ/support/flavour), fired for each target.
+#  eco.3  phase-2 champ SoL swap at year 20 (group-level; see modifier note).
+# Tech grant + the per-nation dispatch happen in common/on_actions/eco_on_actions.txt.
+# =============================================================================
+
+# ---- per-nation build pass -------------------------------------------------
+eco.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = { limit = { this = c:PAN } eco_setup_PAN = yes }
+		if = { limit = { this = c:PRU } eco_setup_PRU = yes }
+	}
+}
+
+# ---- phase-2: champ STATE modifier from year 20 (throughput already expired) -
+# Applied ONLY to states that have the champ building (~1.25x wage + SoL +2),
+# NOT country-wide. PERMANENT: no `months` → lasts from yr 20 to END OF GAME
+# (roadmap §2.6, per user 2026-06-10). Support has no P2.
+eco.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { this = c:PAN }
+			every_scope_state = {
+				limit = { has_building = building_cotton_plantation }
+				add_modifier = { name = eco_champ_state_p2 }
+			}
+		}
+		if = {
+			limit = { this = c:PRU }
+			every_scope_state = {
+				limit = { has_building = building_steel_mill }
+				add_modifier = { name = eco_champ_state_p2 }
+			}
+		}
+	}
+}

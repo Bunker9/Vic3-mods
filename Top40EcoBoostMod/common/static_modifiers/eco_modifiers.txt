@@ -1,0 +1,47 @@
+﻿# =============================================================================
+# Top40EcoBoostMod — eco-boost modifiers (referenced by add_modifier).
+# NOTE: named modifiers used by add_modifier MUST live in common/static_modifiers/
+#       (common/modifiers/ is not a loaded Vic3 directory).
+#  - Champ THROUGHPUT is building-TYPE specific (surgical) — Phase 1 only, 20 yr.
+#  - SoL is building-GROUP level (no per-building-type SoL token exists):
+#      bg_plantations covers cotton/opium/sugar/tea ; bg_manufacturing covers
+#      steel/engines/explosives/chemical/tools + textile.
+#  - All carry an `icon` so they don't spew missing-texture errors (bugfix D.1.4).
+#  - SoL values (user 2026-06-10): Phase 1 champ+support = +2 ; Phase 2 champ = +5.
+#    Support has NO phase 2. Phase-2 SoL is group-level (also hits support siblings)
+#    because surgical per-building SoL is impossible — flagged for a design call.
+# =============================================================================
+
+# ---- champ throughput, Phase 1 (0-20 yr) ----------------------------------
+eco_PAN_champ_tp_p1 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_cotton_plantation_throughput_add = 2.0
+}
+eco_PRU_champ_tp_p1 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_steel_mill_throughput_add = 2.0
+}
+
+# ---- champ + support SoL, Phase 1 (0-20 yr), +2 ---------------------------
+eco_PAN_sol_p1 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	building_group_bg_plantations_standard_of_living_add = 2
+	building_group_bg_manufacturing_standard_of_living_add = 2
+}
+eco_PRU_sol_p1 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	building_group_bg_manufacturing_standard_of_living_add = 2
+}
+
+# ---- champ STATE modifier, Phase 2 (from yr 20 to END OF GAME) -------------
+# Applied ONLY to states where the champ building exists (not country-wide / not
+# every state). Lower impact than P1: ~1.25x wage floor + SoL +2. One modifier,
+# reused per nation (eco.3 adds it to that nation's champ states). This sidesteps
+# the no-per-building-type-SoL problem by scoping to champ states instead.
+# Permanent: eco.3 adds it WITHOUT a `months` duration so it lasts to game end.
+# [verify in-game: building_minimum_wage_mult inside a state modifier]
+eco_champ_state_p2 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	state_standard_of_living_add = 2
+	building_minimum_wage_mult = 0.25
+}

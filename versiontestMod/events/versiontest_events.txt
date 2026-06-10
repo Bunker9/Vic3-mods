@@ -1,4 +1,4 @@
-namespace = versiontest
+﻿namespace = versiontest
 
 # =============================================================================
 # versiontestMod — standalone load-confirmation popup.
@@ -15,6 +15,14 @@ versiontest.1 = {
 
 	title = versiontest.1.t
 	desc = versiontest.1.d
+
+	# Background: vanilla Sikhism/Hinduism event video (fits the Punjab test). Replaces
+	# the missing-texture "pink smiley" placeholder that shows when no event_image is set.
+	event_image = {
+		video = "asia_hinduism_sikhism"
+	}
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
 
 	duration = 3
 

@@ -1,0 +1,11 @@
+﻿# =============================================================================
+# MyDiploPlayMod — TEST modifier: fast infamy decay for Punjab during the test run.
+# Base decay = define BASE_YEARLY_INFAMY_DECAY_RATE = 5.0 /yr.
+# country_infamy_decay_mult is a multiplier: 5.0 * (1 + 9) = 50 infamy/year.
+# Assigned to c:PAN for 120 months (10 yr) in events/diplo_test_events.txt so the
+# Sindh war's infamy is shrugged off well within the 10-year expander-war window.
+# =============================================================================
+diplo_infamy_decay_test = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
+}

@@ -1,0 +1,11 @@
+﻿# =============================================================================
+# Top40EcoBoostMod — the target-nation list (the "40"; v1 = Punjab + Prussia).
+# Add a tag here to bring a nation into the eco-boost. Each listed tag also needs
+# an eco_setup_<TAG> config effect (common/scripted_effects/eco_effects.txt).
+# =============================================================================
+eco_is_target_country = {
+	OR = {
+		this = c:PAN
+		this = c:PRU
+	}
+}

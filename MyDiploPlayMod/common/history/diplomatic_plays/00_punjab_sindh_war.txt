@@ -1,11 +1,14 @@
 ﻿# =============================================================================
-# MyDiploPlayMod — Punjab (c:PAN) starts ALREADY AT WAR with independent Sindh (c:SIN)
-# at game setup. This is the correct vehicle for a start-of-game war (war = yes),
-# mirroring vanilla's 00_texan_war_of_independence / 00_south_american_wars.
-#   - dp_conquer_state, mutual "conquer the capital" goals.
-#   - Sindh is independent at 1836 (owns STATE_SINDH, the Karachi coast) and is NOT an
-#     EIC/BIC subject, so this never drags in the East India Company.
-#   - Cores/infamy reduction (homeland + claim) are granted in events/diplo_test_events.txt.
+# MyDiploPlayMod — Punjab (c:PAN) starts ALREADY AT WAR with independent Sindh
+# (c:SIN) at game setup (war = yes — no maneuvering phase, no GP-intervention window),
+# mirroring vanilla 00_texan_war_of_independence / 00_south_american_wars.
+#
+# WAR GOAL = return_state (LOWEST infamy: base 2 vs conquer_state 5 / annex_country 5).
+#   Sindh owns exactly ONE state (STATE_SINDH), so a single return_state takes their
+#   whole holding = a FULL annex of Sindh, at the cheapest infamy the game offers.
+#   Punjab's claim on STATE_SINDH is granted at setup in
+#   common/history/states/00_sindh_pan_claim.txt (the "core").
+# Sindh's counter-goal (conquer Punjab's capital) makes it a real two-sided war.
 # =============================================================================
 
 DIPLOMATIC_PLAYS = {
@@ -14,15 +17,15 @@ DIPLOMATIC_PLAYS = {
 			name = punjab_sindh_war
 			target_state = s:STATE_SINDH.region_state:SIN
 			war = yes
-			type = dp_conquer_state
+			type = dp_return_state
 
-			# Punjab's goal: take Sindh's capital (the coast)
+			# Punjab's goal: reclaim Sindh (its single state) — lowest-infamy full annex.
 			add_war_goal = {
 				holder = c:PAN
-				type = conquer_state
+				type = return_state
 				target_state = s:STATE_SINDH.region_state:SIN
 			}
-			# Sindh's counter-goal: take Punjab's capital ("each other's capital")
+			# Sindh's counter-goal: take Punjab's capital.
 			add_war_goal = {
 				holder = c:SIN
 				type = conquer_state
