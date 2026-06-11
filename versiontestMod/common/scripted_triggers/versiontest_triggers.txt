@@ -1,0 +1,8 @@
+﻿# =============================================================================
+# versiontestMod — enable gate. Flipped by tools\set-versiontest-mode.ps1 based on the
+# git branch: yes on dev/* and test/*, NO on master (so the popup is SOFT-DISABLED in the
+# released playset without deleting the mod). Do not hand-edit; let the script set it.
+# =============================================================================
+versiontest_enabled = {
+	always = no
+}

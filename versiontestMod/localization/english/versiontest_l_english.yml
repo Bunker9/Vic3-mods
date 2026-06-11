@@ -1,0 +1,5 @@
+﻿l_english:
+ versiontest.1.t:0 "versiontestMod loaded"
+ versiontest.1.d:0 "BUILD 2026-06-11 v0.2.8 — flavour ALWAYS +1 (additive seed) vs champ/support deficit; country logged up-front"
+ versiontest.1.a:0 "(versiontestMod is soft-disabled on master)"
+ versiontest_log:0 "VTEST_LOG (versiontestMod is soft-disabled on master)"

@@ -1,0 +1,15 @@
+﻿# =============================================================================
+# MyDiploPlayMod — helps regional powers blob fast. This is the FIRST instance
+# (Punjab/PAN); the same pattern will be applied to every expander-tier nation from
+# the tier list: a fast infamy-decay modifier (red infamy shrugged off) + military
+# boosts so they can finish their conquests inside the 10-year expander window.
+#
+# Infamy-decay modifier granted via country history (additive, merges with vanilla PAN).
+# Country history supports a timed add_modifier, so no on_action / event is needed.
+# country_infamy_decay_mult base 5/yr -> x10 = 50/yr, for 120 months (10 yr).
+# =============================================================================
+COUNTRIES = {
+	c:PAN ?= {
+		add_modifier = { name = mdp_infamy_decay months = 120 }
+	}
+}

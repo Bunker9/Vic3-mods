@@ -1,0 +1,24 @@
+﻿# =============================================================================
+# Top40EcoBoostMod — fire the eco-boost on game start.
+# Additive on_actions sub-list pattern (merges with vanilla + other mods).
+# on_actions do NOT hotload — return to main menu to apply changes.
+# =============================================================================
+
+on_game_started_after_lobby = {
+	on_actions = { eco_startup }
+}
+
+eco_startup = {
+	effect = {
+		# 1) grant the military-readiness techs to every target nation (the "for loop")
+		every_country = {
+			limit = { eco_is_target_country = yes }
+			eco_grant_military_techs = yes
+		}
+		# 2) run each target nation's build pass
+		every_country = {
+			limit = { eco_is_target_country = yes }
+			trigger_event = { id = eco.2 }
+		}
+	}
+}
