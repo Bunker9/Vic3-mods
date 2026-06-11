@@ -31,7 +31,7 @@ code{background:#2b2d31;padding:1px 5px;border-radius:4px;font-size:12px}
  box-shadow:0 2px 8px rgba(0,0,0,.4);user-select:none;z-index:50}
 #toTop:hover{opacity:1}
 </style></head><body>
-<header><h1>Vic3 test report — <code>test/versiontest</code></h1><div class='sub'>generated 2026-06-11T19:39:39 &nbsp; <span class='pill ok'>static: 0 fail</span> <span class='pill ok'>log: 0 mod errors</span> <span class='pill ok'>bdd: 23 PASS | 0 FAIL | 0 NA</span> &nbsp; mods: MyDiploPlayMod, Top40EcoBoostMod, versiontestMod</div><div class='sub small'>Re-run <code>python sanity-check/testkit/run_test.py</code> after a fix, then press F5.</div></header>
+<header><h1>Vic3 test report — <code>test/versiontest</code></h1><div class='sub'>generated 2026-06-11T20:20:25 &nbsp; <span class='pill ok'>static: 0 fail</span> <span class='pill ok'>log: 0 mod errors</span> <span class='pill ok'>bdd: 23 PASS | 0 FAIL | 0 NA</span> &nbsp; mods: MyDiploPlayMod, Top40EcoBoostMod, versiontestMod</div><div class='sub small'>Re-run <code>python sanity-check/testkit/run_test.py</code> after a fix, then press F5.</div></header>
 <div class="tabs">
  <div class="tab active" onclick="show(0)">Static</div>
  <div class="tab" onclick="show(1)">Log</div>
@@ -76,8 +76,38 @@ code{background:#2b2d31;padding:1px 5px;border-radius:4px;font-size:12px}
 <div class='mod'><h2>versiontestMod</h2>
 <p class='ok'>No real errors referencing this mod.</p>
 </div>
-<div class='mod'><h2>Non-mod (vanilla / other) real errors <span class='pill warn'>0</span> <span class='small'>in 0 files</span></h2>
+<div class='mod'><h2>Non-mod (vanilla / other) real errors <span class='pill warn'>9</span> <span class='small'>in 3 files</span></h2>
 <p class='small'>Found in the logs but not referencing any tested mod's files. Grouped by source file; for awareness only, not a blocker for this mod's PR.</p>
+<details><summary><code>engine:pdx_data_callstack.cpp</code> <span class='pill warn'>3</span></summary>
+<pre class='note'>[20:18:31][pdx_data_callstack.cpp:52]: Promote &#x27;FindChild&#x27; returned nullptr, in &#x27;PdxGuiWidget.FindChild(&#x27;interest_group_top&#x27;).TriggerAnimation(&#x27;show&#x27;)&#x27;</pre>
+<pre class='note'>[20:18:31][pdx_data_callstack.cpp:52]: Promote &#x27;FindChild&#x27; returned nullptr, in &#x27;PdxGuiWidget.FindChild(&#x27;interest_group_top&#x27;).TriggerAnimation(&#x27;show&#x27;)&#x27;</pre>
+<pre class='note'>[20:18:31][pdx_data_callstack.cpp:52]: Promote &#x27;FindChild&#x27; returned nullptr, in &#x27;PdxGuiWidget.FindChild(&#x27;interest_group_top&#x27;).TriggerAnimation(&#x27;show&#x27;)&#x27;</pre>
+</details>
+<details><summary><code>common/scripted_triggers/00_building_triggers.txt</code> <span class='pill warn'>3</span></summary>
+<pre class='note'>[20:19:48][jomini_script_system.cpp:247]: Script system error!
+  Error: Event target link &#x27;scope&#x27; returned an invalid object
+  Script location: common/scripted_triggers/00_building_triggers.txt:6
+common/buildings/11_private_infrastructure.txt:256</pre>
+<pre class='note'>[20:19:48][jomini_script_system.cpp:247]: Script system error!
+  Error: Event target link &#x27;scope&#x27; returned an invalid object
+  Script location: common/scripted_triggers/00_building_triggers.txt:22
+common/buildings/11_private_infrastructure.txt:256</pre>
+<pre class='note'>[20:19:48][jomini_script_system.cpp:247]: Script system error!
+  Error: Event target link &#x27;scope&#x27; returned an invalid object
+  Script location: common/scripted_triggers/00_building_triggers.txt:38
+common/buildings/11_private_infrastructure.txt:256</pre>
+</details>
+<details><summary><code>common/naval_mission_types/00_naval_mission_types.txt</code> <span class='pill warn'>3</span></summary>
+<pre class='note'>[20:19:51][jomini_script_system.cpp:247]: Script system error!
+  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
+  Script location: common/naval_mission_types/00_naval_mission_types.txt:70</pre>
+<pre class='note'>[20:19:51][jomini_script_system.cpp:247]: Script system error!
+  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
+  Script location: common/naval_mission_types/00_naval_mission_types.txt:90</pre>
+<pre class='note'>[20:19:51][jomini_script_system.cpp:247]: Script system error!
+  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
+  Script location: common/naval_mission_types/00_naval_mission_types.txt:128</pre>
+</details>
 </div></div>
 <div class="panel"><div class='mod'><h2>MyDiploPlayMod</h2>
 <div class='observe'><div class='oh'>In-game observations — MyDiploPlayMod</div>
