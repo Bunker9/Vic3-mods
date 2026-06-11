@@ -1,57 +1,61 @@
 <#
 sync-hk.ps1 — Refresh the hk/config housekeeping branch and push it.
 
-Copies the current tool settings, project .md docs, and tooling scripts into the
-hk/config worktree, then commits + pushes (only if something changed).
+Copies the container's project docs + tooling into the hk-config worktree, ENCRYPTS the
+*.md notes via the age vault (hkvault seal), commits the non-secret rest, and pushes.
 
-The hk/config branch is an ORPHAN branch (no shared history with master) used purely
-for disaster recovery / new-machine bootstrap. NEVER merged to master.
+hk/config is an ORPHAN branch (no shared history with master), for disaster recovery /
+new-machine bootstrap. NEVER merged to master.
 
-Usage:   powershell -ExecutionPolicy Bypass -File tools\sync-hk.ps1
+Self-locating (no hardcoded user path) — run from the container's tools\ folder:
+   powershell -ExecutionPolicy Bypass -File tools\sync-hk.ps1
 #>
 $ErrorActionPreference = "Stop"
 
-$root = "C:\Users\user\Projects\victoria-3-mod"
+# this script lives in <container>\tools\  ->  container root is its parent
+$root = Split-Path $PSScriptRoot -Parent
 $hk   = Join-Path $root "hk-config"
 
 if (-not (Test-Path $hk)) {
-    throw "hk-config worktree not found at $hk`nRecreate it with: git -C `"$root\mod1`" worktree add `"$hk`" hk/config"
+    throw "hk-config worktree not found at $hk`nRecreate: git -C `"$root\mod1`" worktree add `"$hk`" hk/config"
 }
 
-# --- ensure target subfolders exist ---
 foreach ($d in @("config", "docs", "tools")) {
     $p = Join-Path $hk $d
     if (-not (Test-Path $p)) { New-Item -ItemType Directory -Path $p -Force | Out-Null }
 }
 
-# --- config / editor / tool settings ---
-Copy-Item "$root\mod1\Top40EcoBoostMod\.vscode\settings.json" "$hk\config\vscode-settings.json" -Force
-Copy-Item "$root\Top40EcoBoostMod.code-workspace"             "$hk\config\"                      -Force
-Copy-Item "$root\mod1\TODO-CI.md"                             "$hk\config\"                      -Force
+# NOTE: machine-specific editor config (.vscode\settings.json, *.code-workspace) is
+# deliberately NOT copied here — it carries absolute C:\Users\<you> paths (PII) and would
+# re-leak the username into git. Keep those locally; the committed de-usernamed snapshots
+# under config\ are reference only.
 
-# --- all project .md docs (container root + roadmap) — auto-captures new md files ---
-Copy-Item "$root\*.md"          "$hk\docs\" -Force
-Copy-Item "$root\roadmap\*.md"  "$hk\docs\" -Force
+# project .md docs (container root + roadmap) — these are SECRET; the age vault encrypts them
+Copy-Item "$root\*.md"         "$hk\docs\" -Force -ErrorAction SilentlyContinue
+Copy-Item "$root\roadmap\*.md" "$hk\docs\" -Force -ErrorAction SilentlyContinue
 
-# --- tooling scripts + generated data (everything in tools/) ---
-Copy-Item "$root\tools\*.py"  "$hk\tools\" -Force
-Copy-Item "$root\tools\*.ps1" "$hk\tools\" -Force
+# tooling scripts + generated data (non-secret)
+Copy-Item "$root\tools\*.py"  "$hk\tools\" -Force -ErrorAction SilentlyContinue
+Copy-Item "$root\tools\*.ps1" "$hk\tools\" -Force -ErrorAction SilentlyContinue
 Copy-Item "$root\tools\*.csv" "$hk\tools\" -Force -ErrorAction SilentlyContinue
 
-# --- commit + push only if there are changes ---
 Push-Location $hk
 try {
+    # 1) encrypt + commit any changed *.md notes (plaintext *.md is gitignored, never committed)
+    python (Join-Path $hk "bin\hkvault.py") seal
+
+    # 2) stage + commit the non-secret changes (csv, py, ps1, config, etc.); *.md stay ignored
     git add -A | Out-Null
     $changes = git status --porcelain
-    if ([string]::IsNullOrWhiteSpace($changes)) {
-        Write-Host "hk/config already up to date - nothing to sync." -ForegroundColor Green
-    } else {
+    if (-not [string]::IsNullOrWhiteSpace($changes)) {
         $stamp = Get-Date -Format "yyyy-MM-dd HH:mm"
-        git commit -m "hk: sync config/doc snapshots ($stamp)" | Out-Null
-        git push | Out-Null
-        Write-Host "hk/config synced and pushed:" -ForegroundColor Green
-        git --no-pager log -1 --oneline
+        git commit -m "hk: sync tooling/data snapshots ($stamp)" | Out-Null
     }
+
+    # 3) push (seal commits locally but does not push)
+    git push | Out-Null
+    Write-Host "hk/config synced, sealed, and pushed." -ForegroundColor Green
+    git --no-pager log -1 --oneline
 }
 finally {
     Pop-Location
