@@ -24,7 +24,7 @@
 param([string]$Branch)
 
 $ErrorActionPreference = 'Stop'
-$mod1 = Join-Path $PSScriptRoot '..\mod1'
+$mod1 = Join-Path $PSScriptRoot '..\..\mod1'   # tools\ -> hk-config\ -> container -> mod1
 if (-not $Branch) { $Branch = (& git -C $mod1 rev-parse --abbrev-ref HEAD).Trim() }
 
 switch -Regex ($Branch) {
