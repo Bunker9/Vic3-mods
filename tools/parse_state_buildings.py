@@ -24,7 +24,8 @@ import os, re, sys, csv, glob
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game"
+from _refpaths import game_path
+DEFAULT_GAME = game_path()
 
 # --- minimal Paradox-script tokenizer / parser (same as parse_country_stats) ---
 _TOKEN_RE = re.compile(r"""

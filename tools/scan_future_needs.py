@@ -28,7 +28,8 @@ import os, re, sys, csv, glob
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game"
+from _refpaths import game_path
+DEFAULT_GAME = game_path()
 
 # ---- tokenizer / parser ----------------------------------------------------
 _T = re.compile(r"""\s+|\#[^\n]*|(?P<op>\?=|<=|>=|==|=|<|>)|(?P<lb>\{)|(?P<rb>\})|(?P<qs>"[^"]*")|(?P<w>[^\s{}=<>#"]+)""", re.VERBOSE)

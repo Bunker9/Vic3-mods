@@ -25,7 +25,8 @@ Usage:  python tools/scan_country_buffs.py
 """
 import os, re, csv, glob
 
-GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game"
+from _refpaths import game_path
+GAME = game_path()
 OUT = os.path.dirname(os.path.abspath(__file__))
 TAGRE = re.compile(r"\bc:([A-Z0-9_]{2,})")
 NUMRE = re.compile(r"^\s*([a-z][a-z0-9_]+)\s*=\s*(-?[0-9.]+)\s*(?:#.*)?$")

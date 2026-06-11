@@ -1,0 +1,5 @@
+{
+  "_comment": "Copy this file to refpaths.json (gitignored) and set your machine's paths. Forward slashes are fine on Windows.",
+  "game_files_path": "C:/Program Files (x86)/Steam/steamapps/common/Victoria 3/game",
+  "vic3_user_dir": ""
+}

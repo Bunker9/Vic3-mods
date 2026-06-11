@@ -15,7 +15,12 @@
 identity.key
 *.key
 
-# --- OS / editor cruft ---------------------------------------------------
+# machine-specific reference paths (commit only refpaths.example.json)
+config/refpaths.json
+
+# --- Python / OS / editor cruft ------------------------------------------
+__pycache__/
+*.pyc
 Thumbs.db
 Desktop.ini
 .DS_Store

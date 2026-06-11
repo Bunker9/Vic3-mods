@@ -21,7 +21,8 @@ Usage: python parse_country_stats.py [GAME_DIR] [--out country_stats.csv] [--top
 import os, re, sys, csv, glob, argparse
 from collections import defaultdict
 
-DEFAULT_GAME = r"C:\Program Files (x86)\Steam\steamapps\common\Victoria 3\game"
+from _refpaths import game_path
+DEFAULT_GAME = game_path()
 
 # --- minimal Paradox-script tokenizer / parser ------------------------------
 _TOKEN_RE = re.compile(r"""
