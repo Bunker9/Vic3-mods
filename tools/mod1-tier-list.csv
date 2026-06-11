@@ -1,0 +1,41 @@
+tier_X,tag,country,must_include,expanding,formable
+10,CHI,China,no,no,
+10,RUS,Russia,no,no,
+10,BIC,East India,yes,yes,
+9,USA,United States,no,no,
+9,FRA,France,no,no,
+9,GBR,Great Britain,no,no,
+9,TUR,Ottomans,no,no,
+8,JAP,Japan,no,no,
+7,PRU,Prussia,yes,yes,Germany
+6,SPA,Spain,no,no,
+6,AUS,Austria,no,no,
+6,MEX,Mexico,yes,yes,
+5,KOR,Korea,no,no,
+5,BRZ,Brazil,yes,yes,
+5,PER,Persia,yes,yes,
+5,EGY,Egypt,yes,yes,
+5,PAN,Punjab,yes,yes,
+5,DEI,Dutch East Indies,yes,yes,
+4,HUN,Hungary,no,no,
+4,POR,Portugal,no,no,
+4,SIC,Two Sicilies,no,no,
+4,NET,Netherlands,no,no,
+4,SOK,Sokoto,yes,yes,
+4,SAR,Sardinia-Piedmont,yes,yes,Italy
+4,SWE,Sweden,yes,yes,Scandinavia
+3,HYD,Hyderabad,no,no,
+3,GRE,Greece,no,no,
+3,DAI,Dai Nam,yes,yes,
+3,NEP,Nepal,yes,yes,
+3,CLM,Colombia,yes,yes,Gran Colombia
+3,ARG,Argentina,yes,yes,
+2,SIA,Siam,yes,yes,
+2,MOR,Morocco,yes,yes,Maghreb
+2,OMA,Oman,yes,yes,Arabia
+2,SHW,Shewa,yes,yes,Ethiopia
+2,SAF,South Africa,yes,yes,
+2,PHI,Philippines,no,no,
+2,BEL,Belgium,no,no,
+2,BAV,Bavaria,no,no,
+2,BUR,Burma,no,no,

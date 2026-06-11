@@ -1,0 +1,547 @@
+tag,country,source,source_key,flavored,building,good,prestige_good,prestige_base,level_hint,input_goods,attribution,file
+ARG,Argentina,company,company_compania_sansinena_de_carnes_congeladas,yes,,,river_plate_beef,meat,,,hq,00_companies_mp1.txt
+ARG,Argentina,company,company_compania_sansinena_de_carnes_congeladas,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_mp1.txt
+ARG,Argentina,company,company_compania_sansinena_de_carnes_congeladas,yes,livestock_ranch,fabric fertilizer meat,,,,coal electricity grain iron tools transportation,hq,00_companies_mp1.txt
+ARG,Argentina,company,company_compania_sansinena_de_carnes_congeladas,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_mp1.txt
+ARG,Argentina,company,company_cordoba_railway,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_cots.txt
+ARG,Argentina,company,company_cordoba_railway,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_cots.txt
+ARG,Argentina,company,company_cordoba_railway,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_cots.txt
+AUS,Austria,company,company_galician_carpathian_oil,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_galician_carpathian_oil,yes,oil_rig,oil,,,,coal engines transportation,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_galician_carpathian_oil,yes,power_plant,electricity,,,,coal engines oil wood,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_gebruder_thonet,yes,,,bentwood_furniture,furniture,,,hq,00_companies_mp1.txt
+AUS,Austria,company,company_gebruder_thonet,yes,furniture_manufactory,furniture luxury_furniture,,,,coal electricity fabric hardwood oil tools wood,hq,00_companies_mp1.txt
+AUS,Austria,company,company_gebruder_thonet,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_mp1.txt
+AUS,Austria,company,company_ludwig_moser_and_sons,yes,,,bohemian_crystal,glass,,,hq,00_companies_mp1.txt
+AUS,Austria,company,company_ludwig_moser_and_sons,yes,glassworks,glass porcelain,,,,dye engines lead oil tools wood,hq,00_companies_mp1.txt
+AUS,Austria,company,company_ludwig_moser_and_sons,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,hq,00_companies_mp1.txt
+AUS,Austria,company,company_manfred_weiss,yes,,,generic_steel,steel,,,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_manfred_weiss,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_manfred_weiss,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_manfred_weiss,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_manfred_weiss,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_mantero_seta,yes,,,como_silk,silk,,,hq,00_companies_mp1.txt
+AUS,Austria,company,company_mantero_seta,yes,cotton_plantation,,,,,transportation,hq,00_companies_mp1.txt
+AUS,Austria,company,company_mantero_seta,yes,silk_plantation,,,,,transportation,hq,00_companies_mp1.txt
+AUS,Austria,company,company_mantero_seta,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_mp1.txt
+AUS,Austria,company,company_mav,yes,,,generic_tools,tools,,,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_mav,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_mav,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_mav,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_oevg,yes,,,generic_small_arms,small_arms,,,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_oevg,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_oevg,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_oevg,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_oevg,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_oevg,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_ricordi,yes,art_academy,fine_art,,,,electricity paper tools,hq,00_companies_italy.txt
+AUS,Austria,company,company_ricordi,yes,vineyard,,,,,transportation,hq,00_companies_italy.txt
+AUS,Austria,company,company_skoda,yes,,,generic_steel,steel,,,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_skoda,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_skoda,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_skoda,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_skoda,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_austria_hungary.txt
+AUS,Austria,company,company_stt,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_italy.txt
+AUS,Austria,company,company_stt,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_italy.txt
+AUS,Austria,company,company_stt,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_italy.txt
+AUS,Austria,company,company_stt,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_italy.txt
+BAV,Bavaria,company,company_ingolstadt_electrical_company,yes,livestock_ranch,fabric fertilizer meat,,,,coal electricity grain iron tools transportation,hq,00_companies_totally_normal.txt
+BAV,Bavaria,company,company_ingolstadt_electrical_company,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_totally_normal.txt
+BAV,Bavaria,company,company_ingolstadt_electrical_company,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_totally_normal.txt
+BEL,Belgium,company,company_franco_belge,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+BEL,Belgium,company,company_franco_belge,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_europe.txt
+BEL,Belgium,company,company_franco_belge,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+BEL,Belgium,company,company_john_cockerill,yes,,,generic_tools,tools,,,hq,00_companies_europe.txt
+BEL,Belgium,company,company_john_cockerill,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_europe.txt
+BEL,Belgium,company,company_john_cockerill,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+BEL,Belgium,company,company_john_cockerill,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+BEL,Belgium,company,company_john_cockerill,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_europe.txt
+BRZ,Brazil,company,company_estaleiro_maua,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_estaleiro_maua,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_estaleiro_maua,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_fundicao_ipanema,yes,,,generic_steel,steel,,,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_fundicao_ipanema,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_fundicao_ipanema,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_fundicao_ipanema,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_pernambuco_textiles,yes,,,generic_clothes,clothes,,,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_pernambuco_textiles,yes,cotton_plantation,,,,,transportation,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_pernambuco_textiles,yes,livestock_ranch,fabric fertilizer meat,,,,coal electricity grain iron tools transportation,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_pernambuco_textiles,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_sao_paulo_railway,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_sao_paulo_railway,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_cots.txt
+BRZ,Brazil,company,company_sao_paulo_railway,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_cots.txt
+BRZ,Brazil,journal,je_agricultural_development,,coffee_plantation,,,,,transportation,file,02_coffee_and_milk.txt
+BRZ,Brazil,journal,je_agricultural_development,,livestock_ranch,fabric fertilizer meat,,,,coal electricity grain iron tools transportation,file,02_coffee_and_milk.txt
+BRZ,Brazil,journal,je_amazonas,,rubber_plantation,,,,,transportation,file,02_amazonas.txt
+BRZ,Brazil,journal,je_coffee_with_milk,,coffee_plantation,,,,,transportation,file,02_coffee_and_milk.txt
+BRZ,Brazil,journal,je_coffee_with_milk,,livestock_ranch,fabric fertilizer meat,,,,coal electricity grain iron tools transportation,file,02_coffee_and_milk.txt
+BRZ,Brazil,journal,je_cristo_redentor,,cristo_redentor,,,,,,file,02_cristo_redentor.txt
+CHI,China,company,company_foochow_arsenal,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_china.txt
+CHI,China,company,company_foochow_arsenal,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_china.txt
+CHI,China,company,company_foochow_arsenal,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_china.txt
+CHI,China,company,company_foochow_arsenal,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,file+hq,00_companies_china.txt
+CHI,China,company,company_hanyang_arsenal,yes,,,generic_small_arms,small_arms,,,file+hq,00_companies_china.txt
+CHI,China,company,company_hanyang_arsenal,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_china.txt
+CHI,China,company,company_hanyang_arsenal,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_china.txt
+CHI,China,company,company_hanyang_arsenal,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,file+hq,00_companies_china.txt
+CHI,China,company,company_hanyang_arsenal,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_china.txt
+CHI,China,company,company_jiangnan_weaving_bureaus,yes,,,suzhou_silk,silk,,,hq,00_companies_mp1.txt
+CHI,China,company,company_jiangnan_weaving_bureaus,yes,cotton_plantation,,,,,transportation,hq,00_companies_mp1.txt
+CHI,China,company,company_jiangnan_weaving_bureaus,yes,silk_plantation,,,,,transportation,hq,00_companies_mp1.txt
+CHI,China,company,company_jiangnan_weaving_bureaus,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_mp1.txt
+CHI,China,company,company_jingdezhen,yes,,,canton_porcelain,porcelain,,,file+hq,00_companies_china.txt
+CHI,China,company,company_jingdezhen,yes,glassworks,glass porcelain,,,,dye engines lead oil tools wood,file+hq,00_companies_china.txt
+CHI,China,company,company_jingdezhen,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,file+hq,00_companies_china.txt
+CHI,China,company,company_kaiping_mining,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_china.txt
+CHI,China,company,company_kaiping_mining,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_china.txt
+CHI,China,company,company_kaiping_mining,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,file+hq,00_companies_china.txt
+CHI,China,company,company_kaiping_mining,yes,railway,transportation,,,,coal electricity engines oil steel wood,file+hq,00_companies_china.txt
+CHI,China,company,company_ong_lung_sheng_tea_company,yes,,,china_tea,tea,,,hq,00_companies_mp1.txt
+CHI,China,company,company_ong_lung_sheng_tea_company,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_mp1.txt
+CHI,China,company,company_ong_lung_sheng_tea_company,yes,tea_plantation,,,,,transportation,hq,00_companies_mp1.txt
+CLM,Colombia,company,company_panama_company,yes,,,generic_merchant_marine,merchant_marine,,,hq,00_companies_americas.txt
+CLM,Colombia,company,company_panama_company,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_americas.txt
+CLM,Colombia,company,company_panama_company,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_americas.txt
+CLM,Colombia,company,company_panama_company,yes,trade_center,,,,,merchant_marine,hq,00_companies_americas.txt
+DAI,Dai Nam,company,company_nam_dinh,yes,,,generic_clothes,clothes,,,hq,00_companies_asia.txt
+DAI,Dai Nam,company,company_nam_dinh,yes,cotton_plantation,,,,,transportation,hq,00_companies_asia.txt
+DAI,Dai Nam,company,company_nam_dinh,yes,silk_plantation,,,,,transportation,hq,00_companies_asia.txt
+DAI,Dai Nam,company,company_nam_dinh,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_asia.txt
+DAI,Dai Nam,company,company_societe_francaise_charbonnages_du_tonkin,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_ep2.txt
+DAI,Dai Nam,company,company_societe_francaise_charbonnages_du_tonkin,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_ep2.txt
+DAI,Dai Nam,company,company_societe_francaise_charbonnages_du_tonkin,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ep2.txt
+DAI,Dai Nam,company,company_societe_francaise_charbonnages_du_tonkin,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_ep2.txt
+DAI,Dai Nam,company,company_societe_francaise_charbonnages_du_tonkin,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_lanfang_kongsi,yes,gold_mine,gold,,,,coal engines explosives oil tools transportation,hq,00_companies_mp1.txt
+DEI,Dutch East Indies,company,company_lanfang_kongsi,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_mp1.txt
+DEI,Dutch East Indies,company,company_lanfang_kongsi,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_mp1.txt
+DEI,Dutch East Indies,company,company_lanfang_kongsi,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_mp1.txt
+DEI,Dutch East Indies,company,company_nhm,yes,,,java_coffee,coffee,,,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_nhm,yes,coffee_plantation,,,,,transportation,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_nhm,yes,dye_plantation,,,,,transportation,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_nhm,yes,opium_plantation,,,,,transportation,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_nhm,yes,sugar_plantation,,,,,transportation,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_nhm,yes,tea_plantation,,,,,transportation,hq,00_companies_ep2.txt
+DEI,Dutch East Indies,company,company_nhm,yes,tobacco_plantation,,,,,transportation,hq,00_companies_ep2.txt
+BIC,East India,company,company_assam_company,yes,,,assam_tea,tea,,,hq,00_companies_ip2.txt
+BIC,East India,company,company_assam_company,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_ip2.txt
+BIC,East India,company,company_assam_company,yes,tea_plantation,,,,,transportation,hq,00_companies_ip2.txt
+BIC,East India,company,company_bengal_coal_company,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_ip2.txt
+BIC,East India,company,company_bengal_coal_company,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_ip2.txt
+BIC,East India,company,company_calcutta_electric,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_ip2.txt
+BIC,East India,company,company_calcutta_electric,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_ip2.txt
+BIC,East India,company,company_ralli_brothers,yes,,,generic_grain,grain,,,hq,00_companies_ip2.txt
+BIC,East India,company,company_ralli_brothers,yes,cotton_plantation,,,,,transportation,hq,00_companies_ip2.txt
+BIC,East India,company,company_ralli_brothers,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ip2.txt
+BIC,East India,company,company_ralli_brothers,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_ip2.txt
+BIC,East India,company,company_ralli_brothers,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_ip2.txt
+BIC,East India,company,company_ralli_brothers,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_ip2.txt
+BIC,East India,decision,make_delhi_capital,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file,india_decisions.txt
+BIC,East India,journal,je_british_dictate_plantations,,cotton_plantation,,,,,transportation,file,04_india_british_dictates.txt
+BIC,East India,journal,je_british_dictate_plantations,,dye_plantation,,,,,transportation,file,04_india_british_dictates.txt
+BIC,East India,journal,je_british_dictate_plantations,,opium_plantation,,,,,transportation,file,04_india_british_dictates.txt
+BIC,East India,journal,je_british_dictate_plantations,,tea_plantation,,,,,transportation,file,04_india_british_dictates.txt
+BIC,East India,journal,je_british_dictate_plantations,,tobacco_plantation,,,,,transportation,file,04_india_british_dictates.txt
+BIC,East India,journal,je_british_dictate_universities,,university,,,,,paper,file,04_india_british_dictates.txt
+BIC,East India,journal,je_india_railway,,railway,transportation,,,,coal electricity engines oil steel wood,file,04_india_railway.txt
+BIC,East India,journal,je_victoria_terminus,,railway,transportation,,,,coal electricity engines oil steel wood,file,04_victoria_terminus.txt
+BIC,East India,journal,je_victoria_terminus,,victoria_terminus,,,,,,file,04_victoria_terminus.txt
+EGY,Egypt,company,company_misr,yes,,,mit_afifi,fabric,,,hq,00_companies_africa.txt
+EGY,Egypt,company,company_misr,yes,cotton_plantation,,,,,transportation,hq,00_companies_africa.txt
+EGY,Egypt,company,company_misr,yes,silk_plantation,,,,,transportation,hq,00_companies_africa.txt
+EGY,Egypt,company,company_misr,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_africa.txt
+EGY,Egypt,company,company_nicolas_portalis,yes,cotton_plantation,,,,,transportation,hq,00_companies_soi.txt
+EGY,Egypt,company,company_nicolas_portalis,yes,silk_plantation,,,,,transportation,hq,00_companies_soi.txt
+FRA,France,company,company_cgv,yes,,,champagne,wine,,,file+hq,00_companies_france.txt
+FRA,France,company,company_cgv,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,file+hq,00_companies_france.txt
+FRA,France,company,company_cgv,yes,vineyard,,,,,transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_dmc,yes,,,generic_clothes,clothes,,,file+hq,00_companies_france.txt
+FRA,France,company,company_dmc,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_dmc,yes,cotton_plantation,,,,,transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_dmc,yes,dye_plantation,,,,,transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_dmc,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,file+hq,00_companies_france.txt
+FRA,France,company,company_fcm,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_france.txt
+FRA,France,company,company_fcm,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_france.txt
+FRA,France,company,company_fcm,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_france.txt
+FRA,France,company,company_madura_mills,yes,,,generic_clothes,clothes,,,hq,00_companies_ip2.txt
+FRA,France,company,company_madura_mills,yes,cotton_plantation,,,,,transportation,hq,00_companies_ip2.txt
+FRA,France,company,company_madura_mills,yes,rubber_plantation,,,,,transportation,hq,00_companies_ip2.txt
+FRA,France,company,company_madura_mills,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_ip2.txt
+FRA,France,company,company_maison_worth,yes,,,haute_couture,luxury_clothes,,,hq,00_companies_mp1.txt
+FRA,France,company,company_maison_worth,yes,art_academy,fine_art,,,,electricity paper tools,hq,00_companies_mp1.txt
+FRA,France,company,company_maison_worth,yes,cotton_plantation,,,,,transportation,hq,00_companies_mp1.txt
+FRA,France,company,company_maison_worth,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_mp1.txt
+FRA,France,company,company_mines_anzin,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_mines_anzin,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_saint_etienne,yes,,,saint_etienne_rifles,small_arms,,,file+hq,00_companies_france.txt
+FRA,France,company,company_saint_etienne,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_france.txt
+FRA,France,company,company_saint_etienne,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_france.txt
+FRA,France,company,company_saint_etienne,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,file+hq,00_companies_france.txt
+FRA,France,company,company_saint_etienne,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_france.txt
+FRA,France,company,company_schneider_creusot,yes,,,schneider_guns,artillery,,,file+hq,00_companies_france.txt
+FRA,France,company,company_schneider_creusot,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_france.txt
+FRA,France,company,company_schneider_creusot,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_france.txt
+FRA,France,company,company_schneider_creusot,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_france.txt
+FRA,France,company,company_schneider_creusot,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_france.txt
+FRA,France,company,company_schneider_creusot,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_france.txt
+FRA,France,company,company_societe_mokta_el_hadid,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_societe_mokta_el_hadid,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,file+hq,00_companies_france.txt
+FRA,France,company,company_societe_mokta_el_hadid,yes,sulfur_mine,sulfur,,,,coal engines explosives oil tools transportation,file+hq,00_companies_france.txt
+GBR,Great Britain,company,company_armstrong_whitworth,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_armstrong_whitworth,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_armstrong_whitworth,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_armstrong_whitworth,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_bolckow_vaughan,yes,,,sheffield_steel,steel,,,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_bolckow_vaughan,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_bolckow_vaughan,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_bolckow_vaughan,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_bolckow_vaughan,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_ferranti_ltd,yes,,,ferranti_radios,radios,,,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_ferranti_ltd,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_ferranti_ltd,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_ferranti_ltd,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_ferranti_ltd,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_guinness,yes,,,generic_groceries,groceries,,,hq,00_companies_soi.txt
+GBR,Great Britain,company,company_guinness,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_soi.txt
+GBR,Great Britain,company,company_guinness,yes,rye_farm,fruit grain liquor sugar,,,,coal engines fertilizer oil tools,hq,00_companies_soi.txt
+GBR,Great Britain,company,company_guinness,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_soi.txt
+GBR,Great Britain,company,company_j_p_coats,yes,,,generic_clothes,clothes,,,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_j_p_coats,yes,cotton_plantation,,,,,transportation,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_j_p_coats,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_john_brown,yes,,,clyde_built_liners,steamers,,,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_john_brown,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_john_brown,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_john_brown,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_great_britain.txt
+GBR,Great Britain,company,company_maple_and_co,yes,,,english_upholstery,luxury_furniture,,,hq,00_companies_mp1.txt
+GBR,Great Britain,company,company_maple_and_co,yes,furniture_manufactory,furniture luxury_furniture,,,,coal electricity fabric hardwood oil tools wood,hq,00_companies_mp1.txt
+GBR,Great Britain,company,company_maple_and_co,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_mp1.txt
+GBR,Great Britain,company,company_white_star_line,yes,,,white_star_liners,merchant_marine,,,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_white_star_line,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ep2.txt
+GBR,Great Britain,company,company_white_star_line,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_ep2.txt
+GRE,Greece,company,company_basileiades,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+GRE,Greece,company,company_basileiades,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_europe.txt
+GRE,Greece,company,company_basileiades,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_europe.txt
+GRE,Greece,company,company_kouppas,yes,,,generic_tools,tools,,,hq,00_companies_europe.txt
+GRE,Greece,company,company_kouppas,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_europe.txt
+GRE,Greece,company,company_kouppas,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+GRE,Greece,company,company_kouppas,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_europe.txt
+HUN,Hungary,company,company_manfred_weiss,yes,,,generic_steel,steel,,,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_manfred_weiss,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_manfred_weiss,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_manfred_weiss,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_manfred_weiss,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_mav,yes,,,generic_tools,tools,,,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_mav,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_mav,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_austria_hungary.txt
+HUN,Hungary,company,company_mav,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,file+hq,00_companies_austria_hungary.txt
+JAP,Japan,company,company_kinkozan_sobei,yes,,,satsuma_ware,porcelain,,,hq,00_companies_mp1.txt
+JAP,Japan,company,company_kinkozan_sobei,yes,glassworks,glass porcelain,,,,dye engines lead oil tools wood,hq,00_companies_mp1.txt
+JAP,Japan,company,company_kinkozan_sobei,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_mp1.txt
+JAP,Japan,company,company_mantetsu,yes,chemical_plant,fertilizer,,,,iron oil sulfur,file,00_companies_japan.txt
+JAP,Japan,company,company_mantetsu,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file,00_companies_japan.txt
+JAP,Japan,company,company_mantetsu,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,file,00_companies_japan.txt
+JAP,Japan,company,company_mantetsu,yes,glassworks,glass porcelain,,,,dye engines lead oil tools wood,file,00_companies_japan.txt
+JAP,Japan,company,company_mantetsu,yes,railway,transportation,,,,coal electricity engines oil steel wood,file,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,,,washi_paper,paper,,,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,paper_mill,paper,,,,coal dye sulfur tools wood,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsubishi,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,,,tomioka_silk,silk,,,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,dye_plantation,,,,,transportation,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,glassworks,glass porcelain,,,,dye engines lead oil tools wood,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,silk_plantation,,,,,transportation,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,tea_plantation,,,,,transportation,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_mitsui,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,file+hq,00_companies_japan.txt
+JAP,Japan,company,company_noda_shoyu,yes,,,kikkoman_soy_sauce,groceries,,,hq,00_companies_ep2.txt
+JAP,Japan,company,company_noda_shoyu,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_ep2.txt
+JAP,Japan,company,company_noda_shoyu,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_ep2.txt
+JAP,Japan,company,company_noda_shoyu,yes,vineyard,,,,,transportation,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,,,generic_steel,steel,,,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,chemical_plant,fertilizer,,,,iron oil sulfur,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_ep2.txt
+JAP,Japan,company,company_sumitomo,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_ep2.txt
+JAP,Japan,company,company_tokyo_electric_light_company,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_ep2.txt
+JAP,Japan,company,company_tokyo_electric_light_company,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,,,generic_merchant_marine,merchant_marine,,,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,sulfur_mine,sulfur,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_ep2.txt
+JAP,Japan,company,company_yasuda,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_ep2.txt
+JAP,Japan,journal,je_meiji_economy,,railway,transportation,,,,coal electricity engines oil steel wood,file,00_meiji_restoration.txt
+JAP,Japan,journal,je_meiji_economy,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file,00_meiji_restoration.txt
+JAP,Japan,journal,je_taming_the_north,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file+tag,07_hokkaido.txt
+KOR,Korea,company,company_hanseong_jeongi_hoesa,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_soi.txt
+KOR,Korea,company,company_hanseong_jeongi_hoesa,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_soi.txt
+KOR,Korea,company,company_oriental_consolidated_mining,yes,gold_mine,gold,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+KOR,Korea,company,company_oriental_consolidated_mining,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+KOR,Korea,company,company_oriental_consolidated_mining,yes,lead_mine,lead,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+KOR,Korea,company,company_oriental_consolidated_mining,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_ep2.txt
+KOR,Korea,company,company_oriental_development_company,yes,,,generic_grain,grain,,,hq,00_companies_soi.txt
+KOR,Korea,company,company_oriental_development_company,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_soi.txt
+KOR,Korea,company,company_oriental_development_company,yes,maize_farm,fruit grain sugar,,,,coal engines fertilizer oil tools,hq,00_companies_soi.txt
+KOR,Korea,company,company_oriental_development_company,yes,millet_farm,fruit grain sugar,,,,coal engines fertilizer oil tools,hq,00_companies_soi.txt
+KOR,Korea,company,company_oriental_development_company,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_soi.txt
+KOR,Korea,company,company_oriental_development_company,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_soi.txt
+MEX,Mexico,company,company_fundidora_monterrey,yes,,,generic_steel,steel,,,hq,00_companies_americas.txt
+MEX,Mexico,company,company_fundidora_monterrey,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_americas.txt
+MEX,Mexico,company,company_fundidora_monterrey,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_americas.txt
+MEX,Mexico,company,company_fundidora_monterrey,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_americas.txt
+NET,Netherlands,company,company_philips,yes,,,philips_chapel_radio,radios,,,hq,00_companies_europe.txt
+NET,Netherlands,company,company_philips,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,hq,00_companies_europe.txt
+NET,Netherlands,company,company_philips,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+NET,Netherlands,company,company_philips,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_europe.txt
+NET,Netherlands,company,company_van_vlissingen_en_dudok_van_heel,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_ep2.txt
+NET,Netherlands,company,company_van_vlissingen_en_dudok_van_heel,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_ep2.txt
+NET,Netherlands,company,company_van_vlissingen_en_dudok_van_heel,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_ep2.txt
+NET,Netherlands,company,company_van_vlissingen_en_dudok_van_heel,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_ep2.txt
+NET,Netherlands,company,company_van_vlissingen_en_dudok_van_heel,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_ep2.txt
+NET,Netherlands,company,company_van_vlissingen_en_dudok_van_heel,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_ep2.txt
+TUR,Ottomans,company,company_allatini_mills,yes,,,generic_grain,grain,,,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_allatini_mills,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_allatini_mills,yes,rye_farm,fruit grain liquor sugar,,,,coal engines fertilizer oil tools,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_allatini_mills,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_imperial_arsenal,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_imperial_arsenal,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_imperial_arsenal,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_imperial_arsenal,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_orient_express,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_orient_express,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_asia.txt
+TUR,Ottomans,company,company_turkish_petroleum,yes,oil_rig,oil,,,,coal engines transportation,hq,00_companies_soi.txt
+TUR,Ottomans,company,company_turkish_petroleum,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_soi.txt
+TUR,Ottomans,journal,je_sick_man_army,,barrack,,,,,,file,00_sick_man.txt
+TUR,Ottomans,journal,je_sick_man_economy,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file,00_sick_man.txt
+TUR,Ottomans,journal,je_sick_man_education,,university,,,,,paper,file,00_sick_man.txt
+PER,Persia,company,company_opium_export_monopoly,yes,,,generic_opium,opium,,,hq,00_companies_soi.txt
+PER,Persia,company,company_opium_export_monopoly,yes,opium_plantation,,,,,transportation,hq,00_companies_soi.txt
+PER,Persia,company,company_opium_export_monopoly,yes,tobacco_plantation,,,,,transportation,hq,00_companies_soi.txt
+PER,Persia,company,company_sherkate_eslamiya,yes,,,generic_clothes,clothes,,,hq,00_companies_soi.txt
+PER,Persia,company,company_sherkate_eslamiya,yes,cotton_plantation,,,,,transportation,hq,00_companies_soi.txt
+PER,Persia,company,company_sherkate_eslamiya,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_soi.txt
+PHI,Philippines,journal,je_philippines_development,,port,merchant_marine,,,,clippers coal oil steamers,file,06_philippines_je.txt
+PHI,Philippines,journal,je_philippines_development,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file,06_philippines_je.txt
+POR,Portugal,company,company_bombay_burmah_trading_corporation,yes,,,burmese_teak,hardwood,,,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_burmah_trading_corporation,yes,cotton_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_burmah_trading_corporation,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_burmah_trading_corporation,yes,oil_rig,oil,,,,coal engines transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_burmah_trading_corporation,yes,rubber_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_burmah_trading_corporation,yes,tea_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_dyeing_company,yes,,,generic_clothes,clothes,,,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_dyeing_company,yes,cotton_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_bombay_dyeing_company,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_ip2.txt
+POR,Portugal,company,company_david_sassoon,yes,,,generic_opium,opium,,,hq,00_companies_ip2.txt
+POR,Portugal,company,company_david_sassoon,yes,cotton_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_david_sassoon,yes,opium_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_david_sassoon,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ip2.txt
+POR,Portugal,company,company_mozambique_company,yes,,,generic_grain,grain,,,hq,00_companies_europe.txt
+POR,Portugal,company,company_mozambique_company,yes,cotton_plantation,,,,,transportation,hq,00_companies_europe.txt
+POR,Portugal,company,company_mozambique_company,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_europe.txt
+POR,Portugal,company,company_mozambique_company,yes,tea_plantation,,,,,transportation,hq,00_companies_europe.txt
+POR,Portugal,company,company_mozambique_company,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_europe.txt
+POR,Portugal,company,company_ralli_brothers,yes,,,generic_grain,grain,,,hq,00_companies_ip2.txt
+POR,Portugal,company,company_ralli_brothers,yes,cotton_plantation,,,,,transportation,hq,00_companies_ip2.txt
+POR,Portugal,company,company_ralli_brothers,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ip2.txt
+POR,Portugal,company,company_ralli_brothers,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_ip2.txt
+POR,Portugal,company,company_ralli_brothers,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_ip2.txt
+POR,Portugal,company,company_ralli_brothers,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_ip2.txt
+POR,Portugal,company,company_ramirez,yes,,,generic_groceries,groceries,,,hq,00_companies_ep2.txt
+POR,Portugal,company,company_ramirez,yes,fishing_wharf,fish,,,,clippers coal electricity steamers transportation,hq,00_companies_ep2.txt
+POR,Portugal,company,company_ramirez,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,hq,00_companies_ep2.txt
+POR,Portugal,company,company_ramirez,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ep2.txt
+POR,Portugal,company,company_ramirez,yes,whaling_station,meat oil,,,,clippers coal electricity steamers transportation,hq,00_companies_ep2.txt
+POR,Portugal,company,company_tata,yes,,,generic_clothes,clothes,,,hq,00_companies_asia.txt
+POR,Portugal,company,company_tata,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_asia.txt
+POR,Portugal,company,company_tata,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_asia.txt
+POR,Portugal,company,company_tata,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_asia.txt
+POR,Portugal,company,company_tata,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_asia.txt
+POR,Portugal,company,company_wadia_shipbuilders,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_ip2.txt
+POR,Portugal,company,company_wadia_shipbuilders,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,hq,00_companies_ip2.txt
+POR,Portugal,company,company_wadia_shipbuilders,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_ip2.txt
+POR,Portugal,company,company_wadia_shipbuilders,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_ip2.txt
+POR,Portugal,journal,je_portugal_regeneration_public_works,,railway,transportation,,,,coal electricity engines oil steel wood,file,06_portugal_politics.txt
+POR,Portugal,journal,je_portugal_regeneration_public_works,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file,06_portugal_politics.txt
+PRU,Prussia,company,company_basf,yes,,,german_aniline,dye,,,file,00_companies_germany.txt
+PRU,Prussia,company,company_basf,yes,chemical_plant,fertilizer,,,,iron oil sulfur,file,00_companies_germany.txt
+PRU,Prussia,company,company_basf,yes,dye_plantation,,,,,transportation,file,00_companies_germany.txt
+PRU,Prussia,company,company_basf,yes,sulfur_mine,sulfur,,,,coal engines explosives oil tools transportation,file,00_companies_germany.txt
+PRU,Prussia,company,company_basf,yes,synthetics_plant,dye silk,,,,fertilizer sulfur wood,file,00_companies_germany.txt
+PRU,Prussia,company,company_krupp,yes,,,krupp_guns,artillery,,,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_krupp,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_krupp,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_krupp,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_krupp,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_prussian_state_railways,yes,motor_industry,engines,,,,coal electricity oil steel tools,file,00_companies_germany.txt
+PRU,Prussia,company,company_prussian_state_railways,yes,railway,transportation,,,,coal electricity engines oil steel wood,file,00_companies_germany.txt
+PRU,Prussia,company,company_rheinmetall,yes,,,generic_artillery,artillery,,,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_rheinmetall,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_rheinmetall,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_rheinmetall,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_rheinmetall,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_rheinmetall,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_schichau,yes,,,schichau_engines,engines,,,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_schichau,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_schichau,yes,railway,transportation,,,,coal electricity engines oil steel wood,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_schichau,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_schichau,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_siemens_and_halske,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_siemens_and_halske,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_germany.txt
+PRU,Prussia,company,company_siemens_and_halske,yes,railway,transportation,,,,coal electricity engines oil steel wood,file+hq,00_companies_germany.txt
+PRU,Prussia,journal,je_kaiserforum,,kaiserforum_1,,,,,,file,05_national_awakening_monument.txt
+PRU,Prussia,journal,je_kaiserforum,,kaiserforum_2,,,,,,file,05_national_awakening_monument.txt
+PRU,Prussia,journal,je_kaiserforum,,kaiserforum_3,,,,,,file,05_national_awakening_monument.txt
+PRU,Prussia,journal,je_kaiserforum,,kaiserforum_4,,,,,,file,05_national_awakening_monument.txt
+RUS,Russia,company,company_branobel,yes,,,baku_oil,oil,,,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_branobel,yes,oil_rig,oil,,,,coal engines transportation,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_branobel,yes,power_plant,electricity,,,,coal engines oil wood,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_izhevsk_arms_plant,yes,,,generic_small_arms,small_arms,,,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_izhevsk_arms_plant,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_izhevsk_arms_plant,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_izhevsk_arms_plant,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_izhevsk_arms_plant,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_john_hughes,yes,,,russia_iron,iron,,,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_john_hughes,yes,coal_mine,coal,,,,engines explosives oil tools transportation,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_john_hughes,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_john_hughes,yes,railway,transportation,,,,coal electricity engines oil steel wood,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_john_hughes,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_lilpop,yes,,,generic_steel,steel,,,hq,00_companies_europe.txt
+RUS,Russia,company,company_lilpop,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_europe.txt
+RUS,Russia,company,company_lilpop,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+RUS,Russia,company,company_lilpop,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+RUS,Russia,company,company_lilpop,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_europe.txt
+RUS,Russia,company,company_putilov_company,yes,,,generic_artillery,artillery,,,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_putilov_company,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_putilov_company,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_putilov_company,yes,motor_industry,engines,,,,coal electricity oil steel tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_putilov_company,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_putilov_company,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_savva_morozov,yes,,,generic_clothes,clothes,,,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_savva_morozov,yes,cotton_plantation,,,,,transportation,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_savva_morozov,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_ursus,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_europe.txt
+RUS,Russia,company,company_ursus,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+RUS,Russia,company,company_ursus,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+RUS,Russia,company,company_vodka_monopoly,yes,,,smirnoff_vodka,liquor,,,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_vodka_monopoly,yes,food_industry,groceries liquor,,,,fish glass grain iron meat oil sugar tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_vodka_monopoly,yes,rye_farm,fruit grain liquor sugar,,,,coal engines fertilizer oil tools,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_vodka_monopoly,yes,vineyard,,,,,transportation,file+hq,00_companies_russia.txt
+RUS,Russia,company,company_vodka_monopoly,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,file+hq,00_companies_russia.txt
+RUS,Russia,journal,je_chinese_concessions,,railway,transportation,,,,coal electricity engines oil steel wood,tag,00_player_objectives_great_game.txt
+RUS,Russia,journal,je_great_reforms_military,,barrack,,,,,,file,03_russia.txt
+RUS,Russia,journal,je_great_reforms_military,,munition_plant,ammunition,,,,coal electricity explosives lead oil,file,03_russia.txt
+SAR,Sardinia-Piedmont,company,company_ansaldo,yes,,,generic_steel,steel,,,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ansaldo,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ansaldo,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ansaldo,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ansaldo,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_fcm,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,file+hq,00_companies_france.txt
+SAR,Sardinia-Piedmont,company,company_fcm,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,file+hq,00_companies_france.txt
+SAR,Sardinia-Piedmont,company,company_fcm,yes,steel_mill,steel,,,,coal electricity iron tools,file+hq,00_companies_france.txt
+SAR,Sardinia-Piedmont,company,company_fiat,yes,,,turin_automobiles,automobiles,,,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_fiat,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_fiat,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_fiat,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ilva,yes,,,generic_steel,steel,,,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ilva,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ilva,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_italy.txt
+SAR,Sardinia-Piedmont,company,company_ilva,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_italy.txt
+SIA,Siam,company,company_a_markwald_and_company,yes,,,generic_grain,grain,,,hq,00_companies_ep2.txt
+SIA,Siam,company,company_a_markwald_and_company,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_ep2.txt
+SIA,Siam,company,company_a_markwald_and_company,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_ep2.txt
+SIA,Siam,company,company_a_markwald_and_company,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_ep2.txt
+SIA,Siam,company,company_a_markwald_and_company,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_ep2.txt
+SIA,Siam,company,company_b_grimm,yes,,,generic_grain,grain,,,hq,00_companies_asia.txt
+SIA,Siam,company,company_b_grimm,yes,chemical_plant,fertilizer,,,,iron oil sulfur,hq,00_companies_asia.txt
+SIA,Siam,company,company_b_grimm,yes,rice_farm,fruit grain sugar,,,,coal fertilizer fish tools,hq,00_companies_asia.txt
+SIA,Siam,company,company_guthrie,yes,coffee_plantation,,,,,transportation,hq,00_companies_ep2.txt
+SIA,Siam,company,company_guthrie,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_ep2.txt
+SIA,Siam,company,company_guthrie,yes,rubber_plantation,,,,,transportation,hq,00_companies_ep2.txt
+SIA,Siam,company,company_guthrie,yes,tea_plantation,,,,,transportation,hq,00_companies_ep2.txt
+SIA,Siam,company,company_guthrie,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_ep2.txt
+SIA,Siam,company,company_siam_electrical_company_limited,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_ep2.txt
+SIA,Siam,company,company_siam_electrical_company_limited,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_ep2.txt
+SAF,South Africa,company,company_de_beers,yes,gold_mine,gold,,,,coal engines explosives oil tools transportation,hq,00_companies_mp1.txt
+SAF,South Africa,company,company_de_beers,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_mp1.txt
+SPA,Spain,company,company_duro_y_compania,yes,,,generic_steel,steel,,,hq,00_companies_europe.txt
+SPA,Spain,company,company_duro_y_compania,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_europe.txt
+SPA,Spain,company,company_duro_y_compania,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_europe.txt
+SPA,Spain,company,company_duro_y_compania,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_europe.txt
+SPA,Spain,company,company_duro_y_compania,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+SPA,Spain,company,company_espana_industrial,yes,,,generic_clothes,clothes,,,hq,00_companies_europe.txt
+SPA,Spain,company,company_espana_industrial,yes,cotton_plantation,,,,,transportation,hq,00_companies_europe.txt
+SPA,Spain,company,company_espana_industrial,yes,silk_plantation,,,,,transportation,hq,00_companies_europe.txt
+SPA,Spain,company,company_espana_industrial,yes,textile_mill,clothes luxury_clothes,,,,dye electricity fabric rubber silk tools,hq,00_companies_europe.txt
+SPA,Spain,company,company_trubia,yes,,,generic_artillery,artillery,,,hq,00_companies_europe.txt
+SPA,Spain,company,company_trubia,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_europe.txt
+SPA,Spain,company,company_trubia,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_europe.txt
+SPA,Spain,company,company_trubia,yes,explosives_factory,explosives,,,,electricity fertilizer paper sulfur,hq,00_companies_europe.txt
+SPA,Spain,company,company_trubia,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,hq,00_companies_europe.txt
+SPA,Spain,journal,je_atocha_railway,,estacion_de_madrid_atocha,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_atocha_railway,,railway,transportation,,,,coal electricity engines oil steel wood,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_gran_teatro,,gran_teatro_de_la_habana,fine_art,,,,paper,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_manila_cathedral,,manila_cathedral_monument,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_manila_cathedral,,manila_cathedral_ruins,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_pena_palace,,pena_convent,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_pena_palace,,pena_palace,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_sagrada_familia,,sagrada_familia_cathedral_1,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_sagrada_familia,,sagrada_familia_cathedral_2,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_sagrada_familia,,sagrada_familia_cathedral_3,,,,,,file,06_iberian_twilight_monuments.txt
+SPA,Spain,journal,je_spanish_anarchism,,urban_center,services transportation,,,,automobiles coal electricity engines glass steel wood,file,06_spanish_anarchism.txt
+SWE,Sweden,company,company_ericsson,yes,,,ericsson_apparatus,telephones,,,hq,00_companies_europe.txt
+SWE,Sweden,company,company_ericsson,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,hq,00_companies_europe.txt
+SWE,Sweden,company,company_ericsson,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_europe.txt
+SWE,Sweden,company,company_gotaverken,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_europe.txt
+SWE,Sweden,company,company_gotaverken,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_europe.txt
+SWE,Sweden,company,company_gotaverken,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_europe.txt
+SWE,Sweden,company,company_gotaverken,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_europe.txt
+SWE,Sweden,company,company_gotaverken,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+SWE,Sweden,company,company_gotaverken,yes,tooling_workshop,tools,,,,coal electricity iron oil rubber steel wood,hq,00_companies_europe.txt
+SWE,Sweden,company,company_lkab,yes,,,swedish_bar_iron,iron,,,hq,00_companies_europe.txt
+SWE,Sweden,company,company_lkab,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_europe.txt
+SWE,Sweden,company,company_lkab,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_europe.txt
+SWE,Sweden,company,company_paradox,yes,,,grand_strategy_games,fine_art,,,hq,00_companies_mp1.txt
+SWE,Sweden,company,company_paradox,yes,art_academy,fine_art,,,,electricity paper tools,hq,00_companies_mp1.txt
+SWE,Sweden,company,company_paradox,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_mp1.txt
+SWE,Sweden,company,company_paradox,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,hq,00_companies_mp1.txt
+SWE,Sweden,company,company_paradox,yes,paper_mill,paper,,,,coal dye sulfur tools wood,hq,00_companies_mp1.txt
+SIC,Two Sicilies,company,company_anglo_sicilian_sulphur_company,yes,,,sicilian_sulfur,sulfur,,,hq,00_companies_mp1.txt
+SIC,Two Sicilies,company,company_anglo_sicilian_sulphur_company,yes,port,merchant_marine,,,,clippers coal oil steamers,hq,00_companies_mp1.txt
+SIC,Two Sicilies,company,company_anglo_sicilian_sulphur_company,yes,sulfur_mine,sulfur,,,,coal engines explosives oil tools transportation,hq,00_companies_mp1.txt
+USA,United States,company,company_colt_firearms,yes,,,colt_revolvers,small_arms,,,hq,00_companies_mp1.txt
+USA,United States,company,company_colt_firearms,yes,arms_industry,small_arms,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_mp1.txt
+USA,United States,company,company_colt_firearms,yes,munition_plant,ammunition,,,,coal electricity explosives lead oil,hq,00_companies_mp1.txt
+USA,United States,company,company_ford_motor,yes,,,ford_automobiles,automobiles,,,hq,00_companies_usa.txt
+USA,United States,company,company_ford_motor,yes,automotive_industry,aeroplanes automobiles tanks,,,,electricity engines fabric hardwood oil rubber steel tools,hq,00_companies_usa.txt
+USA,United States,company,company_ford_motor,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_usa.txt
+USA,United States,company,company_ford_motor,yes,rubber_plantation,,,,,transportation,hq,00_companies_usa.txt
+USA,United States,company,company_ford_motor,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_usa.txt
+USA,United States,company,company_general_electric,yes,,,radiola_radios,radios,,,hq,00_companies_usa.txt
+USA,United States,company,company_general_electric,yes,electrics_industry,radios telephones,,,,electricity iron lead rubber tools,hq,00_companies_usa.txt
+USA,United States,company,company_general_electric,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_usa.txt
+USA,United States,company,company_general_electric,yes,power_plant,electricity,,,,coal engines oil wood,hq,00_companies_usa.txt
+USA,United States,company,company_lee_wilson,yes,,,sea_island_cotton,fabric,,,hq,00_companies_mp1.txt
+USA,United States,company,company_lee_wilson,yes,cotton_plantation,,,,,transportation,hq,00_companies_mp1.txt
+USA,United States,company,company_lee_wilson,yes,logging_camp,hardwood wood,,,,coal electricity engines oil tools transportation,hq,00_companies_mp1.txt
+USA,United States,company,company_lee_wilson,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_mp1.txt
+USA,United States,company,company_lee_wilson,yes,wheat_farm,fruit grain sugar,,,,coal engines fertilizer fish oil tools,hq,00_companies_mp1.txt
+USA,United States,company,company_united_fruit,yes,,,gros_michel_banana,fruit,,,hq,00_companies_usa.txt
+USA,United States,company,company_united_fruit,yes,banana_plantation,,,,,transportation,hq,00_companies_usa.txt
+USA,United States,company,company_united_fruit,yes,railway,transportation,,,,coal electricity engines oil steel wood,hq,00_companies_usa.txt
+USA,United States,company,company_united_fruit,yes,sugar_plantation,,,,,transportation,hq,00_companies_usa.txt
+USA,United States,company,company_us_steel,yes,,,generic_steel,steel,,,hq,00_companies_usa.txt
+USA,United States,company,company_us_steel,yes,art_academy,fine_art,,,,electricity paper tools,hq,00_companies_usa.txt
+USA,United States,company,company_us_steel,yes,coal_mine,coal,,,,engines explosives oil tools transportation,hq,00_companies_usa.txt
+USA,United States,company,company_us_steel,yes,iron_mine,iron,,,,coal engines explosives oil tools transportation,hq,00_companies_usa.txt
+USA,United States,company,company_us_steel,yes,steel_mill,steel,,,,coal electricity iron tools,hq,00_companies_usa.txt
+USA,United States,company,company_william_cramp,yes,artillery_foundry,artillery,,,,coal electricity hardwood iron oil steel tools,hq,00_companies_usa.txt
+USA,United States,company,company_william_cramp,yes,motor_industry,engines,,,,coal electricity oil steel tools,hq,00_companies_usa.txt
+USA,United States,company,company_william_cramp,yes,shipyard,clippers steamers,,,,coal electricity engines fabric hardwood steel wood,hq,00_companies_usa.txt

@@ -1,0 +1,2178 @@
+tag,country,state,building,building_group,category,levels
+ARG,Argentina,BUENOS_AIRES,government_administration,bureaucracy,development,2
+ARG,Argentina,BUENOS_AIRES,fishing_wharf,fishing,fishing,1
+ARG,Argentina,BUENOS_AIRES,livestock_ranch,ranching,agriculture,1
+ARG,Argentina,BUENOS_AIRES,naval_administration,naval_administration,development,1
+ARG,Argentina,BUENOS_AIRES,port,private_infrastructure,development,1
+ARG,Argentina,BUENOS_AIRES,shipyard,ship_construction,light_industry,1
+ARG,Argentina,BUENOS_AIRES,tooling_workshop,light_industry,light_industry,1
+ARG,Argentina,BUENOS_AIRES,trade_center,trade,trade,1
+ARG,Argentina,CORRIENTES,tobacco_plantation,plantations,plantation,3
+ARG,Argentina,CORRIENTES,livestock_ranch,ranching,agriculture,1
+ARG,Argentina,CORRIENTES,maize_farm,staple_crops,agriculture,1
+ARG,Argentina,JUJUY,gold_mine,mining,mine,1
+ARG,Argentina,LA_PAMPA,wheat_farm,staple_crops,agriculture,2
+ARG,Argentina,LA_PAMPA,government_administration,bureaucracy,development,1
+ARG,Argentina,LA_PAMPA,livestock_ranch,ranching,agriculture,1
+ARG,Argentina,LA_PAMPA,textile_mill,light_industry,light_industry,1
+ARG,Argentina,SANTA_FE,logging_camp,logging,forestry,2
+ARG,Argentina,SANTA_FE,furniture_manufactory,light_industry,light_industry,1
+ARG,Argentina,SANTA_FE,livestock_ranch,ranching,agriculture,1
+ARG,Argentina,TUCUMAN,gold_mine,mining,mine,1
+AUS,Austria,AUSTRIA,government_administration,bureaucracy,development,10
+AUS,Austria,AUSTRIA,wheat_farm,staple_crops,agriculture,10
+AUS,Austria,AUSTRIA,furniture_manufactory,light_industry,light_industry,5
+AUS,Austria,AUSTRIA,paper_mill,light_industry,light_industry,5
+AUS,Austria,AUSTRIA,trade_center,trade,trade,4
+AUS,Austria,AUSTRIA,livestock_ranch,ranching,agriculture,3
+AUS,Austria,AUSTRIA,construction_sector,construction,development,2
+AUS,Austria,AUSTRIA,university,technology,development,2
+AUS,Austria,AUSTRIA,art_academy,arts,development,1
+AUS,Austria,BOHEMIA,government_administration,bureaucracy,development,9
+AUS,Austria,BOHEMIA,rye_farm,staple_crops,agriculture,6
+AUS,Austria,BOHEMIA,food_industry,light_industry,light_industry,5
+AUS,Austria,BOHEMIA,gold_mine,mining,mine,5
+AUS,Austria,BOHEMIA,glassworks,light_industry,light_industry,3
+AUS,Austria,BOHEMIA,logging_camp,logging,forestry,3
+AUS,Austria,BOHEMIA,arms_industry,military_industry,heavy_industry,2
+AUS,Austria,BOHEMIA,coal_mine,mining,mine,2
+AUS,Austria,BOHEMIA,construction_sector,construction,development,2
+AUS,Austria,BOHEMIA,tooling_workshop,light_industry,light_industry,2
+AUS,Austria,BOHEMIA,trade_center,trade,trade,2
+AUS,Austria,BOHEMIA,university,technology,development,2
+AUS,Austria,BOHEMIA,iron_mine,mining,mine,1
+AUS,Austria,BOHEMIA,lead_mine,mining,mine,1
+AUS,Austria,BUKOVINA,livestock_ranch,ranching,agriculture,2
+AUS,Austria,BUKOVINA,logging_camp,logging,forestry,2
+AUS,Austria,BUKOVINA,wheat_farm,staple_crops,agriculture,1
+AUS,Austria,DALMATIA,fishing_wharf,fishing,fishing,3
+AUS,Austria,DALMATIA,port,private_infrastructure,development,1
+AUS,Austria,DALMATIA,vineyard,agriculture,agriculture,1
+AUS,Austria,DALMATIA,wheat_farm,staple_crops,agriculture,1
+AUS,Austria,EAST_GALICIA,government_administration,bureaucracy,development,3
+AUS,Austria,EAST_GALICIA,livestock_ranch,ranching,agriculture,2
+AUS,Austria,EAST_GALICIA,wheat_farm,staple_crops,agriculture,2
+AUS,Austria,ISTRIA,fishing_wharf,fishing,fishing,4
+AUS,Austria,ISTRIA,port,private_infrastructure,development,4
+AUS,Austria,ISTRIA,tooling_workshop,light_industry,light_industry,3
+AUS,Austria,ISTRIA,trade_center,trade,trade,3
+AUS,Austria,ISTRIA,shipyard,ship_construction,light_industry,2
+AUS,Austria,LOMBARDY,arms_industry,military_industry,heavy_industry,5
+AUS,Austria,LOMBARDY,textile_mill,light_industry,light_industry,5
+AUS,Austria,LOMBARDY,construction_sector,construction,development,3
+AUS,Austria,LOMBARDY,government_administration,bureaucracy,development,3
+AUS,Austria,LOMBARDY,vineyard,agriculture,agriculture,3
+AUS,Austria,LOMBARDY,wheat_farm,staple_crops,agriculture,3
+AUS,Austria,LOMBARDY,artillery_foundry,military_industry,heavy_industry,2
+AUS,Austria,LOMBARDY,trade_center,trade,trade,1
+AUS,Austria,MONTENEGRO,port,private_infrastructure,development,2
+AUS,Austria,MORAVIA,food_industry,light_industry,light_industry,3
+AUS,Austria,MORAVIA,logging_camp,logging,forestry,3
+AUS,Austria,MORAVIA,textile_mill,light_industry,light_industry,3
+AUS,Austria,MORAVIA,wheat_farm,staple_crops,agriculture,3
+AUS,Austria,MORAVIA,coal_mine,mining,mine,2
+AUS,Austria,MORAVIA,government_administration,bureaucracy,development,1
+AUS,Austria,MORAVIA,vineyard,agriculture,agriculture,1
+AUS,Austria,SLOVENIA,wheat_farm,staple_crops,agriculture,3
+AUS,Austria,SLOVENIA,logging_camp,logging,forestry,2
+AUS,Austria,SLOVENIA,livestock_ranch,ranching,agriculture,1
+AUS,Austria,SOUTH_TYROL,vineyard,agriculture,agriculture,1
+AUS,Austria,SOUTH_TYROL,wheat_farm,staple_crops,agriculture,1
+AUS,Austria,STYRIA,iron_mine,mining,mine,2
+AUS,Austria,STYRIA,lead_mine,mining,mine,2
+AUS,Austria,STYRIA,livestock_ranch,ranching,agriculture,2
+AUS,Austria,STYRIA,wheat_farm,staple_crops,agriculture,1
+AUS,Austria,TYROL,gold_mine,mining,mine,2
+AUS,Austria,TYROL,iron_mine,mining,mine,1
+AUS,Austria,TYROL,livestock_ranch,ranching,agriculture,1
+AUS,Austria,VENETIA,textile_mill,light_industry,light_industry,8
+AUS,Austria,VENETIA,glassworks,light_industry,light_industry,5
+AUS,Austria,VENETIA,paper_mill,light_industry,light_industry,5
+AUS,Austria,VENETIA,silk_plantation,plantations,plantation,5
+AUS,Austria,VENETIA,fishing_wharf,fishing,fishing,4
+AUS,Austria,VENETIA,government_administration,bureaucracy,development,3
+AUS,Austria,VENETIA,vineyard,agriculture,agriculture,3
+AUS,Austria,VENETIA,naval_administration,naval_administration,development,2
+AUS,Austria,VENETIA,port,private_infrastructure,development,2
+AUS,Austria,VENETIA,wheat_farm,staple_crops,agriculture,2
+AUS,Austria,VENETIA,trade_center,trade,trade,1
+AUS,Austria,WEST_GALICIA,government_administration,bureaucracy,development,5
+AUS,Austria,WEST_GALICIA,rye_farm,staple_crops,agriculture,2
+AUS,Austria,WEST_GALICIA,iron_mine,mining,mine,1
+AUS,Austria,WEST_GALICIA,livestock_ranch,ranching,agriculture,1
+BAV,Bavaria,BAVARIA,wheat_farm,staple_crops,agriculture,10
+BAV,Bavaria,BAVARIA,food_industry,light_industry,light_industry,3
+BAV,Bavaria,BAVARIA,government_administration,bureaucracy,development,3
+BAV,Bavaria,BAVARIA,logging_camp,logging,forestry,3
+BAV,Bavaria,BAVARIA,livestock_ranch,ranching,agriculture,2
+BAV,Bavaria,BAVARIA,university,technology,development,2
+BAV,Bavaria,BAVARIA,construction_sector,construction,development,1
+BAV,Bavaria,BAVARIA,glassworks,light_industry,light_industry,1
+BAV,Bavaria,BAVARIA,iron_mine,mining,mine,1
+BAV,Bavaria,BAVARIA,trade_center,trade,trade,1
+BAV,Bavaria,FRANCONIA,wheat_farm,staple_crops,agriculture,8
+BAV,Bavaria,FRANCONIA,furniture_manufactory,light_industry,light_industry,3
+BAV,Bavaria,FRANCONIA,government_administration,bureaucracy,development,3
+BAV,Bavaria,FRANCONIA,logging_camp,logging,forestry,3
+BAV,Bavaria,FRANCONIA,art_academy,arts,development,1
+BAV,Bavaria,FRANCONIA,livestock_ranch,ranching,agriculture,1
+BAV,Bavaria,FRANCONIA,railway,private_infrastructure,development,1
+BAV,Bavaria,FRANCONIA,textile_mill,light_industry,light_industry,1
+BAV,Bavaria,FRANCONIA,vineyard,agriculture,agriculture,1
+BAV,Bavaria,RHINELAND,livestock_ranch,ranching,agriculture,1
+BAV,Bavaria,RHINELAND,vineyard,agriculture,agriculture,1
+BAV,Bavaria,RHINELAND,wheat_farm,staple_crops,agriculture,1
+BEL,Belgium,FLANDERS,naval_administration,naval_administration,development,15
+BEL,Belgium,FLANDERS,trade_center,trade,trade,6
+BEL,Belgium,FLANDERS,wheat_farm,staple_crops,agriculture,6
+BEL,Belgium,FLANDERS,livestock_ranch,ranching,agriculture,5
+BEL,Belgium,FLANDERS,logging_camp,logging,forestry,4
+BEL,Belgium,FLANDERS,textile_mill,light_industry,light_industry,4
+BEL,Belgium,FLANDERS,furniture_manufactory,light_industry,light_industry,3
+BEL,Belgium,FLANDERS,government_administration,bureaucracy,development,3
+BEL,Belgium,FLANDERS,port,private_infrastructure,development,3
+BEL,Belgium,FLANDERS,food_industry,light_industry,light_industry,2
+BEL,Belgium,FLANDERS,university,technology,development,2
+BEL,Belgium,FLANDERS,arms_industry,military_industry,heavy_industry,1
+BEL,Belgium,FLANDERS,construction_sector,construction,development,1
+BEL,Belgium,FLANDERS,fishing_wharf,fishing,fishing,1
+BEL,Belgium,FLANDERS,paper_mill,light_industry,light_industry,1
+BEL,Belgium,FLANDERS,railway,private_infrastructure,development,1
+BEL,Belgium,FLANDERS,shipyard,ship_construction,light_industry,1
+BEL,Belgium,WALLONIA,wheat_farm,staple_crops,agriculture,7
+BEL,Belgium,WALLONIA,iron_mine,mining,mine,6
+BEL,Belgium,WALLONIA,coal_mine,mining,mine,5
+BEL,Belgium,WALLONIA,logging_camp,logging,forestry,3
+BEL,Belgium,WALLONIA,tooling_workshop,light_industry,light_industry,3
+BEL,Belgium,WALLONIA,chemical_plant,heavy_industry,heavy_industry,2
+BEL,Belgium,WALLONIA,steel_mill,heavy_industry,heavy_industry,2
+BEL,Belgium,WALLONIA,sulfur_mine,mining,mine,2
+BEL,Belgium,WALLONIA,trade_center,trade,trade,2
+BEL,Belgium,WALLONIA,construction_sector,construction,development,1
+BEL,Belgium,WALLONIA,explosives_factory,heavy_industry,heavy_industry,1
+BEL,Belgium,WALLONIA,government_administration,bureaucracy,development,1
+BEL,Belgium,WALLONIA,railway,private_infrastructure,development,1
+BRZ,Brazil,BAHIA,coffee_plantation,plantations,plantation,6
+BRZ,Brazil,BAHIA,maize_farm,staple_crops,agriculture,6
+BRZ,Brazil,BAHIA,logging_camp,logging,forestry,4
+BRZ,Brazil,BAHIA,banana_plantation,plantations,plantation,3
+BRZ,Brazil,BAHIA,government_administration,bureaucracy,development,3
+BRZ,Brazil,BAHIA,fishing_wharf,fishing,fishing,2
+BRZ,Brazil,BAHIA,port,private_infrastructure,development,2
+BRZ,Brazil,BAHIA,shipyard,ship_construction,light_industry,2
+BRZ,Brazil,BAHIA,sugar_plantation,plantations,plantation,2
+BRZ,Brazil,BAHIA,trade_center,trade,trade,2
+BRZ,Brazil,BAHIA,construction_sector,construction,development,1
+BRZ,Brazil,BAHIA,tooling_workshop,light_industry,light_industry,1
+BRZ,Brazil,CEARA,logging_camp,logging,forestry,2
+BRZ,Brazil,CEARA,maize_farm,staple_crops,agriculture,2
+BRZ,Brazil,CEARA,cotton_plantation,plantations,plantation,1
+BRZ,Brazil,CEARA,fishing_wharf,fishing,fishing,1
+BRZ,Brazil,GOIAS,logging_camp,logging,forestry,1
+BRZ,Brazil,GOIAS,rice_farm,staple_crops,agriculture,1
+BRZ,Brazil,MARANHAO,banana_plantation,plantations,plantation,1
+BRZ,Brazil,MARANHAO,logging_camp,logging,forestry,1
+BRZ,Brazil,MARANHAO,rice_farm,staple_crops,agriculture,1
+BRZ,Brazil,MATO_GROSSO,banana_plantation,plantations,plantation,1
+BRZ,Brazil,MATO_GROSSO,logging_camp,logging,forestry,1
+BRZ,Brazil,MATO_GROSSO,maize_farm,staple_crops,agriculture,1
+BRZ,Brazil,MINAS_GERAIS,coffee_plantation,plantations,plantation,6
+BRZ,Brazil,MINAS_GERAIS,logging_camp,logging,forestry,4
+BRZ,Brazil,MINAS_GERAIS,maize_farm,staple_crops,agriculture,4
+BRZ,Brazil,MINAS_GERAIS,gold_mine,mining,mine,2
+BRZ,Brazil,MINAS_GERAIS,iron_mine,mining,mine,2
+BRZ,Brazil,MINAS_GERAIS,banana_plantation,plantations,plantation,1
+BRZ,Brazil,MINAS_GERAIS,government_administration,bureaucracy,development,1
+BRZ,Brazil,MINAS_GERAIS,livestock_ranch,ranching,agriculture,1
+BRZ,Brazil,MINAS_GERAIS,tooling_workshop,light_industry,light_industry,1
+BRZ,Brazil,PARAIBA,maize_farm,staple_crops,agriculture,1
+BRZ,Brazil,PARAIBA,textile_mill,light_industry,light_industry,1
+BRZ,Brazil,PARAIBA,tobacco_plantation,plantations,plantation,1
+BRZ,Brazil,PARANA,maize_farm,staple_crops,agriculture,2
+BRZ,Brazil,PARANA,banana_plantation,plantations,plantation,1
+BRZ,Brazil,PARANA,logging_camp,logging,forestry,1
+BRZ,Brazil,PERNAMBUCO,cotton_plantation,plantations,plantation,5
+BRZ,Brazil,PERNAMBUCO,maize_farm,staple_crops,agriculture,4
+BRZ,Brazil,PERNAMBUCO,textile_mill,light_industry,light_industry,3
+BRZ,Brazil,PERNAMBUCO,sugar_plantation,plantations,plantation,2
+BRZ,Brazil,PERNAMBUCO,banana_plantation,plantations,plantation,1
+BRZ,Brazil,PERNAMBUCO,government_administration,bureaucracy,development,1
+BRZ,Brazil,PERNAMBUCO,port,private_infrastructure,development,1
+BRZ,Brazil,PERNAMBUCO,tobacco_plantation,plantations,plantation,1
+BRZ,Brazil,PERNAMBUCO,trade_center,trade,trade,1
+BRZ,Brazil,PERNAMBUCO,university,technology,development,1
+BRZ,Brazil,PIAUI,logging_camp,logging,forestry,1
+BRZ,Brazil,PIAUI,maize_farm,staple_crops,agriculture,1
+BRZ,Brazil,RIO_DE_JANEIRO,naval_administration,naval_administration,development,10
+BRZ,Brazil,RIO_DE_JANEIRO,maize_farm,staple_crops,agriculture,6
+BRZ,Brazil,RIO_DE_JANEIRO,government_administration,bureaucracy,development,5
+BRZ,Brazil,RIO_DE_JANEIRO,trade_center,trade,trade,5
+BRZ,Brazil,RIO_DE_JANEIRO,port,private_infrastructure,development,4
+BRZ,Brazil,RIO_DE_JANEIRO,banana_plantation,plantations,plantation,3
+BRZ,Brazil,RIO_DE_JANEIRO,coffee_plantation,plantations,plantation,2
+BRZ,Brazil,RIO_DE_JANEIRO,fishing_wharf,fishing,fishing,2
+BRZ,Brazil,RIO_DE_JANEIRO,paper_mill,light_industry,light_industry,2
+BRZ,Brazil,RIO_DE_JANEIRO,sugar_plantation,plantations,plantation,2
+BRZ,Brazil,RIO_DE_JANEIRO,university,technology,development,2
+BRZ,Brazil,RIO_DE_JANEIRO,construction_sector,construction,development,1
+BRZ,Brazil,RIO_DE_JANEIRO,furniture_manufactory,light_industry,light_industry,1
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,fishing_wharf,fishing,fishing,1
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,logging_camp,logging,forestry,1
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,maize_farm,staple_crops,agriculture,1
+BRZ,Brazil,SANTA_CATARINA,logging_camp,logging,forestry,1
+BRZ,Brazil,SANTA_CATARINA,maize_farm,staple_crops,agriculture,1
+BRZ,Brazil,SAO_PAULO,coffee_plantation,plantations,plantation,5
+BRZ,Brazil,SAO_PAULO,maize_farm,staple_crops,agriculture,4
+BRZ,Brazil,SAO_PAULO,livestock_ranch,ranching,agriculture,2
+BRZ,Brazil,SAO_PAULO,paper_mill,light_industry,light_industry,2
+BRZ,Brazil,SAO_PAULO,arms_industry,military_industry,heavy_industry,1
+BRZ,Brazil,SAO_PAULO,logging_camp,logging,forestry,1
+BRZ,Brazil,SAO_PAULO,sugar_plantation,plantations,plantation,1
+BRZ,Brazil,SAO_PAULO,trade_center,trade,trade,1
+BRZ,Brazil,SAO_PAULO,university,technology,development,1
+BUR,Burma,KACHIN,livestock_ranch,ranching,agriculture,1
+BUR,Burma,KACHIN,rice_farm,staple_crops,agriculture,1
+BUR,Burma,MANDALAY,government_administration,bureaucracy,development,2
+BUR,Burma,MANDALAY,rice_farm,staple_crops,agriculture,2
+BUR,Burma,MANDALAY,livestock_ranch,ranching,agriculture,1
+BUR,Burma,MANDALAY,tea_plantation,plantations,plantation,1
+BUR,Burma,PEGU,fishing_wharf,fishing,fishing,2
+BUR,Burma,PEGU,port,private_infrastructure,development,2
+BUR,Burma,PEGU,tobacco_plantation,plantations,plantation,2
+BUR,Burma,PEGU,rice_farm,staple_crops,agriculture,1
+BUR,Burma,SHAN_STATES,opium_plantation,plantations,plantation,1
+CHI,China,ALXA,livestock_ranch,ranching,agriculture,2
+CHI,China,ALXA,wheat_farm,staple_crops,agriculture,2
+CHI,China,BEIJING,government_administration,bureaucracy,development,16
+CHI,China,BEIJING,furniture_manufactory,light_industry,light_industry,5
+CHI,China,BEIJING,arms_industry,military_industry,heavy_industry,4
+CHI,China,BEIJING,tooling_workshop,light_industry,light_industry,4
+CHI,China,BEIJING,construction_sector,construction,development,3
+CHI,China,BEIJING,wheat_farm,staple_crops,agriculture,3
+CHI,China,BEIJING,logging_camp,logging,forestry,2
+CHI,China,BEIJING,naval_fortification,naval_fortification,development,1
+CHI,China,BEIJING,forbidden_city,monuments,special,0
+CHI,China,CHONGQING,silk_plantation,plantations,plantation,10
+CHI,China,CHONGQING,tea_plantation,plantations,plantation,10
+CHI,China,CHONGQING,government_administration,bureaucracy,development,9
+CHI,China,CHONGQING,paper_mill,light_industry,light_industry,4
+CHI,China,DZUNGARIA,livestock_ranch,ranching,agriculture,2
+CHI,China,EASTERN_HUBEI,silk_plantation,plantations,plantation,10
+CHI,China,EASTERN_HUBEI,paper_mill,light_industry,light_industry,9
+CHI,China,EASTERN_HUBEI,furniture_manufactory,light_industry,light_industry,8
+CHI,China,EASTERN_HUBEI,government_administration,bureaucracy,development,6
+CHI,China,EASTERN_HUBEI,tea_plantation,plantations,plantation,6
+CHI,China,EASTERN_HUBEI,rice_farm,staple_crops,agriculture,4
+CHI,China,FORMOSA,banana_plantation,plantations,plantation,5
+CHI,China,FORMOSA,fishing_wharf,fishing,fishing,5
+CHI,China,FORMOSA,tea_plantation,plantations,plantation,3
+CHI,China,FORMOSA,port,private_infrastructure,development,1
+CHI,China,FUJIAN,dye_plantation,plantations,plantation,10
+CHI,China,FUJIAN,silk_plantation,plantations,plantation,10
+CHI,China,FUJIAN,government_administration,bureaucracy,development,8
+CHI,China,FUJIAN,rice_farm,staple_crops,agriculture,5
+CHI,China,FUJIAN,fishing_wharf,fishing,fishing,4
+CHI,China,FUJIAN,naval_administration,naval_administration,development,4
+CHI,China,FUJIAN,tea_plantation,plantations,plantation,3
+CHI,China,GANSU,livestock_ranch,ranching,agriculture,6
+CHI,China,GUANGDONG,trade_center,trade,trade,40
+CHI,China,GUANGDONG,silk_plantation,plantations,plantation,20
+CHI,China,GUANGDONG,port,private_infrastructure,development,15
+CHI,China,GUANGDONG,dye_plantation,plantations,plantation,12
+CHI,China,GUANGDONG,tea_plantation,plantations,plantation,10
+CHI,China,GUANGDONG,government_administration,bureaucracy,development,9
+CHI,China,GUANGDONG,rice_farm,staple_crops,agriculture,8
+CHI,China,GUANGDONG,banana_plantation,plantations,plantation,7
+CHI,China,GUANGDONG,fishing_wharf,fishing,fishing,5
+CHI,China,GUANGDONG,shipyard,ship_construction,light_industry,3
+CHI,China,GUANGDONG,naval_fortification,naval_fortification,development,1
+CHI,China,GUANGXI,silk_plantation,plantations,plantation,16
+CHI,China,GUANGXI,dye_plantation,plantations,plantation,10
+CHI,China,GUANGXI,banana_plantation,plantations,plantation,8
+CHI,China,GUANGXI,tea_plantation,plantations,plantation,8
+CHI,China,GUANGXI,government_administration,bureaucracy,development,7
+CHI,China,GUANGXI,rice_farm,staple_crops,agriculture,7
+CHI,China,GUIZHOU,government_administration,bureaucracy,development,9
+CHI,China,GUIZHOU,dye_plantation,plantations,plantation,8
+CHI,China,GUIZHOU,glassworks,light_industry,light_industry,8
+CHI,China,GUIZHOU,furniture_manufactory,light_industry,light_industry,7
+CHI,China,GUIZHOU,logging_camp,logging,forestry,6
+CHI,China,GUIZHOU,opium_plantation,plantations,plantation,5
+CHI,China,GUIZHOU,tea_plantation,plantations,plantation,4
+CHI,China,HENAN,government_administration,bureaucracy,development,12
+CHI,China,HENAN,tea_plantation,plantations,plantation,12
+CHI,China,HENAN,glassworks,light_industry,light_industry,6
+CHI,China,HENAN,construction_sector,construction,development,1
+CHI,China,HINGGAN,livestock_ranch,ranching,agriculture,1
+CHI,China,HUNAN,logging_camp,logging,forestry,8
+CHI,China,HUNAN,tea_plantation,plantations,plantation,8
+CHI,China,HUNAN,rice_farm,staple_crops,agriculture,6
+CHI,China,HUNAN,government_administration,bureaucracy,development,4
+CHI,China,JETISY,logging_camp,logging,forestry,1
+CHI,China,JETISY,wheat_farm,staple_crops,agriculture,1
+CHI,China,JIANGSU,tea_plantation,plantations,plantation,15
+CHI,China,JIANGSU,government_administration,bureaucracy,development,9
+CHI,China,JIANGSU,rice_farm,staple_crops,agriculture,8
+CHI,China,JIANGSU,glassworks,light_industry,light_industry,5
+CHI,China,JIANGXI,tea_plantation,plantations,plantation,17
+CHI,China,JIANGXI,silk_plantation,plantations,plantation,10
+CHI,China,JIANGXI,government_administration,bureaucracy,development,8
+CHI,China,JIANGXI,glassworks,light_industry,light_industry,5
+CHI,China,JIANGXI,rice_farm,staple_crops,agriculture,5
+CHI,China,KIRGHIZIA,wheat_farm,staple_crops,agriculture,1
+CHI,China,NANJING,government_administration,bureaucracy,development,13
+CHI,China,NANJING,glassworks,light_industry,light_industry,10
+CHI,China,NANJING,tea_plantation,plantations,plantation,10
+CHI,China,NANJING,rice_farm,staple_crops,agriculture,5
+CHI,China,NANJING,construction_sector,construction,development,2
+CHI,China,NINGXIA,government_administration,bureaucracy,development,4
+CHI,China,NINGXIA,tea_plantation,plantations,plantation,3
+CHI,China,NORTHERN_ANHUI,tea_plantation,plantations,plantation,15
+CHI,China,NORTHERN_ANHUI,government_administration,bureaucracy,development,7
+CHI,China,NORTHERN_ANHUI,rice_farm,staple_crops,agriculture,6
+CHI,China,NORTHERN_MANCHURIA,logging_camp,logging,forestry,8
+CHI,China,NORTHERN_MANCHURIA,livestock_ranch,ranching,agriculture,2
+CHI,China,QINGHAI,livestock_ranch,ranching,agriculture,5
+CHI,China,SHANDONG,glassworks,light_industry,light_industry,10
+CHI,China,SHANDONG,textile_mill,light_industry,light_industry,8
+CHI,China,SHANDONG,fishing_wharf,fishing,fishing,6
+CHI,China,SHANDONG,government_administration,bureaucracy,development,6
+CHI,China,SHANDONG,tea_plantation,plantations,plantation,3
+CHI,China,SHANDONG,wheat_farm,staple_crops,agriculture,3
+CHI,China,SHANDONG,port,private_infrastructure,development,1
+CHI,China,SHANXI,wheat_farm,staple_crops,agriculture,7
+CHI,China,SHANXI,government_administration,bureaucracy,development,6
+CHI,China,SHAOZHOU,silk_plantation,plantations,plantation,10
+CHI,China,SHAOZHOU,rice_farm,staple_crops,agriculture,8
+CHI,China,SHAOZHOU,dye_plantation,plantations,plantation,6
+CHI,China,SHAOZHOU,government_administration,bureaucracy,development,6
+CHI,China,SHAOZHOU,tea_plantation,plantations,plantation,5
+CHI,China,SHAOZHOU,iron_mine,mining,mine,1
+CHI,China,SHAOZHOU,naval_fortification,naval_fortification,development,1
+CHI,China,SHAOZHOU,port,private_infrastructure,development,1
+CHI,China,SICHUAN,paper_mill,light_industry,light_industry,12
+CHI,China,SICHUAN,logging_camp,logging,forestry,10
+CHI,China,SICHUAN,government_administration,bureaucracy,development,8
+CHI,China,SICHUAN,opium_plantation,plantations,plantation,6
+CHI,China,SOUTHERN_ANHUI,rice_farm,staple_crops,agriculture,12
+CHI,China,SOUTHERN_ANHUI,furniture_manufactory,light_industry,light_industry,10
+CHI,China,SOUTHERN_ANHUI,tea_plantation,plantations,plantation,10
+CHI,China,SOUTHERN_ANHUI,government_administration,bureaucracy,development,8
+CHI,China,SOUTHERN_ANHUI,paper_mill,light_industry,light_industry,6
+CHI,China,SOUTHERN_MANCHURIA,logging_camp,logging,forestry,9
+CHI,China,SOUTHERN_MANCHURIA,government_administration,bureaucracy,development,4
+CHI,China,SOUTHERN_MANCHURIA,iron_mine,mining,mine,4
+CHI,China,SOUTHERN_MANCHURIA,livestock_ranch,ranching,agriculture,3
+CHI,China,SUZHOU,government_administration,bureaucracy,development,12
+CHI,China,SUZHOU,tea_plantation,plantations,plantation,12
+CHI,China,SUZHOU,paper_mill,light_industry,light_industry,7
+CHI,China,SUZHOU,fishing_wharf,fishing,fishing,4
+CHI,China,SUZHOU,naval_fortification,naval_fortification,development,1
+CHI,China,SUZHOU,port,private_infrastructure,development,1
+CHI,China,TIANSHAN,livestock_ranch,ranching,agriculture,2
+CHI,China,ULIASTAI,livestock_ranch,ranching,agriculture,3
+CHI,China,URGA,livestock_ranch,ranching,agriculture,5
+CHI,China,URGA,wheat_farm,staple_crops,agriculture,3
+CHI,China,WESTERN_HUBEI,furniture_manufactory,light_industry,light_industry,10
+CHI,China,WESTERN_HUBEI,tea_plantation,plantations,plantation,10
+CHI,China,WESTERN_HUBEI,paper_mill,light_industry,light_industry,9
+CHI,China,WESTERN_HUBEI,government_administration,bureaucracy,development,6
+CHI,China,WESTERN_HUBEI,rice_farm,staple_crops,agriculture,6
+CHI,China,XIAN,tea_plantation,plantations,plantation,5
+CHI,China,XIAN,government_administration,bureaucracy,development,3
+CHI,China,YUNNAN,opium_plantation,plantations,plantation,10
+CHI,China,YUNNAN,tea_plantation,plantations,plantation,10
+CHI,China,YUNNAN,government_administration,bureaucracy,development,6
+CHI,China,YUNNAN,logging_camp,logging,forestry,6
+CHI,China,ZHEJIANG,tea_plantation,plantations,plantation,15
+CHI,China,ZHEJIANG,textile_mill,light_industry,light_industry,8
+CHI,China,ZHEJIANG,government_administration,bureaucracy,development,7
+CHI,China,ZHEJIANG,rice_farm,staple_crops,agriculture,4
+CHI,China,ZHEJIANG,fishing_wharf,fishing,fishing,3
+CHI,China,ZHEJIANG,naval_fortification,naval_fortification,development,1
+CHI,China,ZHILI,paper_mill,light_industry,light_industry,11
+CHI,China,ZHILI,government_administration,bureaucracy,development,10
+CHI,China,ZHILI,glassworks,light_industry,light_industry,6
+CHI,China,ZHILI,wheat_farm,staple_crops,agriculture,4
+CHI,China,ZHILI,iron_mine,mining,mine,2
+CLM,Colombia,ANTIOQUIA,government_administration,bureaucracy,development,2
+CLM,Colombia,ANTIOQUIA,tobacco_plantation,plantations,plantation,2
+CLM,Colombia,ANTIOQUIA,trade_center,trade,trade,2
+CLM,Colombia,ANTIOQUIA,fishing_wharf,fishing,fishing,1
+CLM,Colombia,ANTIOQUIA,naval_fortification,naval_fortification,development,1
+CLM,Colombia,ANTIOQUIA,port,private_infrastructure,development,1
+CLM,Colombia,ANTIOQUIA,sugar_plantation,plantations,plantation,1
+CLM,Colombia,CAUCA,coffee_plantation,plantations,plantation,2
+CLM,Colombia,CAUCA,maize_farm,staple_crops,agriculture,2
+CLM,Colombia,CAUCA,tobacco_plantation,plantations,plantation,2
+CLM,Colombia,CUNDINAMARCA,cotton_plantation,plantations,plantation,2
+CLM,Colombia,CUNDINAMARCA,government_administration,bureaucracy,development,2
+CLM,Colombia,CUNDINAMARCA,logging_camp,logging,forestry,2
+CLM,Colombia,CUNDINAMARCA,rice_farm,staple_crops,agriculture,2
+CLM,Colombia,CUNDINAMARCA,furniture_manufactory,light_industry,light_industry,1
+CLM,Colombia,CUNDINAMARCA,sugar_plantation,plantations,plantation,1
+CLM,Colombia,CUNDINAMARCA,textile_mill,light_industry,light_industry,1
+CLM,Colombia,GUAVIARE,government_administration,bureaucracy,development,1
+CLM,Colombia,GUAVIARE,livestock_ranch,ranching,agriculture,1
+CLM,Colombia,GUAVIARE,logging_camp,logging,forestry,1
+CLM,Colombia,GUAVIARE,rice_farm,staple_crops,agriculture,1
+CLM,Colombia,PANAMA,banana_plantation,plantations,plantation,1
+CLM,Colombia,PANAMA,coffee_plantation,plantations,plantation,1
+DAI,Dai Nam,ANNAM,barrack,army,development,20
+DAI,Dai Nam,ANNAM,livestock_ranch,ranching,agriculture,3
+DAI,Dai Nam,ANNAM,fishing_wharf,fishing,fishing,1
+DAI,Dai Nam,ANNAM,port,private_infrastructure,development,1
+DAI,Dai Nam,MEKONG,barrack,army,development,15
+DAI,Dai Nam,MEKONG,fishing_wharf,fishing,fishing,1
+DAI,Dai Nam,MEKONG,port,private_infrastructure,development,1
+DAI,Dai Nam,MEKONG,rice_farm,staple_crops,agriculture,1
+DAI,Dai Nam,MEKONG,trade_center,trade,trade,1
+DAI,Dai Nam,TONKIN,barrack,army,development,20
+DAI,Dai Nam,TONKIN,government_administration,bureaucracy,development,3
+DAI,Dai Nam,TONKIN,opium_plantation,plantations,plantation,2
+DAI,Dai Nam,TONKIN,tea_plantation,plantations,plantation,2
+DAI,Dai Nam,TONKIN,rice_farm,staple_crops,agriculture,1
+DEI,Dutch East Indies,ACEH,rice_farm,staple_crops,agriculture,1
+DEI,Dutch East Indies,CELEBES,port,private_infrastructure,development,1
+DEI,Dutch East Indies,CELEBES,tea_plantation,plantations,plantation,1
+DEI,Dutch East Indies,CENTRAL_JAVA,rice_farm,staple_crops,agriculture,5
+DEI,Dutch East Indies,CENTRAL_JAVA,tobacco_plantation,plantations,plantation,3
+DEI,Dutch East Indies,CENTRAL_JAVA,dye_plantation,plantations,plantation,2
+DEI,Dutch East Indies,CENTRAL_JAVA,sugar_plantation,plantations,plantation,2
+DEI,Dutch East Indies,CENTRAL_JAVA,coffee_plantation,plantations,plantation,1
+DEI,Dutch East Indies,CENTRAL_JAVA,government_administration,bureaucracy,development,1
+DEI,Dutch East Indies,CENTRAL_JAVA,logging_camp,logging,forestry,1
+DEI,Dutch East Indies,CENTRAL_JAVA,tea_plantation,plantations,plantation,1
+DEI,Dutch East Indies,EAST_BORNEO,port,private_infrastructure,development,1
+DEI,Dutch East Indies,EAST_BORNEO,rice_farm,staple_crops,agriculture,1
+DEI,Dutch East Indies,EAST_JAVA,rice_farm,staple_crops,agriculture,8
+DEI,Dutch East Indies,EAST_JAVA,tobacco_plantation,plantations,plantation,5
+DEI,Dutch East Indies,EAST_JAVA,dye_plantation,plantations,plantation,4
+DEI,Dutch East Indies,EAST_JAVA,government_administration,bureaucracy,development,3
+DEI,Dutch East Indies,EAST_JAVA,coffee_plantation,plantations,plantation,2
+DEI,Dutch East Indies,EAST_JAVA,sugar_plantation,plantations,plantation,2
+DEI,Dutch East Indies,EAST_JAVA,logging_camp,logging,forestry,1
+DEI,Dutch East Indies,EAST_JAVA,naval_administration,naval_administration,development,1
+DEI,Dutch East Indies,EAST_JAVA,tea_plantation,plantations,plantation,1
+DEI,Dutch East Indies,MOLUCCAS,dye_plantation,plantations,plantation,2
+DEI,Dutch East Indies,MOLUCCAS,port,private_infrastructure,development,1
+DEI,Dutch East Indies,MOLUCCAS,tea_plantation,plantations,plantation,1
+DEI,Dutch East Indies,NORTH_SUMATRA,government_administration,bureaucracy,development,1
+DEI,Dutch East Indies,NORTH_SUMATRA,logging_camp,logging,forestry,1
+DEI,Dutch East Indies,NORTH_SUMATRA,port,private_infrastructure,development,1
+DEI,Dutch East Indies,SOUTH_SUMATRA,government_administration,bureaucracy,development,1
+DEI,Dutch East Indies,SOUTH_SUMATRA,logging_camp,logging,forestry,1
+DEI,Dutch East Indies,SOUTH_SUMATRA,tobacco_plantation,plantations,plantation,1
+DEI,Dutch East Indies,SUNDA_ISLANDS,tobacco_plantation,plantations,plantation,3
+DEI,Dutch East Indies,SUNDA_ISLANDS,port,private_infrastructure,development,1
+DEI,Dutch East Indies,WEST_JAVA,rice_farm,staple_crops,agriculture,17
+DEI,Dutch East Indies,WEST_JAVA,tobacco_plantation,plantations,plantation,10
+DEI,Dutch East Indies,WEST_JAVA,trade_center,trade,trade,6
+DEI,Dutch East Indies,WEST_JAVA,government_administration,bureaucracy,development,4
+DEI,Dutch East Indies,WEST_JAVA,coffee_plantation,plantations,plantation,3
+DEI,Dutch East Indies,WEST_JAVA,logging_camp,logging,forestry,3
+DEI,Dutch East Indies,WEST_JAVA,construction_sector,construction,development,2
+DEI,Dutch East Indies,WEST_JAVA,cotton_plantation,plantations,plantation,2
+DEI,Dutch East Indies,WEST_JAVA,dye_plantation,plantations,plantation,2
+DEI,Dutch East Indies,WEST_JAVA,naval_fortification,naval_fortification,development,1
+DEI,Dutch East Indies,WEST_JAVA,port,private_infrastructure,development,1
+DEI,Dutch East Indies,WEST_JAVA,shipyard,ship_construction,light_industry,1
+BIC,East India,AGRA,cotton_plantation,plantations,plantation,6
+BIC,East India,AGRA,dye_plantation,plantations,plantation,5
+BIC,East India,AGRA,government_administration,bureaucracy,development,3
+BIC,East India,AGRA,arms_industry,military_industry,heavy_industry,2
+BIC,East India,AGRA,logging_camp,logging,forestry,2
+BIC,East India,AGRA,textile_mill,light_industry,light_industry,2
+BIC,East India,AGRA,furniture_manufactory,light_industry,light_industry,1
+BIC,East India,AGRA,iron_mine,mining,mine,1
+BIC,East India,AGRA,trade_center,trade,trade,1
+BIC,East India,AGRA,taj_mahal,monuments,special,0
+BIC,East India,ARAKAN,opium_plantation,plantations,plantation,1
+BIC,East India,ASSAM,tea_plantation,plantations,plantation,2
+BIC,East India,ASSAM,government_administration,bureaucracy,development,1
+BIC,East India,ASSAM,logging_camp,logging,forestry,1
+BIC,East India,AWADH,opium_plantation,plantations,plantation,18
+BIC,East India,AWADH,dye_plantation,plantations,plantation,8
+BIC,East India,AWADH,silk_plantation,plantations,plantation,4
+BIC,East India,AWADH,banana_plantation,plantations,plantation,3
+BIC,East India,AWADH,textile_mill,light_industry,light_industry,2
+BIC,East India,BIHAR,opium_plantation,plantations,plantation,25
+BIC,East India,BIHAR,dye_plantation,plantations,plantation,5
+BIC,East India,BIHAR,government_administration,bureaucracy,development,3
+BIC,East India,BIHAR,tobacco_plantation,plantations,plantation,3
+BIC,East India,BIHAR,sugar_plantation,plantations,plantation,2
+BIC,East India,BIHAR,arms_industry,military_industry,heavy_industry,1
+BIC,East India,BOMBAY,government_administration,bureaucracy,development,10
+BIC,East India,BOMBAY,logging_camp,logging,forestry,6
+BIC,East India,BOMBAY,port,private_infrastructure,development,4
+BIC,East India,BOMBAY,textile_mill,light_industry,light_industry,4
+BIC,East India,BOMBAY,arms_industry,military_industry,heavy_industry,3
+BIC,East India,BOMBAY,fishing_wharf,fishing,fishing,3
+BIC,East India,BOMBAY,shipyard,ship_construction,light_industry,3
+BIC,East India,BOMBAY,cotton_plantation,plantations,plantation,2
+BIC,East India,BOMBAY,artillery_foundry,military_industry,heavy_industry,1
+BIC,East India,BOMBAY,construction_sector,construction,development,1
+BIC,East India,BOMBAY,furniture_manufactory,light_industry,light_industry,1
+BIC,East India,BOMBAY,naval_administration,naval_administration,development,1
+BIC,East India,CENTRAL_PROVINCES,opium_plantation,plantations,plantation,4
+BIC,East India,CENTRAL_PROVINCES,cotton_plantation,plantations,plantation,2
+BIC,East India,CENTRAL_PROVINCES,iron_mine,mining,mine,1
+BIC,East India,CIRCARS,banana_plantation,plantations,plantation,5
+BIC,East India,CIRCARS,government_administration,bureaucracy,development,5
+BIC,East India,CIRCARS,textile_mill,light_industry,light_industry,5
+BIC,East India,CIRCARS,cotton_plantation,plantations,plantation,3
+BIC,East India,CIRCARS,sugar_plantation,plantations,plantation,2
+BIC,East India,CIRCARS,tobacco_plantation,plantations,plantation,2
+BIC,East India,CIRCARS,arms_industry,military_industry,heavy_industry,1
+BIC,East India,CIRCARS,port,private_infrastructure,development,1
+BIC,East India,CIRCARS,trade_center,trade,trade,1
+BIC,East India,DELHI,cotton_plantation,plantations,plantation,1
+BIC,East India,DELHI,government_administration,bureaucracy,development,1
+BIC,East India,DELHI,textile_mill,light_industry,light_industry,1
+BIC,East India,EAST_BENGAL,dye_plantation,plantations,plantation,8
+BIC,East India,EAST_BENGAL,government_administration,bureaucracy,development,5
+BIC,East India,EAST_BENGAL,textile_mill,light_industry,light_industry,4
+BIC,East India,EAST_BENGAL,fishing_wharf,fishing,fishing,2
+BIC,East India,EAST_BENGAL,logging_camp,logging,forestry,2
+BIC,East India,EAST_BENGAL,silk_plantation,plantations,plantation,2
+BIC,East India,EAST_BENGAL,port,private_infrastructure,development,1
+BIC,East India,GUJARAT,cotton_plantation,plantations,plantation,2
+BIC,East India,GUJARAT,paper_mill,light_industry,light_industry,2
+BIC,East India,GUJARAT,fishing_wharf,fishing,fishing,1
+BIC,East India,GUJARAT,furniture_manufactory,light_industry,light_industry,1
+BIC,East India,GUJARAT,government_administration,bureaucracy,development,1
+BIC,East India,GUJARAT,silk_plantation,plantations,plantation,1
+BIC,East India,GUJARAT,textile_mill,light_industry,light_industry,1
+BIC,East India,GUJARAT,tobacco_plantation,plantations,plantation,1
+BIC,East India,KURNOOL,tobacco_plantation,plantations,plantation,1
+BIC,East India,MADRAS,dye_plantation,plantations,plantation,10
+BIC,East India,MADRAS,government_administration,bureaucracy,development,8
+BIC,East India,MADRAS,tobacco_plantation,plantations,plantation,6
+BIC,East India,MADRAS,silk_plantation,plantations,plantation,5
+BIC,East India,MADRAS,textile_mill,light_industry,light_industry,4
+BIC,East India,MADRAS,arms_industry,military_industry,heavy_industry,2
+BIC,East India,MADRAS,fishing_wharf,fishing,fishing,2
+BIC,East India,MADRAS,iron_mine,mining,mine,2
+BIC,East India,MADRAS,logging_camp,logging,forestry,2
+BIC,East India,MADRAS,construction_sector,construction,development,1
+BIC,East India,MADRAS,port,private_infrastructure,development,1
+BIC,East India,MADRAS,trade_center,trade,trade,1
+BIC,East India,MYSORE,gold_mine,mining,mine,2
+BIC,East India,MYSORE,coffee_plantation,plantations,plantation,1
+BIC,East India,ORISSA,logging_camp,logging,forestry,4
+BIC,East India,ORISSA,port,private_infrastructure,development,1
+BIC,East India,ORISSA,sugar_plantation,plantations,plantation,1
+BIC,East India,TENASSERIM,dye_plantation,plantations,plantation,2
+BIC,East India,TENASSERIM,port,private_infrastructure,development,1
+BIC,East India,TRAVANCORE,coffee_plantation,plantations,plantation,1
+BIC,East India,WEST_BENGAL,opium_plantation,plantations,plantation,25
+BIC,East India,WEST_BENGAL,trade_center,trade,trade,12
+BIC,East India,WEST_BENGAL,government_administration,bureaucracy,development,10
+BIC,East India,WEST_BENGAL,port,private_infrastructure,development,7
+BIC,East India,WEST_BENGAL,textile_mill,light_industry,light_industry,7
+BIC,East India,WEST_BENGAL,tobacco_plantation,plantations,plantation,6
+BIC,East India,WEST_BENGAL,dye_plantation,plantations,plantation,5
+BIC,East India,WEST_BENGAL,silk_plantation,plantations,plantation,5
+BIC,East India,WEST_BENGAL,logging_camp,logging,forestry,4
+BIC,East India,WEST_BENGAL,fishing_wharf,fishing,fishing,3
+BIC,East India,WEST_BENGAL,glassworks,light_industry,light_industry,3
+BIC,East India,WEST_BENGAL,silk_plantation,plantations,plantation,3
+BIC,East India,WEST_BENGAL,arms_industry,military_industry,heavy_industry,2
+BIC,East India,WEST_BENGAL,coal_mine,mining,mine,2
+BIC,East India,WEST_BENGAL,paper_mill,light_industry,light_industry,2
+BIC,East India,WEST_BENGAL,shipyard,ship_construction,light_industry,2
+BIC,East India,WEST_BENGAL,construction_sector,construction,development,1
+BIC,East India,WEST_BENGAL,iron_mine,mining,mine,1
+EGY,Egypt,ADANA,fishing_wharf,fishing,fishing,2
+EGY,Egypt,ADANA,port,private_infrastructure,development,2
+EGY,Egypt,ADANA,cotton_plantation,plantations,plantation,1
+EGY,Egypt,ADANA,livestock_ranch,ranching,agriculture,1
+EGY,Egypt,ADANA,tea_plantation,plantations,plantation,1
+EGY,Egypt,ALEPPO,fishing_wharf,fishing,fishing,1
+EGY,Egypt,ALEPPO,glassworks,light_industry,light_industry,1
+EGY,Egypt,ALEPPO,port,private_infrastructure,development,1
+EGY,Egypt,ALEPPO,tobacco_plantation,plantations,plantation,1
+EGY,Egypt,ALEPPO,wheat_farm,staple_crops,agriculture,1
+EGY,Egypt,BLUE_NILE,logging_camp,logging,forestry,4
+EGY,Egypt,BLUE_NILE,coffee_plantation,plantations,plantation,2
+EGY,Egypt,BLUE_NILE,livestock_ranch,ranching,agriculture,2
+EGY,Egypt,BLUE_NILE,millet_farm,staple_crops,agriculture,2
+EGY,Egypt,BLUE_NILE,sugar_plantation,plantations,plantation,1
+EGY,Egypt,CRETE,cotton_plantation,plantations,plantation,1
+EGY,Egypt,CRETE,fishing_wharf,fishing,fishing,1
+EGY,Egypt,CRETE,port,private_infrastructure,development,1
+EGY,Egypt,DONGOLA,millet_farm,staple_crops,agriculture,2
+EGY,Egypt,DONGOLA,livestock_ranch,ranching,agriculture,1
+EGY,Egypt,ERITREA,fishing_wharf,fishing,fishing,1
+EGY,Egypt,ERITREA,port,private_infrastructure,development,1
+EGY,Egypt,KORDOFAN,livestock_ranch,ranching,agriculture,1
+EGY,Egypt,LEBANON,fishing_wharf,fishing,fishing,1
+EGY,Egypt,LEBANON,millet_farm,staple_crops,agriculture,1
+EGY,Egypt,LEBANON,silk_plantation,plantations,plantation,1
+EGY,Egypt,LOWER_EGYPT,naval_administration,naval_administration,development,15
+EGY,Egypt,LOWER_EGYPT,cotton_plantation,plantations,plantation,8
+EGY,Egypt,LOWER_EGYPT,tobacco_plantation,plantations,plantation,8
+EGY,Egypt,LOWER_EGYPT,trade_center,trade,trade,8
+EGY,Egypt,LOWER_EGYPT,government_administration,bureaucracy,development,7
+EGY,Egypt,LOWER_EGYPT,wheat_farm,staple_crops,agriculture,7
+EGY,Egypt,LOWER_EGYPT,fishing_wharf,fishing,fishing,3
+EGY,Egypt,LOWER_EGYPT,opium_plantation,plantations,plantation,3
+EGY,Egypt,LOWER_EGYPT,paper_mill,light_industry,light_industry,3
+EGY,Egypt,LOWER_EGYPT,textile_mill,light_industry,light_industry,3
+EGY,Egypt,LOWER_EGYPT,arms_industry,military_industry,heavy_industry,2
+EGY,Egypt,LOWER_EGYPT,construction_sector,construction,development,2
+EGY,Egypt,LOWER_EGYPT,port,private_infrastructure,development,2
+EGY,Egypt,LOWER_EGYPT,shipyard,ship_construction,light_industry,2
+EGY,Egypt,LOWER_EGYPT,livestock_ranch,ranching,agriculture,1
+EGY,Egypt,LOWER_EGYPT,naval_fortification,naval_fortification,development,1
+EGY,Egypt,LOWER_EGYPT,sugar_plantation,plantations,plantation,1
+EGY,Egypt,LOWER_EGYPT,giza_necropolis,monuments_hidden,bg_monuments_hidden,0
+EGY,Egypt,MIDDLE_EGYPT,tobacco_plantation,plantations,plantation,3
+EGY,Egypt,MIDDLE_EGYPT,wheat_farm,staple_crops,agriculture,3
+EGY,Egypt,MIDDLE_EGYPT,cotton_plantation,plantations,plantation,2
+EGY,Egypt,MIDDLE_EGYPT,government_administration,bureaucracy,development,2
+EGY,Egypt,MIDDLE_EGYPT,construction_sector,construction,development,1
+EGY,Egypt,MIDDLE_EGYPT,sugar_plantation,plantations,plantation,1
+EGY,Egypt,PALESTINE,fishing_wharf,fishing,fishing,1
+EGY,Egypt,PALESTINE,livestock_ranch,ranching,agriculture,1
+EGY,Egypt,SYRIA,government_administration,bureaucracy,development,3
+EGY,Egypt,SYRIA,millet_farm,staple_crops,agriculture,2
+EGY,Egypt,SYRIA,tobacco_plantation,plantations,plantation,2
+EGY,Egypt,SYRIA,glassworks,light_industry,light_industry,1
+EGY,Egypt,SYRIA,textile_mill,light_industry,light_industry,1
+EGY,Egypt,SYRIA,trade_center,trade,trade,1
+EGY,Egypt,TRANSJORDAN,livestock_ranch,ranching,agriculture,1
+EGY,Egypt,TRANSJORDAN,petra,monuments_hidden,bg_monuments_hidden,0
+EGY,Egypt,UPPER_EGYPT,wheat_farm,staple_crops,agriculture,2
+EGY,Egypt,UPPER_EGYPT,fishing_wharf,fishing,fishing,1
+FRA,France,ALGIERS,government_administration,bureaucracy,development,1
+FRA,France,ALGIERS,livestock_ranch,ranching,agriculture,1
+FRA,France,ALGIERS,port,private_infrastructure,development,1
+FRA,France,ALGIERS,wheat_farm,staple_crops,agriculture,1
+FRA,France,ALSACE_LORRAINE,logging_camp,logging,forestry,5
+FRA,France,ALSACE_LORRAINE,textile_mill,light_industry,light_industry,5
+FRA,France,ALSACE_LORRAINE,wheat_farm,staple_crops,agriculture,5
+FRA,France,ALSACE_LORRAINE,arms_industry,military_industry,heavy_industry,4
+FRA,France,ALSACE_LORRAINE,iron_mine,mining,mine,4
+FRA,France,ALSACE_LORRAINE,steel_mill,heavy_industry,heavy_industry,2
+FRA,France,ALSACE_LORRAINE,trade_center,trade,trade,1
+FRA,France,ALSACE_LORRAINE,vineyard,agriculture,agriculture,1
+FRA,France,AQUITAINE,vineyard,agriculture,agriculture,16
+FRA,France,AQUITAINE,wheat_farm,staple_crops,agriculture,6
+FRA,France,AQUITAINE,food_industry,light_industry,light_industry,3
+FRA,France,AQUITAINE,logging_camp,logging,forestry,3
+FRA,France,AQUITAINE,trade_center,trade,trade,3
+FRA,France,AQUITAINE,fishing_wharf,fishing,fishing,2
+FRA,France,AQUITAINE,port,private_infrastructure,development,1
+FRA,France,AUVERGNE_LIMOUSIN,wheat_farm,staple_crops,agriculture,10
+FRA,France,AUVERGNE_LIMOUSIN,furniture_manufactory,light_industry,light_industry,5
+FRA,France,AUVERGNE_LIMOUSIN,paper_mill,light_industry,light_industry,5
+FRA,France,AUVERGNE_LIMOUSIN,government_administration,bureaucracy,development,3
+FRA,France,AUVERGNE_LIMOUSIN,logging_camp,logging,forestry,3
+FRA,France,AUVERGNE_LIMOUSIN,vineyard,agriculture,agriculture,1
+FRA,France,BRITTANY,naval_administration,naval_administration,development,40
+FRA,France,BRITTANY,government_administration,bureaucracy,development,5
+FRA,France,BRITTANY,livestock_ranch,ranching,agriculture,5
+FRA,France,BRITTANY,logging_camp,logging,forestry,4
+FRA,France,BRITTANY,shipyard,ship_construction,light_industry,4
+FRA,France,BRITTANY,fishing_wharf,fishing,fishing,3
+FRA,France,BRITTANY,naval_fortification,naval_fortification,development,2
+FRA,France,BRITTANY,port,private_infrastructure,development,2
+FRA,France,BRITTANY,trade_center,trade,trade,2
+FRA,France,BRITTANY,wheat_farm,staple_crops,agriculture,2
+FRA,France,BRITTANY,vineyard,agriculture,agriculture,1
+FRA,France,BURGUNDY,wheat_farm,staple_crops,agriculture,8
+FRA,France,BURGUNDY,vineyard,agriculture,agriculture,7
+FRA,France,BURGUNDY,tooling_workshop,light_industry,light_industry,4
+FRA,France,BURGUNDY,logging_camp,logging,forestry,2
+FRA,France,BURGUNDY,iron_mine,mining,mine,1
+FRA,France,CHAMPAGNE,food_industry,light_industry,light_industry,6
+FRA,France,CHAMPAGNE,vineyard,agriculture,agriculture,4
+FRA,France,CHAMPAGNE,logging_camp,logging,forestry,3
+FRA,France,CHAMPAGNE,wheat_farm,staple_crops,agriculture,3
+FRA,France,CONSTANTINE,port,private_infrastructure,development,1
+FRA,France,CONSTANTINE,wheat_farm,staple_crops,agriculture,1
+FRA,France,CORSICA,fishing_wharf,fishing,fishing,1
+FRA,France,CORSICA,livestock_ranch,ranching,agriculture,1
+FRA,France,CORSICA,port,private_infrastructure,development,1
+FRA,France,CORSICA,vineyard,agriculture,agriculture,1
+FRA,France,FRANCHE_COMTE,furniture_manufactory,light_industry,light_industry,5
+FRA,France,FRANCHE_COMTE,vineyard,agriculture,agriculture,2
+FRA,France,FRANCHE_COMTE,iron_mine,mining,mine,1
+FRA,France,FRANCHE_COMTE,trade_center,trade,trade,1
+FRA,France,FRANCHE_COMTE,wheat_farm,staple_crops,agriculture,1
+FRA,France,FRENCH_LOW_COUNTRIES,coal_mine,mining,mine,9
+FRA,France,FRENCH_LOW_COUNTRIES,arms_industry,military_industry,heavy_industry,6
+FRA,France,FRENCH_LOW_COUNTRIES,wheat_farm,staple_crops,agriculture,5
+FRA,France,FRENCH_LOW_COUNTRIES,munition_plant,military_industry,heavy_industry,3
+FRA,France,FRENCH_LOW_COUNTRIES,artillery_foundry,military_industry,heavy_industry,2
+FRA,France,FRENCH_LOW_COUNTRIES,livestock_ranch,ranching,agriculture,2
+FRA,France,FRENCH_LOW_COUNTRIES,logging_camp,logging,forestry,2
+FRA,France,FRENCH_LOW_COUNTRIES,explosives_factory,heavy_industry,heavy_industry,1
+FRA,France,FRENCH_LOW_COUNTRIES,port,private_infrastructure,development,1
+FRA,France,FRENCH_LOW_COUNTRIES,trade_center,trade,trade,1
+FRA,France,GUAYANA,port,private_infrastructure,development,1
+FRA,France,GUYENNE,wheat_farm,staple_crops,agriculture,5
+FRA,France,GUYENNE,textile_mill,light_industry,light_industry,3
+FRA,France,GUYENNE,livestock_ranch,ranching,agriculture,2
+FRA,France,GUYENNE,vineyard,agriculture,agriculture,1
+FRA,France,ILE_DE_FRANCE,government_administration,bureaucracy,development,30
+FRA,France,ILE_DE_FRANCE,furniture_manufactory,light_industry,light_industry,9
+FRA,France,ILE_DE_FRANCE,paper_mill,light_industry,light_industry,8
+FRA,France,ILE_DE_FRANCE,construction_sector,construction,development,5
+FRA,France,ILE_DE_FRANCE,naval_administration,naval_administration,development,5
+FRA,France,ILE_DE_FRANCE,trade_center,trade,trade,5
+FRA,France,ILE_DE_FRANCE,university,technology,development,5
+FRA,France,ILE_DE_FRANCE,wheat_farm,staple_crops,agriculture,5
+FRA,France,ILE_DE_FRANCE,livestock_ranch,ranching,agriculture,4
+FRA,France,ILE_DE_FRANCE,art_academy,arts,development,2
+FRA,France,ILE_DE_FRANCE,textile_mill,light_industry,light_industry,2
+FRA,France,ILE_DE_FRANCE,railway,private_infrastructure,development,1
+FRA,France,ILE_DE_FRANCE,vineyard,agriculture,agriculture,1
+FRA,France,INDIAN_OCEAN_TERRITORY,sugar_plantation,plantations,plantation,2
+FRA,France,INDIAN_OCEAN_TERRITORY,port,private_infrastructure,development,1
+FRA,France,INDIAN_OCEAN_TERRITORY,trade_center,trade,trade,1
+FRA,France,IVORY_COAST,port,private_infrastructure,development,1
+FRA,France,LANGUEDOC,vineyard,agriculture,agriculture,22
+FRA,France,LANGUEDOC,wheat_farm,staple_crops,agriculture,7
+FRA,France,LANGUEDOC,glassworks,light_industry,light_industry,4
+FRA,France,LANGUEDOC,fishing_wharf,fishing,fishing,2
+FRA,France,LANGUEDOC,livestock_ranch,ranching,agriculture,2
+FRA,France,LANGUEDOC,trade_center,trade,trade,2
+FRA,France,LANGUEDOC,university,technology,development,2
+FRA,France,LORRAINE,logging_camp,logging,forestry,5
+FRA,France,LORRAINE,sulfur_mine,mining,mine,4
+FRA,France,LORRAINE,tooling_workshop,light_industry,light_industry,4
+FRA,France,LORRAINE,lead_mine,mining,mine,3
+FRA,France,LORRAINE,vineyard,agriculture,agriculture,1
+FRA,France,LORRAINE,wheat_farm,staple_crops,agriculture,1
+FRA,France,MADRAS,dye_plantation,plantations,plantation,1
+FRA,France,MADRAS,port,private_infrastructure,development,1
+FRA,France,MAINE_ANJOU,wheat_farm,staple_crops,agriculture,3
+FRA,France,MAINE_ANJOU,vineyard,agriculture,agriculture,2
+FRA,France,MAINE_ANJOU,livestock_ranch,ranching,agriculture,1
+FRA,France,MAINE_ANJOU,logging_camp,logging,forestry,1
+FRA,France,NORMANDY,naval_administration,naval_administration,development,40
+FRA,France,NORMANDY,shipyard,ship_construction,light_industry,6
+FRA,France,NORMANDY,textile_mill,light_industry,light_industry,6
+FRA,France,NORMANDY,government_administration,bureaucracy,development,5
+FRA,France,NORMANDY,wheat_farm,staple_crops,agriculture,4
+FRA,France,NORMANDY,fishing_wharf,fishing,fishing,3
+FRA,France,NORMANDY,trade_center,trade,trade,3
+FRA,France,NORMANDY,livestock_ranch,ranching,agriculture,2
+FRA,France,NORMANDY,port,private_infrastructure,development,2
+FRA,France,NORMANDY,naval_fortification,naval_fortification,development,1
+FRA,France,NORMANDY,vineyard,agriculture,agriculture,1
+FRA,France,ORAN,fishing_wharf,fishing,fishing,1
+FRA,France,ORAN,port,private_infrastructure,development,1
+FRA,France,ORAN,wheat_farm,staple_crops,agriculture,1
+FRA,France,ORLEANS,wheat_farm,staple_crops,agriculture,5
+FRA,France,ORLEANS,livestock_ranch,ranching,agriculture,4
+FRA,France,ORLEANS,vineyard,agriculture,agriculture,3
+FRA,France,ORLEANS,glassworks,light_industry,light_industry,2
+FRA,France,PICARDY,textile_mill,light_industry,light_industry,5
+FRA,France,PICARDY,wheat_farm,staple_crops,agriculture,5
+FRA,France,PICARDY,livestock_ranch,ranching,agriculture,2
+FRA,France,POITOU,paper_mill,light_industry,light_industry,4
+FRA,France,POITOU,fishing_wharf,fishing,fishing,2
+FRA,France,POITOU,vineyard,agriculture,agriculture,2
+FRA,France,POITOU,wheat_farm,staple_crops,agriculture,2
+FRA,France,POITOU,port,private_infrastructure,development,1
+FRA,France,PROVENCE,silk_plantation,plantations,plantation,8
+FRA,France,PROVENCE,wheat_farm,staple_crops,agriculture,6
+FRA,France,PROVENCE,trade_center,trade,trade,5
+FRA,France,PROVENCE,vineyard,agriculture,agriculture,5
+FRA,France,PROVENCE,textile_mill,light_industry,light_industry,3
+FRA,France,PROVENCE,fishing_wharf,fishing,fishing,2
+FRA,France,PROVENCE,naval_fortification,naval_fortification,development,2
+FRA,France,PROVENCE,port,private_infrastructure,development,2
+FRA,France,RHONE,silk_plantation,plantations,plantation,10
+FRA,France,RHONE,wheat_farm,staple_crops,agriculture,9
+FRA,France,RHONE,vineyard,agriculture,agriculture,7
+FRA,France,RHONE,government_administration,bureaucracy,development,6
+FRA,France,RHONE,textile_mill,light_industry,light_industry,5
+FRA,France,RHONE,coal_mine,mining,mine,4
+FRA,France,RHONE,logging_camp,logging,forestry,4
+FRA,France,RHONE,paper_mill,light_industry,light_industry,4
+FRA,France,RHONE,construction_sector,construction,development,2
+FRA,France,RHONE,trade_center,trade,trade,2
+FRA,France,RHONE,railway,private_infrastructure,development,1
+FRA,France,SENEGAL,port,private_infrastructure,development,1
+FRA,France,WEST_INDIES,sugar_plantation,plantations,plantation,3
+FRA,France,WEST_INDIES,coffee_plantation,plantations,plantation,2
+FRA,France,WEST_INDIES,tobacco_plantation,plantations,plantation,2
+FRA,France,WEST_INDIES,port,private_infrastructure,development,1
+FRA,France,WEST_INDIES,trade_center,trade,trade,1
+GBR,Great Britain,BAHAMAS,banana_plantation,plantations,plantation,1
+GBR,Great Britain,BAHAMAS,port,private_infrastructure,development,1
+GBR,Great Britain,BAHAMAS,sugar_plantation,plantations,plantation,1
+GBR,Great Britain,BERMUDA,naval_fortification,naval_fortification,development,1
+GBR,Great Britain,BERMUDA,port,private_infrastructure,development,1
+GBR,Great Britain,CEYLON,port,private_infrastructure,development,1
+GBR,Great Britain,CONNAUGHT,rye_farm,staple_crops,agriculture,2
+GBR,Great Britain,EAST_ANGLIA,furniture_manufactory,light_industry,light_industry,15
+GBR,Great Britain,EAST_ANGLIA,rye_farm,staple_crops,agriculture,7
+GBR,Great Britain,EAST_ANGLIA,food_industry,light_industry,light_industry,5
+GBR,Great Britain,EAST_ANGLIA,university,technology,development,5
+GBR,Great Britain,EAST_ANGLIA,naval_administration,naval_administration,development,4
+GBR,Great Britain,EAST_ANGLIA,port,private_infrastructure,development,4
+GBR,Great Britain,EAST_ANGLIA,fishing_wharf,fishing,fishing,3
+GBR,Great Britain,EAST_ANGLIA,glassworks,light_industry,light_industry,3
+GBR,Great Britain,EAST_ANGLIA,livestock_ranch,ranching,agriculture,3
+GBR,Great Britain,EAST_ANGLIA,shipyard,ship_construction,light_industry,3
+GBR,Great Britain,EAST_ANGLIA,government_administration,bureaucracy,development,2
+GBR,Great Britain,EAST_ANGLIA,coal_mine,mining,mine,1
+GBR,Great Britain,EAST_ANGLIA,iron_mine,mining,mine,1
+GBR,Great Britain,EAST_ANGLIA,railway,private_infrastructure,development,1
+GBR,Great Britain,GUATEMALA,port,private_infrastructure,development,1
+GBR,Great Britain,GUAYANA,sugar_plantation,plantations,plantation,4
+GBR,Great Britain,GUAYANA,port,private_infrastructure,development,1
+GBR,Great Britain,GUAYANA,trade_center,trade,trade,1
+GBR,Great Britain,HIGHLANDS,fishing_wharf,fishing,fishing,4
+GBR,Great Britain,HIGHLANDS,logging_camp,logging,forestry,3
+GBR,Great Britain,HIGHLANDS,whaling_station,whaling,fishing,2
+GBR,Great Britain,HOME_COUNTIES,naval_administration,naval_administration,development,60
+GBR,Great Britain,HOME_COUNTIES,trade_center,trade,trade,22
+GBR,Great Britain,HOME_COUNTIES,furniture_manufactory,light_industry,light_industry,15
+GBR,Great Britain,HOME_COUNTIES,rye_farm,staple_crops,agriculture,15
+GBR,Great Britain,HOME_COUNTIES,textile_mill,light_industry,light_industry,13
+GBR,Great Britain,HOME_COUNTIES,government_administration,bureaucracy,development,10
+GBR,Great Britain,HOME_COUNTIES,livestock_ranch,ranching,agriculture,5
+GBR,Great Britain,HOME_COUNTIES,paper_mill,light_industry,light_industry,5
+GBR,Great Britain,HOME_COUNTIES,port,private_infrastructure,development,5
+GBR,Great Britain,HOME_COUNTIES,shipyard,ship_construction,light_industry,5
+GBR,Great Britain,HOME_COUNTIES,university,technology,development,5
+GBR,Great Britain,HOME_COUNTIES,art_academy,arts,development,3
+GBR,Great Britain,HOME_COUNTIES,construction_sector,construction,development,3
+GBR,Great Britain,HOME_COUNTIES,fishing_wharf,fishing,fishing,2
+GBR,Great Britain,HOME_COUNTIES,naval_fortification,naval_fortification,development,2
+GBR,Great Britain,HOME_COUNTIES,railway,private_infrastructure,development,2
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,sugar_plantation,plantations,plantation,3
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,port,private_infrastructure,development,1
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,trade_center,trade,trade,1
+GBR,Great Britain,JAMAICA,coffee_plantation,plantations,plantation,5
+GBR,Great Britain,JAMAICA,sugar_plantation,plantations,plantation,3
+GBR,Great Britain,JAMAICA,trade_center,trade,trade,3
+GBR,Great Britain,JAMAICA,banana_plantation,plantations,plantation,1
+GBR,Great Britain,JAMAICA,port,private_infrastructure,development,1
+GBR,Great Britain,LANCASHIRE,coal_mine,mining,mine,25
+GBR,Great Britain,LANCASHIRE,textile_mill,light_industry,light_industry,13
+GBR,Great Britain,LANCASHIRE,naval_administration,naval_administration,development,10
+GBR,Great Britain,LANCASHIRE,rye_farm,staple_crops,agriculture,10
+GBR,Great Britain,LANCASHIRE,government_administration,bureaucracy,development,5
+GBR,Great Britain,LANCASHIRE,trade_center,trade,trade,5
+GBR,Great Britain,LANCASHIRE,arms_industry,military_industry,heavy_industry,4
+GBR,Great Britain,LANCASHIRE,port,private_infrastructure,development,4
+GBR,Great Britain,LANCASHIRE,construction_sector,construction,development,3
+GBR,Great Britain,LANCASHIRE,fishing_wharf,fishing,fishing,3
+GBR,Great Britain,LANCASHIRE,livestock_ranch,ranching,agriculture,3
+GBR,Great Britain,LANCASHIRE,railway,private_infrastructure,development,3
+GBR,Great Britain,LANCASHIRE,iron_mine,mining,mine,2
+GBR,Great Britain,LANCASHIRE,munition_plant,military_industry,heavy_industry,2
+GBR,Great Britain,LEINSTER,rye_farm,staple_crops,agriculture,5
+GBR,Great Britain,LEINSTER,food_industry,light_industry,light_industry,4
+GBR,Great Britain,LEINSTER,port,private_infrastructure,development,2
+GBR,Great Britain,LEINSTER,lead_mine,mining,mine,1
+GBR,Great Britain,LEINSTER,trade_center,trade,trade,1
+GBR,Great Britain,LEINSTER,university,technology,development,1
+GBR,Great Britain,LOWLANDS,rye_farm,staple_crops,agriculture,5
+GBR,Great Britain,LOWLANDS,glassworks,light_industry,light_industry,4
+GBR,Great Britain,LOWLANDS,food_industry,light_industry,light_industry,3
+GBR,Great Britain,LOWLANDS,government_administration,bureaucracy,development,3
+GBR,Great Britain,LOWLANDS,fishing_wharf,fishing,fishing,2
+GBR,Great Britain,LOWLANDS,logging_camp,logging,forestry,2
+GBR,Great Britain,LOWLANDS,port,private_infrastructure,development,2
+GBR,Great Britain,LOWLANDS,university,technology,development,2
+GBR,Great Britain,LOWLANDS,coal_mine,mining,mine,1
+GBR,Great Britain,LOWLANDS,construction_sector,construction,development,1
+GBR,Great Britain,LOWLANDS,iron_mine,mining,mine,1
+GBR,Great Britain,LOWLANDS,livestock_ranch,ranching,agriculture,1
+GBR,Great Britain,LOWLANDS,railway,private_infrastructure,development,1
+GBR,Great Britain,LOWLANDS,trade_center,trade,trade,1
+GBR,Great Britain,MALAYA,trade_center,trade,trade,2
+GBR,Great Britain,MALAYA,port,private_infrastructure,development,1
+GBR,Great Britain,MALTA,naval_fortification,naval_fortification,development,3
+GBR,Great Britain,MALTA,fishing_wharf,fishing,fishing,1
+GBR,Great Britain,MALTA,port,private_infrastructure,development,1
+GBR,Great Britain,MIDLANDS,textile_mill,light_industry,light_industry,22
+GBR,Great Britain,MIDLANDS,naval_administration,naval_administration,development,10
+GBR,Great Britain,MIDLANDS,rye_farm,staple_crops,agriculture,10
+GBR,Great Britain,MIDLANDS,coal_mine,mining,mine,8
+GBR,Great Britain,MIDLANDS,furniture_manufactory,light_industry,light_industry,5
+GBR,Great Britain,MIDLANDS,government_administration,bureaucracy,development,5
+GBR,Great Britain,MIDLANDS,livestock_ranch,ranching,agriculture,5
+GBR,Great Britain,MIDLANDS,iron_mine,mining,mine,4
+GBR,Great Britain,MIDLANDS,arms_industry,military_industry,heavy_industry,3
+GBR,Great Britain,MIDLANDS,trade_center,trade,trade,3
+GBR,Great Britain,MIDLANDS,artillery_foundry,military_industry,heavy_industry,2
+GBR,Great Britain,MIDLANDS,chemical_plant,heavy_industry,heavy_industry,2
+GBR,Great Britain,MIDLANDS,port,private_infrastructure,development,2
+GBR,Great Britain,MIDLANDS,railway,private_infrastructure,development,2
+GBR,Great Britain,MIDLANDS,explosives_factory,heavy_industry,heavy_industry,1
+GBR,Great Britain,MUNSTER,rye_farm,staple_crops,agriculture,3
+GBR,Great Britain,MUNSTER,port,private_infrastructure,development,1
+GBR,Great Britain,NEWFOUNDLAND,fishing_wharf,fishing,fishing,2
+GBR,Great Britain,SOUTH_ATLANTIC_ISLANDS,port,private_infrastructure,development,1
+GBR,Great Britain,ULSTER,rye_farm,staple_crops,agriculture,3
+GBR,Great Britain,ULSTER,livestock_ranch,ranching,agriculture,2
+GBR,Great Britain,ULSTER,logging_camp,logging,forestry,2
+GBR,Great Britain,ULSTER,port,private_infrastructure,development,1
+GBR,Great Britain,UPPER_ANDALUSIA,naval_fortification,naval_fortification,development,3
+GBR,Great Britain,UPPER_ANDALUSIA,port,private_infrastructure,development,2
+GBR,Great Britain,WALES,paper_mill,light_industry,light_industry,5
+GBR,Great Britain,WALES,coal_mine,mining,mine,4
+GBR,Great Britain,WALES,logging_camp,logging,forestry,3
+GBR,Great Britain,WALES,livestock_ranch,ranching,agriculture,2
+GBR,Great Britain,WALES,naval_administration,naval_administration,development,2
+GBR,Great Britain,WALES,trade_center,trade,trade,1
+GBR,Great Britain,WEST_COUNTRY,naval_administration,naval_administration,development,40
+GBR,Great Britain,WEST_COUNTRY,shipyard,ship_construction,light_industry,9
+GBR,Great Britain,WEST_COUNTRY,tooling_workshop,light_industry,light_industry,6
+GBR,Great Britain,WEST_COUNTRY,government_administration,bureaucracy,development,5
+GBR,Great Britain,WEST_COUNTRY,port,private_infrastructure,development,4
+GBR,Great Britain,WEST_COUNTRY,livestock_ranch,ranching,agriculture,3
+GBR,Great Britain,WEST_COUNTRY,trade_center,trade,trade,3
+GBR,Great Britain,WEST_COUNTRY,fishing_wharf,fishing,fishing,2
+GBR,Great Britain,WEST_COUNTRY,lead_mine,mining,mine,2
+GBR,Great Britain,WEST_COUNTRY,naval_fortification,naval_fortification,development,2
+GBR,Great Britain,WEST_COUNTRY,wheat_farm,staple_crops,agriculture,2
+GBR,Great Britain,WEST_COUNTRY,textile_mill,light_industry,light_industry,1
+GBR,Great Britain,WEST_INDIES,coffee_plantation,plantations,plantation,2
+GBR,Great Britain,WEST_INDIES,sugar_plantation,plantations,plantation,2
+GBR,Great Britain,WEST_INDIES,tobacco_plantation,plantations,plantation,2
+GBR,Great Britain,WEST_INDIES,port,private_infrastructure,development,1
+GBR,Great Britain,YORKSHIRE,coal_mine,mining,mine,20
+GBR,Great Britain,YORKSHIRE,tooling_workshop,light_industry,light_industry,15
+GBR,Great Britain,YORKSHIRE,naval_administration,naval_administration,development,10
+GBR,Great Britain,YORKSHIRE,rye_farm,staple_crops,agriculture,8
+GBR,Great Britain,YORKSHIRE,steel_mill,heavy_industry,heavy_industry,8
+GBR,Great Britain,YORKSHIRE,textile_mill,light_industry,light_industry,8
+GBR,Great Britain,YORKSHIRE,government_administration,bureaucracy,development,5
+GBR,Great Britain,YORKSHIRE,iron_mine,mining,mine,4
+GBR,Great Britain,YORKSHIRE,railway,private_infrastructure,development,4
+GBR,Great Britain,YORKSHIRE,livestock_ranch,ranching,agriculture,3
+GBR,Great Britain,YORKSHIRE,motor_industry,heavy_industry,heavy_industry,3
+GBR,Great Britain,YORKSHIRE,trade_center,trade,trade,3
+GBR,Great Britain,YORKSHIRE,construction_sector,construction,development,2
+GBR,Great Britain,YORKSHIRE,port,private_infrastructure,development,2
+GRE,Greece,ATTICA,cotton_plantation,plantations,plantation,2
+GRE,Greece,ATTICA,government_administration,bureaucracy,development,2
+GRE,Greece,ATTICA,logging_camp,logging,forestry,2
+GRE,Greece,ATTICA,fishing_wharf,fishing,fishing,1
+GRE,Greece,ATTICA,port,private_infrastructure,development,1
+GRE,Greece,ATTICA,shipyard,ship_construction,light_industry,1
+GRE,Greece,ATTICA,tobacco_plantation,plantations,plantation,1
+GRE,Greece,ATTICA,trade_center,trade,trade,1
+GRE,Greece,ATTICA,vineyard,agriculture,agriculture,1
+GRE,Greece,ATTICA,wheat_farm,staple_crops,agriculture,1
+GRE,Greece,PELOPONNESE,fishing_wharf,fishing,fishing,1
+GRE,Greece,PELOPONNESE,port,private_infrastructure,development,1
+GRE,Greece,PELOPONNESE,vineyard,agriculture,agriculture,1
+GRE,Greece,PELOPONNESE,wheat_farm,staple_crops,agriculture,1
+GRE,Greece,WEST_AEGEAN_ISLANDS,fishing_wharf,fishing,fishing,1
+GRE,Greece,WEST_AEGEAN_ISLANDS,naval_administration,naval_administration,development,1
+HUN,Hungary,BANAT,livestock_ranch,ranching,agriculture,4
+HUN,Hungary,BANAT,wheat_farm,staple_crops,agriculture,3
+HUN,Hungary,BEKES,livestock_ranch,ranching,agriculture,2
+HUN,Hungary,BEKES,wheat_farm,staple_crops,agriculture,2
+HUN,Hungary,CENTRAL_HUNGARY,government_administration,bureaucracy,development,5
+HUN,Hungary,CENTRAL_HUNGARY,vineyard,agriculture,agriculture,4
+HUN,Hungary,CENTRAL_HUNGARY,livestock_ranch,ranching,agriculture,3
+HUN,Hungary,CENTRAL_HUNGARY,trade_center,trade,trade,3
+HUN,Hungary,CENTRAL_HUNGARY,wheat_farm,staple_crops,agriculture,3
+HUN,Hungary,CENTRAL_HUNGARY,food_industry,light_industry,light_industry,2
+HUN,Hungary,CENTRAL_HUNGARY,iron_mine,mining,mine,2
+HUN,Hungary,CENTRAL_HUNGARY,university,technology,development,2
+HUN,Hungary,CENTRAL_HUNGARY,construction_sector,construction,development,1
+HUN,Hungary,DELVIDEK,livestock_ranch,ranching,agriculture,3
+HUN,Hungary,DELVIDEK,wheat_farm,staple_crops,agriculture,1
+HUN,Hungary,RUTHENIA,logging_camp,logging,forestry,3
+HUN,Hungary,RUTHENIA,wheat_farm,staple_crops,agriculture,1
+HUN,Hungary,SLOVAKIA,government_administration,bureaucracy,development,3
+HUN,Hungary,SLOVAKIA,furniture_manufactory,light_industry,light_industry,2
+HUN,Hungary,SLOVAKIA,wheat_farm,staple_crops,agriculture,2
+HUN,Hungary,SLOVAKIA,iron_mine,mining,mine,1
+HUN,Hungary,SLOVAKIA,vineyard,agriculture,agriculture,1
+HUN,Hungary,TRANSDANUBIA,livestock_ranch,ranching,agriculture,3
+HUN,Hungary,TRANSDANUBIA,vineyard,agriculture,agriculture,3
+HUN,Hungary,TRANSDANUBIA,food_industry,light_industry,light_industry,2
+HUN,Hungary,TRANSDANUBIA,wheat_farm,staple_crops,agriculture,1
+HYD,Hyderabad,HYDERABAD,government_administration,bureaucracy,development,5
+HYD,Hyderabad,HYDERABAD,silk_plantation,plantations,plantation,3
+HYD,Hyderabad,HYDERABAD,cotton_plantation,plantations,plantation,2
+HYD,Hyderabad,HYDERABAD,sugar_plantation,plantations,plantation,2
+HYD,Hyderabad,HYDERABAD,arms_industry,military_industry,heavy_industry,1
+HYD,Hyderabad,HYDERABAD,paper_mill,light_industry,light_industry,1
+JAP,Japan,CHUGOKU,cotton_plantation,plantations,plantation,2
+JAP,Japan,CHUGOKU,paper_mill,light_industry,light_industry,2
+JAP,Japan,CHUGOKU,fishing_wharf,fishing,fishing,1
+JAP,Japan,CHUGOKU,government_administration,bureaucracy,development,1
+JAP,Japan,CHUGOKU,rice_farm,staple_crops,agriculture,1
+JAP,Japan,CHUGOKU,textile_mill,light_industry,light_industry,1
+JAP,Japan,CHUGOKU,tobacco_plantation,plantations,plantation,1
+JAP,Japan,HOKKAIDO,fishing_wharf,fishing,fishing,2
+JAP,Japan,HOKUSHINETSU,rice_farm,staple_crops,agriculture,4
+JAP,Japan,HOKUSHINETSU,logging_camp,logging,forestry,2
+JAP,Japan,HOKUSHINETSU,tobacco_plantation,plantations,plantation,2
+JAP,Japan,HOKUSHINETSU,fishing_wharf,fishing,fishing,1
+JAP,Japan,HOKUSHINETSU,furniture_manufactory,light_industry,light_industry,1
+JAP,Japan,HOKUSHINETSU,glassworks,light_industry,light_industry,1
+JAP,Japan,HOKUSHINETSU,gold_mine,mining,mine,1
+JAP,Japan,HOKUSHINETSU,government_administration,bureaucracy,development,1
+JAP,Japan,KANSAI,government_administration,bureaucracy,development,3
+JAP,Japan,KANSAI,textile_mill,light_industry,light_industry,3
+JAP,Japan,KANSAI,cotton_plantation,plantations,plantation,2
+JAP,Japan,KANSAI,logging_camp,logging,forestry,2
+JAP,Japan,KANSAI,rice_farm,staple_crops,agriculture,2
+JAP,Japan,KANSAI,construction_sector,construction,development,1
+JAP,Japan,KANSAI,dye_plantation,plantations,plantation,1
+JAP,Japan,KANSAI,fishing_wharf,fishing,fishing,1
+JAP,Japan,KANSAI,food_industry,light_industry,light_industry,1
+JAP,Japan,KANSAI,furniture_manufactory,light_industry,light_industry,1
+JAP,Japan,KANSAI,shipyard,ship_construction,light_industry,1
+JAP,Japan,KANSAI,tobacco_plantation,plantations,plantation,1
+JAP,Japan,KANSAI,whaling_station,whaling,fishing,1
+JAP,Japan,KANTO,government_administration,bureaucracy,development,6
+JAP,Japan,KANTO,logging_camp,logging,forestry,3
+JAP,Japan,KANTO,rice_farm,staple_crops,agriculture,3
+JAP,Japan,KANTO,fishing_wharf,fishing,fishing,2
+JAP,Japan,KANTO,food_industry,light_industry,light_industry,2
+JAP,Japan,KANTO,silk_plantation,plantations,plantation,2
+JAP,Japan,KANTO,construction_sector,construction,development,1
+JAP,Japan,KANTO,dye_plantation,plantations,plantation,1
+JAP,Japan,KANTO,furniture_manufactory,light_industry,light_industry,1
+JAP,Japan,KANTO,lead_mine,mining,mine,1
+JAP,Japan,KANTO,paper_mill,light_industry,light_industry,1
+JAP,Japan,KANTO,port,private_infrastructure,development,1
+JAP,Japan,KANTO,tea_plantation,plantations,plantation,1
+JAP,Japan,KANTO,tobacco_plantation,plantations,plantation,1
+JAP,Japan,KANTO,tooling_workshop,light_industry,light_industry,1
+JAP,Japan,KYOTO,government_administration,bureaucracy,development,4
+JAP,Japan,KYOTO,livestock_ranch,ranching,agriculture,2
+JAP,Japan,KYOTO,tea_plantation,plantations,plantation,2
+JAP,Japan,KYOTO,food_industry,light_industry,light_industry,1
+JAP,Japan,KYOTO,furniture_manufactory,light_industry,light_industry,1
+JAP,Japan,KYOTO,glassworks,light_industry,light_industry,1
+JAP,Japan,KYOTO,logging_camp,logging,forestry,1
+JAP,Japan,KYOTO,rice_farm,staple_crops,agriculture,1
+JAP,Japan,KYOTO,silk_plantation,plantations,plantation,1
+JAP,Japan,KYUSHU,rice_farm,staple_crops,agriculture,4
+JAP,Japan,KYUSHU,port,private_infrastructure,development,3
+JAP,Japan,KYUSHU,government_administration,bureaucracy,development,2
+JAP,Japan,KYUSHU,tea_plantation,plantations,plantation,2
+JAP,Japan,KYUSHU,tobacco_plantation,plantations,plantation,2
+JAP,Japan,KYUSHU,trade_center,trade,trade,2
+JAP,Japan,KYUSHU,fishing_wharf,fishing,fishing,1
+JAP,Japan,RYUKYU_ISLANDS,sugar_plantation,plantations,plantation,1
+JAP,Japan,SHIKOKU,dye_plantation,plantations,plantation,2
+JAP,Japan,SHIKOKU,cotton_plantation,plantations,plantation,1
+JAP,Japan,SHIKOKU,government_administration,bureaucracy,development,1
+JAP,Japan,SHIKOKU,lead_mine,mining,mine,1
+JAP,Japan,SHIKOKU,logging_camp,logging,forestry,1
+JAP,Japan,SHIKOKU,paper_mill,light_industry,light_industry,1
+JAP,Japan,SHIKOKU,tobacco_plantation,plantations,plantation,1
+JAP,Japan,TOHOKU,rice_farm,staple_crops,agriculture,3
+JAP,Japan,TOHOKU,fishing_wharf,fishing,fishing,2
+JAP,Japan,TOHOKU,logging_camp,logging,forestry,2
+JAP,Japan,TOHOKU,glassworks,light_industry,light_industry,1
+JAP,Japan,TOHOKU,government_administration,bureaucracy,development,1
+JAP,Japan,TOHOKU,paper_mill,light_industry,light_industry,1
+JAP,Japan,TOHOKU,silk_plantation,plantations,plantation,1
+JAP,Japan,TOHOKU,tobacco_plantation,plantations,plantation,1
+JAP,Japan,TOKAI,tea_plantation,plantations,plantation,9
+JAP,Japan,TOKAI,logging_camp,logging,forestry,3
+JAP,Japan,TOKAI,government_administration,bureaucracy,development,2
+JAP,Japan,TOKAI,rice_farm,staple_crops,agriculture,2
+JAP,Japan,TOKAI,cotton_plantation,plantations,plantation,1
+JAP,Japan,TOKAI,food_industry,light_industry,light_industry,1
+JAP,Japan,TOKAI,glassworks,light_industry,light_industry,1
+KOR,Korea,BUSAN,barrack,army,development,3
+KOR,Korea,BUSAN,fishing_wharf,fishing,fishing,2
+KOR,Korea,BUSAN,tobacco_plantation,plantations,plantation,2
+KOR,Korea,BUSAN,glassworks,light_industry,light_industry,1
+KOR,Korea,BUSAN,government_administration,bureaucracy,development,1
+KOR,Korea,BUSAN,port,private_infrastructure,development,1
+KOR,Korea,BUSAN,rice_farm,staple_crops,agriculture,1
+KOR,Korea,BUSAN,shipyard,ship_construction,light_industry,1
+KOR,Korea,PYONGYANG,barrack,army,development,10
+KOR,Korea,PYONGYANG,glassworks,light_industry,light_industry,2
+KOR,Korea,PYONGYANG,government_administration,bureaucracy,development,2
+KOR,Korea,PYONGYANG,livestock_ranch,ranching,agriculture,2
+KOR,Korea,PYONGYANG,rice_farm,staple_crops,agriculture,2
+KOR,Korea,PYONGYANG,iron_mine,mining,mine,1
+KOR,Korea,SARIWON,barrack,army,development,5
+KOR,Korea,SARIWON,tobacco_plantation,plantations,plantation,2
+KOR,Korea,SARIWON,government_administration,bureaucracy,development,1
+KOR,Korea,SARIWON,livestock_ranch,ranching,agriculture,1
+KOR,Korea,SARIWON,rice_farm,staple_crops,agriculture,1
+KOR,Korea,SEOUL,barrack,army,development,10
+KOR,Korea,SEOUL,glassworks,light_industry,light_industry,3
+KOR,Korea,SEOUL,government_administration,bureaucracy,development,3
+KOR,Korea,SEOUL,rice_farm,staple_crops,agriculture,3
+KOR,Korea,SEOUL,tobacco_plantation,plantations,plantation,3
+KOR,Korea,SEOUL,fishing_wharf,fishing,fishing,2
+KOR,Korea,SEOUL,construction_sector,construction,development,1
+KOR,Korea,YANGHO,barrack,army,development,2
+KOR,Korea,YANGHO,fishing_wharf,fishing,fishing,2
+KOR,Korea,YANGHO,government_administration,bureaucracy,development,2
+KOR,Korea,YANGHO,glassworks,light_industry,light_industry,1
+KOR,Korea,YANGHO,rice_farm,staple_crops,agriculture,1
+KOR,Korea,YANGHO,tobacco_plantation,plantations,plantation,1
+MEX,Mexico,BAJIO,gold_mine,mining,mine,3
+MEX,Mexico,BAJIO,tobacco_plantation,plantations,plantation,3
+MEX,Mexico,BAJIO,dye_plantation,plantations,plantation,2
+MEX,Mexico,BAJIO,government_administration,bureaucracy,development,2
+MEX,Mexico,BAJIO,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,CHIAPAS,banana_plantation,plantations,plantation,1
+MEX,Mexico,CHIAPAS,dye_plantation,plantations,plantation,1
+MEX,Mexico,CHIHUAHUA,livestock_ranch,ranching,agriculture,1
+MEX,Mexico,DURANGO,livestock_ranch,ranching,agriculture,1
+MEX,Mexico,GUERRERO,fishing_wharf,fishing,fishing,2
+MEX,Mexico,GUERRERO,food_industry,light_industry,light_industry,1
+MEX,Mexico,GUERRERO,government_administration,bureaucracy,development,1
+MEX,Mexico,GUERRERO,logging_camp,logging,forestry,1
+MEX,Mexico,GUERRERO,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,GUERRERO,sugar_plantation,plantations,plantation,1
+MEX,Mexico,JALISCO,government_administration,bureaucracy,development,2
+MEX,Mexico,JALISCO,logging_camp,logging,forestry,2
+MEX,Mexico,JALISCO,university,technology,development,2
+MEX,Mexico,JALISCO,banana_plantation,plantations,plantation,1
+MEX,Mexico,JALISCO,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,MEXICO,government_administration,bureaucracy,development,5
+MEX,Mexico,MEXICO,dye_plantation,plantations,plantation,3
+MEX,Mexico,MEXICO,furniture_manufactory,light_industry,light_industry,2
+MEX,Mexico,MEXICO,textile_mill,light_industry,light_industry,2
+MEX,Mexico,MEXICO,tobacco_plantation,plantations,plantation,2
+MEX,Mexico,MEXICO,construction_sector,construction,development,1
+MEX,Mexico,MEXICO,glassworks,light_industry,light_industry,1
+MEX,Mexico,MEXICO,iron_mine,mining,mine,1
+MEX,Mexico,MEXICO,livestock_ranch,ranching,agriculture,1
+MEX,Mexico,MEXICO,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,OAXACA,fishing_wharf,fishing,fishing,1
+MEX,Mexico,OAXACA,government_administration,bureaucracy,development,1
+MEX,Mexico,OAXACA,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,RIO_GRANDE,fishing_wharf,fishing,fishing,1
+MEX,Mexico,RIO_GRANDE,logging_camp,logging,forestry,1
+MEX,Mexico,RIO_GRANDE,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,SINALOA,livestock_ranch,ranching,agriculture,1
+MEX,Mexico,VERACRUZ,trade_center,trade,trade,3
+MEX,Mexico,VERACRUZ,sugar_plantation,plantations,plantation,2
+MEX,Mexico,VERACRUZ,fishing_wharf,fishing,fishing,1
+MEX,Mexico,VERACRUZ,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,VERACRUZ,naval_administration,naval_administration,development,1
+MEX,Mexico,VERACRUZ,naval_fortification,naval_fortification,development,1
+MEX,Mexico,VERACRUZ,port,private_infrastructure,development,1
+MEX,Mexico,VERACRUZ,textile_mill,light_industry,light_industry,1
+MEX,Mexico,VERACRUZ,tobacco_plantation,plantations,plantation,1
+MEX,Mexico,YUCATAN,banana_plantation,plantations,plantation,1
+MEX,Mexico,YUCATAN,chichen_itza,monuments_hidden,bg_monuments_hidden,0
+MEX,Mexico,ZACATECAS,dye_plantation,plantations,plantation,1
+MEX,Mexico,ZACATECAS,maize_farm,staple_crops,agriculture,1
+MEX,Mexico,ZACATECAS,tobacco_plantation,plantations,plantation,1
+MEX,Mexico,ZACATECAS,tooling_workshop,light_industry,light_industry,1
+MOR,Morocco,AL_RIF,barrack,army,development,3
+MOR,Morocco,AL_RIF,naval_administration,naval_administration,development,2
+MOR,Morocco,AL_RIF,livestock_ranch,ranching,agriculture,1
+MOR,Morocco,AL_RIF,logging_camp,logging,forestry,1
+MOR,Morocco,AL_RIF,shipyard,ship_construction,light_industry,1
+MOR,Morocco,FEZ,barrack,army,development,10
+MOR,Morocco,FEZ,government_administration,bureaucracy,development,3
+MOR,Morocco,FEZ,livestock_ranch,ranching,agriculture,2
+MOR,Morocco,FEZ,fishing_wharf,fishing,fishing,1
+MOR,Morocco,FEZ,port,private_infrastructure,development,1
+MOR,Morocco,FEZ,textile_mill,light_industry,light_industry,1
+MOR,Morocco,FEZ,tooling_workshop,light_industry,light_industry,1
+MOR,Morocco,INNER_MOROCCO,barrack,army,development,4
+MOR,Morocco,INNER_MOROCCO,iron_mine,mining,mine,2
+MOR,Morocco,INNER_MOROCCO,livestock_ranch,ranching,agriculture,2
+MOR,Morocco,MARRAKECH,barrack,army,development,10
+MOR,Morocco,MARRAKECH,fishing_wharf,fishing,fishing,2
+MOR,Morocco,MARRAKECH,glassworks,light_industry,light_industry,1
+MOR,Morocco,MARRAKECH,government_administration,bureaucracy,development,1
+MOR,Morocco,MARRAKECH,livestock_ranch,ranching,agriculture,1
+MOR,Morocco,MARRAKECH,port,private_infrastructure,development,1
+MOR,Morocco,MARRAKECH,trade_center,trade,trade,1
+NEP,Nepal,HIMALAYAS,barrack,army,development,35
+NEP,Nepal,HIMALAYAS,tea_plantation,plantations,plantation,1
+NEP,Nepal,HIMALAYAS,tobacco_plantation,plantations,plantation,1
+NET,Netherlands,FRIESLAND,paper_mill,light_industry,light_industry,5
+NET,Netherlands,FRIESLAND,fishing_wharf,fishing,fishing,3
+NET,Netherlands,FRIESLAND,port,private_infrastructure,development,3
+NET,Netherlands,FRIESLAND,trade_center,trade,trade,2
+NET,Netherlands,FRIESLAND,glassworks,light_industry,light_industry,1
+NET,Netherlands,FRIESLAND,government_administration,bureaucracy,development,1
+NET,Netherlands,FRIESLAND,logging_camp,logging,forestry,1
+NET,Netherlands,GELRE,rye_farm,staple_crops,agriculture,4
+NET,Netherlands,GELRE,furniture_manufactory,light_industry,light_industry,2
+NET,Netherlands,GELRE,government_administration,bureaucracy,development,2
+NET,Netherlands,GELRE,livestock_ranch,ranching,agriculture,2
+NET,Netherlands,GELRE,logging_camp,logging,forestry,1
+NET,Netherlands,GELRE,trade_center,trade,trade,1
+NET,Netherlands,GOLD_COAST,port,private_infrastructure,development,1
+NET,Netherlands,GUAYANA,port,private_infrastructure,development,1
+NET,Netherlands,GUAYANA,sugar_plantation,plantations,plantation,1
+NET,Netherlands,GUAYANA,trade_center,trade,trade,1
+NET,Netherlands,HOLLAND,naval_administration,naval_administration,development,15
+NET,Netherlands,HOLLAND,trade_center,trade,trade,6
+NET,Netherlands,HOLLAND,port,private_infrastructure,development,5
+NET,Netherlands,HOLLAND,shipyard,ship_construction,light_industry,4
+NET,Netherlands,HOLLAND,textile_mill,light_industry,light_industry,4
+NET,Netherlands,HOLLAND,arms_industry,military_industry,heavy_industry,3
+NET,Netherlands,HOLLAND,government_administration,bureaucracy,development,3
+NET,Netherlands,HOLLAND,livestock_ranch,ranching,agriculture,3
+NET,Netherlands,HOLLAND,rye_farm,staple_crops,agriculture,3
+NET,Netherlands,HOLLAND,construction_sector,construction,development,2
+NET,Netherlands,HOLLAND,fishing_wharf,fishing,fishing,2
+NET,Netherlands,HOLLAND,food_industry,light_industry,light_industry,2
+NET,Netherlands,HOLLAND,university,technology,development,2
+NET,Netherlands,HOLLAND,naval_fortification,naval_fortification,development,1
+NET,Netherlands,WEST_INDIES,cotton_plantation,plantations,plantation,1
+NET,Netherlands,WEST_INDIES,port,private_infrastructure,development,1
+OMA,Oman,BALUCHISTAN,port,private_infrastructure,development,1
+OMA,Oman,KENYA,fishing_wharf,fishing,fishing,1
+OMA,Oman,LARISTAN,fishing_wharf,fishing,fishing,1
+OMA,Oman,LARISTAN,port,private_infrastructure,development,1
+OMA,Oman,LARISTAN,trade_center,trade,trade,1
+OMA,Oman,OMAN,barrack,army,development,5
+OMA,Oman,OMAN,naval_administration,naval_administration,development,5
+OMA,Oman,OMAN,government_administration,bureaucracy,development,3
+OMA,Oman,OMAN,port,private_infrastructure,development,3
+OMA,Oman,OMAN,fishing_wharf,fishing,fishing,2
+OMA,Oman,OMAN,shipyard,ship_construction,light_industry,1
+OMA,Oman,OMAN,trade_center,trade,trade,1
+OMA,Oman,SISTAN,port,private_infrastructure,development,1
+OMA,Oman,ZANZIBAR,barrack,army,development,5
+OMA,Oman,ZANZIBAR,logging_camp,logging,forestry,2
+OMA,Oman,ZANZIBAR,port,private_infrastructure,development,2
+OMA,Oman,ZANZIBAR,coffee_plantation,plantations,plantation,1
+OMA,Oman,ZANZIBAR,cotton_plantation,plantations,plantation,1
+OMA,Oman,ZANZIBAR,fishing_wharf,fishing,fishing,1
+TUR,Ottomans,ALBANIA,fishing_wharf,fishing,fishing,2
+TUR,Ottomans,ALBANIA,logging_camp,logging,forestry,2
+TUR,Ottomans,ALBANIA,port,private_infrastructure,development,1
+TUR,Ottomans,ALBANIA,textile_mill,light_industry,light_industry,1
+TUR,Ottomans,ANKARA,government_administration,bureaucracy,development,3
+TUR,Ottomans,ANKARA,wheat_farm,staple_crops,agriculture,3
+TUR,Ottomans,ANKARA,tea_plantation,plantations,plantation,2
+TUR,Ottomans,ANKARA,tobacco_plantation,plantations,plantation,2
+TUR,Ottomans,ANKARA,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,AYDIN,fishing_wharf,fishing,fishing,4
+TUR,Ottomans,AYDIN,wheat_farm,staple_crops,agriculture,3
+TUR,Ottomans,AYDIN,cotton_plantation,plantations,plantation,2
+TUR,Ottomans,AYDIN,furniture_manufactory,light_industry,light_industry,2
+TUR,Ottomans,AYDIN,port,private_infrastructure,development,2
+TUR,Ottomans,AYDIN,silk_plantation,plantations,plantation,2
+TUR,Ottomans,AYDIN,tea_plantation,plantations,plantation,1
+TUR,Ottomans,AYDIN,textile_mill,light_industry,light_industry,1
+TUR,Ottomans,AYDIN,tobacco_plantation,plantations,plantation,1
+TUR,Ottomans,AYDIN,trade_center,trade,trade,1
+TUR,Ottomans,BAGHDAD,tobacco_plantation,plantations,plantation,3
+TUR,Ottomans,BAGHDAD,rice_farm,staple_crops,agriculture,2
+TUR,Ottomans,BAGHDAD,textile_mill,light_industry,light_industry,1
+TUR,Ottomans,BASRA,fishing_wharf,fishing,fishing,1
+TUR,Ottomans,BASRA,port,private_infrastructure,development,1
+TUR,Ottomans,BASRA,rice_farm,staple_crops,agriculture,1
+TUR,Ottomans,BASRA,tobacco_plantation,plantations,plantation,1
+TUR,Ottomans,BASRA,trade_center,trade,trade,1
+TUR,Ottomans,BOSNIA,iron_mine,mining,mine,4
+TUR,Ottomans,BOSNIA,arms_industry,military_industry,heavy_industry,2
+TUR,Ottomans,BOSNIA,logging_camp,logging,forestry,2
+TUR,Ottomans,BOSNIA,tooling_workshop,light_industry,light_industry,2
+TUR,Ottomans,BOSNIA,artillery_foundry,military_industry,heavy_industry,1
+TUR,Ottomans,BOSNIA,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,BULGARIA,logging_camp,logging,forestry,4
+TUR,Ottomans,BULGARIA,wheat_farm,staple_crops,agriculture,4
+TUR,Ottomans,BULGARIA,furniture_manufactory,light_industry,light_industry,3
+TUR,Ottomans,BULGARIA,vineyard,agriculture,agriculture,2
+TUR,Ottomans,BULGARIA,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,BULGARIA,port,private_infrastructure,development,1
+TUR,Ottomans,BULGARIA,trade_center,trade,trade,1
+TUR,Ottomans,CYPRUS,port,private_infrastructure,development,1
+TUR,Ottomans,CYPRUS,wheat_farm,staple_crops,agriculture,1
+TUR,Ottomans,DEIR_EZ_ZOR,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,DIYARBAKIR,tea_plantation,plantations,plantation,2
+TUR,Ottomans,DIYARBAKIR,tobacco_plantation,plantations,plantation,2
+TUR,Ottomans,DIYARBAKIR,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,DOBRUDJA,fishing_wharf,fishing,fishing,2
+TUR,Ottomans,DOBRUDJA,wheat_farm,staple_crops,agriculture,2
+TUR,Ottomans,DOBRUDJA,logging_camp,logging,forestry,1
+TUR,Ottomans,DOBRUDJA,port,private_infrastructure,development,1
+TUR,Ottomans,EASTERN_SERBIA,livestock_ranch,ranching,agriculture,3
+TUR,Ottomans,EASTERN_SERBIA,wheat_farm,staple_crops,agriculture,1
+TUR,Ottomans,EASTERN_THRACE,naval_administration,naval_administration,development,20
+TUR,Ottomans,EASTERN_THRACE,government_administration,bureaucracy,development,10
+TUR,Ottomans,EASTERN_THRACE,shipyard,ship_construction,light_industry,4
+TUR,Ottomans,EASTERN_THRACE,paper_mill,light_industry,light_industry,3
+TUR,Ottomans,EASTERN_THRACE,port,private_infrastructure,development,3
+TUR,Ottomans,EASTERN_THRACE,wheat_farm,staple_crops,agriculture,3
+TUR,Ottomans,EASTERN_THRACE,construction_sector,construction,development,2
+TUR,Ottomans,EASTERN_THRACE,fishing_wharf,fishing,fishing,2
+TUR,Ottomans,EASTERN_THRACE,naval_fortification,naval_fortification,development,2
+TUR,Ottomans,EASTERN_THRACE,silk_plantation,plantations,plantation,2
+TUR,Ottomans,EASTERN_THRACE,textile_mill,light_industry,light_industry,2
+TUR,Ottomans,EASTERN_THRACE,tobacco_plantation,plantations,plantation,2
+TUR,Ottomans,EASTERN_THRACE,trade_center,trade,trade,2
+TUR,Ottomans,EASTERN_THRACE,hagia_sophia,monuments,special,0
+TUR,Ottomans,EAST_AEGEAN_ISLANDS,fishing_wharf,fishing,fishing,1
+TUR,Ottomans,ERZURUM,logging_camp,logging,forestry,2
+TUR,Ottomans,ERZURUM,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,ERZURUM,tea_plantation,plantations,plantation,1
+TUR,Ottomans,HUDAVENDIGAR,naval_administration,naval_administration,development,5
+TUR,Ottomans,HUDAVENDIGAR,tea_plantation,plantations,plantation,4
+TUR,Ottomans,HUDAVENDIGAR,logging_camp,logging,forestry,3
+TUR,Ottomans,HUDAVENDIGAR,paper_mill,light_industry,light_industry,3
+TUR,Ottomans,HUDAVENDIGAR,government_administration,bureaucracy,development,2
+TUR,Ottomans,HUDAVENDIGAR,port,private_infrastructure,development,2
+TUR,Ottomans,HUDAVENDIGAR,wheat_farm,staple_crops,agriculture,2
+TUR,Ottomans,HUDAVENDIGAR,fishing_wharf,fishing,fishing,1
+TUR,Ottomans,HUDAVENDIGAR,textile_mill,light_industry,light_industry,1
+TUR,Ottomans,KARS,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,KARS,tea_plantation,plantations,plantation,1
+TUR,Ottomans,KARS,wheat_farm,staple_crops,agriculture,1
+TUR,Ottomans,KASTAMONU,tea_plantation,plantations,plantation,5
+TUR,Ottomans,KASTAMONU,fishing_wharf,fishing,fishing,3
+TUR,Ottomans,KONYA,tobacco_plantation,plantations,plantation,3
+TUR,Ottomans,KONYA,cotton_plantation,plantations,plantation,2
+TUR,Ottomans,KONYA,tea_plantation,plantations,plantation,2
+TUR,Ottomans,KONYA,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,MACEDONIA,fishing_wharf,fishing,fishing,2
+TUR,Ottomans,MACEDONIA,cotton_plantation,plantations,plantation,1
+TUR,Ottomans,MACEDONIA,food_industry,light_industry,light_industry,1
+TUR,Ottomans,MACEDONIA,trade_center,trade,trade,1
+TUR,Ottomans,MACEDONIA,wheat_farm,staple_crops,agriculture,1
+TUR,Ottomans,MONTENEGRO,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,MOSUL,wheat_farm,staple_crops,agriculture,1
+TUR,Ottomans,NORTHERN_THRACE,logging_camp,logging,forestry,3
+TUR,Ottomans,NORTHERN_THRACE,tobacco_plantation,plantations,plantation,3
+TUR,Ottomans,NORTHERN_THRACE,furniture_manufactory,light_industry,light_industry,2
+TUR,Ottomans,NORTHERN_THRACE,wheat_farm,staple_crops,agriculture,2
+TUR,Ottomans,NORTHERN_THRACE,textile_mill,light_industry,light_industry,1
+TUR,Ottomans,NORTHERN_THRACE,vineyard,agriculture,agriculture,1
+TUR,Ottomans,SKOPIA,tobacco_plantation,plantations,plantation,4
+TUR,Ottomans,SKOPIA,iron_mine,mining,mine,2
+TUR,Ottomans,SKOPIA,wheat_farm,staple_crops,agriculture,1
+TUR,Ottomans,THESSALIA,cotton_plantation,plantations,plantation,2
+TUR,Ottomans,THESSALIA,fishing_wharf,fishing,fishing,2
+TUR,Ottomans,THESSALIA,government_administration,bureaucracy,development,2
+TUR,Ottomans,THESSALIA,wheat_farm,staple_crops,agriculture,2
+TUR,Ottomans,THESSALIA,textile_mill,light_industry,light_industry,1
+TUR,Ottomans,TRABZON,tea_plantation,plantations,plantation,3
+TUR,Ottomans,TRABZON,fishing_wharf,fishing,fishing,2
+TUR,Ottomans,TRABZON,logging_camp,logging,forestry,2
+TUR,Ottomans,TRABZON,livestock_ranch,ranching,agriculture,1
+TUR,Ottomans,TRABZON,port,private_infrastructure,development,1
+TUR,Ottomans,WESTERN_THRACE,glassworks,light_industry,light_industry,4
+TUR,Ottomans,WESTERN_THRACE,fishing_wharf,fishing,fishing,3
+TUR,Ottomans,WESTERN_THRACE,tobacco_plantation,plantations,plantation,3
+TUR,Ottomans,WESTERN_THRACE,government_administration,bureaucracy,development,2
+TUR,Ottomans,WESTERN_THRACE,textile_mill,light_industry,light_industry,2
+TUR,Ottomans,WESTERN_THRACE,wheat_farm,staple_crops,agriculture,2
+TUR,Ottomans,WESTERN_THRACE,port,private_infrastructure,development,1
+PER,Persia,FARS,wheat_farm,staple_crops,agriculture,4
+PER,Persia,FARS,government_administration,bureaucracy,development,2
+PER,Persia,FARS,opium_plantation,plantations,plantation,2
+PER,Persia,FARS,fishing_wharf,fishing,fishing,1
+PER,Persia,FARS,port,private_infrastructure,development,1
+PER,Persia,IRAKAJEMI,government_administration,bureaucracy,development,8
+PER,Persia,IRAKAJEMI,wheat_farm,staple_crops,agriculture,3
+PER,Persia,IRAKAJEMI,livestock_ranch,ranching,agriculture,1
+PER,Persia,IRAKAJEMI,textile_mill,light_industry,light_industry,1
+PER,Persia,ISFAHAN,government_administration,bureaucracy,development,4
+PER,Persia,ISFAHAN,wheat_farm,staple_crops,agriculture,1
+PER,Persia,ISFAHAN,khaju_bridge,monuments_hidden,bg_monuments_hidden,0
+PER,Persia,KERMAN,wheat_farm,staple_crops,agriculture,2
+PER,Persia,KERMAN,dye_plantation,plantations,plantation,1
+PER,Persia,KERMAN,opium_plantation,plantations,plantation,1
+PER,Persia,KHORASAN,government_administration,bureaucracy,development,2
+PER,Persia,KHORASAN,opium_plantation,plantations,plantation,2
+PER,Persia,KHORASAN,glassworks,light_industry,light_industry,1
+PER,Persia,KHORASAN,livestock_ranch,ranching,agriculture,1
+PER,Persia,KHORASAN,wheat_farm,staple_crops,agriculture,1
+PER,Persia,LARISTAN,wheat_farm,staple_crops,agriculture,1
+PER,Persia,LARISTAN,argebam,monuments_hidden,bg_monuments_hidden,0
+PER,Persia,LURISTAN,wheat_farm,staple_crops,agriculture,2
+PER,Persia,LURISTAN,cotton_plantation,plantations,plantation,1
+PER,Persia,MAZANDARAN,furniture_manufactory,light_industry,light_industry,2
+PER,Persia,MAZANDARAN,logging_camp,logging,forestry,2
+PER,Persia,MAZANDARAN,opium_plantation,plantations,plantation,2
+PER,Persia,MAZANDARAN,rice_farm,staple_crops,agriculture,2
+PER,Persia,MAZANDARAN,port,private_infrastructure,development,1
+PER,Persia,MAZANDARAN,tea_plantation,plantations,plantation,1
+PER,Persia,SEMNAN,livestock_ranch,ranching,agriculture,1
+PER,Persia,TABRIZ,government_administration,bureaucracy,development,6
+PER,Persia,TABRIZ,silk_plantation,plantations,plantation,2
+PER,Persia,TABRIZ,tea_plantation,plantations,plantation,2
+PER,Persia,TABRIZ,textile_mill,light_industry,light_industry,2
+PER,Persia,TABRIZ,cotton_plantation,plantations,plantation,1
+PER,Persia,TABRIZ,logging_camp,logging,forestry,1
+PER,Persia,TABRIZ,wheat_farm,staple_crops,agriculture,1
+PER,Persia,URMIA,wheat_farm,staple_crops,agriculture,1
+PHI,Philippines,LUZON,rice_farm,staple_crops,agriculture,10
+PHI,Philippines,LUZON,tobacco_plantation,plantations,plantation,5
+PHI,Philippines,LUZON,government_administration,bureaucracy,development,4
+PHI,Philippines,LUZON,fishing_wharf,fishing,fishing,2
+PHI,Philippines,LUZON,sugar_plantation,plantations,plantation,2
+PHI,Philippines,LUZON,naval_fortification,naval_fortification,development,1
+PHI,Philippines,LUZON,port,private_infrastructure,development,1
+PHI,Philippines,LUZON,trade_center,trade,trade,1
+PHI,Philippines,MINDANAO,rice_farm,staple_crops,agriculture,1
+PHI,Philippines,VISAYAS,tobacco_plantation,plantations,plantation,3
+PHI,Philippines,VISAYAS,fishing_wharf,fishing,fishing,1
+PHI,Philippines,VISAYAS,sugar_plantation,plantations,plantation,1
+PHI,Philippines,WEST_MICRONESIA,port,private_infrastructure,development,1
+POR,Portugal,ALENTEJO,wheat_farm,staple_crops,agriculture,3
+POR,Portugal,ALENTEJO,logging_camp,logging,forestry,2
+POR,Portugal,ALENTEJO,fishing_wharf,fishing,fishing,1
+POR,Portugal,ALENTEJO,government_administration,bureaucracy,development,1
+POR,Portugal,ALENTEJO,livestock_ranch,ranching,agriculture,1
+POR,Portugal,ALENTEJO,vineyard,agriculture,agriculture,1
+POR,Portugal,AZORES,banana_plantation,plantations,plantation,1
+POR,Portugal,AZORES,fishing_wharf,fishing,fishing,1
+POR,Portugal,AZORES,port,private_infrastructure,development,1
+POR,Portugal,AZORES,whaling_station,whaling,fishing,1
+POR,Portugal,BEIRA,livestock_ranch,ranching,agriculture,2
+POR,Portugal,BEIRA,university,technology,development,2
+POR,Portugal,BEIRA,vineyard,agriculture,agriculture,2
+POR,Portugal,BEIRA,wheat_farm,staple_crops,agriculture,2
+POR,Portugal,BEIRA,fishing_wharf,fishing,fishing,1
+POR,Portugal,BEIRA,government_administration,bureaucracy,development,1
+POR,Portugal,BEIRA,logging_camp,logging,forestry,1
+POR,Portugal,BEIRA,textile_mill,light_industry,light_industry,1
+POR,Portugal,BOMBAY,rice_farm,staple_crops,agriculture,2
+POR,Portugal,BOMBAY,port,private_infrastructure,development,1
+POR,Portugal,BOMBAY,trade_center,trade,trade,1
+POR,Portugal,CAPE_VERDE,coffee_plantation,plantations,plantation,1
+POR,Portugal,CAPE_VERDE,cotton_plantation,plantations,plantation,1
+POR,Portugal,CAPE_VERDE,fishing_wharf,fishing,fishing,1
+POR,Portugal,CAPE_VERDE,port,private_infrastructure,development,1
+POR,Portugal,ENTRE_DOURO_E_MINHO,vineyard,agriculture,agriculture,3
+POR,Portugal,ENTRE_DOURO_E_MINHO,fishing_wharf,fishing,fishing,2
+POR,Portugal,ENTRE_DOURO_E_MINHO,government_administration,bureaucracy,development,1
+POR,Portugal,ENTRE_DOURO_E_MINHO,logging_camp,logging,forestry,1
+POR,Portugal,ENTRE_DOURO_E_MINHO,port,private_infrastructure,development,1
+POR,Portugal,ENTRE_DOURO_E_MINHO,wheat_farm,staple_crops,agriculture,1
+POR,Portugal,ESTREMADURA,naval_administration,naval_administration,development,10
+POR,Portugal,ESTREMADURA,trade_center,trade,trade,10
+POR,Portugal,ESTREMADURA,fishing_wharf,fishing,fishing,3
+POR,Portugal,ESTREMADURA,government_administration,bureaucracy,development,3
+POR,Portugal,ESTREMADURA,livestock_ranch,ranching,agriculture,2
+POR,Portugal,ESTREMADURA,port,private_infrastructure,development,2
+POR,Portugal,ESTREMADURA,shipyard,ship_construction,light_industry,2
+POR,Portugal,ESTREMADURA,vineyard,agriculture,agriculture,2
+POR,Portugal,ESTREMADURA,wheat_farm,staple_crops,agriculture,2
+POR,Portugal,ESTREMADURA,construction_sector,construction,development,1
+POR,Portugal,ESTREMADURA,logging_camp,logging,forestry,1
+POR,Portugal,ESTREMADURA,naval_fortification,naval_fortification,development,1
+POR,Portugal,ESTREMADURA,paper_mill,light_industry,light_industry,1
+POR,Portugal,ESTREMADURA,textile_mill,light_industry,light_industry,1
+POR,Portugal,GUANGDONG,trade_center,trade,trade,6
+POR,Portugal,GUANGDONG,dye_plantation,plantations,plantation,2
+POR,Portugal,GUANGDONG,port,private_infrastructure,development,1
+POR,Portugal,GUANGDONG,rice_farm,staple_crops,agriculture,1
+POR,Portugal,GUINEA,millet_farm,staple_crops,agriculture,1
+POR,Portugal,GUINEA,port,private_infrastructure,development,1
+POR,Portugal,GUJARAT,port,private_infrastructure,development,1
+POR,Portugal,LOURENCO_MARQUES,port,private_infrastructure,development,1
+POR,Portugal,MADEIRA,banana_plantation,plantations,plantation,1
+POR,Portugal,MADEIRA,fishing_wharf,fishing,fishing,1
+POR,Portugal,MADEIRA,port,private_infrastructure,development,1
+POR,Portugal,MADEIRA,sugar_plantation,plantations,plantation,1
+POR,Portugal,MADEIRA,vineyard,agriculture,agriculture,1
+POR,Portugal,MOCAMBIQUE,millet_farm,staple_crops,agriculture,1
+POR,Portugal,MOCAMBIQUE,port,private_infrastructure,development,1
+POR,Portugal,NORTH_ANGOLA,coffee_plantation,plantations,plantation,1
+POR,Portugal,NORTH_ANGOLA,millet_farm,staple_crops,agriculture,1
+POR,Portugal,NORTH_ANGOLA,port,private_infrastructure,development,1
+POR,Portugal,NORTH_ANGOLA,sugar_plantation,plantations,plantation,1
+POR,Portugal,SOUTH_ANGOLA,cotton_plantation,plantations,plantation,1
+POR,Portugal,SOUTH_ANGOLA,millet_farm,staple_crops,agriculture,1
+POR,Portugal,SOUTH_CAMEROON,coffee_plantation,plantations,plantation,1
+POR,Portugal,SOUTH_CAMEROON,port,private_infrastructure,development,1
+POR,Portugal,SUNDA_ISLANDS,dye_plantation,plantations,plantation,2
+POR,Portugal,SUNDA_ISLANDS,port,private_infrastructure,development,1
+POR,Portugal,ZAMBEZIA,millet_farm,staple_crops,agriculture,2
+POR,Portugal,ZAMBEZIA,livestock_ranch,ranching,agriculture,1
+POR,Portugal,ZAMBEZIA,port,private_infrastructure,development,1
+PRU,Prussia,ANHALT,logging_camp,logging,forestry,5
+PRU,Prussia,ANHALT,furniture_manufactory,light_industry,light_industry,3
+PRU,Prussia,ANHALT,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,ANHALT,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,BRANDENBURG,government_administration,bureaucracy,development,13
+PRU,Prussia,BRANDENBURG,furniture_manufactory,light_industry,light_industry,5
+PRU,Prussia,BRANDENBURG,paper_mill,light_industry,light_industry,4
+PRU,Prussia,BRANDENBURG,university,technology,development,4
+PRU,Prussia,BRANDENBURG,arms_industry,military_industry,heavy_industry,3
+PRU,Prussia,BRANDENBURG,construction_sector,construction,development,3
+PRU,Prussia,BRANDENBURG,glassworks,light_industry,light_industry,3
+PRU,Prussia,BRANDENBURG,trade_center,trade,trade,2
+PRU,Prussia,EAST_PRUSSIA,logging_camp,logging,forestry,5
+PRU,Prussia,EAST_PRUSSIA,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,EAST_PRUSSIA,textile_mill,light_industry,light_industry,2
+PRU,Prussia,EAST_PRUSSIA,trade_center,trade,trade,2
+PRU,Prussia,LOWER_SILESIA,textile_mill,light_industry,light_industry,6
+PRU,Prussia,LOWER_SILESIA,livestock_ranch,ranching,agriculture,3
+PRU,Prussia,LOWER_SILESIA,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,LOWER_SILESIA,coal_mine,mining,mine,1
+PRU,Prussia,LOWER_SILESIA,construction_sector,construction,development,1
+PRU,Prussia,LOWER_SILESIA,iron_mine,mining,mine,1
+PRU,Prussia,LOWER_SILESIA,lead_mine,mining,mine,1
+PRU,Prussia,LOWER_SILESIA,trade_center,trade,trade,1
+PRU,Prussia,NORTH_RHINE,wheat_farm,staple_crops,agriculture,10
+PRU,Prussia,NORTH_RHINE,coal_mine,mining,mine,4
+PRU,Prussia,NORTH_RHINE,textile_mill,light_industry,light_industry,3
+PRU,Prussia,NORTH_RHINE,iron_mine,mining,mine,2
+PRU,Prussia,NORTH_RHINE,logging_camp,logging,forestry,2
+PRU,Prussia,POMERANIA,trade_center,trade,trade,4
+PRU,Prussia,POMERANIA,fishing_wharf,fishing,fishing,3
+PRU,Prussia,POMERANIA,livestock_ranch,ranching,agriculture,3
+PRU,Prussia,POMERANIA,logging_camp,logging,forestry,2
+PRU,Prussia,POMERANIA,naval_administration,naval_administration,development,2
+PRU,Prussia,POMERANIA,port,private_infrastructure,development,1
+PRU,Prussia,POMERANIA,rye_farm,staple_crops,agriculture,1
+PRU,Prussia,POSEN,food_industry,light_industry,light_industry,5
+PRU,Prussia,POSEN,livestock_ranch,ranching,agriculture,3
+PRU,Prussia,POSEN,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,RHINELAND,tooling_workshop,light_industry,light_industry,6
+PRU,Prussia,RHINELAND,government_administration,bureaucracy,development,5
+PRU,Prussia,RHINELAND,wheat_farm,staple_crops,agriculture,4
+PRU,Prussia,RHINELAND,trade_center,trade,trade,3
+PRU,Prussia,RHINELAND,construction_sector,construction,development,2
+PRU,Prussia,RHINELAND,vineyard,agriculture,agriculture,2
+PRU,Prussia,RHINELAND,steel_mill,heavy_industry,heavy_industry,1
+PRU,Prussia,RUHR,iron_mine,mining,mine,4
+PRU,Prussia,RUHR,arms_industry,military_industry,heavy_industry,3
+PRU,Prussia,RUHR,wheat_farm,staple_crops,agriculture,3
+PRU,Prussia,RUHR,chemical_plant,heavy_industry,heavy_industry,2
+PRU,Prussia,RUHR,coal_mine,mining,mine,2
+PRU,Prussia,RUHR,munition_plant,military_industry,heavy_industry,2
+PRU,Prussia,RUHR,artillery_foundry,military_industry,heavy_industry,1
+PRU,Prussia,RUHR,explosives_factory,heavy_industry,heavy_industry,1
+PRU,Prussia,UPPER_SILESIA,coal_mine,mining,mine,6
+PRU,Prussia,UPPER_SILESIA,iron_mine,mining,mine,3
+PRU,Prussia,UPPER_SILESIA,lead_mine,mining,mine,3
+PRU,Prussia,UPPER_SILESIA,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,UPPER_SILESIA,textile_mill,light_industry,light_industry,2
+PRU,Prussia,UPPER_SILESIA,construction_sector,construction,development,1
+PRU,Prussia,UPPER_SILESIA,livestock_ranch,ranching,agriculture,1
+PRU,Prussia,WESTPHALIA,tooling_workshop,light_industry,light_industry,5
+PRU,Prussia,WESTPHALIA,sulfur_mine,mining,mine,3
+PRU,Prussia,WESTPHALIA,arms_industry,military_industry,heavy_industry,2
+PRU,Prussia,WESTPHALIA,government_administration,bureaucracy,development,2
+PRU,Prussia,WESTPHALIA,iron_mine,mining,mine,2
+PRU,Prussia,WESTPHALIA,rye_farm,staple_crops,agriculture,2
+PRU,Prussia,WESTPHALIA,steel_mill,heavy_industry,heavy_industry,2
+PRU,Prussia,WESTPHALIA,artillery_foundry,military_industry,heavy_industry,1
+PRU,Prussia,WEST_PRUSSIA,rye_farm,staple_crops,agriculture,3
+PRU,Prussia,WEST_PRUSSIA,trade_center,trade,trade,3
+PRU,Prussia,WEST_PRUSSIA,fishing_wharf,fishing,fishing,1
+PRU,Prussia,WEST_PRUSSIA,port,private_infrastructure,development,1
+PRU,Prussia,WEST_PRUSSIA,shipyard,ship_construction,light_industry,1
+PAN,Punjab,HILL_PUNJAB,government_administration,bureaucracy,development,5
+PAN,Punjab,HILL_PUNJAB,iron_mine,mining,mine,2
+PAN,Punjab,HILL_PUNJAB,furniture_manufactory,light_industry,light_industry,1
+PAN,Punjab,HILL_PUNJAB,livestock_ranch,ranching,agriculture,1
+PAN,Punjab,HILL_PUNJAB,silk_plantation,plantations,plantation,1
+PAN,Punjab,PASHTUNISTAN,wheat_farm,staple_crops,agriculture,3
+PAN,Punjab,PASHTUNISTAN,livestock_ranch,ranching,agriculture,1
+PAN,Punjab,PASHTUNISTAN,opium_plantation,plantations,plantation,1
+PAN,Punjab,PUNJAB,government_administration,bureaucracy,development,10
+PAN,Punjab,PUNJAB,tobacco_plantation,plantations,plantation,7
+PAN,Punjab,PUNJAB,dye_plantation,plantations,plantation,3
+PAN,Punjab,PUNJAB,livestock_ranch,ranching,agriculture,3
+PAN,Punjab,PUNJAB,textile_mill,light_industry,light_industry,3
+PAN,Punjab,PUNJAB,arms_industry,military_industry,heavy_industry,2
+PAN,Punjab,PUNJAB,construction_sector,construction,development,2
+PAN,Punjab,PUNJAB,glassworks,light_industry,light_industry,2
+PAN,Punjab,PUNJAB,logging_camp,logging,forestry,2
+PAN,Punjab,PUNJAB,silk_plantation,plantations,plantation,2
+PAN,Punjab,PUNJAB,wheat_farm,staple_crops,agriculture,2
+PAN,Punjab,PUNJAB,furniture_manufactory,light_industry,light_industry,1
+PAN,Punjab,PUNJAB,tooling_workshop,light_industry,light_industry,1
+RUS,Russia,ARKHANGELSK,fishing_wharf,fishing,fishing,1
+RUS,Russia,ARKHANGELSK,port,private_infrastructure,development,1
+RUS,Russia,ARKHANGELSK,trade_center,trade,trade,1
+RUS,Russia,ARMENIA,wheat_farm,staple_crops,agriculture,2
+RUS,Russia,ASTRAKHAN,livestock_ranch,ranching,agriculture,1
+RUS,Russia,ASTRAKHAN,vineyard,agriculture,agriculture,1
+RUS,Russia,AZERBAIJAN,tea_plantation,plantations,plantation,2
+RUS,Russia,AZERBAIJAN,rice_farm,staple_crops,agriculture,1
+RUS,Russia,BESSARABIA,fishing_wharf,fishing,fishing,1
+RUS,Russia,BESSARABIA,vineyard,agriculture,agriculture,1
+RUS,Russia,BREST,logging_camp,logging,forestry,8
+RUS,Russia,BREST,logging_camp,logging,forestry,5
+RUS,Russia,BREST,rye_farm,staple_crops,agriculture,5
+RUS,Russia,CHELYABINSK,iron_mine,mining,mine,2
+RUS,Russia,CHERNIHIV,wheat_farm,staple_crops,agriculture,20
+RUS,Russia,CHERNIHIV,livestock_ranch,ranching,agriculture,5
+RUS,Russia,CHERSON,naval_administration,naval_administration,development,12
+RUS,Russia,CHERSON,wheat_farm,staple_crops,agriculture,10
+RUS,Russia,CHERSON,livestock_ranch,ranching,agriculture,8
+RUS,Russia,CHERSON,shipyard,ship_construction,light_industry,5
+RUS,Russia,CHERSON,port,private_infrastructure,development,2
+RUS,Russia,CHERSON,trade_center,trade,trade,2
+RUS,Russia,CHERSON,vineyard,agriculture,agriculture,1
+RUS,Russia,CRIMEA,naval_fortification,naval_fortification,development,3
+RUS,Russia,CRIMEA,tobacco_plantation,plantations,plantation,3
+RUS,Russia,CRIMEA,fishing_wharf,fishing,fishing,2
+RUS,Russia,CRIMEA,naval_administration,naval_administration,development,2
+RUS,Russia,CRIMEA,port,private_infrastructure,development,1
+RUS,Russia,CRIMEA,vineyard,agriculture,agriculture,1
+RUS,Russia,DAGESTAN,tea_plantation,plantations,plantation,2
+RUS,Russia,DAGESTAN,livestock_ranch,ranching,agriculture,1
+RUS,Russia,DAGESTAN,wheat_farm,staple_crops,agriculture,1
+RUS,Russia,EAST_KARELIA,artillery_foundry,military_industry,heavy_industry,1
+RUS,Russia,EAST_KARELIA,iron_mine,mining,mine,1
+RUS,Russia,EAST_KARELIA,logging_camp,logging,forestry,1
+RUS,Russia,GALICH,rye_farm,staple_crops,agriculture,3
+RUS,Russia,GALICH,logging_camp,logging,forestry,2
+RUS,Russia,GREATER_CAUCASUS,textile_mill,light_industry,light_industry,1
+RUS,Russia,GREATER_POLAND,paper_mill,light_industry,light_industry,3
+RUS,Russia,GREATER_POLAND,rye_farm,staple_crops,agriculture,3
+RUS,Russia,GREATER_POLAND,furniture_manufactory,light_industry,light_industry,1
+RUS,Russia,GREATER_POLAND,textile_mill,light_industry,light_industry,1
+RUS,Russia,GREATER_POLAND,tooling_workshop,light_industry,light_industry,1
+RUS,Russia,GREATER_POLAND,trade_center,trade,trade,1
+RUS,Russia,INGRIA,naval_administration,naval_administration,development,14
+RUS,Russia,INGRIA,government_administration,bureaucracy,development,10
+RUS,Russia,INGRIA,trade_center,trade,trade,10
+RUS,Russia,INGRIA,port,private_infrastructure,development,4
+RUS,Russia,INGRIA,naval_fortification,naval_fortification,development,3
+RUS,Russia,INGRIA,rye_farm,staple_crops,agriculture,3
+RUS,Russia,INGRIA,construction_sector,construction,development,2
+RUS,Russia,INGRIA,glassworks,light_industry,light_industry,2
+RUS,Russia,INGRIA,textile_mill,light_industry,light_industry,2
+RUS,Russia,INGRIA,art_academy,arts,development,1
+RUS,Russia,INGRIA,artillery_foundry,military_industry,heavy_industry,1
+RUS,Russia,INGRIA,shipyard,ship_construction,light_industry,1
+RUS,Russia,INGRIA,university,technology,development,1
+RUS,Russia,KAUNAS,rye_farm,staple_crops,agriculture,2
+RUS,Russia,KAUNAS,port,private_infrastructure,development,1
+RUS,Russia,KAZAN,logging_camp,logging,forestry,5
+RUS,Russia,KAZAN,arms_industry,military_industry,heavy_industry,3
+RUS,Russia,KAZAN,food_industry,light_industry,light_industry,3
+RUS,Russia,KAZAN,paper_mill,light_industry,light_industry,2
+RUS,Russia,KAZAN,rye_farm,staple_crops,agriculture,2
+RUS,Russia,KAZAN,government_administration,bureaucracy,development,1
+RUS,Russia,KHARKOV,wheat_farm,staple_crops,agriculture,20
+RUS,Russia,KHARKOV,livestock_ranch,ranching,agriculture,10
+RUS,Russia,KIEV,wheat_farm,staple_crops,agriculture,34
+RUS,Russia,KIEV,government_administration,bureaucracy,development,5
+RUS,Russia,KIEV,livestock_ranch,ranching,agriculture,5
+RUS,Russia,KIEV,naval_administration,naval_administration,development,4
+RUS,Russia,KIEV,textile_mill,light_industry,light_industry,3
+RUS,Russia,KIEV,food_industry,light_industry,light_industry,2
+RUS,Russia,KIEV,trade_center,trade,trade,2
+RUS,Russia,KUBAN,tobacco_plantation,plantations,plantation,2
+RUS,Russia,KUBAN,livestock_ranch,ranching,agriculture,1
+RUS,Russia,KUBAN,vineyard,agriculture,agriculture,1
+RUS,Russia,KUBAN,wheat_farm,staple_crops,agriculture,1
+RUS,Russia,KURSK,logging_camp,logging,forestry,10
+RUS,Russia,KURSK,rye_farm,staple_crops,agriculture,8
+RUS,Russia,LESSER_POLAND,livestock_ranch,ranching,agriculture,3
+RUS,Russia,LESSER_POLAND,glassworks,light_industry,light_industry,1
+RUS,Russia,LESSER_POLAND,paper_mill,light_industry,light_industry,1
+RUS,Russia,MAZOVIA,logging_camp,logging,forestry,3
+RUS,Russia,MAZOVIA,rye_farm,staple_crops,agriculture,2
+RUS,Russia,MINSK,logging_camp,logging,forestry,5
+RUS,Russia,MINSK,furniture_manufactory,light_industry,light_industry,2
+RUS,Russia,MINSK,government_administration,bureaucracy,development,2
+RUS,Russia,MINSK,naval_administration,naval_administration,development,2
+RUS,Russia,MINSK,rye_farm,staple_crops,agriculture,2
+RUS,Russia,MINSK,textile_mill,light_industry,light_industry,1
+RUS,Russia,MOGILEV,logging_camp,logging,forestry,8
+RUS,Russia,MOGILEV,rye_farm,staple_crops,agriculture,2
+RUS,Russia,MOSCOW,logging_camp,logging,forestry,10
+RUS,Russia,MOSCOW,government_administration,bureaucracy,development,8
+RUS,Russia,MOSCOW,tooling_workshop,light_industry,light_industry,7
+RUS,Russia,MOSCOW,naval_administration,naval_administration,development,6
+RUS,Russia,MOSCOW,furniture_manufactory,light_industry,light_industry,5
+RUS,Russia,MOSCOW,textile_mill,light_industry,light_industry,3
+RUS,Russia,MOSCOW,trade_center,trade,trade,3
+RUS,Russia,MOSCOW,construction_sector,construction,development,2
+RUS,Russia,MOSCOW,university,technology,development,2
+RUS,Russia,MOSCOW,iron_mine,mining,mine,1
+RUS,Russia,MOSCOW,saint_basils_cathedral,monuments,special,0
+RUS,Russia,NIZHNY_NOVGOROD,naval_administration,naval_administration,development,4
+RUS,Russia,NIZHNY_NOVGOROD,logging_camp,logging,forestry,3
+RUS,Russia,NIZHNY_NOVGOROD,furniture_manufactory,light_industry,light_industry,2
+RUS,Russia,NIZHNY_NOVGOROD,trade_center,trade,trade,1
+RUS,Russia,NOVGOROD,logging_camp,logging,forestry,5
+RUS,Russia,NOVGOROD,paper_mill,light_industry,light_industry,3
+RUS,Russia,OKHOTSK,port,private_infrastructure,development,1
+RUS,Russia,ORYOL,logging_camp,logging,forestry,10
+RUS,Russia,ORYOL,rye_farm,staple_crops,agriculture,8
+RUS,Russia,ORYOL,arms_industry,military_industry,heavy_industry,2
+RUS,Russia,ORYOL,food_industry,light_industry,light_industry,2
+RUS,Russia,ORYOL,textile_mill,light_industry,light_industry,2
+RUS,Russia,ORYOL,tooling_workshop,light_industry,light_industry,2
+RUS,Russia,PERM,iron_mine,mining,mine,2
+RUS,Russia,PERM,logging_camp,logging,forestry,2
+RUS,Russia,PSKOV,rye_farm,staple_crops,agriculture,5
+RUS,Russia,PSKOV,logging_camp,logging,forestry,2
+RUS,Russia,ROSTOV,naval_administration,naval_administration,development,4
+RUS,Russia,ROSTOV,logging_camp,logging,forestry,2
+RUS,Russia,ROSTOV,shipyard,ship_construction,light_industry,2
+RUS,Russia,ROSTOV,livestock_ranch,ranching,agriculture,1
+RUS,Russia,ROSTOV,trade_center,trade,trade,1
+RUS,Russia,ROSTOV,vineyard,agriculture,agriculture,1
+RUS,Russia,RYAZAN,furniture_manufactory,light_industry,light_industry,2
+RUS,Russia,RYAZAN,logging_camp,logging,forestry,2
+RUS,Russia,RYAZAN,paper_mill,light_industry,light_industry,2
+RUS,Russia,SAMARA,arms_industry,military_industry,heavy_industry,5
+RUS,Russia,SAMARA,rye_farm,staple_crops,agriculture,4
+RUS,Russia,SAMARA,food_industry,light_industry,light_industry,2
+RUS,Russia,SAMARA,iron_mine,mining,mine,1
+RUS,Russia,SMOLENSK,logging_camp,logging,forestry,8
+RUS,Russia,SMOLENSK,food_industry,light_industry,light_industry,3
+RUS,Russia,SMOLENSK,rye_farm,staple_crops,agriculture,3
+RUS,Russia,SMOLENSK,tooling_workshop,light_industry,light_industry,1
+RUS,Russia,TAMBOV,rye_farm,staple_crops,agriculture,4
+RUS,Russia,TAMBOV,iron_mine,mining,mine,1
+RUS,Russia,TAMBOV,logging_camp,logging,forestry,1
+RUS,Russia,TAMBOV,tooling_workshop,light_industry,light_industry,1
+RUS,Russia,TARTARIA,iron_mine,mining,mine,8
+RUS,Russia,TARTARIA,rye_farm,staple_crops,agriculture,5
+RUS,Russia,TAURIDA,wheat_farm,staple_crops,agriculture,20
+RUS,Russia,TAURIDA,livestock_ranch,ranching,agriculture,3
+RUS,Russia,TAURIDA,fishing_wharf,fishing,fishing,2
+RUS,Russia,TRANS_BAIKAL,iron_mine,mining,mine,1
+RUS,Russia,TVER,logging_camp,logging,forestry,10
+RUS,Russia,UFA,iron_mine,mining,mine,1
+RUS,Russia,URAL,iron_mine,mining,mine,2
+RUS,Russia,URAL,logging_camp,logging,forestry,2
+RUS,Russia,VILNIUS,rye_farm,staple_crops,agriculture,2
+RUS,Russia,VILNIUS,furniture_manufactory,light_industry,light_industry,1
+RUS,Russia,VITEBSK,logging_camp,logging,forestry,6
+RUS,Russia,VITEBSK,rye_farm,staple_crops,agriculture,5
+RUS,Russia,VITEBSK,paper_mill,light_industry,light_industry,3
+RUS,Russia,VOLHYNIA,logging_camp,logging,forestry,4
+RUS,Russia,VOLHYNIA,wheat_farm,staple_crops,agriculture,2
+RUS,Russia,VYATKA,logging_camp,logging,forestry,2
+RUS,Russia,YAROSLAVL,logging_camp,logging,forestry,4
+RUS,Russia,YAROSLAVL,naval_administration,naval_administration,development,4
+SAR,Sardinia-Piedmont,PIEDMONT,government_administration,bureaucracy,development,5
+SAR,Sardinia-Piedmont,PIEDMONT,livestock_ranch,ranching,agriculture,5
+SAR,Sardinia-Piedmont,PIEDMONT,naval_administration,naval_administration,development,5
+SAR,Sardinia-Piedmont,PIEDMONT,rice_farm,staple_crops,agriculture,5
+SAR,Sardinia-Piedmont,PIEDMONT,trade_center,trade,trade,3
+SAR,Sardinia-Piedmont,PIEDMONT,vineyard,agriculture,agriculture,3
+SAR,Sardinia-Piedmont,PIEDMONT,fishing_wharf,fishing,fishing,2
+SAR,Sardinia-Piedmont,PIEDMONT,shipyard,ship_construction,light_industry,2
+SAR,Sardinia-Piedmont,PIEDMONT,textile_mill,light_industry,light_industry,2
+SAR,Sardinia-Piedmont,PIEDMONT,tooling_workshop,light_industry,light_industry,2
+SAR,Sardinia-Piedmont,PIEDMONT,arms_industry,military_industry,heavy_industry,1
+SAR,Sardinia-Piedmont,PIEDMONT,construction_sector,construction,development,1
+SAR,Sardinia-Piedmont,PIEDMONT,food_industry,light_industry,light_industry,1
+SAR,Sardinia-Piedmont,PIEDMONT,furniture_manufactory,light_industry,light_industry,1
+SAR,Sardinia-Piedmont,PIEDMONT,paper_mill,light_industry,light_industry,1
+SAR,Sardinia-Piedmont,PIEDMONT,port,private_infrastructure,development,1
+SAR,Sardinia-Piedmont,PIEDMONT,university,technology,development,1
+SAR,Sardinia-Piedmont,PROVENCE,fishing_wharf,fishing,fishing,1
+SAR,Sardinia-Piedmont,PROVENCE,wheat_farm,staple_crops,agriculture,1
+SAR,Sardinia-Piedmont,SARDINIA,logging_camp,logging,forestry,5
+SAR,Sardinia-Piedmont,SARDINIA,iron_mine,mining,mine,3
+SAR,Sardinia-Piedmont,SARDINIA,fishing_wharf,fishing,fishing,2
+SAR,Sardinia-Piedmont,SARDINIA,port,private_infrastructure,development,1
+SAR,Sardinia-Piedmont,SARDINIA,shipyard,ship_construction,light_industry,1
+SAR,Sardinia-Piedmont,SARDINIA,vineyard,agriculture,agriculture,1
+SAR,Sardinia-Piedmont,SAVOY,livestock_ranch,ranching,agriculture,2
+SAR,Sardinia-Piedmont,SAVOY,logging_camp,logging,forestry,2
+SAR,Sardinia-Piedmont,SAVOY,wheat_farm,staple_crops,agriculture,2
+SAR,Sardinia-Piedmont,SAVOY,government_administration,bureaucracy,development,1
+SHW,Shewa,OROMIA,barrack,army,development,10
+SHW,Shewa,OROMIA,millet_farm,staple_crops,agriculture,2
+SHW,Shewa,OROMIA,coffee_plantation,plantations,plantation,1
+SHW,Shewa,OROMIA,logging_camp,logging,forestry,1
+SHW,Shewa,OROMIA,tobacco_plantation,plantations,plantation,1
+SIA,Siam,BANGKOK,barrack,army,development,20
+SIA,Siam,BANGKOK,port,private_infrastructure,development,3
+SIA,Siam,BANGKOK,fishing_wharf,fishing,fishing,2
+SIA,Siam,BANGKOK,government_administration,bureaucracy,development,2
+SIA,Siam,BANGKOK,rice_farm,staple_crops,agriculture,2
+SIA,Siam,BANGKOK,tea_plantation,plantations,plantation,1
+SIA,Siam,BANGKOK,tobacco_plantation,plantations,plantation,1
+SIA,Siam,CAMBODIA,barrack,army,development,5
+SIA,Siam,CAMBODIA,tea_plantation,plantations,plantation,1
+SIA,Siam,CAMBODIA,angkor_wat,monuments,special,0
+SIA,Siam,LAOS,barrack,army,development,5
+SIA,Siam,LAOS,opium_plantation,plantations,plantation,1
+SIA,Siam,MALAYA,banana_plantation,plantations,plantation,1
+SIA,Siam,NAKHON_RATCHASIMA,barrack,army,development,15
+SIA,Siam,NAKHON_RATCHASIMA,livestock_ranch,ranching,agriculture,1
+SIA,Siam,NAKHON_RATCHASIMA,rice_farm,staple_crops,agriculture,1
+SIA,Siam,NAKHON_RATCHASIMA,tobacco_plantation,plantations,plantation,1
+SOK,Sokoto,EAST_HAUSALAND,barrack,army,development,20
+SOK,Sokoto,EAST_HAUSALAND,tobacco_plantation,plantations,plantation,4
+SOK,Sokoto,EAST_HAUSALAND,livestock_ranch,ranching,agriculture,3
+SOK,Sokoto,EAST_HAUSALAND,millet_farm,staple_crops,agriculture,2
+SOK,Sokoto,EAST_HAUSALAND,cotton_plantation,plantations,plantation,1
+SOK,Sokoto,HAUSALAND,barrack,army,development,20
+SOK,Sokoto,HAUSALAND,government_administration,bureaucracy,development,5
+SOK,Sokoto,HAUSALAND,livestock_ranch,ranching,agriculture,2
+SOK,Sokoto,HAUSALAND,millet_farm,staple_crops,agriculture,2
+SOK,Sokoto,HAUSALAND,tobacco_plantation,plantations,plantation,2
+SOK,Sokoto,HAUSALAND,textile_mill,light_industry,light_industry,1
+SOK,Sokoto,NIGERIA,barrack,army,development,15
+SOK,Sokoto,NIGERIA,coffee_plantation,plantations,plantation,2
+SOK,Sokoto,NIGERIA,millet_farm,staple_crops,agriculture,2
+SOK,Sokoto,NORTH_CAMEROON,barrack,army,development,10
+SOK,Sokoto,NORTH_CAMEROON,millet_farm,staple_crops,agriculture,1
+SOK,Sokoto,OUTER_HAUSALAND,barrack,army,development,5
+SOK,Sokoto,OUTER_HAUSALAND,livestock_ranch,ranching,agriculture,1
+SAF,South Africa,CAPE_COLONY,wheat_farm,staple_crops,agriculture,2
+SAF,South Africa,CAPE_COLONY,fishing_wharf,fishing,fishing,1
+SAF,South Africa,CAPE_COLONY,port,private_infrastructure,development,1
+SAF,South Africa,CAPE_COLONY,vineyard,agriculture,agriculture,1
+SAF,South Africa,EASTERN_CAPE,livestock_ranch,ranching,agriculture,1
+SAF,South Africa,EASTERN_CAPE,wheat_farm,staple_crops,agriculture,1
+SAF,South Africa,NORTHERN_CAPE,livestock_ranch,ranching,agriculture,1
+SPA,Spain,AL_RIF,port,private_infrastructure,development,1
+SPA,Spain,AL_RIF,wheat_farm,staple_crops,agriculture,1
+SPA,Spain,ARAGON,logging_camp,logging,forestry,2
+SPA,Spain,ARAGON,government_administration,bureaucracy,development,1
+SPA,Spain,ARAGON,livestock_ranch,ranching,agriculture,1
+SPA,Spain,ARAGON,vineyard,agriculture,agriculture,1
+SPA,Spain,ARAGON,wheat_farm,staple_crops,agriculture,1
+SPA,Spain,ASTURIAS,livestock_ranch,ranching,agriculture,3
+SPA,Spain,ASTURIAS,logging_camp,logging,forestry,3
+SPA,Spain,ASTURIAS,fishing_wharf,fishing,fishing,2
+SPA,Spain,ASTURIAS,artillery_foundry,military_industry,heavy_industry,1
+SPA,Spain,ASTURIAS,coal_mine,mining,mine,1
+SPA,Spain,ASTURIAS,gold_mine,mining,mine,1
+SPA,Spain,ASTURIAS,government_administration,bureaucracy,development,1
+SPA,Spain,ASTURIAS,port,private_infrastructure,development,1
+SPA,Spain,BALEARIC_ISLANDS,fishing_wharf,fishing,fishing,1
+SPA,Spain,BALEARIC_ISLANDS,port,private_infrastructure,development,1
+SPA,Spain,BALEARIC_ISLANDS,wheat_farm,staple_crops,agriculture,1
+SPA,Spain,CANARY_ISLANDS,dye_plantation,plantations,plantation,1
+SPA,Spain,CANARY_ISLANDS,fishing_wharf,fishing,fishing,1
+SPA,Spain,CANARY_ISLANDS,port,private_infrastructure,development,1
+SPA,Spain,CATALONIA,vineyard,agriculture,agriculture,5
+SPA,Spain,CATALONIA,government_administration,bureaucracy,development,3
+SPA,Spain,CATALONIA,logging_camp,logging,forestry,3
+SPA,Spain,CATALONIA,textile_mill,light_industry,light_industry,3
+SPA,Spain,CATALONIA,construction_sector,construction,development,2
+SPA,Spain,CATALONIA,fishing_wharf,fishing,fishing,2
+SPA,Spain,CATALONIA,livestock_ranch,ranching,agriculture,2
+SPA,Spain,CATALONIA,port,private_infrastructure,development,2
+SPA,Spain,CATALONIA,trade_center,trade,trade,2
+SPA,Spain,CATALONIA,furniture_manufactory,light_industry,light_industry,1
+SPA,Spain,CATALONIA,paper_mill,light_industry,light_industry,1
+SPA,Spain,CATALONIA,shipyard,ship_construction,light_industry,1
+SPA,Spain,CATALONIA,wheat_farm,staple_crops,agriculture,1
+SPA,Spain,EXTREMADURA,livestock_ranch,ranching,agriculture,2
+SPA,Spain,EXTREMADURA,tobacco_plantation,plantations,plantation,1
+SPA,Spain,EXTREMADURA,vineyard,agriculture,agriculture,1
+SPA,Spain,EXTREMADURA,wheat_farm,staple_crops,agriculture,1
+SPA,Spain,GALICIA,livestock_ranch,ranching,agriculture,4
+SPA,Spain,GALICIA,logging_camp,logging,forestry,3
+SPA,Spain,GALICIA,fishing_wharf,fishing,fishing,2
+SPA,Spain,GALICIA,government_administration,bureaucracy,development,1
+SPA,Spain,GALICIA,maize_farm,staple_crops,agriculture,1
+SPA,Spain,GALICIA,naval_fortification,naval_fortification,development,1
+SPA,Spain,GALICIA,port,private_infrastructure,development,1
+SPA,Spain,GALICIA,shipyard,ship_construction,light_industry,1
+SPA,Spain,GALICIA,vineyard,agriculture,agriculture,1
+SPA,Spain,LEON,livestock_ranch,ranching,agriculture,2
+SPA,Spain,LEON,wheat_farm,staple_crops,agriculture,2
+SPA,Spain,LEON,government_administration,bureaucracy,development,1
+SPA,Spain,LEON,logging_camp,logging,forestry,1
+SPA,Spain,LEON,vineyard,agriculture,agriculture,1
+SPA,Spain,LOWER_ANDALUSIA,port,private_infrastructure,development,3
+SPA,Spain,LOWER_ANDALUSIA,wheat_farm,staple_crops,agriculture,3
+SPA,Spain,LOWER_ANDALUSIA,government_administration,bureaucracy,development,2
+SPA,Spain,LOWER_ANDALUSIA,livestock_ranch,ranching,agriculture,2
+SPA,Spain,LOWER_ANDALUSIA,trade_center,trade,trade,2
+SPA,Spain,LOWER_ANDALUSIA,vineyard,agriculture,agriculture,2
+SPA,Spain,LOWER_ANDALUSIA,logging_camp,logging,forestry,1
+SPA,Spain,LOWER_ANDALUSIA,naval_fortification,naval_fortification,development,1
+SPA,Spain,LOWER_ANDALUSIA,shipyard,ship_construction,light_industry,1
+SPA,Spain,MURCIA,fishing_wharf,fishing,fishing,1
+SPA,Spain,MURCIA,government_administration,bureaucracy,development,1
+SPA,Spain,MURCIA,lead_mine,mining,mine,1
+SPA,Spain,MURCIA,livestock_ranch,ranching,agriculture,1
+SPA,Spain,MURCIA,naval_fortification,naval_fortification,development,1
+SPA,Spain,MURCIA,port,private_infrastructure,development,1
+SPA,Spain,MURCIA,shipyard,ship_construction,light_industry,1
+SPA,Spain,MURCIA,silk_plantation,plantations,plantation,1
+SPA,Spain,MURCIA,vineyard,agriculture,agriculture,1
+SPA,Spain,MURCIA,wheat_farm,staple_crops,agriculture,1
+SPA,Spain,NEW_CASTILE,government_administration,bureaucracy,development,4
+SPA,Spain,NEW_CASTILE,vineyard,agriculture,agriculture,4
+SPA,Spain,NEW_CASTILE,construction_sector,construction,development,3
+SPA,Spain,NEW_CASTILE,food_industry,light_industry,light_industry,2
+SPA,Spain,NEW_CASTILE,wheat_farm,staple_crops,agriculture,2
+SPA,Spain,NEW_CASTILE,arms_industry,military_industry,heavy_industry,1
+SPA,Spain,NEW_CASTILE,furniture_manufactory,light_industry,light_industry,1
+SPA,Spain,NEW_CASTILE,livestock_ranch,ranching,agriculture,1
+SPA,Spain,NEW_CASTILE,paper_mill,light_industry,light_industry,1
+SPA,Spain,NEW_CASTILE,trade_center,trade,trade,1
+SPA,Spain,NEW_CASTILE,university,technology,development,1
+SPA,Spain,OLD_CASTILE,wheat_farm,staple_crops,agriculture,7
+SPA,Spain,OLD_CASTILE,livestock_ranch,ranching,agriculture,3
+SPA,Spain,OLD_CASTILE,logging_camp,logging,forestry,2
+SPA,Spain,OLD_CASTILE,vineyard,agriculture,agriculture,2
+SPA,Spain,OLD_CASTILE,government_administration,bureaucracy,development,1
+SPA,Spain,OLD_CASTILE,shipyard,ship_construction,light_industry,1
+SPA,Spain,UPPER_ANDALUSIA,wheat_farm,staple_crops,agriculture,2
+SPA,Spain,UPPER_ANDALUSIA,government_administration,bureaucracy,development,1
+SPA,Spain,UPPER_ANDALUSIA,lead_mine,mining,mine,1
+SPA,Spain,UPPER_ANDALUSIA,livestock_ranch,ranching,agriculture,1
+SPA,Spain,UPPER_ANDALUSIA,sugar_plantation,plantations,plantation,1
+SPA,Spain,UPPER_ANDALUSIA,vineyard,agriculture,agriculture,1
+SPA,Spain,VALENCIA,naval_administration,naval_administration,development,10
+SPA,Spain,VALENCIA,paper_mill,light_industry,light_industry,5
+SPA,Spain,VALENCIA,vineyard,agriculture,agriculture,4
+SPA,Spain,VALENCIA,rice_farm,staple_crops,agriculture,3
+SPA,Spain,VALENCIA,government_administration,bureaucracy,development,2
+SPA,Spain,VALENCIA,livestock_ranch,ranching,agriculture,2
+SPA,Spain,VALENCIA,logging_camp,logging,forestry,2
+SPA,Spain,VALENCIA,silk_plantation,plantations,plantation,2
+SPA,Spain,VALENCIA,fishing_wharf,fishing,fishing,1
+SPA,Spain,VALENCIA,paper_mill,light_industry,light_industry,1
+SPA,Spain,VALENCIA,port,private_infrastructure,development,1
+SPA,Spain,VALENCIA,textile_mill,light_industry,light_industry,1
+SPA,Spain,VALENCIA,trade_center,trade,trade,1
+SWE,Sweden,GOTALAND,logging_camp,logging,forestry,6
+SWE,Sweden,GOTALAND,naval_administration,naval_administration,development,5
+SWE,Sweden,GOTALAND,fishing_wharf,fishing,fishing,3
+SWE,Sweden,GOTALAND,paper_mill,light_industry,light_industry,3
+SWE,Sweden,GOTALAND,rye_farm,staple_crops,agriculture,3
+SWE,Sweden,GOTALAND,iron_mine,mining,mine,2
+SWE,Sweden,GOTALAND,livestock_ranch,ranching,agriculture,2
+SWE,Sweden,GOTALAND,government_administration,bureaucracy,development,1
+SWE,Sweden,GOTALAND,port,private_infrastructure,development,1
+SWE,Sweden,GOTALAND,trade_center,trade,trade,1
+SWE,Sweden,GOTLAND,port,private_infrastructure,development,1
+SWE,Sweden,NORRLAND,logging_camp,logging,forestry,3
+SWE,Sweden,NORRLAND,fishing_wharf,fishing,fishing,2
+SWE,Sweden,SCANIA,fishing_wharf,fishing,fishing,4
+SWE,Sweden,SCANIA,livestock_ranch,ranching,agriculture,4
+SWE,Sweden,SCANIA,rye_farm,staple_crops,agriculture,4
+SWE,Sweden,SCANIA,shipyard,ship_construction,light_industry,2
+SWE,Sweden,SCANIA,arms_industry,military_industry,heavy_industry,1
+SWE,Sweden,SCANIA,government_administration,bureaucracy,development,1
+SWE,Sweden,SCANIA,naval_fortification,naval_fortification,development,1
+SWE,Sweden,SCANIA,port,private_infrastructure,development,1
+SWE,Sweden,SCANIA,tooling_workshop,light_industry,light_industry,1
+SWE,Sweden,SCANIA,trade_center,trade,trade,1
+SWE,Sweden,SCANIA,university,technology,development,1
+SWE,Sweden,SVEALAND,naval_administration,naval_administration,development,10
+SWE,Sweden,SVEALAND,logging_camp,logging,forestry,6
+SWE,Sweden,SVEALAND,iron_mine,mining,mine,5
+SWE,Sweden,SVEALAND,government_administration,bureaucracy,development,4
+SWE,Sweden,SVEALAND,textile_mill,light_industry,light_industry,3
+SWE,Sweden,SVEALAND,trade_center,trade,trade,3
+SWE,Sweden,SVEALAND,fishing_wharf,fishing,fishing,2
+SWE,Sweden,SVEALAND,rye_farm,staple_crops,agriculture,2
+SWE,Sweden,SVEALAND,construction_sector,construction,development,1
+SWE,Sweden,SVEALAND,port,private_infrastructure,development,1
+SWE,Sweden,SVEALAND,university,technology,development,1
+SIC,Two Sicilies,ABRUZZO,wheat_farm,staple_crops,agriculture,6
+SIC,Two Sicilies,ABRUZZO,logging_camp,logging,forestry,3
+SIC,Two Sicilies,ABRUZZO,livestock_ranch,ranching,agriculture,2
+SIC,Two Sicilies,ABRUZZO,furniture_manufactory,light_industry,light_industry,1
+SIC,Two Sicilies,ABRUZZO,vineyard,agriculture,agriculture,1
+SIC,Two Sicilies,APULIA,fishing_wharf,fishing,fishing,5
+SIC,Two Sicilies,APULIA,livestock_ranch,ranching,agriculture,4
+SIC,Two Sicilies,APULIA,wheat_farm,staple_crops,agriculture,3
+SIC,Two Sicilies,APULIA,vineyard,agriculture,agriculture,1
+SIC,Two Sicilies,CALABRIA,fishing_wharf,fishing,fishing,5
+SIC,Two Sicilies,CALABRIA,livestock_ranch,ranching,agriculture,3
+SIC,Two Sicilies,CALABRIA,wheat_farm,staple_crops,agriculture,3
+SIC,Two Sicilies,CALABRIA,iron_mine,mining,mine,2
+SIC,Two Sicilies,CALABRIA,food_industry,light_industry,light_industry,1
+SIC,Two Sicilies,CALABRIA,port,private_infrastructure,development,1
+SIC,Two Sicilies,CALABRIA,sugar_plantation,plantations,plantation,1
+SIC,Two Sicilies,CALABRIA,vineyard,agriculture,agriculture,1
+SIC,Two Sicilies,CAMPANIA,naval_administration,naval_administration,development,10
+SIC,Two Sicilies,CAMPANIA,wheat_farm,staple_crops,agriculture,10
+SIC,Two Sicilies,CAMPANIA,livestock_ranch,ranching,agriculture,5
+SIC,Two Sicilies,CAMPANIA,trade_center,trade,trade,5
+SIC,Two Sicilies,CAMPANIA,government_administration,bureaucracy,development,4
+SIC,Two Sicilies,CAMPANIA,port,private_infrastructure,development,3
+SIC,Two Sicilies,CAMPANIA,textile_mill,light_industry,light_industry,3
+SIC,Two Sicilies,CAMPANIA,tooling_workshop,light_industry,light_industry,3
+SIC,Two Sicilies,CAMPANIA,arms_industry,military_industry,heavy_industry,2
+SIC,Two Sicilies,CAMPANIA,construction_sector,construction,development,2
+SIC,Two Sicilies,CAMPANIA,logging_camp,logging,forestry,2
+SIC,Two Sicilies,CAMPANIA,shipyard,ship_construction,light_industry,2
+SIC,Two Sicilies,CAMPANIA,silk_plantation,plantations,plantation,2
+SIC,Two Sicilies,CAMPANIA,vineyard,agriculture,agriculture,2
+SIC,Two Sicilies,CAMPANIA,glassworks,light_industry,light_industry,1
+SIC,Two Sicilies,CAMPANIA,paper_mill,light_industry,light_industry,1
+SIC,Two Sicilies,SICILY,sulfur_mine,mining,mine,5
+SIC,Two Sicilies,SICILY,vineyard,agriculture,agriculture,5
+SIC,Two Sicilies,SICILY,wheat_farm,staple_crops,agriculture,5
+SIC,Two Sicilies,SICILY,government_administration,bureaucracy,development,3
+SIC,Two Sicilies,SICILY,trade_center,trade,trade,3
+SIC,Two Sicilies,SICILY,port,private_infrastructure,development,2
+SIC,Two Sicilies,SICILY,fishing_wharf,fishing,fishing,1
+USA,United States,ALABAMA,cotton_plantation,plantations,plantation,10
+USA,United States,ALABAMA,maize_farm,staple_crops,agriculture,6
+USA,United States,ALABAMA,tobacco_plantation,plantations,plantation,3
+USA,United States,ALABAMA,government_administration,bureaucracy,development,1
+USA,United States,ALABAMA,port,private_infrastructure,development,1
+USA,United States,ARKANSAS,cotton_plantation,plantations,plantation,1
+USA,United States,ARKANSAS,livestock_ranch,ranching,agriculture,1
+USA,United States,CONNECTICUT,iron_mine,mining,mine,2
+USA,United States,CONNECTICUT,government_administration,bureaucracy,development,1
+USA,United States,CONNECTICUT,port,private_infrastructure,development,1
+USA,United States,DELAWARE,fishing_wharf,fishing,fishing,1
+USA,United States,DELAWARE,government_administration,bureaucracy,development,1
+USA,United States,DELAWARE,livestock_ranch,ranching,agriculture,1
+USA,United States,DISTRICT_OF_COLUMBIA,government_administration,bureaucracy,development,10
+USA,United States,DISTRICT_OF_COLUMBIA,port,private_infrastructure,development,1
+USA,United States,DISTRICT_OF_COLUMBIA,white_house,monuments,special,0
+USA,United States,FLORIDA,naval_fortification,naval_fortification,development,1
+USA,United States,GEORGIA,cotton_plantation,plantations,plantation,8
+USA,United States,GEORGIA,maize_farm,staple_crops,agriculture,5
+USA,United States,GEORGIA,tobacco_plantation,plantations,plantation,3
+USA,United States,GEORGIA,government_administration,bureaucracy,development,2
+USA,United States,GEORGIA,livestock_ranch,ranching,agriculture,1
+USA,United States,GEORGIA,port,private_infrastructure,development,1
+USA,United States,GEORGIA,sugar_plantation,plantations,plantation,1
+USA,United States,ILLINOIS,lead_mine,mining,mine,2
+USA,United States,ILLINOIS,maize_farm,staple_crops,agriculture,2
+USA,United States,ILLINOIS,trade_center,trade,trade,1
+USA,United States,INDIANA,maize_farm,staple_crops,agriculture,8
+USA,United States,INDIANA,government_administration,bureaucracy,development,2
+USA,United States,INDIANA,logging_camp,logging,forestry,2
+USA,United States,INDIANA,chemical_plant,heavy_industry,heavy_industry,1
+USA,United States,KENTUCKY,tobacco_plantation,plantations,plantation,8
+USA,United States,KENTUCKY,maize_farm,staple_crops,agriculture,4
+USA,United States,KENTUCKY,coal_mine,mining,mine,2
+USA,United States,KENTUCKY,food_industry,light_industry,light_industry,2
+USA,United States,KENTUCKY,government_administration,bureaucracy,development,1
+USA,United States,KENTUCKY,livestock_ranch,ranching,agriculture,1
+USA,United States,KENTUCKY,university,technology,development,1
+USA,United States,LOUISIANA,trade_center,trade,trade,6
+USA,United States,LOUISIANA,cotton_plantation,plantations,plantation,2
+USA,United States,LOUISIANA,port,private_infrastructure,development,2
+USA,United States,LOUISIANA,sugar_plantation,plantations,plantation,2
+USA,United States,MAINE,fishing_wharf,fishing,fishing,3
+USA,United States,MAINE,logging_camp,logging,forestry,3
+USA,United States,MAINE,furniture_manufactory,light_industry,light_industry,1
+USA,United States,MAINE,government_administration,bureaucracy,development,1
+USA,United States,MAINE,port,private_infrastructure,development,1
+USA,United States,MAINE,shipyard,ship_construction,light_industry,1
+USA,United States,MARYLAND,tobacco_plantation,plantations,plantation,4
+USA,United States,MARYLAND,fishing_wharf,fishing,fishing,3
+USA,United States,MARYLAND,port,private_infrastructure,development,2
+USA,United States,MARYLAND,trade_center,trade,trade,2
+USA,United States,MARYLAND,glassworks,light_industry,light_industry,1
+USA,United States,MARYLAND,government_administration,bureaucracy,development,1
+USA,United States,MASSACHUSETTS,naval_administration,naval_administration,development,15
+USA,United States,MASSACHUSETTS,trade_center,trade,trade,5
+USA,United States,MASSACHUSETTS,fishing_wharf,fishing,fishing,3
+USA,United States,MASSACHUSETTS,port,private_infrastructure,development,3
+USA,United States,MASSACHUSETTS,textile_mill,light_industry,light_industry,3
+USA,United States,MASSACHUSETTS,logging_camp,logging,forestry,2
+USA,United States,MASSACHUSETTS,shipyard,ship_construction,light_industry,2
+USA,United States,MASSACHUSETTS,university,technology,development,2
+USA,United States,MASSACHUSETTS,wheat_farm,staple_crops,agriculture,2
+USA,United States,MASSACHUSETTS,arms_industry,military_industry,heavy_industry,1
+USA,United States,MASSACHUSETTS,construction_sector,construction,development,1
+USA,United States,MASSACHUSETTS,glassworks,light_industry,light_industry,1
+USA,United States,MASSACHUSETTS,government_administration,bureaucracy,development,1
+USA,United States,MASSACHUSETTS,whaling_station,whaling,fishing,1
+USA,United States,MICHIGAN,sulfur_mine,mining,mine,4
+USA,United States,MICHIGAN,livestock_ranch,ranching,agriculture,1
+USA,United States,MICHIGAN,logging_camp,logging,forestry,1
+USA,United States,MISSISSIPPI,cotton_plantation,plantations,plantation,4
+USA,United States,MISSISSIPPI,maize_farm,staple_crops,agriculture,4
+USA,United States,MISSISSIPPI,tobacco_plantation,plantations,plantation,2
+USA,United States,MISSISSIPPI,government_administration,bureaucracy,development,1
+USA,United States,MISSOURI,maize_farm,staple_crops,agriculture,2
+USA,United States,MISSOURI,government_administration,bureaucracy,development,1
+USA,United States,MISSOURI,lead_mine,mining,mine,1
+USA,United States,MISSOURI,livestock_ranch,ranching,agriculture,1
+USA,United States,MISSOURI,trade_center,trade,trade,1
+USA,United States,NEW_HAMPSHIRE,government_administration,bureaucracy,development,1
+USA,United States,NEW_HAMPSHIRE,livestock_ranch,ranching,agriculture,1
+USA,United States,NEW_HAMPSHIRE,logging_camp,logging,forestry,1
+USA,United States,NEW_JERSEY,paper_mill,light_industry,light_industry,3
+USA,United States,NEW_JERSEY,logging_camp,logging,forestry,2
+USA,United States,NEW_JERSEY,fishing_wharf,fishing,fishing,1
+USA,United States,NEW_JERSEY,government_administration,bureaucracy,development,1
+USA,United States,NEW_JERSEY,maize_farm,staple_crops,agriculture,1
+USA,United States,NEW_JERSEY,shipyard,ship_construction,light_industry,1
+USA,United States,NEW_JERSEY,trade_center,trade,trade,1
+USA,United States,NEW_YORK,trade_center,trade,trade,10
+USA,United States,NEW_YORK,government_administration,bureaucracy,development,5
+USA,United States,NEW_YORK,textile_mill,light_industry,light_industry,5
+USA,United States,NEW_YORK,tooling_workshop,light_industry,light_industry,5
+USA,United States,NEW_YORK,iron_mine,mining,mine,4
+USA,United States,NEW_YORK,port,private_infrastructure,development,3
+USA,United States,NEW_YORK,university,technology,development,3
+USA,United States,NEW_YORK,wheat_farm,staple_crops,agriculture,3
+USA,United States,NEW_YORK,construction_sector,construction,development,2
+USA,United States,NEW_YORK,fishing_wharf,fishing,fishing,2
+USA,United States,NEW_YORK,furniture_manufactory,light_industry,light_industry,2
+USA,United States,NEW_YORK,logging_camp,logging,forestry,2
+USA,United States,NEW_YORK,paper_mill,light_industry,light_industry,2
+USA,United States,NEW_YORK,artillery_foundry,military_industry,heavy_industry,1
+USA,United States,NEW_YORK,naval_fortification,naval_fortification,development,1
+USA,United States,NORTH_CAROLINA,cotton_plantation,plantations,plantation,10
+USA,United States,NORTH_CAROLINA,maize_farm,staple_crops,agriculture,5
+USA,United States,NORTH_CAROLINA,coal_mine,mining,mine,2
+USA,United States,NORTH_CAROLINA,government_administration,bureaucracy,development,2
+USA,United States,NORTH_CAROLINA,food_industry,light_industry,light_industry,1
+USA,United States,NORTH_CAROLINA,logging_camp,logging,forestry,1
+USA,United States,NORTH_CAROLINA,port,private_infrastructure,development,1
+USA,United States,OHIO,maize_farm,staple_crops,agriculture,4
+USA,United States,OHIO,coal_mine,mining,mine,3
+USA,United States,OHIO,furniture_manufactory,light_industry,light_industry,2
+USA,United States,OHIO,livestock_ranch,ranching,agriculture,2
+USA,United States,OHIO,chemical_plant,heavy_industry,heavy_industry,1
+USA,United States,OHIO,construction_sector,construction,development,1
+USA,United States,OHIO,glassworks,light_industry,light_industry,1
+USA,United States,OHIO,government_administration,bureaucracy,development,1
+USA,United States,PENNSYLVANIA,livestock_ranch,ranching,agriculture,6
+USA,United States,PENNSYLVANIA,logging_camp,logging,forestry,5
+USA,United States,PENNSYLVANIA,coal_mine,mining,mine,4
+USA,United States,PENNSYLVANIA,furniture_manufactory,light_industry,light_industry,4
+USA,United States,PENNSYLVANIA,government_administration,bureaucracy,development,3
+USA,United States,PENNSYLVANIA,maize_farm,staple_crops,agriculture,3
+USA,United States,PENNSYLVANIA,construction_sector,construction,development,2
+USA,United States,PENNSYLVANIA,iron_mine,mining,mine,2
+USA,United States,PENNSYLVANIA,steel_mill,heavy_industry,heavy_industry,2
+USA,United States,PENNSYLVANIA,textile_mill,light_industry,light_industry,2
+USA,United States,PENNSYLVANIA,tooling_workshop,light_industry,light_industry,2
+USA,United States,PENNSYLVANIA,explosives_factory,heavy_industry,heavy_industry,1
+USA,United States,PENNSYLVANIA,glassworks,light_industry,light_industry,1
+USA,United States,PENNSYLVANIA,motor_industry,heavy_industry,heavy_industry,1
+USA,United States,PENNSYLVANIA,munition_plant,military_industry,heavy_industry,1
+USA,United States,PENNSYLVANIA,trade_center,trade,trade,1
+USA,United States,RHODE_ISLAND,fishing_wharf,fishing,fishing,1
+USA,United States,RHODE_ISLAND,glassworks,light_industry,light_industry,1
+USA,United States,RHODE_ISLAND,government_administration,bureaucracy,development,1
+USA,United States,SOUTH_CAROLINA,cotton_plantation,plantations,plantation,10
+USA,United States,SOUTH_CAROLINA,trade_center,trade,trade,6
+USA,United States,SOUTH_CAROLINA,maize_farm,staple_crops,agriculture,5
+USA,United States,SOUTH_CAROLINA,tobacco_plantation,plantations,plantation,5
+USA,United States,SOUTH_CAROLINA,dye_plantation,plantations,plantation,2
+USA,United States,SOUTH_CAROLINA,government_administration,bureaucracy,development,2
+USA,United States,SOUTH_CAROLINA,naval_fortification,naval_fortification,development,1
+USA,United States,SOUTH_CAROLINA,port,private_infrastructure,development,1
+USA,United States,TENNESSEE,tobacco_plantation,plantations,plantation,20
+USA,United States,TENNESSEE,maize_farm,staple_crops,agriculture,10
+USA,United States,TENNESSEE,cotton_plantation,plantations,plantation,3
+USA,United States,TENNESSEE,food_industry,light_industry,light_industry,2
+USA,United States,TENNESSEE,government_administration,bureaucracy,development,1
+USA,United States,TENNESSEE,livestock_ranch,ranching,agriculture,1
+USA,United States,VERMONT,food_industry,light_industry,light_industry,2
+USA,United States,VERMONT,livestock_ranch,ranching,agriculture,1
+USA,United States,VERMONT,logging_camp,logging,forestry,1
+USA,United States,VIRGINIA,cotton_plantation,plantations,plantation,7
+USA,United States,VIRGINIA,maize_farm,staple_crops,agriculture,5
+USA,United States,VIRGINIA,tobacco_plantation,plantations,plantation,4
+USA,United States,VIRGINIA,arms_industry,military_industry,heavy_industry,3
+USA,United States,VIRGINIA,port,private_infrastructure,development,3
+USA,United States,VIRGINIA,government_administration,bureaucracy,development,2
+USA,United States,VIRGINIA,iron_mine,mining,mine,2
+USA,United States,VIRGINIA,livestock_ranch,ranching,agriculture,2
+USA,United States,VIRGINIA,shipyard,ship_construction,light_industry,2
+USA,United States,VIRGINIA,naval_fortification,naval_fortification,development,1
+USA,United States,WEST_VIRGINIA,coal_mine,mining,mine,3
+USA,United States,WEST_VIRGINIA,logging_camp,logging,forestry,1

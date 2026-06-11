@@ -1,0 +1,63 @@
+source,file,entry_key,scope_tags,buildings,count_hints
+journal,00_art_jes.txt,je_romanticism,,art_academy urban_center,2
+journal,00_art_jes.txt,je_realism,,art_academy,
+journal,00_art_jes.txt,je_camera,,art_academy,3 5
+journal,00_art_jes.txt,je_film,,art_academy,3 5
+journal,00_belle_epoque.txt,je_belle_epoque,,art_academy railway university urban_center,3 10 40
+journal,00_canals.txt,je_suez_survey,,suez_canal,
+journal,00_canals.txt,je_suez_canal,,suez_canal,
+journal,00_canals.txt,je_panama_survey,,panama_canal,
+journal,00_canals.txt,je_panama_canal,,panama_canal,
+journal,00_fascism.txt,je_modernization_program,,port railway,2
+journal,00_grand_exhibition.txt,je_grand_exhibition,,eiffel_tower urban_center,
+journal,00_liberalism.txt,je_liberalism_3,,art_academy university,3
+journal,00_major_railroads.txt,je_trans_siberian_railway,,railway,
+journal,00_major_railroads.txt,je_trans_continental_railway,,railway,
+journal,00_major_railroads.txt,je_canada_pacific_railway,,railway,
+journal,00_meiji_restoration.txt,je_meiji_economy,,railway urban_center,5
+journal,00_opium.txt,je_opium,,opium_plantation,10
+journal,00_player_objectives_economic_dominance.txt,je_refining_goods,,steel_mill,4
+journal,00_player_objectives_economic_dominance.txt,je_specialized_goods,,motor_industry,2
+journal,00_player_objectives_economic_dominance.txt,je_specialized_inputs,,coal_mine iron_mine lead_mine maize_farm millet_farm railway rye_farm sulfur_mine wheat_farm,
+journal,00_player_objectives_great_game.txt,je_chinese_concessions,RUS,railway,
+journal,00_prohibition_laws.txt,je_prohibition,,food_industry,5
+journal,00_sick_man.txt,je_sick_man_economy,,urban_center,
+journal,00_sick_man.txt,je_sick_man_education,,university,5
+journal,00_sick_man.txt,je_sick_man_army,,barrack,
+journal,00_skyscraper.txt,je_skyscraper_site,,urban_center,20
+journal,00_skyscraper.txt,je_skyscraper_construction,,skyscraper,
+journal,00_standard_of_living.txt,je_sol_1,,urban_center,10
+journal,00_trade_route_event_missions.txt,je_build_local_arms_industry,,arms_industry,
+journal,00_tutorial.txt,je_tutorial_improve_market_access_with_railways,,railway,
+journal,00_urbanization.txt,je_urbanization_events_2,,urban_center,5 10
+journal,01_algeria.txt,je_french_foreign_legion,,barrack,20
+journal,01_silkworm_diseases.txt,je_silkworm_diseases,,silk_plantation,2
+journal,02_amazonas.txt,je_amazonas,,rubber_plantation,
+journal,02_coffee_and_milk.txt,je_agricultural_development,,coffee_plantation livestock_ranch,2
+journal,02_coffee_and_milk.txt,je_coffee_with_milk,,coffee_plantation livestock_ranch,2
+journal,02_cristo_redentor.txt,je_cristo_redentor,,cristo_redentor,
+journal,03_russia.txt,je_great_reforms_military,,barrack munition_plant,3
+journal,04_india_british_dictates.txt,je_british_dictate_plantations,,cotton_plantation dye_plantation opium_plantation tea_plantation tobacco_plantation,
+journal,04_india_british_dictates.txt,je_british_dictate_universities,,university,3
+journal,04_india_railway.txt,je_india_railway,,railway,
+journal,04_victoria_terminus.txt,je_victoria_terminus,,railway victoria_terminus,
+journal,05_national_awakening_monument.txt,je_kaiserforum,,kaiserforum_1 kaiserforum_2 kaiserforum_3 kaiserforum_4,
+journal,06_economic_regeneration.txt,je_spa_economic_regeneration_railways,,railway,1 3
+journal,06_iberian_twilight_monuments.txt,je_sagrada_familia,,sagrada_familia_cathedral_1 sagrada_familia_cathedral_2 sagrada_familia_cathedral_3,
+journal,06_iberian_twilight_monuments.txt,je_pena_palace,,pena_convent pena_palace,
+journal,06_iberian_twilight_monuments.txt,je_gran_teatro,,gran_teatro_de_la_habana,
+journal,06_iberian_twilight_monuments.txt,je_atocha_railway,,estacion_de_madrid_atocha railway,
+journal,06_iberian_twilight_monuments.txt,je_manila_cathedral,,manila_cathedral_monument manila_cathedral_ruins,
+journal,06_language_policy.txt,je_vernacular_policy,,railway,
+journal,06_philippines_je.txt,je_philippines_development,,port urban_center,5
+journal,06_portugal_politics.txt,je_portugal_regeneration_public_works,,railway urban_center,
+journal,06_spanish_anarchism.txt,je_spanish_anarchism,,urban_center,
+journal,07_hokkaido.txt,je_taming_the_north,JAP,urban_center,1
+decision,austro_hungarian_decisions.txt,decision_found_budapest,,railway urban_center,3
+decision,canal_decisions.txt,suez_survey_decision,,suez_canal,
+decision,canal_decisions.txt,suez_canal_purchase,,suez_canal,
+decision,canal_decisions.txt,panama_survey_decision,,panama_canal,
+decision,canal_decisions.txt,panama_canal_purchase,,panama_canal,
+decision,grand_exhibition_decision.txt,grand_exhibition_decision,,art_academy eiffel_tower university urban_center,10 20
+decision,india_decisions.txt,make_delhi_capital,,urban_center,5
+decision,skyscraper_decision.txt,skyscraper_decision,,skyscraper urban_center,20

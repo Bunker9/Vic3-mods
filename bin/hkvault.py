@@ -24,7 +24,7 @@ from pathlib import Path
 
 REQUIRE_BRANCH = "hk/config"      # seal refuses to run anywhere else
 EXCLUDE_DIRS   = {".git", "bin", "node_modules"}
-EXCLUDE_FILES: set[str] = {"README.md"}  # kept plaintext + tracked (no PII)
+EXCLUDE_FILES: set[str] = {"README.md", "CHECKPOINTS.md"}  # kept plaintext + tracked (no PII)
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 

@@ -1,0 +1,134 @@
+﻿modifier,buffs,granted_by,duration,countries,file
+age_of_caudillos_modifier,interest_group_ig_armed_forces_pop_attraction_mult=0.1 ; interest_group_ig_armed_forces_pol_str_mult=0.5 ; country_officers_pol_str_mult=2.5,interest_group,permanent,c:ZAN,common/interest_groups/00_armed_forces.txt
+age_of_caudillos_modifier,interest_group_ig_armed_forces_pop_attraction_mult=0.1 ; interest_group_ig_armed_forces_pol_str_mult=0.5 ; country_officers_pol_str_mult=2.5,journal,permanent,(conditional),common/journal_entries/02_caudillo.txt
+caucasus_war_attacker,state_radicalism_increases_violent_hostility_mult=0.20 ; state_radicalism_increases_cultural_erasure_mult=0.20 ; state_radicalism_increases_open_prejudice_mult=0.20 ; state_tax_waste_add=0.50 ; state_mortality_mult=0.10 ; state_circassian_standard_of_living_add=-3 ; state_north_caucasian_standard_of_living_add=-2,journal,permanent,"c:CHC(Chechnya), c:CIR(Circassia), c:RUS(Russia)",common/journal_entries/03_russia.txt
+country_default,(non-numeric),on_action,permanent,(conditional),common/on_actions/00_code_on_actions.txt
+debug_authority,country_authority_add=1000,event,permanent,(conditional),events/debug_events.txt
+debug_bureaucracy,country_bureaucracy_add=1000,event,permanent,(conditional),events/debug_events.txt
+debug_influence,country_influence_add=1000,event,permanent,(conditional),events/debug_events.txt
+debug_movement_activism_down,political_movement_radicalism_add=-0.1,other,permanent,(conditional),common/scripted_guis/debug_sguis.txt
+debug_movement_activism_up,political_movement_radicalism_add=0.1,other,permanent,(conditional),common/scripted_guis/debug_sguis.txt
+eastern_crisis_balkan_nations,country_diplomatic_play_maneuvers_mult=1.0 ; country_military_tech_spread_mult=0.25 ; country_liberty_desire_add=0.35,event,permanent,"c:AUS(Austria), c:RUS(Russia), c:TUR(Turkey)",events/balkans_events/eastern_crisis.txt
+famed_mountaineer,character_popularity_add=10,event,permanent,(conditional),events/tibetan_expedition.txt
+foreign_legislative_interference,(non-numeric),journal,permanent,(conditional),common/journal_entries/00_impose_law.txt
+foreign_legislative_interference,(non-numeric),journal,permanent,(conditional),common/journal_entries/04_india_british_dictates.txt
+foreign_legislative_interference,(non-numeric),other,permanent,(conditional),common/scripted_buttons/04_law_imposition_buttons.txt
+foreign_legislative_interference_enactment,(non-numeric),other,permanent,(conditional),common/scripted_buttons/04_law_imposition_buttons.txt
+foreign_legislative_interference_enactment,(non-numeric),event,permanent,(conditional),events/india_events/british_dictates.txt
+foreign_legislative_interference_enactment,(non-numeric),event,permanent,(conditional),events/india_events/british_dictates.txt
+foreign_legislative_interference_enactment,(non-numeric),event,permanent,(conditional),events/law_imposition_events.txt
+foreign_legislative_interference_enactment,(non-numeric),event,permanent,(conditional),events/law_imposition_events.txt
+garibaldi_popularity_modifier_tier_1,character_popularity_add=20 ; character_battle_condition_surprise_maneuver_mult=0.5,event,permanent,(conditional),events/agitators_events/garibaldi_events.txt
+garibaldi_popularity_modifier_tier_2,character_popularity_add=40 ; character_battle_condition_surprise_maneuver_mult=1 ; unit_defense_mult=0.05,event,permanent,(conditional),events/agitators_events/garibaldi_events.txt
+garibaldi_popularity_modifier_tier_3,character_popularity_add=60 ; character_battle_condition_surprise_maneuver_mult=1 ; unit_defense_mult=0.05 ; unit_offense_mult=0.05,event,permanent,(conditional),events/agitators_events/garibaldi_events.txt
+garibaldi_popularity_modifier_tier_4,character_popularity_add=80 ; character_battle_condition_surprise_maneuver_mult=1 ; unit_defense_mult=0.1 ; unit_offense_mult=0.05,event,permanent,(conditional),events/agitators_events/garibaldi_events.txt
+garibaldi_popularity_modifier_tier_5,character_popularity_add=100 ; character_battle_condition_surprise_maneuver_mult=1 ; unit_defense_mult=0.1 ; unit_offense_mult=0.1,event,permanent,(conditional),events/agitators_events/garibaldi_events.txt
+lands_of_anarchy_harka_popularity_mod,character_popularity_add=20,other,permanent,(conditional),common/scripted_buttons/morocco_makhzen_buttons.txt
+lands_of_anarchy_tribal_al_rif_leader_mod,character_popularity_add=-25,event,permanent,(conditional),events/iberia_events/morocco_makhzen_events.txt
+lands_of_anarchy_tribal_inner_morocco_leader_mod,character_popularity_add=-25,event,permanent,(conditional),events/iberia_events/morocco_makhzen_events.txt
+lands_of_anarchy_tribal_marrakech_leader_mod,character_popularity_add=-25,event,permanent,(conditional),events/iberia_events/morocco_makhzen_events.txt
+lippe_crisis,building_throughput_add=-0.1 ; country_loan_interest_rate_mult=1.0,journal,10 years,"c:LIP(Lippe), c:SCM(Schaumburg-Lippe)",common/journal_entries/99_test_global_je.txt
+lippe_crisis,building_throughput_add=-0.1 ; country_loan_interest_rate_mult=1.0,journal,10 years,"c:LIP(Lippe), c:SCM(Schaumburg-Lippe)",common/journal_entries/99_test_global_je.txt
+lippe_crisis_averted,building_throughput_add=0.05 ; country_loan_interest_rate_mult=-0.33,journal,10 years,"c:LIP(Lippe), c:SCM(Schaumburg-Lippe)",common/journal_entries/99_test_global_je.txt
+modifier_agitator_commander_political_patronage,character_popularity_add=25 ; character_loyalty_add=10,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_agitator_commander_political_smears,character_popularity_add=-25 ; character_loyalty_add=-10,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_agitator_political_patronage,character_popularity_add=25,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_agitator_political_smears,character_popularity_add=-25,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_burning_of_the_treasury,political_movement_radicalism_add=0.15,event,permanent,(conditional),events/iberia_events/ip4_portuguese_political_events.txt
+modifier_commander_political_patronage,character_prominence_add=20 ; character_loyalty_add=10,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_commander_political_smears,character_prominence_add=-20 ; character_loyalty_add=-10,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_ferdinand_the_good,character_popularity_add=50,other,permanent,(conditional),common/character_templates/country_aus.txt
+modifier_fudai_daimyo,character_loyalty_add=5,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_fudai_daimyo,character_loyalty_add=5,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_fudai_daimyo_restoration,character_loyalty_add=-5,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_fudai_daimyo_restoration,character_loyalty_add=-5,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_god_fatherland_fuero_king,country_legitimacy_base_add=10 ; country_authority_add=100,event,permanent,(conditional),events/iberia_events/two_spains_events.txt
+modifier_honour_and_life_military,country_military_tech_spread_mult=0.10 ; building_throughput_add=0.05 ; interest_group_ig_industrialists_pol_str_mult=0.15,event,permanent,(conditional),events/soi_events/00_ep1_caucasus_events.txt
+modifier_honour_and_life_sol,state_standard_of_living_add=1 ; country_prestige_mult=0.15 ; state_pop_pol_str_mult=0.15,event,permanent,(conditional),events/soi_events/00_ep1_caucasus_events.txt
+modifier_india_company_rule,interest_group_ig_industrialists_pol_str_mult=2 ; country_bureaucrats_pol_str_mult=2 ; country_capitalists_pol_str_mult=0.5 ; country_officers_pol_str_mult=0.5 ; country_aristocrats_pol_str_mult=-0.80 ; country_legitimacy_base_add=-50 ; country_legitimacy_headofstate_add=65,history(country),permanent,c:BIC(East India),common/history/countries/bic - british east india company.txt
+modifier_india_company_rule_upgraded,interest_group_ig_industrialists_pol_str_mult=2 ; country_bureaucrats_pol_str_mult=2.5 ; country_capitalists_pol_str_mult=0.5 ; country_officers_pol_str_mult=0.5 ; country_aristocrats_pol_str_mult=-0.90 ; country_legitimacy_base_add=-50 ; country_legitimacy_headofstate_add=75 ; building_trade_center_throughput_add=0.15,event,permanent,(conditional),events/india_events/sepoy_mutiny_events.txt
+modifier_india_crown_rule,interest_group_ig_industrialists_pol_str_mult=2 ; country_bureaucrats_pol_str_mult=2.50 ; country_aristocrats_pol_str_mult=-0.90 ; country_legitimacy_base_add=-35 ; country_legitimacy_headofstate_add=50,decision,permanent,c:BIC(East India),common/decisions/india_decisions.txt
+modifier_india_crown_rule,interest_group_ig_industrialists_pol_str_mult=2 ; country_bureaucrats_pol_str_mult=2.50 ; country_aristocrats_pol_str_mult=-0.90 ; country_legitimacy_base_add=-35 ; country_legitimacy_headofstate_add=50,event,permanent,c:BIC(East India),events/british_raj_events.txt
+modifier_indian_imperial_police,country_authority_mult=0.15 ; country_bureaucracy_mult=0.15 ; country_revolution_progress_mult=-0.25 ; state_radicals_from_political_movements_mult=-0.10 ; state_mortality_turmoil_mult=0.005,event,permanent,(conditional),events/india_events/sepoy_mutiny_events.txt
+modifier_kazakh_ungovernable_provinces,state_radicalism_increases_violent_hostility_mult=0.2 ; state_radicalism_increases_cultural_erasure_mult=0.2 ; state_radicalism_increases_open_prejudice_mult=0.2 ; unit_provinces_captured_mult=-0.95 ; state_tax_waste_add=0.50 ; state_mortality_mult=0.10 ; unit_morale_loss_mult=0.25,event,permanent,"c:KAZ, c:RUS(Russia)",events/soi_events/00_ep1_kazakh_events.txt
+modifier_kazakh_ungovernable_provinces,state_radicalism_increases_violent_hostility_mult=0.2 ; state_radicalism_increases_cultural_erasure_mult=0.2 ; state_radicalism_increases_open_prejudice_mult=0.2 ; unit_provinces_captured_mult=-0.95 ; state_tax_waste_add=0.50 ; state_mortality_mult=0.10 ; unit_morale_loss_mult=0.25,event,permanent,"c:KAZ, c:RUS(Russia)",events/soi_events/00_ep1_kazakh_events.txt
+modifier_legacy_of_the_liberal_wars,interest_group_ig_landowners_pol_str_mult=-0.75 ; interest_group_ig_petty_bourgeoisie_pol_str_mult=0.25 ; interest_group_ig_intelligentsia_pol_str_mult=0.25 ; country_radicals_from_legitimacy_mult=0.25 ; state_pop_support_movement_miguelist_mult=-0.5,history(country),permanent,c:POR(Portugal),common/history/countries/por - portugal.txt
+modifier_meiji_interregnum,country_revolution_clock_time_add=0.875 ; political_movement_activism_growth_mult=5 ; country_law_enactment_time_mult=-0.5 ; political_movement_radicalism_add=0.10,event,permanent,(conditional),events/japan_events/ep2_meiji_restoration.txt
+modifier_political_martyr,character_popularity_add=25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_scripted_effects.txt
+modifier_political_patronage,character_prominence_add=20,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_political_smears,character_prominence_add=-20,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_portuguese_diplomatic_assistance,character_popularity_add=-25,other,permanent,c:BRZ(Brazil),common/scripted_buttons/06_portugal_buttons.txt
+modifier_portuguese_diplomatic_assistance,character_popularity_add=-25,event,permanent,c:BRZ(Brazil),events/iberia_events/ip4_lusosphere_events.txt
+modifier_red_scared,interest_group_approval_add=-3 ; interest_group_pol_str_mult=-0.20,event,permanent,(conditional),events/red_scare_events.txt
+modifier_red_scared_reactionary,interest_group_approval_add=-3 ; interest_group_pol_str_mult=-0.05,event,permanent,(conditional),events/red_scare_events.txt
+modifier_reformed_captaincy_general,state_incorporation_speed_mult=0.2,on_action,permanent,c:SPA(Spain),common/on_actions/00_code_on_actions.txt
+modifier_reformed_captaincy_general,state_incorporation_speed_mult=0.2,event,permanent,(conditional),events/iberia_events/spanish_new_world_events.txt
+modifier_reformed_captaincy_general,state_incorporation_speed_mult=0.2,event,permanent,(conditional),events/iberia_events/spanish_new_world_events.txt
+modifier_refused_expulsion_of_reps,interest_group_approval_add=-2,event,permanent,(conditional),events/red_scare_events.txt
+modifier_regency,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25,law,permanent,"c:FRA(France), c:SPA(Spain)",common/laws/00_governance_principles.txt
+modifier_regency,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25,law,permanent,"c:FRA(France), c:SPA(Spain)",common/laws/00_governance_principles.txt
+modifier_regency,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25,event,permanent,(conditional),events/iberia_events/two_spains_events.txt
+modifier_regency_armed_forces,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_armed_forces_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_devout,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_devout_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_industrialists,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_industrialists_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_intelligentsia,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_intelligentsia_pol_str_mult=0.25,history(country),permanent,c:BRZ(Brazil),common/history/countries/brz - brazil.txt
+modifier_regency_intelligentsia,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_intelligentsia_pol_str_mult=0.25,history(country),permanent,c:JAI(Dhundhar),common/history/countries/jai - jaipur.txt
+modifier_regency_intelligentsia,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_intelligentsia_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_intelligentsia,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_intelligentsia_pol_str_mult=0.25,event,permanent,(conditional),events/brazil/pedro_brazil_events.txt
+modifier_regency_landowners,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_landowners_pol_str_mult=0.25,history(country),permanent,c:IDA(IDA),common/history/countries/ida - idar.txt
+modifier_regency_landowners,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_landowners_pol_str_mult=0.25,history(country),permanent,c:JOH(Johore),common/history/countries/joh - johore.txt
+modifier_regency_landowners,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_landowners_pol_str_mult=0.25,history(country),permanent,c:KOR(Korea),common/history/countries/kor - korea.txt
+modifier_regency_landowners,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_landowners_pol_str_mult=0.25,history(country),permanent,c:MNP(Manipur),common/history/countries/mnp - manipur.txt
+modifier_regency_landowners,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_landowners_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_petty_bourgeoisie,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_petty_bourgeoisie_pol_str_mult=0.25,history(country),permanent,c:SPA(Spain),common/history/countries/spa - spain.txt
+modifier_regency_petty_bourgeoisie,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_petty_bourgeoisie_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_rural_folk,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_rural_folk_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_regency_trade_unions,country_legitimacy_base_add=-10 ; country_law_enactment_time_mult=0.25 ; interest_group_ig_trade_unions_pol_str_mult=0.25,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ip4_scripted_effects.txt
+modifier_republican_spirit,interest_group_approval_add=2 ; interest_group_pop_attraction_mult=0.15,event,permanent,(conditional),events/iberia_events/two_spains_events.txt
+modifier_retired_daimyo,country_authority_add=-100,other,permanent,(conditional),common/character_interactions/01_additional_interactions.txt
+modifier_shinpan_daimyo,character_loyalty_add=10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_shinpan_daimyo,character_loyalty_add=10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_shinpan_daimyo_restoration,character_loyalty_add=-10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_shinpan_daimyo_restoration,character_loyalty_add=-10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_shuttered_camilos_club,political_movement_pop_attraction_mult=-0.10 ; political_movement_radicalism_add=0.10,event,permanent,(conditional),events/iberia_events/ip4_portuguese_political_events.txt
+modifier_slaughter_with_decrees,state_mortality_mult=0.10,scripted_effect,12 months,c:PRC,common/scripted_effects/00_victoria_adversarial_scripted_effects.txt
+modifier_slaughter_with_decrees,state_mortality_mult=0.10,scripted_effect,12 months,(conditional),common/scripted_effects/00_victoria_adversarial_scripted_effects.txt
+modifier_slaughter_with_decrees,state_mortality_mult=0.10,event,12 months,c:PRC,events/agitators_events/paris_commune_pulse_events.txt
+modifier_slaughter_with_decrees,state_mortality_mult=0.10,event,12 months,(conditional),events/agitators_events/paris_commune_pulse_events.txt
+modifier_socialist_representatives_expelled,interest_group_pol_str_mult=-0.10,event,permanent,(conditional),events/red_scare_events.txt
+modifier_taikun,character_prominence_add=30,amendment,permanent,(conditional),common/amendments/00_amendments_ep2_04.txt
+modifier_taikun,character_prominence_add=30,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_taikun,character_prominence_add=30,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_taikun,character_prominence_add=30,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_taikun,character_prominence_add=30,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_the_world_made_right_again,country_acceptance_state_religion_add=15 ; country_authority_add=200 ; state_conversion_mult=0.25,event,permanent,(conditional),events/iberia_events/two_spains_events.txt
+modifier_tozama_daimyo,character_loyalty_add=-10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_tozama_daimyo,character_loyalty_add=-10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_tozama_daimyo_restoration,character_loyalty_add=10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_tozama_daimyo_restoration,character_loyalty_add=10,scripted_effect,permanent,(conditional),common/scripted_effects/00_victoria_ep2_scripted_effects.txt
+modifier_untouched_camilos_club,political_movement_pop_attraction_mult=0.10,event,permanent,(conditional),events/iberia_events/ip4_portuguese_political_events.txt
+modifier_untouched_camilos_club_ig,interest_group_approval_add=-3,event,permanent,(conditional),events/iberia_events/ip4_portuguese_political_events.txt
+modifier_vladivostok_civilian,building_port_throughput_add=0.15 ; building_shipyard_throughput_add=0.15 ; interest_group_ig_industrialists_pol_str_mult=0.05,event,permanent,(conditional),events/russo_chinese_events.txt
+modifier_vladivostok_navy,building_shipyard_throughput_add=0.15 ; interest_group_ig_armed_forces_pol_str_mult=0.05,event,permanent,(conditional),events/russo_chinese_events.txt
+modifier_zaibatsu_oligarchy,country_free_charters_add=1 ; state_political_strength_from_wealth_mult=0.15,journal,permanent,(conditional),common/journal_entries/07_zaibatsu.txt
+modifier_zaibatsu_oligarchy_democratic,country_free_charters_add=1 ; country_voting_power_mult=-0.15 ; country_electoral_confidence_over_time=-0.005,journal,permanent,(conditional),common/journal_entries/07_zaibatsu.txt
+negative_crisis_influence,country_influence_mult=-0.20 ; country_infamy_generation_mult=0.20 ; country_infamy_decay_mult=-0.20,journal,permanent,c:TUR(Turkey),common/journal_entries/05_great_eastern_crisis.txt
+plague_eviction_ban_anarchist,interest_group_approval_add=4,event,permanent,(conditional),events/spanish_flu_events.txt
+shogun_forced_to_open_market,political_movement_pop_attraction_mult=-0.35,event,permanent,c:JAP(Japan),events/meiji_restoration.txt
+shogun_ig_forced_to_open_market,interest_group_ig_landowners_pol_str_mult=-0.75 ; interest_group_ig_intelligentsia_pol_str_mult=0.5 ; interest_group_ig_industrialists_pol_str_mult=0.5 ; country_legitimacy_headofstate_add=-50 ; country_legitimacy_base_add=30 ; state_pop_support_movement_modernizer_mult=0.5,event,permanent,c:JAP(Japan),events/meiji_restoration.txt
+spc_state_fueros_restored,state_tax_capacity_mult=-0.5 ; state_aristocrats_investment_pool_contribution_add=-0.2 ; state_farmers_investment_pool_contribution_add=-0.2,amendment,permanent,(conditional),common/amendments/00_amendments_content_04.txt
+the_grand_collapse_law_speed_mod,country_law_enactment_time_mult=-0.15 ; country_law_enactment_success_add=0.15 ; country_authority_mult=-0.10,other,permanent,(conditional),common/scripted_buttons/00_the_grand_collapse_buttons.txt
+the_grand_collapse_relation_speed_mod,country_improve_relations_speed_mult=0.15 ; country_damage_relations_speed_mult=0.15 ; country_influence_mult=-0.10,other,permanent,(conditional),common/scripted_buttons/00_the_grand_collapse_buttons.txt
+the_restorer_modifier,character_popularity_add=50,event,permanent,(conditional),events/french_pretenders.txt
+the_restorer_modifier,character_popularity_add=50,event,permanent,(conditional),events/french_pretenders.txt
+the_restorer_modifier,character_popularity_add=50,event,permanent,(conditional),events/french_pretenders.txt
+the_restorer_modifier,character_popularity_add=50,event,permanent,(conditional),events/french_pretenders.txt
+the_restorer_modifier,character_popularity_add=50,event,permanent,(conditional),events/french_pretenders.txt
+the_restorer_modifier,character_popularity_add=50,event,permanent,(conditional),events/french_pretenders.txt
+usa_capital_intact,country_legitimacy_base_add=5 ; state_incorporation_speed_mult=0.1,history(country),permanent,c:USA(America),common/history/countries/usa - usa.txt
+usa_capital_intact,country_legitimacy_base_add=5 ; state_incorporation_speed_mult=0.1,on_action,permanent,"c:GER, c:USA(America)",common/on_actions/00_code_on_actions.txt
+usa_capital_relocated,country_legitimacy_base_add=-15 ; state_incorporation_speed_mult=-0.25,on_action,permanent,"c:GER, c:USA(America)",common/on_actions/00_code_on_actions.txt
+zul_desperately_clinging_to_power,character_popularity_add=-40,event,permanent,(conditional),events/iberia_events/struggle_for_the_highveld_events.txt
