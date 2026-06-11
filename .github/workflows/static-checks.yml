@@ -1,0 +1,61 @@
+name: vic3-static-checks
+
+# Gate for promotion to master. Runs the SAME static structure/encoding/syntax
+# checks the local harness runs (testkit/checks/structure.py, sourced from the
+# testbook branch so there is one source of truth — no drifting copy in this repo).
+#
+# Scope (v1): per-mod encoding (UTF-8 BOM on .txt/.yml, no BOM on metadata.json),
+# brace balance, quote balance, valid mod-root folders, metadata.json validity.
+# NOT in scope (stays manual): in-game behaviour and post-patch semantics.
+
+on:
+  pull_request:
+    branches: [master]
+  workflow_dispatch: {}
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out mod code (PR head merged into base)
+        uses: actions/checkout@v4
+
+      - name: Check out test harness (testbook branch — source of truth)
+        uses: actions/checkout@v4
+        with:
+          ref: testbook
+          path: _harness
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run static checks on every mod
+        shell: bash
+        run: |
+          set -uo pipefail
+          checker="_harness/testkit/checks/structure.py"
+          if [ ! -f "$checker" ]; then
+            echo "::error::static checker not found at $checker (testbook branch checkout failed?)"
+            exit 1
+          fi
+          found=0
+          fail=0
+          for mod in */ ; do
+            mod="${mod%/}"
+            case "$mod" in _harness|.github) continue ;; esac
+            if [ -f "$mod/.metadata/metadata.json" ]; then
+              found=1
+              echo "::group::static checks — $mod"
+              if ! python "$checker" "$mod"; then
+                echo "::error::static checks FAILED for $mod"
+                fail=1
+              fi
+              echo "::endgroup::"
+            fi
+          done
+          if [ "$found" -eq 0 ]; then
+            echo "No mods found (no */.metadata/metadata.json) — nothing to check."
+          fi
+          exit $fail
