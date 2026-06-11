@@ -1,0 +1,31 @@
+VIC3 hk/config — DISASTER RECOVERY  (plaintext on purpose; do not rename to .md)
+================================================================================
+
+All *.md notes on this branch are encrypted with `age` (filippo.io/age).
+You are reading this because you cloned hk/config on a fresh machine and every
+note shows up as <name>.md.age ciphertext.
+
+WHAT YOU NEED
+  1. The age binary.  It is committed here in bin/ (age.exe on Windows).
+     On macOS/Linux install age:  https://github.com/FiloSottile/age/releases
+  2. Your PRIVATE key. It is NOT in this repo. Retrieve it from your email:
+        search your inbox for subject token:  VIC3-DR-KEY
+     Save the key text to a file, e.g.  ~/.vic3-vault/identity.key
+
+DECRYPT EVERYTHING
+     cd into this worktree, then:
+        python bin/hkvault.py unseal --key /path/to/identity.key
+     (or, if the key is at the default ~/.vic3-vault/identity.key, just:)
+        python bin/hkvault.py unseal
+
+RE-ENABLE THE SHORTHANDS (git seal / git unseal / git vault)
+        bin/install.bat      (Windows)
+        sh bin/install.sh    (macOS/Linux)
+
+DAILY USE AFTER RECOVERY
+        edit notes as normal *.md  (they stay local, gitignored)
+        git seal     -> encrypt changed notes and commit
+        git vault    -> confirm no plaintext .md ever gets tracked
+
+The PUBLIC key (bin/vault.pub) only encrypts; it cannot decrypt, so it is safe
+in the repo. Guard the PRIVATE key — anyone with it can read every note.

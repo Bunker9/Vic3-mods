@@ -1,0 +1,20 @@
+# --- hkvault: only ENCRYPTED notes are committed -------------------------
+# Plaintext markdown is treated as secret. Git physically cannot commit it;
+# only the encrypted <name>.md.age (produced by `git seal`) is tracked.
+*.md
+# (*.md.age ends in .age, so it is NOT matched by *.md above — it stays tracked)
+
+# local seal cache (plaintext hashes; never share)
+.vaultcache.json
+
+# never commit an age private key, anywhere
+identity.key
+*.key
+
+# --- OS / editor cruft ---------------------------------------------------
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
