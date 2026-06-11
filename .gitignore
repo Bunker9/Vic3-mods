@@ -3,6 +3,9 @@
 # only the encrypted <name>.md.age (produced by `git seal`) is tracked.
 *.md
 # (*.md.age ends in .age, so it is NOT matched by *.md above — it stays tracked)
+# allowlist: README.md is deliberately kept plaintext + tracked (no PII).
+# Must stay in sync with EXCLUDE_FILES in bin/hkvault.py.
+!README.md
 
 # local seal cache (plaintext hashes; never share)
 .vaultcache.json

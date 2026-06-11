@@ -24,7 +24,7 @@ from pathlib import Path
 
 REQUIRE_BRANCH = "hk/config"      # seal refuses to run anywhere else
 EXCLUDE_DIRS   = {".git", "bin", "node_modules"}
-EXCLUDE_FILES: set[str] = set()   # add filenames here to keep them plaintext
+EXCLUDE_FILES: set[str] = {"README.md"}  # kept plaintext + tracked (no PII)
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 
@@ -196,7 +196,8 @@ def cmd_unseal(args) -> "None":
 def cmd_verify(args) -> "None":
     root = repo_root()
     tracked_md = run(["git", "ls-files", "*.md"]).stdout.strip()
-    leaks = [l for l in tracked_md.splitlines() if l]
+    leaks = [l for l in tracked_md.splitlines()
+             if l and Path(l).name not in EXCLUDE_FILES]
     ok = True
     if leaks:
         ok = False
