@@ -31,7 +31,7 @@ code{background:#2b2d31;padding:1px 5px;border-radius:4px;font-size:12px}
  box-shadow:0 2px 8px rgba(0,0,0,.4);user-select:none;z-index:50}
 #toTop:hover{opacity:1}
 </style></head><body>
-<header><h1>Vic3 test report — <code>test/versiontest</code></h1><div class='sub'>generated 2026-06-10T21:06:24 &nbsp; <span class='pill ok'>static: 0 fail</span> <span class='pill ok'>log: 0 mod errors</span> <span class='pill ok'>bdd: 23 PASS | 0 FAIL | 0 NA</span> &nbsp; mods: MyDiploPlayMod, Top40EcoBoostMod, versiontestMod</div><div class='sub small'>Re-run <code>python sanity-check/testkit/run_test.py</code> after a fix, then press F5.</div></header>
+<header><h1>Vic3 test report — <code>test/versiontest</code></h1><div class='sub'>generated 2026-06-11T19:39:39 &nbsp; <span class='pill ok'>static: 0 fail</span> <span class='pill ok'>log: 0 mod errors</span> <span class='pill ok'>bdd: 23 PASS | 0 FAIL | 0 NA</span> &nbsp; mods: MyDiploPlayMod, Top40EcoBoostMod, versiontestMod</div><div class='sub small'>Re-run <code>python sanity-check/testkit/run_test.py</code> after a fix, then press F5.</div></header>
 <div class="tabs">
  <div class="tab active" onclick="show(0)">Static</div>
  <div class="tab" onclick="show(1)">Log</div>
@@ -68,95 +68,16 @@ code{background:#2b2d31;padding:1px 5px;border-radius:4px;font-size:12px}
 <tr><td>localization/english/versiontest_l_english.yml</td><td class='c ok'>OK</td><td class='muted c'>-</td><td class='muted c'>-</td><td class='c ok'>OK</td></tr>
 </table></div></div>
 <div class="panel"><div class='mod'><h2>MyDiploPlayMod</h2>
-<p class='small' style='margin-bottom:3px'><b>War &amp; goal</b></p>
-<table><tr><th>Attacker</th><th>Defender</th><th>War goal</th></tr>
-<tr><td>Punjab (PAN)</td><td>Sindh (SIN)</td><td>return_state (infamy 2)</td></tr>
-</table>
-<p class='small' style='margin-bottom:3px'><b>Claims &amp; cores  (state : owner / claimant)</b></p>
-<table><tr><th>State</th><th>Owner</th><th>Claimant</th><th>Kind</th></tr>
-<tr><td>Sindh</td><td>SIN</td><td>PAN</td><td>claim</td></tr>
-<tr><td>Sindh</td><td>SIN</td><td>PAN</td><td>homeland(panjabi)</td></tr>
-</table>
 <p class='ok'>No real errors referencing this mod.</p>
 </div>
 <div class='mod'><h2>Top40EcoBoostMod</h2>
-<table><tr><th>Country</th><th>Building</th><th>Type</th><th>Have</th><th>Need</th><th>Placed</th><th>Cap</th><th>OK</th></tr>
-<tr><td>Khalsa Raj</td><td>Cotton Plantations</td><td>champ</td><td class='c'>0</td><td class='c'>10</td><td class='c'>10</td><td class='c'>10</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Opium Plantations</td><td>support</td><td class='c'>1</td><td class='c'>4</td><td class='c'>4</td><td class='c'>5</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Sugar Plantations</td><td>support</td><td class='c'>0</td><td class='c'>5</td><td class='c'>5</td><td class='c'>5</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Tea Plantations</td><td>support</td><td class='c'>0</td><td class='c'>5</td><td class='c'>5</td><td class='c'>5</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Textile Mills</td><td>support</td><td class='c'>3</td><td class='c'>2</td><td class='c'>2</td><td class='c'>5</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Artillery Foundry</td><td>flavour</td><td class='c'>0</td><td class='c'>1</td><td class='c'>1</td><td class='c'>1</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Paper Mills</td><td>flavour</td><td class='c'>0</td><td class='c'>1</td><td class='c'>1</td><td class='c'>1</td><td class='c ok'>OK</td></tr>
-<tr><td>Khalsa Raj</td><td>Coffee Plantations</td><td>flavour</td><td class='c'>0</td><td class='c'>1</td><td class='c'>1</td><td class='c'>1</td><td class='c ok'>OK</td></tr>
-<tr><td>?</td><td>Tooling Workshops</td><td>flavour</td><td class='c'>1</td><td class='c'>1</td><td class='c'>0</td><td class='c'>1</td><td class='c bad'>NO</td></tr>
-<tr><td>?</td><td>Iron Mines</td><td>flavour</td><td class='c'>2</td><td class='c'>1</td><td class='c'>0</td><td class='c'>1</td><td class='c bad'>NO</td></tr>
-<tr><td>?</td><td>Logging Camps</td><td>flavour</td><td class='c'>2</td><td class='c'>1</td><td class='c'>0</td><td class='c'>1</td><td class='c bad'>NO</td></tr>
-<tr><td>Prussia</td><td>Steel Mills</td><td>champ</td><td class='c'>3</td><td class='c'>11</td><td class='c'>11</td><td class='c'>14</td><td class='c ok'>OK</td></tr>
-<tr><td>Prussia</td><td>Explosives Factory</td><td>support</td><td class='c'>1</td><td class='c'>6</td><td class='c'>6</td><td class='c'>7</td><td class='c ok'>OK</td></tr>
-<tr><td>Prussia</td><td>Fertilizer Plants</td><td>support</td><td class='c'>2</td><td class='c'>5</td><td class='c'>5</td><td class='c'>7</td><td class='c ok'>OK</td></tr>
-<tr><td>Prussia</td><td>Motor Industries</td><td>support</td><td class='c'>0</td><td class='c'>7</td><td class='c'>7</td><td class='c'>7</td><td class='c ok'>OK</td></tr>
-</table>
 <p class='ok'>No real errors referencing this mod.</p>
 </div>
 <div class='mod'><h2>versiontestMod</h2>
-<p class='small' style='margin-bottom:3px'><b>Load marker (mode logged when the player closed the popup)</b></p>
-<table><tr><th>Mode</th></tr>
-<tr><td>TESTER - verify this build &amp; sign off</td></tr>
-</table>
 <p class='ok'>No real errors referencing this mod.</p>
 </div>
-<div class='mod'><h2>Non-mod (vanilla / other) real errors <span class='pill warn'>15</span> <span class='small'>in 3 files</span></h2>
+<div class='mod'><h2>Non-mod (vanilla / other) real errors <span class='pill warn'>0</span> <span class='small'>in 0 files</span></h2>
 <p class='small'>Found in the logs but not referencing any tested mod's files. Grouped by source file; for awareness only, not a blocker for this mod's PR.</p>
-<details><summary><code>common/naval_mission_types/00_naval_mission_types.txt</code> <span class='pill warn'>12</span></summary>
-<pre class='note'>[20:51:31][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:70</pre>
-<pre class='note'>[20:51:31][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:90</pre>
-<pre class='note'>[20:51:31][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:128</pre>
-<pre class='note'>[20:51:39][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:70</pre>
-<pre class='note'>[20:51:39][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:90</pre>
-<pre class='note'>[20:51:39][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:128</pre>
-<pre class='note'>[20:51:48][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:70</pre>
-<pre class='note'>[20:51:48][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:90</pre>
-<pre class='note'>[20:51:48][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:128</pre>
-<pre class='note'>[20:51:56][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:70</pre>
-<pre class='note'>[20:51:56][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:90</pre>
-<pre class='note'>[20:51:56][jomini_script_system.cpp:247]: Script system error!
-  Error: untyped trigger [ Scoped object of type &#x27;military_formation&#x27; is not valid (Military Formation (4294967295)) ]
-  Script location: common/naval_mission_types/00_naval_mission_types.txt:128</pre>
-</details>
-<details><summary><code>common/treaty_articles/31_ship_transfer.txt</code> <span class='pill warn'>2</span></summary>
-<pre class='note'>[20:51:43][jomini_script_system.cpp:247]: Script system error!
-  Error: Event target link &#x27;scope&#x27; returned an invalid object
-  Script location: common/treaty_articles/31_ship_transfer.txt:56</pre>
-<pre class='note'>[20:51:50][jomini_script_system.cpp:247]: Script system error!
-  Error: Event target link &#x27;scope&#x27; returned an invalid object
-  Script location: common/treaty_articles/31_ship_transfer.txt:56</pre>
-</details>
-<details><summary><code>(unattributed)</code> <span class='pill warn'>1</span></summary>
-<pre class='note'>[20:51:55][pdx_named_index_impl.h:257]: Could not find NamedIndex &#x27;PdxDebugConstants&#x27;</pre>
-</details>
 </div></div>
 <div class="panel"><div class='mod'><h2>MyDiploPlayMod</h2>
 <div class='observe'><div class='oh'>In-game observations — MyDiploPlayMod</div>
