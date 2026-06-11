@@ -4,6 +4,7 @@
 # Top40EcoBoostMod — event pipeline.
 #  eco.2  per-nation build pass (champ/support/flavour), fired for each target.
 #  eco.3  phase-2 champ SoL swap at year 20 (group-level; see modifier note).
+#  eco.4  player-only notification that the eco-seed ran (visible toast).
 # Tech grant + the per-nation dispatch happen in common/on_actions/eco_on_actions.txt.
 # =============================================================================
 
@@ -41,5 +42,26 @@ eco.3 = {
 				add_modifier = { name = eco_champ_state_p2 }
 			}
 		}
+	}
+}
+
+# ---- player-only notification: the eco-seed has run ------------------------
+# Fired from eco_setup_<TAG> only for the human player (is_player) so AI nations
+# don't get a popup. Confirms the build pass happened (useful for the planned
+# phase-2 yearly-cadence spread).
+eco.4 = {
+	type = country_event
+
+	title = eco.4.t
+	desc = eco.4.d
+
+	event_image = { video = "unspecific_world_fair" }
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+
+	duration = 5
+
+	option = {
+		name = eco.4.a
+		default_option = yes
 	}
 }

@@ -16,10 +16,12 @@ versiontest.1 = {
 	title = versiontest.1.t
 	desc = versiontest.1.d
 
-	# Background: vanilla Sikhism/Hinduism event video (fits the Punjab test). Replaces
-	# the missing-texture "pink smiley" placeholder that shows when no event_image is set.
+	# Background: generic, all-nations base-game video (the popup fires to EVERY country, so
+	# the image must not be region/culture-flavoured). "unspecific_world_fair" = a showcase of
+	# new things -> doubles as the version signature for this build. Base-game (no DLC), so it
+	# never falls back to the missing-texture placeholder for any player.
 	event_image = {
-		video = "asia_hinduism_sikhism"
+		video = "unspecific_world_fair"
 	}
 	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
 	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
@@ -34,7 +36,7 @@ versiontest.1 = {
 		# The logged string is kept in sync with the branch by tools\set-versiontest-mode.ps1.
 		if = {
 			limit = { is_player = yes }
-			debug_log = versiontest_log
+			#debug_log = versiontest_log   # commented out for master: real users generate no logs
 		}
 	}
 }

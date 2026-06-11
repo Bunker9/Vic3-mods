@@ -28,8 +28,8 @@ eco_grant_military_techs = {
 # ---- CAPPED SPREAD: place N levels of $B$, best-first, remainder to best state -
 # params: $B$ = building type, $TYPE$ = champ|support|flavour, $N$ = target levels
 eco_seed_capped = {
-	debug_log = $B$                                  # header: building display name
-	debug_log_scopes = yes                           # logs the country (Root) even if need=0
+	#debug_log = $B$                                  # header: building display name
+	#debug_log_scopes = yes                           # logs the country (Root) even if need=0
 
 	# 0) how many levels of $B$ does the country ALREADY own? (needed = cap - have)
 	#    Reported via one ECO_HAVE marker per pre-existing level.
@@ -42,7 +42,7 @@ eco_seed_capped = {
 	set_variable = { name = eco_mark value = 0 }
 	while = {
 		limit = { var:eco_mark < var:eco_have }
-		debug_log = eco_have_$TYPE$
+		#debug_log = eco_have_$TYPE$
 		change_variable = { name = eco_mark add = 1 }
 	}
 
@@ -96,11 +96,11 @@ eco_seed_capped = {
 				set_variable = { name = eco_mark value = 0 }
 				while = {
 					limit = { var:eco_mark < var:eco_share }
-					debug_log = eco_hit_$TYPE$
+					#debug_log = eco_hit_$TYPE$
 					change_variable = { name = eco_mark add = 1 }
 				}
 			}
-			debug_log_scopes = yes                               # logs this state's identity
+			#debug_log_scopes = yes                               # logs this state's identity
 		}
 	}
 }
@@ -110,8 +110,8 @@ eco_seed_capped = {
 #      (so AI construction chains don't fail), NOT a cap — it does not subtract existing.
 # params: $B$ = building type, $TYPE$ = flavour
 eco_seed_flavour = {
-	debug_log = $B$
-	debug_log_scopes = yes                           # logs the country (Root)
+	#debug_log = $B$
+	#debug_log_scopes = yes                           # logs the country (Root)
 
 	# report pre-existing levels (ECO_HAVE) for the census
 	set_variable = { name = eco_have value = 0 }
@@ -123,7 +123,7 @@ eco_seed_flavour = {
 	set_variable = { name = eco_mark value = 0 }
 	while = {
 		limit = { var:eco_mark < var:eco_have }
-		debug_log = eco_have_$TYPE$
+		#debug_log = eco_have_$TYPE$
 		change_variable = { name = eco_mark add = 1 }
 	}
 
@@ -138,7 +138,7 @@ eco_seed_flavour = {
 		if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
 		change_variable = { name = eco_cur add = 1 }
 		create_building = { building = $B$ level = var:eco_cur reserves = 1 }
-		debug_log = eco_hit_$TYPE$
+		#debug_log = eco_hit_$TYPE$
 	}
 }
 
@@ -172,6 +172,18 @@ eco_cleanup_flags = {
 # =============================================================================
 # Per-nation config (the hard-coded table -> effects). Adding a nation = one of these.
 # N = champ 2*X, support 1*X, flavour 1.  X(PAN)=5 -> champ 10 / support 5 / flavour 1.
+#
+# Target tiers (X = eco-boost weight, from hk-config/tools/mod-nations.csv):
+#    X | nations
+#   10 | China, Russia, East India
+#    9 | United States, France, Great Britain, Ottomans
+#    8 | Japan
+#    7 | Prussia
+#    6 | Spain, Austria, Mexico
+#    5 | Korea, Brazil, Persia, Egypt, Punjab, Dutch East Indies
+#    4 | Hungary, Portugal, Two Sicilies, Netherlands, Sokoto, Sardinia-Piedmont, Sweden
+#    3 | Hyderabad, Greece, Dai Nam, Nepal, Colombia, Argentina
+#    2 | Siam, Morocco, Oman, Shewa, South Africa, Philippines, Belgium, Bavaria, Burma
 # =============================================================================
 
 # ---- PUNJAB (PAN): champ cotton(10); support opium/sugar/tea/textile(5); flavour(1) x6
@@ -191,8 +203,10 @@ eco_setup_PAN = {
 	eco_seed_flavour = { B = building_logging_camp      TYPE = flavour }
 
 	add_modifier = { name = eco_PAN_champ_tp_p1 months = 240 }   # cotton throughput +200%, 20 yr
-	add_modifier = { name = eco_PAN_sol_p1     months = 240 }    # champ+support group SoL +2, 20 yr
+	add_modifier = { name = eco_sol_p1         months = 240 }    # shared champ+support group SoL +2, 20 yr
 	trigger_event = { id = eco.3 years = 20 }                    # phase-2 champ SoL swap
+
+	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
 
 	eco_cleanup_flags = yes
 }
@@ -206,8 +220,10 @@ eco_setup_PRU = {
 	eco_seed_capped = { B = building_motor_industry     TYPE = support N = 7 }
 
 	add_modifier = { name = eco_PRU_champ_tp_p1 months = 240 }   # steel throughput +200%, 20 yr
-	add_modifier = { name = eco_PRU_sol_p1     months = 240 }    # champ+support group SoL +2, 20 yr
+	add_modifier = { name = eco_sol_p1         months = 240 }    # shared champ+support group SoL +2, 20 yr
 	trigger_event = { id = eco.3 years = 20 }
+
+	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
 
 	eco_cleanup_flags = yes
 }
