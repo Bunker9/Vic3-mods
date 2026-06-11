@@ -204,7 +204,7 @@ def cmd_verify(args) -> "None":
         for l in leaks:
             print(f"  ! {l}")
     else:
-        print("hkvault: OK — no plaintext *.md is tracked.")
+        print("hkvault: OK - no plaintext *.md is tracked.")
 
     # optional decrypt test if a key is reachable
     key = args.key or os.environ.get("VIC3_VAULT_KEY") or \
@@ -219,7 +219,7 @@ def cmd_verify(args) -> "None":
             if r.returncode != 0:
                 bad += 1
                 print(f"  ! undecryptable: {enc.relative_to(root)}")
-        print(f"hkvault: {'OK' if bad == 0 else 'FAIL'} — "
+        print(f"hkvault: {'OK' if bad == 0 else 'FAIL'} - "
               f"decrypt-test on *.md.age ({bad} bad).")
         ok = ok and bad == 0
     else:
