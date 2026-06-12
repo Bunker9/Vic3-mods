@@ -203,7 +203,10 @@ eco_setup_PAN = {
 	eco_seed_flavour = { B = building_logging_camp      TYPE = flavour }
 
 	add_modifier = { name = eco_PAN_champ_tp_p1 months = 240 }   # cotton throughput +200%, 20 yr
-	add_modifier = { name = eco_sol_p1         months = 240 }    # shared champ+support group SoL +2, 20 yr
+	every_scope_state = {                                        # flat SoL +4 per incorporated state, 20 yr
+		limit = { is_incorporated = yes }
+		add_modifier = { name = eco_sol_p1 months = 240 }
+	}
 	trigger_event = { id = eco.3 years = 20 }                    # phase-2 champ SoL swap
 
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
@@ -220,7 +223,10 @@ eco_setup_PRU = {
 	eco_seed_capped = { B = building_motor_industry     TYPE = support N = 7 }
 
 	add_modifier = { name = eco_PRU_champ_tp_p1 months = 240 }   # steel throughput +200%, 20 yr
-	add_modifier = { name = eco_sol_p1         months = 240 }    # shared champ+support group SoL +2, 20 yr
+	every_scope_state = {                                        # flat SoL +4 per incorporated state, 20 yr
+		limit = { is_incorporated = yes }
+		add_modifier = { name = eco_sol_p1 months = 240 }
+	}
 	trigger_event = { id = eco.3 years = 20 }
 
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast

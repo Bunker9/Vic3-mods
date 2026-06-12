@@ -16,18 +16,17 @@ eco_PRU_champ_tp_p1 = {
 	building_steel_mill_throughput_add = 2.0
 }
 
-# ---- shared champ+support SoL, Phase 1 (0-20 yr), +2. Group-level (already
-#      non-surgical), so ONE modifier reused by every nation; the plantation line is a
-#      no-op for nations without plantations (e.g. PRU).
+# ---- flat SoL, Phase 1 (0-20 yr): a flat +4 standard of living, applied PER incorporated
+#      state in eco_setup_<TAG> (user 2026-06-12 "just flat +4" — drops the surgical
+#      group-level split; state_standard_of_living_add is the only flat SoL lever).
 eco_sol_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
-	building_group_bg_plantations_standard_of_living_add = 2
-	building_group_bg_manufacturing_standard_of_living_add = 2
+	state_standard_of_living_add = 4
 }
 
 # ---- champ STATE modifier, Phase 2 (yr 20 -> END OF GAME). Added (no `months`) by
 #      eco.3 only to states that hold the champ building. Same icon as champ tp (p1/p2).
 eco_champ_state_p2 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	state_standard_of_living_add = 2
+	state_standard_of_living_add = 4
 }
