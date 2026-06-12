@@ -18,6 +18,11 @@ identity.key
 # machine-specific reference paths (commit only refpaths.example.json)
 config/refpaths.json
 
+# private TODO tracker — user-designated PII; NEVER commit (build script tracked, output isn't)
+data/TODO.csv
+data/TODO.xlsx
+*.xlsx
+
 # --- Python / OS / editor cruft ------------------------------------------
 __pycache__/
 *.pyc
