@@ -1,0 +1,16 @@
+﻿# =============================================================================
+# MyDiploPlayMod — at game start, give EVERY expand tag the fast infamy-decay modifier
+# so it can shrug off conquest infamy and keep blobbing inside the 10-year window.
+# Generalises the old PAN-only history grant (mdp_pan_infamy_decay.txt, now removed).
+# on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge), so this appends
+# to vanilla rather than overriding it.
+# =============================================================================
+on_game_started_after_lobby = {
+	effect = {
+		every_country = {
+			limit = { mdp_is_expand_country = yes }
+			add_modifier = { name = mdp_infamy_decay months = 120 }
+			#debug_log = mdp_infamy_armed_row   # commented out for master; -> "Infamy decay" table
+		}
+	}
+}
