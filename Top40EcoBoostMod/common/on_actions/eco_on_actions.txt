@@ -15,7 +15,12 @@ eco_startup = {
 			limit = { eco_is_target_country = yes }
 			eco_grant_military_techs = yes
 		}
-		# 2) run each target nation's build pass
+		# 2) generic flavour for EVERY target (wood/grain/food anti-death-spiral seed)
+		every_country = {
+			limit = { eco_is_target_country = yes }
+			eco_generic_flavour = yes
+		}
+		# 3) run each target nation's bespoke build pass (champ/support/per-nation flavour)
 		every_country = {
 			limit = { eco_is_target_country = yes }
 			trigger_event = { id = eco.2 }

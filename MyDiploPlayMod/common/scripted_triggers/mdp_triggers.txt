@@ -11,3 +11,21 @@ mdp_is_expand_country = {
 		this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
 	}
 }
+
+# =============================================================================
+# Valid target for the GENERIC blob chain (mdp_try_next_war). Evaluated in a CANDIDATE
+# country scope; scope:mdp_attacker = the expanding country. The user's filter:
+#   nearest WEAKEST CIVILISED (recognised) neighbour that is NOT an expand tag and NOT in a
+#   great-power block. Picking "nearest" is implicit (only neighbours are tested); "weakest"
+#   is the order_by in mdp_try_next_war.
+# =============================================================================
+mdp_valid_generic_target = {
+	exists = this
+	is_unrecognized = no                              # "civilised" / recognised only
+	mdp_is_expand_country = no                        # not another expander
+	is_great_power = no                               # not a GP
+	is_subject = no                                   # independent → excludes any GP-block subject
+	NOT = { this = scope:mdp_attacker }
+	is_at_war = no                                    # don't pile onto an ongoing war
+	any_scope_state = { always = yes }                # has at least one state to take
+}

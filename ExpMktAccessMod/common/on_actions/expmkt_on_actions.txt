@@ -1,20 +1,17 @@
 ﻿# =============================================================================
-# ExpMktAccessMod — at game start, give every expand tag at least ONE trade center in
-# its capital (start) state, so it has the infrastructure for global market access — the
-# thing expansion is FOR. (Coastal port/shipyard seeding is a later refinement.)
+# ExpMktAccessMod — at game start, give every expand tag the infrastructure for global
+# market access (the thing expansion is FOR): switch to interventionism, empower industry,
+# and seed a port + trade center + wood in its best coastal state. A yearly event pulse
+# (expmkt.1) then re-runs the coastal seed for 4 years, catching coastal states won mid-war.
 # on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge) — appends to vanilla.
 # =============================================================================
 on_game_started_after_lobby = {
 	effect = {
 		every_country = {
 			limit = { expmkt_is_expand_country = yes }
-			capital = {
-				if = {
-					limit = { NOT = { has_building = building_trade_center } }
-					create_building = { building = building_trade_center reserves = 1 }
-					debug_log = expmkt_trade_center_row   # commented out for master
-				}
-			}
+			expmkt_start_setup = yes
+			trigger_event = { id = expmkt.1 years = 1 }   # begin the 4-year coastal pulse
+			debug_log = expmkt_start_row                  # commented out for master
 		}
 	}
 }

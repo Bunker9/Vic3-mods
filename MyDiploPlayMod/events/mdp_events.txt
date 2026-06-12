@@ -1,0 +1,17 @@
+﻿namespace = mdp
+
+# =============================================================================
+# MyDiploPlayMod — generic blob-chain driver.
+# mdp.1 is fired monthly (from common/on_actions/mdp_on_actions.txt) for every expander
+# that is currently at peace. It hands off to mdp_try_next_war, which picks the nearest
+# weakest valid neighbour and declares a fully-incorporated conquest war. One war at a
+# time: the on_action only fires this while the expander is_at_war = no.
+# =============================================================================
+mdp.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		mdp_try_next_war = yes
+	}
+}

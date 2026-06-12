@@ -142,6 +142,62 @@ eco_seed_flavour = {
 	}
 }
 
+# ---- GENERIC FLAVOUR (user 2026-06-12): applies to EVERY target, no per-nation config.
+#      Fixes the early supply/demand death-spiral (no global market access at start):
+#        * +5 wood   (logging camp) — the worst early shortage
+#        * +5 grain  (their staple farm) — basic food
+#        * +1 food industry IF teched — processed food
+#      Additive (a guaranteed seed, like eco_seed_flavour), spread 1 level across the
+#      top-N highest-gdp constructible states so per-state arable/resource caps clamp
+#      cleanly instead of overflowing one state. Called from eco_startup for all targets.
+# -----------------------------------------------------------------------------
+# add 1 level of $B$ to each of up to $N$ highest-gdp constructible states (additive)
+eco_seed_spread_n = {
+	set_variable = { name = eco_spread value = 0 }
+	ordered_scope_state = {
+		order_by = gdp
+		limit = { can_construct_building = $B$ }
+		if = {
+			limit = { ROOT.var:eco_spread < $N$ }
+			set_variable = { name = eco_cur value = 0 }
+			if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
+			change_variable = { name = eco_cur add = 1 }
+			create_building = { building = $B$ level = var:eco_cur reserves = 1 }
+			remove_variable = eco_cur
+			ROOT = { change_variable = { name = eco_spread add = 1 } }
+		}
+	}
+	remove_variable = eco_spread
+}
+
+eco_generic_flavour = {
+	eco_seed_spread_n = { B = building_logging_camp N = 5 }   # wood
+
+	# grain: reinforce every staple farm the nation ALREADY grows (+5 each)
+	set_variable = { name = eco_grain_done value = 0 }
+	if = { limit = { any_scope_state = { has_building = building_wheat_farm  } } eco_seed_spread_n = { B = building_wheat_farm  N = 5 } change_variable = { name = eco_grain_done add = 1 } }
+	if = { limit = { any_scope_state = { has_building = building_rice_farm   } } eco_seed_spread_n = { B = building_rice_farm   N = 5 } change_variable = { name = eco_grain_done add = 1 } }
+	if = { limit = { any_scope_state = { has_building = building_maize_farm  } } eco_seed_spread_n = { B = building_maize_farm  N = 5 } change_variable = { name = eco_grain_done add = 1 } }
+	if = { limit = { any_scope_state = { has_building = building_millet_farm } } eco_seed_spread_n = { B = building_millet_farm N = 5 } change_variable = { name = eco_grain_done add = 1 } }
+	if = { limit = { any_scope_state = { has_building = building_rye_farm    } } eco_seed_spread_n = { B = building_rye_farm    N = 5 } change_variable = { name = eco_grain_done add = 1 } }
+	# grows none yet? seed the first staple it CAN construct
+	if = {
+		limit = { var:eco_grain_done = 0 }
+		if      = { limit = { any_scope_state = { can_construct_building = building_wheat_farm  } } eco_seed_spread_n = { B = building_wheat_farm  N = 5 } }
+		else_if = { limit = { any_scope_state = { can_construct_building = building_rice_farm   } } eco_seed_spread_n = { B = building_rice_farm   N = 5 } }
+		else_if = { limit = { any_scope_state = { can_construct_building = building_maize_farm  } } eco_seed_spread_n = { B = building_maize_farm  N = 5 } }
+		else_if = { limit = { any_scope_state = { can_construct_building = building_millet_farm } } eco_seed_spread_n = { B = building_millet_farm N = 5 } }
+		else_if = { limit = { any_scope_state = { can_construct_building = building_rye_farm    } } eco_seed_spread_n = { B = building_rye_farm    N = 5 } }
+	}
+	remove_variable = eco_grain_done
+
+	# processed food: +1 food industry IF the nation has the tech (can construct it)
+	if = {
+		limit = { any_scope_state = { can_construct_building = building_food_industry } }
+		eco_seed_spread_n = { B = building_food_industry N = 1 }
+	}
+}
+
 # ---- cleanup: strip every eco state flag + the country counters --------------
 eco_cleanup_flags = {
 	remove_variable = eco_placed

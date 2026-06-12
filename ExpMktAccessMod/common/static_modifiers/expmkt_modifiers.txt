@@ -1,0 +1,13 @@
+﻿# =============================================================================
+# ExpMktAccessMod — 4-year industrialist empowerment for every expand tag.
+# The brief: get industrialists' political power up (>=10%) and grow capitalists so
+# the new market infrastructure is actually run/expanded. Capitalists aren't promoted
+# directly (no clean change_pop_type to capitalist) — they arise from the privately
+# owned buildings we seed + interventionism + a strong industrialist IG, which this
+# modifier provides. Tokens verified vs common/modifier_type_definitions.
+# =============================================================================
+expmkt_industrialist_boost = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+	interest_group_ig_industrialists_pol_str_mult = 1.0       # ~double their political strength
+	interest_group_ig_industrialists_approval_add = 20        # keep them in the government, content
+}

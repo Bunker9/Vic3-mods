@@ -15,8 +15,18 @@ expfight_warboost = {
 	# cheaper to keep an army in the field (the "cheaply" in the brief)
 	country_military_goods_cost_mult = -0.5
 
-	# decisive edge so they win quickly — and never lose at home
-	unit_army_offense_mult = 0.5
-	unit_army_defense_mult = 0.5
-	unit_defense_mult = 0.5
+	# get to the front fast — ~4x army movement & mobilisation (mult 3.0 = +300%)
+	military_formation_army_movement_speed_mult = 3
+	military_formation_mobilization_speed_mult = 3
+
+	# FLAT decisive edge (user feedback: the _mult values were invisible in-game).
+	# 10 offense / 50 defense applies to every unit, so they win quickly AND never
+	# lose at home. unit_*_add are flat additions to a unit's offense/defence rating.
+	unit_offense_add = 10
+	unit_defense_add = 50
+
+	# keep the armed forces in power AND happy so the bonuses actually get used:
+	# boost their political strength + approval (+30) — the brief's "make them happy".
+	interest_group_ig_armed_forces_pol_str_mult = 0.5
+	interest_group_ig_armed_forces_approval_add = 30
 }
