@@ -1,23 +1,16 @@
 ﻿# =============================================================================
-# MyDiploPlayMod — generic blob-chain effect (PARKED 2026-06-12, pending rework).
-#
-# The first cut (in-game test) failed to load with three issues, so it's stubbed out:
-#   1. `ordered_neighbouring_country` is NOT a real effect/list scope. Need another way to
-#      find the nearest weakest neighbour — e.g. `every_country = { limit = { is_country_type
-#      = recognized neighbours-me ... } }` tracking a min army_size in a var, or a different
-#      list scope that actually exists.
-#   2. add_claim / add_homeland inside `every_scope_state` hit a state-vs-state_region scope
-#      mismatch — operate on the region_state, or use the right state scope.
-#   3. create_pop got "missing culture" because scope:mdp_cul wasn't resolving — culture must
-#      be captured into a saved scope that survives into the every_scope_state loop.
-#
-# Day-1 wars are unaffected — those live in history (common/history/diplomatic_plays/) and
-# don't use this. This effect only drove the (now disabled) monthly sequential chain.
+# MyDiploPlayMod — generic blob-chain effect.
+# Scope when called: the ATTACKER country (an expand tag).
+# scope:mdp_attacker must be saved by the caller (mdp.1) before this fires.
 # =============================================================================
 mdp_try_next_war = {
-    # Find the weakest valid neighbour (lowest prestige as proxy for "weakest")
-    # Save it into a named scope, then declare a full-conquest war on it.
 
+    debug_log = "[mdp_try_next_war] START — attacker: [THIS.GetName] ([THIS.GetTag])"
+    debug_log_scopes = yes   # dumps full scope stack so you can verify root/this/prev
+
+    # -------------------------------------------------------------------------
+    # Step 1: find the weakest valid neighbour (lowest prestige = weakest proxy)
+    # -------------------------------------------------------------------------
     random_country = {
         limit = {
             mdp_valid_generic_target = yes
@@ -25,40 +18,74 @@ mdp_try_next_war = {
                 this = scope:mdp_attacker
             }
         }
-        order_by = prestige   # ascending = weakest first
+        order_by = prestige   # ascending — lowest prestige first
         max = 1
 
         save_scope_as = mdp_tgt
 
-        # Grant claim + homeland on every state of target
-        every_scope_state = {
-            scope:mdp_attacker = {
-                add_claim = { target = prev }
-            }
-            add_homeland = { culture = scope:mdp_attacker.ruler.culture }
-        }
-
-        # Seed pops
-        every_scope_state = {
-            create_pop = {
-                culture = scope:mdp_attacker.ruler.culture
-                size = 10000
-            }
-        }
+        debug_log = "[mdp_try_next_war] TARGET CHOSEN — [THIS.GetName] ([THIS.GetTag]) prestige=[THIS.GetPrestige]"
     }
 
-    # Declare the war if we found a target
+    # -------------------------------------------------------------------------
+    # Step 2: verify we actually found a target before continuing
+    # -------------------------------------------------------------------------
+    if = {
+        limit = { NOT = { exists = scope:mdp_tgt } }
+        debug_log = "[mdp_try_next_war] NO VALID TARGET found for [scope:mdp_attacker.GetName] — aborting"
+    }
+
     if = {
         limit = { exists = scope:mdp_tgt }
+
+        debug_log = "[mdp_try_next_war] Granting claims+homeland on all states of [scope:mdp_tgt.GetName]"
+
+        # ---------------------------------------------------------------------
+        # Step 3: claim + homeland on every target state
+        # ---------------------------------------------------------------------
+        scope:mdp_tgt = {
+            every_scope_state = {
+                debug_log = "[mdp_try_next_war]   -> claim+homeland on state: [THIS.GetName]"
+
+                scope:mdp_attacker = {
+                    add_claim = { target = prev }
+                }
+                add_homeland = { culture = scope:mdp_attacker.ruler.culture }
+            }
+        }
+
+        # ---------------------------------------------------------------------
+        # Step 4: seed primary-culture pops in every target state
+        # ---------------------------------------------------------------------
+        debug_log = "[mdp_try_next_war] Seeding pops in [scope:mdp_tgt.GetName] states (culture=[scope:mdp_attacker.ruler.culture.GetName])"
+
+        scope:mdp_tgt = {
+            every_scope_state = {
+                debug_log = "[mdp_try_next_war]   -> seeding pop in state: [THIS.GetName]"
+                create_pop = {
+                    culture = scope:mdp_attacker.ruler.culture
+                    size = 10000
+                }
+            }
+        }
+
+        # ---------------------------------------------------------------------
+        # Step 5: declare the diplomatic play
+        # ---------------------------------------------------------------------
+        debug_log = "[mdp_try_next_war] Declaring diplomatic play: [scope:mdp_attacker.GetName] vs [scope:mdp_tgt.GetName]"
+
         scope:mdp_attacker = {
             create_diplomatic_play = {
                 target_country = scope:mdp_tgt
                 type = dp_conquest
+
+                # Capital state = primary war goal
                 add_war_goal = {
                     holder = this
                     type = conquer_state
                     target_state = scope:mdp_tgt.capital
                 }
+
+                # All remaining states as additional war goals
                 scope:mdp_tgt = {
                     every_scope_state = {
                         limit = { NOT = { this = scope:mdp_tgt.capital } }
@@ -73,5 +100,9 @@ mdp_try_next_war = {
                 }
             }
         }
+
+        debug_log = "[mdp_try_next_war] WAR DECLARED — [scope:mdp_attacker.GetName] -> [scope:mdp_tgt.GetName] ✓"
     }
+
+    debug_log = "[mdp_try_next_war] END — [THIS.GetName] ([THIS.GetTag])"
 }

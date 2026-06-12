@@ -1,34 +1,84 @@
 ﻿# =============================================================================
-# MyDiploPlayMod — the expand-tag set (expanding=yes in hk-config/tools/mod-nations.csv).
-# Own copy per mod (load-order safe). Keep the 20 tags in sync with the csv.
+# MyDiploPlayMod — scripted triggers
 # =============================================================================
+
 mdp_is_expand_country = {
-	OR = {
-		this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
-		this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
-		this = c:SOK   this = c:SAR   this = c:SWE   this = c:DAI
-		this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
-		this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
-	}
+    OR = {
+        this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
+        this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
+        this = c:SOK   this = c:SAR   this = c:SWE   this = c:DAI
+        this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
+        this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
+    }
 }
 
-# =============================================================================
-# Valid target for the GENERIC blob chain (mdp_try_next_war). Evaluated in a CANDIDATE
-# country scope; scope:mdp_attacker = the expanding country. The user's filter:
-#   nearest WEAKEST CIVILISED (recognised) neighbour that is NOT an expand tag and NOT in a
-#   great-power block. Picking "nearest" is implicit (only neighbours are tested); "weakest"
-#   is the order_by in mdp_try_next_war.
+# -----------------------------------------------------------------------------
+# Is this country in ANY power bloc (as member OR leader)?
+# Evaluated on the CANDIDATE target country.
+# Safe to call even if the country has no bloc (power_bloc scope simply won't exist).
+# -----------------------------------------------------------------------------
+mdp_is_in_power_bloc = {
+    power_bloc = { exists = yes }
+}
+
+# -----------------------------------------------------------------------------
+# Valid target for the GENERIC blob chain.
+# Evaluated in CANDIDATE country scope; scope:mdp_attacker = the expanding country.
 #
-#   Picking "nearest" is implicit (only neighbours are tested) --- HOW????
-# =============================================================================
+# Rule: pick the weakest recognised neighbour that:
+#   - is not another expand tag
+#   - is not a GP
+#   - is NOT in any power bloc (member OR leader) — this is the new key guard
+#     that prevents PRU/SWE/SAR from dragging a GP into the war via call_to_arms
+#   - is independent (not a subject)
+#   - is not already at war
+#   - has at least one state to take
+# -----------------------------------------------------------------------------
 mdp_valid_generic_target = {
-	exists = this
-	#is_unrecognized = yes                            # Best Blob guys are the ones who are unrecognised only
-	#(the ones you dont/cant conquer is decentralized)  BUT removing for CLM/MEX to have face
-	mdp_is_expand_country = no                        # not another expander
-	is_great_power = no                               # not a GP
-	is_subject = no                                   # independent → excludes any GP-block subject
-	NOT = { this = scope:mdp_attacker }
-	is_at_war = no                                    # don't pile onto an ongoing war
-	any_scope_state = { always = yes }                # has at least one state to take
+    exists = this
+    is_unrecognized = no                            # recognised only
+    mdp_is_expand_country = no                      # never attack another expander
+    NOT = { country_rank >= rank_value:great_power } # not a GP
+    is_subject = no                                 # not a formal subject
+    NOT = { mdp_is_in_power_bloc = yes }            # ← KEY: not in any power bloc at all
+    NOT = { this = scope:mdp_attacker }             # don't self-target
+    is_at_war = no                                  # don't pile on
+    any_scope_state = { always = yes }              # has states to take
+
+     # EGY must never target Oriental Orthodox / Ethiopian-culture countries
+        NOT = {
+            AND = {
+                scope:mdp_attacker = { this = c:EGY }
+                mdp_egy_forbidden_target = yes
+            }
+        }
+}
+# -----------------------------------------------------------------------------
+# EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
+# Evaluated in CANDIDATE country scope.
+# Covers SHW, KFA (Kaffa), and any other Ethiopian-sphere minor.
+# Vanilla script names:
+#   religion: oriental_orthodox
+#   cultures: amhara, oromo, tigrinya, somali (the Horn cultures)
+# -----------------------------------------------------------------------------
+mdp_egy_forbidden_target = {
+    OR = {
+        has_state_religion = oriental_orthodox
+        country_has_primary_culture = cu:amhara
+        country_has_primary_culture = cu:oromo
+        country_has_primary_culture = cu:tigrinya
+        country_has_primary_culture = cu:somali
+    }
+}
+
+# -----------------------------------------------------------------------------
+# Pre-flight check on the ATTACKER before firing mdp.1
+# -----------------------------------------------------------------------------
+mdp_can_blob_now = {
+    mdp_is_expand_country = yes
+    is_at_war = no
+    infamy < 75
+    any_neighbouring_country = {
+        mdp_valid_generic_target = yes
+    }
 }
