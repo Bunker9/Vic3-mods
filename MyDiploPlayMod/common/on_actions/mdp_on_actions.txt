@@ -34,8 +34,17 @@ mdp_startup = {
 # DISABLED 2026-06-12: the generic monthly blob chain (mdp.1 -> mdp_try_next_war) is parked
 # pending rework — its first cut used `ordered_neighbouring_country` (NOT a real effect) plus
 # state/state_region scope mismatches. Re-enable once mdp_try_next_war is rebuilt.
-# on_monthly_pulse_country = {
-# 	effect = {
-# 		if = { limit = { mdp_is_expand_country = yes  is_at_war = no } trigger_event = { id = mdp.1 } }
-# 	}
-# }
+
+#ENABLED testing new script
+on_monthly_pulse_country = {
+    effect = {
+        if = {
+            limit = {
+                mdp_is_expand_country = yes
+                is_at_war = no
+                infamy < 75
+            }
+            trigger_event = { id = mdp.1 }
+        }
+    }
+}

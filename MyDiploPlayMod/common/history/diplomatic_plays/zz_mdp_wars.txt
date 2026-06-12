@@ -13,6 +13,7 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
+	#HUMAN - might remove - decentralized nation dont fight - cant occupy apparently - stalemate
 	c:BIC ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_ASSAM.region_state:KKI
@@ -36,68 +37,71 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:BIC ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ASSAM.region_state:NGA
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:BIC
-				type = conquer_state
-				target_state = s:STATE_ASSAM.region_state:NGA
-				primary_demand = yes
-			}
-		}
-	}
-	c:BIC ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ASSAM.region_state:TIP
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:BIC
-				type = conquer_state
-				target_state = s:STATE_ASSAM.region_state:TIP
-				primary_demand = yes
-			}
-		}
-	}
-	c:BIC ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ASSAM.region_state:MGH
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:BIC
-				type = conquer_state
-				target_state = s:STATE_ASSAM.region_state:MGH
-				primary_demand = yes
-			}
-		}
-	}
-	c:PRU ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ELBE.region_state:HAN
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PRU
-				type = conquer_state
-				target_state = s:STATE_ELBE.region_state:HAN
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:PRU
-				type = conquer_state
-				target_state = s:STATE_HANNOVER.region_state:HAN
-			}
-			add_war_goal = {
-				holder = c:PRU
-				type = conquer_state
-				target_state = s:STATE_BRUNSWICK.region_state:HAN
-			}
-		}
-	}
+	# HUMAN - too much war / infamy at start
+	#c:BIC ?= {
+	#	create_diplomatic_play = {
+	#		target_state = s:STATE_ASSAM.region_state:NGA
+	#		war = yes
+	#		type = dp_conquer_state
+	#		add_war_goal = {
+	#			holder = c:BIC
+	#			type = conquer_state
+	#			target_state = s:STATE_ASSAM.region_state:NGA
+	#			primary_demand = yes
+	#		}
+	#	}
+	#}
+	#c:BIC ?= {
+	#	create_diplomatic_play = {
+	#		target_state = s:STATE_ASSAM.region_state:TIP
+	#		war = yes
+	#		type = dp_conquer_state
+	#		add_war_goal = {
+	#			holder = c:BIC
+	#			type = conquer_state
+	#			target_state = s:STATE_ASSAM.region_state:TIP
+	#			primary_demand = yes
+	#		}
+	#	}
+	#}
+	#c:BIC ?= {
+	#	create_diplomatic_play = {
+	#		target_state = s:STATE_ASSAM.region_state:MGH
+	#		war = yes
+	#		type = dp_conquer_state
+	#		add_war_goal = {
+	#			holder = c:BIC
+	#			type = conquer_state
+	#			target_state = s:STATE_ASSAM.region_state:MGH
+	#			primary_demand = yes
+	#		}
+	#	}
+	#}
+	# HUMAN - noooo! big great power war issue
+	#c:PRU ?= {
+	#	create_diplomatic_play = {
+	#		target_state = s:STATE_ELBE.region_state:HAN
+	#		war = yes
+	#		type = dp_conquer_state
+	#		add_war_goal = {
+	#			holder = c:PRU
+	#			type = conquer_state
+	#			target_state = s:STATE_ELBE.region_state:HAN
+	#			primary_demand = yes
+	#		}
+	#		add_war_goal = {
+	#			holder = c:PRU
+	#			type = conquer_state
+	#			target_state = s:STATE_HANNOVER.region_state:HAN
+	#		}
+	#		add_war_goal = {
+	#			holder = c:PRU
+	#			type = conquer_state
+	#			target_state = s:STATE_BRUNSWICK.region_state:HAN
+	#		}
+	#	}
+	#}
+	# HUMAN - no point but keep, lets wait for UCA to die in the first year by infighting
 	c:MEX ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_GUATEMALA.region_state:UCA
@@ -136,19 +140,6 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:MEX ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_NICARAGUA.region_state:MKT
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:MEX
-				type = conquer_state
-				target_state = s:STATE_NICARAGUA.region_state:MKT
-				primary_demand = yes
-			}
-		}
-	}
 	c:BRZ ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_MATO_GROSSO.region_state:PRG
@@ -167,6 +158,7 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
+	#HUAMN - no point , perhaps give persia frontier colonization so it can take over TRM - still observe if it actually works
 	c:PER ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_KHIVA.region_state:TRM
@@ -218,47 +210,47 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:PER ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_BALKH.region_state:MAI
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PER
-				type = conquer_state
-				target_state = s:STATE_BALKH.region_state:MAI
-				primary_demand = yes
-			}
-		}
-	}
-	c:PER ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_BALKH.region_state:BUK
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PER
-				type = conquer_state
-				target_state = s:STATE_BALKH.region_state:BUK
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:PER
-				type = conquer_state
-				target_state = s:STATE_UZBEKIA.region_state:BUK
-			}
-			add_war_goal = {
-				holder = c:PER
-				type = conquer_state
-				target_state = s:STATE_TAJIKISTAN.region_state:BUK
-			}
-			add_war_goal = {
-				holder = c:PER
-				type = conquer_state
-				target_state = s:STATE_MERZ.region_state:BUK
-			}
-		}
-	}
+	#c:PER ?= {
+	#	create_diplomatic_play = {
+	#		target_state = s:STATE_BALKH.region_state:MAI
+	#		war = yes
+	#		type = dp_conquer_state
+	#		add_war_goal = {
+	#			holder = c:PER
+	#			type = conquer_state
+	#			target_state = s:STATE_BALKH.region_state:MAI
+	#			primary_demand = yes
+	#		}
+	#	}
+	#}
+	#c:PER ?= {
+	#	create_diplomatic_play = {
+	#		target_state = s:STATE_BALKH.region_state:BUK
+	#		war = yes
+	#		type = dp_conquer_state
+	#		add_war_goal = {
+	#			holder = c:PER
+	#			type = conquer_state
+	#			target_state = s:STATE_BALKH.region_state:BUK
+	#			primary_demand = yes
+	#		}
+	#		add_war_goal = {
+	#			holder = c:PER
+	#			type = conquer_state
+	#			target_state = s:STATE_UZBEKIA.region_state:BUK
+	#		}
+	#		add_war_goal = {
+	#			holder = c:PER
+	#			type = conquer_state
+	#			target_state = s:STATE_TAJIKISTAN.region_state:BUK
+	#		}
+	#		add_war_goal = {
+	#			holder = c:PER
+	#			type = conquer_state
+	#			target_state = s:STATE_MERZ.region_state:BUK
+	#		}
+	#	}
+	#}
 	c:EGY ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_DARFUR.region_state:DFR
@@ -300,19 +292,6 @@ DIPLOMATIC_PLAYS = {
 	}
 	c:PAN ?= {
 		create_diplomatic_play = {
-			target_state = s:STATE_PUNJAB.region_state:BHW
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PAN
-				type = conquer_state
-				target_state = s:STATE_PUNJAB.region_state:BHW
-				primary_demand = yes
-			}
-		}
-	}
-	c:PAN ?= {
-		create_diplomatic_play = {
 			target_state = s:STATE_BALUCHISTAN.region_state:KAL
 			war = yes
 			type = dp_conquer_state
@@ -324,6 +303,7 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
+	# Too much? observe and remove
 	c:PAN ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_BALUCHISTAN.region_state:KAN
@@ -362,54 +342,11 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:PAN ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_HERAT.region_state:HER
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PAN
-				type = conquer_state
-				target_state = s:STATE_HERAT.region_state:HER
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:PAN
-				type = conquer_state
-				target_state = s:STATE_CENTRAL_HIGHLANDS.region_state:HER
-			}
-		}
-	}
-	c:PAN ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_BALKH.region_state:KUN
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PAN
-				type = conquer_state
-				target_state = s:STATE_BALKH.region_state:KUN
-				primary_demand = yes
-			}
-		}
-	}
-	c:PAN ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_KABUL.region_state:KAF
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:PAN
-				type = conquer_state
-				target_state = s:STATE_KABUL.region_state:KAF
-				primary_demand = yes
-			}
-		}
-	}
 	c:DEI ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_NORTH_SUMATRA.region_state:SAK
-			war = yes
+			#try war no -- hopefull DEI get some troops in time
+			war = no
 			type = dp_conquer_state
 			add_war_goal = {
 				holder = c:DEI
@@ -421,19 +358,6 @@ DIPLOMATIC_PLAYS = {
 				holder = c:DEI
 				type = conquer_state
 				target_state = s:STATE_ACEH.region_state:SAK
-			}
-		}
-	}
-	c:DEI ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ACEH.region_state:ACE
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:DEI
-				type = conquer_state
-				target_state = s:STATE_ACEH.region_state:ACE
-				primary_demand = yes
 			}
 		}
 	}
@@ -463,37 +387,6 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:SOK ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_CHAD.region_state:WAD
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SOK
-				type = conquer_state
-				target_state = s:STATE_CHAD.region_state:WAD
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:SOK
-				type = conquer_state
-				target_state = s:STATE_WADDAI.region_state:WAD
-			}
-		}
-	}
-	c:SOK ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_WADDAI.region_state:BGI
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SOK
-				type = conquer_state
-				target_state = s:STATE_WADDAI.region_state:BGI
-				primary_demand = yes
-			}
-		}
-	}
 	c:SAR ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_EMILIA.region_state:PAR
@@ -509,32 +402,6 @@ DIPLOMATIC_PLAYS = {
 	}
 	c:SAR ?= {
 		create_diplomatic_play = {
-			target_state = s:STATE_EMILIA.region_state:MOD
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SAR
-				type = conquer_state
-				target_state = s:STATE_EMILIA.region_state:MOD
-				primary_demand = yes
-			}
-		}
-	}
-	c:SAR ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_EMILIA.region_state:LUC
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SAR
-				type = conquer_state
-				target_state = s:STATE_EMILIA.region_state:LUC
-				primary_demand = yes
-			}
-		}
-	}
-	c:SAR ?= {
-		create_diplomatic_play = {
 			target_state = s:STATE_TUSCANY.region_state:TUS
 			war = yes
 			type = dp_conquer_state
@@ -543,92 +410,6 @@ DIPLOMATIC_PLAYS = {
 				type = conquer_state
 				target_state = s:STATE_TUSCANY.region_state:TUS
 				primary_demand = yes
-			}
-		}
-	}
-	c:SWE ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_UUSIMAA.region_state:FIN
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_UUSIMAA.region_state:FIN
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_ALAND.region_state:FIN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_WEST_KARELIA.region_state:FIN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_OSTROBOTHNIA.region_state:FIN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_KUOPIO.region_state:FIN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_OULU.region_state:FIN
-			}
-		}
-	}
-	c:SWE ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_GOLD_COAST.region_state:DEN
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_GOLD_COAST.region_state:DEN
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_ICELAND.region_state:DEN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_GREENLAND.region_state:DEN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_JUTLAND.region_state:DEN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_ZEALAND.region_state:DEN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_WEST_INDIES.region_state:DEN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_MADRAS.region_state:DEN
-			}
-			add_war_goal = {
-				holder = c:SWE
-				type = conquer_state
-				target_state = s:STATE_PEGU.region_state:DEN
 			}
 		}
 	}
@@ -658,19 +439,6 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:DAI ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_CAMBODIA.region_state:KLO
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:DAI
-				type = conquer_state
-				target_state = s:STATE_CAMBODIA.region_state:KLO
-				primary_demand = yes
-			}
-		}
-	}
 	c:NEP ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_EASTERN_HIMALAYAS.region_state:SIK
@@ -694,47 +462,6 @@ DIPLOMATIC_PLAYS = {
 				type = conquer_state
 				target_state = s:STATE_EASTERN_HIMALAYAS.region_state:BHU
 				primary_demand = yes
-			}
-		}
-	}
-	c:NEP ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_LHASA.region_state:TIB
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:NEP
-				type = conquer_state
-				target_state = s:STATE_LHASA.region_state:TIB
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:NEP
-				type = conquer_state
-				target_state = s:STATE_NGARI.region_state:TIB
-			}
-			add_war_goal = {
-				holder = c:NEP
-				type = conquer_state
-				target_state = s:STATE_EASTERN_HIMALAYAS.region_state:TIB
-			}
-		}
-	}
-	c:CLM ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ECUADOR.region_state:ECU
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:CLM
-				type = conquer_state
-				target_state = s:STATE_ECUADOR.region_state:ECU
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:CLM
-				type = conquer_state
-				target_state = s:STATE_PASTAZA.region_state:ECU
 			}
 		}
 	}
@@ -841,19 +568,6 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:SIA ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_CAMBODIA.region_state:CAM
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SIA
-				type = conquer_state
-				target_state = s:STATE_CAMBODIA.region_state:CAM
-				primary_demand = yes
-			}
-		}
-	}
 	c:MOR ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_ORAN.region_state:MAS
@@ -881,58 +595,6 @@ DIPLOMATIC_PLAYS = {
 				holder = c:MOR
 				type = conquer_state
 				target_state = s:STATE_CONSTANTINE.region_state:AIT
-				primary_demand = yes
-			}
-		}
-	}
-	c:MOR ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_CONSTANTINE.region_state:CON
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:MOR
-				type = conquer_state
-				target_state = s:STATE_CONSTANTINE.region_state:CON
-				primary_demand = yes
-			}
-		}
-	}
-	c:MOR ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_EAST_SAHARA.region_state:TUG
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:MOR
-				type = conquer_state
-				target_state = s:STATE_EAST_SAHARA.region_state:TUG
-				primary_demand = yes
-			}
-		}
-	}
-	c:MOR ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_TUNISIA.region_state:TUN
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:MOR
-				type = conquer_state
-				target_state = s:STATE_TUNISIA.region_state:TUN
-				primary_demand = yes
-			}
-		}
-	}
-	c:OMA ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_ABU_DHABI.region_state:ABU
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:OMA
-				type = conquer_state
-				target_state = s:STATE_ABU_DHABI.region_state:ABU
 				primary_demand = yes
 			}
 		}
@@ -968,63 +630,6 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:OMA ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_YEMEN.region_state:LAH
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:OMA
-				type = conquer_state
-				target_state = s:STATE_YEMEN.region_state:LAH
-				primary_demand = yes
-			}
-		}
-	}
-	c:OMA ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_YEMEN.region_state:ZAI
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:OMA
-				type = conquer_state
-				target_state = s:STATE_YEMEN.region_state:ZAI
-				primary_demand = yes
-			}
-		}
-	}
-	c:OMA ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_HAIL.region_state:NEJ
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:OMA
-				type = conquer_state
-				target_state = s:STATE_HAIL.region_state:NEJ
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:OMA
-				type = conquer_state
-				target_state = s:STATE_NEJD.region_state:NEJ
-			}
-		}
-	}
-	c:OMA ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_YEMEN.region_state:MAH
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:OMA
-				type = conquer_state
-				target_state = s:STATE_YEMEN.region_state:MAH
-				primary_demand = yes
-			}
-		}
-	}
 	c:SHW ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_OROMIA.region_state:ARS
@@ -1047,115 +652,6 @@ DIPLOMATIC_PLAYS = {
 				holder = c:SHW
 				type = conquer_state
 				target_state = s:STATE_AMHARA.region_state:SDM
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_AMHARA.region_state:WLT
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_AMHARA.region_state:WLT
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_AMHARA.region_state:WLG
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_AMHARA.region_state:WLG
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_AMHARA.region_state:HDY
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_AMHARA.region_state:HDY
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_AMHARA.region_state:KFA
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_AMHARA.region_state:KFA
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_OROMIA.region_state:HAR
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_OROMIA.region_state:HAR
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_GONDER.region_state:AWS
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_GONDER.region_state:AWS
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_ERITREA.region_state:AWS
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_SOMALILAND.region_state:ISQ
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_SOMALILAND.region_state:ISQ
-				primary_demand = yes
-			}
-		}
-	}
-	c:SHW ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_SOMALILAND.region_state:WSG
-			war = yes
-			type = dp_conquer_state
-			add_war_goal = {
-				holder = c:SHW
-				type = conquer_state
-				target_state = s:STATE_SOMALILAND.region_state:WSG
 				primary_demand = yes
 			}
 		}

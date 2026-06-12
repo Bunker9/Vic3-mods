@@ -23,7 +23,7 @@ expfight_startup = {
 				add_modifier = { name = expfight_warboost months = 120 }   # 10 yr (SOK/OMA/SHW)
 			}
 			else = {
-				add_modifier = { name = expfight_warboost months = 60 }    # 5 yr
+				add_modifier = { name = expfight_warbump months = 60 }    # 5 yr
 			}
 			debug_log = expfight_armed_row   # commented out for master; -> "ExpFight setup" table
 		}

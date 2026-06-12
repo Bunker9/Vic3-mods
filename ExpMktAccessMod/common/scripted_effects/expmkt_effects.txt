@@ -62,7 +62,8 @@ expmkt_seed_coastal = {
 				can_construct_building = building_logging_camp
 				NOT = { has_building = building_logging_camp }
 			}
-			create_building = { building = building_logging_camp level = 2 reserves = 1 }
+			create_building = { building = building_logging_camp level = 1 reserves = 1 }
+			#HUMAN - you check for 1 so you build one only. TODO: how to add for 2nd .Shouldnt build 2nd if cap reached
 		}
 		debug_log = expmkt_coastal_seed_row   # commented out for master
 		debug_log_scopes = yes

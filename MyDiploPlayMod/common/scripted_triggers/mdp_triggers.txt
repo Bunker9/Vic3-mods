@@ -18,10 +18,13 @@ mdp_is_expand_country = {
 #   nearest WEAKEST CIVILISED (recognised) neighbour that is NOT an expand tag and NOT in a
 #   great-power block. Picking "nearest" is implicit (only neighbours are tested); "weakest"
 #   is the order_by in mdp_try_next_war.
+#
+#   Picking "nearest" is implicit (only neighbours are tested) --- HOW????
 # =============================================================================
 mdp_valid_generic_target = {
 	exists = this
-	is_unrecognized = no                              # "civilised" / recognised only
+	#is_unrecognized = yes                            # Best Blob guys are the ones who are unrecognised only
+	#(the ones you dont/cant conquer is decentralized)  BUT removing for CLM/MEX to have face
 	mdp_is_expand_country = no                        # not another expander
 	is_great_power = no                               # not a GP
 	is_subject = no                                   # independent → excludes any GP-block subject

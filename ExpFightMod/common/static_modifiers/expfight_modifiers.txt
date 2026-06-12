@@ -4,6 +4,21 @@
 # common/modifier_type_definitions. Magnitudes are a first cut — tune via in-game test.
 # No naval bonuses by design (avoid spawning AI micro-fleets / extra compute).
 # =============================================================================
+
+expfight_warbump = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+	
+	# morale & organisation: green armies stop melting / recover fast
+	unit_morale_recovery_mult = 0.1
+	unit_morale_loss_mult = -0.1
+	military_formation_organization_gain_mult = 0.25
+	
+	# keep the armed forces in power AND happy so the bonuses actually get used:
+	# boost their political strength + approval (+30) — the brief's "make them happy".
+	interest_group_ig_armed_forces_pol_str_mult = 0.25
+	interest_group_ig_armed_forces_approval_add = 10
+}
+
 expfight_warboost = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
 

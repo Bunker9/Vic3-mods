@@ -15,7 +15,63 @@
 # don't use this. This effect only drove the (now disabled) monthly sequential chain.
 # =============================================================================
 mdp_try_next_war = {
-	# intentionally empty — see header. Re-implement the nearest-weakest pick + runtime
-	# claim/homeland/pop + create_diplomatic_play here, then re-enable on_monthly_pulse_country
-	# in common/on_actions/mdp_on_actions.txt and mdp.1 in events/mdp_events.txt.
+    # Find the weakest valid neighbour (lowest prestige as proxy for "weakest")
+    # Save it into a named scope, then declare a full-conquest war on it.
+
+    random_country = {
+        limit = {
+            mdp_valid_generic_target = yes
+            any_neighbouring_country = {
+                this = scope:mdp_attacker
+            }
+        }
+        order_by = prestige   # ascending = weakest first
+        max = 1
+
+        save_scope_as = mdp_tgt
+
+        # Grant claim + homeland on every state of target
+        every_scope_state = {
+            scope:mdp_attacker = {
+                add_claim = { target = prev }
+            }
+            add_homeland = { culture = scope:mdp_attacker.ruler.culture }
+        }
+
+        # Seed pops
+        every_scope_state = {
+            create_pop = {
+                culture = scope:mdp_attacker.ruler.culture
+                size = 10000
+            }
+        }
+    }
+
+    # Declare the war if we found a target
+    if = {
+        limit = { exists = scope:mdp_tgt }
+        scope:mdp_attacker = {
+            create_diplomatic_play = {
+                target_country = scope:mdp_tgt
+                type = dp_conquest
+                add_war_goal = {
+                    holder = this
+                    type = conquer_state
+                    target_state = scope:mdp_tgt.capital
+                }
+                scope:mdp_tgt = {
+                    every_scope_state = {
+                        limit = { NOT = { this = scope:mdp_tgt.capital } }
+                        scope:mdp_attacker = {
+                            add_war_goal = {
+                                holder = this
+                                type = conquer_state
+                                target_state = prev
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
