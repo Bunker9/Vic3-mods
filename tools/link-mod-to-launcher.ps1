@@ -33,7 +33,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$repoMods = Join-Path $PSScriptRoot '..\mod1' | Resolve-Path | Select-Object -ExpandProperty Path
+$repoMods = Join-Path $PSScriptRoot '..\..\mod1' | Resolve-Path | Select-Object -ExpandProperty Path
 $docs     = [Environment]::GetFolderPath('MyDocuments')          # resolves the OneDrive redirect
 $gameMod  = Join-Path $docs 'Paradox Interactive\Victoria 3\mod'
 
