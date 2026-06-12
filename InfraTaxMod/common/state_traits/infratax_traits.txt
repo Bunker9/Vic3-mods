@@ -1,0 +1,21 @@
+﻿# =============================================================================
+# InfraTaxMod — the global infra/tax/bureaucracy state trait.
+# Assigned to EVERY state via map_data/state_regions (by tools/port_statedata.py), the way
+# 3104377473 did it. Traits are baked into map data BEFORE launch → zero game-load script
+# cost (no on_action iterating every state), and being intrinsic to the state region they
+# persist automatically through conquest. Tokens verified vs common/modifier_type_definitions;
+# state_tax_capacity_mult mirrors the old mod's state_trait_indus_valley (scaled down).
+# Country-level bureaucracy CAPACITY can't live in a state trait (traits take state modifiers
+# only) — that's handled pre-baked in common/production_methods/ instead, as the old mod did.
+# =============================================================================
+state_trait_infratax = {
+	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
+
+	modifier = {
+		state_infrastructure_add  = 20
+		state_infrastructure_mult = 0.25
+		state_tax_capacity_add  = 10
+		state_tax_capacity_mult = 0.5
+		state_bureaucracy_population_base_cost_factor_mult = -0.25   # state-level bureaucracy relief
+	}
+}

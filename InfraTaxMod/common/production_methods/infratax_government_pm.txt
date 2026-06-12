@@ -1,0 +1,32 @@
+﻿# =============================================================================
+# InfraTaxMod — bureaucracy CAPACITY boost, pre-baked (no runtime script), mirroring
+# 3104377473's edit to the government-administration PMs. Production methods override by
+# KEY, so this redefines ONLY pm_simple_organization (the starting gov-admin PM) — the one
+# the old mod bumped (country_bureaucracy_add 10 -> 35) to relieve the early-game bureaucracy
+# crunch. The rest of the PM block is copied verbatim from vanilla so nothing else changes.
+# (Later tiers pm_horizontal_drawer_cabinets/vertical_filing_cabinets/switch_boards were
+# already 50/65/100 in vanilla — the old mod left them, so we don't override them.)
+# =============================================================================
+pm_simple_organization = {
+	texture = "gfx/interface/icons/production_method_icons/simple_organization.dds"
+
+	country_modifiers = {
+		workforce_scaled = {
+			country_bureaucracy_add = 35   # vanilla 10 -> 35 (InfraTaxMod, per 3104377473)
+		}
+	}
+
+	state_modifiers = {
+		workforce_scaled = {
+			state_tax_capacity_add = 2
+		}
+	}
+
+	building_modifiers = {
+		level_scaled = {
+			building_employment_clerks_add = 500
+		}
+	}
+
+	ai_value = 10 # AI should get off this PM as fast as possible
+}
