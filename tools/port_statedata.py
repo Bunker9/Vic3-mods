@@ -48,6 +48,12 @@ SUBSIST_MAP = {
     "building_subsistence_rice_paddies": "building_subsistence_rice_farm",
 }
 
+# Manual per-state bumps (user 2026-06-12, not from the old mod). These count as USER-TOUCHED
+# so they also get the infra/tax trait. e.g. Agra: ~1/4 pop starving -> ~1.5x arable (483 -> 725).
+MANUAL_BUMP = {
+    "STATE_AGRA": {"arable": 725},   # was 483; subsistence already rice_farm in vanilla
+}
+
 def read(p):
     with open(p, encoding="utf-8-sig", errors="replace") as f:
         return f.read()
@@ -131,26 +137,22 @@ def main():
         edits = []  # (start, end, new_block_text)
         for name, bs, be, inner in states_in(t):
             block = t[bs:be + 1]
-            # LAND states only — sea/ocean regions (99_seas.txt) have no arable_land or
-            # subsistence_building and must NOT get a land trait.
+            # LAND states only — sea/ocean regions (99_seas.txt) have no arable_land/subsistence.
             is_land = parse_scalar(inner, "arable_land") is not None or parse_subsist(inner) is not None
-            # (1) inject the global infra/tax/bureaucracy state trait (pre-baked, zero load cost).
-            new_block = inject_trait(block) if is_land else block
             o = old.get(name)
+            manual = MANUAL_BUMP.get(name) if is_land else None
+            van_arable = parse_scalar(inner, "arable_land")
+            van_sub = parse_subsist(inner)
+            van_cap = parse_capped(inner)
+            van_res = parse_resources(inner)
 
-            # (2) the OLD MOD's farm/RGO/subsistence buffs, only for USER-TOUCHED land states --
+            # USER-FINGERPRINT GATE: without old base-game vanilla we can't tell the user's edits
+            # from vanilla's version drift, so treat a state as USER-TOUCHED only if its old values
+            # carry a tell-tale signature: (a) subsistence category change, (b) arable_land a round
+            # multiple of 100, (c) a capped/resource value ≡ 1 (mod 5), ≥6, above vanilla.
+            def mark5(v, base): return v % 5 == 1 and v >= 6 and v > base
+            sig = []
             if o and is_land:
-                van_arable = parse_scalar(inner, "arable_land")
-                van_sub = parse_subsist(inner)
-                van_cap = parse_capped(inner)
-                van_res = parse_resources(inner)
-
-                # USER-FINGERPRINT GATE: without old base-game vanilla we can't tell the user's
-                # edits from vanilla's version drift, so port only states whose old values carry
-                # a tell-tale signature: (a) subsistence category change, (b) arable_land a round
-                # multiple of 100, (c) a capped/resource value ≡ 1 (mod 5), ≥6, above vanilla.
-                def mark5(v, base): return v % 5 == 1 and v >= 6 and v > base
-                sig = []
                 if o["subsist"] and van_sub and o["subsist"] != van_sub:
                     sig.append("subsistence")
                 if o["arable"] is not None and o["arable"] % 100 == 0 and o["arable"] != (van_arable or 0):
@@ -160,16 +162,31 @@ def main():
                 if any(mark5(max(r["discovered"], r["undiscovered"]), 0) for r in o["resource"]):
                     sig.append("resource_5x+1")
 
-                if sig:
-                    signal = "|".join(sig)
-                    local = []   # (field, van, new) — drives the csv + the marker comment
-                    def rec(field, van, new):
-                        changes.append((fname, name, signal, field, van, new))
-                        local.append((field, van, new))
+            # Trait + buffs apply ONLY to user-touched (tweaked / manually-bumped) states — the
+            # user wants the Developed Region trait on the big/tax-troubled states they care about,
+            # NOT the whole map. (TODO: a pop>1.5M gate would be the more principled selector.)
+            new_block = block
+            if is_land and (sig or manual):
+                new_block = inject_trait(block)
+                sigstr = "|".join(sig + (["manual"] if manual else []))
+                local = []
+                def rec(field, van, new):
+                    changes.append((fname, name, sigstr, field, van, new))
+                    local.append((field, van, new))
 
-                    if o["arable"] is not None and van_arable is not None and o["arable"] > van_arable:
-                        new_block = re.sub(r"arable_land\s*=\s*\d+", f"arable_land = {o['arable']}", new_block, count=1)
-                        rec("arable_land", van_arable, o["arable"])
+                # arable_land: max of vanilla, old-mod (if sig), manual bump
+                targets = []
+                if sig and o and o["arable"] is not None and van_arable is not None and o["arable"] > van_arable:
+                    targets.append(o["arable"])
+                if manual and "arable" in manual and (van_arable is None or manual["arable"] > van_arable):
+                    targets.append(manual["arable"])
+                if targets:
+                    at = max(targets)
+                    new_block = re.sub(r"arable_land\s*=\s*\d+", f"arable_land = {at}", new_block, count=1)
+                    rec("arable_land", van_arable, at)
+
+                # subsistence / capped / resource: only the old-mod port (sig states)
+                if sig and o:
                     if o["subsist"] and van_sub and o["subsist"] != van_sub:
                         new_block = re.sub(r'subsistence_building\s*=\s*"[^"]+"',
                                            f'subsistence_building = "{o["subsist"]}"', new_block, count=1)
@@ -182,24 +199,27 @@ def main():
                     if merged_cap != van_cap:
                         new_block = replace_capped(new_block, merged_cap)
                     res_by_type = {r["type"]: dict(r) for r in van_res}
+                    res_changed = False
                     for r in o["resource"]:
                         cur = res_by_type.get(r["type"])
                         if cur is None:
-                            res_by_type[r["type"]] = dict(r)
+                            res_by_type[r["type"]] = dict(r); res_changed = True
                             rec("resource+:" + r["type"], 0, r["undiscovered"] or r["discovered"])
                         else:
                             for fld in ("discovered", "undiscovered"):
                                 if r[fld] > cur[fld]:
-                                    cur[fld] = r[fld]
+                                    cur[fld] = r[fld]; res_changed = True
                                     rec(f"resource:{r['type']}.{fld}", "", r[fld])
-                    if local:
+                    if res_changed:
                         new_block = replace_resources(new_block, list(res_by_type.values()))
-                        summary = "; ".join(f"{fld} {v}->{n}" for fld, v, n in local)
-                        comment = (f"# [InfraTaxMod] state buffs ported from 3104377473 (signal: {signal}) — {summary}\n"
-                                   f"# Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)\n")
-                        new_block = comment + new_block
 
-            if new_block != block:                   # land states (trait, +buffs); seas untouched
+                if local:
+                    summary = "; ".join(f"{fld} {v}->{n}" for fld, v, n in local)
+                    comment = (f"# [InfraTaxMod] state buffs (signal: {sigstr}) — {summary}\n"
+                               f"# Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)\n")
+                    new_block = comment + new_block
+
+            if new_block != block:                   # only user-touched land states change
                 edits.append((bs, be + 1, new_block))
 
         if edits:

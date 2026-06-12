@@ -88,6 +88,7 @@ file,state,signal,field,vanilla,new
 10_india.txt,STATE_DELHI,arable_x100,capped:building_iron_mine,0,45
 10_india.txt,STATE_DELHI,arable_x100,capped:building_logging_camp,5,43
 10_india.txt,STATE_DELHI,arable_x100,capped:bg_monuments,0,1
+10_india.txt,STATE_AGRA,manual,arable_land,483,725
 10_india.txt,STATE_GUJARAT,subsistence,arable_land,335,685
 10_india.txt,STATE_GUJARAT,subsistence,subsistence_building,building_subsistence_farm,building_subsistence_rice_farm
 10_india.txt,STATE_GUJARAT,subsistence,capped:building_logging_camp,4,58
