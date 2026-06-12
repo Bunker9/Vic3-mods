@@ -24,7 +24,8 @@ on_game_started_after_lobby = { on_actions = { mdp_startup } }
 mdp_startup = {
 	effect = {
 		every_country = {
-			limit = { mdp_is_expand_country = yes }
+			limit = { mdp_is_expand_tag = yes }                       # raw tag list (all live at start)
+			set_variable = mdp_expander                               # flag → runtime-safe mdp_is_expand_country
 			add_modifier = { name = mdp_infamy_decay months = 120 }   # 10 yr fast decay
 			debug_log = mdp_infamy_armed_row   # commented out for master
 		}
@@ -40,11 +41,13 @@ on_monthly_pulse_country = {
     effect = {
         if = {
             limit = {
+                game_date < 1846.1.1                # stop the blob chain after 10 years
                 mdp_is_expand_country = yes
                 is_at_war = no
-                infamy < 75
+                is_active_in_diplomatic_play = no   # in peace AND no diplo play in progress
+                infamy < 30                         # well below the ~50 "pariah" line — never invite a GP gang-up
             }
-            debug_log = "[on_monthly_pulse] [THIS.GetName] qualifies for blob chain — triggering mdp.1"
+            debug_log = "on_monthly_pulse expander qualifies — triggering mdp.1"
             trigger_event = { id = mdp.1 }
         }
     }

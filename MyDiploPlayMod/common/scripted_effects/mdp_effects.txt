@@ -1,29 +1,35 @@
-﻿# =============================================================================
+# =============================================================================
 # MyDiploPlayMod — generic blob-chain effect.
 # Scope when called: the ATTACKER country (an expand tag).
 # scope:mdp_attacker must be saved by the caller (mdp.1) before this fires.
+#
+# NOTE on debug_log: keep strings PLAIN TEXT — square-bracket [Data.Functions]
+# inside debug_log do NOT resolve here and spam ~hundreds of loc-parse errors into
+# error.log (same lesson as Top40 eco_effects). Use debug_log_scopes = yes for the
+# actual scope identities (Root / This / saved scopes).
 # =============================================================================
 mdp_try_next_war = {
 
-    debug_log = "[mdp_try_next_war] START — attacker: [THIS.GetName] ([THIS.GetTag])"
-    debug_log_scopes = yes   # dumps full scope stack so you can verify root/this/prev
+    debug_log = "mdp_try_next_war START"
+    debug_log_scopes = yes   # logs attacker identity + the scope stack
 
     # -------------------------------------------------------------------------
-    # Step 1: find the weakest valid neighbour (lowest prestige = weakest proxy)
+    # Step 1: find the WEAKEST valid neighbour (lowest prestige = weakest proxy).
+    # order_by only works on ordered_* scopes — random_country would ignore it.
+    # ordered_country + position = 0 picks the single lowest-prestige match.
     # -------------------------------------------------------------------------
-    random_country = {
+    ordered_country = {
         limit = {
-            mdp_valid_generic_target = yes
-            any_neighbouring_country = {
-                this = scope:mdp_attacker
-            }
+            mdp_valid_generic_target = yes   # includes the land-adjacency-to-attacker check
         }
-        order_by = prestige   # ascending — lowest prestige first
-        max = 1
+        order_by = prestige        # ascending — lowest prestige first
+        position = 0               # take only the weakest
+        check_range_bounds = no
 
         save_scope_as = mdp_tgt
 
-        debug_log = "[mdp_try_next_war] TARGET CHOSEN — [THIS.GetName] ([THIS.GetTag]) prestige=[THIS.GetPrestige]"
+        debug_log = "mdp_try_next_war TARGET CHOSEN"
+        debug_log_scopes = yes
     }
 
     # -------------------------------------------------------------------------
@@ -31,78 +37,94 @@ mdp_try_next_war = {
     # -------------------------------------------------------------------------
     if = {
         limit = { NOT = { exists = scope:mdp_tgt } }
-        debug_log = "[mdp_try_next_war] NO VALID TARGET found for [scope:mdp_attacker.GetName] — aborting"
+        debug_log = "mdp_try_next_war NO VALID TARGET — aborting"
     }
 
     if = {
         limit = { exists = scope:mdp_tgt }
 
-        debug_log = "[mdp_try_next_war] Granting claims+homeland on all states of [scope:mdp_tgt.GetName]"
+        debug_log = "mdp_try_next_war granting claims+homeland on target states"
 
         # ---------------------------------------------------------------------
-        # Step 3: claim + homeland on every target state
+        # Step 3: claim + homeland on every target state.
+        # add_claim is a STATE-scoped effect whose VALUE is the country gaining the
+        # claim — so we stay in the every_scope_state (state) scope and pass the
+        # attacker as the value. (Wrapping it in scope:mdp_attacker = {} runs it in
+        # COUNTRY scope and errors "Wrong scope: country, expected state_region".)
+        # add_homeland is likewise a state effect taking a culture value.
+        # These claims are what make the conquest LOW-INFAMY + incorporable.
         # ---------------------------------------------------------------------
         scope:mdp_tgt = {
             every_scope_state = {
-                debug_log = "[mdp_try_next_war]   -> claim+homeland on state: [THIS.GetName]"
-
-                scope:mdp_attacker = {
-                    add_claim = { target = prev }
-                }
-                add_homeland = { culture = scope:mdp_attacker.ruler.culture }
+                add_claim    = scope:mdp_attacker
+                add_homeland = scope:mdp_attacker.ruler.culture
             }
         }
 
         # ---------------------------------------------------------------------
         # Step 4: seed primary-culture pops in every target state
         # ---------------------------------------------------------------------
-        debug_log = "[mdp_try_next_war] Seeding pops in [scope:mdp_tgt.GetName] states (culture=[scope:mdp_attacker.ruler.culture.GetName])"
-
         scope:mdp_tgt = {
             every_scope_state = {
-                debug_log = "[mdp_try_next_war]   -> seeding pop in state: [THIS.GetName]"
                 create_pop = {
-                    culture = scope:mdp_attacker.ruler.culture
-                    size = 10000
+                    culture  = scope:mdp_attacker.ruler.culture
+                    religion = scope:mdp_attacker.religion
+                    size     = 10000
                 }
             }
         }
 
         # ---------------------------------------------------------------------
-        # Step 5: declare the diplomatic play
+        # Step 5: declare the diplomatic play. We use dp_return_state (war goal
+        # return_state) — base infamy 2 vs conquer_state's 5, and it reclaims a
+        # CLAIMED state, which is exactly what Step 3's add_claim set up. This is
+        # the lowest-infamy way to annex whole states. The play's primary war goal
+        # is generated from the play-level target_state (= the capital).
         # ---------------------------------------------------------------------
-        debug_log = "[mdp_try_next_war] Declaring diplomatic play: [scope:mdp_attacker.GetName] vs [scope:mdp_tgt.GetName]"
+        debug_log = "mdp_try_next_war declaring dp_return_state"
 
         scope:mdp_attacker = {
             create_diplomatic_play = {
                 target_country = scope:mdp_tgt
-                type = dp_conquest
+                type           = dp_return_state
+                target_state   = scope:mdp_tgt.capital   # primary goal = capital
+            }
+        }
 
-                # Capital state = primary war goal
-                add_war_goal = {
-                    holder = this
-                    type = conquer_state
-                    target_state = scope:mdp_tgt.capital
-                }
+        # ---------------------------------------------------------------------
+        # Step 6: grab the freshly-created play and add a return_state war goal for
+        # every NON-capital state. add_war_goal must run in the diplomatic_play scope,
+        # so we can't loop inside create_diplomatic_play — we re-enter the play here.
+        # ---------------------------------------------------------------------
+        random_diplomatic_play = {
+            limit = {
+                is_diplomatic_play_type = dp_return_state
+                any_scope_play_involved = { this = scope:mdp_attacker }
+                any_scope_play_involved = { this = scope:mdp_tgt }
+            }
+            save_scope_as = mdp_play
+        }
 
-                # All remaining states as additional war goals
-                scope:mdp_tgt = {
-                    every_scope_state = {
-                        limit = { NOT = { this = scope:mdp_tgt.capital } }
-                        scope:mdp_attacker = {
-                            add_war_goal = {
-                                holder = this
-                                type = conquer_state
-                                target_state = prev
-                            }
+        if = {
+            limit = { exists = scope:mdp_play }
+            scope:mdp_tgt = {
+                every_scope_state = {
+                    limit = { NOT = { this = scope:mdp_tgt.capital } }
+                    save_scope_as = mdp_goal_state
+                    scope:mdp_play = {
+                        add_war_goal = {
+                            holder       = scope:mdp_attacker
+                            type         = return_state
+                            target_state = scope:mdp_goal_state
                         }
                     }
                 }
             }
         }
 
-        debug_log = "[mdp_try_next_war] WAR DECLARED — [scope:mdp_attacker.GetName] -> [scope:mdp_tgt.GetName] ✓"
+        debug_log = "mdp_try_next_war WAR DECLARED"
+        debug_log_scopes = yes
     }
 
-    debug_log = "[mdp_try_next_war] END — [THIS.GetName] ([THIS.GetTag])"
+    debug_log = "mdp_try_next_war END"
 }

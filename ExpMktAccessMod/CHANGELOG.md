@@ -1,5 +1,12 @@
 # ExpMktAccessMod — Changelog
 
+## v0.6.0-dev (2026-06-12) — logging-camp cap-aware seeding
+- Coastal seed now builds the **logging camp up to 2 levels**, each level gated on
+  `can_construct_building` (which reflects the state's forestry resource cap) so it never
+  overbuilds past what the state supports. Level 1 if none + cap allows; level 2 only if a
+  camp exists and the cap still has room. Replaces the old single `level = 1` build.
+- **Status: not yet in-game tested** — armed on dev/exp for this test run.
+
 ## v0.5.0-dev (2026-06-12) — redesign (trade centers weren't building)
 **Root cause found:** the old `create_building` call passed `reserves = 1` with **no
 `level`**, which makes a zero-level shell — so no trade center ever appeared (SOK/PAN).

@@ -2,7 +2,10 @@
 # MyDiploPlayMod — scripted triggers
 # =============================================================================
 
-mdp_is_expand_country = {
+# Raw tag list — used ONLY at game start (mdp_startup), when all 20 tags are guaranteed live.
+# At runtime, `this = c:DEADTAG` errors ("Invalid right side during comparison") once any of
+# these gets annexed — which spammed error.log 942× — so runtime code uses the flag below.
+mdp_is_expand_tag = {
     OR = {
         this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
         this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
@@ -12,13 +15,19 @@ mdp_is_expand_country = {
     }
 }
 
+# Runtime-safe expander check: mdp_startup sets var:mdp_expander on each live expand tag at
+# game start. Testing a variable never errors on a tag that later dies.
+mdp_is_expand_country = {
+    has_variable = mdp_expander
+}
+
 # -----------------------------------------------------------------------------
 # Is this country in ANY power bloc (as member OR leader)?
 # Evaluated on the CANDIDATE target country.
 # Safe to call even if the country has no bloc (power_bloc scope simply won't exist).
 # -----------------------------------------------------------------------------
 mdp_is_in_power_bloc = {
-    power_bloc = { exists = yes }
+    exists = power_bloc
 }
 
 # -----------------------------------------------------------------------------
@@ -36,14 +45,20 @@ mdp_is_in_power_bloc = {
 # -----------------------------------------------------------------------------
 mdp_valid_generic_target = {
     exists = this
-    is_unrecognized = no                            # recognised only
+    NOT = { is_country_type = decentralized }       # never attack decentralized/primitive nations
+                                                    # (allows unrecognized targets — SOK/PAN are themselves unrecognized)
     mdp_is_expand_country = no                      # never attack another expander
     NOT = { country_rank >= rank_value:great_power } # not a GP
     is_subject = no                                 # not a formal subject
     NOT = { mdp_is_in_power_bloc = yes }            # ← KEY: not in any power bloc at all
     NOT = { this = scope:mdp_attacker }             # don't self-target
     is_at_war = no                                  # don't pile on
-    any_scope_state = { always = yes }              # has states to take
+    # MUST share a land border with the attacker. (any_neighbouring_country is NOT a real
+    # Vic3 trigger — it silently no-ops, which is why DAI picked Ashanti / PAN picked Spain.
+    # Real adjacency: a candidate state that neighbours an attacker-owned state.)
+    any_scope_state = {
+        any_neighbouring_state = { owner = scope:mdp_attacker }
+    }
 
      # EGY must never target Oriental Orthodox / Ethiopian-culture countries
         NOT = {
@@ -63,7 +78,7 @@ mdp_valid_generic_target = {
 # -----------------------------------------------------------------------------
 mdp_egy_forbidden_target = {
     OR = {
-        has_state_religion = oriental_orthodox
+        religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
         country_has_primary_culture = cu:amhara
         country_has_primary_culture = cu:oromo
         country_has_primary_culture = cu:tigrinya
@@ -72,13 +87,13 @@ mdp_egy_forbidden_target = {
 }
 
 # -----------------------------------------------------------------------------
-# Pre-flight check on the ATTACKER before firing mdp.1
+# Pre-flight check on the ATTACKER. (Currently UNUSED — the monthly on_action does these
+# checks inline. Kept as documentation. The actual target search + adjacency lives in
+# mdp_try_next_war's ordered_country over mdp_valid_generic_target.)
 # -----------------------------------------------------------------------------
 mdp_can_blob_now = {
     mdp_is_expand_country = yes
     is_at_war = no
-    infamy < 75
-    any_neighbouring_country = {
-        mdp_valid_generic_target = yes
-    }
+    is_active_in_diplomatic_play = no   # not already maneuvering a play (pre-war phase)
+    infamy < 30
 }

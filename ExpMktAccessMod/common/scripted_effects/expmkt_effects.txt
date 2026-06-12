@@ -57,15 +57,25 @@ expmkt_seed_coastal = {
 			limit = { NOT = { has_building = building_trade_center } }
 			create_building = { building = building_trade_center level = 1 reserves = 1 }
 		}
+		# logging camp — WOOD. Each level is gated on can_construct_building, which already
+		# reflects the state's forestry resource cap, so we never overbuild past it.
+		# Level 1: build if none yet and the cap allows at least one.
 		if = {
 			limit = {
 				can_construct_building = building_logging_camp
 				NOT = { has_building = building_logging_camp }
 			}
 			create_building = { building = building_logging_camp level = 1 reserves = 1 }
-			#HUMAN - you check for 1 so you build one only. TODO: how to add for 2nd .Shouldnt build 2nd if cap reached
 		}
-		debug_log = expmkt_coastal_seed_row   # commented out for master
+		# Level 2: only if a camp now exists AND the forestry cap still has room for more.
+		if = {
+			limit = {
+				has_building = building_logging_camp
+				can_construct_building = building_logging_camp
+			}
+			create_building = { building = building_logging_camp level = 2 reserves = 1 }
+		}
+		debug_log = "expmkt_coastal_seed_row"
 		debug_log_scopes = yes
 	}
 }

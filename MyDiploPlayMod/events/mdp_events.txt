@@ -9,12 +9,12 @@ mdp.1 = {
     hidden = yes
 
     immediate = {
-        debug_log = "[mdp.1] FIRED — country: [THIS.GetName] ([THIS.GetTag]) infamy=[THIS.GetInfamy]"
+        debug_log = "mdp.1 FIRED"
+        debug_log_scopes = yes   # logs the firing country (Root) + infamy via scope dump
 
         save_scope_as = mdp_attacker   # MUST be saved here before mdp_try_next_war runs
 
-        debug_log = "[mdp.1] scope:mdp_attacker saved — calling mdp_try_next_war"
         mdp_try_next_war = yes
-        debug_log = "[mdp.1] mdp_try_next_war returned — [THIS.GetName] done for this pulse"
+        debug_log = "mdp.1 done for this pulse"
     }
 }
