@@ -1,7 +1,7 @@
 ﻿# =============================================================================
 # Top40EcoBoostMod — eco-boost modifiers (referenced by add_modifier).
 # Named modifiers used by add_modifier MUST live in common/static_modifiers/.
-# Rationale (surgical champ throughput, group-level SoL, wage lever, phases) is in
+# Rationale (surgical champ throughput, group-level SoL, phases) is in
 # hk-config/docs/design_decisions.md.
 # =============================================================================
 
@@ -23,7 +23,6 @@ eco_sol_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
 	building_group_bg_plantations_standard_of_living_add = 2
 	building_group_bg_manufacturing_standard_of_living_add = 2
-	building_minimum_wage_mult = 1
 }
 
 # ---- champ STATE modifier, Phase 2 (yr 20 -> END OF GAME). Added (no `months`) by
@@ -31,5 +30,4 @@ eco_sol_p1 = {
 eco_champ_state_p2 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
 	state_standard_of_living_add = 2
-	building_minimum_wage_mult = 0.25
 }

@@ -20,7 +20,7 @@ eco.2 = {
 }
 
 # ---- phase-2: champ STATE modifier from year 20 (throughput already expired) -
-# Applied ONLY to states that have the champ building (~1.25x wage + SoL +2),
+# Applied ONLY to states that have the champ building (SoL +2),
 # NOT country-wide. PERMANENT: no `months` → lasts from yr 20 to END OF GAME
 # (roadmap §2.6, per user 2026-06-10). Support has no P2.
 eco.3 = {
