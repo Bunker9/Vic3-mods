@@ -5,7 +5,11 @@
 # (expmkt.1) then re-runs the coastal seed for 4 years, catching coastal states won mid-war.
 # on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge) — appends to vanilla.
 # =============================================================================
-on_game_started_after_lobby = {
+on_game_started_after_lobby = { on_actions = { expmkt_startup } }
+
+# Merge-safe sub-list effect: on_actions = { ... } MERGES across mods, whereas a bare
+# `effect = {}` on a shared on_action is OVERRIDDEN (only the last-loaded mod's effect runs).
+expmkt_startup = {
 	effect = {
 		every_country = {
 			limit = { expmkt_is_expand_country = yes }

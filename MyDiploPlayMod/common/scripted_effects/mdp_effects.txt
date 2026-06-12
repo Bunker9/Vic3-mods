@@ -1,74 +1,21 @@
 ﻿# =============================================================================
-# MyDiploPlayMod — the GENERIC, event-driven blob chain (replaces the old hand-listed
-# "war target order"). Run in an EXPANDER's scope from event mdp.1 (fired monthly while at
-# peace). When the expander is at peace it picks its nearest WEAKEST recognised neighbour
-# that isn't an expander/GP/GP-subject (mdp_valid_generic_target), gives itself the same
-# incorporation package the day-1 history wars get — claim + homeland + seed pop on EVERY
-# state of the target — and then declares a full-state conquest war.
+# MyDiploPlayMod — generic blob-chain effect (PARKED 2026-06-12, pending rework).
 #
-# Dynamic war goals use vanilla's pattern (see common/scripted_effects/00_sepoy_mutiny…):
-# create the play with a target_state, then re-enter it via random_diplomatic_play and add
-# a conquer_state goal per remaining state.
+# The first cut (in-game test) failed to load with three issues, so it's stubbed out:
+#   1. `ordered_neighbouring_country` is NOT a real effect/list scope. Need another way to
+#      find the nearest weakest neighbour — e.g. `every_country = { limit = { is_country_type
+#      = recognized neighbours-me ... } }` tracking a min army_size in a var, or a different
+#      list scope that actually exists.
+#   2. add_claim / add_homeland inside `every_scope_state` hit a state-vs-state_region scope
+#      mismatch — operate on the region_state, or use the right state scope.
+#   3. create_pop got "missing culture" because scope:mdp_cul wasn't resolving — culture must
+#      be captured into a saved scope that survives into the every_scope_state loop.
+#
+# Day-1 wars are unaffected — those live in history (common/history/diplomatic_plays/) and
+# don't use this. This effect only drove the (now disabled) monthly sequential chain.
 # =============================================================================
 mdp_try_next_war = {
-	if = {
-		limit = {
-			is_at_war = no
-			infamy < 75            # don't blob into a coalition death-spiral; mdp_infamy_decay helps
-		}
-		save_scope_as = mdp_attacker
-		random_primary_culture = { save_scope_as = mdp_cul }   # attacker's culture (for homeland/pops)
-
-		# nearest WEAKEST valid neighbour (ascending army_size → position 0 = weakest)
-		ordered_neighbouring_country = {
-			limit = { mdp_valid_generic_target = yes }
-			order_by = army_size
-			max = 1
-			save_scope_as = mdp_tgt
-		}
-
-		if = {
-			limit = { exists = scope:mdp_tgt }
-
-			# 1) incorporation package on EVERY target state: claim + homeland + seed pop
-			scope:mdp_tgt = {
-				every_scope_state = {
-					add_claim = scope:mdp_attacker
-					add_homeland = scope:mdp_cul
-					create_pop = { culture = scope:mdp_cul size = 10000 }
-				}
-			}
-
-			# 2) declare the conquest war (capital = primary demand)
-			create_diplomatic_play = {
-				name = mdp_blob_war
-				target_state = scope:mdp_tgt.capital
-				war = yes
-				type = dp_conquer_state
-			}
-
-			# 3) add a conquer_state goal for every OTHER state of the target
-			random_diplomatic_play = {
-				limit = {
-					is_diplomatic_play_type = dp_conquer_state
-					initiator = { this = scope:mdp_attacker }
-					target = { this = scope:mdp_tgt }
-				}
-				save_scope_as = mdp_play
-				scope:mdp_tgt = {
-					every_scope_state = {
-						limit = { NOT = { this = scope:mdp_tgt.capital } }
-						save_scope_as = mdp_goalstate
-						scope:mdp_play = {
-							add_war_goal = {
-								holder = scope:mdp_attacker
-								type = conquer_state
-								target_state = scope:mdp_goalstate
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+	# intentionally empty — see header. Re-implement the nearest-weakest pick + runtime
+	# claim/homeland/pop + create_diplomatic_play here, then re-enable on_monthly_pulse_country
+	# in common/on_actions/mdp_on_actions.txt and mdp.1 in events/mdp_events.txt.
 }

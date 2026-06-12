@@ -8,7 +8,11 @@
 #     expanders (SOK/OMA/SHW) that have many neighbours to conquer.
 # debug_log feeds the testbook "ExpFight setup" table (commented out for master).
 # =============================================================================
-on_game_started_after_lobby = {
+on_game_started_after_lobby = { on_actions = { expfight_startup } }
+
+# Merge-safe sub-list effect: on_actions = { ... } MERGES across mods, whereas a bare
+# `effect = {}` on a shared on_action is OVERRIDDEN (only the last-loaded mod's effect runs).
+expfight_startup = {
 	effect = {
 		every_country = {
 			limit = { expfight_is_expand_country = yes }

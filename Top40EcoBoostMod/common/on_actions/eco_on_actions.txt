@@ -15,12 +15,9 @@ eco_startup = {
 			limit = { eco_is_target_country = yes }
 			eco_grant_military_techs = yes
 		}
-		# 2) generic flavour for EVERY target (wood/grain/food anti-death-spiral seed)
-		every_country = {
-			limit = { eco_is_target_country = yes }
-			eco_generic_flavour = yes
-		}
-		# 3) run each target nation's bespoke build pass (champ/support/per-nation flavour)
+		# 2) run each target nation's build pass via eco.2 (event scope sets ROOT = the country,
+		#    which eco_generic_flavour + the per-nation setups rely on). Calling those effects
+		#    straight from the on_action leaves ROOT unset → "root unset / invalid var" errors.
 		every_country = {
 			limit = { eco_is_target_country = yes }
 			trigger_event = { id = eco.2 }

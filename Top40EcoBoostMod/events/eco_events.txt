@@ -14,6 +14,7 @@ eco.2 = {
 	hidden = yes
 
 	immediate = {
+		eco_generic_flavour = yes   # wood/grain/food anti-death-spiral seed for EVERY target (ROOT set here)
 		if = { limit = { this = c:PAN } eco_setup_PAN = yes }
 		if = { limit = { this = c:PRU } eco_setup_PRU = yes }
 	}
