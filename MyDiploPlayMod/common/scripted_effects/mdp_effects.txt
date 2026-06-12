@@ -1,0 +1,28 @@
+﻿# =============================================================================
+# MyDiploPlayMod — declare a day-1 conquest war against a target's CAPITAL state.
+#   $T$ = target country tag. Guarded by `exists` (some targets are releasable/may be
+#   absent). Uses dp_conquer_state; high infamy is covered by mdp_infamy_decay (granted
+#   to every expand tag in common/on_actions/mdp_on_actions.txt). Targeting c:$T$.capital
+#   avoids hand-looking-up each state id.
+# Called per aggressor from the on_action, e.g.  c:PAN ?= { mdp_declare_war = { T = SIN } }
+# =============================================================================
+mdp_declare_war = {
+	if = {
+		limit = {
+			exists = c:$T$
+			c:$T$ = { is_subject = no }
+		}
+		save_temporary_scope_as = mdp_agg
+		create_diplomatic_play = {
+			name = mdp_blob_war
+			target_state = c:$T$.capital
+			war = yes
+			type = dp_conquer_state
+			add_war_goal = {
+				holder = scope:mdp_agg
+				type = conquer_state
+				target_state = c:$T$.capital
+			}
+		}
+	}
+}

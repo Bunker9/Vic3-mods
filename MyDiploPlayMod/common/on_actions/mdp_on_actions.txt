@@ -1,16 +1,50 @@
 ﻿# =============================================================================
-# MyDiploPlayMod — at game start, give EVERY expand tag the fast infamy-decay modifier
-# so it can shrug off conquest infamy and keep blobbing inside the 10-year window.
-# Generalises the old PAN-only history grant (mdp_pan_infamy_decay.txt, now removed).
-# on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge), so this appends
-# to vanilla rather than overriding it.
+# MyDiploPlayMod — at game start: (1) give every expand tag the fast infamy-decay
+# modifier, (2) declare their DAY-1 ("immediate") conquest wars from the user's blob list.
+# on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge) — appends to vanilla.
+#
+# Targets per the 2026-06-12 list. Wars target each enemy's CAPITAL state (mdp_declare_war,
+# common/scripted_effects/mdp_effects.txt). `c:TAG ?=` safely skips an absent aggressor.
+#
+# NOTE: several aggressors declare MULTIPLE simultaneous day-1 wars (e.g. PAN x7) — the
+# game may cap concurrent plays; observe in test. The later "war target order" (below) is
+# meant to be fired one-by-one by EVENT after each conquest — still TODO (T33 follow-up):
+#   BIC: KKI NGA TIP MGH | PER: BUK | PAN: CHT KAB KAS | SWE: DEN | CLM: VNZ | ARG: CHL
+#   SIA: CAM | OMA: NEJ MAH | BRZ: PRG | SHW: WLG HDY KFA HAR AWS ISQ WSG
 # =============================================================================
 on_game_started_after_lobby = {
 	effect = {
+		# (1) infamy decay for every expand tag (10 yr)
 		every_country = {
 			limit = { mdp_is_expand_country = yes }
 			add_modifier = { name = mdp_infamy_decay months = 120 }
 			#debug_log = mdp_infamy_armed_row   # commented out for master; -> "Infamy decay" table
 		}
+
+		# (2) day-1 "immediate" conquest wars
+		c:BIC ?= { mdp_declare_war = { T = MLD } }
+		c:PRU ?= { mdp_declare_war = { T = HAN } }
+		c:MEX ?= { mdp_declare_war = { T = UCA } mdp_declare_war = { T = MKT } }
+		c:PER ?= { mdp_declare_war = { T = TRM } mdp_declare_war = { T = KHI } mdp_declare_war = { T = MAI } }
+		c:EGY ?= { mdp_declare_war = { T = DFR } mdp_declare_war = { T = JAB } }
+		c:PAN ?= {
+			mdp_declare_war = { T = SIN } mdp_declare_war = { T = BHW } mdp_declare_war = { T = KAL }
+			mdp_declare_war = { T = KAN } mdp_declare_war = { T = HER } mdp_declare_war = { T = KUN }
+			mdp_declare_war = { T = KAF }
+		}
+		c:DEI ?= { mdp_declare_war = { T = SAK } mdp_declare_war = { T = ACE } }
+		c:SOK ?= { mdp_declare_war = { T = OYO } mdp_declare_war = { T = BEN } mdp_declare_war = { T = WAD } mdp_declare_war = { T = BGI } }
+		c:SAR ?= { mdp_declare_war = { T = PAR } mdp_declare_war = { T = MOD } mdp_declare_war = { T = LUC } mdp_declare_war = { T = TUS } }
+		c:SWE ?= { mdp_declare_war = { T = FIN } }
+		c:DAI ?= { mdp_declare_war = { T = LUA } mdp_declare_war = { T = DGR } mdp_declare_war = { T = KLO } }
+		c:NEP ?= { mdp_declare_war = { T = SIK } mdp_declare_war = { T = BHU } mdp_declare_war = { T = TIB } }
+		c:CLM ?= { mdp_declare_war = { T = ECU } }
+		c:ARG ?= { mdp_declare_war = { T = URU } }
+		c:SIA ?= { mdp_declare_war = { T = JOH } mdp_declare_war = { T = PRK } mdp_declare_war = { T = SEL } }
+		c:MOR ?= { mdp_declare_war = { T = MAS } mdp_declare_war = { T = AIT } mdp_declare_war = { T = CON } mdp_declare_war = { T = TUG } mdp_declare_war = { T = TUN } }
+		c:OMA ?= { mdp_declare_war = { T = ABU } mdp_declare_war = { T = BHN } mdp_declare_war = { T = KAT } mdp_declare_war = { T = LAH } mdp_declare_war = { T = ZAI } }
+		c:SHW ?= { mdp_declare_war = { T = ARS } mdp_declare_war = { T = SDM } mdp_declare_war = { T = WLT } }
+		c:SAF ?= { mdp_declare_war = { T = BST } }
+		# BRZ: no immediate target (PRG is event-ordered) — see note above.
 	}
 }
