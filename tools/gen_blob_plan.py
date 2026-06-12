@@ -159,11 +159,13 @@ def main():
         for t, info in d["targets"].items():
             if not info["states"]:
                 continue
+            # target_state must be a STATE (region_state), not a state_region — the defender
+            # owns it, so s:STATE.region_state:<target_tag> (mirrors vanilla 00_ladakh_war).
             dp.append(f"\tc:{e} ?= {{\n\t\tcreate_diplomatic_play = {{\n")
-            dp.append(f"\t\t\ttarget_state = s:{info['states'][0]}\n\t\t\twar = yes\n\t\t\ttype = dp_conquer_state\n")
+            dp.append(f"\t\t\ttarget_state = s:{info['states'][0]}.region_state:{t}\n\t\t\twar = yes\n\t\t\ttype = dp_conquer_state\n")
             for i, st in enumerate(info["states"]):
                 pd = "\n\t\t\t\tprimary_demand = yes" if i == 0 else ""
-                dp.append(f"\t\t\tadd_war_goal = {{\n\t\t\t\tholder = c:{e}\n\t\t\t\ttype = conquer_state\n\t\t\t\ttarget_state = s:{st}{pd}\n\t\t\t}}\n")
+                dp.append(f"\t\t\tadd_war_goal = {{\n\t\t\t\tholder = c:{e}\n\t\t\t\ttype = conquer_state\n\t\t\t\ttarget_state = s:{st}.region_state:{t}{pd}\n\t\t\t}}\n")
             dp.append("\t\t}\n\t}\n")
     dp.append("}\n")
 
