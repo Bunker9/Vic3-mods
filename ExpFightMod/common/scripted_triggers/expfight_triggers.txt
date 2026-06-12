@@ -1,0 +1,14 @@
+﻿# =============================================================================
+# ExpFightMod — the expand-tag set (expanding=yes in hk-config/tools/mod-nations.csv).
+# Each mod keeps its OWN copy of this list (load-order safe, no cross-mod dependency);
+# keep the 20 tags in sync with the csv. A generator script will sync these later.
+# =============================================================================
+expfight_is_expand_country = {
+	OR = {
+		this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
+		this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
+		this = c:SOK   this = c:SAR   this = c:SWE   this = c:DAI
+		this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
+		this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
+	}
+}

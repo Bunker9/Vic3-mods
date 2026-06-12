@@ -1,0 +1,17 @@
+{
+	"name": "ExpFightMod",
+	"id": "ExpFightMod",
+	"game_id": "victoria3",
+	"version": "0.1.0",
+	"supported_game_version": "1.13.*",
+	"short_description": "Arms expansion-tier nations for fast, cheap early conquests (first 5 years).",
+	"tags": [
+		"Gameplay",
+		"Alternative History",
+		"Military"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

@@ -1,0 +1,20 @@
+﻿# =============================================================================
+# ExpFightMod — at game start, arm every expand tag for fast early conquest.
+# on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge across mods),
+# so this appends to vanilla's setup rather than overriding it.
+#   - grant army_reserves (era_1) + general_staff (era_2): the barracks doctrine that
+#     fixes low starting morale/org — also covers primitives (e.g. SOK) that lack it.
+#   - apply expfight_warboost for 60 months (5 years).
+# debug_log feeds the testbook "ExpFight setup" table (commented out for master).
+# =============================================================================
+on_game_started_after_lobby = {
+	effect = {
+		every_country = {
+			limit = { expfight_is_expand_country = yes }
+			add_technology_researched = army_reserves
+			add_technology_researched = general_staff
+			add_modifier = { name = expfight_warboost months = 60 }
+			#debug_log = expfight_armed_row   # commented out for master; -> "ExpFight setup" table
+		}
+	}
+}

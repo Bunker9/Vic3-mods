@@ -1,0 +1,22 @@
+﻿# =============================================================================
+# ExpFightMod — 5-year (60-month) war footing granted to every expand tag at game
+# start (common/on_actions/expfight_on_actions.txt). Tokens verified vs
+# common/modifier_type_definitions. Magnitudes are a first cut — tune via in-game test.
+# No naval bonuses by design (avoid spawning AI micro-fleets / extra compute).
+# =============================================================================
+expfight_warboost = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+
+	# morale & organisation: green armies stop melting / recover fast
+	unit_morale_recovery_mult = 0.5
+	unit_morale_loss_mult = -0.25
+	military_formation_organization_gain_mult = 0.5
+
+	# cheaper to keep an army in the field (the "cheaply" in the brief)
+	country_military_goods_cost_mult = -0.5
+
+	# decisive edge so they win quickly — and never lose at home
+	unit_army_offense_mult = 0.5
+	unit_army_defense_mult = 0.5
+	unit_defense_mult = 0.5
+}
