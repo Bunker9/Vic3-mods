@@ -23,6 +23,16 @@ expmkt_start_setup = {
 		activate_law = law_type:law_interventionism
 	}
 	add_modifier = { name = expmkt_industrialist_boost months = 48 }   # 4 years
+
+	# A trade center in the CAPITAL regardless of coast — inland expanders (e.g. Punjab) have no
+	# coastal state at start, so the coastal seed alone never gives them one. Trade center is a
+	# city building (the capital always has a city); port stays coastal-only in expmkt_seed_coastal.
+	capital = {
+		if = {
+			limit = { NOT = { has_building = building_trade_center } }
+			create_building = { building = building_trade_center level = 1 reserves = 1 }
+		}
+	}
 	expmkt_seed_coastal = yes
 }
 

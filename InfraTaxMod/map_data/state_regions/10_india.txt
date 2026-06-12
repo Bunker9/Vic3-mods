@@ -2,7 +2,7 @@
     id = 456
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x01F1CD" "x04D4E4" "x11F020" "x172E64" "x1C310A" "x1DE14C" "x21B060" "x2DDA9A" "x303EFE" "x3521C5" "x3DDDBF" "x48B87D" "x4B33C1" "x50B0A0" "x534D04" "x590FA7" "x5F1E9B" "x5FCB1C" "x66A6A3" "x70BE78" "x79438B" "x7FC191" "x8079C0" "x8B9115" "x93C09D" "x951929" "x9B7C7A" "xA462B0" "xABBB11" "xAC9392" "xAEDA4D" "xBA3A4F" "xCEC816" "xD3AFD6" "xD5188D" "xE0B0A0" "xE3326D" "xF4E206" "xF767B3" }
-    traits = { "state_trait_ganges_river" "state_trait_jharia_dhanbad_coalfield" "state_trait_infratax" }
+    traits = { "state_trait_ganges_river" "state_trait_jharia_dhanbad_coalfield" }
     city = "x21B060"
     farm = "xAC9392"
     mine = "x9B7C7A"
@@ -20,7 +20,7 @@ STATE_WEST_BENGAL = {
     id = 457
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x0A2277" "x13A493" "x1DBB94" "x272AEE" "x2FF791" "x397092" "x802A5E" "x82150A" "x844FCF" "x89538D" "x89D769" "x8F846C" "xBF385A" "xD0B0DF" "xD2FEA1" "xE2E92B" "xEF5060" }
-    traits = { "state_trait_bengal_delta" "state_trait_natural_harbors" "state_trait_raniganj_coalfield" "state_trait_infratax" }
+    traits = { "state_trait_bengal_delta" "state_trait_natural_harbors" "state_trait_raniganj_coalfield" }
     city = "x89538D"
     farm = "x89538D"
     mine = "x272AEE"
@@ -42,7 +42,7 @@ STATE_EAST_BENGAL = {
     id = 466
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x025A94" "x0C82AB" "x117060" "x1E0385" "x30B0A0" "x3C68C9" "x3E5D45" "x40F5CE" "x4123FE" "x474C54" "x475FC4" "x55F631" "x6F1170" "x71E2DE" "x92DA2C" "x93E9F4" "xA605E3" "xAC2CB6" "xB06FC2" "xC81678" "xCA47BA" "xCB5C0A" "xD06FA1" "xD28E5F" "xD2E951" "xDA53DA" "xDFA414" "xE6CD14" "xF04684" "xF3A964" }
-    traits = { "state_trait_bengal_delta" "state_trait_natural_harbors" "state_trait_infratax" }
+    traits = { "state_trait_bengal_delta" "state_trait_natural_harbors" }
     city = "xD2E951"
     port = "x3C68C9"
     farm = "xC81678"
@@ -64,7 +64,7 @@ STATE_ASSAM = {
     impassable = { "x7DC31D" "xDF30DF" "x673438" "xEE6A3D" }
     provinces = { "x0BB5E2" "x12647B" "x17E33F" "x1B997A" "x1D0302" "x30B15A" "x337820" "x344BF5" "x3D8CD6" "x3FD07D" "x408BEB" "x4803C7" "x4CCA97" "x5D1160" "x6030DF" "x673438" "x70069E" "x7DC31D" "x86D527" "x8C53B3" "x8C6C79" "x8F90F5" "x9419F5" "x954C46" "x9700B9" "x9A1864" "xA030E0" "xA17DC4" "xA458FC" "xA77996" "xB03121" "xB238B2" "xC6301B" "xCB0893" "xCC2DA0" "xD9940E" "xDF30DF" "xE101DA" "xEE6A3D" "xF3B09A" "xF71958" "xF9B21B" "xFB1561" }
     prime_land = { x344BF5 xF71958 x3FD07D x9700B9 xCC2DA0 x6030DF x8C53B3 xCB0893 xB03121 xA17DC4 xB238B2 }
-    traits = { "state_trait_brahmaputra_river" "state_trait_himalayan_foothills" "state_trait_digboi" "state_trait_infratax" }
+    traits = { "state_trait_brahmaputra_river" "state_trait_himalayan_foothills" "state_trait_digboi" }
     city = "xFB1561"
     farm = "x30B15A"
     mine = "x3FD07D"
@@ -85,7 +85,7 @@ STATE_ASSAM = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: arable_x100) — arable_land 252->1200; capped:building_iron_mine 0->45; capped:building_logging_camp 5->43; capped:bg_monuments 0->1
+# [InfraTaxMod] state buffs (signal: arable_x100) — arable_land 252->1200; capped:building_iron_mine 0->45; capped:building_logging_camp 5->43; capped:bg_monuments 0->1
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_DELHI = {
     id = 459
@@ -111,7 +111,7 @@ STATE_AWADH = {
     id = 460
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x0CE121" "x1405D1" "x26284F" "x337F6C" "x4020A0" "x41D87C" "x4333C1" "x43F651" "x4AAE9F" "x4E84EF" "x564B78" "x63A78D" "x669ECB" "x7D9692" "x7F01B0" "x923D4D" "x9EA436" "xA03160" "xA3C721" "xACD960" "xBBC0A2" "xBEE076" "xC8BC69" "xD0B0A0" "xD99008" "xE070A0" "xEC8496" "xFD9E2F" }
-    traits = { "state_trait_ganges_river" "state_trait_infratax" }
+    traits = { "state_trait_ganges_river" }
     city = "x7D9692"
     farm = "xEC8496"
     mine = "xD99008"
@@ -124,6 +124,8 @@ STATE_AWADH = {
 }
 
 
+# [InfraTaxMod] state buffs (signal: manual) — arable_land 483->725
+# Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_AGRA = {
     id = 918
     subsistence_building = "building_subsistence_rice_farm"
@@ -133,7 +135,7 @@ STATE_AGRA = {
     farm = "xB050DF"
     mine = "xB050DF"
     wood = "xB050DF"
-    arable_land = 483
+    arable_land = 725
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_opium_plantation" "building_tea_plantation" "building_dye_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
     capped_resources = {
         building_logging_camp = 6
@@ -142,7 +144,7 @@ STATE_AGRA = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: subsistence) — arable_land 335->685; subsistence_building building_subsistence_farm->building_subsistence_rice_farm; capped:building_logging_camp 4->58; resource:building_oil_rig.undiscovered ->50
+# [InfraTaxMod] state buffs (signal: subsistence) — arable_land 335->685; subsistence_building building_subsistence_farm->building_subsistence_rice_farm; capped:building_logging_camp 4->58; resource:building_oil_rig.undiscovered ->50
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_GUJARAT = {
     id = 461
@@ -176,7 +178,7 @@ STATE_BUNDELKHAND = {
     provinces = { "x0E5FEA" "x114EAE" "x277419" "x355332" "x4605A8" "x52001D" "x5272B3" "x52F672" "x5CBFF7" "x6170A0" "x618D5B" "x66337F" "x6B7184" "x7884D6" "x845EA7" "x907021" "x9E6DB9" "xBC06E9" "xD0B021" "xD0F986" # Jhansi
  "xD64336" "xE81D4F" "xEB50A4" "xFE11FD" }
     prime_land = {}
-    traits = { "state_trait_infratax" }
+    traits = {}
     city = "x5272B3"
     farm = "x5272B3"
     mine = "x5272B3"
@@ -195,7 +197,7 @@ STATE_MALWA = {
     subsistence_building = "building_subsistence_farm"
     provinces = { "x0A05FF" "x0E199B" "x14EB25" "x1E9A75" "x2A9BFB" "x346A50" "x4CA2A3" "x51E979" "x585F79" "x6A8538" "x70D0E0" "x746A39" "x82DEEF" "x87DE7B" "x897F27" "x983C0D" "xA9E591" "xAA246A" "xB8A7B3" "xC0F1B9" "xC4F4E4" "xC77D13" "xCD2556" "xDCAFE4" "xE3AF55" "xE9D03F" "xEFD0DF" "xF6BCF1" "xFA701B" "xFBDCC9" }
     prime_land = { "x51E979" }
-    traits = { "state_trait_good_soils" "state_trait_infratax" }
+    traits = { "state_trait_good_soils" }
     city = "xFBDCC9"
     farm = "xB8A7B3"
     mine = "x51E979"
@@ -209,7 +211,7 @@ STATE_MALWA = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: subsistence|capped_5x+1) — arable_land 85->230; subsistence_building building_subsistence_rice_farm->building_subsistence_orchard; capped:building_coal_mine 0->21; capped:building_lead_mine 0->6; capped:building_logging_camp 17->76
+# [InfraTaxMod] state buffs (signal: subsistence|capped_5x+1) — arable_land 85->230; subsistence_building building_subsistence_rice_farm->building_subsistence_orchard; capped:building_coal_mine 0->21; capped:building_lead_mine 0->6; capped:building_logging_camp 17->76
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_KASHMIR = {
     id = 463
@@ -231,7 +233,7 @@ STATE_KASHMIR = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: subsistence|capped_5x+1) — arable_land 505->950; subsistence_building building_subsistence_farm->building_subsistence_rice_farm; capped:building_logging_camp 11->41; capped:building_iron_mine 6->21; capped:building_coal_mine 6->21; capped:building_sulfur_mine 0->6; capped:building_lead_mine 0->6
+# [InfraTaxMod] state buffs (signal: subsistence|capped_5x+1) — arable_land 505->950; subsistence_building building_subsistence_farm->building_subsistence_rice_farm; capped:building_logging_camp 11->41; capped:building_iron_mine 6->21; capped:building_coal_mine 6->21; capped:building_sulfur_mine 0->6; capped:building_lead_mine 0->6
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_PUNJAB = {
     id = 464
@@ -252,7 +254,6 @@ STATE_PUNJAB = {
         building_sulfur_mine = 6
         building_lead_mine = 6
     }
-    
     resource = {
         type = "building_oil_rig"
         undiscovered_amount = 7
@@ -264,7 +265,7 @@ STATE_HILL_PUNJAB = {
     subsistence_building = "building_subsistence_farm"
     provinces = { "x0003C6" "x0C25D9" "x251424" "x280F05" "x3264B7" "x394B7F" "x45AF2E" "x572FB9" "x59BBCE" "x5A5F96" "x607020" "x66C9D9" "x8FF69F" "x96E54B" "xA07020" "xA0F0A0" "xA98EF8" "xD52082" "xDB91D3" "xDEFFE6" "xE0C455" "xE31B4E" "xE60F80" "xF202E0" "xF4C868" }
     prime_land = { xDEFFE6 x251424 x280F05 x3264B7 x572FB9 x59BBCE x8FF69F x96E54B xA07020 xA98EF8 xD52082 xE0C455 xE31B4E xF202E0 xA0F0A0 x66C9D9 x0C25D9 x394B7F xE60F80 }
-    traits = { "state_trait_indus_river" "state_trait_himalayan_foothills" "state_trait_infratax" }
+    traits = { "state_trait_indus_river" "state_trait_himalayan_foothills" }
     city = "xDEFFE6"
     farm = "xA0F0A0"
     mine = "xA0F0A0"
@@ -286,7 +287,6 @@ STATE_CENTRAL_PROVINCES = {
     farm = "x5FEE46"
     mine = "x9473DC"
     wood = "x987B84"
-    traits = { "state_trait_infratax" }
     arable_land = 205
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_dye_plantation" "building_opium_plantation" "building_sugar_plantation" "building_banana_plantation" "building_silk_plantation" }
     capped_resources = {
@@ -296,7 +296,7 @@ STATE_CENTRAL_PROVINCES = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: subsistence|arable_x100|capped_5x+1) — arable_land 75->200; subsistence_building building_subsistence_farm->building_subsistence_rice_farm; capped:building_sulfur_mine 4->40; capped:building_lead_mine 0->24; capped:building_whaling_station 0->5; capped:building_iron_mine 0->15; capped:building_coal_mine 0->21; capped:building_logging_camp 3->17; resource+:building_oil_rig 0->90; resource+:building_rubber_plantation 0->30
+# [InfraTaxMod] state buffs (signal: subsistence|arable_x100|capped_5x+1) — arable_land 75->200; subsistence_building building_subsistence_farm->building_subsistence_rice_farm; capped:building_sulfur_mine 4->40; capped:building_lead_mine 0->24; capped:building_whaling_station 0->5; capped:building_iron_mine 0->15; capped:building_coal_mine 0->21; capped:building_logging_camp 3->17; resource+:building_oil_rig 0->90; resource+:building_rubber_plantation 0->30
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_SINDH = {
     id = 467
@@ -330,7 +330,7 @@ STATE_SINDH = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: arable_x100|capped_5x+1) — arable_land 199->600; capped:building_lead_mine 6->54; capped:building_sulfur_mine 3->50; capped:building_coal_mine 0->11; capped:building_logging_camp 2->11
+# [InfraTaxMod] state buffs (signal: arable_x100|capped_5x+1) — arable_land 199->600; capped:building_lead_mine 6->54; capped:building_sulfur_mine 3->50; capped:building_coal_mine 0->11; capped:building_logging_camp 2->11
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_RAJPUTANA = {
     id = 468
@@ -353,7 +353,7 @@ STATE_RAJPUTANA = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1) — arable_land 30->120; capped:building_logging_camp 11->61; capped:building_fishing_wharf 13->23; resource:building_rubber_plantation.undiscovered ->120
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 30->120; capped:building_logging_camp 11->61; capped:building_fishing_wharf 13->23; resource:building_rubber_plantation.undiscovered ->120
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_CEYLON = {
     id = 469
@@ -381,7 +381,7 @@ STATE_CEYLON = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1) — arable_land 15->41; capped:building_whaling_station 5->11; capped:building_fishing_wharf 10->11
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 15->41; capped:building_whaling_station 5->11; capped:building_fishing_wharf 10->11
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_INDIAN_OCEAN_TERRITORY = {
     id = 470
@@ -403,7 +403,7 @@ STATE_INDIAN_OCEAN_TERRITORY = {
     naval_exit_id = 3108
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1) — arable_land 83->170; capped:building_iron_mine 36->90; capped:building_lead_mine 0->65; capped:building_logging_camp 15->81
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 83->170; capped:building_iron_mine 36->90; capped:building_lead_mine 0->65; capped:building_logging_camp 15->81
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_ORISSA = {
     id = 471
@@ -428,7 +428,7 @@ STATE_ORISSA = {
     naval_exit_id = 3050
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1) — arable_land 181->450; capped:building_coal_mine 4->80; capped:building_iron_mine 2->21; capped:building_logging_camp 11->51
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 181->450; capped:building_coal_mine 4->80; capped:building_iron_mine 2->21; capped:building_logging_camp 11->51
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_CIRCARS = {
     id = 472
@@ -452,7 +452,7 @@ STATE_CIRCARS = {
     naval_exit_id = 3050
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: arable_x100) — arable_land 210->300; capped:building_gold_mine 6->24; capped:building_logging_camp 14->54; capped:building_fishing_wharf 5->25
+# [InfraTaxMod] state buffs (signal: arable_x100) — arable_land 210->300; capped:building_gold_mine 6->24; capped:building_logging_camp 14->54; capped:building_fishing_wharf 5->25
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_MYSORE = {
     id = 473
@@ -473,15 +473,14 @@ STATE_MYSORE = {
         building_logging_camp = 54
         building_fishing_wharf = 25
     }
-    
-    naval_exit_id = 3049
     resource = {
         type = "building_rubber_plantation"
         undiscovered_amount = 6
     }
+    naval_exit_id = 3049
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1|resource_5x+1) — arable_land 120->240; capped:building_logging_camp 11->41; capped:building_fishing_wharf 10->40; capped:building_whaling_station 0->11; resource+:building_oil_rig 0->31; resource:building_rubber_plantation.undiscovered ->31
+# [InfraTaxMod] state buffs (signal: capped_5x+1|resource_5x+1) — arable_land 120->240; capped:building_logging_camp 11->41; capped:building_fishing_wharf 10->40; capped:building_whaling_station 0->11; resource+:building_oil_rig 0->31; resource:building_rubber_plantation.undiscovered ->31
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_TRAVANCORE = {
     id = 474
@@ -514,7 +513,7 @@ STATE_TRAVANCORE = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1|resource_5x+1) — arable_land 375->675; capped:building_iron_mine 26->86; capped:building_logging_camp 20->70; resource+:building_oil_rig 0->31; resource:building_rubber_plantation.undiscovered ->41
+# [InfraTaxMod] state buffs (signal: capped_5x+1|resource_5x+1) — arable_land 375->675; capped:building_iron_mine 26->86; capped:building_logging_camp 20->70; resource+:building_oil_rig 0->31; resource:building_rubber_plantation.undiscovered ->41
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_MADRAS = {
     id = 475
@@ -550,7 +549,7 @@ STATE_KURNOOL = {
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x063403" "x0F1912" "x338BFB" "x34BB3B" "x35AB0E" "x461A00" "x5170A0" "x54D463" "x59BBE1" "x669373" "x84EE56" "xF2F82A" "xF46AEC" "xF91482" }
     prime_land = { x84EE56 xF91482 }
-    traits = { "state_trait_infratax" }
+    traits = {}
     city = "x59BBE1"
     farm = "x338BFB"
     mine = "xF46AEC"
@@ -563,7 +562,7 @@ STATE_KURNOOL = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: resource_5x+1) — arable_land 250->750; capped:building_logging_camp 16->73; resource+:building_oil_rig 0->21; resource+:building_rubber_plantation 0->31
+# [InfraTaxMod] state buffs (signal: resource_5x+1) — arable_land 250->750; capped:building_logging_camp 16->73; resource+:building_oil_rig 0->21; resource+:building_rubber_plantation 0->31
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_HYDERABAD = {
     id = 476
@@ -591,7 +590,7 @@ STATE_HYDERABAD = {
     }
 }
 
-# [InfraTaxMod] state buffs ported from 3104377473 (signal: capped_5x+1) — arable_land 400->750; capped:building_sulfur_mine 0->20; capped:building_lead_mine 0->24; capped:building_fishing_wharf 12->26; capped:building_whaling_station 0->5; capped:building_iron_mine 23->75; capped:building_logging_camp 17->47; resource+:building_oil_rig 0->90; resource+:building_rubber_plantation 0->60
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 400->750; capped:building_sulfur_mine 0->20; capped:building_lead_mine 0->24; capped:building_fishing_wharf 12->26; capped:building_whaling_station 0->5; capped:building_iron_mine 23->75; capped:building_logging_camp 17->47; resource+:building_oil_rig 0->90; resource+:building_rubber_plantation 0->60
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_BOMBAY = {
     id = 477
@@ -656,7 +655,7 @@ STATE_KACHIN = {
     id = 524
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x077F7F" "x096B34" "x0BDB4D" "x0F9164" "x118ECF" "x3002EA" "x319B9E" "x363A85" "x3DB5A9" "x3E79B6" "x401054" "x47B561" "x4D31CA" "x60CBBF" "x675150" "x695CD8" "x6CF865" "x7D320E" "x81E012" "x8E1E5B" "x9339DC" "x964B33" "x9AA00A" "x9D320D" "x9DE9F6" "xA6F4C3" "xB46F84" "xB51155" "xB8B1D2" "xC1940E" "xCD31D0" "xCFEFDF" "xD18BAA" "xD7A648" "xDA0253" "xE0645B" "xECACD2" "xF212BD" "xF5193B" "xF84302" "xFE971F" }
-    traits = { "state_trait_burmese_teak" "state_trait_infratax" }
+    traits = { "state_trait_burmese_teak" }
     city = "x81E012"
     farm = "x319B9E"
     mine = "xCD31D0"
@@ -674,7 +673,7 @@ STATE_SHAN_STATES = {
     id = 525
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x1D8BBD" "x2414D9" "x26A4FC" "x27DBA6" "x2C8D05" "x334200" "x34E09D" "x36C9CC" "x375F42" "x39659E" "x422870" "x4D639B" "x5116F0" "x5745FF" "x66C0CA" "x70292A" "x747429" "x766EA5" "x772D64" "x7D71CA" "x887519" "x90EFDF" "x97D55A" "x9F7026" "xA125B4" "xAFC613" "xB09BEA" "xC20B31" "xD04A7B" "xD9D4B0" "xDF2487" "xE7608F" "xEAF30B" "xF1F906" "xF65E92" "xF6A5C7" }
-    traits = { "state_trait_burmese_teak" "state_trait_infratax" }
+    traits = { "state_trait_burmese_teak" }
     city = "xD04A7B"
     farm = "xA125B4"
     mine = "x26A4FC"
@@ -697,7 +696,7 @@ STATE_MANDALAY = {
     id = 2000
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x212FE8" "x234C64" "x2497E7" "x26A2E9" "x2FF9BD" "x397139" "x3E75FA" "x47C5A9" "x546B18" "x620442" "x634D79" "x6E8FA2" "x75BE27" "x9070DF" "x90EF60" "xA17AB8" "xB7E202" "xD2F36A" "xD5035C" "xDEFDA8" "xE15EF6" "xE2C923" "xFB1A2B" }
-    traits = { "state_trait_burmese_teak" "state_trait_yenangyaung" "state_trait_infratax" }
+    traits = { "state_trait_burmese_teak" "state_trait_yenangyaung" }
     city = "x620442"
     farm = "x212FE8"
     mine = "x2FF9BD"
@@ -723,7 +722,7 @@ STATE_PEGU = {
     id = 526
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x020CFE" "x02F3AF" "x1070E0" "x11F060" "x1FD921" "x2906F0" "x2BD769" "x2D91EF" "x2F9F98" "x595BB6" "x67520F" "x81D108" "xA85E24" "xB030A0" "xB0B0A0" "xB13330" "xC0E31F" "xC2EA2C" "xC9BBA0" "xCF7060" "xF0F78C" }
-    traits = { "state_trait_irrwaddy_delta" "state_trait_burmese_teak" "state_trait_infratax" }
+    traits = { "state_trait_irrwaddy_delta" "state_trait_burmese_teak" }
     city = "xB0B0A0"
     port = "xB13330"
     farm = "x11F060"
@@ -750,7 +749,7 @@ STATE_ARAKAN = {
     id = 919
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x6305C9" "x9A018D" "xB316F6" "xD5DB0B" "xE85BF0" "xF691D2" }
-    traits = { "state_trait_infratax" }
+    traits = {}
     city = "xE85BF0"
     port = "xD5DB0B"
     farm = "x9A018D"
