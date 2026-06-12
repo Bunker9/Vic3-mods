@@ -154,18 +154,29 @@ def main():
     # ---- diplomatic_plays: ONE day-1 war per CURATED TARGET (user 2026-06-12: an expander
     #      goes to war with ALL its listed targets at once, e.g. PAN vs SIN+BHW+KAL+KAN+HER+
     #      KUN+KAF). History start = no infamy; every war goals the target's FULL state set.
+    # Cap day-1 wars at 2 per expander: more simultaneous wars = infamy explosion + the AI
+    # juggling fronts it can't win. The remaining targets keep their claims/homeland/pops
+    # (granted below) so the runtime chain — or later manual play — can still take them.
+    MAX_WARS_PER_EXPANDER = 2
     dp = [HDR, "DIPLOMATIC_PLAYS = {\n"]
     for e, d in by_exp.items():
+        wars_emitted = 0
         for t, info in d["targets"].items():
             if not info["states"]:
                 continue
+            if wars_emitted >= MAX_WARS_PER_EXPANDER:
+                break
+            wars_emitted += 1
             # target_state must be a STATE (region_state), not a state_region — the defender
             # owns it, so s:STATE.region_state:<target_tag> (mirrors vanilla 00_ladakh_war).
+            # return_state (not conquer_state): base infamy 2 vs 5, and it reclaims a
+            # CLAIMED state — STATES below grants add_claim on every target state, so the
+            # day-1 war qualifies as a low-infamy reclaim (stops the conquer_state white-peace).
             dp.append(f"\tc:{e} ?= {{\n\t\tcreate_diplomatic_play = {{\n")
-            dp.append(f"\t\t\ttarget_state = s:{info['states'][0]}.region_state:{t}\n\t\t\twar = yes\n\t\t\ttype = dp_conquer_state\n")
+            dp.append(f"\t\t\ttarget_state = s:{info['states'][0]}.region_state:{t}\n\t\t\twar = yes\n\t\t\ttype = dp_return_state\n")
             for i, st in enumerate(info["states"]):
                 pd = "\n\t\t\t\tprimary_demand = yes" if i == 0 else ""
-                dp.append(f"\t\t\tadd_war_goal = {{\n\t\t\t\tholder = c:{e}\n\t\t\t\ttype = conquer_state\n\t\t\t\ttarget_state = s:{st}.region_state:{t}{pd}\n\t\t\t}}\n")
+                dp.append(f"\t\t\tadd_war_goal = {{\n\t\t\t\tholder = c:{e}\n\t\t\t\ttype = return_state\n\t\t\t\ttarget_state = s:{st}.region_state:{t}{pd}\n\t\t\t}}\n")
             dp.append("\t\t}\n\t}\n")
     dp.append("}\n")
 
@@ -214,7 +225,10 @@ def main():
             f.write("".join(lines))
         return full
 
-    f1 = write_bom(os.path.join("common", "history", "diplomatic_plays", "zz_mdp_wars.txt"), dp)
+    # NOTE: zz_mdp_wars.txt is NO LONGER written here — it is hand-maintained (the user's
+    # curated day-1 war set). Only claims + pops are generated. To re-enable, restore the
+    # write_bom(...zz_mdp_wars.txt..., dp) call below.
+    _ = dp  # built above but intentionally not written
     f2 = write_bom(os.path.join("common", "history", "states", "zz_mdp_claims.txt"), stx)
     f3 = write_bom(os.path.join("common", "history", "pops", "zz_mdp_seed_pops.txt"), pp)
 
@@ -222,8 +236,8 @@ def main():
     missing = sorted({t for e, c, t, dd, s in plan if s == "(NO STATES FOUND)"})
     nocult = sorted({e for e in by_exp if not by_exp[e]["culture"]})
     print(f"expanders: {len(by_exp)}   plan rows: {len(plan)}")
-    print(f"wrote: {os.path.relpath(f1, REPO)}")
-    print(f"       {os.path.relpath(f2, REPO)}")
+    print( "  (zz_mdp_wars.txt SKIPPED — hand-maintained)")
+    print(f"wrote: {os.path.relpath(f2, REPO)}")
     print(f"       {os.path.relpath(f3, REPO)}")
     print(f"       {os.path.relpath(os.path.join(HERE,'blob_plan.csv'), REPO)}")
     if missing: print(f"WARNING — targets with no states found (tag wrong / absent at 1836): {', '.join(missing)}")
