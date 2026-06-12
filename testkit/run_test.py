@@ -26,7 +26,7 @@ TB   = os.path.dirname(HERE)                                  # .../testbook  (a
 ROOT = os.path.dirname(TB)                                    # project container
 MOD1 = os.path.join(ROOT, "mod1")
 sys.path.insert(0, os.path.join(HERE, "checks"))
-import structure, log_triage                                  # noqa: E402
+import structure, log_triage, standards                       # noqa: E402
 import render_html                                            # noqa: E402
 
 
@@ -116,6 +116,11 @@ def run():
         os.makedirs(outdir, exist_ok=True)
         with open(os.path.join(outdir, "static.json"), "w", encoding="utf-8") as f:
             json.dump(res, f, indent=2)
+        # advisory authoring-standards pass (green/yellow) — separate stream, NOT a gate
+        st = standards.run(md)
+        with open(os.path.join(outdir, "standards.json"), "w", encoding="utf-8") as f:
+            json.dump(st, f, indent=2)
+        res["standards"] = st
         return res
     with ThreadPoolExecutor() as ex:
         statics = list(ex.map(do_static, mod_dirs))
@@ -151,8 +156,10 @@ def run():
     regen_index()
 
     sfail = sum(s["summary"]["failed"] for _, s in mods_static)
+    syel = sum(len(s.get("standards", {}).get("findings", [])) for _, s in mods_static)
     print(f"  static: {sfail} failed | log: {logdata['summary']['mod_real_errors']} mod errors, "
           f"{logdata['summary']['non_mod_errors']} non-mod")
+    print(f"  standards: {syel} advisory finding(s) (green/yellow; see <mod>/standards.json)")
     print(f"  report -> {root_report}")
     print(f"  archived per-mod report.html + _meta.txt; INDEX.md rebuilt")
     if a.open:
