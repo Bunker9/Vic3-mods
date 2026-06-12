@@ -18,7 +18,7 @@ on_game_started_after_lobby = {
 		every_country = {
 			limit = { mdp_is_expand_country = yes }
 			add_modifier = { name = mdp_infamy_decay months = 120 }
-			#debug_log = mdp_infamy_armed_row   # commented out for master; -> "Infamy decay" table
+			debug_log = mdp_infamy_armed_row   # commented out for master; -> "Infamy decay" table
 		}
 
 		# (2) day-1 "immediate" conquest wars
