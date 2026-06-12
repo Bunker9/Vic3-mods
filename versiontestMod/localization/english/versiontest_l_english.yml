@@ -1,5 +1,5 @@
 ﻿l_english:
  versiontest.1.t:0 "versiontestMod loaded"
- versiontest.1.d:0 "BUILD 2026-06-11 v0.2.8 — flavour ALWAYS +1 (additive seed) vs champ/support deficit; country logged up-front"
- versiontest.1.a:0 "(versiontestMod is soft-disabled on master)"
- versiontest_log:0 "VTEST_LOG (versiontestMod is soft-disabled on master)"
+ versiontest.1.d:0 "BUILD 2026-06-12 [dev/exp] v0.3.0-dev - dev/exp kickoff: ExpMktAccess + ExpFight + diplo redo + Top40 polish"
+ versiontest.1.a:0 "DEV - read me"
+ versiontest_log:0 "VTEST_LOG DEV - read me"

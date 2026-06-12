@@ -4,5 +4,5 @@
 # released playset without deleting the mod). Do not hand-edit; let the script set it.
 # =============================================================================
 versiontest_enabled = {
-	always = no
+	always = yes
 }

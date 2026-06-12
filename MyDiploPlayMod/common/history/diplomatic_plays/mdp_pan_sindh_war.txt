@@ -28,6 +28,6 @@ DIPLOMATIC_PLAYS = {
 				target_country = c:PAN
 			}
 		}
-		#debug_log = diplo_war_row   # commented out for master; -> test report "War & goal" table
+		debug_log = diplo_war_row   # commented out for master; -> test report "War & goal" table
 	}
 }

@@ -28,8 +28,8 @@ eco_grant_military_techs = {
 # ---- CAPPED SPREAD: place N levels of $B$, best-first, remainder to best state -
 # params: $B$ = building type, $TYPE$ = champ|support|flavour, $N$ = target levels
 eco_seed_capped = {
-	#debug_log = $B$                                  # header: building display name
-	#debug_log_scopes = yes                           # logs the country (Root) even if need=0
+	debug_log = $B$                                  # header: building display name
+	debug_log_scopes = yes                           # logs the country (Root) even if need=0
 
 	# 0) how many levels of $B$ does the country ALREADY own? (needed = cap - have)
 	#    Reported via one ECO_HAVE marker per pre-existing level.
@@ -42,7 +42,7 @@ eco_seed_capped = {
 	set_variable = { name = eco_mark value = 0 }
 	while = {
 		limit = { var:eco_mark < var:eco_have }
-		#debug_log = eco_have_$TYPE$
+		debug_log = eco_have_$TYPE$
 		change_variable = { name = eco_mark add = 1 }
 	}
 
@@ -96,11 +96,11 @@ eco_seed_capped = {
 				set_variable = { name = eco_mark value = 0 }
 				while = {
 					limit = { var:eco_mark < var:eco_share }
-					#debug_log = eco_hit_$TYPE$
+					debug_log = eco_hit_$TYPE$
 					change_variable = { name = eco_mark add = 1 }
 				}
 			}
-			#debug_log_scopes = yes                               # logs this state's identity
+			debug_log_scopes = yes                               # logs this state's identity
 		}
 	}
 }
@@ -110,8 +110,8 @@ eco_seed_capped = {
 #      (so AI construction chains don't fail), NOT a cap — it does not subtract existing.
 # params: $B$ = building type, $TYPE$ = flavour
 eco_seed_flavour = {
-	#debug_log = $B$
-	#debug_log_scopes = yes                           # logs the country (Root)
+	debug_log = $B$
+	debug_log_scopes = yes                           # logs the country (Root)
 
 	# report pre-existing levels (ECO_HAVE) for the census
 	set_variable = { name = eco_have value = 0 }
@@ -123,7 +123,7 @@ eco_seed_flavour = {
 	set_variable = { name = eco_mark value = 0 }
 	while = {
 		limit = { var:eco_mark < var:eco_have }
-		#debug_log = eco_have_$TYPE$
+		debug_log = eco_have_$TYPE$
 		change_variable = { name = eco_mark add = 1 }
 	}
 
@@ -138,7 +138,7 @@ eco_seed_flavour = {
 		if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
 		change_variable = { name = eco_cur add = 1 }
 		create_building = { building = $B$ level = var:eco_cur reserves = 1 }
-		#debug_log = eco_hit_$TYPE$
+		debug_log = eco_hit_$TYPE$
 	}
 }
 
