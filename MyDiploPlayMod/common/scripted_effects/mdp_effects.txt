@@ -14,15 +14,18 @@ mdp_try_next_war = {
     debug_log_scopes = yes   # logs attacker identity + the scope stack
 
     # -------------------------------------------------------------------------
-    # Step 1: find the WEAKEST valid neighbour (lowest prestige = weakest proxy).
+    # Step 1: find the WEAKEST valid neighbour (lowest population = weakest proxy).
     # order_by only works on ordered_* scopes — random_country would ignore it.
-    # ordered_country + position = 0 picks the single lowest-prestige match.
+    # ordered_country + position = 0 picks the single lowest-population match.
     # -------------------------------------------------------------------------
     ordered_country = {
         limit = {
             mdp_valid_generic_target = yes   # includes the land-adjacency-to-attacker check
         }
-        order_by = prestige        # ascending — lowest prestige first
+        order_by = prestige        # ascending — lowest prestige first (valid weakest-proxy;
+                                   # `country_population` is NOT a real Vic3 value — verified 0 hits.
+                                   # The ~3M/large-country guard lives in the target filter via
+                                   # rank_value:major_power + state-count cap, not here.)
         position = 0               # take only the weakest
         check_range_bounds = no
 

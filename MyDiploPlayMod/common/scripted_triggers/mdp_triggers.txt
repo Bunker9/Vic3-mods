@@ -42,13 +42,19 @@ mdp_is_in_power_bloc = {
 #   - is independent (not a subject)
 #   - is not already at war
 #   - has at least one state to take
+#   - does NOT have capital in Europe
+#   - does NOT hold any treaty ports
+#   - population <= 3M
+#   - controls <= 6 states
 # -----------------------------------------------------------------------------
 mdp_valid_generic_target = {
     exists = this
     NOT = { is_country_type = decentralized }       # never attack decentralized/primitive nations
                                                     # (allows unrecognized targets — SOK/PAN are themselves unrecognized)
     mdp_is_expand_country = no                      # never attack another expander
-    NOT = { country_rank >= rank_value:great_power } # not a GP
+    NOT = { country_rank >= rank_value:major_power } # not a GP OR major power — valid proxy for
+                                                     # "very large country (~3M+)"; also covers GPs-with-treaty-ports.
+                                                     # (Vic3 has NO country_population trigger — rank is the correct lever.)
     is_subject = no                                 # not a formal subject
     NOT = { mdp_is_in_power_bloc = yes }            # ← KEY: not in any power bloc at all
     NOT = { this = scope:mdp_attacker }             # don't self-target
@@ -59,6 +65,11 @@ mdp_valid_generic_target = {
     any_scope_state = {
         any_neighbouring_state = { owner = scope:mdp_attacker }
     }
+
+    # State-count cap (~<=6 states): don't attack sprawling empires.
+    # VALID list-count syntax is `any_scope_state = { count >= N }` (verified in game files).
+    # NOT a `limit={} count<N` block — that silently mis-parses to no-op.
+    NOT = { any_scope_state = { count >= 7 } }
 
      # EGY must never target Oriental Orthodox / Ethiopian-culture countries
         NOT = {

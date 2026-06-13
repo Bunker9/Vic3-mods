@@ -50,5 +50,23 @@ on_monthly_pulse_country = {
             debug_log = "on_monthly_pulse expander qualifies — triggering mdp.1"
             trigger_event = { id = mdp.1 }
         }
+
+        # Nepal-specific: exploit China's opium ban weakness to attack Tibet
+        if = {
+            limit = {
+                game_date < 1846.1.1
+                this = c:NEP
+                is_at_war = no
+                is_active_in_diplomatic_play = no
+                infamy < 30
+                c:CHI = {
+                    exists = yes
+                    is_at_war = no
+                    has_modifier = opium_ban_authority   # opium-ban penalty (no `opium_ban_law` law_type exists)
+                }
+            }
+            debug_log = "on_monthly_pulse NEP qualifies — triggering mdp.2 (Tibet event)"
+            trigger_event = { id = mdp.2 }
+        }
     }
 }

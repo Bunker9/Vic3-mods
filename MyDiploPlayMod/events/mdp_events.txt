@@ -18,3 +18,112 @@ mdp.1 = {
         debug_log = "mdp.1 done for this pulse"
     }
 }
+
+# =============================================================================
+# mdp.2 — Nepal-specific event: attack Tibet when China suffers from opium
+#         ban + military penalties. Fired monthly for NEP.
+# Root = Nepal (c:NEP).
+# =============================================================================
+mdp.2 = {
+    type = country_event
+    hidden = yes
+
+    trigger = {
+        this = c:NEP
+        is_at_war = no
+        is_active_in_diplomatic_play = no
+        infamy < 30
+        # China must have the opium ban policy active
+        c:CHI = {
+            exists = yes
+            is_at_war = no
+            # China is under the opium-ban authority penalty (granted when a trade-policy law
+            # such as isolationism/canton_system bans g:opium). This single modifier IS
+            # "China has the opium ban AND is suffering authority/military penalties for it".
+            # Verified vs game files: there is NO `opium_ban_law` law_type — the hook is this modifier.
+            has_modifier = opium_ban_authority
+        }
+    }
+
+    immediate = {
+        debug_log = "mdp.2 NEP→TIB event FIRED"
+
+        save_scope_as = mdp_attacker
+
+        # Find Tibet as target
+        c:TIB = {
+            save_scope_as = mdp_tgt
+        }
+
+        # If TIB exists, execute the war
+        if = {
+            limit = { exists = scope:mdp_tgt }
+
+            debug_log = "mdp.2 granting claims+homeland on TIB states"
+
+            # Claim + homeland on every Tibet state
+            scope:mdp_tgt = {
+                every_scope_state = {
+                    add_claim = scope:mdp_attacker
+                    add_homeland = cu:nepali
+                }
+            }
+
+            # Seed Nepali pops in Tibet (if not already done by history files)
+            scope:mdp_tgt = {
+                every_scope_state = {
+                    create_pop = {
+                        culture = nepali
+                        religion = hindu
+                        size = 10000
+                    }
+                }
+            }
+
+            # Declare dp_return_state war
+            debug_log = "mdp.2 declaring dp_return_state vs TIB"
+
+            scope:mdp_attacker = {
+                create_diplomatic_play = {
+                    target_country = scope:mdp_tgt
+                    type = dp_return_state
+                    target_state = scope:mdp_tgt.capital
+                }
+            }
+
+            # Add war goals for non-capital states
+            random_diplomatic_play = {
+                limit = {
+                    is_diplomatic_play_type = dp_return_state
+                    any_scope_play_involved = { this = scope:mdp_attacker }
+                    any_scope_play_involved = { this = scope:mdp_tgt }
+                }
+                save_scope_as = mdp_play
+            }
+
+            if = {
+                limit = { exists = scope:mdp_play }
+                scope:mdp_tgt = {
+                    every_scope_state = {
+                        limit = { NOT = { this = scope:mdp_tgt.capital } }
+                        save_scope_as = mdp_goal_state
+                        scope:mdp_play = {
+                            add_war_goal = {
+                                holder = scope:mdp_attacker
+                                type = return_state
+                                target_state = scope:mdp_goal_state
+                            }
+                        }
+                    }
+                }
+            }
+
+            debug_log = "mdp.2 WAR DECLARED vs TIB"
+        }
+
+        if = {
+            limit = { NOT = { exists = scope:mdp_tgt } }
+            debug_log = "mdp.2 TIB does not exist — aborting"
+        }
+    }
+}
