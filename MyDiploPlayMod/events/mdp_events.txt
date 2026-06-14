@@ -91,7 +91,9 @@ mdp.2 = {
                 }
             }
 
-            # Add war goals for non-capital states
+            # Add return_state war goals for EVERY target state, including the capital
+            # (primary_demand = yes) — mirrors the hand-curated zz_mdp_wars.txt pattern,
+            # which always pairs target_state with an explicit add_war_goal.
             random_diplomatic_play = {
                 limit = {
                     is_diplomatic_play_type = dp_return_state
@@ -105,13 +107,25 @@ mdp.2 = {
                 limit = { exists = scope:mdp_play }
                 scope:mdp_tgt = {
                     every_scope_state = {
-                        limit = { NOT = { this = scope:mdp_tgt.capital } }
                         save_scope_as = mdp_goal_state
-                        scope:mdp_play = {
-                            add_war_goal = {
-                                holder = scope:mdp_attacker
-                                type = return_state
-                                target_state = scope:mdp_goal_state
+                        if = {
+                            limit = { this = scope:mdp_tgt.capital }
+                            scope:mdp_play = {
+                                add_war_goal = {
+                                    holder = scope:mdp_attacker
+                                    type = return_state
+                                    target_state = scope:mdp_goal_state
+                                    primary_demand = yes
+                                }
+                            }
+                        }
+                        else = {
+                            scope:mdp_play = {
+                                add_war_goal = {
+                                    holder = scope:mdp_attacker
+                                    type = return_state
+                                    target_state = scope:mdp_goal_state
+                                }
                             }
                         }
                     }

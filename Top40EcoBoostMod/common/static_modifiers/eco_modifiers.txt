@@ -30,3 +30,22 @@ eco_champ_state_p2 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
 	state_standard_of_living_add = 4
 }
+
+# ---- champ/support workforce uplift (2026-06-14, user): Russia's GDP fell BELOW its
+#      1836 level by the 1900s in-game; pops in champ/support buildings need higher wages
+#      + much more education access to clear promotion-qualification gates early.
+#      building_minimum_wage_mult: verified common/static_modifiers/105_modifiers.txt:573
+#      (temporary_minimum_wages = 0.2, i.e. "1.2x"/+20% minimum wage floor). No building-
+#      type-templated form exists in vanilla, so this is STATE-scoped (lifts the whole
+#      state's wage floor -- acceptable since champ/support buildings dominate employment
+#      in their states).
+#      state_education_access_add: verified common/laws/00_education_system.txt (vanilla
+#      sources range 0.1-0.25); 0.3 ("very high") sits above any single vanilla source, to
+#      clear promotion qualification gates for newly-promoted pops.
+#      Apply via add_modifier to states holding a champ/support building, alongside
+#      eco_sol_p1 / eco_champ_state_p2.
+eco_champ_support_wage_edu = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	building_minimum_wage_mult = 0.2
+	state_education_access_add = 0.3
+}

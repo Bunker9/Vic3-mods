@@ -58,6 +58,8 @@ mdp_valid_generic_target = {
     is_subject = no                                 # not a formal subject
     NOT = { mdp_is_in_power_bloc = yes }            # ← KEY: not in any power bloc at all
     NOT = { this = scope:mdp_attacker }             # don't self-target
+    NOT = { has_truce_with = scope:mdp_attacker }   # truce (incl. the all-expander truces in
+                                                     # zz_mdp_truces.txt) blocks retargeting
     is_at_war = no                                  # don't pile on
     # MUST share a land border with the attacker. (any_neighbouring_country is NOT a real
     # Vic3 trigger — it silently no-ops, which is why DAI picked Ashanti / PAN picked Spain.
@@ -78,6 +80,14 @@ mdp_valid_generic_target = {
                 mdp_egy_forbidden_target = yes
             }
         }
+
+    # OMA: restrict to targets bordering its Arabian mainland, not its African colonial
+    # holdings (Zanzibar etc.) — otherwise the adjacency check above picks up African
+    # neighbours and OMA ends up in useless wars across the Gulf of Aden.
+    trigger_if = {
+        limit = { scope:mdp_attacker = { this = c:OMA } }
+        mdp_oma_target_filter = yes
+    }
 }
 # -----------------------------------------------------------------------------
 # EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
@@ -94,6 +104,25 @@ mdp_egy_forbidden_target = {
         country_has_primary_culture = cu:oromo
         country_has_primary_culture = cu:tigrinya
         country_has_primary_culture = cu:somali
+    }
+}
+
+# -----------------------------------------------------------------------------
+# OMA-only adjacency restriction. Evaluated in CANDIDATE country scope;
+# scope:mdp_attacker = c:OMA.
+# OMA holds African colonial states (e.g. Zanzibar-area holdings), so the generic
+# any_neighbouring_state adjacency check in mdp_valid_generic_target was matching
+# candidates that only border those African holdings — sending OMA into useless wars
+# across the Gulf of Aden instead of expanding on its Arabian mainland. This requires
+# the bordering OMA-owned state to itself be on the Arabian mainland
+# (geographic_region_arabia, verified common/geographic_regions/06_new_strategic_regions.txt).
+# -----------------------------------------------------------------------------
+mdp_oma_target_filter = {
+    any_scope_state = {
+        any_neighbouring_state = {
+            owner = scope:mdp_attacker
+            state_region = { is_in_geographic_region = geographic_region_arabia }
+        }
     }
 }
 

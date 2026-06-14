@@ -1,5 +1,28 @@
 # MyDiploPlayMod — Changelog
 
+## v0.6.6-dev (2026-06-14) — expander truces, Oman targeting, guaranteed return_state goal
+- **All-expander truces**: `gen_blob_plan.py` now also writes
+  `common/history/diplomacy/zz_mdp_truces.txt` — `create_bidirectional_truce` (months = 120,
+  matching the 10-yr blob-chain window) for every pair of the 20 expand tags (190 pairs).
+  Verified `create_bidirectional_truce` against vanilla `common/history/diplomacy/00_truces.txt`.
+  Expanders now ignore each other (PAN/BIC etc. start at truce) instead of fighting or
+  dragging each other into the blob chain.
+- **Truce-respect target filter** (`mdp_valid_generic_target`): added
+  `NOT = { has_truce_with = scope:mdp_attacker }` — generally excludes any current truce
+  partner (covers the new expander truces, plus anyone recently white-peaced).
+- **Oman targeting fix** (`mdp_oma_target_filter`, OMA-only, mirrors `mdp_egy_forbidden_target`):
+  OMA's African colonial holdings (e.g. Zanzibar-area) were satisfying the generic
+  land-adjacency check, sending OMA into useless wars across the Gulf of Aden. Now requires
+  the bordering OMA-owned state to be on the Arabian mainland
+  (`state_region = { is_in_geographic_region = geographic_region_arabia }`, verified
+  `common/geographic_regions/06_new_strategic_regions.txt`).
+- **Guaranteed return_state primary goal** (`mdp_try_next_war`, `mdp.2`): the generic blob
+  chain previously added `return_state` war goals only for NON-capital target states —
+  `create_diplomatic_play`'s `target_state` alone registers no war goal. Now every target
+  state (including the capital) gets an explicit `return_state` goal, with
+  `primary_demand = yes` on the capital — mirrors the hand-curated `zz_mdp_wars.txt` pattern.
+- **Status: re-armed for a test run.**
+
 ## v0.6.5-dev (2026-06-13) — 3rd triage: faulty neighbour selector + dead-tag spam + 1846 stop
 In-game (Oct 1839) PAN at peace declared on a gutted, non-adjacent SPA; log also showed
 DAI → Ashanti. Root causes:

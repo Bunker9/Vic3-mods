@@ -168,79 +168,73 @@ POPS = {
 	s:STATE_SINDH = {
 		region_state:SIN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
-		}
-	}
-	s:STATE_PUNJAB = {
-		region_state:BHW = {
-			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_BALUCHISTAN = {
 		region_state:KAL = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_BALUCHISTAN = {
 		region_state:KAN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_SISTAN = {
 		region_state:KAN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_KANDAHAR = {
 		region_state:KAN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_NORTHERN_BALUCHISTAN = {
 		region_state:KAN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_QUETTA = {
 		region_state:KAN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_CENTRAL_HIGHLANDS = {
 		region_state:KAN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_HERAT = {
 		region_state:HER = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_CENTRAL_HIGHLANDS = {
 		region_state:HER = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_BALKH = {
 		region_state:KUN = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_KABUL = {
 		region_state:KAF = {
 			create_pop = { culture = panjabi religion = sikh size = 10000 }
-			create_pop = { culture = panjabi religion = hindu size = 30000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
 		}
 	}
 	s:STATE_NORTH_SUMATRA = {
