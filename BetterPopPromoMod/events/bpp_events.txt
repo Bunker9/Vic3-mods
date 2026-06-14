@@ -1,0 +1,108 @@
+﻿namespace = bpp
+
+# =============================================================================
+# BetterPopPromoMod — event pipeline.
+#  bpp.2  yearly per-country tier check (hidden; calls bpp_yearly_check).
+#  bpp.3  player-only toast when PRU/PAN/SOK get their early tier-2 grant.
+#  bpp.4  BIC-only TEST event: yearly pulse, converts a handful of underqualified
+#         lower-strata pops (~10K workforce each) in the 3 most populous states
+#         into bureaucrats / officers / academics (academics only if the state
+#         has a university). For observing promotion/GDP impact during testing —
+#         not part of the organic tier-1/2 mechanic.
+# Fired via common/on_actions/bpp_on_actions.txt (on_yearly_pulse_country, plus
+# bpp.3 triggered directly from bpp_startup for the PRU/PAN/SOK early unlock).
+# =============================================================================
+
+bpp.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		bpp_yearly_check = yes
+	}
+}
+
+bpp.3 = {
+	type = country_event
+	title = bpp.3.t
+	desc = bpp.3.d
+	event_image = { video = "unspecific_world_fair" }
+	icon = "gfx/interface/icons/event_icons/event_industry.dds"
+	duration = 5
+
+	option = {
+		name = bpp.3.a
+		default_option = yes
+	}
+}
+
+# ---- TEST EVENT (BIC only): yearly pulse pop-promotion booster. -------------
+# For each of the 3 most populous BIC states, picks one lower-strata pop with
+# workforce roughly 8K-15K (not already bureaucrats/clerks/officers/soldiers/
+# academics) and converts it directly via change_poptype:
+#   - one pop -> bureaucrats
+#   - one pop -> officers
+#   - one pop -> academics, ONLY if the state has a University building
+# This is a blunt, visible "test" tool to gauge how much faster promotion-driven
+# SoL/GDP gains show up for BIC once the cultural-discrimination penalty isn't
+# the bottleneck. Not gated behind bpp tiers -- runs independently every year.
+bpp.4 = {
+	type = country_event
+	hidden = yes
+
+	trigger = {
+		this = c:BIC
+	}
+
+	immediate = {
+		ordered_scope_state = {
+			order_by = state_population
+			max = 3
+			check_range_bounds = no
+
+			ordered_scope_pop = {
+				limit = {
+					strata = lower
+					NOT = { is_pop_type = bureaucrats }
+					NOT = { is_pop_type = clerks }
+					workforce >= 8000
+					workforce <= 15000
+				}
+				order_by = workforce
+				position = 0
+				max = 1
+				change_poptype = pop_type:bureaucrats
+			}
+
+			ordered_scope_pop = {
+				limit = {
+					strata = lower
+					NOT = { is_pop_type = officers }
+					NOT = { is_pop_type = soldiers }
+					workforce >= 8000
+					workforce <= 15000
+				}
+				order_by = workforce
+				position = 0
+				max = 1
+				change_poptype = pop_type:officers
+			}
+
+			if = {
+				limit = { has_building = building_university }
+				ordered_scope_pop = {
+					limit = {
+						strata = lower
+						NOT = { is_pop_type = academics }
+						workforce >= 8000
+						workforce <= 15000
+					}
+					order_by = workforce
+					position = 0
+					max = 1
+					change_poptype = pop_type:academics
+				}
+			}
+		}
+	}
+}

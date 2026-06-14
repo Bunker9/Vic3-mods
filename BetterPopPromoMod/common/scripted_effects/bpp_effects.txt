@@ -1,0 +1,59 @@
+﻿# =============================================================================
+# BetterPopPromoMod — tiered rollout effects.
+# Scope when called: COUNTRY (Root = the country being checked).
+#
+# Country variables used as one-shot gates (avoid re-adding permanent modifiers
+# every yearly pulse):
+#   bpp_tier1_done — tier-1 state modifiers applied
+#   bpp_tier2_done — tier-2 state modifiers + global acceptance applied (supersedes t1)
+# =============================================================================
+
+# ---- TIER 1: half-strength qualifications/literacy accelerants on every state.
+bpp_apply_tier1 = {
+	every_scope_state = {
+		add_modifier = { name = bpp_qualifications_boost_t1 }
+	}
+	set_variable = bpp_tier1_done
+}
+
+# ---- TIER 2: full-strength state modifiers (replacing tier 1) + the country-wide
+# cultural-acceptance floor. Permanent (no `months`) once granted.
+bpp_apply_tier2 = {
+	every_scope_state = {
+		if = {
+			limit = { ROOT = { has_variable = bpp_tier1_done } }
+			remove_modifier = bpp_qualifications_boost_t1
+		}
+		add_modifier = { name = bpp_qualifications_boost_t2 }
+	}
+	add_modifier = { name = bpp_global_acceptance }
+	set_variable = bpp_tier2_done
+	remove_variable = bpp_tier1_done
+}
+
+# ---- Yearly tier check. Called for Root via on_yearly_pulse_country (and once at
+# game start, in case an advanced-start nation already has the tier-2 tech/law).
+bpp_yearly_check = {
+	if = {
+		limit = {
+			NOT = { has_variable = bpp_tier2_done }
+			bpp_tier2_unlocked = yes
+		}
+		bpp_apply_tier2 = yes
+	}
+	else_if = {
+		limit = {
+			NOT = { has_variable = bpp_tier1_done }
+			NOT = { has_variable = bpp_tier2_done }
+			bpp_tier1_unlocked = yes
+		}
+		bpp_apply_tier1 = yes
+	}
+}
+
+# ---- Test-nation early unlock (PRU/PAN/SOK, see bpp_events.bpp.1): grants tier 2
+# immediately, bypassing the tech/law gate, so the champ/support synergy can be
+# tested without waiting on natural research progress.
+bpp_grant_tier2_now = {
+	bpp_apply_tier2 = yes
+}

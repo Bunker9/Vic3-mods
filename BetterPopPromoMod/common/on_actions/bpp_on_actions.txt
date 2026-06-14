@@ -1,0 +1,42 @@
+﻿# =============================================================================
+# BetterPopPromoMod — tiered rollout triggers.
+# Additive on_actions sub-list pattern (merges with vanilla + other mods).
+# on_actions do NOT hotload — return to main menu to apply changes.
+# =============================================================================
+
+on_game_started_after_lobby = {
+	on_actions = { bpp_startup }
+}
+
+bpp_startup = {
+	effect = {
+		# Initial check at game start (covers advanced-start nations that already
+		# have the tier-1/2 tech or law).
+		every_country = {
+			limit = { exists = this }
+			bpp_yearly_check = yes
+		}
+
+		# Test-nation early unlock (user 2026-06-14): PRU/PAN/SOK get tier 2
+		# immediately, bypassing the tech/law gate, so champ/support synergy can
+		# be tested without waiting on natural research progress.
+		every_country = {
+			limit = {
+				exists = this
+				OR = { this = c:PRU  this = c:PAN  this = c:SOK }
+			}
+			bpp_grant_tier2_now = yes
+			if = {
+				limit = { is_player = yes }
+				trigger_event = { id = bpp.3 }
+			}
+		}
+	}
+}
+
+# Recurring per-country check: as each nation researches academia / egalitarianism
+# (or enacts Multiculturalism), it gets promoted to the next tier.
+# bpp.4 is the BIC-only test event (self-gated via its own `trigger`).
+on_yearly_pulse_country = {
+	events = { bpp.2 bpp.4 }
+}

@@ -1,0 +1,23 @@
+﻿# =============================================================================
+# BetterPopPromoMod — tier-gate triggers. Evaluated in COUNTRY scope.
+# =============================================================================
+
+# ---- TIER 1 gate: era_1 society tech "academia" ("Unlocks University building",
+# verified common/technology/technologies/30_society.txt). AI typically researches
+# this within the first ~10-20 years; a human can beeline it almost immediately.
+bpp_tier1_unlocked = {
+	has_technology_researched = academia
+}
+
+# ---- TIER 2 gate: era_2 society tech "egalitarianism" ("Unlocks Egalitarian
+# Citizenship Law", verified common/technology/technologies/30_society.txt) OR
+# already running the most progressive citizenship law (verified
+# common/laws/00_citizenship.txt: law_multicultural). Either represents the nation
+# having reached a "social reform" stage where the discrimination-removal modifier
+# (bpp_global_acceptance) is thematically earned, not a turn-1 freebie.
+bpp_tier2_unlocked = {
+	OR = {
+		has_technology_researched = egalitarianism
+		has_law = law_multicultural
+	}
+}

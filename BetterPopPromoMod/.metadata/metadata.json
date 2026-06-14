@@ -1,0 +1,17 @@
+{
+	"name": "BetterPopPromoMod",
+	"id": "BetterPopPromoMod",
+	"game_id": "victoria3",
+	"version": "0.1.0",
+	"supported_game_version": "1.13.*",
+	"short_description": "Global pop-promotion / qualifications fix: cultural-discrimination acceptance floor + literacy/qualifications boost.",
+	"tags": [
+		"Economy",
+		"Balance",
+		"Gameplay"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

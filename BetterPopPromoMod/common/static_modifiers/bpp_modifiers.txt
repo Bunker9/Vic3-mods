@@ -1,0 +1,70 @@
+﻿# =============================================================================
+# BetterPopPromoMod — static modifiers (referenced by add_modifier).
+# Goal: organic pop promotion into higher strata (clerks/bureaucrats/academics/
+# officers/engineers/etc), especially for nations where most pops do NOT share
+# the primary culture/religion (e.g. BIC/East India, where ~100% of pops are
+# "not accepted" and get hit by QUALIFICATIONS_CULTURAL_DISCRIMINATION).
+#
+# Verified against vanilla qualifications formula (common/pop_types/bureaucrats.txt,
+# academics.txt, officers.txt, engineers.txt):
+#   qualifications = (literacy_rate - threshold) * factor
+#                     * (1.5-2x if pop_acceptance >= acceptance_status_4/5)
+#                     * (0.1x  if state_cultural_acceptance < acceptance_status_4)
+# acceptance_status thresholds (common/script_values/event_values.txt):
+#   status_1=0  status_2=20  status_3=40  status_4=60  status_5=80
+#
+# TIERED ROLLOUT (2026-06-14, user): apply gradually behind tech/law progress so the
+# AI doesn't get an out-of-era GDP/SoL spike from turn 1 (a human player can beeline
+# the gates; the AI researches them on its natural timeline). See bpp_triggers.txt /
+# bpp_effects.txt for the tier-1 -> tier-2 progression and on_actions for the pulse
+# that checks it.
+# =============================================================================
+
+# ---- TIER 1 (early, gated on era_1 tech `academia` -- "Unlocks University building",
+# verified common/technology/technologies/30_society.txt). STATE-scoped, half-strength
+# accelerants on the literacy/qualifications pipeline. Replaced by tier 2 once unlocked.
+bpp_qualifications_boost_t1 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	state_pop_qualifications_mult        = 0.25
+	state_literacy_growth_add            = 0.0025
+	state_peasants_education_access_add  = 0.15
+}
+
+# ---- TIER 2 (gated on era_2 tech `egalitarianism` -- "Unlocks Egalitarian Citizenship
+# Law" -- OR already having `law_multicultural`). STATE-scoped, full-strength.
+#  - state_pop_qualifications_mult: DIRECT percent multiplier on qualifications
+#    (verified common/modifier_type_definitions/00_modifier_types.txt:1730; vanilla
+#    max single source 0.25, common/decrees/00_decree.txt:224). +0.5 = double that.
+#  - state_literacy_growth_add: percent growth-rate boost (verified :1667; vanilla
+#    max single source 0.0005, common/static_modifiers/00_code_static_modifiers.txt).
+#    +0.005 = 10x the best single vanilla source -- still bounded by 100% literacy.
+#  - state_peasants_education_access_add: targets laborers/peasants specifically --
+#    the "QUALIFICATIONS_FAVORED_TYPE" pop type for promotion into clerks (verified
+#    :1711; vanilla max 0.20, common/laws/00_education_system.txt:287).
+bpp_qualifications_boost_t2 = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	state_pop_qualifications_mult        = 0.5
+	state_literacy_growth_add            = 0.005
+	state_peasants_education_access_add  = 0.30
+}
+
+# ---- TIER 2 ONLY: COUNTRY-scoped cultural-acceptance floor. Raises acceptance for
+# pops sharing NONE of the primary culture's heritage/language/tradition/religious
+# traits (verified common/modifier_type_definitions/06_country_modifier_types.txt,
+# flat 0-100 points, tags=cultural_acceptance). Vanilla single-source range across all
+# laws is -25..+15 (common/laws/00_church_and_state.txt, 00_citizenship.txt); +30 on
+# each of the 4 tokens is roughly double the best single vanilla law and is enough on
+# its own to clear acceptance_status_4 (60) -- and combined with almost any
+# non-hostile law, acceptance_status_5 (80) -- for a pop sharing NOTHING with the
+# ruling culture. This removes the 0.1x QUALIFICATIONS_CULTURAL_DISCRIMINATION penalty
+# and grants the 1.5x/2x acceptance bonus instead, WITHOUT requiring any law change.
+# Gated to tier 2 alongside the full qualifications boost -- this is the strongest
+# lever, so it arrives only once a nation has reached era_2 social tech (or already
+# enacted Multiculturalism).
+bpp_global_acceptance = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	country_acceptance_no_shared_heritage_trait_add  = 30
+	country_acceptance_no_shared_language_trait_add  = 30
+	country_acceptance_no_shared_tradition_trait_add = 30
+	country_acceptance_no_shared_religious_trait_add = 30
+}
