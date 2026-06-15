@@ -71,13 +71,13 @@ eco_setup_CHI = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_CHI = {
-	eco_pulse_spread = { B = building_tea_plantation N = 5 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 2 }
-	eco_pulse_spread = { B = building_logging_camp N = 2 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 2 }
-	eco_pulse_spread = { B = building_textile_mill N = 2 }
-	eco_pulse_spread = { B = building_food_industry N = 2 }
-	eco_pulse_spread = { B = building_silk_plantation N = 2 }
+	eco_pulse_spread = { B = building_tea_plantation N = 5 TYPE = champ }
+	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 2 TYPE = support }
 }
 
 # ---- Russia (RUS): champ wood [agri] N=5; support x6 N=2; flavour x8 ----
@@ -97,13 +97,13 @@ eco_setup_RUS = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_RUS = {
-	eco_pulse_spread = { B = building_logging_camp N = 5 }
-	eco_pulse_spread = { B = building_wheat_farm N = 2 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 2 }
-	eco_pulse_spread = { B = building_food_industry N = 2 }
-	eco_pulse_spread = { B = building_paper_mill N = 2 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 2 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 2 }
+	eco_pulse_spread = { B = building_logging_camp N = 5 TYPE = champ }
+	eco_pulse_spread = { B = building_wheat_farm N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_livestock_ranch N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = support }
 }
 
 # ---- East India (BIC): champ dye [agri] N=5; support x6 N=2; flavour x10 ----
@@ -125,13 +125,13 @@ eco_setup_BIC = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_BIC = {
-	eco_pulse_spread = { B = building_dye_plantation N = 5 }
-	eco_pulse_spread = { B = building_wheat_farm N = 2 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 2 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 2 }
-	eco_pulse_spread = { B = building_logging_camp N = 2 }
-	eco_pulse_spread = { B = building_tea_plantation N = 2 }
+	eco_pulse_spread = { B = building_dye_plantation N = 5 TYPE = champ }
+	eco_pulse_spread = { B = building_wheat_farm N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_livestock_ranch N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_tea_plantation N = 2 TYPE = support }
 }
 
 # ---- United States (USA): champ meat [agri] N=4; support x6 N=2; flavour x7 ----
@@ -150,13 +150,13 @@ eco_setup_USA = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_USA = {
-	eco_pulse_spread = { B = building_livestock_ranch N = 4 }
-	eco_pulse_spread = { B = building_steel_mill N = 2 }
-	eco_pulse_spread = { B = building_iron_mine N = 2 }
-	eco_pulse_spread = { B = building_coal_mine N = 2 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 2 }
-	eco_pulse_spread = { B = building_food_industry N = 2 }
+	eco_pulse_spread = { B = building_livestock_ranch N = 4 TYPE = champ }
+	eco_pulse_spread = { B = building_steel_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_coal_mine N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 2 TYPE = support }
 }
 
 # ---- France (FRA): champ wine [agri] N=4; support x6 N=2; flavour x10 ----
@@ -178,13 +178,13 @@ eco_setup_FRA = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_FRA = {
-	eco_pulse_spread = { B = building_vineyard N = 4 }
-	eco_pulse_spread = { B = building_iron_mine N = 2 }
-	eco_pulse_spread = { B = building_arms_industry N = 2 }
-	eco_pulse_spread = { B = building_textile_mill N = 2 }
-	eco_pulse_spread = { B = building_glassworks N = 2 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_food_industry N = 2 }
+	eco_pulse_spread = { B = building_vineyard N = 4 TYPE = champ }
+	eco_pulse_spread = { B = building_iron_mine N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_arms_industry N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 2 TYPE = support }
 }
 
 # ---- Great Britain (GBR): champ coal [mine] N=4; support x6 N=2; flavour x10 ----
@@ -206,13 +206,13 @@ eco_setup_GBR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_GBR = {
-	eco_pulse_spread = { B = building_coal_mine N = 4 }
-	eco_pulse_spread = { B = building_steel_mill N = 2 }
-	eco_pulse_spread = { B = building_motor_industry N = 2 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 2 }
-	eco_pulse_spread = { B = building_textile_mill N = 2 }
-	eco_pulse_spread = { B = building_glassworks N = 2 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 2 }
+	eco_pulse_spread = { B = building_coal_mine N = 4 TYPE = champ }
+	eco_pulse_spread = { B = building_steel_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_motor_industry N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 2 TYPE = support }
 }
 
 # ---- Ottomans (TUR): champ tobacco [agri] N=4; support x6 N=2; flavour x7 ----
@@ -231,13 +231,13 @@ eco_setup_TUR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_TUR = {
-	eco_pulse_spread = { B = building_tobacco_plantation N = 4 }
-	eco_pulse_spread = { B = building_tea_plantation N = 2 }
-	eco_pulse_spread = { B = building_wheat_farm N = 2 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 2 }
-	eco_pulse_spread = { B = building_paper_mill N = 2 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 2 }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 4 TYPE = champ }
+	eco_pulse_spread = { B = building_tea_plantation N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_wheat_farm N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_livestock_ranch N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = support }
 }
 
 # ---- Japan (JAP): champ fish [agri] N=4; support x6 N=2; flavour x10 ----
@@ -259,13 +259,13 @@ eco_setup_JAP = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_JAP = {
-	eco_pulse_spread = { B = building_fishing_wharf N = 4 }
-	eco_pulse_spread = { B = building_paper_mill N = 2 }
-	eco_pulse_spread = { B = building_food_industry N = 2 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 2 }
-	eco_pulse_spread = { B = building_glassworks N = 2 }
-	eco_pulse_spread = { B = building_textile_mill N = 2 }
-	eco_pulse_spread = { B = building_silk_plantation N = 2 }
+	eco_pulse_spread = { B = building_fishing_wharf N = 4 TYPE = champ }
+	eco_pulse_spread = { B = building_paper_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 2 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 2 TYPE = support }
 }
 
 # ---- Prussia (PRU): champ steel [ind] N=3; support x6 N=1; flavour x5 ----
@@ -282,13 +282,13 @@ eco_setup_PRU = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_PRU = {
-	eco_pulse_spread = { B = building_steel_mill N = 3 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_coal_mine N = 1 }
-	eco_pulse_spread = { B = building_artillery_foundry N = 1 }
-	eco_pulse_spread = { B = building_chemical_plant N = 1 }
-	eco_pulse_spread = { B = building_motor_industry N = 1 }
+	eco_pulse_spread = { B = building_steel_mill N = 3 TYPE = champ }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coal_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_artillery_foundry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_chemical_plant N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_motor_industry N = 1 TYPE = support }
 }
 
 # ---- Spain (SPA): champ furniture [ind] N=3; support x6 N=1; flavour x9 ----
@@ -309,13 +309,13 @@ eco_setup_SPA = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SPA = {
-	eco_pulse_spread = { B = building_furniture_manufactory N = 3 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
-	eco_pulse_spread = { B = building_vineyard N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 3 TYPE = champ }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 
 # ---- Austria (AUS): champ furniture [ind] N=3; support x6 N=1; flavour x5 ----
@@ -332,13 +332,13 @@ eco_setup_AUS = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_AUS = {
-	eco_pulse_spread = { B = building_furniture_manufactory N = 3 }
-	eco_pulse_spread = { B = building_glassworks N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
-	eco_pulse_spread = { B = building_arms_industry N = 1 }
-	eco_pulse_spread = { B = building_silk_plantation N = 1 }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 3 TYPE = champ }
+	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_arms_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
 # ---- Mexico (MEX): champ tobacco [agri] N=3; support x6 N=1; flavour x6 ----
@@ -356,13 +356,13 @@ eco_setup_MEX = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_MEX = {
-	eco_pulse_spread = { B = building_tobacco_plantation N = 3 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_dye_plantation N = 1 }
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 3 TYPE = champ }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_dye_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 
 # ---- Korea (KOR): champ wood [agri] N=2; support x6 N=1; flavour x5 ----
@@ -379,13 +379,13 @@ eco_setup_KOR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_KOR = {
-	eco_pulse_spread = { B = building_logging_camp N = 2 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_silk_plantation N = 1 }
+	eco_pulse_spread = { B = building_logging_camp N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
 # ---- Brazil (BRZ): champ fruit [agri] N=2; support x6 N=1; flavour x7 ----
@@ -404,13 +404,13 @@ eco_setup_BRZ = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_BRZ = {
-	eco_pulse_spread = { B = building_banana_plantation N = 2 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
+	eco_pulse_spread = { B = building_banana_plantation N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 
 # ---- Persia (PER): champ clothes [ind] N=2; support x6 N=1; flavour x9 ----
@@ -431,13 +431,13 @@ eco_setup_PER = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_PER = {
-	eco_pulse_spread = { B = building_textile_mill N = 2 }
-	eco_pulse_spread = { B = building_opium_plantation N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_glassworks N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
+	eco_pulse_spread = { B = building_textile_mill N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_opium_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
 }
 
 # ---- Egypt (EGY): champ fabric [agri] N=2; support x6 N=1; flavour x10 ----
@@ -459,13 +459,13 @@ eco_setup_EGY = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_EGY = {
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
 }
 
 # ---- Punjab (PAN): champ fabric [agri] N=2; support x6 N=1; flavour x9 ----
@@ -486,13 +486,13 @@ eco_setup_PAN = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_PAN = {
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_wheat_farm N = 1 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_opium_plantation N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_opium_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
 }
 
 # ---- Dutch East Indies (DEI): champ fruit [agri] N=2; support x6 N=1; flavour x3 ----
@@ -507,13 +507,13 @@ eco_setup_DEI = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_DEI = {
-	eco_pulse_spread = { B = building_banana_plantation N = 2 }
-	eco_pulse_spread = { B = building_dye_plantation N = 1 }
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_tea_plantation N = 1 }
+	eco_pulse_spread = { B = building_banana_plantation N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_dye_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = support }
 }
 
 # ---- Hungary (HUN): champ meat [agri] N=2; support x6 N=1; flavour x3 ----
@@ -528,13 +528,13 @@ eco_setup_HUN = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_HUN = {
-	eco_pulse_spread = { B = building_livestock_ranch N = 2 }
-	eco_pulse_spread = { B = building_wheat_farm N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_steel_mill N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
+	eco_pulse_spread = { B = building_livestock_ranch N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_steel_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
 }
 
 # ---- Portugal (POR): champ fish [agri] N=2; support x6 N=1; flavour x10 ----
@@ -556,13 +556,13 @@ eco_setup_POR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_POR = {
-	eco_pulse_spread = { B = building_fishing_wharf N = 2 }
-	eco_pulse_spread = { B = building_vineyard N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
+	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
 }
 
 # ---- Two Sicilies (SIC): champ sulfur [mine] N=2; support x6 N=1; flavour x2 ----
@@ -576,13 +576,13 @@ eco_setup_SIC = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SIC = {
-	eco_pulse_spread = { B = building_sulfur_mine N = 2 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_vineyard N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
-	eco_pulse_spread = { B = building_silk_plantation N = 1 }
+	eco_pulse_spread = { B = building_sulfur_mine N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
 # ---- Netherlands (NET): champ clothes [ind] N=2; support x6 N=1; flavour x7 ----
@@ -601,13 +601,13 @@ eco_setup_NET = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_NET = {
-	eco_pulse_spread = { B = building_textile_mill N = 2 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_steel_mill N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_glassworks N = 1 }
+	eco_pulse_spread = { B = building_textile_mill N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_steel_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
 }
 
 # ---- Sokoto (SOK): champ grain [agri] N=2; support x7 N=1; flavour x5 ----
@@ -624,14 +624,14 @@ eco_setup_SOK = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SOK = {
-	eco_pulse_spread = { B = building_millet_farm N = 2 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_banana_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
+	eco_pulse_spread = { B = building_millet_farm N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_banana_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
 }
 
 # ---- Sardinia-Piedmont (SAR): champ fabric [agri] N=2; support x6 N=1; flavour x4 ----
@@ -647,13 +647,13 @@ eco_setup_SAR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SAR = {
-	eco_pulse_spread = { B = building_cotton_plantation N = 2 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_vineyard N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_steel_mill N = 1 }
-	eco_pulse_spread = { B = building_silk_plantation N = 1 }
+	eco_pulse_spread = { B = building_cotton_plantation N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_steel_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
 # ---- Sweden (SWE): champ iron [mine] N=2; support x6 N=1; flavour x1 ----
@@ -666,13 +666,13 @@ eco_setup_SWE = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SWE = {
-	eco_pulse_spread = { B = building_iron_mine N = 2 }
-	eco_pulse_spread = { B = building_coal_mine N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
+	eco_pulse_spread = { B = building_iron_mine N = 2 TYPE = champ }
+	eco_pulse_spread = { B = building_coal_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
 }
 
 # ---- Hyderabad (HYD): champ paper [ind] N=1; support x6 N=1; flavour x6 ----
@@ -690,13 +690,13 @@ eco_setup_HYD = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_HYD = {
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_rice_farm N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_silk_plantation N = 1 }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_rice_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
 # ---- Greece (GRE): champ wine [agri] N=1; support x6 N=1; flavour x2 ----
@@ -710,13 +710,13 @@ eco_setup_GRE = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_GRE = {
-	eco_pulse_spread = { B = building_vineyard N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
 }
 
 # ---- Dai Nam (DAI): champ fish [agri] N=1; support x6 N=1; flavour x5 ----
@@ -733,13 +733,13 @@ eco_setup_DAI = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_DAI = {
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_tea_plantation N = 1 }
-	eco_pulse_spread = { B = building_opium_plantation N = 1 }
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_silk_plantation N = 1 }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_opium_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
 # ---- Nepal (NEP): champ wood [agri] N=1; support x7 N=1; flavour x2 ----
@@ -753,14 +753,14 @@ eco_setup_NEP = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_NEP = {
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
-	eco_pulse_spread = { B = building_glassworks N = 1 }
-	eco_pulse_spread = { B = building_rice_farm N = 1 }
-	eco_pulse_spread = { B = building_tea_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_rice_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
 }
 
 # ---- Colombia (CLM): champ coffee [agri] N=1; support x6 N=1; flavour x4 ----
@@ -776,13 +776,13 @@ eco_setup_CLM = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_CLM = {
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_dye_plantation N = 1 }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_dye_plantation N = 1 TYPE = support }
 }
 
 # ---- Argentina (ARG): champ meat [agri] N=1; support x6 N=1; flavour x6 ----
@@ -800,13 +800,13 @@ eco_setup_ARG = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_ARG = {
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 
 # ---- Siam (SIA): champ fish [agri] N=1; support x6 N=1; flavour x9 ----
@@ -827,13 +827,13 @@ eco_setup_SIA = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SIA = {
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_tea_plantation N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_rice_farm N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_rice_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
 }
 
 # ---- Morocco (MOR): champ fabric [agri] N=1; support x6 N=1; flavour x5 ----
@@ -850,13 +850,13 @@ eco_setup_MOR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_MOR = {
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_wheat_farm N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_vineyard N = 1 }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = support }
 }
 
 # ---- Oman (OMA): champ coffee [agri] N=1; support x6 N=1; flavour x9 ----
@@ -877,13 +877,13 @@ eco_setup_OMA = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_OMA = {
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_wheat_farm N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
 }
 
 # ---- Shewa (SHW): champ coffee [agri] N=1; support x6 N=1; flavour x1 ----
@@ -896,13 +896,13 @@ eco_setup_SHW = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SHW = {
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_millet_farm N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_tea_plantation N = 1 }
-	eco_pulse_spread = { B = building_dye_plantation N = 1 }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_millet_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_dye_plantation N = 1 TYPE = support }
 }
 
 # ---- South Africa (SAF): champ meat [agri] N=1; support x6 N=1; flavour x4 ----
@@ -918,13 +918,13 @@ eco_setup_SAF = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_SAF = {
-	eco_pulse_spread = { B = building_livestock_ranch N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_textile_mill N = 1 }
-	eco_pulse_spread = { B = building_wheat_farm N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
+	eco_pulse_spread = { B = building_livestock_ranch N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
 }
 
 # ---- Philippines (PHI): champ sugar [agri] N=1; support x6 N=1; flavour x4 ----
@@ -940,13 +940,13 @@ eco_setup_PHI = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_PHI = {
-	eco_pulse_spread = { B = building_sugar_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_rice_farm N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
-	eco_pulse_spread = { B = building_coffee_plantation N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
+	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_rice_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coffee_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
 }
 
 # ---- Belgium (BEL): champ steel [ind] N=1; support x6 N=1; flavour x3 ----
@@ -961,13 +961,13 @@ eco_setup_BEL = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_BEL = {
-	eco_pulse_spread = { B = building_steel_mill N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_explosives_factory N = 1 }
-	eco_pulse_spread = { B = building_motor_industry N = 1 }
-	eco_pulse_spread = { B = building_iron_mine N = 1 }
-	eco_pulse_spread = { B = building_coal_mine N = 1 }
-	eco_pulse_spread = { B = building_glassworks N = 1 }
+	eco_pulse_spread = { B = building_steel_mill N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_explosives_factory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_motor_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_iron_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_coal_mine N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
 }
 
 # ---- Bavaria (BAV): champ wine [agri] N=1; support x6 N=1; flavour x2 ----
@@ -981,13 +981,13 @@ eco_setup_BAV = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_BAV = {
-	eco_pulse_spread = { B = building_vineyard N = 1 }
-	eco_pulse_spread = { B = building_chemical_plant N = 1 }
-	eco_pulse_spread = { B = building_paper_mill N = 1 }
-	eco_pulse_spread = { B = building_tooling_workshop N = 1 }
-	eco_pulse_spread = { B = building_furniture_manufactory N = 1 }
-	eco_pulse_spread = { B = building_food_industry N = 1 }
-	eco_pulse_spread = { B = building_wheat_farm N = 1 }
+	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_chemical_plant N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_paper_mill N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_food_industry N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
 }
 
 # ---- Burma (BUR): champ tea [agri] N=1; support x6 N=1; flavour x6 ----
@@ -1005,12 +1005,12 @@ eco_setup_BUR = {
 	eco_cleanup_flags = yes
 }
 eco_pulse_BUR = {
-	eco_pulse_spread = { B = building_tea_plantation N = 1 }
-	eco_pulse_spread = { B = building_opium_plantation N = 1 }
-	eco_pulse_spread = { B = building_tobacco_plantation N = 1 }
-	eco_pulse_spread = { B = building_logging_camp N = 1 }
-	eco_pulse_spread = { B = building_cotton_plantation N = 1 }
-	eco_pulse_spread = { B = building_rice_farm N = 1 }
-	eco_pulse_spread = { B = building_fishing_wharf N = 1 }
+	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = champ }
+	eco_pulse_spread = { B = building_opium_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_rice_farm N = 1 TYPE = support }
+	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 

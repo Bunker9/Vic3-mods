@@ -138,12 +138,8 @@ eco_seed_flavour = {
 		if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
 		change_variable = { name = eco_cur add = 1 }
 		create_building = { building = $B$ level = var:eco_cur reserves = 1 }
-		debug_log = eco_hit_$TYPE$
-		# plain marker ($B$ doesn't substitute cleanly inside a quoted string) — the building is
-		# in the `debug_log = $B$` header above, and the scope dump below gives the STATE; together
-		# with Root (country) that's tag+building+STATE per flavour build -> enough to PORT to history.
-		debug_log = "ECOFLAV"
-		debug_log_scopes = yes
+		debug_log = eco_hit_$TYPE$    # -> "ECO_PLACED flavour"; with the $B$ header + scope dump
+		debug_log_scopes = yes        # (Root=country, This=state) every build logs uniformly
 	}
 }
 
@@ -232,8 +228,8 @@ eco_pulse_spread = {
 				position = 0
 				check_range_bounds = no
 				create_building = { building = $B$ level = 1 reserves = 1 }
-				debug_log = "ECOPULSE_SPREAD"
-				debug_log_scopes = yes
+				debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
+				debug_log_scopes = yes        # Root = country, This = state (table needs both)
 			}
 		}
 		else = {
@@ -249,7 +245,7 @@ eco_pulse_spread = {
 				change_variable = { name = eco_cur add = 1 }
 				create_building = { building = $B$ level = var:eco_cur reserves = 1 }
 				remove_variable = eco_cur
-				debug_log = "ECOPULSE_STACK"
+				debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
 				debug_log_scopes = yes
 			}
 		}
