@@ -261,13 +261,9 @@ eco_pulse_spread = {
 
 # ---- cleanup: strip every eco state flag + the country counters --------------
 eco_cleanup_flags = {
-	remove_variable = eco_placed
-	remove_variable = eco_S
-	remove_variable = eco_bestlevel
 	remove_variable = eco_mark
 	remove_variable = eco_have
-	remove_variable = eco_need
-	remove_variable = eco_share
+	remove_variable = eco_cur
 	every_scope_state = {
 		limit = {
 			OR = {

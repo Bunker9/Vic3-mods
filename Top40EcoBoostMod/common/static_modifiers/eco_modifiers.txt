@@ -13,24 +13,24 @@
 # group-throughput token exists).
 eco_champ_tp_agri = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_group_bg_plantations_throughput_add = 2.0
+	building_group_bg_plantations_throughput_add = 0.5
 	building_group_bg_logging_throughput_add     = 2.0
 	building_group_bg_ranching_throughput_add    = 2.0
-	building_group_bg_agriculture_throughput_add = 2.0
+	building_group_bg_agriculture_throughput_add = 0.5
 	building_group_bg_fishing_throughput_add     = 2.0
 	building_minimum_wage_mult = 0.2
 }
 # MINING: coal / sulfur / iron champs.
 eco_champ_tp_mine = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_group_bg_mining_throughput_add = 2.0
+	building_group_bg_mining_throughput_add = 0.5
 	building_minimum_wage_mult = 0.2
 }
 # INDUSTRY: steel (heavy) + furniture/clothes/paper (light) champs.
 eco_champ_tp_ind = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_group_bg_heavy_industry_throughput_add = 2.0
-	building_group_bg_light_industry_throughput_add = 2.0
+	building_group_bg_heavy_industry_throughput_add = 0.5
+	building_group_bg_light_industry_throughput_add = 0.5
 	building_minimum_wage_mult = 0.2
 }
 

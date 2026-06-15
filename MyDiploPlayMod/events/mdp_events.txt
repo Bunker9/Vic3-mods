@@ -73,16 +73,8 @@ mdp.2 = {
                 }
             }
 
-            # Seed Nepali pops in Tibet (if not already done by history files)
-            scope:mdp_tgt = {
-                every_scope_state = {
-                    create_pop = {
-                        culture = nepali
-                        religion = hindu
-                        size = 10000
-                    }
-                }
-            }
+            # (create_pop seed removed 2026-06-15, user: drop pop-seeding from war/claim logic —
+            #  claim + homeland alone make the conquest low-infamy/incorporable)
 
             # Declare dp_return_state war
             debug_log = "mdp.2 declaring dp_return_state vs TIB"

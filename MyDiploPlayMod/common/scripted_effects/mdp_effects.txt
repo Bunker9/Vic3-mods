@@ -49,15 +49,12 @@ mdp_try_next_war = {
         debug_log = "mdp_try_next_war granting claims+homeland on target states"
 
         # ---------------------------------------------------------------------
-        # Step 2b: SAVE the attacker's culture + religion as SCOPES first.
-        # A multi-hop key reference (scope:mdp_attacker.ruler.culture) is REJECTED by the
-        # reader for the add_homeland / create_pop culture+religion fields ("Failed to read
-        # key reference" + create_pop "Missing culture"). The vanilla idiom (zanzibar_events)
-        # is to save the culture/religion scope, then pass scope:<saved>.
+        # Step 2b: SAVE the attacker's culture scope (for add_homeland). Multi-hop
+        # scope:mdp_attacker.ruler.culture is rejected as a key reference, so save it first
+        # (vanilla zanzibar idiom). Religion no longer saved — create_pop was dropped.
         # ---------------------------------------------------------------------
         scope:mdp_attacker = {
             ruler ?= { culture = { save_scope_as = mdp_atk_culture } }
-            religion ?= { save_scope_as = mdp_atk_religion }
         }
 
         # ---------------------------------------------------------------------
@@ -88,21 +85,10 @@ mdp_try_next_war = {
         }
 
         # ---------------------------------------------------------------------
-        # Step 4: seed primary-culture pops in every target state (guard on the saved scopes)
+        # Step 4 (REMOVED 2026-06-15, user): create_pop culture-seed dropped — it threw
+        # "create_pop [Missing culture]" for attackers whose ruler culture didn't resolve, and
+        # the claim+homeland alone already make the conquest low-infamy/incorporable.
         # ---------------------------------------------------------------------
-        if = {
-            limit = { exists = scope:mdp_atk_culture  exists = scope:mdp_atk_religion }
-            scope:mdp_tgt = {
-                every_scope_state = {
-                    create_pop = {
-                        culture  = scope:mdp_atk_culture
-                        religion = scope:mdp_atk_religion
-                        size     = 100
-                    }
-                    debug_log = "MDP_POP"          # testbook timeline marker (1 per seeded state)
-                }
-            }
-        }
 
         # ---------------------------------------------------------------------
         # Step 5: declare the diplomatic play. We use dp_return_state (war goal
