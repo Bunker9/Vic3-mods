@@ -12,7 +12,7 @@ eco_CHI_champ_tp_p1 = {
 }
 eco_RUS_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_logging_camp_throughput_add = 2.0
+	building_group_bg_logging_throughput_add = 2.0
 }
 eco_BIC_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
@@ -56,11 +56,11 @@ eco_MEX_champ_tp_p1 = {
 }
 eco_KOR_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_logging_camp_throughput_add = 2.0
+	building_group_bg_logging_throughput_add = 2.0
 }
 eco_BRZ_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_banana_plantation_throughput_add = 2.0
+	building_group_bg_plantations_throughput_add = 2.0
 }
 eco_PER_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
@@ -76,7 +76,7 @@ eco_PAN_champ_tp_p1 = {
 }
 eco_DEI_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_banana_plantation_throughput_add = 2.0
+	building_group_bg_plantations_throughput_add = 2.0
 }
 eco_HUN_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
@@ -120,7 +120,7 @@ eco_DAI_champ_tp_p1 = {
 }
 eco_NEP_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_logging_camp_throughput_add = 2.0
+	building_group_bg_logging_throughput_add = 2.0
 }
 eco_CLM_champ_tp_p1 = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"

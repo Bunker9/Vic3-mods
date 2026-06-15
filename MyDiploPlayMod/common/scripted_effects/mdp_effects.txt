@@ -49,30 +49,46 @@ mdp_try_next_war = {
         debug_log = "mdp_try_next_war granting claims+homeland on target states"
 
         # ---------------------------------------------------------------------
+        # Step 2b: SAVE the attacker's culture + religion as SCOPES first.
+        # A multi-hop key reference (scope:mdp_attacker.ruler.culture) is REJECTED by the
+        # reader for the add_homeland / create_pop culture+religion fields ("Failed to read
+        # key reference" + create_pop "Missing culture"). The vanilla idiom (zanzibar_events)
+        # is to save the culture/religion scope, then pass scope:<saved>.
+        # ---------------------------------------------------------------------
+        scope:mdp_attacker = {
+            ruler ?= { culture = { save_scope_as = mdp_atk_culture } }
+            religion ?= { save_scope_as = mdp_atk_religion }
+        }
+
+        # ---------------------------------------------------------------------
         # Step 3: claim + homeland on every target state.
-        # add_claim is a STATE-scoped effect whose VALUE is the country gaining the
-        # claim — so we stay in the every_scope_state (state) scope and pass the
-        # attacker as the value. (Wrapping it in scope:mdp_attacker = {} runs it in
-        # COUNTRY scope and errors "Wrong scope: country, expected state_region".)
-        # add_homeland is likewise a state effect taking a culture value.
-        # These claims are what make the conquest LOW-INFAMY + incorporable.
+        # add_claim is a STATE-scoped effect whose VALUE is the country gaining the claim —
+        # so we stay in the every_scope_state scope and pass the attacker as the value.
+        # add_homeland takes a culture scope (the saved one). These claims are what make the
+        # conquest LOW-INFAMY + incorporable.
         # ---------------------------------------------------------------------
         scope:mdp_tgt = {
             every_scope_state = {
-                add_claim    = scope:mdp_attacker
-                add_homeland = scope:mdp_attacker.ruler.culture
+                add_claim = scope:mdp_attacker
+                if = {
+                    limit = { exists = scope:mdp_atk_culture }
+                    add_homeland = scope:mdp_atk_culture
+                }
             }
         }
 
         # ---------------------------------------------------------------------
-        # Step 4: seed primary-culture pops in every target state
+        # Step 4: seed primary-culture pops in every target state (guard on the saved scopes)
         # ---------------------------------------------------------------------
-        scope:mdp_tgt = {
-            every_scope_state = {
-                create_pop = {
-                    culture  = scope:mdp_attacker.ruler.culture
-                    religion = scope:mdp_attacker.religion
-                    size     = 10000
+        if = {
+            limit = { exists = scope:mdp_atk_culture  exists = scope:mdp_atk_religion }
+            scope:mdp_tgt = {
+                every_scope_state = {
+                    create_pop = {
+                        culture  = scope:mdp_atk_culture
+                        religion = scope:mdp_atk_religion
+                        size     = 10000
+                    }
                 }
             }
         }

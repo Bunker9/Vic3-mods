@@ -4,13 +4,13 @@
 # Seeds 1 building per East African state to the biggest-pop mod-nation.
 # =============================================================================
 BUILDINGS = {
-	s:STATE_OROMIA = {
-		region_state:SHW = {
+	s:STATE_ERITREA = {
+		region_state:EGY = {
 			create_building = {
-				building = "cotton_plantation"
+				building = "building_cotton_plantation"
 				add_ownership = {
 					country = {
-						country = "c:SHW"
+						country = "c:EGY"
 						levels = 1
 					}
 				}
@@ -18,13 +18,13 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STATE_ERITREA = {
-		region_state:EGY = {
+	s:STATE_OROMIA = {
+		region_state:SHW = {
 			create_building = {
-				building = "cotton_plantation"
+				building = "building_cotton_plantation"
 				add_ownership = {
 					country = {
-						country = "c:EGY"
+						country = "c:SHW"
 						levels = 1
 					}
 				}

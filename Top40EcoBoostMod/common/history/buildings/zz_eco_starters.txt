@@ -8,7 +8,7 @@
 # Country-owned, default PM (activate_production_methods omitted) - verify in error.log.
 # =============================================================================
 BUILDINGS = {
-	s:BUENOS_AIRES = {
+	s:STATE_BUENOS_AIRES = {
 		region_state:ARG = {
 			create_building = {
 				building = "building_logging_camp"
@@ -22,7 +22,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHACO = {
+	s:STATE_CHACO = {
 		region_state:ARG = {
 			create_building = {
 				building = "building_logging_camp"
@@ -36,7 +36,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CORRIENTES = {
+	s:STATE_CORRIENTES = {
 		region_state:ARG = {
 			create_building = {
 				building = "building_logging_camp"
@@ -50,45 +50,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:JUJUY = {
-		region_state:ARG = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:ARG"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:ARG"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:LA_PAMPA = {
-		region_state:ARG = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:ARG"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:TUCUMAN = {
+	s:STATE_JUJUY = {
 		region_state:ARG = {
 			create_building = {
 				building = "building_logging_camp"
@@ -112,7 +74,45 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AUSTRIA = {
+	s:STATE_LA_PAMPA = {
+		region_state:ARG = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:ARG"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_TUCUMAN = {
+		region_state:ARG = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:ARG"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:ARG"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_AUSTRIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -126,7 +126,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BUKOVINA = {
+	s:STATE_BUKOVINA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_iron_mine"
@@ -140,7 +140,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:DALMATIA = {
+	s:STATE_DALMATIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -154,7 +154,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EAST_GALICIA = {
+	s:STATE_EAST_GALICIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -168,7 +168,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ISTRIA = {
+	s:STATE_ISTRIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -182,7 +182,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LOMBARDY = {
+	s:STATE_LOMBARDY = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -206,7 +206,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MONTENEGRO = {
+	s:STATE_MONTENEGRO = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -220,7 +220,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MORAVIA = {
+	s:STATE_MORAVIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_iron_mine"
@@ -234,7 +234,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SOUTH_TYROL = {
+	s:STATE_SOUTH_TYROL = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -248,7 +248,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STYRIA = {
+	s:STATE_STYRIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -262,7 +262,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TYROL = {
+	s:STATE_TYROL = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -276,7 +276,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:VENETIA = {
+	s:STATE_VENETIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -290,7 +290,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WEST_GALICIA = {
+	s:STATE_WEST_GALICIA = {
 		region_state:AUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -304,7 +304,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FRANCONIA = {
+	s:STATE_FRANCONIA = {
 		region_state:BAV = {
 			create_building = {
 				building = "building_iron_mine"
@@ -318,7 +318,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RHINELAND = {
+	s:STATE_RHINELAND = {
 		region_state:BAV = {
 			create_building = {
 				building = "building_logging_camp"
@@ -332,7 +332,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GELRE = {
+	s:STATE_GELRE = {
 		region_state:BEL = {
 			create_building = {
 				building = "building_logging_camp"
@@ -346,7 +346,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ARAKAN = {
+	s:STATE_ARAKAN = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -360,7 +360,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AWADH = {
+	s:STATE_AWADH = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -374,7 +374,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BIHAR = {
+	s:STATE_BIHAR = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -398,7 +398,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BOMBAY = {
+	s:STATE_BOMBAY = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_gold_mine"
@@ -422,7 +422,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CENTRAL_PROVINCES = {
+	s:STATE_CENTRAL_PROVINCES = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -436,45 +436,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CIRCARS = {
-		region_state:BIC = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:BIC"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:BIC"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:DELHI = {
-		region_state:BIC = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:BIC"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:GUJARAT = {
+	s:STATE_CIRCARS = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -498,7 +460,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HILL_PUNJAB = {
+	s:STATE_DELHI = {
+		region_state:BIC = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:BIC"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_GUJARAT = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -522,7 +498,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KURNOOL = {
+	s:STATE_HILL_PUNJAB = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -546,7 +522,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MYSORE = {
+	s:STATE_KURNOOL = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -570,7 +546,31 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ORISSA = {
+	s:STATE_MYSORE = {
+		region_state:BIC = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:BIC"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:BIC"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_ORISSA = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_iron_mine"
@@ -584,7 +584,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PEGU = {
+	s:STATE_PEGU = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -598,7 +598,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RAJPUTANA = {
+	s:STATE_RAJPUTANA = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -612,7 +612,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TENASSERIM = {
+	s:STATE_TENASSERIM = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -626,7 +626,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TRAVANCORE = {
+	s:STATE_TRAVANCORE = {
 		region_state:BIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -640,7 +640,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BAHIA = {
+	s:STATE_BAHIA = {
 		region_state:BRZ = {
 			create_building = {
 				building = "building_iron_mine"
@@ -654,7 +654,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CEARA = {
+	s:STATE_CEARA = {
 		region_state:BRZ = {
 			create_building = {
 				building = "building_iron_mine"
@@ -668,7 +668,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MATO_GROSSO = {
+	s:STATE_MATO_GROSSO = {
 		region_state:BRZ = {
 			create_building = {
 				building = "building_iron_mine"
@@ -682,7 +682,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PARAIBA = {
+	s:STATE_PARAIBA = {
 		region_state:BRZ = {
 			create_building = {
 				building = "building_logging_camp"
@@ -696,73 +696,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PARANA = {
-		region_state:BRZ = {
-			create_building = {
-				building = "building_whaling_station"
-				add_ownership = {
-					country = {
-						country = "c:BRZ"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:PERNAMBUCO = {
-		region_state:BRZ = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:BRZ"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:PIAUI = {
-		region_state:BRZ = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:BRZ"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:RIO_DE_JANEIRO = {
-		region_state:BRZ = {
-			create_building = {
-				building = "building_whaling_station"
-				add_ownership = {
-					country = {
-						country = "c:BRZ"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:BRZ"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SANTA_CATARINA = {
+	s:STATE_PARANA = {
 		region_state:BRZ = {
 			create_building = {
 				building = "building_whaling_station"
@@ -776,7 +710,73 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KACHIN = {
+	s:STATE_PERNAMBUCO = {
+		region_state:BRZ = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:BRZ"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_PIAUI = {
+		region_state:BRZ = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:BRZ"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_RIO_DE_JANEIRO = {
+		region_state:BRZ = {
+			create_building = {
+				building = "building_whaling_station"
+				add_ownership = {
+					country = {
+						country = "c:BRZ"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:BRZ"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SANTA_CATARINA = {
+		region_state:BRZ = {
+			create_building = {
+				building = "building_whaling_station"
+				add_ownership = {
+					country = {
+						country = "c:BRZ"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_KACHIN = {
 		region_state:BUR = {
 			create_building = {
 				building = "building_gold_mine"
@@ -810,7 +810,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MANDALAY = {
+	s:STATE_MANDALAY = {
 		region_state:BUR = {
 			create_building = {
 				building = "building_gold_mine"
@@ -844,7 +844,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PEGU = {
+	s:STATE_PEGU = {
 		region_state:BUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -858,7 +858,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ALTAI = {
+	s:STATE_ALTAI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -882,7 +882,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AMUR = {
+	s:STATE_AMUR = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -906,7 +906,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BEIJING = {
+	s:STATE_BEIJING = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_iron_mine"
@@ -920,7 +920,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHONGQING = {
+	s:STATE_CHONGQING = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -934,7 +934,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:DZUNGARIA = {
+	s:STATE_DZUNGARIA = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_iron_mine"
@@ -948,7 +948,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EASTERN_HUBEI = {
+	s:STATE_EASTERN_HUBEI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -962,7 +962,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FORMOSA = {
+	s:STATE_FORMOSA = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -976,7 +976,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FUJIAN = {
+	s:STATE_FUJIAN = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -990,7 +990,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GANSU = {
+	s:STATE_GANSU = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1004,7 +1004,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUANGDONG = {
+	s:STATE_GUANGDONG = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1018,7 +1018,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUANGXI = {
+	s:STATE_GUANGXI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1032,7 +1032,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HENAN = {
+	s:STATE_HENAN = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1046,115 +1046,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HINGGAN = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:JIANGSU = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:JIANGXI = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:KIRGHIZIA = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NANJING = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NINGXIA = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NORTHERN_ANHUI = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:OUTER_MANCHURIA = {
+	s:STATE_HINGGAN = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1178,7 +1070,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:QINGHAI = {
+	s:STATE_JIANGSU = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1192,7 +1084,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SHANDONG = {
+	s:STATE_JIANGXI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1206,31 +1098,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SHANXI = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SHAOZHOU = {
+	s:STATE_KIRGHIZIA = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1244,31 +1112,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SHENGJING = {
-		region_state:CHI = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:CHI"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SOUTHERN_ANHUI = {
+	s:STATE_NANJING = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1282,7 +1126,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SUZHOU = {
+	s:STATE_NINGXIA = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1296,7 +1140,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TUVA = {
+	s:STATE_NORTHERN_ANHUI = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_OUTER_MANCHURIA = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1320,7 +1178,35 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ULIASTAI = {
+	s:STATE_QINGHAI = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SHANDONG = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SHANXI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1344,7 +1230,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:URGA = {
+	s:STATE_SHAOZHOU = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SHENGJING = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1368,7 +1268,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WESTERN_HUBEI = {
+	s:STATE_SOUTHERN_ANHUI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1382,7 +1282,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:XIAN = {
+	s:STATE_SUZHOU = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1396,7 +1296,107 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:YUNNAN = {
+	s:STATE_TUVA = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_ULIASTAI = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_URGA = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_WESTERN_HUBEI = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_XIAN = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CHI"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_YUNNAN = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_iron_mine"
@@ -1410,7 +1410,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ZHEJIANG = {
+	s:STATE_ZHEJIANG = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1424,7 +1424,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ZHILI = {
+	s:STATE_ZHILI = {
 		region_state:CHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1438,7 +1438,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AMAZONAS = {
+	s:STATE_AMAZONAS = {
 		region_state:CLM = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1452,7 +1452,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ANTIOQUIA = {
+	s:STATE_ANTIOQUIA = {
 		region_state:CLM = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1476,31 +1476,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CAUCA = {
-		region_state:CLM = {
-			create_building = {
-				building = "building_whaling_station"
-				add_ownership = {
-					country = {
-						country = "c:CLM"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:CLM"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:PANAMA = {
+	s:STATE_CAUCA = {
 		region_state:CLM = {
 			create_building = {
 				building = "building_whaling_station"
@@ -1524,7 +1500,31 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ANNAM = {
+	s:STATE_PANAMA = {
+		region_state:CLM = {
+			create_building = {
+				building = "building_whaling_station"
+				add_ownership = {
+					country = {
+						country = "c:CLM"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:CLM"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_ANNAM = {
 		region_state:DAI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1548,7 +1548,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LAOS = {
+	s:STATE_LAOS = {
 		region_state:DAI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1572,7 +1572,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MEKONG = {
+	s:STATE_MEKONG = {
 		region_state:DAI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1586,7 +1586,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ACEH = {
+	s:STATE_ACEH = {
 		region_state:DEI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1610,7 +1610,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CELEBES = {
+	s:STATE_CELEBES = {
 		region_state:DEI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1634,7 +1634,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EAST_BORNEO = {
+	s:STATE_EAST_BORNEO = {
 		region_state:DEI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1648,7 +1648,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MOLUCCAS = {
+	s:STATE_MOLUCCAS = {
 		region_state:DEI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1662,7 +1662,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SUNDA_ISLANDS = {
+	s:STATE_SUNDA_ISLANDS = {
 		region_state:DEI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1686,7 +1686,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WEST_BORNEO = {
+	s:STATE_WEST_BORNEO = {
 		region_state:DEI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1700,7 +1700,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ADANA = {
+	s:STATE_ADANA = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1714,7 +1714,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ALEPPO = {
+	s:STATE_ALEPPO = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1728,7 +1728,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CRETE = {
+	s:STATE_CRETE = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1742,7 +1742,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:DONGOLA = {
+	s:STATE_DONGOLA = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1756,7 +1756,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ERITREA = {
+	s:STATE_ERITREA = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_iron_mine"
@@ -1770,7 +1770,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KORDOFAN = {
+	s:STATE_KORDOFAN = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1784,7 +1784,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LEBANON = {
+	s:STATE_LEBANON = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1798,7 +1798,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LOWER_EGYPT = {
+	s:STATE_LOWER_EGYPT = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1812,7 +1812,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MIDDLE_EGYPT = {
+	s:STATE_MIDDLE_EGYPT = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1826,7 +1826,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PALESTINE = {
+	s:STATE_PALESTINE = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1850,7 +1850,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SINAI = {
+	s:STATE_SINAI = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_iron_mine"
@@ -1864,7 +1864,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SYRIA = {
+	s:STATE_SYRIA = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1878,7 +1878,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TRANSJORDAN = {
+	s:STATE_TRANSJORDAN = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1892,7 +1892,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:UPPER_EGYPT = {
+	s:STATE_UPPER_EGYPT = {
 		region_state:EGY = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1906,59 +1906,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ALGIERS = {
-		region_state:FRA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:FRA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:FRA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:AUVERGNE_LIMOUSIN = {
-		region_state:FRA = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:FRA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:CHAMPAGNE = {
-		region_state:FRA = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:FRA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:CONSTANTINE = {
+	s:STATE_ALGIERS = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1982,7 +1930,59 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CORSICA = {
+	s:STATE_AUVERGNE_LIMOUSIN = {
+		region_state:FRA = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:FRA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_CHAMPAGNE = {
+		region_state:FRA = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:FRA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_CONSTANTINE = {
+		region_state:FRA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:FRA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:FRA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_CORSICA = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -1996,7 +1996,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FRANCHE_COMTE = {
+	s:STATE_FRANCHE_COMTE = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2010,7 +2010,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUAYANA = {
+	s:STATE_GUAYANA = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2024,7 +2024,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUYENNE = {
+	s:STATE_GUYENNE = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2038,7 +2038,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ILE_DE_FRANCE = {
+	s:STATE_ILE_DE_FRANCE = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2052,7 +2052,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:INDIAN_OCEAN_TERRITORY = {
+	s:STATE_INDIAN_OCEAN_TERRITORY = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2066,7 +2066,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:IVORY_COAST = {
+	s:STATE_IVORY_COAST = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2080,7 +2080,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LANGUEDOC = {
+	s:STATE_LANGUEDOC = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2094,7 +2094,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LORRAINE = {
+	s:STATE_LORRAINE = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -2108,7 +2108,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MADRAS = {
+	s:STATE_MADRAS = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2132,7 +2132,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MAINE_ANJOU = {
+	s:STATE_MAINE_ANJOU = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -2146,7 +2146,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NORMANDY = {
+	s:STATE_NORMANDY = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2180,7 +2180,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ORAN = {
+	s:STATE_ORAN = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2204,7 +2204,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ORLEANS = {
+	s:STATE_ORLEANS = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2218,7 +2218,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PICARDY = {
+	s:STATE_PICARDY = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2232,7 +2232,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:POITOU = {
+	s:STATE_POITOU = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2246,7 +2246,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PROVENCE = {
+	s:STATE_PROVENCE = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2260,21 +2260,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RHONE = {
-		region_state:FRA = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:FRA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SENEGAL = {
+	s:STATE_RHONE = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -2288,7 +2274,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CEYLON = {
+	s:STATE_SENEGAL = {
+		region_state:FRA = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:FRA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_CEYLON = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2302,7 +2302,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CONNAUGHT = {
+	s:STATE_CONNAUGHT = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2316,7 +2316,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EAST_ANGLIA = {
+	s:STATE_EAST_ANGLIA = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2330,7 +2330,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUATEMALA = {
+	s:STATE_GUATEMALA = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2354,7 +2354,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUAYANA = {
+	s:STATE_GUAYANA = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2368,7 +2368,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HOME_COUNTIES = {
+	s:STATE_HOME_COUNTIES = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2382,7 +2382,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:INDIAN_OCEAN_TERRITORY = {
+	s:STATE_INDIAN_OCEAN_TERRITORY = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2396,7 +2396,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:JAMAICA = {
+	s:STATE_JAMAICA = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2410,7 +2410,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LANCASHIRE = {
+	s:STATE_LANCASHIRE = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2424,7 +2424,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LEINSTER = {
+	s:STATE_LEINSTER = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2448,7 +2448,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MALAYA = {
+	s:STATE_MALAYA = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2462,7 +2462,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MIDLANDS = {
+	s:STATE_MIDLANDS = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2476,7 +2476,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MUNSTER = {
+	s:STATE_MUNSTER = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2490,7 +2490,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEWFOUNDLAND = {
+	s:STATE_NEWFOUNDLAND = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2524,7 +2524,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SOUTH_ATLANTIC_ISLANDS = {
+	s:STATE_SOUTH_ATLANTIC_ISLANDS = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2538,7 +2538,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:UPPER_ANDALUSIA = {
+	s:STATE_UPPER_ANDALUSIA = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2562,7 +2562,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WEST_COUNTRY = {
+	s:STATE_WEST_COUNTRY = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2576,7 +2576,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:YORKSHIRE = {
+	s:STATE_YORKSHIRE = {
 		region_state:GBR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2590,7 +2590,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PELOPONNESE = {
+	s:STATE_PELOPONNESE = {
 		region_state:GRE = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2614,7 +2614,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BANAT = {
+	s:STATE_BANAT = {
 		region_state:HUN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2628,7 +2628,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BEKES = {
+	s:STATE_BEKES = {
 		region_state:HUN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2642,7 +2642,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CENTRAL_HUNGARY = {
+	s:STATE_CENTRAL_HUNGARY = {
 		region_state:HUN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2656,7 +2656,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:DELVIDEK = {
+	s:STATE_DELVIDEK = {
 		region_state:HUN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2670,7 +2670,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SLOVAKIA = {
+	s:STATE_SLOVAKIA = {
 		region_state:HUN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2684,7 +2684,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TRANSDANUBIA = {
+	s:STATE_TRANSDANUBIA = {
 		region_state:HUN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2698,7 +2698,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CENTRAL_PROVINCES = {
+	s:STATE_CENTRAL_PROVINCES = {
 		region_state:HYD = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2722,7 +2722,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HYDERABAD = {
+	s:STATE_HYDERABAD = {
 		region_state:HYD = {
 			create_building = {
 				building = "building_logging_camp"
@@ -2736,7 +2736,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHUGOKU = {
+	s:STATE_CHUGOKU = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2770,7 +2770,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HOKKAIDO = {
+	s:STATE_HOKKAIDO = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2804,7 +2804,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HOKUSHINETSU = {
+	s:STATE_HOKUSHINETSU = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_iron_mine"
@@ -2818,7 +2818,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KANSAI = {
+	s:STATE_KANSAI = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_gold_mine"
@@ -2832,7 +2832,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KANTO = {
+	s:STATE_KANTO = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2856,7 +2856,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KYUSHU = {
+	s:STATE_KYUSHU = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_gold_mine"
@@ -2880,7 +2880,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TOHOKU = {
+	s:STATE_TOHOKU = {
 		region_state:JAP = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2904,7 +2904,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BUSAN = {
+	s:STATE_BUSAN = {
 		region_state:KOR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -2938,7 +2938,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PYONGYANG = {
+	s:STATE_PYONGYANG = {
 		region_state:KOR = {
 			create_building = {
 				building = "building_gold_mine"
@@ -2962,7 +2962,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SARIWON = {
+	s:STATE_SARIWON = {
 		region_state:KOR = {
 			create_building = {
 				building = "building_gold_mine"
@@ -2996,7 +2996,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SEOUL = {
+	s:STATE_SEOUL = {
 		region_state:KOR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -3030,7 +3030,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:YANGHO = {
+	s:STATE_YANGHO = {
 		region_state:KOR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -3044,7 +3044,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ARIZONA = {
+	s:STATE_ARIZONA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3068,7 +3068,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BAJA_CALIFORNIA = {
+	s:STATE_BAJA_CALIFORNIA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_whaling_station"
@@ -3092,7 +3092,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BAJIO = {
+	s:STATE_BAJIO = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_iron_mine"
@@ -3106,7 +3106,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CALIFORNIA = {
+	s:STATE_CALIFORNIA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_whaling_station"
@@ -3140,7 +3140,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHIAPAS = {
+	s:STATE_CHIAPAS = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3154,7 +3154,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHIHUAHUA = {
+	s:STATE_CHIHUAHUA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3168,7 +3168,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:COLORADO = {
+	s:STATE_COLORADO = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3182,59 +3182,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:DURANGO = {
-		region_state:MEX = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:MEX"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:MEX"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:JALISCO = {
-		region_state:MEX = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:MEX"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MEXICO = {
-		region_state:MEX = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:MEX"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NEVADA = {
+	s:STATE_DURANGO = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3258,7 +3206,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEW_MEXICO = {
+	s:STATE_JALISCO = {
+		region_state:MEX = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:MEX"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MEXICO = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3272,21 +3234,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:OAXACA = {
-		region_state:MEX = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:MEX"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SINALOA = {
+	s:STATE_NEVADA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3310,7 +3258,35 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SONORA = {
+	s:STATE_NEW_MEXICO = {
+		region_state:MEX = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:MEX"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_OAXACA = {
+		region_state:MEX = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:MEX"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SINALOA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3334,21 +3310,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TEXAS = {
-		region_state:MEX = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:MEX"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:UTAH = {
+	s:STATE_SONORA = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3372,7 +3334,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:VERACRUZ = {
+	s:STATE_TEXAS = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3386,7 +3348,31 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:YUCATAN = {
+	s:STATE_UTAH = {
+		region_state:MEX = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:MEX"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:MEX"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_VERACRUZ = {
 		region_state:MEX = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3400,7 +3386,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FEZ = {
+	s:STATE_YUCATAN = {
+		region_state:MEX = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:MEX"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_FEZ = {
 		region_state:MOR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3414,7 +3414,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:INNER_MOROCCO = {
+	s:STATE_INNER_MOROCCO = {
 		region_state:MOR = {
 			create_building = {
 				building = "building_gold_mine"
@@ -3428,7 +3428,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MARRAKECH = {
+	s:STATE_MARRAKECH = {
 		region_state:MOR = {
 			create_building = {
 				building = "building_iron_mine"
@@ -3442,7 +3442,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HIMALAYAS = {
+	s:STATE_HIMALAYAS = {
 		region_state:NEP = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3456,7 +3456,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FRIESLAND = {
+	s:STATE_FRIESLAND = {
 		region_state:NET = {
 			create_building = {
 				building = "building_whaling_station"
@@ -3470,7 +3470,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GOLD_COAST = {
+	s:STATE_GOLD_COAST = {
 		region_state:NET = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3484,7 +3484,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUAYANA = {
+	s:STATE_GUAYANA = {
 		region_state:NET = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3498,7 +3498,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HOLLAND = {
+	s:STATE_HOLLAND = {
 		region_state:NET = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3512,7 +3512,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BALUCHISTAN = {
+	s:STATE_BALUCHISTAN = {
 		region_state:OMA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3536,7 +3536,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KENYA = {
+	s:STATE_KENYA = {
 		region_state:OMA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3550,31 +3550,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LARISTAN = {
-		region_state:OMA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:OMA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:OMA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SISTAN = {
+	s:STATE_LARISTAN = {
 		region_state:OMA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3598,7 +3574,31 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HILL_PUNJAB = {
+	s:STATE_SISTAN = {
+		region_state:OMA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:OMA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:OMA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_HILL_PUNJAB = {
 		region_state:PAN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3612,7 +3612,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PASHTUNISTAN = {
+	s:STATE_PASHTUNISTAN = {
 		region_state:PAN = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3626,7 +3626,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PUNJAB = {
+	s:STATE_PUNJAB = {
 		region_state:PAN = {
 			create_building = {
 				building = "building_iron_mine"
@@ -3640,7 +3640,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FARS = {
+	s:STATE_FARS = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3664,7 +3664,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:IRAKAJEMI = {
+	s:STATE_IRAKAJEMI = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3688,7 +3688,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ISFAHAN = {
+	s:STATE_ISFAHAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3712,7 +3712,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KERMAN = {
+	s:STATE_KERMAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3736,7 +3736,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KHORASAN = {
+	s:STATE_KHORASAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3760,7 +3760,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LARISTAN = {
+	s:STATE_LARISTAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3774,7 +3774,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LURISTAN = {
+	s:STATE_LURISTAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3788,7 +3788,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PERSIAN_KURDISTAN = {
+	s:STATE_PERSIAN_KURDISTAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3802,7 +3802,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SEMNAN = {
+	s:STATE_SEMNAN = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3816,7 +3816,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:URMIA = {
+	s:STATE_URMIA = {
 		region_state:PER = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3830,7 +3830,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LUZON = {
+	s:STATE_LUZON = {
 		region_state:PHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3854,7 +3854,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MINDANAO = {
+	s:STATE_MINDANAO = {
 		region_state:PHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3878,7 +3878,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:VISAYAS = {
+	s:STATE_VISAYAS = {
 		region_state:PHI = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3892,7 +3892,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WEST_MICRONESIA = {
+	s:STATE_WEST_MICRONESIA = {
 		region_state:PHI = {
 			create_building = {
 				building = "building_whaling_station"
@@ -3906,7 +3906,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ALENTEJO = {
+	s:STATE_ALENTEJO = {
 		region_state:POR = {
 			create_building = {
 				building = "building_iron_mine"
@@ -3920,7 +3920,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AZORES = {
+	s:STATE_AZORES = {
 		region_state:POR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -3934,89 +3934,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BEIRA = {
-		region_state:POR = {
-			create_building = {
-				building = "building_gold_mine"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:BOMBAY = {
-		region_state:POR = {
-			create_building = {
-				building = "building_gold_mine"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:CAPE_VERDE = {
-		region_state:POR = {
-			create_building = {
-				building = "building_whaling_station"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:ENTRE_DOURO_E_MINHO = {
+	s:STATE_BEIRA = {
 		region_state:POR = {
 			create_building = {
 				building = "building_gold_mine"
@@ -4040,8 +3958,18 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUANGDONG = {
+	s:STATE_BOMBAY = {
 		region_state:POR = {
+			create_building = {
+				building = "building_gold_mine"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
 			create_building = {
 				building = "building_logging_camp"
 				add_ownership = {
@@ -4052,9 +3980,19 @@ BUILDINGS = {
 				}
 				reserves = 1
 			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
 		}
 	}
-	s:GUINEA = {
+	s:STATE_CAPE_VERDE = {
 		region_state:POR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -4078,10 +4016,10 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GUJARAT = {
+	s:STATE_ENTRE_DOURO_E_MINHO = {
 		region_state:POR = {
 			create_building = {
-				building = "building_logging_camp"
+				building = "building_gold_mine"
 				add_ownership = {
 					country = {
 						country = "c:POR"
@@ -4102,7 +4040,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LOURENCO_MARQUES = {
+	s:STATE_GUANGDONG = {
 		region_state:POR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4116,35 +4054,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MADEIRA = {
-		region_state:POR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MOCAMBIQUE = {
-		region_state:POR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NORTH_ANGOLA = {
+	s:STATE_GUINEA = {
 		region_state:POR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -4168,8 +4078,18 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SENEGAL = {
+	s:STATE_GUJARAT = {
 		region_state:POR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
 			create_building = {
 				building = "building_iron_mine"
 				add_ownership = {
@@ -4182,7 +4102,49 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SOUTH_ANGOLA = {
+	s:STATE_LOURENCO_MARQUES = {
+		region_state:POR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MADEIRA = {
+		region_state:POR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MOCAMBIQUE = {
+		region_state:POR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_NORTH_ANGOLA = {
 		region_state:POR = {
 			create_building = {
 				building = "building_whaling_station"
@@ -4206,45 +4168,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SOUTH_CAMEROON = {
-		region_state:POR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SUNDA_ISLANDS = {
-		region_state:POR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:POR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:ZAMBEZIA = {
+	s:STATE_SENEGAL = {
 		region_state:POR = {
 			create_building = {
 				building = "building_iron_mine"
@@ -4258,7 +4182,83 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BRANDENBURG = {
+	s:STATE_SOUTH_ANGOLA = {
+		region_state:POR = {
+			create_building = {
+				building = "building_whaling_station"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SOUTH_CAMEROON = {
+		region_state:POR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SUNDA_ISLANDS = {
+		region_state:POR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_ZAMBEZIA = {
+		region_state:POR = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:POR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_BRANDENBURG = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4272,7 +4272,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BRUNSWICK = {
+	s:STATE_BRUNSWICK = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4296,7 +4296,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LOWER_SILESIA = {
+	s:STATE_LOWER_SILESIA = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4310,7 +4310,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:POSEN = {
+	s:STATE_POSEN = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4334,7 +4334,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RHINELAND = {
+	s:STATE_RHINELAND = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4348,7 +4348,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RUHR = {
+	s:STATE_RUHR = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4362,7 +4362,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:UPPER_SILESIA = {
+	s:STATE_UPPER_SILESIA = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4376,7 +4376,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WESTPHALIA = {
+	s:STATE_WESTPHALIA = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4390,7 +4390,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WEST_PRUSSIA = {
+	s:STATE_WEST_PRUSSIA = {
 		region_state:PRU = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4404,7 +4404,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AKMOLINSK = {
+	s:STATE_AKMOLINSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4428,7 +4428,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ARKHANGELSK = {
+	s:STATE_ARKHANGELSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_gold_mine"
@@ -4452,7 +4452,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ARMENIA = {
+	s:STATE_ARMENIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4476,7 +4476,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ASTRAKHAN = {
+	s:STATE_ASTRAKHAN = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4500,7 +4500,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AZERBAIJAN = {
+	s:STATE_AZERBAIJAN = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4514,7 +4514,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BESSARABIA = {
+	s:STATE_BESSARABIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4528,7 +4528,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BURYATIA = {
+	s:STATE_BURYATIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4552,7 +4552,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHELYABINSK = {
+	s:STATE_CHELYABINSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_gold_mine"
@@ -4576,7 +4576,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHERNIHIV = {
+	s:STATE_CHERNIHIV = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4590,7 +4590,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHERSON = {
+	s:STATE_CHERSON = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4614,7 +4614,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHUKOTKA = {
+	s:STATE_CHUKOTKA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_whaling_station"
@@ -4638,7 +4638,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CHUVASHIA = {
+	s:STATE_CHUVASHIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4652,59 +4652,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CRIMEA = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:DAGESTAN = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:DOBRUDJA = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:ELIZAVETPOL = {
+	s:STATE_CRIMEA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4728,7 +4676,59 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GALICH = {
+	s:STATE_DAGESTAN = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_DOBRUDJA = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_ELIZAVETPOL = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_GALICH = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_iron_mine"
@@ -4742,7 +4742,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GREATER_CAUCASUS = {
+	s:STATE_GREATER_CAUCASUS = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_gold_mine"
@@ -4776,7 +4776,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GREATER_POLAND = {
+	s:STATE_GREATER_POLAND = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4800,7 +4800,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:INGRIA = {
+	s:STATE_INGRIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4814,7 +4814,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:IRKUTSK = {
+	s:STATE_IRKUTSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4838,7 +4838,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KALMYKIA = {
+	s:STATE_KALMYKIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4852,7 +4852,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KAMCHATKA = {
+	s:STATE_KAMCHATKA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_whaling_station"
@@ -4876,7 +4876,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KARS = {
+	s:STATE_KARS = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4890,7 +4890,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KAUNAS = {
+	s:STATE_KAUNAS = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4904,31 +4904,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KHARKOV = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:KIEV = {
+	s:STATE_KHARKOV = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4952,7 +4928,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KOLA = {
+	s:STATE_KIEV = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -4976,21 +4952,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KOLYMA = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:KRASNOYARSK = {
+	s:STATE_KOLA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5014,7 +4976,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KUBAN = {
+	s:STATE_KOLYMA = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_KRASNOYARSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5038,21 +5014,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KURSK = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:LESSER_POLAND = {
+	s:STATE_KUBAN = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5076,7 +5038,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MINSK = {
+	s:STATE_KURSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5090,35 +5052,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NENETSIA = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NIZHNY_NOVGOROD = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NORTH_CAUCASUS = {
+	s:STATE_LESSER_POLAND = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5142,7 +5076,21 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:OB = {
+	s:STATE_MINSK = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_NENETSIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5156,7 +5104,59 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:OKHOTSK = {
+	s:STATE_NIZHNY_NOVGOROD = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_NORTH_CAUCASUS = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_OB = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_OKHOTSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_whaling_station"
@@ -5180,7 +5180,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ORYOL = {
+	s:STATE_ORYOL = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5194,7 +5194,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RIGA = {
+	s:STATE_RIGA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5208,7 +5208,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SAMARA = {
+	s:STATE_SAMARA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5222,7 +5222,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:STAVROPOL = {
+	s:STATE_STAVROPOL = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5236,7 +5236,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SURGUT = {
+	s:STATE_SURGUT = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5250,7 +5250,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TARTARIA = {
+	s:STATE_TARTARIA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5264,31 +5264,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TAURIDA = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:TOBOLSK = {
+	s:STATE_TAURIDA = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5312,7 +5288,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TOMSK = {
+	s:STATE_TOBOLSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5336,35 +5312,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TRANS_BAIKAL = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:UFA = {
-		region_state:RUS = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:RUS"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:UPPER_YENISEYSK = {
+	s:STATE_TOMSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5388,7 +5336,59 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:URAL = {
+	s:STATE_TRANS_BAIKAL = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_UFA = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_UPPER_YENISEYSK = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:RUS"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_URAL = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_gold_mine"
@@ -5402,7 +5402,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:URALSK = {
+	s:STATE_URALSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5416,7 +5416,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:VILNIUS = {
+	s:STATE_VILNIUS = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5430,7 +5430,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:YAKUTSK = {
+	s:STATE_YAKUTSK = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5444,7 +5444,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:YAROSLAVL = {
+	s:STATE_YAROSLAVL = {
 		region_state:RUS = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5458,7 +5458,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CAPE_COLONY = {
+	s:STATE_CAPE_COLONY = {
 		region_state:SAF = {
 			create_building = {
 				building = "building_whaling_station"
@@ -5482,7 +5482,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EASTERN_CAPE = {
+	s:STATE_EASTERN_CAPE = {
 		region_state:SAF = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5496,7 +5496,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NORTHERN_CAPE = {
+	s:STATE_NORTHERN_CAPE = {
 		region_state:SAF = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5510,7 +5510,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PIEDMONT = {
+	s:STATE_PIEDMONT = {
 		region_state:SAR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5534,7 +5534,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:PROVENCE = {
+	s:STATE_PROVENCE = {
 		region_state:SAR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5548,7 +5548,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SAVOY = {
+	s:STATE_SAVOY = {
 		region_state:SAR = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5562,7 +5562,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BANGKOK = {
+	s:STATE_BANGKOK = {
 		region_state:SIA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5576,31 +5576,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CAMBODIA = {
-		region_state:SIA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:SIA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:SIA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:LAOS = {
+	s:STATE_CAMBODIA = {
 		region_state:SIA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5624,7 +5600,31 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MALAYA = {
+	s:STATE_LAOS = {
+		region_state:SIA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:SIA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:SIA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MALAYA = {
 		region_state:SIA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5638,7 +5638,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NAKHON_RATCHASIMA = {
+	s:STATE_NAKHON_RATCHASIMA = {
 		region_state:SIA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5652,7 +5652,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:APULIA = {
+	s:STATE_APULIA = {
 		region_state:SIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5666,7 +5666,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CALABRIA = {
+	s:STATE_CALABRIA = {
 		region_state:SIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5680,7 +5680,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SICILY = {
+	s:STATE_SICILY = {
 		region_state:SIC = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5694,7 +5694,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EAST_HAUSALAND = {
+	s:STATE_EAST_HAUSALAND = {
 		region_state:SOK = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5708,7 +5708,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:HAUSALAND = {
+	s:STATE_HAUSALAND = {
 		region_state:SOK = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5722,7 +5722,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NIGERIA = {
+	s:STATE_NIGERIA = {
 		region_state:SOK = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5746,7 +5746,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NORTH_CAMEROON = {
+	s:STATE_NORTH_CAMEROON = {
 		region_state:SOK = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5760,7 +5760,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AL_RIF = {
+	s:STATE_AL_RIF = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5774,7 +5774,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ARAGON = {
+	s:STATE_ARAGON = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5788,7 +5788,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ASTURIAS = {
+	s:STATE_ASTURIAS = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5802,7 +5802,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:BALEARIC_ISLANDS = {
+	s:STATE_BALEARIC_ISLANDS = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5816,7 +5816,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CANARY_ISLANDS = {
+	s:STATE_CANARY_ISLANDS = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5830,7 +5830,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CATALONIA = {
+	s:STATE_CATALONIA = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5844,7 +5844,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:EXTREMADURA = {
+	s:STATE_EXTREMADURA = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5868,7 +5868,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GALICIA = {
+	s:STATE_GALICIA = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -5902,7 +5902,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LEON = {
+	s:STATE_LEON = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5916,7 +5916,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MURCIA = {
+	s:STATE_MURCIA = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_gold_mine"
@@ -5940,7 +5940,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEW_CASTILE = {
+	s:STATE_NEW_CASTILE = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5954,7 +5954,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:UPPER_ANDALUSIA = {
+	s:STATE_UPPER_ANDALUSIA = {
 		region_state:SPA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5968,7 +5968,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GOTLAND = {
+	s:STATE_GOTLAND = {
 		region_state:SWE = {
 			create_building = {
 				building = "building_logging_camp"
@@ -5982,7 +5982,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NORRLAND = {
+	s:STATE_NORRLAND = {
 		region_state:SWE = {
 			create_building = {
 				building = "building_iron_mine"
@@ -5996,7 +5996,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SCANIA = {
+	s:STATE_SCANIA = {
 		region_state:SWE = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6010,7 +6010,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ADANA = {
+	s:STATE_ADANA = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6024,7 +6024,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ALBANIA = {
+	s:STATE_ALBANIA = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_iron_mine"
@@ -6038,7 +6038,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ANKARA = {
+	s:STATE_ANKARA = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6052,7 +6052,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:AYDIN = {
+	s:STATE_AYDIN = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6066,45 +6066,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CYPRUS = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:EASTERN_SERBIA = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:EASTERN_THRACE = {
+	s:STATE_CYPRUS = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6128,21 +6090,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ERZURUM = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:KARS = {
+	s:STATE_EASTERN_SERBIA = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6156,133 +6104,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KASTAMONU = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:KONYA = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:KOSOVO = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MACEDONIA = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MONTENEGRO = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:NORTHERN_THRACE = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:SKOPIA = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:THESSALIA = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:TRABZON = {
-		region_state:TUR = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:TUR"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:WESTERN_SERBIA = {
+	s:STATE_EASTERN_THRACE = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6306,7 +6128,161 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WESTERN_THRACE = {
+	s:STATE_ERZURUM = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_KARS = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_KASTAMONU = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_KONYA = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_KOSOVO = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MACEDONIA = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MONTENEGRO = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_NORTHERN_THRACE = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SKOPIA = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_THESSALIA = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_TRABZON = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_WESTERN_SERBIA = {
 		region_state:TUR = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6330,7 +6306,31 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ALABAMA = {
+	s:STATE_WESTERN_THRACE = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:TUR"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_ALABAMA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6354,7 +6354,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ARKANSAS = {
+	s:STATE_ARKANSAS = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6368,7 +6368,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:COLORADO = {
+	s:STATE_COLORADO = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6382,7 +6382,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:CONNECTICUT = {
+	s:STATE_CONNECTICUT = {
 		region_state:USA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -6406,7 +6406,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:DELAWARE = {
+	s:STATE_DELAWARE = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6420,7 +6420,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:FLORIDA = {
+	s:STATE_FLORIDA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6434,7 +6434,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:GEORGIA = {
+	s:STATE_GEORGIA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6448,7 +6448,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:ILLINOIS = {
+	s:STATE_ILLINOIS = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6462,7 +6462,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:IOWA = {
+	s:STATE_IOWA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6476,7 +6476,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KANSAS = {
+	s:STATE_KANSAS = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6490,7 +6490,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:KENTUCKY = {
+	s:STATE_KENTUCKY = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6514,7 +6514,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:LOUISIANA = {
+	s:STATE_LOUISIANA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6528,7 +6528,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MAINE = {
+	s:STATE_MAINE = {
 		region_state:USA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -6542,7 +6542,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MARYLAND = {
+	s:STATE_MARYLAND = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6556,7 +6556,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MASSACHUSETTS = {
+	s:STATE_MASSACHUSETTS = {
 		region_state:USA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -6570,7 +6570,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MICHIGAN = {
+	s:STATE_MICHIGAN = {
 		region_state:USA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -6584,59 +6584,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:MINNESOTA = {
-		region_state:USA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MISSISSIPPI = {
-		region_state:USA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MISSOURI = {
-		region_state:USA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:MONTANA = {
+	s:STATE_MINNESOTA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6660,7 +6608,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEBRASKA = {
+	s:STATE_MISSISSIPPI = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6674,7 +6622,59 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEW_HAMPSHIRE = {
+	s:STATE_MISSOURI = {
+		region_state:USA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_MONTANA = {
+		region_state:USA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_NEBRASKA = {
+		region_state:USA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_NEW_HAMPSHIRE = {
 		region_state:USA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -6688,7 +6688,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEW_JERSEY = {
+	s:STATE_NEW_JERSEY = {
 		region_state:USA = {
 			create_building = {
 				building = "building_iron_mine"
@@ -6702,7 +6702,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NEW_YORK = {
+	s:STATE_NEW_YORK = {
 		region_state:USA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -6716,7 +6716,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:NORTH_DAKOTA = {
+	s:STATE_NORTH_DAKOTA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6730,7 +6730,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:OHIO = {
+	s:STATE_OHIO = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6744,7 +6744,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:RHODE_ISLAND = {
+	s:STATE_RHODE_ISLAND = {
 		region_state:USA = {
 			create_building = {
 				building = "building_whaling_station"
@@ -6768,7 +6768,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SOUTH_CAROLINA = {
+	s:STATE_SOUTH_CAROLINA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6782,7 +6782,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:SOUTH_DAKOTA = {
+	s:STATE_SOUTH_DAKOTA = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6796,73 +6796,7 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:TENNESSEE = {
-		region_state:USA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:VERMONT = {
-		region_state:USA = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:VIRGINIA = {
-		region_state:USA = {
-			create_building = {
-				building = "building_logging_camp"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:WEST_VIRGINIA = {
-		region_state:USA = {
-			create_building = {
-				building = "building_iron_mine"
-				add_ownership = {
-					country = {
-						country = "c:USA"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-	s:WISCONSIN = {
+	s:STATE_TENNESSEE = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
@@ -6886,7 +6820,73 @@ BUILDINGS = {
 			}
 		}
 	}
-	s:WYOMING = {
+	s:STATE_VERMONT = {
+		region_state:USA = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_VIRGINIA = {
+		region_state:USA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_WEST_VIRGINIA = {
+		region_state:USA = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_WISCONSIN = {
+		region_state:USA = {
+			create_building = {
+				building = "building_logging_camp"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = {
+					country = {
+						country = "c:USA"
+						levels = 1
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_WYOMING = {
 		region_state:USA = {
 			create_building = {
 				building = "building_logging_camp"
