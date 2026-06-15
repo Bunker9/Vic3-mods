@@ -1,45 +1,44 @@
 ﻿# =============================================================================
 # Top40EcoBoostMod — eco-boost modifiers (referenced by add_modifier).
-# Named modifiers used by add_modifier MUST live in common/static_modifiers/.
-# Rationale (surgical champ throughput, group-level SoL, phases) is in
-# hk-config/docs/design_decisions.md.
+# REDESIGN 2026-06-15 (user): just FOUR hand-defined modifiers (no per-tag, no 40):
+#   - 3 champ-category THROUGHPUT+WAGE modifiers (20 yr). eco_setup_<TAG> picks ONE based on
+#     the tag's champ building-group (agri / mine / ind). Boosts the champ industry's workers.
+#   - 1 flat global SoL+education modifier (whole game) applied to all 40 targets.
+# The duration (months=240 / permanent) is set at the add_modifier call, not here.
 # =============================================================================
 
-# ---- champ THROUGHPUT, Phase 1 (0-20 yr). Building-type specific (surgical) ->
-#      kept per-nation, NOT merged (a shared token list would buff unintended buildings).
-#      The 40 per-tag eco_<TAG>_champ_tp_p1 modifiers are GENERATED into
-#      common/static_modifiers/eco_champ_tp_generated.txt by gen_ecoboost_configs.py.
-
-# ---- flat SoL, Phase 1 (0-20 yr): a flat +4 standard of living, applied PER incorporated
-#      state in eco_setup_<TAG> (user 2026-06-12 "just flat +4" — drops the surgical
-#      group-level split; state_standard_of_living_add is the only flat SoL lever).
-eco_sol_p1 = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
-	state_standard_of_living_add = 4
-}
-
-# ---- champ STATE modifier, Phase 2 (yr 20 -> END OF GAME). Added (no `months`) by
-#      eco.3 only to states that hold the champ building. Same icon as champ tp (p1/p2).
-eco_champ_state_p2 = {
+# ---- champ throughput + min-wage, by building-category (20 yr). Pick ONE per tag. ----
+# AGRARIAN: plantations + logging + ranching + agriculture + fishing (tea/dye/tobacco/fabric/
+# coffee/sugar/fruit/wine/meat/wood/fish champs; grain champ gets wage only — no staple-crop
+# group-throughput token exists).
+eco_champ_tp_agri = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	state_standard_of_living_add = 4
+	building_group_bg_plantations_throughput_add = 2.0
+	building_group_bg_logging_throughput_add     = 2.0
+	building_group_bg_ranching_throughput_add    = 2.0
+	building_group_bg_agriculture_throughput_add = 2.0
+	building_group_bg_fishing_throughput_add     = 2.0
+	building_minimum_wage_mult = 0.2
+}
+# MINING: coal / sulfur / iron champs.
+eco_champ_tp_mine = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_mining_throughput_add = 2.0
+	building_minimum_wage_mult = 0.2
+}
+# INDUSTRY: steel (heavy) + furniture/clothes/paper (light) champs.
+eco_champ_tp_ind = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_heavy_industry_throughput_add = 2.0
+	building_group_bg_light_industry_throughput_add = 2.0
+	building_minimum_wage_mult = 0.2
 }
 
-# ---- champ/support workforce uplift (2026-06-14, user): Russia's GDP fell BELOW its
-#      1836 level by the 1900s in-game; pops in champ/support buildings need higher wages
-#      + much more education access to clear promotion-qualification gates early.
-#      building_minimum_wage_mult: verified common/static_modifiers/105_modifiers.txt:573
-#      (temporary_minimum_wages = 0.2, i.e. "1.2x"/+20% minimum wage floor). No building-
-#      type-templated form exists in vanilla, so this is STATE-scoped (lifts the whole
-#      state's wage floor -- acceptable since champ/support buildings dominate employment
-#      in their states).
-#      state_education_access_add: verified common/laws/00_education_system.txt (vanilla
-#      sources range 0.1-0.25); 0.3 ("very high") sits above any single vanilla source, to
-#      clear promotion qualification gates for newly-promoted pops.
-#      Apply via add_modifier to states holding a champ/support building, alongside
-#      eco_sol_p1 / eco_champ_state_p2.
-eco_champ_support_wage_edu = {
+# ---- flat SoL + education for ALL 40 targets, WHOLE GAME (added with no `months`). ----
+# Pop-improvement spread country-wide; not tied to champ/support states. education_access has
+# no building-wise token in Vic3, so it is necessarily state/country-wide.
+eco_sol_edu_global = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
-	building_minimum_wage_mult = 0.2
-	state_education_access_add = 0.3
+	state_standard_of_living_add = 4
+	state_education_access_add = 0.25
 }

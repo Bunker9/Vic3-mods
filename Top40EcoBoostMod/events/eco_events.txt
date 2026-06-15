@@ -1,9 +1,9 @@
 ﻿namespace = eco
 
 # =============================================================================
-# Top40EcoBoostMod - event pipeline. eco.2 dispatch + eco.3 phase-2 are GENERATED
-# by gen_ecoboost_configs.py (40-tag if-ladders). DO NOT HAND-EDIT those two blocks;
-# edit SELECT_ECOBOOST_FINAL.csv + re-run. eco.4 is static.
+# Top40EcoBoostMod - event pipeline. eco.2 (day-1 setup) + eco.5 (yearly pulse) dispatch
+# are GENERATED 40-tag if-ladders. DO NOT HAND-EDIT those blocks; edit the CSV + re-run.
+# eco.4 is static. (Yearly: on_yearly_pulse -> eco_yearly -> every target -> eco.5.)
 # =============================================================================
 
 # ---- per-nation build pass -------------------------------------------------
@@ -56,53 +56,52 @@ eco.2 = {
 	}
 }
 
-# ---- phase-2: champ STATE modifier from year 20 (throughput already expired) -
-# Applied ONLY to states holding the champ building (permanent: no `months`).
-eco.3 = {
+# ---- yearly pulse: re-run the champ/support spread for all 40 (covers annexed states) -
+eco.5 = {
 	type = country_event
 	hidden = yes
 
 	immediate = {
-		if = { limit = { this = c:CHI } every_scope_state = { limit = { has_building = building_tea_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:RUS } every_scope_state = { limit = { has_building = building_logging_camp } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:BIC } every_scope_state = { limit = { has_building = building_dye_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:USA } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:FRA } every_scope_state = { limit = { has_building = building_vineyard } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:GBR } every_scope_state = { limit = { has_building = building_coal_mine } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:TUR } every_scope_state = { limit = { has_building = building_tobacco_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:JAP } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:PRU } every_scope_state = { limit = { has_building = building_steel_mill } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SPA } every_scope_state = { limit = { has_building = building_furniture_manufactory } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:AUS } every_scope_state = { limit = { has_building = building_furniture_manufactory } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:MEX } every_scope_state = { limit = { has_building = building_tobacco_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:KOR } every_scope_state = { limit = { has_building = building_logging_camp } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:BRZ } every_scope_state = { limit = { has_building = building_banana_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:PER } every_scope_state = { limit = { has_building = building_textile_mill } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:EGY } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:PAN } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:DEI } every_scope_state = { limit = { has_building = building_banana_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:HUN } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:POR } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SIC } every_scope_state = { limit = { has_building = building_sulfur_mine } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:NET } every_scope_state = { limit = { has_building = building_textile_mill } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SOK } every_scope_state = { limit = { has_building = building_millet_farm } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SAR } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SWE } every_scope_state = { limit = { has_building = building_iron_mine } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:HYD } every_scope_state = { limit = { has_building = building_paper_mill } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:GRE } every_scope_state = { limit = { has_building = building_vineyard } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:DAI } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:NEP } every_scope_state = { limit = { has_building = building_logging_camp } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:CLM } every_scope_state = { limit = { has_building = building_coffee_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:ARG } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SIA } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:MOR } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:OMA } every_scope_state = { limit = { has_building = building_coffee_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SHW } every_scope_state = { limit = { has_building = building_coffee_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:SAF } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:PHI } every_scope_state = { limit = { has_building = building_sugar_plantation } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:BEL } every_scope_state = { limit = { has_building = building_steel_mill } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:BAV } every_scope_state = { limit = { has_building = building_vineyard } add_modifier = { name = eco_champ_state_p2 } } }
-		if = { limit = { this = c:BUR } every_scope_state = { limit = { has_building = building_tea_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:CHI } eco_pulse_CHI = yes }
+		if = { limit = { this = c:RUS } eco_pulse_RUS = yes }
+		if = { limit = { this = c:BIC } eco_pulse_BIC = yes }
+		if = { limit = { this = c:USA } eco_pulse_USA = yes }
+		if = { limit = { this = c:FRA } eco_pulse_FRA = yes }
+		if = { limit = { this = c:GBR } eco_pulse_GBR = yes }
+		if = { limit = { this = c:TUR } eco_pulse_TUR = yes }
+		if = { limit = { this = c:JAP } eco_pulse_JAP = yes }
+		if = { limit = { this = c:PRU } eco_pulse_PRU = yes }
+		if = { limit = { this = c:SPA } eco_pulse_SPA = yes }
+		if = { limit = { this = c:AUS } eco_pulse_AUS = yes }
+		if = { limit = { this = c:MEX } eco_pulse_MEX = yes }
+		if = { limit = { this = c:KOR } eco_pulse_KOR = yes }
+		if = { limit = { this = c:BRZ } eco_pulse_BRZ = yes }
+		if = { limit = { this = c:PER } eco_pulse_PER = yes }
+		if = { limit = { this = c:EGY } eco_pulse_EGY = yes }
+		if = { limit = { this = c:PAN } eco_pulse_PAN = yes }
+		if = { limit = { this = c:DEI } eco_pulse_DEI = yes }
+		if = { limit = { this = c:HUN } eco_pulse_HUN = yes }
+		if = { limit = { this = c:POR } eco_pulse_POR = yes }
+		if = { limit = { this = c:SIC } eco_pulse_SIC = yes }
+		if = { limit = { this = c:NET } eco_pulse_NET = yes }
+		if = { limit = { this = c:SOK } eco_pulse_SOK = yes }
+		if = { limit = { this = c:SAR } eco_pulse_SAR = yes }
+		if = { limit = { this = c:SWE } eco_pulse_SWE = yes }
+		if = { limit = { this = c:HYD } eco_pulse_HYD = yes }
+		if = { limit = { this = c:GRE } eco_pulse_GRE = yes }
+		if = { limit = { this = c:DAI } eco_pulse_DAI = yes }
+		if = { limit = { this = c:NEP } eco_pulse_NEP = yes }
+		if = { limit = { this = c:CLM } eco_pulse_CLM = yes }
+		if = { limit = { this = c:ARG } eco_pulse_ARG = yes }
+		if = { limit = { this = c:SIA } eco_pulse_SIA = yes }
+		if = { limit = { this = c:MOR } eco_pulse_MOR = yes }
+		if = { limit = { this = c:OMA } eco_pulse_OMA = yes }
+		if = { limit = { this = c:SHW } eco_pulse_SHW = yes }
+		if = { limit = { this = c:SAF } eco_pulse_SAF = yes }
+		if = { limit = { this = c:PHI } eco_pulse_PHI = yes }
+		if = { limit = { this = c:BEL } eco_pulse_BEL = yes }
+		if = { limit = { this = c:BAV } eco_pulse_BAV = yes }
+		if = { limit = { this = c:BUR } eco_pulse_BUR = yes }
 	}
 }
 

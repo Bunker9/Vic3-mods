@@ -24,3 +24,19 @@ eco_startup = {
 		}
 	}
 }
+
+# Yearly Jan-01: re-run the SAME all-40 champ/support spread (eco.5 -> eco_pulse_<TAG>), so the
+# spread reaches more states each year and newly-ANNEXED states get covered. Global pulse +
+# every-target loop (mirrors eco_startup) — NOT per-country.
+on_yearly_pulse = {
+	on_actions = { eco_yearly }
+}
+
+eco_yearly = {
+	effect = {
+		every_country = {
+			limit = { eco_is_target_country = yes }
+			trigger_event = { id = eco.5 }
+		}
+	}
+}

@@ -203,6 +203,70 @@ eco_generic_flavour = {
 	}
 }
 
+# =============================================================================
+# YEARLY-PULSE spread (user 2026-06-15). The SAME all-40 pass runs day-1 (eco.2) AND every
+# year (eco.5 via on_yearly_pulse -> every target), so champ/support spread to more states
+# over time and newly-ANNEXED states get covered. NO modifiers here — SoL/edu is a flat global
+# modifier and champ throughput+wage is a per-category country modifier (both applied once in
+# eco_setup_<TAG>). Counters (eco_S/eco_rem/eco_placed) live on the country (ROOT).
+#
+# Per pass, for building $B$, target count $N$ (champ = tier/2, support = tier/4):
+#   S = constructible states that DON'T already have it (GDP-sorted) -> covers annexed states.
+#   S >= N : +1 in the top N empty states.
+#   S <  N : +1 in each of the S empty states + STACK the remainder (N-S) in the best state.
+#   S = 0  : all N stacked in the best (highest-GDP) state.
+# =============================================================================
+eco_pulse_spread = {
+	set_variable = { name = eco_S value = 0 }
+	every_scope_state = {
+		limit = { can_construct_building = $B$  NOT = { has_building = $B$ } }
+		ROOT = { change_variable = { name = eco_S add = 1 } }
+	}
+	set_variable    = { name = eco_rem value = $N$ }
+	change_variable = { name = eco_rem subtract = var:eco_S }
+	if = { limit = { var:eco_rem < 0 } set_variable = { name = eco_rem value = 0 } }
+
+	# 1) spread: +1 in the top min(S,N) empty states, highest-GDP first
+	set_variable = { name = eco_placed value = 0 }
+	ordered_scope_state = {
+		order_by = gdp
+		limit = { can_construct_building = $B$  NOT = { has_building = $B$ } }
+		if = {
+			limit = { ROOT.var:eco_placed < $N$ }
+			create_building = { building = $B$ level = 1 reserves = 1 }
+			ROOT = { change_variable = { name = eco_placed add = 1 } }
+			debug_log = "ECOPULSE_$B$"
+			debug_log_scopes = yes
+		}
+	}
+	# 2) stack remainder (N-S) into the single best (highest-GDP) constructible state
+	if = {
+		limit = { var:eco_rem > 0 }
+		ordered_scope_state = {
+			order_by = gdp
+			limit = { can_construct_building = $B$ }
+			position = 0
+			check_range_bounds = no
+			set_variable = { name = eco_cur value = 0 }
+			if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
+			change_variable = { name = eco_cur add = ROOT.var:eco_rem }
+			create_building = { building = $B$ level = var:eco_cur reserves = 1 }
+			remove_variable = eco_cur
+			debug_log = "ECOPULSE_STACK_$B$"
+			debug_log_scopes = yes
+		}
+	}
+	# 3) out of slots (nothing empty AND nowhere can construct) -> unique line to review/ignore
+	if = {
+		limit = { var:eco_placed = 0  var:eco_rem > 0  NOT = { any_scope_state = { can_construct_building = $B$ } } }
+		debug_log = "ECONOSLOT_$B$"
+		debug_log_scopes = yes
+	}
+	remove_variable = eco_S
+	remove_variable = eco_rem
+	remove_variable = eco_placed
+}
+
 # ---- cleanup: strip every eco state flag + the country counters --------------
 eco_cleanup_flags = {
 	remove_variable = eco_placed
