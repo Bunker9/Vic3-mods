@@ -70,9 +70,11 @@ mdp_try_next_war = {
         scope:mdp_tgt = {
             every_scope_state = {
                 add_claim = scope:mdp_attacker
+                debug_log = "MDP_CLAIM"            # testbook timeline marker (1 per claimed state)
                 if = {
                     limit = { exists = scope:mdp_atk_culture }
                     add_homeland = scope:mdp_atk_culture
+                    debug_log = "MDP_HOMELAND"     # testbook timeline marker (1 per homeland change)
                 }
             }
         }
@@ -89,6 +91,7 @@ mdp_try_next_war = {
                         religion = scope:mdp_atk_religion
                         size     = 10000
                     }
+                    debug_log = "MDP_POP"          # testbook timeline marker (1 per seeded state)
                 }
             }
         }
