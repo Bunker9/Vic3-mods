@@ -144,16 +144,21 @@ mdp.2 = {
 
 # =============================================================================
 # mdp.3 — subject annexation event: annex the biggest own subject via
-#         dp_annex_subject (1846-1851 window, at peace 6+ months).
+#         dp_annex_subject (<1851 window, at peace 6+ months).
 # Root = the annexer.
-# Window: 1846.1.1 - 1851.12.31 (5-year expansion window for subject states).
+# Window: 15-year expansion window for subject states.
 # =============================================================================
 mdp.3 = {
     type = country_event
     hidden = yes
 
     trigger = {
-        game_date >= 1846.1.1
+        OR = {
+            this = c:DAI
+            this = c:BUR
+            this = c:SIA
+            this = c:PAN
+        }
         game_date <= 1851.12.31
         is_at_war = no
         is_active_in_diplomatic_play = no   # at peace AND not mid-play (no war-recency trigger

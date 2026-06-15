@@ -102,7 +102,7 @@ mdp_egy_forbidden_target = {
         religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
         country_has_primary_culture = cu:amhara
         country_has_primary_culture = cu:oromo
-        country_has_primary_culture = cu:tigrinya
+        country_has_primary_culture = cu:afar
         country_has_primary_culture = cu:somali
     }
 }

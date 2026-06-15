@@ -89,7 +89,7 @@ mdp_try_next_war = {
                     create_pop = {
                         culture  = scope:mdp_atk_culture
                         religion = scope:mdp_atk_religion
-                        size     = 10000
+                        size     = 100
                     }
                     debug_log = "MDP_POP"          # testbook timeline marker (1 per seeded state)
                 }

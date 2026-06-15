@@ -71,12 +71,17 @@ on_monthly_pulse_country = {
             trigger_event = { id = mdp.2 }
         }
 
-        # Subject annexation: 1846-1851 window, any country that owns a direct subject and is at
+        # Subject annexation: 1836-1851 window, any country that owns a direct subject and is at
         # peace. (mdp.3 re-checks the same gates. `any_subject_country`/`years_since_end_of_war`
         # were INVALID script names — they made this never fire; fixed to `any_subject`.)
         if = {
             limit = {
-                game_date >= 1846.1.1
+                OR = {
+                    this = c:DAI
+                    this = c:BUR
+                    this = c:SIA
+                    this = c:PAN
+                }
                 game_date <= 1851.12.31
                 is_at_war = no
                 is_active_in_diplomatic_play = no
