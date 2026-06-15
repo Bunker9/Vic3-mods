@@ -61,11 +61,15 @@ mdp.2 = {
 
             debug_log = "mdp.2 granting claims+homeland on TIB states"
 
-            # Claim + homeland on every Tibet state
+            # Claim + homeland on every Tibet state. add_claim/add_homeland are STATE_REGION
+            # effects — calling them in every_scope_state (state scope) errors "Inconsistent
+            # effect scopes (state vs state_region)"; wrap in state_region = { } (vanilla idiom).
             scope:mdp_tgt = {
                 every_scope_state = {
-                    add_claim = scope:mdp_attacker
-                    add_homeland = cu:nepali
+                    state_region = {
+                        add_claim = scope:mdp_attacker
+                        add_homeland = cu:nepali
+                    }
                 }
             }
 
@@ -153,19 +157,14 @@ mdp.3 = {
     hidden = yes
 
     trigger = {
-        OR = {
-            this = c:DAI
-            this = c:BUR
-            this = c:SIA
-            this = c:PAN
-        }
+        mdp_is_subject_annexer = yes        # DAI/BUR/SIA/PAN, flagged at startup (single source)
         game_date <= 1851.12.31
         is_at_war = no
         is_active_in_diplomatic_play = no   # at peace AND not mid-play (no war-recency trigger
                                             # exists in Vic3 — `years_since_end_of_war` is NOT real)
-        # Must own at least one DIRECT subject. (`any_subject_country` is NOT a valid scope —
-        # the real iterator is `any_subject`; verified vs game files.)
-        any_subject = { exists = yes }
+        # Must own at least one subject. (`any_subject` is NOT a valid trigger — the real one is
+        # `any_subject_or_below`; the effect below filters to OWN direct subjects via is_subject_of.)
+        any_subject_or_below = { count >= 1 }
     }
 
     immediate = {

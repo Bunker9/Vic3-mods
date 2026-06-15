@@ -67,13 +67,21 @@ mdp_try_next_war = {
         # add_homeland takes a culture scope (the saved one). These claims are what make the
         # conquest LOW-INFAMY + incorporable.
         # ---------------------------------------------------------------------
+        # add_claim/add_homeland are STATE_REGION effects — in every_scope_state (state scope)
+        # they error "Inconsistent effect scopes (state vs state_region)". Wrap in state_region
+        # (vanilla idiom); keep the timeline debug markers in the outer state scope.
         scope:mdp_tgt = {
             every_scope_state = {
-                add_claim = scope:mdp_attacker
+                state_region = {
+                    add_claim = scope:mdp_attacker
+                    if = {
+                        limit = { exists = scope:mdp_atk_culture }
+                        add_homeland = scope:mdp_atk_culture
+                    }
+                }
                 debug_log = "MDP_CLAIM"            # testbook timeline marker (1 per claimed state)
                 if = {
                     limit = { exists = scope:mdp_atk_culture }
-                    add_homeland = scope:mdp_atk_culture
                     debug_log = "MDP_HOMELAND"     # testbook timeline marker (1 per homeland change)
                 }
             }

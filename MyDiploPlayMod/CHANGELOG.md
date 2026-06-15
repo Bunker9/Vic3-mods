@@ -1,5 +1,20 @@
 # MyDiploPlayMod — Changelog
 
+## v0.7.1-dev (2026-06-15) — yr-1 triage fixes (on human baseline 771515f)
+**Human baseline `771515f`** (do not overwrite): CHT+KAB↔PAN 24mo truces (stop Punjab
+beelining Central Asia); trimmed `add_homeland` from BIC/PRU claims + removed nonsensical SWE
+Madras/Pegu/W.Indies claims; subject annexation restricted to DAI/BUR/SIA/PAN through 1851;
+create_pop size 10000→100; EGY forbidden culture `tigrinya`→`afar`.
+
+Triage fixes on top (this session):
+- **`any_subject` invalid trigger** → `any_subject_or_below = { count >= 1 }` (mdp.3 + on_action).
+- **Elegant subject-annexer trigger:** startup sets `var:mdp_subject_annexer` on DAI/BUR/SIA/PAN;
+  new `mdp_is_subject_annexer` replaces the duplicated `OR={...}` list in mdp.3 + the on_action.
+- **Scope error** `add_homeland`/`add_claim` (state vs state_region) → wrapped in `state_region {}`
+  (mdp_try_next_war + mdp.2 NEP/TIB).
+- **"more than one effect"** on `on_monthly_pulse_country` → merge-safe `on_actions = { mdp_monthly }`.
+- Marked the runtime-saved-scope load-warnings (`scope:mdp_atk_culture/religion`) benign (they fire).
+
 ## v0.7.0-dev (2026-06-15) — regression fixes (subject annexation + region-filtered truces)
 Fixes for bugs introduced by the 2026-06-15 rebalance pass:
 - **Subject annexation (mdp.3) never fired** — it used three non-existent script names:

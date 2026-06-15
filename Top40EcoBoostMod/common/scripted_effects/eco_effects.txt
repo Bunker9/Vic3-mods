@@ -139,6 +139,11 @@ eco_seed_flavour = {
 		change_variable = { name = eco_cur add = 1 }
 		create_building = { building = $B$ level = var:eco_cur reserves = 1 }
 		debug_log = eco_hit_$TYPE$
+		debug_log = "ECOFLAV_BUILT"   # special greppable keyword: 1 line per flavour building
+		                              # actually placed day-1 (preceded by the $B$ header + Root
+		                              # scope dump -> identifies building + country). Lets us
+		                              # tally "X of Y flavour built" and confirm before moving
+		                              # flavour to history.
 	}
 }
 

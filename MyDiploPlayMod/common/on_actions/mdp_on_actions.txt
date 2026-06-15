@@ -29,6 +29,11 @@ mdp_startup = {
 			add_modifier = { name = mdp_infamy_decay months = 36 }    # 3 yr fast decay (softened from 120)
 			debug_log = mdp_infamy_armed_row   # commented out for master
 		}
+		# flag the SEA+Punjab subject-annexer tags (DAI/BUR/SIA/PAN) → mdp_is_subject_annexer
+		every_country = {
+			limit = { OR = { this = c:DAI  this = c:BUR  this = c:SIA  this = c:PAN } }
+			set_variable = mdp_subject_annexer
+		}
 	}
 }
 
@@ -37,7 +42,10 @@ mdp_startup = {
 # state/state_region scope mismatches. Re-enable once mdp_try_next_war is rebuilt.
 
 #ENABLED testing new script
-on_monthly_pulse_country = {
+# Merge-safe: a bare `effect = {}` on a shared on_action (on_monthly_pulse_country) is OVERRIDDEN
+# across the merge ("more than one effect defined"); the on_actions sub-list MERGES instead.
+on_monthly_pulse_country = { on_actions = { mdp_monthly } }
+mdp_monthly = {
     effect = {
         if = {
             limit = {
@@ -71,21 +79,15 @@ on_monthly_pulse_country = {
             trigger_event = { id = mdp.2 }
         }
 
-        # Subject annexation: 1836-1851 window, any country that owns a direct subject and is at
-        # peace. (mdp.3 re-checks the same gates. `any_subject_country`/`years_since_end_of_war`
-        # were INVALID script names — they made this never fire; fixed to `any_subject`.)
+        # Subject annexation: SEA+Punjab annexers (flag), through 1851, at peace, owning a subject.
+        # (`any_subject` is NOT a valid trigger — the real one is `any_subject_or_below`.)
         if = {
             limit = {
-                OR = {
-                    this = c:DAI
-                    this = c:BUR
-                    this = c:SIA
-                    this = c:PAN
-                }
+                mdp_is_subject_annexer = yes
                 game_date <= 1851.12.31
                 is_at_war = no
                 is_active_in_diplomatic_play = no
-                any_subject = { exists = yes }
+                any_subject_or_below = { count >= 1 }
             }
             debug_log = "on_monthly_pulse country qualifies — triggering mdp.3 (annexation event)"
             trigger_event = { id = mdp.3 }

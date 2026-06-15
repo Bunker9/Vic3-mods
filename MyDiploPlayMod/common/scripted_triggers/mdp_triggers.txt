@@ -21,6 +21,13 @@ mdp_is_expand_country = {
     has_variable = mdp_expander
 }
 
+# Runtime-safe subject-annexer check: mdp_startup sets var:mdp_subject_annexer on the SEA+Punjab
+# annexer tags (DAI/BUR/SIA/PAN). Single source of truth used by BOTH mdp.3 and the on_action
+# dispatch — replaces the duplicated OR={...} list (cleaner, performant, tag-death-safe).
+mdp_is_subject_annexer = {
+    has_variable = mdp_subject_annexer
+}
+
 # -----------------------------------------------------------------------------
 # Is this country in ANY power bloc (as member OR leader)?
 # Evaluated on the CANDIDATE target country.
