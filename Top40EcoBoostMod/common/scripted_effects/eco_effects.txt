@@ -226,66 +226,16 @@ eco_cleanup_flags = {
 }
 
 # =============================================================================
-# Per-nation config (the hard-coded table -> effects). Adding a nation = one of these.
-# N = champ 2*X, support 1*X, flavour 1.  X(PAN)=5 -> champ 10 / support 5 / flavour 1.
+# Per-nation config: the eco_setup_<TAG> effects for ALL 40 tags are GENERATED into
+# common/scripted_effects/eco_setup_generated.txt by hk-config/tools/gen_ecoboost_configs.py
+# (source of truth: SELECT_ECOBOOST_FINAL.csv). The champ-throughput modifiers are in
+# common/static_modifiers/eco_champ_tp_generated.txt; the eco.2/eco.3 dispatch is in
+# events/eco_events.txt. Edit the CSV + re-run the generator; do NOT hand-edit here.
 #
-# Target tiers (X = eco-boost weight, from hk-config/tools/mod-nations.csv):
-#    X | nations
-#   10 | China, Russia, East India
-#    9 | United States, France, Great Britain, Ottomans
-#    8 | Japan
-#    7 | Prussia
-#    6 | Spain, Austria, Mexico
-#    5 | Korea, Brazil, Persia, Egypt, Punjab, Dutch East Indies
-#    4 | Hungary, Portugal, Two Sicilies, Netherlands, Sokoto, Sardinia-Piedmont, Sweden
-#    3 | Hyderabad, Greece, Dai Nam, Nepal, Colombia, Argentina
-#    2 | Siam, Morocco, Oman, Shewa, South Africa, Philippines, Belgium, Bavaria, Burma
+# N = champ 2*tier, support 1*tier, flavour 1.  Tiers (mod-nations.csv):
+#   10 China/Russia/East India · 9 USA/France/GB/Ottomans · 8 Japan · 7 Prussia
+#   6 Spain/Austria/Mexico · 5 Korea/Brazil/Persia/Egypt/Punjab/DEI
+#   4 Hungary/Portugal/Two Sicilies/Netherlands/Sokoto/Sardinia/Sweden
+#   3 Hyderabad/Greece/Dai Nam/Nepal/Colombia/Argentina
+#   2 Siam/Morocco/Oman/Shewa/South Africa/Philippines/Belgium/Bavaria/Burma
 # =============================================================================
-
-# ---- PUNJAB (PAN): champ cotton(10); support opium/sugar/tea/textile(5); flavour(1) x6
-eco_setup_PAN = {
-	eco_seed_capped = { B = building_cotton_plantation TYPE = champ   N = 10 }
-
-	eco_seed_capped = { B = building_opium_plantation  TYPE = support N = 5 }
-	eco_seed_capped = { B = building_sugar_plantation  TYPE = support N = 5 }
-	eco_seed_capped = { B = building_tea_plantation    TYPE = support N = 5 }
-	eco_seed_capped = { B = building_textile_mill      TYPE = support N = 5 }
-
-	eco_seed_flavour = { B = building_artillery_foundry TYPE = flavour }
-	eco_seed_flavour = { B = building_paper_mill        TYPE = flavour }
-	eco_seed_flavour = { B = building_coffee_plantation TYPE = flavour }
-	eco_seed_flavour = { B = building_tooling_workshop  TYPE = flavour }
-	eco_seed_flavour = { B = building_iron_mine         TYPE = flavour }
-	eco_seed_flavour = { B = building_logging_camp      TYPE = flavour }
-
-	add_modifier = { name = eco_PAN_champ_tp_p1 months = 240 }   # cotton throughput +200%, 20 yr
-	every_scope_state = {                                        # flat SoL +4 per incorporated state, 20 yr
-		limit = { is_incorporated = yes }
-		add_modifier = { name = eco_sol_p1 months = 240 }
-	}
-	trigger_event = { id = eco.3 years = 20 }                    # phase-2 champ SoL swap
-
-	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
-
-	eco_cleanup_flags = yes
-}
-
-# ---- PRUSSIA (PRU): champ steel(14); support explosives/chemical/motor(7); flavour none
-eco_setup_PRU = {
-	eco_seed_capped = { B = building_steel_mill         TYPE = champ   N = 14 }
-
-	eco_seed_capped = { B = building_explosives_factory TYPE = support N = 7 }
-	eco_seed_capped = { B = building_chemical_plant     TYPE = support N = 7 }
-	eco_seed_capped = { B = building_motor_industry     TYPE = support N = 7 }
-
-	add_modifier = { name = eco_PRU_champ_tp_p1 months = 240 }   # steel throughput +200%, 20 yr
-	every_scope_state = {                                        # flat SoL +4 per incorporated state, 20 yr
-		limit = { is_incorporated = yes }
-		add_modifier = { name = eco_sol_p1 months = 240 }
-	}
-	trigger_event = { id = eco.3 years = 20 }
-
-	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
-
-	eco_cleanup_flags = yes
-}

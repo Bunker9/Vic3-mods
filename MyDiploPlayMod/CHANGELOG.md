@@ -1,5 +1,23 @@
 # MyDiploPlayMod — Changelog
 
+## v0.7.0-dev (2026-06-15) — regression fixes (subject annexation + region-filtered truces)
+Fixes for bugs introduced by the 2026-06-15 rebalance pass:
+- **Subject annexation (mdp.3) never fired** — it used three non-existent script names:
+  `any_subject_country` (→ `any_subject`), `ordered_subject_country`
+  (→ `ordered_subject_or_below` filtered by `is_subject_of`), and `years_since_end_of_war`
+  (no war-recency trigger exists in Vic3 — removed; `is_at_war = no` + not-in-play already
+  gate peace). Verified all names vs game files. Fixed in both the event trigger and the
+  on_action dispatch. dp_annex_subject confirmed valid.
+- **Expander-vs-expander wars (OMA/PER, OMA/SHW, BIC/PAN)** — the rebalance had GUTTED the
+  all-expander truce file (1142→8 lines), removing the very thing that kept expanders out of
+  each other's wars. Restored + replaced with a **same-region filter** in `gen_blob_plan.py`:
+  truces are now emitted only between expanders that share a region bucket (EUR/INDIA/SEASIA/
+  MIDEAST/AFRICA/AMERICAS), so real neighbours (OMA-PER, BIC-PAN) keep truces while cross-
+  continent nonsense (PAN-PRU, OMA-BRZ, CLM-DEI) is dropped. 191 → 30 truce pairs. Manual
+  pins kept for OMA-NEJ (desert wasteland) and OMA-SHW (across the Gulf of Aden).
+- Kept from the rebalance: soft-remove of BIC/PRU/EGY/SAR/SWE from the monthly blob chain;
+  `mdp_infamy_decay` shortened 120 → 36 months.
+
 ## v0.6.6-dev (2026-06-14) — expander truces, Oman targeting, guaranteed return_state goal
 - **All-expander truces**: `gen_blob_plan.py` now also writes
   `common/history/diplomacy/zz_mdp_truces.txt` — `create_bidirectional_truce` (months = 120,

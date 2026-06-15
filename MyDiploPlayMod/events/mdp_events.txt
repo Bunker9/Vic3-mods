@@ -141,3 +141,67 @@ mdp.2 = {
         }
     }
 }
+
+# =============================================================================
+# mdp.3 — subject annexation event: annex the biggest own subject via
+#         dp_annex_subject (1846-1851 window, at peace 6+ months).
+# Root = the annexer.
+# Window: 1846.1.1 - 1851.12.31 (5-year expansion window for subject states).
+# =============================================================================
+mdp.3 = {
+    type = country_event
+    hidden = yes
+
+    trigger = {
+        game_date >= 1846.1.1
+        game_date <= 1851.12.31
+        is_at_war = no
+        is_active_in_diplomatic_play = no   # at peace AND not mid-play (no war-recency trigger
+                                            # exists in Vic3 — `years_since_end_of_war` is NOT real)
+        # Must own at least one DIRECT subject. (`any_subject_country` is NOT a valid scope —
+        # the real iterator is `any_subject`; verified vs game files.)
+        any_subject = { exists = yes }
+    }
+
+    immediate = {
+        debug_log = "mdp.3 FIRED — annexing biggest subject"
+        debug_log_scopes = yes
+
+        save_scope_as = mdp_annexer
+
+        # Pick the weakest DIRECT subject (lowest prestige). The real list-scope is
+        # `ordered_subject_or_below` (no direct-only `ordered_subject` exists); restrict to
+        # OUR direct subjects with is_subject_of. Verified syntax vs game journal entries.
+        ordered_subject_or_below = {
+            limit = { is_subject_of = scope:mdp_annexer }
+            order_by = prestige        # ascending — weakest first
+            position = 0               # take the weakest
+            check_range_bounds = no
+
+            save_scope_as = mdp_subject
+
+            debug_log = "mdp.3 SUBJECT CHOSEN"
+            debug_log_scopes = yes
+        }
+
+        if = {
+            limit = { exists = scope:mdp_subject }
+
+            debug_log = "mdp.3 declaring dp_annex_subject"
+
+            scope:mdp_annexer = {
+                create_diplomatic_play = {
+                    target_country = scope:mdp_subject
+                    type = dp_annex_subject
+                }
+            }
+
+            debug_log = "mdp.3 ANNEXATION PLAY DECLARED"
+        }
+
+        if = {
+            limit = { NOT = { exists = scope:mdp_subject } }
+            debug_log = "mdp.3 NO VALID SUBJECT — aborting"
+        }
+    }
+}

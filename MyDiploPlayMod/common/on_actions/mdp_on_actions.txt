@@ -26,7 +26,7 @@ mdp_startup = {
 		every_country = {
 			limit = { mdp_is_expand_tag = yes }                       # raw tag list (all live at start)
 			set_variable = mdp_expander                               # flag → runtime-safe mdp_is_expand_country
-			add_modifier = { name = mdp_infamy_decay months = 120 }   # 10 yr fast decay
+			add_modifier = { name = mdp_infamy_decay months = 36 }    # 3 yr fast decay (softened from 120)
 			debug_log = mdp_infamy_armed_row   # commented out for master
 		}
 	}
@@ -46,6 +46,8 @@ on_monthly_pulse_country = {
                 is_at_war = no
                 is_active_in_diplomatic_play = no   # in peace AND no diplo play in progress
                 infamy < 30                         # well below the ~50 "pariah" line — never invite a GP gang-up
+                # Soft-remove: BIC/PRU/EGY/SAR/SWE sealed from day-1 wars; no monthly expansion
+                NOT = { OR = { this = c:BIC this = c:PRU this = c:EGY this = c:SAR this = c:SWE } }
             }
             debug_log = "on_monthly_pulse expander qualifies — triggering mdp.1"
             trigger_event = { id = mdp.1 }
@@ -67,6 +69,21 @@ on_monthly_pulse_country = {
             }
             debug_log = "on_monthly_pulse NEP qualifies — triggering mdp.2 (Tibet event)"
             trigger_event = { id = mdp.2 }
+        }
+
+        # Subject annexation: 1846-1851 window, any country that owns a direct subject and is at
+        # peace. (mdp.3 re-checks the same gates. `any_subject_country`/`years_since_end_of_war`
+        # were INVALID script names — they made this never fire; fixed to `any_subject`.)
+        if = {
+            limit = {
+                game_date >= 1846.1.1
+                game_date <= 1851.12.31
+                is_at_war = no
+                is_active_in_diplomatic_play = no
+                any_subject = { exists = yes }
+            }
+            debug_log = "on_monthly_pulse country qualifies — triggering mdp.3 (annexation event)"
+            trigger_event = { id = mdp.3 }
         }
     }
 }

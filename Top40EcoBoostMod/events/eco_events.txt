@@ -1,11 +1,9 @@
 ﻿namespace = eco
 
 # =============================================================================
-# Top40EcoBoostMod — event pipeline.
-#  eco.2  per-nation build pass (champ/support/flavour), fired for each target.
-#  eco.3  phase-2 champ SoL swap at year 20 (group-level; see modifier note).
-#  eco.4  player-only notification that the eco-seed ran (visible toast).
-# Tech grant + the per-nation dispatch happen in common/on_actions/eco_on_actions.txt.
+# Top40EcoBoostMod - event pipeline. eco.2 dispatch + eco.3 phase-2 are GENERATED
+# by gen_ecoboost_configs.py (40-tag if-ladders). DO NOT HAND-EDIT those two blocks;
+# edit SELECT_ECOBOOST_FINAL.csv + re-run. eco.4 is static.
 # =============================================================================
 
 # ---- per-nation build pass -------------------------------------------------
@@ -15,41 +13,100 @@ eco.2 = {
 
 	immediate = {
 		eco_generic_flavour = yes   # wood/grain/food anti-death-spiral seed for EVERY target (ROOT set here)
-		if = { limit = { this = c:PAN } eco_setup_PAN = yes }
+		if = { limit = { this = c:CHI } eco_setup_CHI = yes }
+		if = { limit = { this = c:RUS } eco_setup_RUS = yes }
+		if = { limit = { this = c:BIC } eco_setup_BIC = yes }
+		if = { limit = { this = c:USA } eco_setup_USA = yes }
+		if = { limit = { this = c:FRA } eco_setup_FRA = yes }
+		if = { limit = { this = c:GBR } eco_setup_GBR = yes }
+		if = { limit = { this = c:TUR } eco_setup_TUR = yes }
+		if = { limit = { this = c:JAP } eco_setup_JAP = yes }
 		if = { limit = { this = c:PRU } eco_setup_PRU = yes }
+		if = { limit = { this = c:SPA } eco_setup_SPA = yes }
+		if = { limit = { this = c:AUS } eco_setup_AUS = yes }
+		if = { limit = { this = c:MEX } eco_setup_MEX = yes }
+		if = { limit = { this = c:KOR } eco_setup_KOR = yes }
+		if = { limit = { this = c:BRZ } eco_setup_BRZ = yes }
+		if = { limit = { this = c:PER } eco_setup_PER = yes }
+		if = { limit = { this = c:EGY } eco_setup_EGY = yes }
+		if = { limit = { this = c:PAN } eco_setup_PAN = yes }
+		if = { limit = { this = c:DEI } eco_setup_DEI = yes }
+		if = { limit = { this = c:HUN } eco_setup_HUN = yes }
+		if = { limit = { this = c:POR } eco_setup_POR = yes }
+		if = { limit = { this = c:SIC } eco_setup_SIC = yes }
+		if = { limit = { this = c:NET } eco_setup_NET = yes }
+		if = { limit = { this = c:SOK } eco_setup_SOK = yes }
+		if = { limit = { this = c:SAR } eco_setup_SAR = yes }
+		if = { limit = { this = c:SWE } eco_setup_SWE = yes }
+		if = { limit = { this = c:HYD } eco_setup_HYD = yes }
+		if = { limit = { this = c:GRE } eco_setup_GRE = yes }
+		if = { limit = { this = c:DAI } eco_setup_DAI = yes }
+		if = { limit = { this = c:NEP } eco_setup_NEP = yes }
+		if = { limit = { this = c:CLM } eco_setup_CLM = yes }
+		if = { limit = { this = c:ARG } eco_setup_ARG = yes }
+		if = { limit = { this = c:SIA } eco_setup_SIA = yes }
+		if = { limit = { this = c:MOR } eco_setup_MOR = yes }
+		if = { limit = { this = c:OMA } eco_setup_OMA = yes }
+		if = { limit = { this = c:SHW } eco_setup_SHW = yes }
+		if = { limit = { this = c:SAF } eco_setup_SAF = yes }
+		if = { limit = { this = c:PHI } eco_setup_PHI = yes }
+		if = { limit = { this = c:BEL } eco_setup_BEL = yes }
+		if = { limit = { this = c:BAV } eco_setup_BAV = yes }
+		if = { limit = { this = c:BUR } eco_setup_BUR = yes }
 	}
 }
 
 # ---- phase-2: champ STATE modifier from year 20 (throughput already expired) -
-# Applied ONLY to states that have the champ building (SoL +2),
-# NOT country-wide. PERMANENT: no `months` → lasts from yr 20 to END OF GAME
-# (roadmap §2.6, per user 2026-06-10). Support has no P2.
+# Applied ONLY to states holding the champ building (permanent: no `months`).
 eco.3 = {
 	type = country_event
 	hidden = yes
 
 	immediate = {
-		if = {
-			limit = { this = c:PAN }
-			every_scope_state = {
-				limit = { has_building = building_cotton_plantation }
-				add_modifier = { name = eco_champ_state_p2 }
-			}
-		}
-		if = {
-			limit = { this = c:PRU }
-			every_scope_state = {
-				limit = { has_building = building_steel_mill }
-				add_modifier = { name = eco_champ_state_p2 }
-			}
-		}
+		if = { limit = { this = c:CHI } every_scope_state = { limit = { has_building = building_tea_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:RUS } every_scope_state = { limit = { has_building = building_logging_camp } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:BIC } every_scope_state = { limit = { has_building = building_dye_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:USA } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:FRA } every_scope_state = { limit = { has_building = building_vineyard } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:GBR } every_scope_state = { limit = { has_building = building_coal_mine } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:TUR } every_scope_state = { limit = { has_building = building_tobacco_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:JAP } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:PRU } every_scope_state = { limit = { has_building = building_steel_mill } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SPA } every_scope_state = { limit = { has_building = building_furniture_manufactory } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:AUS } every_scope_state = { limit = { has_building = building_furniture_manufactory } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:MEX } every_scope_state = { limit = { has_building = building_tobacco_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:KOR } every_scope_state = { limit = { has_building = building_logging_camp } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:BRZ } every_scope_state = { limit = { has_building = building_banana_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:PER } every_scope_state = { limit = { has_building = building_textile_mill } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:EGY } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:PAN } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:DEI } every_scope_state = { limit = { has_building = building_banana_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:HUN } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:POR } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SIC } every_scope_state = { limit = { has_building = building_sulfur_mine } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:NET } every_scope_state = { limit = { has_building = building_textile_mill } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SOK } every_scope_state = { limit = { has_building = building_millet_farm } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SAR } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SWE } every_scope_state = { limit = { has_building = building_iron_mine } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:HYD } every_scope_state = { limit = { has_building = building_paper_mill } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:GRE } every_scope_state = { limit = { has_building = building_vineyard } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:DAI } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:NEP } every_scope_state = { limit = { has_building = building_logging_camp } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:CLM } every_scope_state = { limit = { has_building = building_coffee_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:ARG } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SIA } every_scope_state = { limit = { has_building = building_fishing_wharf } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:MOR } every_scope_state = { limit = { has_building = building_cotton_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:OMA } every_scope_state = { limit = { has_building = building_coffee_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SHW } every_scope_state = { limit = { has_building = building_coffee_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:SAF } every_scope_state = { limit = { has_building = building_livestock_ranch } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:PHI } every_scope_state = { limit = { has_building = building_sugar_plantation } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:BEL } every_scope_state = { limit = { has_building = building_steel_mill } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:BAV } every_scope_state = { limit = { has_building = building_vineyard } add_modifier = { name = eco_champ_state_p2 } } }
+		if = { limit = { this = c:BUR } every_scope_state = { limit = { has_building = building_tea_plantation } add_modifier = { name = eco_champ_state_p2 } } }
 	}
 }
 
 # ---- player-only notification: the eco-seed has run ------------------------
-# Fired from eco_setup_<TAG> only for the human player (is_player) so AI nations
-# don't get a popup. Confirms the build pass happened (useful for the planned
-# phase-2 yearly-cadence spread).
 eco.4 = {
 	type = country_event
 

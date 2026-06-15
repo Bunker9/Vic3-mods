@@ -1,5 +1,5 @@
 ﻿l_english:
  versiontest.1.t:0 "versiontestMod loaded"
- versiontest.1.d:0 "BUILD 2026-06-13 [dev/exp] - diplo v0.6.4: restored c6216fb day-1 wars, return_state tokens"
+ versiontest.1.d:0 "BUILD 2026-06-15 [dev/exp] - rebalance v2: eco 40-tag + oil/rubber event + diplo truce/annex fixes"
  versiontest.1.a:0 "DEV - read me"
  versiontest_log:0 "VTEST_LOG DEV - read me"

@@ -7,14 +7,8 @@
 
 # ---- champ THROUGHPUT, Phase 1 (0-20 yr). Building-type specific (surgical) ->
 #      kept per-nation, NOT merged (a shared token list would buff unintended buildings).
-eco_PAN_champ_tp_p1 = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_cotton_plantation_throughput_add = 2.0
-}
-eco_PRU_champ_tp_p1 = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_steel_mill_throughput_add = 2.0
-}
+#      The 40 per-tag eco_<TAG>_champ_tp_p1 modifiers are GENERATED into
+#      common/static_modifiers/eco_champ_tp_generated.txt by gen_ecoboost_configs.py.
 
 # ---- flat SoL, Phase 1 (0-20 yr): a flat +4 standard of living, applied PER incorporated
 #      state in eco_setup_<TAG> (user 2026-06-12 "just flat +4" — drops the surgical
