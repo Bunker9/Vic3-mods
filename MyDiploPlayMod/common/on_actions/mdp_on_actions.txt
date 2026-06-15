@@ -26,8 +26,29 @@ mdp_startup = {
 		every_country = {
 			limit = { mdp_is_expand_tag = yes }                       # raw tag list (all live at start)
 			set_variable = mdp_expander                               # flag → runtime-safe mdp_is_expand_country
-			add_modifier = { name = mdp_infamy_decay months = 36 }    # 3 yr fast decay (softened from 120)
 			debug_log = mdp_infamy_armed_row   # commented out for master
+		}
+		# LONG infamy decay (10 yr / 120 mo) for the heavy blobbers (SEA + PAN/SOK/SHW/SAF/ARG/BRZ)
+		# — they keep warring and need the decay to outlast the spree so they don't hit pariah.
+		every_country = {
+			limit = {
+				OR = {
+					this = c:DAI  this = c:SIA  this = c:BUR  this = c:DEI   # SEA
+					this = c:PAN  this = c:SOK  this = c:SHW  this = c:SAF  this = c:ARG  this = c:BRZ
+				}
+			}
+			add_modifier = { name = mdp_infamy_decay months = 120 }
+		}
+		# STANDARD infamy decay (3 yr / 36 mo) for the rest of the expand tags
+		every_country = {
+			limit = {
+				mdp_is_expand_tag = yes
+				NOT = { OR = {
+					this = c:DAI  this = c:SIA  this = c:BUR  this = c:DEI
+					this = c:PAN  this = c:SOK  this = c:SHW  this = c:SAF  this = c:ARG  this = c:BRZ
+				} }
+			}
+			add_modifier = { name = mdp_infamy_decay months = 36 }
 		}
 		# flag the SEA+Punjab subject-annexer tags (DAI/BUR/SIA/PAN) → mdp_is_subject_annexer
 		every_country = {
