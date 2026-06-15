@@ -10,6 +10,9 @@ on_game_started_after_lobby = {
 
 eco_startup = {
 	effect = {
+		# 0) flag every target (var:eco_target + var:eco_tag_<TAG>) — runtime-safe dispatch so the
+		#    yearly pulse never compares this = c:DEADTAG ("Invalid right side during comparison 'c'").
+		eco_set_target_flags = yes
 		# 1) grant the military-readiness techs to every target nation (the "for loop")
 		every_country = {
 			limit = { eco_is_target_country = yes }

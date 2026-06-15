@@ -7,6 +7,52 @@
 #   across states via eco_pulse_spread (covers newly-annexed states). No per-state modifiers.
 # =============================================================================
 
+# Set the runtime-safe flags at startup (all targets alive). var:eco_target -> the generic
+# eco_is_target_country check; var:eco_tag_<TAG> -> the per-tag eco.2/eco.5 dispatch. Uses
+# c:TAG ?= (scoping) so it never errors on a missing tag.
+eco_set_target_flags = {
+	c:CHI ?= { set_variable = eco_target  set_variable = eco_tag_CHI }
+	c:RUS ?= { set_variable = eco_target  set_variable = eco_tag_RUS }
+	c:BIC ?= { set_variable = eco_target  set_variable = eco_tag_BIC }
+	c:USA ?= { set_variable = eco_target  set_variable = eco_tag_USA }
+	c:FRA ?= { set_variable = eco_target  set_variable = eco_tag_FRA }
+	c:GBR ?= { set_variable = eco_target  set_variable = eco_tag_GBR }
+	c:TUR ?= { set_variable = eco_target  set_variable = eco_tag_TUR }
+	c:JAP ?= { set_variable = eco_target  set_variable = eco_tag_JAP }
+	c:PRU ?= { set_variable = eco_target  set_variable = eco_tag_PRU }
+	c:SPA ?= { set_variable = eco_target  set_variable = eco_tag_SPA }
+	c:AUS ?= { set_variable = eco_target  set_variable = eco_tag_AUS }
+	c:MEX ?= { set_variable = eco_target  set_variable = eco_tag_MEX }
+	c:KOR ?= { set_variable = eco_target  set_variable = eco_tag_KOR }
+	c:BRZ ?= { set_variable = eco_target  set_variable = eco_tag_BRZ }
+	c:PER ?= { set_variable = eco_target  set_variable = eco_tag_PER }
+	c:EGY ?= { set_variable = eco_target  set_variable = eco_tag_EGY }
+	c:PAN ?= { set_variable = eco_target  set_variable = eco_tag_PAN }
+	c:DEI ?= { set_variable = eco_target  set_variable = eco_tag_DEI }
+	c:HUN ?= { set_variable = eco_target  set_variable = eco_tag_HUN }
+	c:POR ?= { set_variable = eco_target  set_variable = eco_tag_POR }
+	c:SIC ?= { set_variable = eco_target  set_variable = eco_tag_SIC }
+	c:NET ?= { set_variable = eco_target  set_variable = eco_tag_NET }
+	c:SOK ?= { set_variable = eco_target  set_variable = eco_tag_SOK }
+	c:SAR ?= { set_variable = eco_target  set_variable = eco_tag_SAR }
+	c:SWE ?= { set_variable = eco_target  set_variable = eco_tag_SWE }
+	c:HYD ?= { set_variable = eco_target  set_variable = eco_tag_HYD }
+	c:GRE ?= { set_variable = eco_target  set_variable = eco_tag_GRE }
+	c:DAI ?= { set_variable = eco_target  set_variable = eco_tag_DAI }
+	c:NEP ?= { set_variable = eco_target  set_variable = eco_tag_NEP }
+	c:CLM ?= { set_variable = eco_target  set_variable = eco_tag_CLM }
+	c:ARG ?= { set_variable = eco_target  set_variable = eco_tag_ARG }
+	c:SIA ?= { set_variable = eco_target  set_variable = eco_tag_SIA }
+	c:MOR ?= { set_variable = eco_target  set_variable = eco_tag_MOR }
+	c:OMA ?= { set_variable = eco_target  set_variable = eco_tag_OMA }
+	c:SHW ?= { set_variable = eco_target  set_variable = eco_tag_SHW }
+	c:SAF ?= { set_variable = eco_target  set_variable = eco_tag_SAF }
+	c:PHI ?= { set_variable = eco_target  set_variable = eco_tag_PHI }
+	c:BEL ?= { set_variable = eco_target  set_variable = eco_tag_BEL }
+	c:BAV ?= { set_variable = eco_target  set_variable = eco_tag_BAV }
+	c:BUR ?= { set_variable = eco_target  set_variable = eco_tag_BUR }
+}
+
 # ---- China (CHI): champ tea [agri] N=5; support x6 N=2; flavour x9 ----
 eco_setup_CHI = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }

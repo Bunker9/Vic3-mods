@@ -139,10 +139,10 @@ eco_seed_flavour = {
 		change_variable = { name = eco_cur add = 1 }
 		create_building = { building = $B$ level = var:eco_cur reserves = 1 }
 		debug_log = eco_hit_$TYPE$
-		# greppable, with the building TOKEN ($B$ substitutes -> "ECOFLAV_building_logging_camp"),
-		# plus a scope dump (we're in the chosen state here -> "This: State <name>"). Together with
-		# Root (country) this gives tag+building+STATE per flavour build -> enough to PORT to history.
-		debug_log = "ECOFLAV_$B$"
+		# plain marker ($B$ doesn't substitute cleanly inside a quoted string) — the building is
+		# in the `debug_log = $B$` header above, and the scope dump below gives the STATE; together
+		# with Root (country) that's tag+building+STATE per flavour build -> enough to PORT to history.
+		debug_log = "ECOFLAV"
 		debug_log_scopes = yes
 	}
 }
@@ -217,6 +217,7 @@ eco_generic_flavour = {
 #   S = 0  : all N stacked in the best (highest-GDP) state.
 # =============================================================================
 eco_pulse_spread = {
+	debug_log = $B$               # building header (localized name) — pairs with the markers below
 	set_variable = { name = eco_S value = 0 }
 	every_scope_state = {
 		limit = { can_construct_building = $B$  NOT = { has_building = $B$ } }
@@ -235,7 +236,7 @@ eco_pulse_spread = {
 			limit = { ROOT.var:eco_placed < $N$ }
 			create_building = { building = $B$ level = 1 reserves = 1 }
 			ROOT = { change_variable = { name = eco_placed add = 1 } }
-			debug_log = "ECOPULSE_$B$"
+			debug_log = "ECOPULSE_SPREAD"
 			debug_log_scopes = yes
 		}
 	}
@@ -252,14 +253,14 @@ eco_pulse_spread = {
 			change_variable = { name = eco_cur add = ROOT.var:eco_rem }
 			create_building = { building = $B$ level = var:eco_cur reserves = 1 }
 			remove_variable = eco_cur
-			debug_log = "ECOPULSE_STACK_$B$"
+			debug_log = "ECOPULSE_STACK"
 			debug_log_scopes = yes
 		}
 	}
 	# 3) out of slots (nothing empty AND nowhere can construct) -> unique line to review/ignore
 	if = {
 		limit = { var:eco_placed = 0  var:eco_rem > 0  NOT = { any_scope_state = { can_construct_building = $B$ } } }
-		debug_log = "ECONOSLOT_$B$"
+		debug_log = "ECONOSLOT"
 		debug_log_scopes = yes
 	}
 	remove_variable = eco_S
