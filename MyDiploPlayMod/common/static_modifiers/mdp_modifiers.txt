@@ -7,5 +7,6 @@
 # =============================================================================
 mdp_infamy_decay = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
-	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
+	#HUMAN CHANGED!! TODO -- remove all debug_logs and other code related to this modifier. This is moved to expFight. Where it needs to match exactly with the warboost modifiers
+	country_infamy_decay_mult = 0.01   # 5/yr base -> 50/yr
 }

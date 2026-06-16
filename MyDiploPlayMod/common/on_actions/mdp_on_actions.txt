@@ -19,6 +19,8 @@
 # =============================================================================
 on_game_started_after_lobby = { on_actions = { mdp_startup } }
 
+
+# TODO -- refactor and remove infamy_decay code from here
 # Merge-safe sub-list effect: on_actions = { ... } MERGES across mods, whereas a bare
 # `effect = {}` on a shared on_action is OVERRIDDEN (only the last-loaded mod's effect runs).
 mdp_startup = {
@@ -53,20 +55,13 @@ mdp_startup = {
 			add_modifier = { name = mdp_infamy_decay months = 36 }
 		}
 		# flag the subject-annexer tags (DAI/BUR/SIA/PAN + OMA) → mdp_is_subject_annexer.
-		# OMA added 2026-06-16 (user): it starts with ABU (Trucial States) as a subject (reassigned
-		# just below) and should be able to fight/annex its OWN subjects via the mdp.3 event chain.
+		# OMA added 2026-06-16 (user): it starts with ABU (Trucial States) as a subject (set in HISTORY:
+		# common/history/diplomacy/zz_mdp_abu_oman.txt) and should be able to fight/annex its OWN
+		# subjects via the mdp.3 event chain.
 		every_country = {
 			limit = { OR = { this = c:DAI  this = c:BUR  this = c:SIA  this = c:PAN  this = c:OMA } }
 			set_variable = mdp_subject_annexer
 		}
-
-		# ABU (Trucial States) starts as GBR's protectorate (vanilla 00_subject_relationships.txt).
-		# Reassign it to OMA at game start (user 2026-06-16): drop GBR's pact, then OMA protects it.
-		# Done as a day-0 effect (on_game_started runs AFTER history is applied); remove_diplomatic_pact
-		# is not a vanilla history pattern, so the guaranteed effect context is used. type=protectorate
-		# matches the vanilla pact so the removal targets exactly it.
-		c:GBR ?= { remove_diplomatic_pact = { country = c:ABU type = protectorate } }
-		c:OMA ?= { create_diplomatic_pact = { country = c:ABU type = protectorate } }
 
 		# DAI/SIA non-interference revert (user 2026-06-16): schedule the one-shot 1837 event that
 		# undoes the start-of-game obligation (zz_mdp_favours) + relations boost (zz_mdp_relations).

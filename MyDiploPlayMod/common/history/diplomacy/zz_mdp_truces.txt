@@ -100,35 +100,11 @@ DIPLOMACY = {
 	}
 	c:EGY ?= {
 		create_bidirectional_truce = {
-			country = c:SAF
-			months = 120
-		}
-	}
-	c:EGY ?= {
-		create_bidirectional_truce = {
 			country = c:SHW
 			months = 120
 		}
 	}
 	c:EGY ?= {
-		create_bidirectional_truce = {
-			country = c:SOK
-			months = 120
-		}
-	}
-	c:MOR ?= {
-		create_bidirectional_truce = {
-			country = c:SAF
-			months = 120
-		}
-	}
-	c:MOR ?= {
-		create_bidirectional_truce = {
-			country = c:SHW
-			months = 120
-		}
-	}
-	c:MOR ?= {
 		create_bidirectional_truce = {
 			country = c:SOK
 			months = 120
@@ -143,42 +119,6 @@ DIPLOMACY = {
 	c:OMA ?= {
 		create_bidirectional_truce = {
 			country = c:PER
-			months = 120
-		}
-	}
-	c:PRU ?= {
-		create_bidirectional_truce = {
-			country = c:SAR
-			months = 120
-		}
-	}
-	c:PRU ?= {
-		create_bidirectional_truce = {
-			country = c:SWE
-			months = 120
-		}
-	}
-	c:SAF ?= {
-		create_bidirectional_truce = {
-			country = c:SHW
-			months = 120
-		}
-	}
-	c:SAF ?= {
-		create_bidirectional_truce = {
-			country = c:SOK
-			months = 120
-		}
-	}
-	c:SAR ?= {
-		create_bidirectional_truce = {
-			country = c:SWE
-			months = 120
-		}
-	}
-	c:SHW ?= {
-		create_bidirectional_truce = {
-			country = c:SOK
 			months = 120
 		}
 	}

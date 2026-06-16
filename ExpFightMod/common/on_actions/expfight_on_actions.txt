@@ -20,10 +20,14 @@ expfight_startup = {
 			add_technology_researched = general_staff
 			if = {
 				limit = { expfight_is_long_war_country = yes }
-				add_modifier = { name = expfight_warboost months = 120 }   # 10 yr (SOK/OMA/SHW)
+				add_modifier = { name = expfight_warboost months = 120 }   # 10 yr (PAN/DEI/SOK/OMA)
+			}
+			else_if = {
+				limit = { expfight_is_short_war_country = yes }
+				add_modifier = { name = expfight_warboost months = 48 }   # 4 yr (DAI/ARG/NEP/MOR)
 			}
 			else = {
-				add_modifier = { name = expfight_warbump months = 60 }    # 5 yr
+				add_modifier = { name = expfight_warbump months = 60 }    # 5 yr (PER/MEX/BRZ)
 			}
 			debug_log = expfight_armed_row   # commented out for master; -> "ExpFight setup" table
 		}

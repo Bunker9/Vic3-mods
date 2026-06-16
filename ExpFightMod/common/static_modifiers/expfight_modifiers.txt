@@ -17,12 +17,15 @@ expfight_warbump = {
 	# boost their political strength + approval (+30) — the brief's "make them happy".
 	interest_group_ig_armed_forces_pol_str_mult = 0.25
 	interest_group_ig_armed_forces_approval_add = 10
+
+
+	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
 }
 
 expfight_warboost = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
 
-	# morale & organisation: green armies stop melting / recover fast
+	# morale & organization: green armies stop melting / recover fast
 	unit_morale_recovery_mult = 0.5
 	unit_morale_loss_mult = -0.25
 	military_formation_organization_gain_mult = 0.5
@@ -30,13 +33,13 @@ expfight_warboost = {
 	# cheaper to keep an army in the field (the "cheaply" in the brief)
 	country_military_goods_cost_mult = -0.5
 
-	# get to the front fast — ~4x army movement & mobilisation (mult 3.0 = +300%)
+	# get to the front fast — ~4x army movement & mobilization (mult 3.0 = +300%)
 	military_formation_army_movement_speed_mult = 3
 	military_formation_mobilization_speed_mult = 3
 
 	# FLAT decisive edge (user feedback: the _mult values were invisible in-game).
 	# 30 offense / 50 defense applies to every unit, so they win quickly AND never
-	# lose at home. unit_*_add are flat additions to a unit's offense/defence rating.
+	# lose at home. unit_*_add are flat additions to a unit's offense/defense rating.
 	unit_offense_add = 30
 	unit_defense_add = 50
 
@@ -44,4 +47,13 @@ expfight_warboost = {
 	# boost their political strength + approval (+30) — the brief's "make them happy".
 	interest_group_ig_armed_forces_pol_str_mult = 0.5
 	interest_group_ig_armed_forces_approval_add = 30
+
+
+	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
+}
+
+#actually going to make it part or existing modifiers , less  rework same timeframe
+expfight_infamy_decay = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
 }

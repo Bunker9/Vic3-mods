@@ -610,11 +610,13 @@ STATE_RHONE = {
     }
 }
 
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — capped:building_iron_mine 15->36; capped:building_lead_mine 0->18; capped:building_coal_mine 0->8
+# HUMAN COMMIT - increasting the wood cap here so the AI scripts for ecoPulse dont keep giving errors in logs
 STATE_FRENCH_LOW_COUNTRIES = {
     id = 33
     subsistence_building = "building_subsistence_farm"
     provinces = { "x106000" "x5362AC" "x70C020" "xA0A080" "xD0854D" "xE0A0C0" }
-    traits = { "state_trait_good_soils" "state_trait_nord_pas_de_calais_coalfield" }
+    traits = { "state_trait_good_soils" "state_trait_nord_pas_de_calais_coalfield" "state_trait_infratax" }
     city = "xA0A080"
     port = "xD0854D"
     farm = "xE0A0C0"
@@ -624,7 +626,7 @@ STATE_FRENCH_LOW_COUNTRIES = {
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" }
     capped_resources = {
         building_coal_mine = 100
-        building_logging_camp = 3
+        building_logging_camp = 11
         building_fishing_wharf = 6
     }
     naval_exit_id = 3105
