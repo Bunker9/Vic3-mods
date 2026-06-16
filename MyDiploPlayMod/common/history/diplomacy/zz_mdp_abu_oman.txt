@@ -9,7 +9,7 @@ DIPLOMACY = {
 	c:OMA ?= {
 		create_diplomatic_pact = {
 			country = c:ABU
-			type = protectorate
+			type = vassal
 		}
 	}
 }

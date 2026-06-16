@@ -236,23 +236,11 @@ eco_pulse_spread = {
 
 # ---- cleanup: strip every eco state flag + the country counters --------------
 eco_cleanup_flags = {
-	remove_variable = eco_mark
-	remove_variable = eco_have
-	remove_variable = eco_cur
+	# 2026-06-16: eco_seed_capped is unused + flavour moved to history, so eco_mark/eco_have and the
+	# eco_*_here state flags are no longer set anywhere — removed their cleanup (was warning "used but
+	# never set"). The pulse effects self-clean eco_left/eco_spread; just clear any per-state eco_cur.
 	every_scope_state = {
-		limit = {
-			OR = {
-				has_variable = eco_champ_here
-				has_variable = eco_support_here
-				has_variable = eco_flavour_here
-				has_variable = eco_best_here
-				has_variable = eco_cur
-			}
-		}
-		remove_variable = eco_champ_here
-		remove_variable = eco_support_here
-		remove_variable = eco_flavour_here
-		remove_variable = eco_best_here
+		limit = { has_variable = eco_cur }
 		remove_variable = eco_cur
 	}
 }

@@ -198,7 +198,7 @@ eco_pulse_JAP = {
 	eco_pulse_spread = { B = building_silk_plantation N = 2 TYPE = support }
 }
 
-# ---- Prussia (PRU): champ steel [ind] N=3; support x6 N=1; flavour x5 ----
+# ---- Prussia (PRU): champ steel [ind] N=3; support x6 N=1; flavour x4 ----
 eco_setup_PRU = {
 	add_modifier = { name = eco_champ_tp_ind months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
