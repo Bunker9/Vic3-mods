@@ -1,5 +1,5 @@
 ﻿# =============================================================================
-# MyDiploPlayMod — at game start, give every expand tag the fast infamy-decay modifier.
+# MyDiploPlayMod — at game start, set the runtime-safe expander + subject-annexer flags.
 #
 # 2026-06-12 REDO: the day-1 conquest WARS are NO LONGER declared here. Declaring them at
 # runtime gave every expander huge infamy and only war-goaled the capital (partial,
@@ -20,52 +20,24 @@
 on_game_started_after_lobby = { on_actions = { mdp_startup } }
 
 
-# TODO -- refactor and remove infamy_decay code from here
 # Merge-safe sub-list effect: on_actions = { ... } MERGES across mods, whereas a bare
 # `effect = {}` on a shared on_action is OVERRIDDEN (only the last-loaded mod's effect runs).
+# Infamy-decay was REMOVED 2026-06-16 (rolled into ExpFightMod's warboost/warbump, where the decay
+# window matches the war footing). This on_action now ONLY sets the runtime-safe flags.
 mdp_startup = {
 	effect = {
 		every_country = {
-			limit = { mdp_is_expand_tag = yes }                       # raw tag list (all live at start)
-			set_variable = mdp_expander                               # flag → runtime-safe mdp_is_expand_country
-			debug_log = mdp_infamy_armed_row   # commented out for master
-		}
-		# LONG infamy decay (10 yr / 120 mo) for the heavy blobbers (SEA + PAN/SOK/SHW/SAF/BRZ)
-		# — they keep warring and need the decay to outlast the spree so they don't hit pariah.
-		# ARG dropped from this group 2026-06-16 (user): it exhausts local targets in ~4 yrs, so it
-		# takes the STANDARD 36-mo decay below (paired with the 5-yr war footing in ExpFightMod).
-		every_country = {
-			limit = {
-				OR = {
-					this = c:DAI  this = c:SIA  this = c:BUR  this = c:DEI   # SEA
-					this = c:PAN  this = c:SOK  this = c:SHW  this = c:SAF  this = c:BRZ
-				}
-			}
-			add_modifier = { name = mdp_infamy_decay months = 120 }
-		}
-		# STANDARD infamy decay (3 yr / 36 mo) for the rest of the expand tags
-		every_country = {
-			limit = {
-				mdp_is_expand_tag = yes
-				NOT = { OR = {
-					this = c:DAI  this = c:SIA  this = c:BUR  this = c:DEI
-					this = c:PAN  this = c:SOK  this = c:SHW  this = c:SAF  this = c:BRZ
-				} }
-			}
-			add_modifier = { name = mdp_infamy_decay months = 36 }
+			limit = { mdp_is_expand_tag = yes }   # raw tag list (all live at start)
+			set_variable = mdp_expander           # flag → runtime-safe mdp_is_expand_country
 		}
 		# flag the subject-annexer tags (DAI/BUR/SIA/PAN + OMA) → mdp_is_subject_annexer.
-		# OMA added 2026-06-16 (user): it starts with ABU (Trucial States) as a subject (set in HISTORY:
-		# common/history/diplomacy/zz_mdp_abu_oman.txt) and should be able to fight/annex its OWN
-		# subjects via the mdp.3 event chain.
+		# OMA starts with ABU (Trucial States) as a subject (set in HISTORY:
+		# common/history/diplomacy/zz_mdp_abu_oman.txt) and should be able to annex its OWN subjects
+		# via the mdp.3 event chain.
 		every_country = {
 			limit = { OR = { this = c:DAI  this = c:BUR  this = c:SIA  this = c:PAN  this = c:OMA } }
 			set_variable = mdp_subject_annexer
 		}
-
-		# DAI/SIA non-interference revert (user 2026-06-16): schedule the one-shot 1837 event that
-		# undoes the start-of-game obligation (zz_mdp_favours) + relations boost (zz_mdp_relations).
-		c:DAI ?= { trigger_event = { id = mdp.4 months = 12 } }
 	}
 }
 

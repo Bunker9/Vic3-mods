@@ -1,8 +1,6 @@
 ﻿l_english:
  expfight_warboost:0 "Expansion War Footing"
  expfight_warbump:0 "Expansion War Path"
- expfight_warbump_desc:0 "Basic militarisation for the opening years of expansion — steadier morale, organisation and a placated officer corps."
- expfight_warboost_desc:0 "Crash militarisation for the opening years of expansion — steadier morale and organisation, far faster mobilisation and marches, cheaper upkeep, a flat edge in attack and home defence, and a dominant, contented officer corps."
+ expfight_warbump_desc:0 "Basic militarisation for the opening years of expansion, steadier morale, organisation and a placated officer corps."
+ expfight_warboost_desc:0 "Crash militarisation for the opening years of expansion, steadier morale and organisation, far faster mobilisation and marches, cheaper upkeep, a flat edge in attack and home defence, and a dominant, contented officer corps."
  expfight_armed_row:0 "FORTESTLOG - ExpFight war-footing armed"
- expfight_infamy_decay:0 "Rapid Infamy Decay"
- expfight_infamy_decay_desc:0 "An expanding power shrugs off the notoriety of conquest, decaying infamy far faster while it carves out its sphere."

@@ -51,9 +51,3 @@ expfight_warboost = {
 
 	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
 }
-
-#actually going to make it part or existing modifiers , less  rework same timeframe
-expfight_infamy_decay = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
-	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
-}
