@@ -7,17 +7,33 @@
 # The duration (months=240 / permanent) is set at the add_modifier call, not here.
 # =============================================================================
 
-# ---- champ throughput + min-wage, by building-category (20 yr). Pick ONE per tag. ----
-# AGRARIAN: plantations + logging + ranching + agriculture + fishing (tea/dye/tobacco/fabric/
-# coffee/sugar/fruit/wine/meat/wood/fish champs; grain champ gets wage only — no staple-crop
-# group-throughput token exists).
-eco_champ_tp_agri = {
+# ---- champ throughput (max +0.5) + min-wage, by building-GROUP (20 yr). Pick ONE per tag. ----
+# The old single eco_champ_tp_agri lumped all 5 agrarian groups together AND carried +2.0
+# throughput on logging/ranching/fishing. Split 2026-06-16 (user) so a champ boosts ONLY its own
+# group, and ALL throughput is capped at +0.5:
+#   _plant = plantations  (tea/dye/tobacco/fabric/coffee/sugar/fruit/wine/opium/silk/rubber)
+#   _log   = logging      (wood)
+#   _ranch = ranching + agriculture  (meat champ -> ranch; grain champ -> staple farms)
+#   _fish  = fishing      (fish)
+eco_champ_tp_plant = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
 	building_group_bg_plantations_throughput_add = 0.5
-	building_group_bg_logging_throughput_add     = 2.0
-	building_group_bg_ranching_throughput_add    = 2.0
+	building_minimum_wage_mult = 0.2
+}
+eco_champ_tp_log = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_logging_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
+}
+eco_champ_tp_ranch = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_ranching_throughput_add    = 0.5
 	building_group_bg_agriculture_throughput_add = 0.5
-	building_group_bg_fishing_throughput_add     = 2.0
+	building_minimum_wage_mult = 0.2
+}
+eco_champ_tp_fish = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_fishing_throughput_add = 0.5
 	building_minimum_wage_mult = 0.2
 }
 # MINING: coal / sulfur / iron champs.

@@ -33,7 +33,10 @@ expmkt_start_setup = {
 			create_building = { building = building_trade_center level = 1 reserves = 1 }
 		}
 	}
-	expmkt_seed_coastal = yes
+	# Coastal seed is NOT run at day-1 (user 2026-06-16) — it first fires 1837.6.1 via the
+	# expmkt.1 pulse (see expmkt_on_actions.txt). The delay gives every expand tag time to
+	# (a) develop a construction cost/cap signal and (b) conquer a coastal state, so the seed
+	# always has a valid coastal target instead of no-op'ing on inland day-1 starts.
 }
 
 # ---- seed market infrastructure in the single best (highest-gdp) coastal state -
@@ -57,23 +60,15 @@ expmkt_seed_coastal = {
 			limit = { NOT = { has_building = building_trade_center } }
 			create_building = { building = building_trade_center level = 1 reserves = 1 }
 		}
-		# logging camp — WOOD. Each level is gated on can_construct_building, which already
-		# reflects the state's forestry resource cap, so we never overbuild past it.
-		# Level 1: build if none yet and the cap allows at least one.
+		# logging camp — WOOD. ONE level only (user 2026-06-16). Gated on can_construct_building,
+		# which already reflects the state's forestry resource cap, so it never overbuilds. The old
+		# level-2 escalation was dropped to stay conservative on the yearly re-run.
 		if = {
 			limit = {
 				can_construct_building = building_logging_camp
 				NOT = { has_building = building_logging_camp }
 			}
 			create_building = { building = building_logging_camp level = 1 reserves = 1 }
-		}
-		# Level 2: only if a camp now exists AND the forestry cap still has room for more.
-		if = {
-			limit = {
-				has_building = building_logging_camp
-				can_construct_building = building_logging_camp
-			}
-			create_building = { building = building_logging_camp level = 2 reserves = 1 }
 		}
 		debug_log = "expmkt_coastal_seed_row"
 		debug_log_scopes = yes

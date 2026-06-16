@@ -1,0 +1,51 @@
+﻿# =============================================================================
+# ExpFightMod - starting barracks for Argentina (HAND-WRITTEN, user 2026-06-16, experimental).
+# Seeds 10 barracks levels (BA x4 + Santa Fe/Corrientes/Tucuman x2) so ARG starts with a
+# stronger standing army for its blob-chain wars.
+# TOKENS (verified vs game files 1.13.8):
+#   * building_barrack is the CANONICAL name (building_barracks is only an alias).
+#   * Government building -> add_ownership = { country = { country = c:ARG levels = N } }
+#     (mirrors vanilla common/history/buildings government_administration seeding).
+# CAVEATS to confirm on the next debug run (vanilla never seeds barracks in history):
+#   * building_barrack unlocks with tech standing_army (era_1). ARG should start with it; if the
+#     log shows a can't-construct/tech error, grant standing_army (ExpFight tech grant or ARG history).
+#   * city_type = city + has_max_level: kept in the 4 most-urban ARG states, BA gets the bulk.
+# =============================================================================
+BUILDINGS = {
+	s:STATE_BUENOS_AIRES = {
+		region_state:ARG = {
+			create_building = {
+				building = "building_barrack"
+				add_ownership = { country = { country = "c:ARG" levels = 4 } }
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_SANTA_FE = {
+		region_state:ARG = {
+			create_building = {
+				building = "building_barrack"
+				add_ownership = { country = { country = "c:ARG" levels = 2 } }
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_CORRIENTES = {
+		region_state:ARG = {
+			create_building = {
+				building = "building_barrack"
+				add_ownership = { country = { country = "c:ARG" levels = 2 } }
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_TUCUMAN = {
+		region_state:ARG = {
+			create_building = {
+				building = "building_barrack"
+				add_ownership = { country = { country = "c:ARG" levels = 2 } }
+				reserves = 1
+			}
+		}
+	}
+}

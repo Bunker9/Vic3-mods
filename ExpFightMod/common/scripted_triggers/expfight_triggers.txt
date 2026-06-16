@@ -18,12 +18,14 @@ expfight_is_expand_country = {
 }
 
 # Long-war expanders (user 2026-06-12): a LOT of neighbours to conquer → war footing runs
-# 10 yrs (120 months) instead of 5. The smaller / non-European blobbers (13 of the 20).
+# 10 yrs (120 months) instead of 5. The smaller / non-European blobbers (11 of the 20).
 # The 5-yr set is the strong powers: BIC PRU MEX BRZ PER EGY SAF.
+# NEP/ARG dropped here 2026-06-16 (user): they run out of LOCAL targets within ~4 yrs, so
+# they take the 5-yr footing + the SHORT (36-mo) infamy decay, not the long one.
 expfight_is_long_war_country = {
 	OR = {
 		this = c:PAN   this = c:DEI   this = c:SOK   this = c:SHW
-		this = c:DAI   this = c:NEP   this = c:CLM   this = c:OMA
-		this = c:ARG   this = c:SIA   this = c:MOR
+		this = c:DAI   this = c:CLM   this = c:OMA
+		this = c:SIA   this = c:MOR
 	}
 }

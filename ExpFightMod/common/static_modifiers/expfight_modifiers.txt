@@ -35,7 +35,7 @@ expfight_warboost = {
 	military_formation_mobilization_speed_mult = 3
 
 	# FLAT decisive edge (user feedback: the _mult values were invisible in-game).
-	# 10 offense / 50 defense applies to every unit, so they win quickly AND never
+	# 30 offense / 50 defense applies to every unit, so they win quickly AND never
 	# lose at home. unit_*_add are flat additions to a unit's offense/defence rating.
 	unit_offense_add = 30
 	unit_defense_add = 50

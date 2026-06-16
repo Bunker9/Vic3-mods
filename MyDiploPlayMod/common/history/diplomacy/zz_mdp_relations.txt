@@ -1,0 +1,8 @@
+﻿# MyDiploPlayMod — start-of-game relations (HAND-WRITTEN, user 2026-06-16).
+# DAI starts at +50 with SIA so neither meddles in the other's blob-chain wars early. The mdp.4
+# event resets this to 0 in 1837 (one-shot), reverting this mod's diplomatic thumb on the scale.
+DIPLOMACY = {
+	c:DAI ?= {
+		set_relations = { country = c:SIA value = 50 }
+	}
+}

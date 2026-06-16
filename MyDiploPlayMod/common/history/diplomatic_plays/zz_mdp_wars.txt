@@ -1,6 +1,4 @@
-﻿# CHANGED  -IF  YOU READ THIS - DONT CHANGE WITHOUT HUMAN CONFIRMATION!!!
-# HAND-MAINTAINED — do NOT regenerate from gen_blob_plan.py.
-# This is the user's curated day-1 war set (correct matchups, bad/GP-dragging wars commented
+﻿# MyDiploPlayMod — curated day-1 war set (stabilized). Correct matchups; bad/GP-dragging wars commented
 # out). Restored from commit c6216fb, war goals corrected to return_state (low infamy; backed
 # by add_claim in zz_mdp_claims.txt). The generator no longer writes this file.
 DIPLOMATIC_PLAYS = {

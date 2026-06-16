@@ -53,7 +53,7 @@ eco_set_target_flags = {
 	c:BUR ?= { set_variable = eco_target  set_variable = eco_tag_BUR }
 }
 
-# ---- China (CHI): champ tea [agri] N=5; support x6 N=2; flavour x9 ----
+# ---- China (CHI): champ tea [plant] N=5; support x6 N=2; flavour x9 ----
 eco_setup_CHI = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -64,7 +64,7 @@ eco_setup_CHI = {
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_cotton_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_CHI = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -80,7 +80,7 @@ eco_pulse_CHI = {
 	eco_pulse_spread = { B = building_silk_plantation N = 2 TYPE = support }
 }
 
-# ---- Russia (RUS): champ wood [agri] N=5; support x6 N=2; flavour x8 ----
+# ---- Russia (RUS): champ wood [log] N=5; support x6 N=2; flavour x8 ----
 eco_setup_RUS = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -90,7 +90,7 @@ eco_setup_RUS = {
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_cotton_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_log months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_RUS = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -106,7 +106,7 @@ eco_pulse_RUS = {
 	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = support }
 }
 
-# ---- East India (BIC): champ dye [agri] N=5; support x6 N=2; flavour x10 ----
+# ---- East India (BIC): champ dye [plant] N=5; support x6 N=2; flavour x10 ----
 eco_setup_BIC = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -118,7 +118,7 @@ eco_setup_BIC = {
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_BIC = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -134,7 +134,7 @@ eco_pulse_BIC = {
 	eco_pulse_spread = { B = building_tea_plantation N = 2 TYPE = support }
 }
 
-# ---- United States (USA): champ meat [agri] N=4; support x6 N=2; flavour x7 ----
+# ---- United States (USA): champ meat [ranch] N=4; support x6 N=2; flavour x7 ----
 eco_setup_USA = {
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
@@ -143,7 +143,7 @@ eco_setup_USA = {
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_ranch months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_USA = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -159,7 +159,7 @@ eco_pulse_USA = {
 	eco_pulse_spread = { B = building_food_industry N = 2 TYPE = support }
 }
 
-# ---- France (FRA): champ wine [agri] N=4; support x6 N=2; flavour x10 ----
+# ---- France (FRA): champ wine [plant] N=4; support x6 N=2; flavour x10 ----
 eco_setup_FRA = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -171,7 +171,7 @@ eco_setup_FRA = {
 	eco_seed_flavour = { B = building_tea_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_FRA = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -215,7 +215,7 @@ eco_pulse_GBR = {
 	eco_pulse_spread = { B = building_furniture_manufactory N = 2 TYPE = support }
 }
 
-# ---- Ottomans (TUR): champ tobacco [agri] N=4; support x6 N=2; flavour x7 ----
+# ---- Ottomans (TUR): champ tobacco [plant] N=4; support x6 N=2; flavour x7 ----
 eco_setup_TUR = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -224,7 +224,7 @@ eco_setup_TUR = {
 	eco_seed_flavour = { B = building_opium_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_TUR = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -240,7 +240,7 @@ eco_pulse_TUR = {
 	eco_pulse_spread = { B = building_fishing_wharf N = 2 TYPE = support }
 }
 
-# ---- Japan (JAP): champ fish [agri] N=4; support x6 N=2; flavour x10 ----
+# ---- Japan (JAP): champ fish [fish] N=4; support x6 N=2; flavour x10 ----
 eco_setup_JAP = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -252,7 +252,7 @@ eco_setup_JAP = {
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_cotton_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_fish months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_JAP = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -341,7 +341,7 @@ eco_pulse_AUS = {
 	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
-# ---- Mexico (MEX): champ tobacco [agri] N=3; support x6 N=1; flavour x6 ----
+# ---- Mexico (MEX): champ tobacco [plant] N=3; support x6 N=1; flavour x6 ----
 eco_setup_MEX = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -349,7 +349,7 @@ eco_setup_MEX = {
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_MEX = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -365,14 +365,14 @@ eco_pulse_MEX = {
 	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 
-# ---- Korea (KOR): champ wood [agri] N=2; support x6 N=1; flavour x5 ----
+# ---- Korea (KOR): champ wood [log] N=2; support x6 N=1; flavour x5 ----
 eco_setup_KOR = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_opium_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_tea_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_log months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_KOR = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -388,7 +388,7 @@ eco_pulse_KOR = {
 	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
-# ---- Brazil (BRZ): champ fruit [agri] N=2; support x6 N=1; flavour x7 ----
+# ---- Brazil (BRZ): champ fruit [plant] N=2; support x6 N=1; flavour x7 ----
 eco_setup_BRZ = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -397,7 +397,7 @@ eco_setup_BRZ = {
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_cotton_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_BRZ = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -440,7 +440,7 @@ eco_pulse_PER = {
 	eco_pulse_spread = { B = building_logging_camp N = 1 TYPE = support }
 }
 
-# ---- Egypt (EGY): champ fabric [agri] N=2; support x6 N=1; flavour x10 ----
+# ---- Egypt (EGY): champ fabric [plant] N=2; support x6 N=1; flavour x10 ----
 eco_setup_EGY = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
@@ -452,7 +452,7 @@ eco_setup_EGY = {
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_EGY = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -468,7 +468,7 @@ eco_pulse_EGY = {
 	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
 }
 
-# ---- Punjab (PAN): champ fabric [agri] N=2; support x6 N=1; flavour x9 ----
+# ---- Punjab (PAN): champ fabric [plant] N=2; support x6 N=1; flavour x9 ----
 eco_setup_PAN = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -479,7 +479,7 @@ eco_setup_PAN = {
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
 	eco_seed_flavour = { B = building_dye_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_PAN = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -495,12 +495,12 @@ eco_pulse_PAN = {
 	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
 }
 
-# ---- Dutch East Indies (DEI): champ fruit [agri] N=2; support x6 N=1; flavour x3 ----
+# ---- Dutch East Indies (DEI): champ fruit [plant] N=2; support x6 N=1; flavour x3 ----
 eco_setup_DEI = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_DEI = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -516,12 +516,12 @@ eco_pulse_DEI = {
 	eco_pulse_spread = { B = building_tea_plantation N = 1 TYPE = support }
 }
 
-# ---- Hungary (HUN): champ meat [agri] N=2; support x6 N=1; flavour x3 ----
+# ---- Hungary (HUN): champ meat [ranch] N=2; support x6 N=1; flavour x3 ----
 eco_setup_HUN = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_ranch months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_HUN = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -537,7 +537,7 @@ eco_pulse_HUN = {
 	eco_pulse_spread = { B = building_tooling_workshop N = 1 TYPE = support }
 }
 
-# ---- Portugal (POR): champ fish [agri] N=2; support x6 N=1; flavour x10 ----
+# ---- Portugal (POR): champ fish [fish] N=2; support x6 N=1; flavour x10 ----
 eco_setup_POR = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -549,7 +549,7 @@ eco_setup_POR = {
 	eco_seed_flavour = { B = building_tea_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_fish months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_POR = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -610,14 +610,14 @@ eco_pulse_NET = {
 	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
 }
 
-# ---- Sokoto (SOK): champ grain [agri] N=2; support x7 N=1; flavour x5 ----
+# ---- Sokoto (SOK): champ grain [ranch] N=2; support x7 N=1; flavour x5 ----
 eco_setup_SOK = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_dye_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_tea_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_ranch months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_SOK = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -634,13 +634,13 @@ eco_pulse_SOK = {
 	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
 }
 
-# ---- Sardinia-Piedmont (SAR): champ fabric [agri] N=2; support x6 N=1; flavour x4 ----
+# ---- Sardinia-Piedmont (SAR): champ fabric [plant] N=2; support x6 N=1; flavour x4 ----
 eco_setup_SAR = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_fishing_wharf TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_SAR = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -699,11 +699,11 @@ eco_pulse_HYD = {
 	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
-# ---- Greece (GRE): champ wine [agri] N=1; support x6 N=1; flavour x2 ----
+# ---- Greece (GRE): champ wine [plant] N=1; support x6 N=1; flavour x2 ----
 eco_setup_GRE = {
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_GRE = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -719,14 +719,14 @@ eco_pulse_GRE = {
 	eco_pulse_spread = { B = building_textile_mill N = 1 TYPE = support }
 }
 
-# ---- Dai Nam (DAI): champ fish [agri] N=1; support x6 N=1; flavour x5 ----
+# ---- Dai Nam (DAI): champ fish [fish] N=1; support x6 N=1; flavour x5 ----
 eco_setup_DAI = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_dye_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_cotton_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_fish months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_DAI = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -742,11 +742,11 @@ eco_pulse_DAI = {
 	eco_pulse_spread = { B = building_silk_plantation N = 1 TYPE = support }
 }
 
-# ---- Nepal (NEP): champ wood [agri] N=1; support x7 N=1; flavour x2 ----
+# ---- Nepal (NEP): champ wood [log] N=1; support x7 N=1; flavour x2 ----
 eco_setup_NEP = {
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_opium_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_log months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_NEP = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -763,13 +763,13 @@ eco_pulse_NEP = {
 	eco_pulse_spread = { B = building_tobacco_plantation N = 1 TYPE = support }
 }
 
-# ---- Colombia (CLM): champ coffee [agri] N=1; support x6 N=1; flavour x4 ----
+# ---- Colombia (CLM): champ coffee [plant] N=1; support x6 N=1; flavour x4 ----
 eco_setup_CLM = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_opium_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_cotton_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_CLM = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -785,7 +785,7 @@ eco_pulse_CLM = {
 	eco_pulse_spread = { B = building_dye_plantation N = 1 TYPE = support }
 }
 
-# ---- Argentina (ARG): champ meat [agri] N=1; support x6 N=1; flavour x6 ----
+# ---- Argentina (ARG): champ meat [ranch] N=1; support x6 N=1; flavour x6 ----
 eco_setup_ARG = {
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_dye_plantation TYPE = flavour }
@@ -793,7 +793,7 @@ eco_setup_ARG = {
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_ranch months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_ARG = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -809,7 +809,7 @@ eco_pulse_ARG = {
 	eco_pulse_spread = { B = building_fishing_wharf N = 1 TYPE = support }
 }
 
-# ---- Siam (SIA): champ fish [agri] N=1; support x6 N=1; flavour x9 ----
+# ---- Siam (SIA): champ fish [fish] N=1; support x6 N=1; flavour x9 ----
 eco_setup_SIA = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -820,7 +820,7 @@ eco_setup_SIA = {
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_fish months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_SIA = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -836,14 +836,14 @@ eco_pulse_SIA = {
 	eco_pulse_spread = { B = building_furniture_manufactory N = 1 TYPE = support }
 }
 
-# ---- Morocco (MOR): champ fabric [agri] N=1; support x6 N=1; flavour x5 ----
+# ---- Morocco (MOR): champ fabric [plant] N=1; support x6 N=1; flavour x5 ----
 eco_setup_MOR = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sulfur_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_MOR = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -859,7 +859,7 @@ eco_pulse_MOR = {
 	eco_pulse_spread = { B = building_vineyard N = 1 TYPE = support }
 }
 
-# ---- Oman (OMA): champ coffee [agri] N=1; support x6 N=1; flavour x9 ----
+# ---- Oman (OMA): champ coffee [plant] N=1; support x6 N=1; flavour x9 ----
 eco_setup_OMA = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -870,7 +870,7 @@ eco_setup_OMA = {
 	eco_seed_flavour = { B = building_tobacco_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_OMA = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -886,10 +886,10 @@ eco_pulse_OMA = {
 	eco_pulse_spread = { B = building_sugar_plantation N = 1 TYPE = support }
 }
 
-# ---- Shewa (SHW): champ coffee [agri] N=1; support x6 N=1; flavour x1 ----
+# ---- Shewa (SHW): champ coffee [plant] N=1; support x6 N=1; flavour x1 ----
 eco_setup_SHW = {
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_SHW = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -905,13 +905,13 @@ eco_pulse_SHW = {
 	eco_pulse_spread = { B = building_dye_plantation N = 1 TYPE = support }
 }
 
-# ---- South Africa (SAF): champ meat [agri] N=1; support x6 N=1; flavour x4 ----
+# ---- South Africa (SAF): champ meat [ranch] N=1; support x6 N=1; flavour x4 ----
 eco_setup_SAF = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_tea_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_vineyard TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_ranch months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_SAF = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -927,13 +927,13 @@ eco_pulse_SAF = {
 	eco_pulse_spread = { B = building_cotton_plantation N = 1 TYPE = support }
 }
 
-# ---- Philippines (PHI): champ sugar [agri] N=1; support x6 N=1; flavour x4 ----
+# ---- Philippines (PHI): champ sugar [plant] N=1; support x6 N=1; flavour x4 ----
 eco_setup_PHI = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_dye_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_tea_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_PHI = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -970,11 +970,11 @@ eco_pulse_BEL = {
 	eco_pulse_spread = { B = building_glassworks N = 1 TYPE = support }
 }
 
-# ---- Bavaria (BAV): champ wine [agri] N=1; support x6 N=1; flavour x2 ----
+# ---- Bavaria (BAV): champ wine [plant] N=1; support x6 N=1; flavour x2 ----
 eco_setup_BAV = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_BAV = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }
@@ -990,7 +990,7 @@ eco_pulse_BAV = {
 	eco_pulse_spread = { B = building_wheat_farm N = 1 TYPE = support }
 }
 
-# ---- Burma (BUR): champ tea [agri] N=1; support x6 N=1; flavour x6 ----
+# ---- Burma (BUR): champ tea [plant] N=1; support x6 N=1; flavour x6 ----
 eco_setup_BUR = {
 	eco_seed_flavour = { B = building_coal_mine TYPE = flavour }
 	eco_seed_flavour = { B = building_lead_mine TYPE = flavour }
@@ -998,7 +998,7 @@ eco_setup_BUR = {
 	eco_seed_flavour = { B = building_dye_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_sugar_plantation TYPE = flavour }
 	eco_seed_flavour = { B = building_banana_plantation TYPE = flavour }
-	add_modifier = { name = eco_champ_tp_agri months = 240 }
+	add_modifier = { name = eco_champ_tp_plant months = 240 }
 	add_modifier = { name = eco_sol_edu_global }
 	eco_pulse_BUR = yes
 	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }

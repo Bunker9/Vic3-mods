@@ -14,19 +14,28 @@ mdp_try_next_war = {
     debug_log_scopes = yes   # logs attacker identity + the scope stack
 
     # -------------------------------------------------------------------------
-    # Step 1: find the WEAKEST valid neighbour (lowest population = weakest proxy).
-    # order_by only works on ordered_* scopes — random_country would ignore it.
-    # ordered_country + position = 0 picks the single lowest-population match.
+    # Step 1: pick the BIGGEST BEATABLE valid neighbour — army < 80% of ours, then the highest
+    # GDP among those (user 2026-06-16). order_by only works on ordered_* scopes; ordered_country
+    # sorts DESCENDING, so position = 0 = the highest-GDP beatable match. (The old order_by =
+    # prestige / position = 0 actually picked the STRONGEST neighbour — its "weakest" comment was
+    # wrong; this also fixes that.)
     # -------------------------------------------------------------------------
     ordered_country = {
         limit = {
             mdp_valid_generic_target = yes   # includes the land-adjacency-to-attacker check
+            # Only target a neighbour we can actually beat: its standing army < 80% of ours.
+            # value-block comparison verified vs vanilla (army_size < { value = <scope>.army_size
+            # multiply = .. }). army_size = standing-army unit count.
+            army_size < {
+                value = scope:mdp_attacker.army_size
+                multiply = 0.8
+            }
         }
-        order_by = prestige        # ascending — lowest prestige first (valid weakest-proxy;
-                                   # `country_population` is NOT a real Vic3 value — verified 0 hits.
-                                   # The ~3M/large-country guard lives in the target filter via
-                                   # rank_value:major_power + state-count cap, not here.)
-        position = 0               # take only the weakest
+        # Among the beatable neighbours, take the BIGGEST by GDP (grab the largest target we can
+        # win, not the absolute weakest). order_by = gdp verified valid at country scope (30 vanilla
+        # uses); ordered_* sorts descending, so position = 0 = highest GDP (eco coup top-GDP idiom).
+        order_by = gdp
+        position = 0
         check_range_bounds = no
 
         save_scope_as = mdp_tgt
@@ -51,7 +60,7 @@ mdp_try_next_war = {
         # ---------------------------------------------------------------------
         # Step 2b: SAVE the attacker's culture scope (for add_homeland). Multi-hop
         # scope:mdp_attacker.ruler.culture is rejected as a key reference, so save it first
-        # (vanilla zanzibar idiom). Religion no longer saved — create_pop was dropped.
+        # (vanilla zanzibar idiom).
         # ---------------------------------------------------------------------
         scope:mdp_attacker = {
             ruler ?= { culture = { save_scope_as = mdp_atk_culture } }
@@ -85,13 +94,7 @@ mdp_try_next_war = {
         }
 
         # ---------------------------------------------------------------------
-        # Step 4 (REMOVED 2026-06-15, user): create_pop culture-seed dropped — it threw
-        # "create_pop [Missing culture]" for attackers whose ruler culture didn't resolve, and
-        # the claim+homeland alone already make the conquest low-infamy/incorporable.
-        # ---------------------------------------------------------------------
-
-        # ---------------------------------------------------------------------
-        # Step 5: declare the diplomatic play. We use dp_return_state (war goal
+        # Step 4: declare the diplomatic play. We use dp_return_state (war goal
         # return_state) — base infamy 2 vs conquer_state's 5, and it reclaims a
         # CLAIMED state, which is exactly what Step 3's add_claim set up. This is
         # the lowest-infamy way to annex whole states. The play's primary war goal

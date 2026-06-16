@@ -201,3 +201,27 @@ mdp.3 = {
         }
     }
 }
+
+# =============================================================================
+# mdp.4 — one-shot 1837 revert of the DAI<->SIA non-interference setup. At history start the
+#         mod gives SIA an owes-obligation-to DAI (zz_mdp_favours) + DAI +50 relations on SIA
+#         (zz_mdp_relations) so the two SE-Asian expanders ignore each other's wars early. This
+#         event undoes BOTH in 1837, returning the pair to vanilla dynamics. Fired once, 12
+#         months after start, from mdp_startup (c:DAI).
+# Root = c:DAI.
+# =============================================================================
+mdp.4 = {
+    type = country_event
+    hidden = yes
+
+    immediate = {
+        debug_log = "mdp.4 reverting DAI<->SIA non-interference (1837)"
+        set_relations = { country = c:SIA value = 0 }
+        c:SIA ?= {
+            set_owes_obligation_to = {
+                country = c:DAI
+                setting = no
+            }
+        }
+    }
+}

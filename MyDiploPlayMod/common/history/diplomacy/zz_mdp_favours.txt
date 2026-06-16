@@ -1,0 +1,11 @@
+﻿# MyDiploPlayMod — favours/obligations (HAND-WRITTEN, user 2026-06-16).
+# SIA owes an obligation to DAI so the two SE-Asian expanders stop interfering in each other's
+# wars. The mdp.4 event reverts this in 1837 (one-shot), along with the DAI->SIA relations boost.
+DIPLOMACY = {
+	c:SIA ?= {
+		set_owes_obligation_to = {
+			country = c:DAI
+			setting = yes
+		}
+	}
+}
