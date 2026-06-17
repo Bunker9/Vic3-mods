@@ -1,0 +1,31 @@
+﻿# HAND-WRITTEN. MyDiploPlayMod — country-level law seeding at game start.
+# Uses activate_law = law_type:X (confirmed syntax from vanilla: arg/mex/nsw etc.)
+COUNTRIES = {
+	# DAI (Dai Viet): frontier colonization to absorb Degar unincorporated highlands naturally.
+	c:DAI ?= {
+		activate_law = law_type:law_frontier_colonization
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+	}
+	# ASM (Assam): frontier colonization NGA
+	# MNP (Manipur): frontier colonization KUK
+	c:ASM ?= {
+		activate_law = law_type:law_frontier_colonization
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+	}
+	c:MNP ?= {
+		activate_law = law_type:law_frontier_colonization
+
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 2
+		}
+	}
+}

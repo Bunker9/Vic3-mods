@@ -51,7 +51,7 @@ mdp.2 = {
         save_scope_as = mdp_attacker
 
         # Find Tibet as target
-        c:TIB = {
+        c:TIB ?= {
             save_scope_as = mdp_tgt
         }
 
@@ -150,7 +150,7 @@ mdp.3 = {
 
     trigger = {
         mdp_is_subject_annexer = yes        # DAI/BUR/SIA/PAN, flagged at startup (single source)
-        game_date <= 1851.12.31
+        game_date <= 1855.12.31
         is_at_war = no
         is_active_in_diplomatic_play = no   # at peace AND not mid-play (no war-recency trigger
                                             # exists in Vic3 — `years_since_end_of_war` is NOT real)

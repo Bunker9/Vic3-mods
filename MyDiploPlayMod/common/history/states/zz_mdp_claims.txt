@@ -326,6 +326,37 @@ STATES = {
 	s:STATE_ERITREA = {
 		add_homeland = cu:amhara
 		add_claim = c:SHW
+		add_claim = c:EGY
+	}
+	s:STATE_DELHI = {
+		add_claim = c:PAN
+	}
+	s:STATE_RAJPUTANA = {
+		add_claim = c:PAN
+	}
+	s:STATE_GUJARAT = {
+		add_claim = c:PAN
+	}
+	s:STATE_NORTH_BORNEO = {
+		add_claim = c:DEI
+	}
+	s:STATE_EAST_BORNEO = {
+		add_claim = c:DEI
+	}
+	s:STATE_WEST_BORNEO = {
+		add_claim = c:DEI
+	}
+	s:STATE_BIHAR = {
+		add_claim = c:NEP
+	}
+	s:STATE_ASSAM = {
+		add_claim = c:NEP
+	}
+	s:STATE_WEST_BENGAL = {
+		add_claim = c:NEP
+	}
+	s:STATE_EAST_BENGAL = {
+		add_claim = c:NEP
 	}
 	s:STATE_SOMALILAND = {
 		add_homeland = cu:amhara

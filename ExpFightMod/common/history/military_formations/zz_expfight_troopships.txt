@@ -1,0 +1,36 @@
+﻿# =============================================================================
+# ExpFightMod — extra troop-ship fleets for the two big amphibious expanders.
+# HAND-WRITTEN 2026-06-19. ship_type_troop_ship is a real ship type (ship_group_cruisers;
+# high carrying/marine capacity) used to ferry armies for naval invasions. Its
+# unlocking_technologies (ironclad_tech) gates only CONSTRUCTING new ones; a fleet placed in
+# HISTORY exists without the tech, so NO tech grant is needed (verified: unlocking_technologies
+# is a build gate, not an existence gate).
+#   DEI: 10 troop ships, HQ Indonesia (alongside its Koloniale Marine).
+#   OMA:  5 troop ships, HQ Arabia    (alongside its Bahriat al-Masqat).
+# zz_ = loads after vanilla; ?= = additive (creates a NEW fleet, since a mod cannot append ships
+# into a vanilla-defined formation by id). Verified vs common/ship_types + history formats.
+# =============================================================================
+MILITARY_FORMATIONS = {
+	c:DEI ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_indonesia
+			name = expfight_dei_troop_fleet
+			ship = {
+				type = ship_type:ship_type_troop_ship
+				count = 10
+			}
+		}
+	}
+	c:OMA ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_arabia
+			name = expfight_oma_troop_fleet
+			ship = {
+				type = ship_type:ship_type_troop_ship
+				count = 5
+			}
+		}
+	}
+}

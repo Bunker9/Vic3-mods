@@ -1,5 +1,5 @@
 ﻿l_english:
  versiontest.1.t:0 "versiontestMod loaded"
- versiontest.1.d:0 "BUILD 2026-06-15 (dev/exp) - rebalance v2: eco 40-tag + oil/rubber event + diplo truce/annex fixes"
- versiontest.1.a:0 "DEV - read me"
- versiontest_log:0 "VTEST_BUILD BUILD 2026-06-15 (dev/exp) - rebalance v2: eco 40-tag + oil/rubber event + diplo truce/annex fixes"
+ versiontest.1.d:0 "BUILD 202606202052"
+ versiontest.1.a:0 "DEV read me"
+ versiontest_log:0 "VTEST_BUILD 202606202052 (dev/exp)"

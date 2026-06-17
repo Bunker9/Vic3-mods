@@ -11,5 +11,12 @@ DIPLOMACY = {
 			country = c:ABU
 			type = vassal
 		}
+		create_diplomatic_pact = {
+			country = c:BHN  # bhn - bahrain
+			type = vassal
+		}
+
+		# Replaces the old EGY-OMA bidirectional truce (removed from zz_mdp_truces.txt).
+		set_relations = { country = c:EGY value = 50 }
 	}
 }

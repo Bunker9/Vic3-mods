@@ -1,0 +1,78 @@
+﻿namespace = mdpbic
+
+# =============================================================================
+# mdpbic.1 — British East India Company annexes its OWN subjects (princely states).
+# HAND-WRITTEN 2026-06-19. Mirrors mdp.3 (dp_annex_subject, weakest-first) but adds a
+# HARD CULTURE GATE the user requested: the target subject MUST be Indian-cultured and
+# MUST NOT be European-cultured.
+#
+# Culture gate (verified vs game files):
+#   any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+#       -> at least one of the subject's primary cultures is South Asian (Indian subcontinent:
+#          gangetic / deccani / carnatic / kashmiri / indusine / rajasthani / gujarati /
+#          assamese / himalayan / southwest_indian ... all belong to heritage_group_south_asian).
+#   NOT = { any_primary_culture = { has_discrimination_trait_group = heritage_group_european } }
+#       -> and NONE of its primary cultures is European.
+#   (heritage_group_* are the discrimination trait groups in common/discrimination_traits.)
+#
+# Fired by the BIC dispatch in common/on_actions/mdp_on_actions.txt (mdp_monthly). The real
+# gate is the ordered_subject_or_below limit below; this event's `trigger` block is documentary
+# (trigger_event-fired events do not re-evaluate their trigger).
+# =============================================================================
+mdpbic.1 = {
+    type = country_event
+    hidden = yes
+
+    trigger = {
+        this = c:BIC
+        game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
+        is_at_war = no
+        is_active_in_diplomatic_play = no
+    }
+
+    immediate = {
+        debug_log = "mdp - bic_annex - fired"
+        debug_log_scopes = yes   # dumps Root (BIC) for the testbook log
+
+        save_scope_as = mdp_annexer
+
+        # Pick the weakest (lowest-prestige) DIRECT subject that passes the culture gate.
+        # ordered_subject_or_below is the real list-scope (no direct-only `ordered_subject`);
+        # is_subject_of restricts to OUR own direct subjects.
+        ordered_subject_or_below = {
+            limit = {
+                is_subject_of = scope:mdp_annexer
+                any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+                NOT = { any_primary_culture = { has_discrimination_trait_group = heritage_group_european } }
+            }
+            order_by = prestige        # ascending — weakest first
+            position = 0
+            check_range_bounds = no
+
+            save_scope_as = mdp_subject
+
+            debug_log = "mdp - bic_annex - subject chosen"
+            debug_log_scopes = yes
+        }
+
+        if = {
+            limit = { exists = scope:mdp_subject }
+
+            debug_log = "mdp - bic_annex - declaring dp_annex_subject"
+
+            scope:mdp_annexer = {
+                create_diplomatic_play = {
+                    target_country = scope:mdp_subject
+                    type = dp_annex_subject
+                }
+            }
+
+            debug_log = "mdp - bic_annex - play declared"
+        }
+
+        if = {
+            limit = { NOT = { exists = scope:mdp_subject } }
+            debug_log = "mdp - bic_annex - no valid Indian subject, aborting"
+        }
+    }
+}

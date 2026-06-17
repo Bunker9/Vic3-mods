@@ -53,7 +53,14 @@ mdp_monthly = {
     effect = {
         if = {
             limit = {
-                game_date < 1846.1.1                # stop the blob chain after 10 years
+                                # stop the blob chain after 10 years
+                OR = {
+                    game_date < 1846.1.1
+                    AND = {
+                        game_date < 1849.1.1  #these tags need a bit more time to blob out
+                        OR = { this = c:DEI this = c:SAF this = c:OMA this = c:SOK this = c:PAN }
+                    }
+                }
                 mdp_is_expand_country = yes
                 is_at_war = no
                 is_active_in_diplomatic_play = no   # in peace AND no diplo play in progress
@@ -88,13 +95,27 @@ mdp_monthly = {
         if = {
             limit = {
                 mdp_is_subject_annexer = yes
-                game_date <= 1851.12.31
+                game_date <= 1855.12.31
                 is_at_war = no
                 is_active_in_diplomatic_play = no
                 any_subject_or_below = { count >= 1 }
             }
             debug_log = "on_monthly_pulse country qualifies — triggering mdp.3 (annexation event)"
             trigger_event = { id = mdp.3 }
+        }
+
+        # BIC-specific: annex its OWN Indian-cultured princely-state subjects (never a
+        # European-cultured subject). The culture hard-check is in mdpbic.1's subject pick.
+        if = {
+            limit = {
+                this = c:BIC
+                game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
+                is_at_war = no
+                is_active_in_diplomatic_play = no
+                any_subject_or_below = { count >= 1 }
+            }
+            debug_log = "mdp - bic_annex - dispatch (BIC qualifies)"
+            trigger_event = { id = mdpbic.1 }
         }
     }
 }

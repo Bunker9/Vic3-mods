@@ -4,3 +4,7 @@
  expfight_warbump_desc:0 "Basic militarisation for the opening years of expansion, steadier morale, organisation and a placated officer corps."
  expfight_warboost_desc:0 "Crash militarisation for the opening years of expansion, steadier morale and organisation, far faster mobilisation and marches, cheaper upkeep, a flat edge in attack and home defence, and a dominant, contented officer corps."
  expfight_armed_row:0 "FORTESTLOG - ExpFight war-footing armed"
+ expfight_home_defense:0 "Entrenched Homeland Defence"
+ expfight_home_defense_desc:0 "A deeply rooted defensive tradition. This nation's armies fight 30% better when defending provinces it owns."
+ expfight_dei_troop_fleet:0 "Koloniale Transportvloot"
+ expfight_oma_troop_fleet:0 "Muscat Transport Squadron"

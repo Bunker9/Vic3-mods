@@ -14,6 +14,24 @@ DIPLOMACY = {
 			months = 24
 		}
 	}
+	c:KAB ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 36
+		}
+	}
+	c:KAN ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 36
+		}
+	}
+	c:MAK ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 36
+		}
+	}
 	c:ARG ?= {
 		create_bidirectional_truce = {
 			country = c:BRZ
@@ -125,7 +143,7 @@ DIPLOMACY = {
 	c:OMA ?= {
 		create_bidirectional_truce = {
 			country = c:NEJ
-			months = 120
+			months = 36      #shorten this ..NEJ good target after vassals absorbed by OMA
 		}
 	}
 	c:OMA ?= {
@@ -139,6 +157,32 @@ DIPLOMACY = {
 	c:SHW ?= {
 		create_bidirectional_truce = {
 			country = c:WTU
+			months = 120
+		}
+	}
+	# DEI 2-yr cooling period vs Siak + Aceh (2026-06-17): AI never arms their fronts despite
+	# mobilized troops; DEI wins too fast and over-expands in SEA. Truce buys breathing room.
+	c:DEI ?= {
+		create_bidirectional_truce = {
+			country = c:SAK
+			months = 24
+		}
+	}
+	c:DEI ?= {
+		create_bidirectional_truce = {
+			country = c:ACE
+			months = 24
+		}
+	}
+	c:NEP ?= {
+		create_bidirectional_truce = {
+			country = c:BUR
+			months = 120
+		}
+	}
+	c:SIA ?= {
+		create_bidirectional_truce = {
+			country = c:BUR
 			months = 120
 		}
 	}

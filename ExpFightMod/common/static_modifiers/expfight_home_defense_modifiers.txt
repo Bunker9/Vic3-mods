@@ -1,0 +1,27 @@
+﻿# =============================================================================
+# ExpFightMod — permanent home-defence buff for a fixed set of resilient powers.
+# HAND-WRITTEN. Token verified vs common/modifier_type_definitions (2026-06-19).
+#
+# Separate from the expfight_warboost/warbump war-footing set: this is a PERMANENT,
+# defence-only buff for specific strong nations (not the timed expander offense).
+# Applied once at game start via common/history/countries/zz_expfight_home_defense.txt.
+#
+# Design intent: "+30 defence on homeland incorporated states", done the MOST
+# performance-friendly way = ONE permanent country modifier (zero per-state iteration,
+# no event, no tick).
+#
+# battle_defense_owned_province_mult applies the bonus only when DEFENDING in a
+# province the country OWNS (the engine's built-in "home soil" lever; vanilla uses
+# it on static/event modifiers and company/general traits). Note: "owned province"
+# is the closest single-modifier match to "incorporated homeland" — it also covers
+# any unincorporated/colonial province the country owns. A strictly incorporated-
+# only version would require iterating each incorporated state and applying a
+# per-state modifier every tick, which is exactly the overhead this avoids.
+# =============================================================================
+
+expfight_home_defense = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+
+	# +30% defence for armies fighting in provinces this country owns.
+	battle_defense_owned_province_mult = 0.3
+}

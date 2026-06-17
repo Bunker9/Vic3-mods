@@ -53,29 +53,6 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
-	c:PER ?= {
-		create_diplomatic_play = {
-			target_state = s:STATE_KHIVA.region_state:KHI
-			war = yes
-			type = dp_return_state
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_KHIVA.region_state:KHI
-				primary_demand = yes
-			}
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_TURKMENIA.region_state:KHI
-			}
-			add_war_goal = {
-				holder = c:PER
-				type = return_state
-				target_state = s:STATE_MERZ.region_state:KHI
-			}
-		}
-	}
 	c:EGY ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_DARFUR.region_state:DFR
@@ -91,13 +68,13 @@ DIPLOMATIC_PLAYS = {
 	}
 	c:EGY ?= {
 		create_diplomatic_play = {
-			target_state = s:STATE_HAIL.region_state:JAB
+			target_state = s:STATE_ERITREA.region_state:AWS
 			war = yes
 			type = dp_return_state
 			add_war_goal = {
 				holder = c:EGY
 				type = return_state
-				target_state = s:STATE_HAIL.region_state:JAB
+				target_state = s:STATE_ERITREA.region_state:AWS
 				primary_demand = yes
 			}
 		}

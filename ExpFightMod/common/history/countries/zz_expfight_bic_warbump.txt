@@ -1,0 +1,13 @@
+﻿# =============================================================================
+# ExpFightMod — BIC infamy-burn starter (SEPARATE from the expand-tag war footing).
+# HAND-WRITTEN 2026-06-19. BIC is NOT an ExpFight expand tag (soft-removed), so it gets
+# nothing from expfight_startup. This grants BIC the expfight_warbump modifier for 240
+# months (20 years) so its country_infamy_decay_mult (x9 = ~50/yr) burns down the infamy
+# from annexing its own princely-state subjects (MyDiploPlay mdpbic.1). The 20-year window
+# matches mdpbic.1's cutoff (stops 1856.1.1): once the decay ends, BIC stops sub-annexing.
+# add_modifier with `months` in history is vanilla-valid (e.g. GBR brazilian_slave_trade_modifier
+# months = 600). zz_ = loads after vanilla; ?= = additive.
+# =============================================================================
+COUNTRIES = {
+	c:BIC ?= { add_modifier = { name = expfight_warbump months = 240 } }
+}

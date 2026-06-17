@@ -1,0 +1,39 @@
+﻿# =============================================================================
+# Top40EcoBoostMod - EcoBoost picker decision.
+# Shown to any nation that lacks eco_sol_edu_global AND is eligible:
+#   - is_player = yes     -> human player always eligible
+#   - gdp_ranking <= 40   -> AI in the top 40 economies (dynamic; gdp_ranking 1 = highest GDP)
+# The 40 hardcoded mod tags already hold eco_sol_edu_global (eco_setup_generated.txt), so the
+# NOT-has-modifier guard naturally excludes them; this decision serves the DYNAMIC top-40.
+# Fires eco_picker.1 (the 6 sector choices). "Once only" is natural: once a sector
+# modifier is held, eco_sol_edu_global is present -> is_shown fails. Re-appears if lost.
+# HAND-WRITTEN. Rewritten from scratch 2026-06-17; all tokens verified vs game files.
+# =============================================================================
+
+eco_picker_choose_modifier = {
+	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+
+	is_shown = {
+		NOT = { has_modifier = eco_sol_edu_global }
+		OR = {
+			is_player = yes
+			gdp_ranking <= 40   # AI: only top-40 economies (vanilla uses gdp_ranking, e.g. <= 8)
+		}
+	}
+
+	possible = {
+		NOT = { has_modifier = eco_champ_tp_plant }
+		NOT = { has_modifier = eco_champ_tp_log   }
+		NOT = { has_modifier = eco_champ_tp_ranch }
+		NOT = { has_modifier = eco_champ_tp_mine  }
+		NOT = { has_modifier = eco_champ_tp_fish  }
+		NOT = { has_modifier = eco_champ_tp_ind   }
+	}
+
+	when_taken = {
+		debug_log = eco_picker_log_taken
+		trigger_event = { id = eco_picker.1 }
+	}
+
+	ai_chance = { value = 100 }
+}

@@ -29,6 +29,6 @@ expfight_is_long_war_country = {
 # they take the 5-yr boost + the SHORT (36-mo) infamy decay, not the long one.
 expfight_is_short_war_country = {
 	OR = {
-		this = c:DAI   this = c:ARG   this = c:NEP   this = c:CLM   this = c:MOR   this = c:SIA
+		this = c:DAI   this = c:ARG   this = c:NEP   this = c:CLM   this = c:MOR
 	}
 }
