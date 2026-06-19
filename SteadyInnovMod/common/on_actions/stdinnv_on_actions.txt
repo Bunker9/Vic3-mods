@@ -1,0 +1,29 @@
+﻿# =============================================================================
+# stdinnvMod —
+# =============================================================================
+on_game_started_after_lobby = { on_actions = { stdinnv_startup } }
+
+# Merge-safe sub-list effect: on_actions = { ... } MERGES across mods, whereas a bare
+# `effect = {}` on a shared on_action is OVERRIDDEN (only the last-loaded mod's effect runs).
+stdinnv_startup = {
+	effect = {
+		every_country = {
+			if = {
+				limit = {
+				    OR = {
+                        this = c:FRA   this = c:JAP   this = c:NET   this = c:USA
+                    }
+                }
+				add_modifier = { name = stdinnv_boost_gp  }
+			}
+			if = {
+				limit = { NOT = { is_country_type = recognized } }
+				add_modifier = { name = stdinnv_unrecognized  }
+			}
+			else_if = {
+				limit = { is_subject = yes }
+				add_modifier = { name = stdinnv_subject  }
+			}
+		}
+	}
+}

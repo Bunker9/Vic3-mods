@@ -1,0 +1,26 @@
+﻿stdinnv_uni_built = {
+	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	is_shown = {
+		OR = {
+		    has_modifier = stdinnv_unrecognized
+		    has_modifier = stdinnv_subject
+			is_player = yes
+		}
+	}
+
+	possible = {
+		any_scope_building = {
+			is_building_type = building_university
+			level >= 10
+		}
+		#is_country_type = recognized
+		#is_subject = no
+	}
+
+	when_taken = {
+		trigger_event = { id = uni_event.1 }
+	}
+
+	ai_chance = { value = 100 }
+}

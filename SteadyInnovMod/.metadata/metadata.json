@@ -1,10 +1,10 @@
 {
-	"name": "MyDiploPlayMod",
-	"id": "MyDiploPlayMod",
+	"name": "SteadyInnovMod",
+	"id": "SteadyInnovMod",
 	"game_id": "victoria3",
 	"version": "0.1.0",
 	"supported_game_version": "1.13.*",
-	"short_description": "allow regional powers to blob",
+	"short_description": "Innovate to get on the world stage",
 	"tags": [
 		"Gameplay",
 		"Alternative History"

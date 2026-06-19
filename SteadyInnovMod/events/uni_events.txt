@@ -1,0 +1,19 @@
+﻿namespace = uni_event
+
+uni_event.1 = {
+	type = country_event
+	title = uni_event.1.t
+	desc = uni_event.1.desc
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+	immediate = {
+	    if = { limit = { has_modifier = stdinnv_unrecognized } remove_modifier = stdinnv_unrecognized }
+	    if = { limit = { has_modifier = stdinnv_subject } remove_modifier = stdinnv_subject }
+	}
+	option = {
+		name = uni_event.1.a
+		add_modifier = { name = stdinnv_reward months = 240 }
+		default_option = yes # default
+	}
+}
