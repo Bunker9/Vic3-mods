@@ -16,13 +16,23 @@ stdinnv_startup = {
                 }
 				add_modifier = { name = stdinnv_boost_gp  }
 			}
+		}
+		every_country = {
 			if = {
-				limit = { NOT = { is_country_type = recognized } }
-				add_modifier = { name = stdinnv_unrecognized  }
+				limit = {
+				    OR = {
+                        this = c:BIC
+                        this = c:CHI
+                        is_subject = yes
+                    }
+                }
+				add_modifier = { name = stdinnv_subject  }
 			}
 			else_if = {
-				limit = { is_subject = yes }
-				add_modifier = { name = stdinnv_subject  }
+				limit = {
+				    NOT = { is_country_type = recognized }
+				}
+				add_modifier = { name = stdinnv_unrecognized  }
 			}
 		}
 	}

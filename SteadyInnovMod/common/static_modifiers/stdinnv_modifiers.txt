@@ -13,8 +13,9 @@ stdinnv_subject = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
 
 	country_tech_spread_mult = -0.5
-	country_weekly_innovation_mult = -0.5
-	building_group_bg_light_industry_throughput_add = -0.5
+	country_weekly_innovation_mult = -0.2
+	country_prestige_mult = -0.5
+	building_group_bg_light_industry_throughput_add = -0.3
 }
 
 stdinnv_boost_gp = {
@@ -22,7 +23,7 @@ stdinnv_boost_gp = {
 
 	country_tech_spread_mult = 0.2
 	building_throughput_add = 0.05
-	country_prestige_mult = 0.25
+	country_prestige_mult = 0.2
 	country_infamy_decay_mult = 4
 }
 

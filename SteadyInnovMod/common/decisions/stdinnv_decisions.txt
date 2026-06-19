@@ -14,8 +14,8 @@
 			is_building_type = building_university
 			level >= 10
 		}
-		#is_country_type = recognized
-		#is_subject = no
+		is_country_type = recognized
+		is_subject = no
 	}
 
 	when_taken = {
