@@ -1,0 +1,83 @@
+﻿namespace = ecoor
+
+# =============================================================================
+# Top40EcoBoostMod - oil & rubber reward chain (REDESIGN 2026-06-15; FIXED 2026-06-16).
+#
+# oil_rig / rubber_plantation are DISCOVERABLE RGOs gated behind techs (oil_rig <- pumpjacks,
+# rubber_plantation <- rubber_mastication). on_acquired_technology (eco_oilrubber_on_actions.txt)
+# fires ecoor.1 (oil -> OMA) / ecoor.2 (rubber -> BRZ/SIA) the first time the world unlocks each tech.
+#
+# 2026-06-16 fix — nothing built before because:
+#   (1) the deposits were never DISCOVERED (SIA/OMA had no RGO slot) -> force_resource_discovery,
+#   (2) the build ran in the SAME tick as the tech grant, so can_construct didn't see the tech yet
+#       (this is why even BRZ, which has visible rubber slots, built nothing).
+# So the grant event now grants the tech + force_resource_discovery in every potential state, then
+# DEFERS the build to ecoor.3/.4 (days=5) when tech+discovery are registered. ROOT = beneficiary
+# throughout (eco_seed_spread_n relies on ROOT).
+# =============================================================================
+
+# ---- OIL grant (Root = OMA): tech + discover, then deferred build ----
+ecoor.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		#debug_log = "ecoor.1 oil grant FIRED"
+		#debug_log_scopes = yes
+		if = {
+			limit = { NOT = { has_technology_researched = pumpjacks } }
+			add_technology_researched = pumpjacks
+		}
+		# reveal oil deposits so the RGO slot exists (verified vs vanilla: has_potential_resource
+		# + force_resource_discovery = building_oil_rig, in state scope)
+		every_scope_state = {
+			limit = { has_potential_resource = building_oil_rig }
+			force_resource_discovery = building_oil_rig
+		}
+		trigger_event = { id = ecoor.3 days = 5 }   # build NEXT tick (can_construct gotcha)
+	}
+}
+
+# ---- OIL build (Root = OMA, deferred) ----
+ecoor.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		#debug_log = "ecoor.3 oil build FIRED"
+		#debug_log_scopes = yes
+		eco_seed_spread_n = { B = building_oil_rig N = 5 }   # max 5, 1 per best constructible state
+	}
+}
+
+# ---- RUBBER grant (Root = BRZ/SIA): tech + discover, then deferred build ----
+ecoor.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		#debug_log = "ecoor.2 rubber grant FIRED"
+		#debug_log_scopes = yes
+		if = {
+			limit = { NOT = { has_technology_researched = rubber_mastication } }
+			add_technology_researched = rubber_mastication
+		}
+		every_scope_state = {
+			limit = { has_potential_resource = building_rubber_plantation }
+			force_resource_discovery = building_rubber_plantation
+		}
+		trigger_event = { id = ecoor.4 days = 5 }
+	}
+}
+
+# ---- RUBBER build (Root = BRZ/SIA, deferred) ----
+ecoor.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		#debug_log = "ecoor.4 rubber build FIRED"
+		#debug_log_scopes = yes
+		eco_seed_spread_n = { B = building_rubber_plantation N = 5 }
+	}
+}

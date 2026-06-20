@@ -1,0 +1,76 @@
+﻿# =============================================================================
+# ExpMktAccessMod — give an expand tag the infrastructure for global market access.
+#
+# Root-cause fixes vs last build:
+#   * create_building must pass `level` — the old call (`reserves = 1` only) made a
+#     ZERO-LEVEL shell, so no trade center ever appeared (SOK/PAN).
+#   * A trade center needs a CITY and the trade center to be construction-allowed
+#     (off law_isolationism). A PORT needs a COASTAL state. Inland-only tags can't host
+#     either, which is exactly why expansion to the sea matters — so we seed in the best
+#     COASTAL state and re-run yearly for 4 years to catch states won mid-war.
+# =============================================================================
+
+# ---- one-off start setup: empower industry + first coastal pass --------------
+expmkt_start_setup = {
+	# economic system -> interventionism (empowers industry / capitalists, more private
+	# construction) unless already at least that liberal. Guarded so we never DOWNGRADE
+	# a laissez-faire economy.
+	if = {
+		limit = {
+			NOT = { has_law = law_type:law_interventionism }
+			NOT = { has_law = law_type:law_laissez_faire }
+		}
+		activate_law = law_type:law_interventionism
+	}
+	add_modifier = { name = expmkt_industrialist_boost months = 48 }   # 4 years
+
+	# A trade center in the CAPITAL regardless of coast — inland expanders (e.g. Punjab) have no
+	# coastal state at start, so the coastal seed alone never gives them one. Trade center is a
+	# city building (the capital always has a city); port stays coastal-only in expmkt_seed_coastal.
+	capital = {
+		if = {
+			limit = { NOT = { has_building = building_trade_center } }
+			create_building = { building = building_trade_center level = 1 reserves = 1 }
+		}
+	}
+	# Coastal seed is NOT run at day-1 (user 2026-06-16) — it first fires 1837.6.1 via the
+	# expmkt.1 pulse (see expmkt_on_actions.txt). The delay gives every expand tag time to
+	# (a) develop a construction cost/cap signal and (b) conquer a coastal state, so the seed
+	# always has a valid coastal target instead of no-op'ing on inland day-1 starts.
+}
+
+# ---- seed market infrastructure in the single best (highest-gdp) coastal state -
+# Idempotent: only builds what's missing, so the yearly re-run is safe.
+#   building_port         — convoys / connection to the world market (needs is_coastal)
+#   building_trade_center — trade routes / market access hub
+#   building_logging_camp — WOOD, the worst early-game shortage (user feedback); also a
+#                           shipyard input, so it primes coastal industry.
+expmkt_seed_coastal = {
+	ordered_scope_state = {
+		order_by = gdp
+		limit = { is_coastal = yes }
+		position = 0
+		check_range_bounds = no
+
+		if = {
+			limit = { NOT = { has_building = building_port } }
+			create_building = { building = building_port level = 1 reserves = 1 }
+		}
+		if = {
+			limit = { NOT = { has_building = building_trade_center } }
+			create_building = { building = building_trade_center level = 1 reserves = 1 }
+		}
+		# logging camp — WOOD. ONE level only (user 2026-06-16). Gated on can_construct_building,
+		# which already reflects the state's forestry resource cap, so it never overbuilds. The old
+		# level-2 escalation was dropped to stay conservative on the yearly re-run.
+		if = {
+			limit = {
+				can_construct_building = building_logging_camp
+				NOT = { has_building = building_logging_camp }
+			}
+			create_building = { building = building_logging_camp level = 1 reserves = 1 }
+		}
+		#debug_log = "expmkt_coastal_seed_row"
+		#debug_log_scopes = yes
+	}
+}

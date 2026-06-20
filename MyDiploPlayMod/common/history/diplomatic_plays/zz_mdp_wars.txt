@@ -1,0 +1,232 @@
+﻿# MyDiploPlayMod — curated day-1 war set (stabilized). Correct matchups; bad/GP-dragging wars commented
+# out). Restored from commit c6216fb, war goals corrected to return_state (low infamy; backed
+# by add_claim in zz_mdp_claims.txt). The generator no longer writes this file.
+DIPLOMATIC_PLAYS = {
+	c:BIC ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_CEYLON.region_state:MLD
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:BIC
+				type = return_state
+				target_state = s:STATE_CEYLON.region_state:MLD
+				primary_demand = yes
+			}
+		}
+	}
+	c:MEX ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_GUATEMALA.region_state:UCA
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:MEX
+				type = return_state
+				target_state = s:STATE_GUATEMALA.region_state:UCA
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:MEX
+				type = return_state
+				target_state = s:STATE_HONDURAS.region_state:UCA
+			}
+			add_war_goal = {
+				holder = c:MEX
+				type = return_state
+				target_state = s:STATE_NICARAGUA.region_state:UCA
+			}
+			add_war_goal = {
+				holder = c:MEX
+				type = return_state
+				target_state = s:STATE_COSTA_RICA.region_state:UCA
+			}
+			add_war_goal = {
+				holder = c:MEX
+				type = return_state
+				target_state = s:STATE_CHIAPAS.region_state:UCA
+			}
+			add_war_goal = {
+				holder = c:MEX
+				type = return_state
+				target_state = s:STATE_SAN_SALVADOR.region_state:UCA
+			}
+		}
+	}
+	c:EGY ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_DARFUR.region_state:DFR
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:EGY
+				type = return_state
+				target_state = s:STATE_DARFUR.region_state:DFR
+				primary_demand = yes
+			}
+		}
+	}
+	c:EGY ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_ERITREA.region_state:AWS
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:EGY
+				type = return_state
+				target_state = s:STATE_ERITREA.region_state:AWS
+				primary_demand = yes
+			}
+		}
+	}
+	c:PAN ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_SINDH.region_state:SIN
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:PAN
+				type = return_state
+				target_state = s:STATE_SINDH.region_state:SIN
+				primary_demand = yes
+			}
+		}
+	}
+	c:SOK ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_BENIN.region_state:BEN
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:SOK
+				type = return_state
+				target_state = s:STATE_BENIN.region_state:BEN
+				primary_demand = yes
+			}
+		}
+	}
+	c:SAR ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_EMILIA.region_state:PAR
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:SAR
+				type = return_state
+				target_state = s:STATE_EMILIA.region_state:PAR
+				primary_demand = yes
+			}
+		}
+	}
+	c:SAR ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_TUSCANY.region_state:TUS
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:SAR
+				type = return_state
+				target_state = s:STATE_TUSCANY.region_state:TUS
+				primary_demand = yes
+			}
+		}
+	}
+	c:NEP ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_EASTERN_HIMALAYAS.region_state:SIK
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:NEP
+				type = return_state
+				target_state = s:STATE_EASTERN_HIMALAYAS.region_state:SIK
+				primary_demand = yes
+			}
+		}
+	}
+	c:NEP ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_EASTERN_HIMALAYAS.region_state:BHU
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:NEP
+				type = return_state
+				target_state = s:STATE_EASTERN_HIMALAYAS.region_state:BHU
+				primary_demand = yes
+			}
+		}
+	}
+	c:CLM ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_ZULIA.region_state:VNZ
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:CLM
+				type = return_state
+				target_state = s:STATE_ZULIA.region_state:VNZ
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:CLM
+				type = return_state
+				target_state = s:STATE_MIRANDA.region_state:VNZ
+			}
+			add_war_goal = {
+				holder = c:CLM
+				type = return_state
+				target_state = s:STATE_BOLIVAR.region_state:VNZ
+			}
+			add_war_goal = {
+				holder = c:CLM
+				type = return_state
+				target_state = s:STATE_WEST_INDIES.region_state:VNZ
+			}
+		}
+	}
+	c:ARG ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_URUGUAY.region_state:URU
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:ARG
+				type = return_state
+				target_state = s:STATE_URUGUAY.region_state:URU
+				primary_demand = yes
+			}
+		}
+	}
+	c:SIA ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_MALAYA.region_state:JOH
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:SIA
+				type = return_state
+				target_state = s:STATE_MALAYA.region_state:JOH
+				primary_demand = yes
+			}
+		}
+	}
+	c:MOR ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_ORAN.region_state:MAS
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:MOR
+				type = return_state
+				target_state = s:STATE_ORAN.region_state:MAS
+				primary_demand = yes
+			}
+			add_war_goal = {
+				holder = c:MOR
+				type = return_state
+				target_state = s:STATE_ALGIERS.region_state:MAS
+			}
+		}
+	}
+}

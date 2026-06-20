@@ -1,6 +1,1 @@
 ﻿l_english:
- mdp_pan_sindh_war:0 "Punjab's Conquest of Sindh"
- mdp_infamy_decay:0 "Rapid Infamy Decay"
- diplo_war_row:0 "FORTESTLOG - DIPLO_WAR Punjab (PAN) | Sindh (SIN) | return_state (infamy 2)"
- diplo_claim_row:0 "FORTESTLOG - DIPLO_TERR Sindh | SIN | PAN | claim"
- diplo_core_row:0 "FORTESTLOG - DIPLO_TERR Sindh | SIN | PAN | homeland(panjabi)"

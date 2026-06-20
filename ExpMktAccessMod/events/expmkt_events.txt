@@ -1,0 +1,25 @@
+﻿namespace = expmkt
+
+# =============================================================================
+# ExpMktAccessMod — yearly coastal-infrastructure pulse.
+# Fired once per expand tag from common/on_actions/expmkt_on_actions.txt, then it
+# re-schedules itself for 4 years (var expmkt_year 1..4). Each pulse re-runs
+# expmkt_seed_coastal, so a tag that conquers its first coastal state in (say) year 2
+# still gets its port + trade center. Hard-stops after year 4 — no further compute.
+# =============================================================================
+expmkt.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		#debug_log = expmkt_yearly_pulse_row   # so the testbook triage shows the yearly tick fired
+		expmkt_seed_coastal = yes
+
+		if = { limit = { NOT = { has_variable = expmkt_year } } set_variable = { name = expmkt_year value = 0 } }
+		change_variable = { name = expmkt_year add = 1 }
+		if = {
+			limit = { var:expmkt_year < 4 }
+			trigger_event = { id = expmkt.1 years = 1 }
+		}
+	}
+}

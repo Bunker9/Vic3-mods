@@ -138,92 +138,124 @@ eco_seed_flavour = {
 		if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
 		change_variable = { name = eco_cur add = 1 }
 		create_building = { building = $B$ level = var:eco_cur reserves = 1 }
-		#debug_log = eco_hit_$TYPE$
+		#debug_log = eco_hit_$TYPE$    # -> "ECO_PLACED flavour"; with the $B$ header + scope dump
+		#debug_log_scopes = yes        # (Root=country, This=state) every build logs uniformly
 	}
+}
+
+# ---- GENERIC FLAVOUR (user 2026-06-12): applies to EVERY target, no per-nation config.
+#      Fixes the early supply/demand death-spiral (no global market access at start).
+#      2026-06-16: wood (+5 logging) and grain (+5 staple) MOVED TO HISTORY — they are build-once,
+#      and history (zz_eco_flavour.txt, capacity-aware) avoids the day-1 event AND the logging
+#      overbuilds. Only the TECH-GATED +1 food industry stays here at runtime (history can't check
+#      the food_industry tech). eco_seed_spread_n is still used for that one seed.
+# -----------------------------------------------------------------------------
+# add 1 level of $B$ to each of up to $N$ highest-gdp constructible states (additive)
+eco_seed_spread_n = {
+	set_variable = { name = eco_spread value = 0 }
+	ordered_scope_state = {
+		order_by = gdp
+		limit = { can_construct_building = $B$ }
+		if = {
+			limit = { ROOT.var:eco_spread < $N$ }
+			set_variable = { name = eco_cur value = 0 }
+			if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
+			change_variable = { name = eco_cur add = 1 }
+			create_building = { building = $B$ level = var:eco_cur reserves = 1 }
+			remove_variable = eco_cur
+			ROOT = { change_variable = { name = eco_spread add = 1 } }
+		}
+	}
+	remove_variable = eco_spread
+}
+
+eco_generic_flavour = {
+	# wood + primary staple MOVED TO HISTORY (zz_eco_flavour.txt) 2026-06-16. Only the tech-gated
+	# processed-food seed stays at runtime: +1 food industry IF the nation has the tech (can construct).
+	if = {
+		limit = { any_scope_state = { can_construct_building = building_food_industry } }
+		eco_seed_spread_n = { B = building_food_industry N = 1 }
+	}
+}
+
+# =============================================================================
+# YEARLY-PULSE spread (user 2026-06-15). The SAME all-40 pass runs day-1 (eco.2) AND every year
+# (eco.5 via on_yearly_pulse -> every target), so champ/support spread to more states + newly-
+# ANNEXED states get covered. NO modifiers here. Places $N$ levels (champ=tier/2, support=tier/4)
+# ONE AT A TIME so each build is gated by can_construct (= state under its MAX cap):
+#   - prefer the highest-GDP state that can build AND doesn't have it yet (SPREAD for modifiers);
+#   - once every constructible state already has one, add +1 to the best state that can still take
+#     it (STACK, capped) and OVERFLOW to the next state when one hits max — never over-builds
+#     (fixes "Friesland has 3 Logging Camps, can only support 2").
+#   - if no state can build it at all -> ECONOSLOT line.
+# eco_left lives on the country (ROOT = the country in eco.2/eco.5).
+# =============================================================================
+eco_pulse_spread = {
+	#debug_log = $B$               # building header (localized name) — pairs with the markers below
+	set_variable = { name = eco_left value = $N$ }
+	while = {
+		limit = {
+			var:eco_left > 0
+			any_scope_state = { can_construct_building = $B$ }   # someone can still take it
+		}
+		if = {
+			# SPREAD: a state that can build it AND is still empty -> +1 there (highest GDP)
+			limit = { any_scope_state = { can_construct_building = $B$  NOT = { has_building = $B$ } } }
+			ordered_scope_state = {
+				order_by = gdp
+				limit = { can_construct_building = $B$  NOT = { has_building = $B$ } }
+				position = 0
+				check_range_bounds = no
+				create_building = { building = $B$ level = 1 reserves = 1 }
+				#debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
+				#debug_log_scopes = yes        # Root = country, This = state (table needs both)
+			}
+		}
+		else = {
+			# STACK: best state that can STILL build (under max cap) -> +1; can_construct false
+			# once it hits cap, so the next while pass picks the next-highest state (overflow).
+			ordered_scope_state = {
+				order_by = gdp
+				limit = { can_construct_building = $B$ }
+				position = 0
+				check_range_bounds = no
+				set_variable = { name = eco_cur value = 0 }
+				if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
+				change_variable = { name = eco_cur add = 1 }
+				create_building = { building = $B$ level = var:eco_cur reserves = 1 }
+				remove_variable = eco_cur
+				#debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
+				#debug_log_scopes = yes
+			}
+		}
+		change_variable = { name = eco_left subtract = 1 }
+	}
+	if = { limit = { var:eco_left > 0 } debug_log = "ECONOSLOT" debug_log_scopes = yes }
+	remove_variable = eco_left
 }
 
 # ---- cleanup: strip every eco state flag + the country counters --------------
 eco_cleanup_flags = {
-	remove_variable = eco_placed
-	remove_variable = eco_S
-	remove_variable = eco_bestlevel
-	remove_variable = eco_mark
-	remove_variable = eco_have
-	remove_variable = eco_need
-	remove_variable = eco_share
+	# 2026-06-16: eco_seed_capped is unused + flavour moved to history, so eco_mark/eco_have and the
+	# eco_*_here state flags are no longer set anywhere — removed their cleanup (was warning "used but
+	# never set"). The pulse effects self-clean eco_left/eco_spread; just clear any per-state eco_cur.
 	every_scope_state = {
-		limit = {
-			OR = {
-				has_variable = eco_champ_here
-				has_variable = eco_support_here
-				has_variable = eco_flavour_here
-				has_variable = eco_best_here
-				has_variable = eco_cur
-			}
-		}
-		remove_variable = eco_champ_here
-		remove_variable = eco_support_here
-		remove_variable = eco_flavour_here
-		remove_variable = eco_best_here
+		limit = { has_variable = eco_cur }
 		remove_variable = eco_cur
 	}
 }
 
 # =============================================================================
-# Per-nation config (the hard-coded table -> effects). Adding a nation = one of these.
-# N = champ 2*X, support 1*X, flavour 1.  X(PAN)=5 -> champ 10 / support 5 / flavour 1.
+# Per-nation config: the eco_setup_<TAG> effects for ALL 40 tags are GENERATED into
+# common/scripted_effects/eco_setup_generated.txt by hk-config/tools/gen_ecoboost_configs.py
+# (source of truth: SELECT_ECOBOOST_FINAL.csv). The champ-throughput modifiers are in
+# common/static_modifiers/eco_champ_tp_generated.txt; the eco.2/eco.3 dispatch is in
+# events/eco_events.txt. Edit the CSV + re-run the generator; do NOT hand-edit here.
 #
-# Target tiers (X = eco-boost weight, from hk-config/tools/mod-nations.csv):
-#    X | nations
-#   10 | China, Russia, East India
-#    9 | United States, France, Great Britain, Ottomans
-#    8 | Japan
-#    7 | Prussia
-#    6 | Spain, Austria, Mexico
-#    5 | Korea, Brazil, Persia, Egypt, Punjab, Dutch East Indies
-#    4 | Hungary, Portugal, Two Sicilies, Netherlands, Sokoto, Sardinia-Piedmont, Sweden
-#    3 | Hyderabad, Greece, Dai Nam, Nepal, Colombia, Argentina
-#    2 | Siam, Morocco, Oman, Shewa, South Africa, Philippines, Belgium, Bavaria, Burma
+# N = champ 2*tier, support 1*tier, flavour 1.  Tiers (mod-nations.csv):
+#   10 China/Russia/East India · 9 USA/France/GB/Ottomans · 8 Japan · 7 Prussia
+#   6 Spain/Austria/Mexico · 5 Korea/Brazil/Persia/Egypt/Punjab/DEI
+#   4 Hungary/Portugal/Two Sicilies/Netherlands/Sokoto/Sardinia/Sweden
+#   3 Hyderabad/Greece/Dai Nam/Nepal/Colombia/Argentina
+#   2 Siam/Morocco/Oman/Shewa/South Africa/Philippines/Belgium/Bavaria/Burma
 # =============================================================================
-
-# ---- PUNJAB (PAN): champ cotton(10); support opium/sugar/tea/textile(5); flavour(1) x6
-eco_setup_PAN = {
-	eco_seed_capped = { B = building_cotton_plantation TYPE = champ   N = 10 }
-
-	eco_seed_capped = { B = building_opium_plantation  TYPE = support N = 5 }
-	eco_seed_capped = { B = building_sugar_plantation  TYPE = support N = 5 }
-	eco_seed_capped = { B = building_tea_plantation    TYPE = support N = 5 }
-	eco_seed_capped = { B = building_textile_mill      TYPE = support N = 5 }
-
-	eco_seed_flavour = { B = building_artillery_foundry TYPE = flavour }
-	eco_seed_flavour = { B = building_paper_mill        TYPE = flavour }
-	eco_seed_flavour = { B = building_coffee_plantation TYPE = flavour }
-	eco_seed_flavour = { B = building_tooling_workshop  TYPE = flavour }
-	eco_seed_flavour = { B = building_iron_mine         TYPE = flavour }
-	eco_seed_flavour = { B = building_logging_camp      TYPE = flavour }
-
-	add_modifier = { name = eco_PAN_champ_tp_p1 months = 240 }   # cotton throughput +200%, 20 yr
-	add_modifier = { name = eco_sol_p1         months = 240 }    # shared champ+support group SoL +2, 20 yr
-	trigger_event = { id = eco.3 years = 20 }                    # phase-2 champ SoL swap
-
-	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
-
-	eco_cleanup_flags = yes
-}
-
-# ---- PRUSSIA (PRU): champ steel(14); support explosives/chemical/motor(7); flavour none
-eco_setup_PRU = {
-	eco_seed_capped = { B = building_steel_mill         TYPE = champ   N = 14 }
-
-	eco_seed_capped = { B = building_explosives_factory TYPE = support N = 7 }
-	eco_seed_capped = { B = building_chemical_plant     TYPE = support N = 7 }
-	eco_seed_capped = { B = building_motor_industry     TYPE = support N = 7 }
-
-	add_modifier = { name = eco_PRU_champ_tp_p1 months = 240 }   # steel throughput +200%, 20 yr
-	add_modifier = { name = eco_sol_p1         months = 240 }    # shared champ+support group SoL +2, 20 yr
-	trigger_event = { id = eco.3 years = 20 }
-
-	if = { limit = { is_player = yes } trigger_event = { id = eco.4 } }   # player-only "seeded" toast
-
-	eco_cleanup_flags = yes
-}

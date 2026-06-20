@@ -1,0 +1,103 @@
+﻿# =============================================================================
+# Top40EcoBoostMod - EcoBoost sector picker event (eco_picker.1).
+# Fired by the eco_picker_choose_modifier decision (common/decisions/).
+# Each option: guarded-remove any prior champ modifier, then add eco_sol_edu_global
+# (permanent SoL/edu) + the chosen 20-year (months=240) champ throughput modifier,
+# and emit a debug marker (eco - picker - <sector>) for the testbook unit-test scripts.
+# AI scoring: base 5, +5 per matching building type present in any owned state.
+# HAND-WRITTEN. Rewritten from scratch 2026-06-17; every building/token verified vs game files.
+# =============================================================================
+
+namespace = eco_picker
+
+eco_picker.1 = {
+	type = country_event
+	title = eco_picker.1.t
+	desc = eco_picker.1.desc
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+	immediate = {
+		add_modifier = { name = eco_sol_edu_global }
+	}
+	# AI pick logic (added 2026-06-19): each option is weighted by how big that sector
+	# already is in the country's economy, read cheaply with the country-scope trigger
+	# country_has_building_group_levels (no per-state iteration). Thresholds are calibrated
+	# PER SECTOR (agriculture/plantations run large; fishing/mining/industry run small in 1836)
+	# so the AI favours its RELATIVELY dominant sector, not just the absolutely largest group.
+	# base=1 keeps every option reachable; the dominant sector wins by weight.
+
+	# Plantation agriculture
+	option = {
+		name = eco_picker.1.a
+		add_modifier = { name = eco_champ_tp_plant months = 240 }
+		#debug_log = eco_picker_log_plant
+		ai_chance = {
+			base = 1
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_plantations value >= 25 } } add = 10 }
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_plantations value >= 50 } } add = 25 }
+		}
+	}
+
+	# Timber and forestry
+	option = {
+		name = eco_picker.1.b
+		add_modifier = { name = eco_champ_tp_log months = 240 }
+		#debug_log = eco_picker_log_log
+		ai_chance = {
+			base = 1
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_logging value >= 10 } } add = 10 }
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_logging value >= 25 } } add = 25 }
+		}
+	}
+
+	# Livestock ranching and agriculture
+	option = {
+		name = eco_picker.1.c
+		add_modifier = { name = eco_champ_tp_ranch months = 240 }
+		#debug_log = eco_picker_log_ranch
+		ai_chance = {
+			base = 1
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_agriculture value >= 30 } } add = 10 }
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_agriculture value >= 60 } } add = 25 }
+		}
+
+		default_option = yes # default as every nation can do with a little extra food
+	}
+
+	# Mining and extraction
+	option = {
+		name = eco_picker.1.d
+		add_modifier = { name = eco_champ_tp_mine months = 240 }
+		#debug_log = eco_picker_log_mine
+		ai_chance = {
+			base = 1
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_mining value >= 10 } } add = 10 }
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_mining value >= 25 } } add = 25 }
+		}
+	}
+
+	# Maritime fishing
+	option = {
+		name = eco_picker.1.e
+		add_modifier = { name = eco_champ_tp_fish months = 240 }
+		#debug_log = eco_picker_log_fish
+		ai_chance = {
+			base = 1
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_fishing value >= 5 } } add = 10 }
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_fishing value >= 12 } } add = 25 }
+		}
+	}
+
+	# Industrial manufacturing
+	option = {
+		name = eco_picker.1.f
+		add_modifier = { name = eco_champ_tp_ind months = 240 }
+		#debug_log = eco_picker_log_ind
+		ai_chance = {
+			base = 1
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_heavy_industry value >= 5 } } add = 10 }
+			modifier = { trigger = { country_has_building_group_levels = { type = bg_heavy_industry value >= 15 } } add = 25 }
+		}
+	}
+}

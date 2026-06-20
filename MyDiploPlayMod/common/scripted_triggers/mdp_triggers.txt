@@ -1,0 +1,146 @@
+﻿# =============================================================================
+# MyDiploPlayMod — scripted triggers
+# =============================================================================
+
+# Raw tag list — used ONLY at game start (mdp_startup), when all 20 tags are guaranteed live.
+# At runtime, `this = c:DEADTAG` errors ("Invalid right side during comparison") once any of
+# these gets annexed — which spammed error.log 942× — so runtime code uses the flag below.
+mdp_is_expand_tag = {
+    OR = {
+        this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
+        this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
+        this = c:SOK   this = c:SAR   this = c:SWE   this = c:DAI
+        this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
+        this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
+    }
+}
+
+# Runtime-safe expander check: mdp_startup sets var:mdp_expander on each live expand tag at
+# game start. Testing a variable never errors on a tag that later dies.
+mdp_is_expand_country = {
+    has_variable = mdp_expander
+}
+
+# Runtime-safe subject-annexer check: mdp_startup sets var:mdp_subject_annexer on the SEA+Punjab
+# annexer tags (DAI/BUR/SIA/PAN). Single source of truth used by BOTH mdp.3 and the on_action
+# dispatch — replaces the duplicated OR={...} list (cleaner, performant, tag-death-safe).
+mdp_is_subject_annexer = {
+    has_variable = mdp_subject_annexer
+}
+
+# -----------------------------------------------------------------------------
+# Is this country in ANY power bloc (as member OR leader)?
+# Evaluated on the CANDIDATE target country.
+# Safe to call even if the country has no bloc (power_bloc scope simply won't exist).
+# -----------------------------------------------------------------------------
+mdp_is_in_power_bloc = {
+    exists = power_bloc
+}
+
+# -----------------------------------------------------------------------------
+# Valid target for the GENERIC blob chain.
+# Evaluated in CANDIDATE country scope; scope:mdp_attacker = the expanding country.
+#
+# Rule: pick the weakest recognised neighbour that:
+#   - is not another expand tag
+#   - is not a GP
+#   - is NOT in any power bloc (member OR leader) — this is the new key guard
+#     that prevents PRU/SWE/SAR from dragging a GP into the war via call_to_arms
+#   - is independent (not a subject)
+#   - is not already at war
+#   - has at least one state to take
+#   - does NOT have capital in Europe
+#   - does NOT hold any treaty ports
+#   - population <= 3M
+#   - controls <= 6 states
+# -----------------------------------------------------------------------------
+mdp_valid_generic_target = {
+    exists = this
+    NOT = { is_country_type = decentralized }       # never attack decentralized/primitive nations
+                                                    # (allows unrecognized targets — SOK/PAN are themselves unrecognized)
+    mdp_is_expand_country = no                      # never attack another expander
+    NOT = { country_rank >= rank_value:major_power } # not a GP OR major power — valid proxy for
+                                                     # "very large country (~3M+)"; also covers GPs-with-treaty-ports.
+                                                     # (Vic3 has NO country_population trigger — rank is the correct lever.)
+    is_subject = no                                 # not a formal subject
+    NOT = { mdp_is_in_power_bloc = yes }            # ← KEY: not in any power bloc at all
+    NOT = { this = scope:mdp_attacker }             # don't self-target
+    NOT = { has_truce_with = scope:mdp_attacker }   # truce (incl. the all-expander truces in
+                                                     # zz_mdp_truces.txt) blocks retargeting
+    is_at_war = no                                  # don't pile on
+    # MUST share a land border with the attacker. (any_neighbouring_country is NOT a real
+    # Vic3 trigger — it silently no-ops, which is why DAI picked Ashanti / PAN picked Spain.
+    # Real adjacency: a candidate state that neighbours an attacker-owned state.)
+    any_scope_state = {
+        any_neighbouring_state = { owner = scope:mdp_attacker }
+    }
+
+    # State-count cap (~<=6 states): don't attack sprawling empires.
+    # VALID list-count syntax is `any_scope_state = { count >= N }` (verified in game files).
+    # NOT a `limit={} count<N` block — that silently mis-parses to no-op.
+    NOT = { any_scope_state = { count >= 7 } }
+
+     # EGY must never target Oriental Orthodox / Ethiopian-culture countries
+        NOT = {
+            AND = {
+                scope:mdp_attacker = { this = c:EGY }
+                mdp_egy_forbidden_target = yes
+            }
+        }
+
+    # OMA: restrict to targets bordering its Arabian mainland, not its African colonial
+    # holdings (Zanzibar etc.) — otherwise the adjacency check above picks up African
+    # neighbours and OMA ends up in useless wars across the Gulf of Aden.
+    trigger_if = {
+        limit = { scope:mdp_attacker = { this = c:OMA } }
+        mdp_oma_target_filter = yes
+    }
+}
+# -----------------------------------------------------------------------------
+# EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
+# Evaluated in CANDIDATE country scope.
+# Covers SHW, KFA (Kaffa), and any other Ethiopian-sphere minor.
+# Vanilla script names:
+#   religion: oriental_orthodox
+#   cultures: amhara, oromo, tigrinya, somali (the Horn cultures)
+# -----------------------------------------------------------------------------
+mdp_egy_forbidden_target = {
+    OR = {
+        religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
+        country_has_primary_culture = cu:amhara
+        country_has_primary_culture = cu:oromo
+        country_has_primary_culture = cu:afar
+        country_has_primary_culture = cu:somali
+    }
+}
+
+# -----------------------------------------------------------------------------
+# OMA-only adjacency restriction. Evaluated in CANDIDATE country scope;
+# scope:mdp_attacker = c:OMA.
+# OMA holds African colonial states (e.g. Zanzibar-area holdings), so the generic
+# any_neighbouring_state adjacency check in mdp_valid_generic_target was matching
+# candidates that only border those African holdings — sending OMA into useless wars
+# across the Gulf of Aden instead of expanding on its Arabian mainland. This requires
+# the bordering OMA-owned state to itself be on the Arabian mainland
+# (geographic_region_arabia, verified common/geographic_regions/06_new_strategic_regions.txt).
+# -----------------------------------------------------------------------------
+mdp_oma_target_filter = {
+    any_scope_state = {
+        any_neighbouring_state = {
+            owner = scope:mdp_attacker
+            state_region = { is_in_geographic_region = geographic_region_arabia }
+        }
+    }
+}
+
+# -----------------------------------------------------------------------------
+# Pre-flight check on the ATTACKER. (Currently UNUSED — the monthly on_action does these
+# checks inline. Kept as documentation. The actual target search + adjacency lives in
+# mdp_try_next_war's ordered_country over mdp_valid_generic_target.)
+# -----------------------------------------------------------------------------
+mdp_can_blob_now = {
+    mdp_is_expand_country = yes
+    is_at_war = no
+    is_active_in_diplomatic_play = no   # not already maneuvering a play (pre-war phase)
+    infamy < 30
+}

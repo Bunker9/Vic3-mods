@@ -1,0 +1,455 @@
+﻿# HAND-WRITTEN. (gen_blob_plan.py was RETIRED 2026-06-16; logic salvaged to hk-config/scripts/_oneoff/scraps_salvaged_generator_logic.py.)
+POPS = {
+	s:STATE_GUATEMALA = {
+		region_state:UCA = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_HONDURAS = {
+		region_state:UCA = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_NICARAGUA = {
+		region_state:UCA = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_COSTA_RICA = {
+		region_state:UCA = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_CHIAPAS = {
+		region_state:UCA = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_SAN_SALVADOR = {
+		region_state:UCA = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_NICARAGUA = {
+		region_state:MKT = {
+			create_pop = { culture = mexican religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_MATO_GROSSO = {
+		region_state:PRG = {
+			create_pop = { culture = brazilian religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_BAJO_PARAGUAY = {
+		region_state:PRG = {
+			create_pop = { culture = brazilian religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_KHIVA = {
+		region_state:TRM = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_URALSK = {
+		region_state:TRM = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_TURKMENIA = {
+		region_state:TRM = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_MERZ = {
+		region_state:TRM = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_KHIVA = {
+		region_state:KHI = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_TURKMENIA = {
+		region_state:KHI = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_MERZ = {
+		region_state:KHI = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_BALKH = {
+		region_state:MAI = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_BALKH = {
+		region_state:BUK = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_UZBEKIA = {
+		region_state:BUK = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_TAJIKISTAN = {
+		region_state:BUK = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_MERZ = {
+		region_state:BUK = {
+			create_pop = { culture = persian religion = shiite size = 10000 }
+		}
+	}
+	s:STATE_DARFUR = {
+		region_state:DFR = {
+			create_pop = { culture = misri religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_HAIL = {
+		region_state:JAB = {
+			create_pop = { culture = misri religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_SINDH = {
+		region_state:SIN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_BALUCHISTAN = {
+		region_state:KAL = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_BALUCHISTAN = {
+		region_state:KAN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_SISTAN = {
+		region_state:KAN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_KANDAHAR = {
+		region_state:KAN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_NORTHERN_BALUCHISTAN = {
+		region_state:KAN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_QUETTA = {
+		region_state:KAN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_CENTRAL_HIGHLANDS = {
+		region_state:KAN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_HERAT = {
+		region_state:HER = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_CENTRAL_HIGHLANDS = {
+		region_state:HER = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_BALKH = {
+		region_state:KUN = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_KABUL = {
+		region_state:KAF = {
+			create_pop = { culture = panjabi religion = sikh size = 10000 }
+			create_pop = { culture = panjabi religion = hindu size = 3000 }
+		}
+	}
+	s:STATE_YORUBA_STATES = {
+		region_state:OYO = {
+			create_pop = { culture = hausa religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_BENIN = {
+		region_state:BEN = {
+			create_pop = { culture = hausa religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_CHAD = {
+		region_state:WAD = {
+			create_pop = { culture = hausa religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_WADDAI = {
+		region_state:WAD = {
+			create_pop = { culture = hausa religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_WADDAI = {
+		region_state:BGI = {
+			create_pop = { culture = hausa religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_LAOS = {
+		region_state:LUA = {
+			create_pop = { culture = vietnamese religion = mahayana size = 10000 }
+		}
+	}
+	s:STATE_MEKONG = {
+		region_state:DGR = {
+			create_pop = { culture = vietnamese religion = mahayana size = 10000 }
+		}
+	}
+	s:STATE_CAMBODIA = {
+		region_state:KLO = {
+			create_pop = { culture = vietnamese religion = mahayana size = 10000 }
+		}
+	}
+	s:STATE_EASTERN_HIMALAYAS = {
+		region_state:SIK = {
+			create_pop = { culture = nepali religion = hindu size = 10000 }
+		}
+	}
+	s:STATE_EASTERN_HIMALAYAS = {
+		region_state:BHU = {
+			create_pop = { culture = nepali religion = hindu size = 10000 }
+		}
+	}
+	s:STATE_LHASA = {
+		region_state:TIB = {
+			create_pop = { culture = nepali religion = hindu size = 10000 }
+		}
+	}
+	s:STATE_NGARI = {
+		region_state:TIB = {
+			create_pop = { culture = nepali religion = hindu size = 10000 }
+		}
+	}
+	s:STATE_EASTERN_HIMALAYAS = {
+		region_state:TIB = {
+			create_pop = { culture = nepali religion = hindu size = 10000 }
+		}
+	}
+	s:STATE_ECUADOR = {
+		region_state:ECU = {
+			create_pop = { culture = north_andean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_PASTAZA = {
+		region_state:ECU = {
+			create_pop = { culture = north_andean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_ZULIA = {
+		region_state:VNZ = {
+			create_pop = { culture = north_andean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_MIRANDA = {
+		region_state:VNZ = {
+			create_pop = { culture = north_andean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_BOLIVAR = {
+		region_state:VNZ = {
+			create_pop = { culture = north_andean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_WEST_INDIES = {
+		region_state:VNZ = {
+			create_pop = { culture = north_andean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_URUGUAY = {
+		region_state:URU = {
+			create_pop = { culture = platinean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_SANTIAGO = {
+		region_state:CHL = {
+			create_pop = { culture = platinean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_LOS_RIOS = {
+		region_state:CHL = {
+			create_pop = { culture = platinean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_ARAUCANIA = {
+		region_state:CHL = {
+			create_pop = { culture = platinean religion = catholic size = 10000 }
+		}
+	}
+	s:STATE_MALAYA = {
+		region_state:JOH = {
+			create_pop = { culture = thai religion = theravada size = 10000 }
+		}
+	}
+	s:STATE_MALAYA = {
+		region_state:PRK = {
+			create_pop = { culture = thai religion = theravada size = 10000 }
+		}
+	}
+	s:STATE_MALAYA = {
+		region_state:SEL = {
+			create_pop = { culture = thai religion = theravada size = 10000 }
+		}
+	}
+	s:STATE_CAMBODIA = {
+		region_state:CAM = {
+			create_pop = { culture = thai religion = theravada size = 10000 }
+		}
+	}
+	s:STATE_ORAN = {
+		region_state:MAS = {
+			create_pop = { culture = maghrebi religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_ALGIERS = {
+		region_state:MAS = {
+			create_pop = { culture = maghrebi religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_CONSTANTINE = {
+		region_state:AIT = {
+			create_pop = { culture = maghrebi religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_CONSTANTINE = {
+		region_state:CON = {
+			create_pop = { culture = maghrebi religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_EAST_SAHARA = {
+		region_state:TUG = {
+			create_pop = { culture = maghrebi religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_TUNISIA = {
+		region_state:TUN = {
+			create_pop = { culture = maghrebi religion = sunni size = 10000 }
+		}
+	}
+	s:STATE_ABU_DHABI = {
+		region_state:ABU = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_ABU_DHABI = {
+		region_state:BHN = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_LARISTAN = {
+		region_state:BHN = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_YEMEN = {
+		region_state:KAT = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_YEMEN = {
+		region_state:LAH = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_YEMEN = {
+		region_state:ZAI = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_HAIL = {
+		region_state:NEJ = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_NEJD = {
+		region_state:NEJ = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_YEMEN = {
+		region_state:MAH = {
+			create_pop = { culture = bedouin religion = ibadi size = 10000 }
+		}
+	}
+	s:STATE_OROMIA = {
+		region_state:ARS = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_AMHARA = {
+		region_state:SDM = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_AMHARA = {
+		region_state:WLT = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_AMHARA = {
+		region_state:WLG = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_AMHARA = {
+		region_state:HDY = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_AMHARA = {
+		region_state:KFA = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_OROMIA = {
+		region_state:HAR = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_GONDER = {
+		region_state:AWS = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_ERITREA = {
+		region_state:AWS = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_SOMALILAND = {
+		region_state:ISQ = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+	s:STATE_SOMALILAND = {
+		region_state:WSG = {
+			create_pop = { culture = amhara religion = oriental_orthodox size = 10000 }
+		}
+	}
+}

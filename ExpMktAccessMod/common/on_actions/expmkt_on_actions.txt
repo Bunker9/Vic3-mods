@@ -1,0 +1,21 @@
+﻿# =============================================================================
+# ExpMktAccessMod — at game start, give every expand tag the infrastructure for global
+# market access (the thing expansion is FOR): switch to interventionism, empower industry,
+# and seed a port + trade center + wood in its best coastal state. A yearly event pulse
+# (expmkt.1) then re-runs the coastal seed for 4 years, catching coastal states won mid-war.
+# on_game_started_after_lobby is ADDITIVE in Vic3 (on_actions merge) — appends to vanilla.
+# =============================================================================
+on_game_started_after_lobby = { on_actions = { expmkt_startup } }
+
+# Merge-safe sub-list effect: on_actions = { ... } MERGES across mods, whereas a bare
+# `effect = {}` on a shared on_action is OVERRIDDEN (only the last-loaded mod's effect runs).
+expmkt_startup = {
+	effect = {
+		every_country = {
+			limit = { expmkt_is_expand_country = yes }
+			expmkt_start_setup = yes
+			trigger_event = { id = expmkt.1 months = 17 }  # first coastal pulse 1837.6.1, then yearly x4
+			#debug_log = expmkt_start_row                  # commented out for master
+		}
+	}
+}

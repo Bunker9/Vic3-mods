@@ -1,0 +1,165 @@
+﻿# =============================================================================
+# MyDiploPlayMod — generic blob-chain effect.
+# Scope when called: the ATTACKER country (an expand tag).
+# scope:mdp_attacker must be saved by the caller (mdp.1) before this fires.
+#
+# NOTE on debug_log: keep strings PLAIN TEXT — square-bracket [Data.Functions]
+# inside debug_log do NOT resolve here and spam ~hundreds of loc-parse errors into
+# error.log (same lesson as Top40 eco_effects). Use debug_log_scopes = yes for the
+# actual scope identities (Root / This / saved scopes).
+# =============================================================================
+mdp_try_next_war = {
+
+    #debug_log = "mdp_try_next_war START"
+    #debug_log_scopes = yes   # logs attacker identity + the scope stack
+
+    # -------------------------------------------------------------------------
+    # Step 1: pick the BIGGEST BEATABLE valid neighbour — army < 80% of ours, then the highest
+    # GDP among those (user 2026-06-16). order_by only works on ordered_* scopes; ordered_country
+    # sorts DESCENDING, so position = 0 = the highest-GDP beatable match. (The old order_by =
+    # prestige / position = 0 actually picked the STRONGEST neighbour — its "weakest" comment was
+    # wrong; this also fixes that.)
+    # -------------------------------------------------------------------------
+    ordered_country = {
+        limit = {
+            mdp_valid_generic_target = yes   # includes the land-adjacency-to-attacker check
+            # Only target a neighbour we can actually beat: its standing army < 80% of ours.
+            # value-block comparison verified vs vanilla (army_size < { value = <scope>.army_size
+            # multiply = .. }). army_size = standing-army unit count.
+            army_size < {
+                value = scope:mdp_attacker.army_size
+                multiply = 0.8
+            }
+        }
+        # Among the beatable neighbours, take the BIGGEST by GDP (grab the largest target we can
+        # win, not the absolute weakest). order_by = gdp verified valid at country scope (30 vanilla
+        # uses); ordered_* sorts descending, so position = 0 = highest GDP (eco coup top-GDP idiom).
+        order_by = gdp
+        position = 0
+        check_range_bounds = no
+
+        save_scope_as = mdp_tgt
+
+        #debug_log = "mdp_try_next_war TARGET CHOSEN"
+        #debug_log_scopes = yes
+    }
+
+    # -------------------------------------------------------------------------
+    # Step 2: verify we actually found a target before continuing
+    # -------------------------------------------------------------------------
+    if = {
+        limit = { NOT = { exists = scope:mdp_tgt } }
+        #debug_log = "mdp_try_next_war NO VALID TARGET — aborting"
+    }
+
+    if = {
+        limit = { exists = scope:mdp_tgt }
+
+        #debug_log = "mdp_try_next_war granting claims+homeland on target states"
+
+        # ---------------------------------------------------------------------
+        # Step 2b: SAVE the attacker's culture scope (for add_homeland). Multi-hop
+        # scope:mdp_attacker.ruler.culture is rejected as a key reference, so save it first
+        # (vanilla zanzibar idiom).
+        # ---------------------------------------------------------------------
+        scope:mdp_attacker = {
+            ruler ?= { culture = { save_scope_as = mdp_atk_culture } }
+        }
+
+        # ---------------------------------------------------------------------
+        # Step 3: claim + homeland on every target state.
+        # add_claim is a STATE-scoped effect whose VALUE is the country gaining the claim —
+        # so we stay in the every_scope_state scope and pass the attacker as the value.
+        # add_homeland takes a culture scope (the saved one). These claims are what make the
+        # conquest LOW-INFAMY + incorporable.
+        # ---------------------------------------------------------------------
+        # add_claim/add_homeland are STATE_REGION effects — in every_scope_state (state scope)
+        # they error "Inconsistent effect scopes (state vs state_region)". Wrap in state_region
+        # (vanilla idiom); keep the timeline debug markers in the outer state scope.
+        scope:mdp_tgt = {
+            every_scope_state = {
+                state_region = {
+                    add_claim = scope:mdp_attacker
+                    if = {
+                        limit = { exists = scope:mdp_atk_culture }
+                        add_homeland = scope:mdp_atk_culture
+                    }
+                }
+                #debug_log = "MDP_CLAIM"            # testbook timeline marker (1 per claimed state)
+                if = {
+                    limit = { exists = scope:mdp_atk_culture }
+                    #debug_log = "MDP_HOMELAND"     # testbook timeline marker (1 per homeland change)
+                }
+            }
+        }
+
+        # ---------------------------------------------------------------------
+        # Step 4: declare the diplomatic play. We use dp_return_state (war goal
+        # return_state) — base infamy 2 vs conquer_state's 5, and it reclaims a
+        # CLAIMED state, which is exactly what Step 3's add_claim set up. This is
+        # the lowest-infamy way to annex whole states. The play's primary war goal
+        # is generated from the play-level target_state (= the capital).
+        # ---------------------------------------------------------------------
+        #debug_log = "mdp_try_next_war declaring dp_return_state"
+
+        scope:mdp_attacker = {
+            create_diplomatic_play = {
+                target_country = scope:mdp_tgt
+                type           = dp_return_state
+                target_state   = scope:mdp_tgt.capital   # primary goal = capital
+            }
+        }
+
+        # ---------------------------------------------------------------------
+        # Step 6: grab the freshly-created play and add a return_state war goal for
+        # EVERY target state, including the capital — create_diplomatic_play's
+        # target_state alone does not register a war goal (mirrors the hand-curated
+        # zz_mdp_wars.txt pattern, which always pairs target_state with an explicit
+        # add_war_goal). The capital gets primary_demand = yes; add_war_goal must run
+        # in the diplomatic_play scope, so we can't loop inside create_diplomatic_play
+        # — we re-enter the play here.
+        # ---------------------------------------------------------------------
+        random_diplomatic_play = {
+            limit = {
+                is_diplomatic_play_type = dp_return_state
+                any_scope_play_involved = { this = scope:mdp_attacker }
+                any_scope_play_involved = { this = scope:mdp_tgt }
+            }
+            save_scope_as = mdp_play
+        }
+
+        if = {
+            limit = { exists = scope:mdp_play }
+            scope:mdp_tgt = {
+                every_scope_state = {
+                    save_scope_as = mdp_goal_state
+                    if = {
+                        limit = { this = scope:mdp_tgt.capital }
+                        scope:mdp_play = {
+                            add_war_goal = {
+                                holder       = scope:mdp_attacker
+                                type         = return_state
+                                target_state = scope:mdp_goal_state
+                                primary_demand = yes
+                            }
+                        }
+                    }
+                    else = {
+                        scope:mdp_play = {
+                            add_war_goal = {
+                                holder       = scope:mdp_attacker
+                                type         = return_state
+                                target_state = scope:mdp_goal_state
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #debug_log = "mdp_try_next_war WAR DECLARED"
+        #debug_log_scopes = yes
+    }
+
+    #debug_log = "mdp_try_next_war END"
+}

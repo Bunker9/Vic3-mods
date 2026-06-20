@@ -1,0 +1,189 @@
+﻿# HAND-WRITTEN. (gen_blob_plan.py was RETIRED 2026-06-16; logic salvaged to hk-config/scripts/_oneoff/scraps_salvaged_generator_logic.py.)
+DIPLOMACY = {
+	#added to prevent PANJAB beelining to central asia
+	c:CHT ?= {
+		create_bidirectional_truce = {
+			country = c:PAN
+			months = 24
+		}
+	}
+	#added to prevent PANJAB beelining to central asia
+	c:KAB ?= {
+		create_bidirectional_truce = {
+			country = c:PAN
+			months = 24
+		}
+	}
+	c:KAB ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 36
+		}
+	}
+	c:KAN ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 36
+		}
+	}
+	c:MAK ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 36
+		}
+	}
+	c:ARG ?= {
+		create_bidirectional_truce = {
+			country = c:BRZ
+			months = 120
+		}
+	}
+	c:ARG ?= {
+		create_bidirectional_truce = {
+			country = c:CLM
+			months = 120
+		}
+	}
+	c:ARG ?= {
+		create_bidirectional_truce = {
+			country = c:MEX
+			months = 120
+		}
+	}
+	c:BIC ?= {
+		create_bidirectional_truce = {
+			country = c:NEP
+			months = 120
+		}
+	}
+	c:BIC ?= {
+		create_bidirectional_truce = {
+			country = c:PAN
+			months = 120
+		}
+	}
+	c:BRZ ?= {
+		create_bidirectional_truce = {
+			country = c:CLM
+			months = 120
+		}
+	}
+	c:BRZ ?= {
+		create_bidirectional_truce = {
+			country = c:MEX
+			months = 120
+		}
+	}
+	c:CLM ?= {
+		create_bidirectional_truce = {
+			country = c:MEX
+			months = 120
+		}
+	}
+	c:DAI ?= {
+		create_bidirectional_truce = {
+			country = c:DEI
+			months = 120
+		}
+	}
+	c:DAI ?= {
+		create_bidirectional_truce = {
+			country = c:SIA
+			months = 120
+		}
+	}
+	c:DEI ?= {
+		create_bidirectional_truce = {
+			country = c:SIA
+			months = 120
+		}
+	}
+	c:EGY ?= {
+		create_bidirectional_truce = {
+			country = c:MOR
+			months = 120
+		}
+	}
+	c:EGY ?= {
+		create_bidirectional_truce = {
+			country = c:OMA
+			months = 120
+		}
+	}
+	c:EGY ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 120
+		}
+	}
+	c:EGY ?= {
+		create_bidirectional_truce = {
+			country = c:SHW
+			months = 120
+		}
+	}
+	c:EGY ?= {
+		create_bidirectional_truce = {
+			country = c:SOK
+			months = 120
+		}
+	}
+	c:NEP ?= {
+		create_bidirectional_truce = {
+			country = c:PAN
+			months = 120
+		}
+	}
+	c:OMA ?= {
+		create_bidirectional_truce = {
+			country = c:PER
+			months = 120
+		}
+	}
+	c:OMA ?= {
+		create_bidirectional_truce = {
+			country = c:NEJ
+			months = 36      #shorten this ..NEJ good target after vassals absorbed by OMA
+		}
+	}
+	c:OMA ?= {
+		create_bidirectional_truce = {
+			country = c:SHW
+			months = 120
+		}
+	}
+	# SHW<->WTU (user 2026-06-16): after conquering Somalia, Shewa kept getting dragged into an
+	# odd event-claim war with Witu (Kenya). 120 mo covers the whole 1836-1846 blob-chain window.
+	c:SHW ?= {
+		create_bidirectional_truce = {
+			country = c:WTU
+			months = 120
+		}
+	}
+	# DEI 2-yr cooling period vs Siak + Aceh (2026-06-17): AI never arms their fronts despite
+	# mobilized troops; DEI wins too fast and over-expands in SEA. Truce buys breathing room.
+	c:DEI ?= {
+		create_bidirectional_truce = {
+			country = c:SAK
+			months = 24
+		}
+	}
+	c:DEI ?= {
+		create_bidirectional_truce = {
+			country = c:ACE
+			months = 24
+		}
+	}
+	c:NEP ?= {
+		create_bidirectional_truce = {
+			country = c:BUR
+			months = 120
+		}
+	}
+	c:SIA ?= {
+		create_bidirectional_truce = {
+			country = c:BUR
+			months = 120
+		}
+	}
+}

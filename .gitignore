@@ -5,6 +5,12 @@ Desktop.ini
 *.swp
 .vscode/
 .idea/
+*.iml
+out/
+
+# Review/working spreadsheets — design prose & musings; NEVER on the public mod repo.
+# Home is hk-config/data/ (already *.xlsx-ignored there). Listed here as a leak guard.
+*.xlsx
 
 # Paradox / launcher artifacts
 *.zip

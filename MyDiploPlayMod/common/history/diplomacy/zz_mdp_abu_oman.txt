@@ -1,0 +1,22 @@
+﻿# =============================================================================
+# MyDiploPlayMod — reassign ABU (Trucial States) from GBR to OMA at GAME SETUP.
+# HISTORY, not an event (user design rule: prefer history over day-1 events — zero engine overhead).
+# Vanilla common/history/diplomacy/00_subject_relationships.txt makes ABU a GBR protectorate; this
+# file (loads after, zz_ prefix) drops that pact and makes OMA the protector, so OMA can later absorb
+# ABU via the mdp.3 subject-annex chain (fewer late-game nations -> smoother run).
+# =============================================================================
+DIPLOMACY = {
+	c:OMA ?= {
+		create_diplomatic_pact = {
+			country = c:ABU
+			type = vassal
+		}
+		create_diplomatic_pact = {
+			country = c:BHN  # bhn - bahrain
+			type = vassal
+		}
+
+		# Replaces the old EGY-OMA bidirectional truce (removed from zz_mdp_truces.txt).
+		set_relations = { country = c:EGY value = 50 }
+	}
+}

@@ -1,35 +1,60 @@
 ﻿# =============================================================================
 # Top40EcoBoostMod — eco-boost modifiers (referenced by add_modifier).
-# Named modifiers used by add_modifier MUST live in common/static_modifiers/.
-# Rationale (surgical champ throughput, group-level SoL, wage lever, phases) is in
-# hk-config/docs/design_decisions.md.
+# REDESIGN 2026-06-15 (user): just FOUR hand-defined modifiers (no per-tag, no 40):
+#   - 3 champ-category THROUGHPUT+WAGE modifiers (20 yr). eco_setup_<TAG> picks ONE based on
+#     the tag's champ building-group (agri / mine / ind). Boosts the champ industry's workers.
+#   - 1 flat global SoL+education modifier (whole game) applied to all 40 targets.
+# The duration (months=240 / permanent) is set at the add_modifier call, not here.
 # =============================================================================
 
-# ---- champ THROUGHPUT, Phase 1 (0-20 yr). Building-type specific (surgical) ->
-#      kept per-nation, NOT merged (a shared token list would buff unintended buildings).
-eco_PAN_champ_tp_p1 = {
+# ---- champ throughput (max +0.5) + min-wage, by building-GROUP (20 yr). Pick ONE per tag. ----
+# The old single eco_champ_tp_agri lumped all 5 agrarian groups together AND carried +2.0
+# throughput on logging/ranching/fishing. Split 2026-06-16 (user) so a champ boosts ONLY its own
+# group, and ALL throughput is capped at +0.5:
+#   _plant = plantations  (tea/dye/tobacco/fabric/coffee/sugar/fruit/wine/opium/silk/rubber)
+#   _log   = logging      (wood)
+#   _ranch = ranching + agriculture  (meat champ -> ranch; grain champ -> staple farms)
+#   _fish  = fishing      (fish)
+eco_champ_tp_plant = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_cotton_plantation_throughput_add = 2.0
+	building_group_bg_plantations_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
 }
-eco_PRU_champ_tp_p1 = {
+eco_champ_tp_log = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_steel_mill_throughput_add = 2.0
+	building_group_bg_logging_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
+}
+eco_champ_tp_ranch = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_ranching_throughput_add    = 0.5
+	building_group_bg_agriculture_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
+}
+eco_champ_tp_fish = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_fishing_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
+}
+# MINING: coal / sulfur / iron champs.
+eco_champ_tp_mine = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_mining_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
+}
+# INDUSTRY: steel (heavy) + furniture/clothes/paper (light) champs.
+eco_champ_tp_ind = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_heavy_industry_throughput_add = 0.5
+	building_group_bg_light_industry_throughput_add = 0.5
+	building_minimum_wage_mult = 0.2
 }
 
-# ---- shared champ+support SoL, Phase 1 (0-20 yr), +2. Group-level (already
-#      non-surgical), so ONE modifier reused by every nation; the plantation line is a
-#      no-op for nations without plantations (e.g. PRU).
-eco_sol_p1 = {
+# ---- flat SoL + education for ALL 40 targets, WHOLE GAME (added with no `months`). ----
+# Pop-improvement spread country-wide; not tied to champ/support states. education_access has
+# no building-wise token in Vic3, so it is necessarily state/country-wide.
+eco_sol_edu_global = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
-	building_group_bg_plantations_standard_of_living_add = 2
-	building_group_bg_manufacturing_standard_of_living_add = 2
-	building_minimum_wage_mult = 1
-}
-
-# ---- champ STATE modifier, Phase 2 (yr 20 -> END OF GAME). Added (no `months`) by
-#      eco.3 only to states that hold the champ building. Same icon as champ tp (p1/p2).
-eco_champ_state_p2 = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	state_standard_of_living_add = 2
-	building_minimum_wage_mult = 0.25
+	state_standard_of_living_add = 4
+	state_education_access_add = 0.25
 }
