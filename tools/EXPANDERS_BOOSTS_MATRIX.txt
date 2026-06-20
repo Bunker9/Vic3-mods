@@ -1,0 +1,181 @@
+================================================================================
+EXPANDER TAGS — BOOSTS & DURATIONS CROSS-TAB
+From: ExpFightMod, ExpMktAccessMod, MyDiploPlayMod (dev/exp branch)
+Generated: 2026-06-15
+================================================================================
+
+ALL 20 EXPANDERS — Shared Boosts (one-time at game start)
+────────────────────────────────────────────────────────────
+MyDiploPlayMod:
+  mdp_infamy_decay (country_infamy_decay_mult = 9)          120 months (10 yr)
+
+ExpFightMod:
+  army_reserves (era_1 tech)                                one-time
+  general_staff (era_2 tech)                                one-time
+
+ExpMktAccessMod:
+  Interventionism law                                        one-time (keeps running)
+  Capital trade_center + port + logging_camp                one-time
+  expmkt_industrialist_boost (during yearly pulse)          4 years (48 mo)
+
+
+================================================================================
+SHORT-WAR EXPANDERS (5-year footing) — 9 tags
+BIC, PRU, MEX, BRZ, PER, EGY, SAR, SWE, SAF
+────────────────────────────────────────────────────────────
+ExpFightMod — expfight_warbump:
+  unit_morale_recovery_mult = 0.1
+  unit_morale_loss_mult = -0.1
+  military_formation_organization_gain_mult = 0.25
+  interest_group_ig_armed_forces_pol_str_mult = 0.25
+  interest_group_ig_armed_forces_approval_add = 10          60 months (5 yr)
+
+
+================================================================================
+LONG-WAR EXPANDERS (10-year footing) — 11 tags
+PAN, DEI, SOK, SHEW, DAI, NEP, CLM, OMA, ARG, SIA, MOR
+────────────────────────────────────────────────────────────
+ExpFightMod — expfight_warboost:
+  unit_morale_recovery_mult = 0.5
+  unit_morale_loss_mult = -0.25
+  military_formation_organization_gain_mult = 0.5
+  country_military_goods_cost_mult = -0.5
+  military_formation_army_movement_speed_mult = 3
+  military_formation_mobilization_speed_mult = 3
+  unit_offense_add = 10
+  unit_defense_add = 50
+  interest_group_ig_armed_forces_pol_str_mult = 0.5
+  interest_group_ig_armed_forces_approval_add = 30          120 months (10 yr)
+
+
+================================================================================
+MODIFIER SUMMARY TABLE
+────────────────────────────────────────────────────────────
+
+Tag  | Country              | War Class  | Bump Dur | Infamy Dur | Mkt Boost Dur
+───────────────────────────────────────────────────────────────────────────────
+BIC  | East India          | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+PRU  | Prussia             | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+MEX  | Mexico              | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+BRZ  | Brazil              | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+PER  | Persia              | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+EGY  | Egypt               | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+SAR  | Sardinia-Piedmont   | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+SWE  | Sweden              | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+SAF  | South Africa        | short-war  | 60 mo   | 120 mo    | 4 yr (pulse)
+───────────────────────────────────────────────────────────────────────────────
+PAN  | Punjab              | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+DEI  | Dutch East Indies   | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+SOK  | Sokoto              | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+SHW  | Shewa               | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+DAI  | Dai Nam             | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+NEP  | Nepal               | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+CLM  | Colombia            | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+OMA  | Oman                | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+ARG  | Argentina           | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+SIA  | Siam                | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+MOR  | Morocco             | long-war   | 120 mo  | 120 mo    | 4 yr (pulse)
+
+
+================================================================================
+MODIFIER DETAIL — SHORT-WAR EXPFIGHT_WARBUMP (5 yr / 60 mo)
+────────────────────────────────────────────────────────────
+Morale & Organisation:
+  unit_morale_recovery_mult             +0.1 (+10%)
+  unit_morale_loss_mult                 -0.1 (-10%)
+  military_formation_organization_gain  +0.25 (+25%)
+
+Military Leadership:
+  ig_armed_forces_pol_str_mult          +0.25 (+25%)
+  ig_armed_forces_approval_add          +10
+
+PURPOSE: Stop morale bleeding; keep armed forces content but modest bonus.
+
+
+================================================================================
+MODIFIER DETAIL — LONG-WAR EXPFIGHT_WARBOOST (10 yr / 120 mo)
+────────────────────────────────────────────────────────────
+Morale & Organisation:
+  unit_morale_recovery_mult             +0.5 (+50%)
+  unit_morale_loss_mult                 -0.25 (-25%)
+  military_formation_organization_gain  +0.5 (+50%)
+
+Military Economics & Logistics:
+  country_military_goods_cost_mult      -0.5 (-50% cost)
+  military_formation_army_movement_speed_mult        +3 (+300%)
+  military_formation_mobilization_speed_mult         +3 (+300%)
+
+Combat Strength:
+  unit_offense_add                      +10 (flat addition to all units)
+  unit_defense_add                      +50 (flat addition to all units)
+
+Military Leadership:
+  ig_armed_forces_pol_str_mult          +0.5 (+50%)
+  ig_armed_forces_approval_add          +30
+
+PURPOSE: Fast decisively-won wars for many-neighbour expanders; heavy morale/
+mobility/strength boost but short duration forces player to capitalize early.
+
+
+================================================================================
+MODIFIER DETAIL — INFAMY DECAY (ALL EXPANDERS, 10 yr / 120 mo)
+────────────────────────────────────────────────────────────
+Base decay = 5/yr → with modifier: 50/yr
+  country_infamy_decay_mult = 9
+
+Allows 2 simultaneous day-1 wars + sustained blob chain within the 10yr window.
+
+
+================================================================================
+MODIFIER DETAIL — INDUSTRIALIST BOOST (ALL EXPANDERS, 4 yr pulse)
+────────────────────────────────────────────────────────────
+Duration: Yearly event pulse (expmkt.1) for 4 years
+  interest_group_ig_industrialists_pol_str_mult        +1.0 (doubles their strength)
+  interest_group_ig_industrialists_approval_add        +20
+
+Stacked with:
+  Interventionism law (on_game_start)
+  Capital-state port + trade_center + logging_camp seeding
+  Yearly coastal state pulse (catches states won mid-war) through year 4
+
+PURPOSE: Enable industrialist power growth so they can expand/run the seeded
+trade infrastructure; capitalists emerge from privately-owned buildings.
+
+
+================================================================================
+TIMELINE ALIGNMENT
+────────────────────────────────────────────────────────────
+Year 0 (1836 game-start):
+  • army_reserves + general_staff granted (one-time)
+  • mdp_infamy_decay begins (runs to year 10)
+  • expfight_warbump/warboost begins (short-war: 5yr / long-war: 10yr)
+  • expmkt_industrialist_boost + coastal seed pulse begins (runs 4yr)
+  • Interventionism law applied
+
+Year 1-4:
+  • expmkt.1 yearly coastal pulse checks for new coastal states, seeds them
+  • expmkt_industrialist_boost runs throughout
+
+Year 5:
+  • SHORT-WAR expanders lose expfight_warbump (war footing expires)
+  • LONG-WAR expanders still have expfight_warboost (continues to year 10)
+  • expmkt_industrialist_boost expires (industrialist infrastructure is self-sustaining)
+
+Year 10:
+  • mdp_infamy_decay expires (infamy decay returns to base 5/yr)
+  • LONG-WAR expanders lose expfight_warboost (war footing expires)
+  • All expanders revert to vanilla: no conquest edge, normal infamy, normal morale
+
+
+================================================================================
+KNOWN TUNING NOTES
+────────────────────────────────────────────────────────────
+ExpFightMod (2026-06-14 user feedback):
+  Decision: do NOT fully water down. DiploMod controls WHICH wars happen (fewer,
+  cleaner); ExpFightMod controls whether the remaining intentional blob-chain
+  wars are WON decisively/fast. Suggested retune (pending test):
+    - Trim 120-mo (long-war) footing duration? (User: test first before deciding)
+    - Keep offense/occupation edge
+    - Dial magnitude only if AI steamrolls
+
+Last updated: 2026-06-15

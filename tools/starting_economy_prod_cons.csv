@@ -1,0 +1,733 @@
+tag,country,good,category,produced,consumed,net
+ARG,Argentina,clippers,industrial,40.0,6.0,34.0
+ARG,Argentina,clothes,staple,45.0,0.0,45.0
+ARG,Argentina,fabric,staple,20.0,70.0,-50.0
+ARG,Argentina,fish,staple,25.0,0.0,25.0
+ARG,Argentina,furniture,staple,45.0,0.0,45.0
+ARG,Argentina,gold,luxury,16.0,0.0,16.0
+ARG,Argentina,grain,staple,60.0,0.0,60.0
+ARG,Argentina,meat,luxury,40.0,0.0,40.0
+ARG,Argentina,merchant_marine,staple,9.0,4.0,5.0
+ARG,Argentina,paper,staple,0.0,20.0,-20.0
+ARG,Argentina,tobacco,luxury,90.0,0.0,90.0
+ARG,Argentina,tools,industrial,30.0,26.0,4.0
+ARG,Argentina,wood,staple,120.0,100.0,20.0
+AUS,Austria,artillery,military,50.0,0.0,50.0
+AUS,Austria,clippers,industrial,80.0,54.0,26.0
+AUS,Austria,clothes,staple,720.0,0.0,720.0
+AUS,Austria,coal,industrial,160.0,80.0,80.0
+AUS,Austria,dye,industrial,0.0,25.0,-25.0
+AUS,Austria,fabric,staple,60.0,905.0,-845.0
+AUS,Austria,fine_art,luxury,5.0,0.0,5.0
+AUS,Austria,fish,staple,275.0,0.0,275.0
+AUS,Austria,fruit,luxury,175.0,0.0,175.0
+AUS,Austria,furniture,staple,325.0,0.0,325.0
+AUS,Austria,glass,industrial,270.0,0.0,270.0
+AUS,Austria,gold,luxury,91.0,0.0,91.0
+AUS,Austria,grain,staple,700.0,320.0,380.0
+AUS,Austria,groceries,staple,360.0,0.0,360.0
+AUS,Austria,hardwood,industrial,100.0,165.0,-65.0
+AUS,Austria,iron,industrial,140.0,200.0,-60.0
+AUS,Austria,lead,industrial,80.0,30.0,50.0
+AUS,Austria,liquor,luxury,560.0,0.0,560.0
+AUS,Austria,luxury_clothes,luxury,240.0,0.0,240.0
+AUS,Austria,luxury_furniture,luxury,125.0,0.0,125.0
+AUS,Austria,meat,luxury,120.0,0.0,120.0
+AUS,Austria,merchant_marine,staple,81.0,44.0,37.0
+AUS,Austria,paper,staple,400.0,370.0,30.0
+AUS,Austria,porcelain,luxury,50.0,0.0,50.0
+AUS,Austria,silk,industrial,75.0,120.0,-45.0
+AUS,Austria,small_arms,military,210.0,0.0,210.0
+AUS,Austria,sugar,luxury,33.0,200.0,-167.0
+AUS,Austria,tools,industrial,300.0,230.0,70.0
+AUS,Austria,wine,luxury,180.0,0.0,180.0
+AUS,Austria,wood,staple,600.0,1415.0,-815.0
+BAV,Bavaria,clothes,staple,45.0,0.0,45.0
+BAV,Bavaria,coal,industrial,0.0,2.0,-2.0
+BAV,Bavaria,dye,industrial,0.0,5.0,-5.0
+BAV,Bavaria,engines,industrial,0.0,5.0,-5.0
+BAV,Bavaria,fabric,staple,20.0,95.0,-75.0
+BAV,Bavaria,fertilizer,industrial,0.0,95.0,-95.0
+BAV,Bavaria,fine_art,luxury,5.0,0.0,5.0
+BAV,Bavaria,furniture,staple,195.0,0.0,195.0
+BAV,Bavaria,glass,industrial,30.0,0.0,30.0
+BAV,Bavaria,grain,staple,570.0,120.0,450.0
+BAV,Bavaria,groceries,staple,135.0,0.0,135.0
+BAV,Bavaria,hardwood,industrial,60.0,45.0,15.0
+BAV,Bavaria,iron,industrial,20.0,0.0,20.0
+BAV,Bavaria,liquor,luxury,180.0,0.0,180.0
+BAV,Bavaria,luxury_furniture,luxury,75.0,0.0,75.0
+BAV,Bavaria,meat,luxury,40.0,0.0,40.0
+BAV,Bavaria,merchant_marine,staple,0.0,4.0,-4.0
+BAV,Bavaria,paper,staple,0.0,80.0,-80.0
+BAV,Bavaria,porcelain,luxury,10.0,0.0,10.0
+BAV,Bavaria,sugar,luxury,0.0,75.0,-75.0
+BAV,Bavaria,tools,industrial,0.0,50.0,-50.0
+BAV,Bavaria,transportation,staple,30.0,0.0,30.0
+BAV,Bavaria,wine,luxury,40.0,0.0,40.0
+BAV,Bavaria,wood,staple,360.0,203.0,157.0
+BEL,Belgium,clippers,industrial,40.0,23.0,17.0
+BEL,Belgium,clothes,staple,240.0,0.0,240.0
+BEL,Belgium,coal,industrial,200.0,144.0,56.0
+BEL,Belgium,dye,industrial,0.0,20.0,-20.0
+BEL,Belgium,engines,industrial,0.0,10.0,-10.0
+BEL,Belgium,explosives,industrial,50.0,0.0,50.0
+BEL,Belgium,fabric,staple,75.0,250.0,-175.0
+BEL,Belgium,fertilizer,industrial,192.5,85.0,107.5
+BEL,Belgium,fish,staple,50.0,0.0,50.0
+BEL,Belgium,fruit,luxury,42.0,0.0,42.0
+BEL,Belgium,furniture,staple,195.0,0.0,195.0
+BEL,Belgium,grain,staple,390.0,130.0,260.0
+BEL,Belgium,groceries,staple,130.0,0.0,130.0
+BEL,Belgium,hardwood,industrial,70.0,55.0,15.0
+BEL,Belgium,iron,industrial,240.0,210.0,30.0
+BEL,Belgium,liquor,luxury,120.0,0.0,120.0
+BEL,Belgium,luxury_furniture,luxury,75.0,0.0,75.0
+BEL,Belgium,meat,luxury,125.0,0.0,125.0
+BEL,Belgium,merchant_marine,staple,27.0,32.0,-5.0
+BEL,Belgium,paper,staple,70.0,90.0,-20.0
+BEL,Belgium,small_arms,military,30.0,0.0,30.0
+BEL,Belgium,steel,industrial,130.0,60.0,70.0
+BEL,Belgium,sugar,luxury,6.0,80.0,-74.0
+BEL,Belgium,sulfur,industrial,80.0,90.0,-10.0
+BEL,Belgium,tools,industrial,240.0,251.0,-11.0
+BEL,Belgium,transportation,staple,60.0,0.0,60.0
+BEL,Belgium,wood,staple,420.0,346.0,74.0
+BRZ,Brazil,clippers,industrial,80.0,42.0,38.0
+BRZ,Brazil,clothes,staple,180.0,0.0,180.0
+BRZ,Brazil,fabric,staple,285.0,260.0,25.0
+BRZ,Brazil,fish,staple,150.0,0.0,150.0
+BRZ,Brazil,fruit,luxury,462.0,0.0,462.0
+BRZ,Brazil,furniture,staple,45.0,0.0,45.0
+BRZ,Brazil,gold,luxury,16.0,0.0,16.0
+BRZ,Brazil,grain,staple,730.0,0.0,730.0
+BRZ,Brazil,hardwood,industrial,30.0,10.0,20.0
+BRZ,Brazil,iron,industrial,40.0,30.0,10.0
+BRZ,Brazil,meat,luxury,30.0,0.0,30.0
+BRZ,Brazil,merchant_marine,staple,63.0,36.0,27.0
+BRZ,Brazil,paper,staple,160.0,120.0,40.0
+BRZ,Brazil,small_arms,military,30.0,0.0,30.0
+BRZ,Brazil,sugar,luxury,178.0,0.0,178.0
+BRZ,Brazil,tobacco,luxury,60.0,0.0,60.0
+BRZ,Brazil,tools,industrial,90.0,110.0,-20.0
+BRZ,Brazil,wood,staple,1080.0,440.0,640.0
+BUR,Burma,clippers,industrial,0.0,12.0,-12.0
+BUR,Burma,fabric,staple,10.0,0.0,10.0
+BUR,Burma,fish,staple,50.0,0.0,50.0
+BUR,Burma,grain,staple,140.0,0.0,140.0
+BUR,Burma,meat,luxury,20.0,0.0,20.0
+BUR,Burma,merchant_marine,staple,18.0,0.0,18.0
+BUR,Burma,opium,luxury,20.0,0.0,20.0
+BUR,Burma,tea,luxury,20.0,0.0,20.0
+BUR,Burma,tobacco,luxury,60.0,0.0,60.0
+CHI,China,clippers,industrial,120.0,114.0,6.0
+CHI,China,clothes,staple,720.0,0.0,720.0
+CHI,China,dye,industrial,1380.0,250.0,1130.0
+CHI,China,fabric,staple,155.0,1250.0,-1095.0
+CHI,China,fish,staple,675.0,0.0,675.0
+CHI,China,fruit,luxury,2179.0,0.0,2179.0
+CHI,China,furniture,staple,1800.0,0.0,1800.0
+CHI,China,glass,industrial,1500.0,0.0,1500.0
+CHI,China,grain,staple,3420.0,0.0,3420.0
+CHI,China,hardwood,industrial,310.0,640.0,-330.0
+CHI,China,iron,industrial,140.0,145.0,-5.0
+CHI,China,luxury_clothes,luxury,480.0,0.0,480.0
+CHI,China,luxury_furniture,luxury,1000.0,0.0,1000.0
+CHI,China,meat,luxury,310.0,0.0,310.0
+CHI,China,merchant_marine,staple,171.0,160.0,11.0
+CHI,China,opium,luxury,420.0,0.0,420.0
+CHI,China,paper,staple,2320.0,2030.0,290.0
+CHI,China,porcelain,luxury,500.0,0.0,500.0
+CHI,China,silk,industrial,1290.0,240.0,1050.0
+CHI,China,small_arms,military,120.0,25.0,95.0
+CHI,China,sugar,luxury,185.0,0.0,185.0
+CHI,China,tea,luxury,3880.0,0.0,3880.0
+CHI,China,tools,industrial,240.0,280.0,-40.0
+CHI,China,wood,staple,2970.0,5130.0,-2160.0
+CLM,Colombia,clippers,industrial,0.0,6.0,-6.0
+CLM,Colombia,clothes,staple,45.0,0.0,45.0
+CLM,Colombia,fabric,staple,95.0,50.0,45.0
+CLM,Colombia,fish,staple,25.0,0.0,25.0
+CLM,Colombia,fruit,luxury,40.0,0.0,40.0
+CLM,Colombia,furniture,staple,45.0,0.0,45.0
+CLM,Colombia,grain,staple,145.0,0.0,145.0
+CLM,Colombia,hardwood,industrial,10.0,0.0,10.0
+CLM,Colombia,iron,industrial,0.0,5.0,-5.0
+CLM,Colombia,meat,luxury,10.0,0.0,10.0
+CLM,Colombia,merchant_marine,staple,9.0,8.0,1.0
+CLM,Colombia,small_arms,military,0.0,5.0,-5.0
+CLM,Colombia,sugar,luxury,50.0,0.0,50.0
+CLM,Colombia,tobacco,luxury,120.0,0.0,120.0
+CLM,Colombia,wood,staple,90.0,30.0,60.0
+DAI,Dai Nam,fabric,staple,15.0,0.0,15.0
+DAI,Dai Nam,fish,staple,50.0,0.0,50.0
+DAI,Dai Nam,grain,staple,70.0,0.0,70.0
+DAI,Dai Nam,meat,luxury,30.0,0.0,30.0
+DAI,Dai Nam,merchant_marine,staple,0.0,4.0,-4.0
+DAI,Dai Nam,opium,luxury,40.0,0.0,40.0
+DAI,Dai Nam,tea,luxury,40.0,0.0,40.0
+DEI,Dutch East Indies,clippers,industrial,40.0,12.0,28.0
+DEI,Dutch East Indies,dye,industrial,300.0,0.0,300.0
+DEI,Dutch East Indies,fabric,staple,90.0,70.0,20.0
+DEI,Dutch East Indies,fruit,luxury,30.0,0.0,30.0
+DEI,Dutch East Indies,grain,staple,1120.0,0.0,1120.0
+DEI,Dutch East Indies,hardwood,industrial,70.0,0.0,70.0
+DEI,Dutch East Indies,iron,industrial,0.0,5.0,-5.0
+DEI,Dutch East Indies,merchant_marine,staple,18.0,24.0,-6.0
+DEI,Dutch East Indies,paper,staple,0.0,100.0,-100.0
+DEI,Dutch East Indies,small_arms,military,0.0,5.0,-5.0
+DEI,Dutch East Indies,sugar,luxury,104.0,0.0,104.0
+DEI,Dutch East Indies,tea,luxury,80.0,0.0,80.0
+DEI,Dutch East Indies,tobacco,luxury,660.0,0.0,660.0
+DEI,Dutch East Indies,wood,staple,210.0,190.0,20.0
+BIC,East India,artillery,military,25.0,0.0,25.0
+BIC,East India,clippers,industrial,200.0,134.0,66.0
+BIC,East India,clothes,staple,1350.0,0.0,1350.0
+BIC,East India,coal,industrial,50.0,0.0,50.0
+BIC,East India,dye,industrial,1290.0,15.0,1275.0
+BIC,East India,fabric,staple,720.0,1405.0,-685.0
+BIC,East India,fish,staple,525.0,0.0,525.0
+BIC,East India,fruit,luxury,320.0,0.0,320.0
+BIC,East India,furniture,staple,155.0,0.0,155.0
+BIC,East India,glass,industrial,90.0,0.0,90.0
+BIC,East India,gold,luxury,16.0,0.0,16.0
+BIC,East India,hardwood,industrial,210.0,165.0,45.0
+BIC,East India,iron,industrial,100.0,125.0,-25.0
+BIC,East India,luxury_clothes,luxury,810.0,0.0,810.0
+BIC,East India,luxury_furniture,luxury,75.0,0.0,75.0
+BIC,East India,merchant_marine,staple,126.0,60.0,66.0
+BIC,East India,opium,luxury,1460.0,0.0,1460.0
+BIC,East India,paper,staple,160.0,430.0,-270.0
+BIC,East India,porcelain,luxury,30.0,0.0,30.0
+BIC,East India,silk,industrial,300.0,405.0,-105.0
+BIC,East India,small_arms,military,330.0,0.0,330.0
+BIC,East India,sugar,luxury,125.0,0.0,125.0
+BIC,East India,tea,luxury,40.0,0.0,40.0
+BIC,East India,tobacco,luxury,570.0,0.0,570.0
+BIC,East India,tools,industrial,0.0,50.0,-50.0
+BIC,East India,wood,staple,630.0,725.0,-95.0
+EGY,Egypt,clippers,industrial,80.0,64.0,16.0
+EGY,Egypt,clothes,staple,180.0,0.0,180.0
+EGY,Egypt,dye,industrial,0.0,10.0,-10.0
+EGY,Egypt,fabric,staple,580.0,275.0,305.0
+EGY,Egypt,fish,staple,475.0,0.0,475.0
+EGY,Egypt,fruit,luxury,49.0,0.0,49.0
+EGY,Egypt,glass,industrial,60.0,0.0,60.0
+EGY,Egypt,grain,staple,400.0,0.0,400.0
+EGY,Egypt,hardwood,industrial,40.0,20.0,20.0
+EGY,Egypt,iron,industrial,0.0,25.0,-25.0
+EGY,Egypt,meat,luxury,80.0,0.0,80.0
+EGY,Egypt,merchant_marine,staple,36.0,36.0,0.0
+EGY,Egypt,opium,luxury,60.0,0.0,60.0
+EGY,Egypt,paper,staple,120.0,120.0,0.0
+EGY,Egypt,porcelain,luxury,20.0,0.0,20.0
+EGY,Egypt,silk,industrial,15.0,0.0,15.0
+EGY,Egypt,small_arms,military,60.0,5.0,55.0
+EGY,Egypt,sugar,luxury,82.0,0.0,82.0
+EGY,Egypt,tea,luxury,20.0,0.0,20.0
+EGY,Egypt,tobacco,luxury,420.0,0.0,420.0
+EGY,Egypt,wood,staple,120.0,455.0,-335.0
+FRA,France,ammunition,military,150.0,0.0,150.0
+FRA,France,artillery,military,50.0,0.0,50.0
+FRA,France,clippers,industrial,400.0,141.0,259.0
+FRA,France,clothes,staple,1740.0,0.0,1740.0
+FRA,France,coal,industrial,520.0,174.0,346.0
+FRA,France,dye,industrial,30.0,175.0,-145.0
+FRA,France,engines,industrial,0.0,10.0,-10.0
+FRA,France,explosives,industrial,50.0,60.0,-10.0
+FRA,France,fabric,staple,360.0,1690.0,-1330.0
+FRA,France,fertilizer,industrial,57.5,140.0,-82.5
+FRA,France,fine_art,luxury,10.0,0.0,10.0
+FRA,France,fish,staple,775.0,0.0,775.0
+FRA,France,fruit,luxury,49.0,0.0,49.0
+FRA,France,furniture,staple,1235.0,0.0,1235.0
+FRA,France,glass,industrial,240.0,0.0,240.0
+FRA,France,grain,staple,2140.0,590.0,1550.0
+FRA,France,groceries,staple,585.0,0.0,585.0
+FRA,France,hardwood,industrial,320.0,195.0,125.0
+FRA,France,iron,industrial,200.0,585.0,-385.0
+FRA,France,lead,industrial,120.0,120.0,0.0
+FRA,France,liquor,luxury,180.0,0.0,180.0
+FRA,France,luxury_clothes,luxury,450.0,0.0,450.0
+FRA,France,luxury_furniture,luxury,125.0,0.0,125.0
+FRA,France,meat,luxury,625.0,0.0,625.0
+FRA,France,merchant_marine,staple,99.0,108.0,-9.0
+FRA,France,paper,staple,1470.0,1035.0,435.0
+FRA,France,porcelain,luxury,60.0,0.0,60.0
+FRA,France,silk,industrial,270.0,225.0,45.0
+FRA,France,small_arms,military,300.0,25.0,275.0
+FRA,France,steel,industrial,130.0,160.0,-30.0
+FRA,France,sugar,luxury,172.0,210.0,-38.0
+FRA,France,sulfur,industrial,160.0,230.0,-70.0
+FRA,France,tobacco,luxury,60.0,0.0,60.0
+FRA,France,tools,industrial,640.0,697.0,-57.0
+FRA,France,transportation,staple,60.0,0.0,60.0
+FRA,France,wine,luxury,1560.0,0.0,1560.0
+FRA,France,wood,staple,1920.0,2256.0,-336.0
+GBR,Great Britain,ammunition,military,100.0,0.0,100.0
+GBR,Great Britain,artillery,military,50.0,0.0,50.0
+GBR,Great Britain,clippers,industrial,680.0,286.0,394.0
+GBR,Great Britain,clothes,staple,3420.0,0.0,3420.0
+GBR,Great Britain,coal,industrial,2360.0,406.0,1954.0
+GBR,Great Britain,dye,industrial,0.0,320.0,-320.0
+GBR,Great Britain,engines,industrial,120.0,65.0,55.0
+GBR,Great Britain,explosives,industrial,50.0,40.0,10.0
+GBR,Great Britain,fabric,staple,405.0,3150.0,-2745.0
+GBR,Great Britain,fertilizer,industrial,247.5,370.0,-122.5
+GBR,Great Britain,fine_art,luxury,15.0,0.0,15.0
+GBR,Great Britain,fish,staple,925.0,0.0,925.0
+GBR,Great Britain,fruit,luxury,80.0,0.0,80.0
+GBR,Great Britain,furniture,staple,2275.0,0.0,2275.0
+GBR,Great Britain,glass,industrial,280.0,0.0,280.0
+GBR,Great Britain,grain,staple,2100.0,750.0,1350.0
+GBR,Great Britain,groceries,staple,780.0,0.0,780.0
+GBR,Great Britain,hardwood,industrial,100.0,615.0,-515.0
+GBR,Great Britain,iron,industrial,480.0,945.0,-465.0
+GBR,Great Britain,lead,industrial,100.0,110.0,-10.0
+GBR,Great Britain,liquor,luxury,610.0,0.0,610.0
+GBR,Great Britain,luxury_clothes,luxury,390.0,0.0,390.0
+GBR,Great Britain,luxury_furniture,luxury,875.0,0.0,875.0
+GBR,Great Britain,meat,luxury,695.0,0.0,695.0
+GBR,Great Britain,merchant_marine,staple,279.0,184.0,95.0
+GBR,Great Britain,oil,industrial,40.0,0.0,40.0
+GBR,Great Britain,paper,staple,700.0,795.0,-95.0
+GBR,Great Britain,porcelain,luxury,70.0,0.0,70.0
+GBR,Great Britain,silk,industrial,0.0,195.0,-195.0
+GBR,Great Britain,small_arms,military,210.0,55.0,155.0
+GBR,Great Britain,steel,industrial,520.0,510.0,10.0
+GBR,Great Britain,sugar,luxury,325.0,380.0,-55.0
+GBR,Great Britain,sulfur,industrial,0.0,180.0,-180.0
+GBR,Great Britain,tobacco,luxury,60.0,0.0,60.0
+GBR,Great Britain,tools,industrial,1680.0,1325.0,355.0
+GBR,Great Britain,transportation,staple,390.0,0.0,390.0
+GBR,Great Britain,wood,staple,600.0,3264.0,-2664.0
+GRE,Greece,clippers,industrial,40.0,27.0,13.0
+GRE,Greece,fabric,staple,90.0,20.0,70.0
+GRE,Greece,fish,staple,150.0,0.0,150.0
+GRE,Greece,grain,staple,40.0,0.0,40.0
+GRE,Greece,merchant_marine,staple,18.0,4.0,14.0
+GRE,Greece,tobacco,luxury,30.0,0.0,30.0
+GRE,Greece,wine,luxury,40.0,0.0,40.0
+GRE,Greece,wood,staple,60.0,40.0,20.0
+HUN,Hungary,fabric,staple,75.0,45.0,30.0
+HUN,Hungary,fruit,luxury,91.0,0.0,91.0
+HUN,Hungary,furniture,staple,130.0,0.0,130.0
+HUN,Hungary,grain,staple,260.0,160.0,100.0
+HUN,Hungary,groceries,staple,180.0,0.0,180.0
+HUN,Hungary,hardwood,industrial,30.0,30.0,0.0
+HUN,Hungary,iron,industrial,60.0,0.0,60.0
+HUN,Hungary,liquor,luxury,240.0,0.0,240.0
+HUN,Hungary,luxury_furniture,luxury,50.0,0.0,50.0
+HUN,Hungary,meat,luxury,150.0,0.0,150.0
+HUN,Hungary,merchant_marine,staple,0.0,9.0,-9.0
+HUN,Hungary,paper,staple,0.0,90.0,-90.0
+HUN,Hungary,sugar,luxury,13.0,100.0,-87.0
+HUN,Hungary,tools,industrial,0.0,25.0,-25.0
+HUN,Hungary,wine,luxury,160.0,0.0,160.0
+HUN,Hungary,wood,staple,90.0,135.0,-45.0
+HYD,Hyderabad,fabric,staple,90.0,0.0,90.0
+HYD,Hyderabad,hardwood,industrial,0.0,10.0,-10.0
+HYD,Hyderabad,iron,industrial,0.0,10.0,-10.0
+HYD,Hyderabad,paper,staple,40.0,0.0,40.0
+HYD,Hyderabad,silk,industrial,45.0,0.0,45.0
+HYD,Hyderabad,small_arms,military,30.0,0.0,30.0
+HYD,Hyderabad,sugar,luxury,50.0,0.0,50.0
+HYD,Hyderabad,wood,staple,0.0,30.0,-30.0
+JAP,Japan,clippers,industrial,40.0,29.0,11.0
+JAP,Japan,clothes,staple,180.0,0.0,180.0
+JAP,Japan,dye,industrial,120.0,20.0,100.0
+JAP,Japan,fabric,staple,280.0,270.0,10.0
+JAP,Japan,fish,staple,250.0,190.0,60.0
+JAP,Japan,fruit,luxury,300.0,0.0,300.0
+JAP,Japan,furniture,staple,180.0,0.0,180.0
+JAP,Japan,glass,industrial,120.0,0.0,120.0
+JAP,Japan,gold,luxury,8.0,0.0,8.0
+JAP,Japan,grain,staple,890.0,200.0,690.0
+JAP,Japan,groceries,staple,225.0,0.0,225.0
+JAP,Japan,hardwood,industrial,50.0,60.0,-10.0
+JAP,Japan,lead,industrial,40.0,0.0,40.0
+JAP,Japan,luxury_clothes,luxury,120.0,0.0,120.0
+JAP,Japan,luxury_furniture,luxury,100.0,0.0,100.0
+JAP,Japan,meat,luxury,30.0,0.0,30.0
+JAP,Japan,merchant_marine,staple,36.0,8.0,28.0
+JAP,Japan,oil,industrial,20.0,0.0,20.0
+JAP,Japan,paper,staple,200.0,210.0,-10.0
+JAP,Japan,porcelain,luxury,40.0,0.0,40.0
+JAP,Japan,silk,industrial,60.0,60.0,0.0
+JAP,Japan,sugar,luxury,65.0,0.0,65.0
+JAP,Japan,tea,luxury,280.0,0.0,280.0
+JAP,Japan,tobacco,luxury,270.0,0.0,270.0
+JAP,Japan,tools,industrial,30.0,35.0,-5.0
+JAP,Japan,wood,staple,540.0,610.0,-70.0
+KOR,Korea,clippers,industrial,40.0,36.0,4.0
+KOR,Korea,dye,industrial,0.0,35.0,-35.0
+KOR,Korea,fabric,staple,15.0,45.0,-30.0
+KOR,Korea,fish,staple,300.0,0.0,300.0
+KOR,Korea,fruit,luxury,45.0,0.0,45.0
+KOR,Korea,glass,industrial,210.0,0.0,210.0
+KOR,Korea,grain,staple,280.0,0.0,280.0
+KOR,Korea,iron,industrial,20.0,0.0,20.0
+KOR,Korea,meat,luxury,30.0,0.0,30.0
+KOR,Korea,merchant_marine,staple,9.0,0.0,9.0
+KOR,Korea,paper,staple,0.0,90.0,-90.0
+KOR,Korea,porcelain,luxury,70.0,0.0,70.0
+KOR,Korea,sugar,luxury,6.0,0.0,6.0
+KOR,Korea,tobacco,luxury,240.0,0.0,240.0
+KOR,Korea,tools,industrial,0.0,5.0,-5.0
+KOR,Korea,wood,staple,0.0,325.0,-325.0
+MEX,Mexico,clippers,industrial,0.0,6.0,-6.0
+MEX,Mexico,clothes,staple,135.0,0.0,135.0
+MEX,Mexico,dye,industrial,210.0,5.0,205.0
+MEX,Mexico,fabric,staple,20.0,165.0,-145.0
+MEX,Mexico,fish,staple,125.0,0.0,125.0
+MEX,Mexico,fruit,luxury,120.0,0.0,120.0
+MEX,Mexico,furniture,staple,90.0,0.0,90.0
+MEX,Mexico,glass,industrial,30.0,0.0,30.0
+MEX,Mexico,gold,luxury,24.0,0.0,24.0
+MEX,Mexico,grain,staple,160.0,40.0,120.0
+MEX,Mexico,groceries,staple,65.0,0.0,65.0
+MEX,Mexico,hardwood,industrial,30.0,0.0,30.0
+MEX,Mexico,iron,industrial,20.0,5.0,15.0
+MEX,Mexico,liquor,luxury,60.0,0.0,60.0
+MEX,Mexico,meat,luxury,40.0,0.0,40.0
+MEX,Mexico,merchant_marine,staple,9.0,9.0,0.0
+MEX,Mexico,paper,staple,0.0,100.0,-100.0
+MEX,Mexico,porcelain,luxury,10.0,0.0,10.0
+MEX,Mexico,small_arms,military,0.0,5.0,-5.0
+MEX,Mexico,sugar,luxury,75.0,40.0,35.0
+MEX,Mexico,tobacco,luxury,210.0,0.0,210.0
+MEX,Mexico,tools,industrial,30.0,40.0,-10.0
+MEX,Mexico,wood,staple,240.0,195.0,45.0
+MOR,Morocco,clippers,industrial,40.0,12.0,28.0
+MOR,Morocco,clothes,staple,45.0,0.0,45.0
+MOR,Morocco,fabric,staple,30.0,60.0,-30.0
+MOR,Morocco,fish,staple,75.0,0.0,75.0
+MOR,Morocco,glass,industrial,30.0,0.0,30.0
+MOR,Morocco,iron,industrial,40.0,0.0,40.0
+MOR,Morocco,meat,luxury,60.0,0.0,60.0
+MOR,Morocco,merchant_marine,staple,18.0,4.0,14.0
+MOR,Morocco,tools,industrial,30.0,10.0,20.0
+MOR,Morocco,wood,staple,30.0,100.0,-70.0
+NEP,Nepal,tea,luxury,20.0,0.0,20.0
+NEP,Nepal,tobacco,luxury,30.0,0.0,30.0
+NET,Netherlands,clippers,industrial,160.0,73.0,87.0
+NET,Netherlands,clothes,staple,240.0,0.0,240.0
+NET,Netherlands,dye,industrial,0.0,25.0,-25.0
+NET,Netherlands,fabric,staple,70.0,310.0,-240.0
+NET,Netherlands,fish,staple,250.0,0.0,250.0
+NET,Netherlands,fruit,luxury,49.0,0.0,49.0
+NET,Netherlands,furniture,staple,90.0,0.0,90.0
+NET,Netherlands,glass,industrial,30.0,0.0,30.0
+NET,Netherlands,grain,staple,140.0,80.0,60.0
+NET,Netherlands,groceries,staple,130.0,0.0,130.0
+NET,Netherlands,hardwood,industrial,20.0,60.0,-40.0
+NET,Netherlands,iron,industrial,0.0,35.0,-35.0
+NET,Netherlands,luxury_clothes,luxury,120.0,0.0,120.0
+NET,Netherlands,luxury_furniture,luxury,50.0,0.0,50.0
+NET,Netherlands,meat,luxury,50.0,0.0,50.0
+NET,Netherlands,merchant_marine,staple,72.0,40.0,32.0
+NET,Netherlands,paper,staple,200.0,70.0,130.0
+NET,Netherlands,porcelain,luxury,10.0,0.0,10.0
+NET,Netherlands,silk,industrial,0.0,60.0,-60.0
+NET,Netherlands,small_arms,military,90.0,5.0,85.0
+NET,Netherlands,sugar,luxury,32.0,30.0,2.0
+NET,Netherlands,wood,staple,60.0,550.0,-490.0
+OMA,Oman,clippers,industrial,40.0,50.0,-10.0
+OMA,Oman,fabric,staple,45.0,20.0,25.0
+OMA,Oman,fish,staple,225.0,0.0,225.0
+OMA,Oman,merchant_marine,staple,45.0,8.0,37.0
+OMA,Oman,wood,staple,60.0,40.0,20.0
+TUR,Ottomans,artillery,military,25.0,0.0,25.0
+TUR,Ottomans,clippers,industrial,160.0,78.0,82.0
+TUR,Ottomans,clothes,staple,450.0,0.0,450.0
+TUR,Ottomans,dye,industrial,0.0,20.0,-20.0
+TUR,Ottomans,fabric,staple,380.0,600.0,-220.0
+TUR,Ottomans,fish,staple,625.0,0.0,625.0
+TUR,Ottomans,fruit,luxury,49.0,0.0,49.0
+TUR,Ottomans,furniture,staple,315.0,0.0,315.0
+TUR,Ottomans,glass,industrial,120.0,0.0,120.0
+TUR,Ottomans,grain,staple,685.0,40.0,645.0
+TUR,Ottomans,groceries,staple,45.0,0.0,45.0
+TUR,Ottomans,hardwood,industrial,120.0,90.0,30.0
+TUR,Ottomans,iron,industrial,120.0,85.0,35.0
+TUR,Ottomans,luxury_clothes,luxury,90.0,0.0,90.0
+TUR,Ottomans,luxury_furniture,luxury,100.0,0.0,100.0
+TUR,Ottomans,meat,luxury,130.0,0.0,130.0
+TUR,Ottomans,merchant_marine,staple,117.0,23.0,94.0
+TUR,Ottomans,paper,staple,240.0,190.0,50.0
+TUR,Ottomans,porcelain,luxury,40.0,0.0,40.0
+TUR,Ottomans,silk,industrial,60.0,45.0,15.0
+TUR,Ottomans,small_arms,military,60.0,10.0,50.0
+TUR,Ottomans,sugar,luxury,7.0,0.0,7.0
+TUR,Ottomans,tea,luxury,420.0,0.0,420.0
+TUR,Ottomans,tobacco,luxury,720.0,0.0,720.0
+TUR,Ottomans,tools,industrial,120.0,125.0,-5.0
+TUR,Ottomans,wine,luxury,60.0,0.0,60.0
+TUR,Ottomans,wood,staple,1140.0,880.0,260.0
+PER,Persia,clippers,industrial,0.0,12.0,-12.0
+PER,Persia,clothes,staple,135.0,0.0,135.0
+PER,Persia,dye,industrial,30.0,5.0,25.0
+PER,Persia,fabric,staple,105.0,140.0,-35.0
+PER,Persia,fish,staple,25.0,0.0,25.0
+PER,Persia,fruit,luxury,30.0,0.0,30.0
+PER,Persia,furniture,staple,90.0,0.0,90.0
+PER,Persia,glass,industrial,30.0,0.0,30.0
+PER,Persia,grain,staple,390.0,0.0,390.0
+PER,Persia,luxury_clothes,luxury,60.0,0.0,60.0
+PER,Persia,meat,luxury,30.0,0.0,30.0
+PER,Persia,merchant_marine,staple,18.0,0.0,18.0
+PER,Persia,opium,luxury,140.0,0.0,140.0
+PER,Persia,porcelain,luxury,10.0,0.0,10.0
+PER,Persia,silk,industrial,30.0,30.0,0.0
+PER,Persia,sugar,luxury,4.0,0.0,4.0
+PER,Persia,tea,luxury,60.0,0.0,60.0
+PER,Persia,wood,staple,90.0,90.0,0.0
+PHI,Philippines,clippers,industrial,0.0,6.0,-6.0
+PHI,Philippines,fish,staple,75.0,0.0,75.0
+PHI,Philippines,grain,staple,385.0,0.0,385.0
+PHI,Philippines,iron,industrial,0.0,5.0,-5.0
+PHI,Philippines,merchant_marine,staple,9.0,4.0,5.0
+PHI,Philippines,small_arms,military,0.0,5.0,-5.0
+PHI,Philippines,sugar,luxury,75.0,0.0,75.0
+PHI,Philippines,tobacco,luxury,240.0,0.0,240.0
+POR,Portugal,clippers,industrial,80.0,35.0,45.0
+POR,Portugal,clothes,staple,90.0,0.0,90.0
+POR,Portugal,dye,industrial,120.0,0.0,120.0
+POR,Portugal,fabric,staple,120.0,145.0,-25.0
+POR,Portugal,fish,staple,250.0,0.0,250.0
+POR,Portugal,fruit,luxury,139.0,0.0,139.0
+POR,Portugal,grain,staple,385.0,0.0,385.0
+POR,Portugal,hardwood,industrial,50.0,0.0,50.0
+POR,Portugal,iron,industrial,0.0,5.0,-5.0
+POR,Portugal,luxury_clothes,luxury,30.0,0.0,30.0
+POR,Portugal,meat,luxury,70.0,0.0,70.0
+POR,Portugal,merchant_marine,staple,45.0,68.0,-23.0
+POR,Portugal,oil,industrial,20.0,0.0,20.0
+POR,Portugal,paper,staple,40.0,70.0,-30.0
+POR,Portugal,silk,industrial,0.0,15.0,-15.0
+POR,Portugal,small_arms,military,0.0,5.0,-5.0
+POR,Portugal,sugar,luxury,58.0,0.0,58.0
+POR,Portugal,tools,industrial,0.0,5.0,-5.0
+POR,Portugal,wine,luxury,180.0,0.0,180.0
+POR,Portugal,wood,staple,180.0,185.0,-5.0
+PRU,Prussia,ammunition,military,100.0,0.0,100.0
+PRU,Prussia,artillery,military,50.0,0.0,50.0
+PRU,Prussia,clippers,industrial,40.0,12.0,28.0
+PRU,Prussia,clothes,staple,780.0,0.0,780.0
+PRU,Prussia,coal,industrial,520.0,280.0,240.0
+PRU,Prussia,dye,industrial,0.0,80.0,-80.0
+PRU,Prussia,explosives,industrial,50.0,40.0,10.0
+PRU,Prussia,fabric,staple,150.0,760.0,-610.0
+PRU,Prussia,fertilizer,industrial,205.0,165.0,40.0
+PRU,Prussia,fish,staple,100.0,0.0,100.0
+PRU,Prussia,fruit,luxury,133.0,0.0,133.0
+PRU,Prussia,furniture,staple,520.0,0.0,520.0
+PRU,Prussia,glass,industrial,120.0,0.0,120.0
+PRU,Prussia,grain,staple,990.0,300.0,690.0
+PRU,Prussia,groceries,staple,325.0,0.0,325.0
+PRU,Prussia,hardwood,industrial,160.0,220.0,-60.0
+PRU,Prussia,iron,industrial,480.0,600.0,-120.0
+PRU,Prussia,lead,industrial,160.0,70.0,90.0
+PRU,Prussia,liquor,luxury,440.0,0.0,440.0
+PRU,Prussia,luxury_furniture,luxury,200.0,0.0,200.0
+PRU,Prussia,meat,luxury,250.0,0.0,250.0
+PRU,Prussia,merchant_marine,staple,18.0,60.0,-42.0
+PRU,Prussia,paper,staple,280.0,400.0,-120.0
+PRU,Prussia,porcelain,luxury,30.0,0.0,30.0
+PRU,Prussia,small_arms,military,240.0,0.0,240.0
+PRU,Prussia,steel,industrial,195.0,220.0,-25.0
+PRU,Prussia,sugar,luxury,27.0,200.0,-173.0
+PRU,Prussia,sulfur,industrial,120.0,120.0,0.0
+PRU,Prussia,tools,industrial,880.0,612.0,268.0
+PRU,Prussia,wine,luxury,40.0,0.0,40.0
+PRU,Prussia,wood,staple,840.0,1070.0,-230.0
+PAN,Punjab,clothes,staple,135.0,0.0,135.0
+PAN,Punjab,dye,industrial,90.0,10.0,80.0
+PAN,Punjab,fabric,staple,25.0,190.0,-165.0
+PAN,Punjab,fruit,luxury,35.0,0.0,35.0
+PAN,Punjab,furniture,staple,90.0,0.0,90.0
+PAN,Punjab,glass,industrial,60.0,0.0,60.0
+PAN,Punjab,grain,staple,100.0,0.0,100.0
+PAN,Punjab,hardwood,industrial,20.0,35.0,-15.0
+PAN,Punjab,iron,industrial,40.0,40.0,0.0
+PAN,Punjab,luxury_clothes,luxury,90.0,0.0,90.0
+PAN,Punjab,luxury_furniture,luxury,25.0,0.0,25.0
+PAN,Punjab,meat,luxury,50.0,0.0,50.0
+PAN,Punjab,opium,luxury,20.0,0.0,20.0
+PAN,Punjab,porcelain,luxury,20.0,0.0,20.0
+PAN,Punjab,silk,industrial,45.0,45.0,0.0
+PAN,Punjab,small_arms,military,60.0,0.0,60.0
+PAN,Punjab,sugar,luxury,5.0,0.0,5.0
+PAN,Punjab,tobacco,luxury,210.0,0.0,210.0
+PAN,Punjab,tools,industrial,60.0,20.0,40.0
+PAN,Punjab,wood,staple,120.0,300.0,-180.0
+RUS,Russia,artillery,military,50.0,0.0,50.0
+RUS,Russia,clippers,industrial,320.0,54.0,266.0
+RUS,Russia,clothes,staple,585.0,0.0,585.0
+RUS,Russia,dye,industrial,0.0,15.0,-15.0
+RUS,Russia,fabric,staple,190.0,910.0,-720.0
+RUS,Russia,fine_art,luxury,5.0,0.0,5.0
+RUS,Russia,fish,staple,150.0,0.0,150.0
+RUS,Russia,fruit,luxury,43.0,0.0,43.0
+RUS,Russia,furniture,staple,585.0,0.0,585.0
+RUS,Russia,glass,industrial,90.0,0.0,90.0
+RUS,Russia,grain,staple,3595.0,480.0,3115.0
+RUS,Russia,groceries,staple,540.0,0.0,540.0
+RUS,Russia,hardwood,industrial,890.0,270.0,620.0
+RUS,Russia,iron,industrial,400.0,380.0,20.0
+RUS,Russia,liquor,luxury,710.0,0.0,710.0
+RUS,Russia,luxury_clothes,luxury,180.0,0.0,180.0
+RUS,Russia,luxury_furniture,luxury,250.0,0.0,250.0
+RUS,Russia,meat,luxury,380.0,0.0,380.0
+RUS,Russia,merchant_marine,staple,81.0,84.0,-3.0
+RUS,Russia,paper,staple,560.0,285.0,275.0
+RUS,Russia,porcelain,luxury,30.0,0.0,30.0
+RUS,Russia,silk,industrial,0.0,90.0,-90.0
+RUS,Russia,small_arms,military,300.0,30.0,270.0
+RUS,Russia,sugar,luxury,70.0,100.0,-30.0
+RUS,Russia,tea,luxury,80.0,0.0,80.0
+RUS,Russia,tobacco,luxury,150.0,0.0,150.0
+RUS,Russia,tools,industrial,690.0,650.0,40.0
+RUS,Russia,wine,luxury,120.0,0.0,120.0
+RUS,Russia,wood,staple,6900.0,1880.0,5020.0
+SAR,Sardinia-Piedmont,clippers,industrial,120.0,37.0,83.0
+SAR,Sardinia-Piedmont,clothes,staple,90.0,0.0,90.0
+SAR,Sardinia-Piedmont,fabric,staple,35.0,175.0,-140.0
+SAR,Sardinia-Piedmont,fish,staple,250.0,0.0,250.0
+SAR,Sardinia-Piedmont,fruit,luxury,75.0,0.0,75.0
+SAR,Sardinia-Piedmont,furniture,staple,65.0,0.0,65.0
+SAR,Sardinia-Piedmont,grain,staple,235.0,40.0,195.0
+SAR,Sardinia-Piedmont,groceries,staple,45.0,0.0,45.0
+SAR,Sardinia-Piedmont,hardwood,industrial,70.0,10.0,60.0
+SAR,Sardinia-Piedmont,iron,industrial,60.0,50.0,10.0
+SAR,Sardinia-Piedmont,liquor,luxury,60.0,0.0,60.0
+SAR,Sardinia-Piedmont,meat,luxury,70.0,0.0,70.0
+SAR,Sardinia-Piedmont,merchant_marine,staple,18.0,12.0,6.0
+SAR,Sardinia-Piedmont,paper,staple,40.0,65.0,-25.0
+SAR,Sardinia-Piedmont,small_arms,military,30.0,0.0,30.0
+SAR,Sardinia-Piedmont,sugar,luxury,10.0,25.0,-15.0
+SAR,Sardinia-Piedmont,tools,industrial,120.0,79.0,41.0
+SAR,Sardinia-Piedmont,wine,luxury,80.0,0.0,80.0
+SAR,Sardinia-Piedmont,wood,staple,420.0,315.0,105.0
+SHW,Shewa,grain,staple,40.0,0.0,40.0
+SHW,Shewa,tobacco,luxury,30.0,0.0,30.0
+SHW,Shewa,wood,staple,30.0,0.0,30.0
+SIA,Siam,clippers,industrial,0.0,18.0,-18.0
+SIA,Siam,fabric,staple,5.0,0.0,5.0
+SIA,Siam,fish,staple,50.0,0.0,50.0
+SIA,Siam,fruit,luxury,40.0,0.0,40.0
+SIA,Siam,grain,staple,105.0,0.0,105.0
+SIA,Siam,meat,luxury,10.0,0.0,10.0
+SIA,Siam,merchant_marine,staple,27.0,0.0,27.0
+SIA,Siam,opium,luxury,20.0,0.0,20.0
+SIA,Siam,tea,luxury,40.0,0.0,40.0
+SIA,Siam,tobacco,luxury,60.0,0.0,60.0
+SOK,Sokoto,clothes,staple,45.0,0.0,45.0
+SOK,Sokoto,fabric,staple,75.0,40.0,35.0
+SOK,Sokoto,grain,staple,140.0,0.0,140.0
+SOK,Sokoto,meat,luxury,60.0,0.0,60.0
+SOK,Sokoto,tobacco,luxury,180.0,0.0,180.0
+SAF,South Africa,clippers,industrial,0.0,11.0,-11.0
+SAF,South Africa,fabric,staple,10.0,0.0,10.0
+SAF,South Africa,fish,staple,50.0,0.0,50.0
+SAF,South Africa,grain,staple,60.0,0.0,60.0
+SAF,South Africa,meat,luxury,20.0,0.0,20.0
+SAF,South Africa,merchant_marine,staple,9.0,0.0,9.0
+SAF,South Africa,wine,luxury,20.0,0.0,20.0
+SPA,Spain,artillery,military,25.0,0.0,25.0
+SPA,Spain,clippers,industrial,200.0,60.0,140.0
+SPA,Spain,clothes,staple,180.0,0.0,180.0
+SPA,Spain,coal,industrial,40.0,20.0,20.0
+SPA,Spain,dye,industrial,30.0,0.0,30.0
+SPA,Spain,fabric,staple,120.0,405.0,-285.0
+SPA,Spain,fish,staple,250.0,0.0,250.0
+SPA,Spain,fruit,luxury,52.0,0.0,52.0
+SPA,Spain,furniture,staple,90.0,0.0,90.0
+SPA,Spain,gold,luxury,8.0,0.0,8.0
+SPA,Spain,grain,staple,565.0,80.0,485.0
+SPA,Spain,groceries,staple,130.0,0.0,130.0
+SPA,Spain,hardwood,industrial,100.0,50.0,50.0
+SPA,Spain,iron,industrial,0.0,40.0,-40.0
+SPA,Spain,lead,industrial,80.0,0.0,80.0
+SPA,Spain,liquor,luxury,120.0,0.0,120.0
+SPA,Spain,luxury_furniture,luxury,50.0,0.0,50.0
+SPA,Spain,meat,luxury,240.0,0.0,240.0
+SPA,Spain,merchant_marine,staple,90.0,24.0,66.0
+SPA,Spain,paper,staple,320.0,185.0,135.0
+SPA,Spain,silk,industrial,45.0,0.0,45.0
+SPA,Spain,small_arms,military,30.0,15.0,15.0
+SPA,Spain,sugar,luxury,32.0,80.0,-48.0
+SPA,Spain,tobacco,luxury,30.0,0.0,30.0
+SPA,Spain,tools,industrial,0.0,110.0,-110.0
+SPA,Spain,wine,luxury,460.0,0.0,460.0
+SPA,Spain,wood,staple,960.0,875.0,85.0
+SWE,Sweden,clippers,industrial,80.0,73.0,7.0
+SWE,Sweden,clothes,staple,135.0,0.0,135.0
+SWE,Sweden,fabric,staple,30.0,180.0,-150.0
+SWE,Sweden,fish,staple,550.0,0.0,550.0
+SWE,Sweden,grain,staple,180.0,0.0,180.0
+SWE,Sweden,hardwood,industrial,180.0,10.0,170.0
+SWE,Sweden,iron,industrial,140.0,85.0,55.0
+SWE,Sweden,liquor,luxury,90.0,0.0,90.0
+SWE,Sweden,meat,luxury,60.0,0.0,60.0
+SWE,Sweden,merchant_marine,staple,27.0,20.0,7.0
+SWE,Sweden,paper,staple,120.0,70.0,50.0
+SWE,Sweden,small_arms,military,30.0,5.0,25.0
+SWE,Sweden,tools,industrial,60.0,138.0,-78.0
+SWE,Sweden,wood,staple,900.0,240.0,660.0
+SIC,Two Sicilies,clippers,industrial,80.0,36.0,44.0
+SIC,Two Sicilies,clothes,staple,135.0,0.0,135.0
+SIC,Two Sicilies,dye,industrial,0.0,5.0,-5.0
+SIC,Two Sicilies,fabric,staple,70.0,220.0,-150.0
+SIC,Two Sicilies,fish,staple,275.0,0.0,275.0
+SIC,Two Sicilies,furniture,staple,45.0,0.0,45.0
+SIC,Two Sicilies,glass,industrial,30.0,0.0,30.0
+SIC,Two Sicilies,grain,staple,540.0,40.0,500.0
+SIC,Two Sicilies,groceries,staple,45.0,0.0,45.0
+SIC,Two Sicilies,hardwood,industrial,50.0,20.0,30.0
+SIC,Two Sicilies,iron,industrial,40.0,80.0,-40.0
+SIC,Two Sicilies,liquor,luxury,60.0,0.0,60.0
+SIC,Two Sicilies,meat,luxury,140.0,0.0,140.0
+SIC,Two Sicilies,merchant_marine,staple,54.0,32.0,22.0
+SIC,Two Sicilies,paper,staple,40.0,70.0,-30.0
+SIC,Two Sicilies,porcelain,luxury,10.0,0.0,10.0
+SIC,Two Sicilies,silk,industrial,30.0,0.0,30.0
+SIC,Two Sicilies,small_arms,military,60.0,0.0,60.0
+SIC,Two Sicilies,sugar,luxury,25.0,25.0,0.0
+SIC,Two Sicilies,sulfur,industrial,100.0,0.0,100.0
+SIC,Two Sicilies,tools,industrial,180.0,114.0,66.0
+SIC,Two Sicilies,wine,luxury,200.0,0.0,200.0
+SIC,Two Sicilies,wood,staple,300.0,410.0,-110.0
+USA,United States,ammunition,military,50.0,0.0,50.0
+USA,United States,artillery,military,25.0,0.0,25.0
+USA,United States,clippers,industrial,240.0,195.0,45.0
+USA,United States,clothes,staple,600.0,0.0,600.0
+USA,United States,coal,industrial,560.0,200.0,360.0
+USA,United States,dye,industrial,60.0,70.0,-10.0
+USA,United States,engines,industrial,40.0,0.0,40.0
+USA,United States,explosives,industrial,50.0,20.0,30.0
+USA,United States,fabric,staple,2760.0,730.0,2030.0
+USA,United States,fertilizer,industrial,227.5,365.0,-137.5
+USA,United States,fish,staple,700.0,0.0,700.0
+USA,United States,fruit,luxury,147.0,0.0,147.0
+USA,United States,furniture,staple,585.0,0.0,585.0
+USA,United States,glass,industrial,200.0,0.0,200.0
+USA,United States,grain,staple,2070.0,470.0,1600.0
+USA,United States,groceries,staple,375.0,0.0,375.0
+USA,United States,hardwood,industrial,210.0,155.0,55.0
+USA,United States,iron,industrial,400.0,475.0,-75.0
+USA,United States,lead,industrial,60.0,70.0,-10.0
+USA,United States,liquor,luxury,300.0,0.0,300.0
+USA,United States,luxury_furniture,luxury,175.0,0.0,175.0
+USA,United States,meat,luxury,275.0,0.0,275.0
+USA,United States,merchant_marine,staple,180.0,132.0,48.0
+USA,United States,oil,industrial,20.0,0.0,20.0
+USA,United States,paper,staple,350.0,450.0,-100.0
+USA,United States,porcelain,luxury,40.0,0.0,40.0
+USA,United States,small_arms,military,120.0,20.0,100.0
+USA,United States,steel,industrial,130.0,170.0,-40.0
+USA,United States,sugar,luxury,96.0,170.0,-74.0
+USA,United States,sulfur,industrial,160.0,130.0,30.0
+USA,United States,tobacco,luxury,1470.0,0.0,1470.0
+USA,United States,tools,industrial,560.0,535.0,25.0
+USA,United States,wood,staple,1260.0,1210.0,50.0

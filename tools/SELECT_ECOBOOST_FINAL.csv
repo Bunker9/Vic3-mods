@@ -1,0 +1,44 @@
+# Top40EcoBoost FINAL champ/support/flavour table (human champ + pass1 support locked; support padded to >=6; flavour = upstream inputs + remaining buildable RGOs, cap 10).,,,,
+# Rules: support keeps ALL human pass1 picks; fish dropped where not buildable (PAN/SOK/HUN/HYD/NEP/SHW/BAV); flavour excludes wood/grain (generic_flavour already seeds +5 each).,,,,,
+# champ N = 2*tier ; each support N = 1*tier ; each flavour = +1 level. Goods space-separated. Edit + re-run gen_ecoboost_configs.py.,,,,,
+tag,name,tier,champ,support,flavor
+CHI,China,10,tea,fish wood furniture clothes groceries silk,fabric coal iron lead sulfur oil dye opium tobacco fruit
+RUS,Russia,10,wood,grain furniture groceries paper meat fish,coal iron lead sulfur oil fabric silk tea tobacco wine
+BIC,East India,10,dye,grain fabric meat fish wood tea,coal iron lead sulfur oil opium silk coffee sugar rubber
+USA,United States,9,meat,steel iron coal fabric tools groceries,lead sulfur oil tobacco sugar dye fruit fish wine
+FRA,France,9,wine,iron small_arms clothes glass fabric groceries,lead coal sulfur oil silk dye coffee sugar tobacco rubber
+GBR,Great Britain,9,coal,steel engines tools clothes glass,iron fabric lead sulfur oil silk tea coffee sugar rubber
+TUR,Ottomans,9,tobacco,tea grain meat paper fabric fish,coal iron lead sulfur oil opium silk fruit wine
+JAP,Japan,8,fish,paper groceries furniture glass clothes silk,coal iron lead sulfur oil fabric tea tobacco sugar dye
+PRU,Prussia,7,steel,tools iron coal artillery fertilizer explosives,sulfur lead wine fish meat
+SPA,Spain,6,furniture,fabric paper groceries clothes wine fish,coal iron lead sulfur silk dye coffee sugar tobacco fruit
+AUS,Austria,6,furniture,glass fabric tools clothes small_arms silk,iron lead coal sulfur oil wine fish meat
+MEX,Mexico,6,tobacco,fabric paper groceries dye coffee fish,coal iron lead oil opium sugar rubber fruit wine meat
+KOR,Korea,5,wood,tobacco fabric iron fish paper silk,coal lead sulfur opium tea meat
+BRZ,Brazil,5,fruit,groceries furniture wood coffee sugar fish,coal iron lead oil rubber tobacco dye tea fabric wine
+PER,Persia,5,clothes,opium fish furniture glass fabric wood,lead coal iron sulfur oil silk dye tea sugar tobacco
+EGY,Egypt,5,fabric,meat wood groceries iron fish tobacco,coal sulfur oil silk dye coffee opium sugar tea fruit
+PAN,Punjab,5,fabric,grain meat opium tools groceries dye,iron coal lead oil silk sugar tea tobacco coffee
+DEI,Dutch East Indies,5,fruit,dye coffee fish fabric sugar rubber,coal iron sulfur oil tea tobacco meat
+HUN,Hungary,4,meat,grain groceries iron steel wood tools,coal lead oil wine
+POR,Portugal,4,fish,wine wood furniture groceries tools iron,coal lead sulfur oil silk dye coffee sugar rubber fabric
+SIC,Two Sicilies,4,sulfur,fabric fish wine groceries clothes silk,coal iron sugar meat
+NET,Netherlands,4,clothes,furniture sugar groceries steel tools glass,fabric coal oil rubber coffee dye tobacco fruit fish meat
+SOK,Sokoto,4,grain,meat fruit tobacco coffee groceries wood fabric,coal iron lead oil rubber sugar dye tea
+SAR,Sardinia-Piedmont,4,fabric,tools wine sugar groceries steel silk,iron coal lead sulfur fish meat
+SWE,Sweden,4,iron,coal fish groceries furniture paper tools,lead meat
+HYD,Hyderabad,3,paper,wood grain iron fabric groceries silk,coal opium dye sugar tobacco fruit meat
+GRE,Greece,3,wine,fabric tobacco tools fish groceries clothes,iron lead sulfur meat
+DAI,Dai Nam,3,fish,meat wood tea opium coffee rubber,coal iron silk dye sugar fabric fruit
+NEP,Nepal,3,wood,groceries furniture clothes glass grain tea tobacco,iron lead opium meat
+CLM,Colombia,3,coffee,tobacco sugar iron groceries fish dye,coal oil opium rubber fabric fruit meat
+ARG,Argentina,3,meat,tobacco tools fabric paper groceries fish,iron lead oil wine sugar coffee dye fruit
+SIA,Siam,2,fish,tea wood fabric grain groceries furniture,coal iron lead opium silk rubber sugar dye coffee tobacco
+MOR,Morocco,2,fabric,meat tools grain fish groceries wine,iron coal lead sulfur sugar fruit
+OMA,Oman,2,coffee,fish grain clothes furniture fabric sugar,oil coal iron lead opium silk rubber tea dye fruit
+SHW,Shewa,2,coffee,tobacco grain fabric sugar tea dye,oil rubber wine meat
+SAF,South Africa,2,meat,wood fish furniture clothes grain fabric,coal iron tea wine fruit
+PHI,Philippines,2,sugar,tobacco grain fish coffee fabric groceries,coal iron rubber dye tea fruit meat
+BEL,Belgium,2,steel,tools explosives engines iron coal glass,sulfur lead fish meat
+BAV,Bavaria,2,wine,fertilizer paper tools furniture groceries grain,iron coal lead meat
+BUR,Burma,2,tea,opium tobacco wood fabric grain fish,coal iron lead oil rubber silk sugar dye fruit meat

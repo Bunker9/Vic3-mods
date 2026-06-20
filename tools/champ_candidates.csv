@@ -1,0 +1,41 @@
+tag,country,X,market_access,champ_1,champ_2,champ_3,champ_4,champ_5,pick,support /what I kindof wanted
+CHI,China,10,yes,silk(15),tea(15),small_arms(11),dye(10),fish(10),silk,
+RUS,Russia,10,yes,clothes(12),iron(12),small_arms(12),fish(10),grain(10),wood,groceries
+BIC,East India,10,yes,tea(12),dye(10),fabric(10),fish(10),fruit(10),fabric,iron
+USA,United States,9,yes,fabric(15),small_arms(11),fish(10),grain(10),meat(10),meat,fabric
+FRA,France,9,yes,wine(15),clothes(12),small_arms(12),fish(10),grain(10),wine,groceries
+GBR,Great Britain,9,yes,clothes(12),groceries(12),steel(12),coffee(10),fish(10),clothes,coal
+TUR,Ottomans,9,yes,grain(15),fabric(10),fish(10),meat(10),tea(10),meat,paper
+JAP,Japan,8,yes,silk(14),groceries(12),paper(12),fabric(10),fish(10),fish,paper
+PRU,Prussia,7,yes,grain(10),meat(10),artillery(9),fish(9),clothes(7),steel,tools
+SPA,Spain,6,yes,clothes(11),fish(10),grain(10),meat(10),wine(10),fish,ship
+AUS,Austria,6,yes,silk(15),furniture(12),glass(12),small_arms(12),tools(12),furniture,glass
+MEX,Mexico,6,yes,dye(10),fish(10),grain(10),tobacco(10),meat(9),tobacco,dye
+KOR,Korea,5,no,grain(17),fish(12),meat(10),glass(7),tobacco(6),fish,iron
+BRZ,Brazil,5,yes,clothes(11),coffee(10),fabric(10),fish(10),fruit(10),coffee,wood
+PER,Persia,5,no,grain(12),opium(11),clothes(10),meat(10),fish(8),clothes,meat
+EGY,Egypt,5,yes,fabric(15),fish(10),grain(10),meat(10),tobacco(10),grain,fabric
+PAN,Punjab,5,no,grain(12),meat(12),tobacco(6),clothes(5),dye(4),fabric,grain
+DEI,Dutch East Indies,5,yes,coffee(15),dye(10),grain(10),tobacco(10),sugar(9),dye,fruit
+HUN,Hungary,4,yes,grain(10),meat(10),wine(10),groceries(6),iron(5),grain,groceries
+POR,Portugal,4,yes,grain(15),fish(10),meat(10),wine(10),clothes(9),fish,wine
+SIC,Two Sicilies,4,yes,sulfur(12),fish(10),grain(10),meat(10),wine(10),fish,sulfur
+NET,Netherlands,4,yes,fish(10),grain(10),meat(10),paper(7),clothes(6),clothes,furniture
+SOK,Sokoto,4,no,grain(12),meat(12),fabric(6),tobacco(6),clothes(3),grain(12),meat(12)
+SAR,Sardinia-Piedmont,4,yes,fish(10),grain(10),meat(10),wine(9),automobiles(5),fish(10),groceries
+SWE,Sweden,4,yes,iron(12),fish(10),grain(10),meat(10),clothes(5),iron(12),fish(10)
+HYD,Hyderabad,3,no,fabric(7),grain(5),meat(5),silk(4),paper(3),fabric(7),grain(5)
+GRE,Greece,3,yes,fish(8),fabric(7),grain(7),wine(7),tobacco(6),wine(7),tobacco(6)
+DAI,Dai Nam,3,yes,meat(8),fish(7),grain(7),opium(7),tea(7),meat(8),fish(7)
+NEP,Nepal,3,no,grain(5),meat(5),tea(2),tobacco(2),iron(0),grain(5),iron(0)
+CLM,Colombia,3,yes,grain(10),tobacco(9),coffee(8),fabric(7),sugar(7),coffee(8),sugar(7)
+ARG,Argentina,3,yes,meat(14),grain(8),tobacco(8),fish(6),gold(4),meat(14),tobacco(8)
+SIA,Siam,2,no,grain(15),fish(9),meat(8),fabric(3),tea(3),fish(9),tea(3)
+MOR,Morocco,2,yes,meat(10),fish(8),iron(4),clothes(3),fabric(3),meat(10),fabric(3)
+OMA,Oman,2,yes,fish(10),coffee(6),fabric(6),dye(3),fruit(3),coffee(6),fish(10)
+SHW,Shewa,2,no,grain(9),meat(5),fabric(3),coffee(2),tobacco(2),grain(9),coffee(2)
+SAF,South Africa,2,no,grain(10),meat(9),fish(8),fabric(3),wine(2),meat(9),fish(8)
+PHI,Philippines,2,yes,grain(10),tobacco(10),fish(8),sugar(8),coffee(3),sugar(8),coffee(3)
+BEL,Belgium,2,yes,grain(10),meat(10),tools(10),coal(7),iron(7),tools(10),coal(7)
+BAV,Bavaria,2,yes,grain(10),meat(9),wine(7),furniture(5),groceries(5),furniture(5),groceries(5)
+BUR,Burma,2,no,grain(11),fish(9),meat(9),fabric(3),tobacco(3),grain(11),fabric(3)

@@ -1,19 +1,21 @@
 <#
 .DEPRECATED (2026-06-10)
-  SUPERSEDED by the Python test framework (sanity-check\testkit\run_test.py + checks\
-  log_triage.py), which produces the tabbed HTML report. Kept for reference only; to be
-  archived to the hk branch with a deprecation note. Do not extend this file.
+  SUPERSEDED by the Python test framework (testbook\testkit\run_test.py + checks\
+  log_triage.py), which produces the tabbed HTML report (Static/Log/BDD/Conflicts) + log.json.
+  That is the LIVE triage; it does not emit CSV (the CSV-producing analysis tools are the
+  gen_*/anal_* scripts in hk-config\tools\). This .ps1 is kept for reference only — do not
+  extend it. Lives in scripts\ (a ceremony/summary), not tools\ (which is CSV analysis).
 
 .SYNOPSIS
   Post-test triage of Victoria 3 logs for Top40EcoBoostMod runs.
 .DESCRIPTION
   Parses the Vic3 debug.log + error.log after an in-game test and produces a report:
-    1. BUILD CENSUS  — per building: how many levels the eco engine placed, by type
+    1. BUILD CENSUS  - per building: how many levels the eco engine placed, by type
        (champ/support/flavour), parsed from the "ECO_PLACED <type>" markers that follow
        each building-name header (debug_log = $B$). Verifies against expected caps.
-    2. REAL ERRORS   — error.log with our own known-benign lines filtered out, so genuine
+    2. REAL ERRORS   - error.log with our own known-benign lines filtered out, so genuine
        failures (missing buildings, bad tokens, failed modifiers, crashes) stand out.
-    3. SUMMARY        — counts + a pass/fail-ish read.
+    3. SUMMARY        - counts + a pass/fail-ish read.
 
   Writes a timestamped markdown report to sanity-check\reports\ and prints a summary.
 
@@ -25,7 +27,7 @@
 .PARAMETER LogsDir
   Override the Vic3 logs folder (default: resolved from MyDocuments).
 .EXAMPLE
-  powershell -ExecutionPolicy Bypass -File sanity-check\triage-vic3-logs.ps1
+  powershell -ExecutionPolicy Bypass -File scripts\triage-vic3-logs.ps1
 #>
 [CmdletBinding()]
 param([string]$LogsDir)
@@ -118,7 +120,7 @@ $sb = [System.Text.StringBuilder]::new()
 foreach ($row in $census) {
     $exp = $expected[$row.Building]
     $en  = if ($exp) { $exp.n } else { '?' }
-    $ok  = if ($exp -and $row.Count -eq $exp.n) { 'YES' } elseif ($exp) { 'NO' } else { '—' }
+    $ok  = if ($exp -and $row.Count -eq $exp.n) { 'YES' } elseif ($exp) { 'NO' } else { '-' }
     [void]$sb.AppendLine("| $($row.Building) | $($row.Type) | $($row.Count) | $en | $ok |")
 }
 [void]$sb.AppendLine("")

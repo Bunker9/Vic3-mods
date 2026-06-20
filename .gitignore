@@ -18,6 +18,11 @@ identity.key
 # machine-specific reference paths (commit only refpaths.example.json)
 config/refpaths.json
 
+# machine-specific git identity baseline for the health check
+# (commit only gitidentity.example.json — the real one names the cross-project
+#  XplanMagic identity, which must never land in this PUBLIC repo)
+config/gitidentity.json
+
 # private TODO tracker — user-designated PII; NEVER commit (build script tracked, output isn't)
 data/TODO.csv
 data/TODO.xlsx
@@ -32,3 +37,5 @@ Desktop.ini
 *.swp
 .vscode/
 .idea/
+*.iml
+out/

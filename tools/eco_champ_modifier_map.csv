@@ -1,0 +1,41 @@
+tag,country,tier,champ_good,champ_category,modifier
+CHI,China,10,tea,plant,eco_champ_tp_plant
+RUS,Russia,10,wood,log,eco_champ_tp_log
+BIC,East India,10,dye,plant,eco_champ_tp_plant
+USA,United States,9,meat,ranch,eco_champ_tp_ranch
+FRA,France,9,wine,plant,eco_champ_tp_plant
+GBR,Great Britain,9,coal,mine,eco_champ_tp_mine
+TUR,Ottomans,9,tobacco,plant,eco_champ_tp_plant
+JAP,Japan,8,fish,fish,eco_champ_tp_fish
+PRU,Prussia,7,steel,ind,eco_champ_tp_ind
+SPA,Spain,6,furniture,ind,eco_champ_tp_ind
+AUS,Austria,6,furniture,ind,eco_champ_tp_ind
+MEX,Mexico,6,tobacco,plant,eco_champ_tp_plant
+KOR,Korea,5,wood,log,eco_champ_tp_log
+BRZ,Brazil,5,fruit,plant,eco_champ_tp_plant
+PER,Persia,5,clothes,ind,eco_champ_tp_ind
+EGY,Egypt,5,fabric,plant,eco_champ_tp_plant
+PAN,Punjab,5,fabric,plant,eco_champ_tp_plant
+DEI,Dutch East Indies,5,fruit,plant,eco_champ_tp_plant
+HUN,Hungary,4,meat,ranch,eco_champ_tp_ranch
+POR,Portugal,4,fish,fish,eco_champ_tp_fish
+SIC,Two Sicilies,4,sulfur,mine,eco_champ_tp_mine
+NET,Netherlands,4,clothes,ind,eco_champ_tp_ind
+SOK,Sokoto,4,grain,ranch,eco_champ_tp_ranch
+SAR,Sardinia-Piedmont,4,fabric,plant,eco_champ_tp_plant
+SWE,Sweden,4,iron,mine,eco_champ_tp_mine
+HYD,Hyderabad,3,paper,ind,eco_champ_tp_ind
+GRE,Greece,3,wine,plant,eco_champ_tp_plant
+DAI,Dai Nam,3,fish,fish,eco_champ_tp_fish
+NEP,Nepal,3,wood,log,eco_champ_tp_log
+CLM,Colombia,3,coffee,plant,eco_champ_tp_plant
+ARG,Argentina,3,meat,ranch,eco_champ_tp_ranch
+SIA,Siam,2,fish,fish,eco_champ_tp_fish
+MOR,Morocco,2,fabric,plant,eco_champ_tp_plant
+OMA,Oman,2,coffee,plant,eco_champ_tp_plant
+SHW,Shewa,2,coffee,plant,eco_champ_tp_plant
+SAF,South Africa,2,meat,ranch,eco_champ_tp_ranch
+PHI,Philippines,2,sugar,plant,eco_champ_tp_plant
+BEL,Belgium,2,steel,ind,eco_champ_tp_ind
+BAV,Bavaria,2,wine,plant,eco_champ_tp_plant
+BUR,Burma,2,tea,plant,eco_champ_tp_plant

@@ -1,0 +1,9 @@
+good,baseline_need_per_1m_pop,wealth9_sources (popneed:share)
+grain,21.76,popneed_basic_food:21.76
+fish,25.6,popneed_basic_food:25.6
+groceries,29.44,popneed_basic_food:29.44
+fabric,15.14,popneed_simple_clothing:14.333; popneed_heating:0.806
+clothes,28.67,popneed_simple_clothing:28.667
+wood,16.75,popneed_crude_items:14.333; popneed_heating:2.417
+furniture,28.67,popneed_crude_items:28.667
+paper,0.0,

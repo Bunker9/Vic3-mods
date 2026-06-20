@@ -2,6 +2,13 @@
 r"""
 gen_blob_plan.py — MyDiploPlayMod data-gen + history emitter.
 
+!!! FROZEN 2026-06-15 — DO NOT RUN until reconciled (TODO T50). Human commit 771515f
+    HAND-EDITED the outputs this script owns: added CHT+KAB<->PAN 24mo truces (zz_mdp_truces),
+    trimmed add_homeland from BIC/PRU claimed states + removed SWE Madras/Pegu/W.Indies claims
+    (zz_mdp_claims). Re-running this WILL overwrite those human-approved changes. Bake them into
+    the generator (region map / blob_targets) FIRST, then run. !!!
+
+
 The 2026-06-12 redo: last build declared conquest wars at RUNTIME (on_action), which
 (a) gave every expander huge day-1 infamy and (b) only war-goaled the target's CAPITAL,
 so conquests came in partial + unincorporated and the AI white-peaced. The fix moves the
@@ -47,6 +54,15 @@ EXTRA_SEED = {
 # but the seed should be the Sikh Khalsa identity the user wants).
 RELIGION_OVERRIDE = {
     "OMA": "ibadi",
+}
+
+# European expander cultures are NOT seeded into far-off conquered states (user 2026-06-16):
+# a British/Dutch/Swedish/German/Italian pop in a distant Asian/African state makes no sense.
+# (The output file zz_mdp_seed_pops.txt was hand-scrubbed of these on 2026-06-16 because this
+# generator is frozen for T50; this set keeps them out once it is reconciled + re-run.)
+EUROPEAN_CULTURES = {
+    "british", "dutch", "north_german", "south_german", "north_italian", "south_italian",
+    "swedish", "french", "spanish", "portuguese", "danish", "norwegian",
 }
 
 def read(p):
@@ -207,6 +223,7 @@ def main():
     for e, d in by_exp.items():
         cu = d["culture"]
         if not cu: continue
+        if cu in EUROPEAN_CULTURES: continue   # user 2026-06-16: no european pops in far-off states
         rl = RELIGION_OVERRIDE.get(e) or crel.get(cu, "")   # rulers' religion, else culture default
         relline = f" religion = {rl}" if rl else ""
         seeds = [(relline, SEED_POP)] + [(f" religion = {r}", n) for (r, n) in EXTRA_SEED.get(e, [])]
@@ -225,12 +242,62 @@ def main():
             f.write("".join(lines))
         return full
 
+    # ---- diplomacy: all-pairs truce among expand tags ----------------------
+    # 2026-06-14 (user): expanders should ignore each other's blob-chain wars. Vanilla
+    # create_bidirectional_truce (verified: common/history/diplomacy/00_truces.txt) sets
+    # up a truce at game start; mdp_valid_generic_target then excludes any has_truce_with
+    # the attacker, so expanders never target — and are weighted against joining wars
+    # against — each other. months = 120 matches the 10-yr blob-chain window (1846 stop /
+    # mdp_infamy_decay).
+    TRUCE_MONTHS = 120
+    # 2026-06-15 (user): the all-pairs matrix produced NONSENSE truces between expanders on
+    # DIFFERENT CONTINENTS (PAN-PRU, OMA-BRZ, CLM-DEI) that can never reach each other. Only
+    # emit a truce when both tags share a REGION bucket (i.e. could plausibly become land-
+    # adjacent and fight via the blob chain). A tag may sit in two buckets (e.g. EGY bridges
+    # the Middle East and Africa). This is what stops the real wars (OMA/PER, BIC/PAN) without
+    # cluttering saves with impossible-war truces.
+    REGION = {
+        "PRU": {"EUR"}, "SAR": {"EUR"}, "SWE": {"EUR"},
+        "BIC": {"INDIA"}, "PAN": {"INDIA"}, "NEP": {"INDIA"},
+        "DAI": {"SEASIA"}, "SIA": {"SEASIA"}, "DEI": {"SEASIA"},
+        "OMA": {"MIDEAST"}, "PER": {"MIDEAST"}, "NEJ": {"MIDEAST"},
+        "EGY": {"MIDEAST", "AFRICA"},
+        "MOR": {"AFRICA"}, "SOK": {"AFRICA"}, "SHW": {"AFRICA"}, "SAF": {"AFRICA"},
+        "MEX": {"AMERICAS"}, "ARG": {"AMERICAS"}, "BRZ": {"AMERICAS"}, "CLM": {"AMERICAS"},
+    }
+    def same_region(a, b):
+        return bool(REGION.get(a, set()) & REGION.get(b, set()))
+
+    # Manual truce pairs (real adjacency the region buckets don't capture — across-water
+    # neighbours whose wars stalemate or who keep getting dragged together):
+    #   OMA<->NEJ : Nejd border is impassable desert wasteland (war never resolves).
+    #   OMA<->SHW : Arabia faces the Horn across the Gulf of Aden; kept fighting in testing
+    #               despite the OMA Arabian-mainland filter, so pin a start truce.
+    #   SHW<->WTU : Shewa kept getting dragged into an odd event-claim war with Witu (Kenya)
+    #               after taking Somalia (user 2026-06-16).
+    MANUAL_TRUCES = [("OMA", "NEJ"), ("OMA", "SHW"), ("SHW", "WTU")]
+    tags = sorted(by_exp.keys())
+    dipl = [HDR, "DIPLOMACY = {\n"]
+    emitted = set()
+    for i, a in enumerate(tags):
+        for b in tags[i + 1:]:
+            if not same_region(a, b):
+                continue   # skip cross-continent impossible-war truces
+            dipl.append(f"\tc:{a} ?= {{\n\t\tcreate_bidirectional_truce = {{\n\t\t\tcountry = c:{b}\n\t\t\tmonths = {TRUCE_MONTHS}\n\t\t}}\n\t}}\n")
+            emitted.add(frozenset((a, b)))
+    for a, b in MANUAL_TRUCES:
+        if frozenset((a, b)) in emitted:
+            continue
+        dipl.append(f"\tc:{a} ?= {{\n\t\tcreate_bidirectional_truce = {{\n\t\t\tcountry = c:{b}\n\t\t\tmonths = {TRUCE_MONTHS}\n\t\t}}\n\t}}\n")
+    dipl.append("}\n")
+
     # NOTE: zz_mdp_wars.txt is NO LONGER written here — it is hand-maintained (the user's
     # curated day-1 war set). Only claims + pops are generated. To re-enable, restore the
     # write_bom(...zz_mdp_wars.txt..., dp) call below.
     _ = dp  # built above but intentionally not written
     f2 = write_bom(os.path.join("common", "history", "states", "zz_mdp_claims.txt"), stx)
     f3 = write_bom(os.path.join("common", "history", "pops", "zz_mdp_seed_pops.txt"), pp)
+    f4 = write_bom(os.path.join("common", "history", "diplomacy", "zz_mdp_truces.txt"), dipl)
 
     # ---- report ------------------------------------------------------------
     missing = sorted({t for e, c, t, dd, s in plan if s == "(NO STATES FOUND)"})
@@ -239,6 +306,7 @@ def main():
     print( "  (zz_mdp_wars.txt SKIPPED — hand-maintained)")
     print(f"wrote: {os.path.relpath(f2, REPO)}")
     print(f"       {os.path.relpath(f3, REPO)}")
+    print(f"       {os.path.relpath(f4, REPO)}")
     print(f"       {os.path.relpath(os.path.join(HERE,'blob_plan.csv'), REPO)}")
     if missing: print(f"WARNING — targets with no states found (tag wrong / absent at 1836): {', '.join(missing)}")
     if nocult:  print(f"WARNING — expanders with no primary culture resolved: {', '.join(nocult)}")

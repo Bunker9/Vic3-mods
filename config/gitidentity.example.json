@@ -1,0 +1,30 @@
+{
+  "_comment": "Per-machine git identity baseline for githk_check_git_config.ps1. Copy to gitidentity.json (gitignored) and fill in real values. The real file names the default/system GitHub identity (e.g. the cross-project XplanMagic account) which must NEVER be committed to this public repo.",
+
+  "default": {
+    "_comment": "The DEFAULT / system-wide git identity (NOT the Vic3 one). On this machine = the XplanMagic account.",
+    "name": "<default-github-username>",
+    "email": "<default-github-noreply-email>",
+    "helper": "manager"
+  },
+
+  "vic3_local": {
+    "_comment": "The Vic3 repo's LOCAL identity override + its gh-based credential helper.",
+    "name": "HershGord",
+    "email": "HershGord@users.noreply.github.com",
+    "helper": "!gh auth git-credential",
+    "remote_host": "github.com"
+  },
+
+  "windows_credentials": {
+    "_comment": "Expected Windows Credential Manager state. bare_host_user = who owns git:https://github.com (must be the DEFAULT account, NOT Vic3 — gh auth setup-git clobbering this is the known failure mode).",
+    "bare_host_user": "<default-github-username>",
+    "vic3_isolated_key": "git:https://HershGord@github.com"
+  },
+
+  "gh": {
+    "_comment": "gh keyring accounts. vic3_active_account = which gh account must be ACTIVE for Vic3 pushes to authenticate (the gh helper serves the active account's token).",
+    "expected_accounts": ["<default-github-username>", "HershGord"],
+    "vic3_active_account": "HershGord"
+  }
+}

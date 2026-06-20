@@ -1,0 +1,2919 @@
+tag,country,state,rgo,kind,capacity,state_arable_land
+ARG,Argentina,BUENOS_AIRES,logging_camp,capped,9,300
+ARG,Argentina,BUENOS_AIRES,wheat_farm,farm,,300
+ARG,Argentina,BUENOS_AIRES,vineyard,plantation,,300
+ARG,Argentina,CHACO,logging_camp,capped,13,60
+ARG,Argentina,CHACO,livestock_ranch,farm,,60
+ARG,Argentina,CHACO,maize_farm,farm,,60
+ARG,Argentina,CHACO,banana_plantation,plantation,,60
+ARG,Argentina,CHACO,cotton_plantation,plantation,,60
+ARG,Argentina,CHACO,dye_plantation,plantation,,60
+ARG,Argentina,CHACO,tobacco_plantation,plantation,,60
+ARG,Argentina,CORRIENTES,logging_camp,capped,15,120
+ARG,Argentina,CORRIENTES,oil_rig,discoverable,20,120
+ARG,Argentina,CORRIENTES,banana_plantation,plantation,,120
+ARG,Argentina,CORRIENTES,dye_plantation,plantation,,120
+ARG,Argentina,CORRIENTES,sugar_plantation,plantation,,120
+ARG,Argentina,JUJUY,iron_mine,capped,36,50
+ARG,Argentina,JUJUY,lead_mine,capped,18,50
+ARG,Argentina,JUJUY,logging_camp,capped,8,50
+ARG,Argentina,JUJUY,livestock_ranch,farm,,50
+ARG,Argentina,JUJUY,maize_farm,farm,,50
+ARG,Argentina,JUJUY,coffee_plantation,plantation,,50
+ARG,Argentina,JUJUY,dye_plantation,plantation,,50
+ARG,Argentina,JUJUY,sugar_plantation,plantation,,50
+ARG,Argentina,JUJUY,tobacco_plantation,plantation,,50
+ARG,Argentina,LA_PAMPA,logging_camp,capped,13,150
+ARG,Argentina,LA_PAMPA,dye_plantation,plantation,,150
+ARG,Argentina,LA_PAMPA,sugar_plantation,plantation,,150
+ARG,Argentina,LA_PAMPA,vineyard,plantation,,150
+ARG,Argentina,RIO_NEGRO,coal_mine,capped,40,120
+ARG,Argentina,RIO_NEGRO,sulfur_mine,capped,52,120
+ARG,Argentina,RIO_NEGRO,livestock_ranch,farm,,120
+ARG,Argentina,RIO_NEGRO,wheat_farm,farm,,120
+ARG,Argentina,RIO_NEGRO,dye_plantation,plantation,,120
+ARG,Argentina,RIO_NEGRO,sugar_plantation,plantation,,120
+ARG,Argentina,RIO_NEGRO,vineyard,plantation,,120
+ARG,Argentina,SANTA_FE,fishing_wharf,capped,2,80
+ARG,Argentina,SANTA_FE,oil_rig,discoverable,20,80
+ARG,Argentina,SANTA_FE,maize_farm,farm,,80
+ARG,Argentina,SANTA_FE,dye_plantation,plantation,,80
+ARG,Argentina,SANTA_FE,vineyard,plantation,,80
+ARG,Argentina,TUCUMAN,iron_mine,capped,39,60
+ARG,Argentina,TUCUMAN,lead_mine,capped,15,60
+ARG,Argentina,TUCUMAN,logging_camp,capped,6,60
+ARG,Argentina,TUCUMAN,livestock_ranch,farm,,60
+ARG,Argentina,TUCUMAN,maize_farm,farm,,60
+ARG,Argentina,TUCUMAN,banana_plantation,plantation,,60
+ARG,Argentina,TUCUMAN,dye_plantation,plantation,,60
+ARG,Argentina,TUCUMAN,sugar_plantation,plantation,,60
+ARG,Argentina,TUCUMAN,tobacco_plantation,plantation,,60
+ARG,Argentina,TUCUMAN,vineyard,plantation,,60
+AUS,Austria,AUSTRIA,coal_mine,capped,44,80
+AUS,Austria,AUSTRIA,logging_camp,capped,7,80
+AUS,Austria,AUSTRIA,vineyard,plantation,,80
+AUS,Austria,BOHEMIA,livestock_ranch,farm,,195
+AUS,Austria,BOHEMIA,vineyard,plantation,,195
+AUS,Austria,BUKOVINA,coal_mine,capped,2,100
+AUS,Austria,BUKOVINA,iron_mine,capped,4,100
+AUS,Austria,BUKOVINA,vineyard,plantation,,100
+AUS,Austria,DALMATIA,logging_camp,capped,4,20
+AUS,Austria,DALMATIA,livestock_ranch,farm,,20
+AUS,Austria,EAST_GALICIA,coal_mine,capped,92,145
+AUS,Austria,EAST_GALICIA,logging_camp,capped,9,145
+AUS,Austria,EAST_GALICIA,oil_rig,discoverable,100,145
+AUS,Austria,ISTRIA,coal_mine,capped,44,25
+AUS,Austria,ISTRIA,logging_camp,capped,5,25
+AUS,Austria,ISTRIA,livestock_ranch,farm,,25
+AUS,Austria,ISTRIA,wheat_farm,farm,,25
+AUS,Austria,ISTRIA,vineyard,plantation,,25
+AUS,Austria,LOMBARDY,iron_mine,capped,27,110
+AUS,Austria,LOMBARDY,lead_mine,capped,19,110
+AUS,Austria,LOMBARDY,logging_camp,capped,7,110
+AUS,Austria,LOMBARDY,oil_rig,discoverable,20,110
+AUS,Austria,LOMBARDY,livestock_ranch,farm,,110
+AUS,Austria,LOMBARDY,cotton_plantation,plantation,,110
+AUS,Austria,LOMBARDY,silk_plantation,plantation,,110
+AUS,Austria,MONTENEGRO,coal_mine,capped,50,38
+AUS,Austria,MONTENEGRO,fishing_wharf,capped,15,38
+AUS,Austria,MONTENEGRO,logging_camp,capped,15,38
+AUS,Austria,MONTENEGRO,livestock_ranch,farm,,38
+AUS,Austria,MONTENEGRO,wheat_farm,farm,,38
+AUS,Austria,MONTENEGRO,vineyard,plantation,,38
+AUS,Austria,MORAVIA,iron_mine,capped,10,80
+AUS,Austria,MORAVIA,livestock_ranch,farm,,80
+AUS,Austria,SLOVENIA,coal_mine,capped,60,25
+AUS,Austria,SLOVENIA,vineyard,plantation,,25
+AUS,Austria,SOUTH_TYROL,logging_camp,capped,6,30
+AUS,Austria,SOUTH_TYROL,livestock_ranch,farm,,30
+AUS,Austria,STYRIA,coal_mine,capped,40,40
+AUS,Austria,STYRIA,logging_camp,capped,8,40
+AUS,Austria,STYRIA,vineyard,plantation,,40
+AUS,Austria,TYROL,logging_camp,capped,9,30
+AUS,Austria,TYROL,wheat_farm,farm,,30
+AUS,Austria,TYROL,vineyard,plantation,,30
+AUS,Austria,VENETIA,coal_mine,capped,44,70
+AUS,Austria,VENETIA,logging_camp,capped,7,70
+AUS,Austria,VENETIA,sulfur_mine,capped,36,70
+AUS,Austria,VENETIA,livestock_ranch,farm,,70
+AUS,Austria,WEST_GALICIA,coal_mine,capped,140,145
+AUS,Austria,WEST_GALICIA,logging_camp,capped,17,145
+AUS,Austria,WEST_GALICIA,oil_rig,discoverable,60,145
+BAV,Bavaria,BAVARIA,coal_mine,capped,60,65
+BAV,Bavaria,BAVARIA,lead_mine,capped,30,65
+BAV,Bavaria,BAVARIA,vineyard,plantation,,65
+BAV,Bavaria,FRANCONIA,iron_mine,capped,30,80
+BAV,Bavaria,RHINELAND,coal_mine,capped,60,55
+BAV,Bavaria,RHINELAND,lead_mine,capped,30,55
+BAV,Bavaria,RHINELAND,logging_camp,capped,11,55
+BEL,Belgium,GELRE,coal_mine,capped,40,40
+BEL,Belgium,GELRE,logging_camp,capped,9,40
+BEL,Belgium,GELRE,livestock_ranch,farm,,40
+BEL,Belgium,GELRE,rye_farm,farm,,40
+BEL,Belgium,WALLONIA,lead_mine,capped,30,55
+BEL,Belgium,WALLONIA,livestock_ranch,farm,,55
+BRZ,Brazil,BAHIA,iron_mine,capped,15,80
+BRZ,Brazil,BAHIA,rubber_plantation,discoverable,3,80
+BRZ,Brazil,BAHIA,livestock_ranch,farm,,80
+BRZ,Brazil,BAHIA,tobacco_plantation,plantation,,80
+BRZ,Brazil,CEARA,iron_mine,capped,18,30
+BRZ,Brazil,CEARA,rubber_plantation,discoverable,3,30
+BRZ,Brazil,CEARA,livestock_ranch,farm,,30
+BRZ,Brazil,CEARA,banana_plantation,plantation,,30
+BRZ,Brazil,CEARA,sugar_plantation,plantation,,30
+BRZ,Brazil,CEARA,tobacco_plantation,plantation,,30
+BRZ,Brazil,GOIAS,fishing_wharf,capped,7,40
+BRZ,Brazil,GOIAS,rubber_plantation,discoverable,16,40
+BRZ,Brazil,GOIAS,livestock_ranch,farm,,40
+BRZ,Brazil,GOIAS,banana_plantation,plantation,,40
+BRZ,Brazil,GOIAS,coffee_plantation,plantation,,40
+BRZ,Brazil,GOIAS,sugar_plantation,plantation,,40
+BRZ,Brazil,GOIAS,tobacco_plantation,plantation,,40
+BRZ,Brazil,MARANHAO,fishing_wharf,capped,7,30
+BRZ,Brazil,MARANHAO,rubber_plantation,discoverable,16,30
+BRZ,Brazil,MARANHAO,livestock_ranch,farm,,30
+BRZ,Brazil,MARANHAO,sugar_plantation,plantation,,30
+BRZ,Brazil,MARANHAO,tobacco_plantation,plantation,,30
+BRZ,Brazil,MATO_GROSSO,iron_mine,capped,18,60
+BRZ,Brazil,MATO_GROSSO,oil_rig,discoverable,20,60
+BRZ,Brazil,MATO_GROSSO,rubber_plantation,discoverable,26,60
+BRZ,Brazil,MATO_GROSSO,livestock_ranch,farm,,60
+BRZ,Brazil,MATO_GROSSO,coffee_plantation,plantation,,60
+BRZ,Brazil,MATO_GROSSO,cotton_plantation,plantation,,60
+BRZ,Brazil,MINAS_GERAIS,lead_mine,capped,30,150
+BRZ,Brazil,MINAS_GERAIS,gold_field,discoverable,8,150
+BRZ,Brazil,MINAS_GERAIS,oil_rig,discoverable,20,150
+BRZ,Brazil,MINAS_GERAIS,rubber_plantation,discoverable,7,150
+BRZ,Brazil,MINAS_GERAIS,cotton_plantation,plantation,,150
+BRZ,Brazil,MINAS_GERAIS,sugar_plantation,plantation,,150
+BRZ,Brazil,MINAS_GERAIS,tobacco_plantation,plantation,,150
+BRZ,Brazil,PARAIBA,fishing_wharf,capped,2,50
+BRZ,Brazil,PARAIBA,logging_camp,capped,4,50
+BRZ,Brazil,PARAIBA,rubber_plantation,discoverable,1,50
+BRZ,Brazil,PARAIBA,livestock_ranch,farm,,50
+BRZ,Brazil,PARAIBA,banana_plantation,plantation,,50
+BRZ,Brazil,PARAIBA,cotton_plantation,plantation,,50
+BRZ,Brazil,PARAIBA,sugar_plantation,plantation,,50
+BRZ,Brazil,PARANA,coal_mine,capped,20,40
+BRZ,Brazil,PARANA,fishing_wharf,capped,3,40
+BRZ,Brazil,PARANA,whaling_station,capped,2,40
+BRZ,Brazil,PARANA,livestock_ranch,farm,,40
+BRZ,Brazil,PARANA,coffee_plantation,plantation,,40
+BRZ,Brazil,PARANA,cotton_plantation,plantation,,40
+BRZ,Brazil,PARANA,dye_plantation,plantation,,40
+BRZ,Brazil,PARANA,sugar_plantation,plantation,,40
+BRZ,Brazil,PARANA,tea_plantation,plantation,,40
+BRZ,Brazil,PARANA,vineyard,plantation,,40
+BRZ,Brazil,PERNAMBUCO,fishing_wharf,capped,3,60
+BRZ,Brazil,PERNAMBUCO,logging_camp,capped,5,60
+BRZ,Brazil,PERNAMBUCO,rubber_plantation,discoverable,2,60
+BRZ,Brazil,PERNAMBUCO,livestock_ranch,farm,,60
+BRZ,Brazil,PERNAMBUCO,coffee_plantation,plantation,,60
+BRZ,Brazil,PIAUI,fishing_wharf,capped,7,30
+BRZ,Brazil,PIAUI,iron_mine,capped,36,30
+BRZ,Brazil,PIAUI,rubber_plantation,discoverable,4,30
+BRZ,Brazil,PIAUI,livestock_ranch,farm,,30
+BRZ,Brazil,PIAUI,banana_plantation,plantation,,30
+BRZ,Brazil,PIAUI,cotton_plantation,plantation,,30
+BRZ,Brazil,PIAUI,sugar_plantation,plantation,,30
+BRZ,Brazil,PIAUI,tobacco_plantation,plantation,,30
+BRZ,Brazil,RIO_DE_JANEIRO,logging_camp,capped,9,80
+BRZ,Brazil,RIO_DE_JANEIRO,whaling_station,capped,4,80
+BRZ,Brazil,RIO_DE_JANEIRO,rubber_plantation,discoverable,7,80
+BRZ,Brazil,RIO_DE_JANEIRO,livestock_ranch,farm,,80
+BRZ,Brazil,RIO_DE_JANEIRO,dye_plantation,plantation,,80
+BRZ,Brazil,RIO_DE_JANEIRO,tea_plantation,plantation,,80
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,rubber_plantation,discoverable,2,30
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,livestock_ranch,farm,,30
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,banana_plantation,plantation,,30
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,cotton_plantation,plantation,,30
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,sugar_plantation,plantation,,30
+BRZ,Brazil,RIO_GRANDE_DO_NORTE,tobacco_plantation,plantation,,30
+BRZ,Brazil,SANTA_CATARINA,coal_mine,capped,20,40
+BRZ,Brazil,SANTA_CATARINA,fishing_wharf,capped,2,40
+BRZ,Brazil,SANTA_CATARINA,whaling_station,capped,2,40
+BRZ,Brazil,SANTA_CATARINA,livestock_ranch,farm,,40
+BRZ,Brazil,SANTA_CATARINA,banana_plantation,plantation,,40
+BRZ,Brazil,SANTA_CATARINA,coffee_plantation,plantation,,40
+BRZ,Brazil,SANTA_CATARINA,cotton_plantation,plantation,,40
+BRZ,Brazil,SANTA_CATARINA,dye_plantation,plantation,,40
+BRZ,Brazil,SANTA_CATARINA,sugar_plantation,plantation,,40
+BRZ,Brazil,SANTA_CATARINA,tea_plantation,plantation,,40
+BRZ,Brazil,SANTA_CATARINA,vineyard,plantation,,40
+BRZ,Brazil,SAO_PAULO,fishing_wharf,capped,5,130
+BRZ,Brazil,SAO_PAULO,oil_rig,discoverable,20,130
+BRZ,Brazil,SAO_PAULO,rubber_plantation,discoverable,10,130
+BRZ,Brazil,SAO_PAULO,banana_plantation,plantation,,130
+BRZ,Brazil,SAO_PAULO,cotton_plantation,plantation,,130
+BRZ,Brazil,SAO_PAULO,dye_plantation,plantation,,130
+BRZ,Brazil,SAO_PAULO,tea_plantation,plantation,,130
+BUR,Burma,KACHIN,gold_mine,capped,3,38
+BUR,Burma,KACHIN,iron_mine,capped,7,38
+BUR,Burma,KACHIN,logging_camp,capped,24,38
+BUR,Burma,KACHIN,banana_plantation,plantation,,38
+BUR,Burma,KACHIN,cotton_plantation,plantation,,38
+BUR,Burma,KACHIN,opium_plantation,plantation,,38
+BUR,Burma,KACHIN,sugar_plantation,plantation,,38
+BUR,Burma,KACHIN,tea_plantation,plantation,,38
+BUR,Burma,MANDALAY,gold_mine,capped,2,48
+BUR,Burma,MANDALAY,iron_mine,capped,16,48
+BUR,Burma,MANDALAY,logging_camp,capped,20,48
+BUR,Burma,MANDALAY,oil_rig,discoverable,26,48
+BUR,Burma,MANDALAY,rubber_plantation,discoverable,20,48
+BUR,Burma,MANDALAY,banana_plantation,plantation,,48
+BUR,Burma,MANDALAY,cotton_plantation,plantation,,48
+BUR,Burma,MANDALAY,dye_plantation,plantation,,48
+BUR,Burma,MANDALAY,silk_plantation,plantation,,48
+BUR,Burma,MANDALAY,sugar_plantation,plantation,,48
+BUR,Burma,PEGU,logging_camp,capped,18,40
+BUR,Burma,PEGU,oil_rig,discoverable,5,40
+BUR,Burma,PEGU,rubber_plantation,discoverable,9,40
+BUR,Burma,PEGU,livestock_ranch,farm,,40
+BUR,Burma,PEGU,banana_plantation,plantation,,40
+BUR,Burma,PEGU,dye_plantation,plantation,,40
+BUR,Burma,PEGU,opium_plantation,plantation,,40
+BUR,Burma,PEGU,sugar_plantation,plantation,,40
+BUR,Burma,SHAN_STATES,coal_mine,capped,5,33
+BUR,Burma,SHAN_STATES,iron_mine,capped,8,33
+BUR,Burma,SHAN_STATES,lead_mine,capped,34,33
+BUR,Burma,SHAN_STATES,logging_camp,capped,17,33
+BUR,Burma,SHAN_STATES,rubber_plantation,discoverable,2,33
+BUR,Burma,SHAN_STATES,livestock_ranch,farm,,33
+BUR,Burma,SHAN_STATES,rice_farm,farm,,33
+BUR,Burma,SHAN_STATES,banana_plantation,plantation,,33
+BUR,Burma,SHAN_STATES,cotton_plantation,plantation,,33
+BUR,Burma,SHAN_STATES,sugar_plantation,plantation,,33
+BUR,Burma,SHAN_STATES,tea_plantation,plantation,,33
+CHI,China,ALTAI,iron_mine,capped,7,10
+CHI,China,ALTAI,lead_mine,capped,12,10
+CHI,China,ALTAI,logging_camp,capped,18,10
+CHI,China,ALTAI,gold_field,discoverable,3,10
+CHI,China,ALTAI,livestock_ranch,farm,,10
+CHI,China,ALXA,coal_mine,capped,32,11
+CHI,China,ALXA,oil_rig,discoverable,10,11
+CHI,China,AMUR,coal_mine,capped,20,30
+CHI,China,AMUR,fishing_wharf,capped,6,30
+CHI,China,AMUR,iron_mine,capped,25,30
+CHI,China,AMUR,logging_camp,capped,25,30
+CHI,China,AMUR,gold_field,discoverable,18,30
+CHI,China,AMUR,livestock_ranch,farm,,30
+CHI,China,AMUR,rye_farm,farm,,30
+CHI,China,BEIJING,coal_mine,capped,28,340
+CHI,China,BEIJING,fishing_wharf,capped,3,340
+CHI,China,BEIJING,iron_mine,capped,30,340
+CHI,China,BEIJING,lead_mine,capped,15,340
+CHI,China,BEIJING,livestock_ranch,farm,,340
+CHI,China,BEIJING,cotton_plantation,plantation,,340
+CHI,China,BEIJING,silk_plantation,plantation,,340
+CHI,China,BEIJING,tobacco_plantation,plantation,,340
+CHI,China,CHONGQING,coal_mine,capped,36,500
+CHI,China,CHONGQING,logging_camp,capped,9,500
+CHI,China,CHONGQING,oil_rig,discoverable,10,500
+CHI,China,CHONGQING,livestock_ranch,farm,,500
+CHI,China,CHONGQING,rice_farm,farm,,500
+CHI,China,CHONGQING,opium_plantation,plantation,,500
+CHI,China,CHONGQING,tobacco_plantation,plantation,,500
+CHI,China,CHONGQING,vineyard,plantation,,500
+CHI,China,DZUNGARIA,iron_mine,capped,24,30
+CHI,China,DZUNGARIA,lead_mine,capped,36,30
+CHI,China,DZUNGARIA,sulfur_mine,capped,80,30
+CHI,China,DZUNGARIA,oil_rig,discoverable,10,30
+CHI,China,DZUNGARIA,wheat_farm,farm,,30
+CHI,China,EASTERN_HUBEI,logging_camp,capped,8,320
+CHI,China,EASTERN_HUBEI,livestock_ranch,farm,,320
+CHI,China,EASTERN_HUBEI,cotton_plantation,plantation,,320
+CHI,China,EASTERN_HUBEI,tobacco_plantation,plantation,,320
+CHI,China,FORMOSA,coal_mine,capped,6,80
+CHI,China,FORMOSA,logging_camp,capped,7,80
+CHI,China,FORMOSA,oil_rig,discoverable,6,80
+CHI,China,FORMOSA,livestock_ranch,farm,,80
+CHI,China,FORMOSA,rice_farm,farm,,80
+CHI,China,FORMOSA,cotton_plantation,plantation,,80
+CHI,China,FORMOSA,tobacco_plantation,plantation,,80
+CHI,China,FUJIAN,logging_camp,capped,16,400
+CHI,China,FUJIAN,livestock_ranch,farm,,400
+CHI,China,FUJIAN,opium_plantation,plantation,,400
+CHI,China,FUJIAN,tobacco_plantation,plantation,,400
+CHI,China,GANSU,logging_camp,capped,5,150
+CHI,China,GANSU,rice_farm,farm,,150
+CHI,China,GANSU,cotton_plantation,plantation,,150
+CHI,China,GANSU,tobacco_plantation,plantation,,150
+CHI,China,GUANGDONG,logging_camp,capped,8,330
+CHI,China,GUANGDONG,livestock_ranch,farm,,330
+CHI,China,GUANGDONG,tobacco_plantation,plantation,,330
+CHI,China,GUANGXI,logging_camp,capped,9,400
+CHI,China,GUANGXI,livestock_ranch,farm,,400
+CHI,China,GUANGXI,tobacco_plantation,plantation,,400
+CHI,China,GUIZHOU,coal_mine,capped,32,110
+CHI,China,GUIZHOU,livestock_ranch,farm,,110
+CHI,China,GUIZHOU,rice_farm,farm,,110
+CHI,China,GUIZHOU,tobacco_plantation,plantation,,110
+CHI,China,HENAN,coal_mine,capped,52,500
+CHI,China,HENAN,logging_camp,capped,11,500
+CHI,China,HENAN,sulfur_mine,capped,36,500
+CHI,China,HENAN,livestock_ranch,farm,,500
+CHI,China,HENAN,rice_farm,farm,,500
+CHI,China,HENAN,cotton_plantation,plantation,,500
+CHI,China,HENAN,silk_plantation,plantation,,500
+CHI,China,HENAN,tobacco_plantation,plantation,,500
+CHI,China,HINGGAN,iron_mine,capped,36,102
+CHI,China,HINGGAN,lead_mine,capped,24,102
+CHI,China,HINGGAN,logging_camp,capped,6,102
+CHI,China,HINGGAN,wheat_farm,farm,,102
+CHI,China,HUNAN,sulfur_mine,capped,44,330
+CHI,China,HUNAN,livestock_ranch,farm,,330
+CHI,China,HUNAN,cotton_plantation,plantation,,330
+CHI,China,HUNAN,silk_plantation,plantation,,330
+CHI,China,HUNAN,tobacco_plantation,plantation,,330
+CHI,China,JETISY,coal_mine,capped,12,50
+CHI,China,JETISY,lead_mine,capped,20,50
+CHI,China,JETISY,livestock_ranch,farm,,50
+CHI,China,JIANGSU,fishing_wharf,capped,8,280
+CHI,China,JIANGSU,logging_camp,capped,8,280
+CHI,China,JIANGSU,livestock_ranch,farm,,280
+CHI,China,JIANGSU,cotton_plantation,plantation,,280
+CHI,China,JIANGSU,silk_plantation,plantation,,280
+CHI,China,JIANGSU,tobacco_plantation,plantation,,280
+CHI,China,JIANGXI,coal_mine,capped,52,600
+CHI,China,JIANGXI,logging_camp,capped,15,600
+CHI,China,JIANGXI,livestock_ranch,farm,,600
+CHI,China,JIANGXI,cotton_plantation,plantation,,600
+CHI,China,JIANGXI,tobacco_plantation,plantation,,600
+CHI,China,KIRGHIZIA,coal_mine,capped,32,50
+CHI,China,KIRGHIZIA,logging_camp,capped,6,50
+CHI,China,KIRGHIZIA,livestock_ranch,farm,,50
+CHI,China,KIRGHIZIA,tea_plantation,plantation,,50
+CHI,China,NANJING,logging_camp,capped,5,360
+CHI,China,NANJING,livestock_ranch,farm,,360
+CHI,China,NANJING,cotton_plantation,plantation,,360
+CHI,China,NANJING,silk_plantation,plantation,,360
+CHI,China,NANJING,tobacco_plantation,plantation,,360
+CHI,China,NINGXIA,logging_camp,capped,8,200
+CHI,China,NINGXIA,livestock_ranch,farm,,200
+CHI,China,NINGXIA,rice_farm,farm,,200
+CHI,China,NINGXIA,opium_plantation,plantation,,200
+CHI,China,NINGXIA,tobacco_plantation,plantation,,200
+CHI,China,NINGXIA,vineyard,plantation,,200
+CHI,China,NORTHERN_ANHUI,coal_mine,capped,48,270
+CHI,China,NORTHERN_ANHUI,logging_camp,capped,6,270
+CHI,China,NORTHERN_ANHUI,livestock_ranch,farm,,270
+CHI,China,NORTHERN_ANHUI,cotton_plantation,plantation,,270
+CHI,China,NORTHERN_ANHUI,silk_plantation,plantation,,270
+CHI,China,NORTHERN_ANHUI,tobacco_plantation,plantation,,270
+CHI,China,NORTHERN_MANCHURIA,coal_mine,capped,4,140
+CHI,China,NORTHERN_MANCHURIA,lead_mine,capped,5,140
+CHI,China,NORTHERN_MANCHURIA,wheat_farm,farm,,140
+CHI,China,NORTHERN_MANCHURIA,cotton_plantation,plantation,,140
+CHI,China,NORTHERN_MANCHURIA,opium_plantation,plantation,,140
+CHI,China,NORTHERN_MANCHURIA,tobacco_plantation,plantation,,140
+CHI,China,OUTER_MANCHURIA,coal_mine,capped,12,25
+CHI,China,OUTER_MANCHURIA,fishing_wharf,capped,10,25
+CHI,China,OUTER_MANCHURIA,iron_mine,capped,16,25
+CHI,China,OUTER_MANCHURIA,lead_mine,capped,24,25
+CHI,China,OUTER_MANCHURIA,logging_camp,capped,20,25
+CHI,China,OUTER_MANCHURIA,gold_field,discoverable,8,25
+CHI,China,OUTER_MANCHURIA,oil_rig,discoverable,20,25
+CHI,China,OUTER_MANCHURIA,livestock_ranch,farm,,25
+CHI,China,OUTER_MANCHURIA,rye_farm,farm,,25
+CHI,China,QINGHAI,coal_mine,capped,48,60
+CHI,China,QINGHAI,logging_camp,capped,6,60
+CHI,China,SHANDONG,logging_camp,capped,6,350
+CHI,China,SHANDONG,sulfur_mine,capped,32,350
+CHI,China,SHANDONG,oil_rig,discoverable,20,350
+CHI,China,SHANDONG,livestock_ranch,farm,,350
+CHI,China,SHANDONG,cotton_plantation,plantation,,350
+CHI,China,SHANDONG,silk_plantation,plantation,,350
+CHI,China,SHANDONG,tobacco_plantation,plantation,,350
+CHI,China,SHANXI,coal_mine,capped,116,375
+CHI,China,SHANXI,iron_mine,capped,96,375
+CHI,China,SHANXI,logging_camp,capped,7,375
+CHI,China,SHANXI,sulfur_mine,capped,48,375
+CHI,China,SHANXI,oil_rig,discoverable,30,375
+CHI,China,SHANXI,livestock_ranch,farm,,375
+CHI,China,SHANXI,tobacco_plantation,plantation,,375
+CHI,China,SHANXI,vineyard,plantation,,375
+CHI,China,SHAOZHOU,fishing_wharf,capped,10,200
+CHI,China,SHAOZHOU,logging_camp,capped,11,200
+CHI,China,SHAOZHOU,livestock_ranch,farm,,200
+CHI,China,SHAOZHOU,banana_plantation,plantation,,200
+CHI,China,SHAOZHOU,tobacco_plantation,plantation,,200
+CHI,China,SHENGJING,coal_mine,capped,97,75
+CHI,China,SHENGJING,fishing_wharf,capped,3,75
+CHI,China,SHENGJING,iron_mine,capped,104,75
+CHI,China,SHENGJING,lead_mine,capped,68,75
+CHI,China,SHENGJING,logging_camp,capped,12,75
+CHI,China,SHENGJING,oil_rig,discoverable,20,75
+CHI,China,SHENGJING,livestock_ranch,farm,,75
+CHI,China,SHENGJING,wheat_farm,farm,,75
+CHI,China,SHENGJING,cotton_plantation,plantation,,75
+CHI,China,SHENGJING,silk_plantation,plantation,,75
+CHI,China,SHENGJING,tobacco_plantation,plantation,,75
+CHI,China,SICHUAN,coal_mine,capped,60,330
+CHI,China,SICHUAN,sulfur_mine,capped,40,330
+CHI,China,SICHUAN,livestock_ranch,farm,,330
+CHI,China,SICHUAN,rice_farm,farm,,330
+CHI,China,SICHUAN,tea_plantation,plantation,,330
+CHI,China,SICHUAN,tobacco_plantation,plantation,,330
+CHI,China,SICHUAN,vineyard,plantation,,330
+CHI,China,SOUTHERN_ANHUI,coal_mine,capped,40,550
+CHI,China,SOUTHERN_ANHUI,logging_camp,capped,14,550
+CHI,China,SOUTHERN_ANHUI,livestock_ranch,farm,,550
+CHI,China,SOUTHERN_ANHUI,cotton_plantation,plantation,,550
+CHI,China,SOUTHERN_ANHUI,silk_plantation,plantation,,550
+CHI,China,SOUTHERN_ANHUI,tobacco_plantation,plantation,,550
+CHI,China,SOUTHERN_MANCHURIA,coal_mine,capped,14,200
+CHI,China,SOUTHERN_MANCHURIA,fishing_wharf,capped,8,200
+CHI,China,SOUTHERN_MANCHURIA,lead_mine,capped,25,200
+CHI,China,SOUTHERN_MANCHURIA,wheat_farm,farm,,200
+CHI,China,SOUTHERN_MANCHURIA,cotton_plantation,plantation,,200
+CHI,China,SOUTHERN_MANCHURIA,opium_plantation,plantation,,200
+CHI,China,SOUTHERN_MANCHURIA,silk_plantation,plantation,,200
+CHI,China,SOUTHERN_MANCHURIA,tobacco_plantation,plantation,,200
+CHI,China,SUZHOU,logging_camp,capped,5,400
+CHI,China,SUZHOU,livestock_ranch,farm,,400
+CHI,China,SUZHOU,rice_farm,farm,,400
+CHI,China,SUZHOU,cotton_plantation,plantation,,400
+CHI,China,SUZHOU,silk_plantation,plantation,,400
+CHI,China,SUZHOU,tobacco_plantation,plantation,,400
+CHI,China,TIANSHAN,wheat_farm,farm,,40
+CHI,China,TIANSHAN,cotton_plantation,plantation,,40
+CHI,China,TUVA,coal_mine,capped,44,15
+CHI,China,TUVA,iron_mine,capped,18,15
+CHI,China,TUVA,logging_camp,capped,14,15
+CHI,China,TUVA,livestock_ranch,farm,,15
+CHI,China,TUVA,rye_farm,farm,,15
+CHI,China,ULIASTAI,coal_mine,capped,36,30
+CHI,China,ULIASTAI,iron_mine,capped,33,30
+CHI,China,ULIASTAI,logging_camp,capped,5,30
+CHI,China,URGA,coal_mine,capped,36,40
+CHI,China,URGA,iron_mine,capped,45,40
+CHI,China,URGA,logging_camp,capped,4,40
+CHI,China,WESTERN_HUBEI,logging_camp,capped,9,320
+CHI,China,WESTERN_HUBEI,livestock_ranch,farm,,320
+CHI,China,WESTERN_HUBEI,cotton_plantation,plantation,,320
+CHI,China,WESTERN_HUBEI,silk_plantation,plantation,,320
+CHI,China,WESTERN_HUBEI,tobacco_plantation,plantation,,320
+CHI,China,XIAN,coal_mine,capped,72,250
+CHI,China,XIAN,logging_camp,capped,9,250
+CHI,China,XIAN,sulfur_mine,capped,60,250
+CHI,China,XIAN,oil_rig,discoverable,20,250
+CHI,China,XIAN,livestock_ranch,farm,,250
+CHI,China,XIAN,rice_farm,farm,,250
+CHI,China,XIAN,cotton_plantation,plantation,,250
+CHI,China,XIAN,opium_plantation,plantation,,250
+CHI,China,XIAN,silk_plantation,plantation,,250
+CHI,China,XIAN,tobacco_plantation,plantation,,250
+CHI,China,XIAN,vineyard,plantation,,250
+CHI,China,YUNNAN,coal_mine,capped,40,150
+CHI,China,YUNNAN,iron_mine,capped,60,150
+CHI,China,YUNNAN,livestock_ranch,farm,,150
+CHI,China,YUNNAN,rice_farm,farm,,150
+CHI,China,YUNNAN,tobacco_plantation,plantation,,150
+CHI,China,YUNNAN,vineyard,plantation,,150
+CHI,China,ZHEJIANG,logging_camp,capped,20,250
+CHI,China,ZHEJIANG,livestock_ranch,farm,,250
+CHI,China,ZHEJIANG,silk_plantation,plantation,,250
+CHI,China,ZHEJIANG,tobacco_plantation,plantation,,250
+CHI,China,ZHILI,coal_mine,capped,5,200
+CHI,China,ZHILI,fishing_wharf,capped,4,200
+CHI,China,ZHILI,logging_camp,capped,9,200
+CHI,China,ZHILI,sulfur_mine,capped,36,200
+CHI,China,ZHILI,livestock_ranch,farm,,200
+CHI,China,ZHILI,cotton_plantation,plantation,,200
+CHI,China,ZHILI,silk_plantation,plantation,,200
+CHI,China,ZHILI,tobacco_plantation,plantation,,200
+CLM,Colombia,AMAZONAS,logging_camp,capped,40,40
+CLM,Colombia,AMAZONAS,oil_rig,discoverable,20,40
+CLM,Colombia,AMAZONAS,rubber_plantation,discoverable,25,40
+CLM,Colombia,AMAZONAS,livestock_ranch,farm,,40
+CLM,Colombia,AMAZONAS,maize_farm,farm,,40
+CLM,Colombia,AMAZONAS,banana_plantation,plantation,,40
+CLM,Colombia,AMAZONAS,sugar_plantation,plantation,,40
+CLM,Colombia,AMAZONAS,tobacco_plantation,plantation,,40
+CLM,Colombia,ANTIOQUIA,coal_mine,capped,32,120
+CLM,Colombia,ANTIOQUIA,iron_mine,capped,36,120
+CLM,Colombia,ANTIOQUIA,logging_camp,capped,13,120
+CLM,Colombia,ANTIOQUIA,oil_rig,discoverable,20,120
+CLM,Colombia,ANTIOQUIA,rubber_plantation,discoverable,8,120
+CLM,Colombia,ANTIOQUIA,livestock_ranch,farm,,120
+CLM,Colombia,ANTIOQUIA,maize_farm,farm,,120
+CLM,Colombia,ANTIOQUIA,banana_plantation,plantation,,120
+CLM,Colombia,ANTIOQUIA,coffee_plantation,plantation,,120
+CLM,Colombia,ANTIOQUIA,cotton_plantation,plantation,,120
+CLM,Colombia,CAUCA,coal_mine,capped,20,80
+CLM,Colombia,CAUCA,fishing_wharf,capped,6,80
+CLM,Colombia,CAUCA,logging_camp,capped,8,80
+CLM,Colombia,CAUCA,whaling_station,capped,2,80
+CLM,Colombia,CAUCA,rubber_plantation,discoverable,6,80
+CLM,Colombia,CAUCA,livestock_ranch,farm,,80
+CLM,Colombia,CAUCA,banana_plantation,plantation,,80
+CLM,Colombia,CAUCA,cotton_plantation,plantation,,80
+CLM,Colombia,CAUCA,dye_plantation,plantation,,80
+CLM,Colombia,CUNDINAMARCA,coal_mine,capped,20,50
+CLM,Colombia,CUNDINAMARCA,rubber_plantation,discoverable,10,50
+CLM,Colombia,CUNDINAMARCA,livestock_ranch,farm,,50
+CLM,Colombia,CUNDINAMARCA,banana_plantation,plantation,,50
+CLM,Colombia,CUNDINAMARCA,coffee_plantation,plantation,,50
+CLM,Colombia,CUNDINAMARCA,dye_plantation,plantation,,50
+CLM,Colombia,CUNDINAMARCA,opium_plantation,plantation,,50
+CLM,Colombia,CUNDINAMARCA,tobacco_plantation,plantation,,50
+CLM,Colombia,GUAVIARE,rubber_plantation,discoverable,18,60
+CLM,Colombia,GUAVIARE,banana_plantation,plantation,,60
+CLM,Colombia,GUAVIARE,coffee_plantation,plantation,,60
+CLM,Colombia,GUAVIARE,dye_plantation,plantation,,60
+CLM,Colombia,GUAVIARE,tobacco_plantation,plantation,,60
+CLM,Colombia,PANAMA,coal_mine,capped,36,20
+CLM,Colombia,PANAMA,fishing_wharf,capped,6,20
+CLM,Colombia,PANAMA,logging_camp,capped,8,20
+CLM,Colombia,PANAMA,whaling_station,capped,2,20
+CLM,Colombia,PANAMA,rubber_plantation,discoverable,12,20
+CLM,Colombia,PANAMA,livestock_ranch,farm,,20
+CLM,Colombia,PANAMA,maize_farm,farm,,20
+CLM,Colombia,PANAMA,tobacco_plantation,plantation,,20
+DAI,Dai Nam,ANNAM,coal_mine,capped,24,60
+DAI,Dai Nam,ANNAM,iron_mine,capped,27,60
+DAI,Dai Nam,ANNAM,logging_camp,capped,17,60
+DAI,Dai Nam,ANNAM,rubber_plantation,discoverable,6,60
+DAI,Dai Nam,ANNAM,rice_farm,farm,,60
+DAI,Dai Nam,ANNAM,banana_plantation,plantation,,60
+DAI,Dai Nam,ANNAM,coffee_plantation,plantation,,60
+DAI,Dai Nam,ANNAM,cotton_plantation,plantation,,60
+DAI,Dai Nam,ANNAM,dye_plantation,plantation,,60
+DAI,Dai Nam,ANNAM,silk_plantation,plantation,,60
+DAI,Dai Nam,ANNAM,sugar_plantation,plantation,,60
+DAI,Dai Nam,ANNAM,tea_plantation,plantation,,60
+DAI,Dai Nam,LAOS,coal_mine,capped,32,40
+DAI,Dai Nam,LAOS,iron_mine,capped,36,40
+DAI,Dai Nam,LAOS,logging_camp,capped,23,40
+DAI,Dai Nam,LAOS,livestock_ranch,farm,,40
+DAI,Dai Nam,LAOS,rice_farm,farm,,40
+DAI,Dai Nam,LAOS,banana_plantation,plantation,,40
+DAI,Dai Nam,LAOS,coffee_plantation,plantation,,40
+DAI,Dai Nam,LAOS,cotton_plantation,plantation,,40
+DAI,Dai Nam,LAOS,dye_plantation,plantation,,40
+DAI,Dai Nam,LAOS,opium_plantation,plantation,,40
+DAI,Dai Nam,LAOS,silk_plantation,plantation,,40
+DAI,Dai Nam,LAOS,sugar_plantation,plantation,,40
+DAI,Dai Nam,LAOS,tea_plantation,plantation,,40
+DAI,Dai Nam,LAOS,tobacco_plantation,plantation,,40
+DAI,Dai Nam,MEKONG,logging_camp,capped,20,60
+DAI,Dai Nam,MEKONG,rubber_plantation,discoverable,8,60
+DAI,Dai Nam,MEKONG,livestock_ranch,farm,,60
+DAI,Dai Nam,MEKONG,banana_plantation,plantation,,60
+DAI,Dai Nam,MEKONG,coffee_plantation,plantation,,60
+DAI,Dai Nam,MEKONG,cotton_plantation,plantation,,60
+DAI,Dai Nam,MEKONG,dye_plantation,plantation,,60
+DAI,Dai Nam,MEKONG,silk_plantation,plantation,,60
+DAI,Dai Nam,MEKONG,sugar_plantation,plantation,,60
+DAI,Dai Nam,MEKONG,tea_plantation,plantation,,60
+DAI,Dai Nam,TONKIN,coal_mine,capped,38,60
+DAI,Dai Nam,TONKIN,fishing_wharf,capped,7,60
+DAI,Dai Nam,TONKIN,logging_camp,capped,15,60
+DAI,Dai Nam,TONKIN,rubber_plantation,discoverable,16,60
+DAI,Dai Nam,TONKIN,livestock_ranch,farm,,60
+DAI,Dai Nam,TONKIN,banana_plantation,plantation,,60
+DAI,Dai Nam,TONKIN,coffee_plantation,plantation,,60
+DAI,Dai Nam,TONKIN,cotton_plantation,plantation,,60
+DAI,Dai Nam,TONKIN,dye_plantation,plantation,,60
+DAI,Dai Nam,TONKIN,silk_plantation,plantation,,60
+DAI,Dai Nam,TONKIN,sugar_plantation,plantation,,60
+DEI,Dutch East Indies,ACEH,fishing_wharf,capped,8,40
+DEI,Dutch East Indies,ACEH,iron_mine,capped,15,40
+DEI,Dutch East Indies,ACEH,logging_camp,capped,14,40
+DEI,Dutch East Indies,ACEH,sulfur_mine,capped,20,40
+DEI,Dutch East Indies,ACEH,oil_rig,discoverable,25,40
+DEI,Dutch East Indies,ACEH,rubber_plantation,discoverable,18,40
+DEI,Dutch East Indies,ACEH,livestock_ranch,farm,,40
+DEI,Dutch East Indies,ACEH,banana_plantation,plantation,,40
+DEI,Dutch East Indies,ACEH,coffee_plantation,plantation,,40
+DEI,Dutch East Indies,ACEH,dye_plantation,plantation,,40
+DEI,Dutch East Indies,ACEH,sugar_plantation,plantation,,40
+DEI,Dutch East Indies,ACEH,tea_plantation,plantation,,40
+DEI,Dutch East Indies,ACEH,tobacco_plantation,plantation,,40
+DEI,Dutch East Indies,CELEBES,fishing_wharf,capped,4,40
+DEI,Dutch East Indies,CELEBES,iron_mine,capped,27,40
+DEI,Dutch East Indies,CELEBES,logging_camp,capped,14,40
+DEI,Dutch East Indies,CELEBES,rubber_plantation,discoverable,4,40
+DEI,Dutch East Indies,CELEBES,livestock_ranch,farm,,40
+DEI,Dutch East Indies,CELEBES,rice_farm,farm,,40
+DEI,Dutch East Indies,CELEBES,banana_plantation,plantation,,40
+DEI,Dutch East Indies,CELEBES,coffee_plantation,plantation,,40
+DEI,Dutch East Indies,CELEBES,dye_plantation,plantation,,40
+DEI,Dutch East Indies,CELEBES,tobacco_plantation,plantation,,40
+DEI,Dutch East Indies,CENTRAL_JAVA,fishing_wharf,capped,4,80
+DEI,Dutch East Indies,CENTRAL_JAVA,sulfur_mine,capped,32,80
+DEI,Dutch East Indies,CENTRAL_JAVA,rubber_plantation,discoverable,8,80
+DEI,Dutch East Indies,CENTRAL_JAVA,livestock_ranch,farm,,80
+DEI,Dutch East Indies,CENTRAL_JAVA,banana_plantation,plantation,,80
+DEI,Dutch East Indies,CENTRAL_JAVA,cotton_plantation,plantation,,80
+DEI,Dutch East Indies,EAST_BORNEO,coal_mine,capped,28,40
+DEI,Dutch East Indies,EAST_BORNEO,fishing_wharf,capped,9,40
+DEI,Dutch East Indies,EAST_BORNEO,logging_camp,capped,20,40
+DEI,Dutch East Indies,EAST_BORNEO,oil_rig,discoverable,60,40
+DEI,Dutch East Indies,EAST_BORNEO,rubber_plantation,discoverable,28,40
+DEI,Dutch East Indies,EAST_BORNEO,livestock_ranch,farm,,40
+DEI,Dutch East Indies,EAST_BORNEO,banana_plantation,plantation,,40
+DEI,Dutch East Indies,EAST_BORNEO,coffee_plantation,plantation,,40
+DEI,Dutch East Indies,EAST_BORNEO,dye_plantation,plantation,,40
+DEI,Dutch East Indies,EAST_BORNEO,tea_plantation,plantation,,40
+DEI,Dutch East Indies,EAST_BORNEO,tobacco_plantation,plantation,,40
+DEI,Dutch East Indies,EAST_JAVA,fishing_wharf,capped,8,60
+DEI,Dutch East Indies,EAST_JAVA,sulfur_mine,capped,40,60
+DEI,Dutch East Indies,EAST_JAVA,oil_rig,discoverable,20,60
+DEI,Dutch East Indies,EAST_JAVA,rubber_plantation,discoverable,12,60
+DEI,Dutch East Indies,EAST_JAVA,livestock_ranch,farm,,60
+DEI,Dutch East Indies,EAST_JAVA,banana_plantation,plantation,,60
+DEI,Dutch East Indies,EAST_JAVA,cotton_plantation,plantation,,60
+DEI,Dutch East Indies,MOLUCCAS,fishing_wharf,capped,6,20
+DEI,Dutch East Indies,MOLUCCAS,logging_camp,capped,4,20
+DEI,Dutch East Indies,MOLUCCAS,rubber_plantation,discoverable,4,20
+DEI,Dutch East Indies,MOLUCCAS,livestock_ranch,farm,,20
+DEI,Dutch East Indies,MOLUCCAS,rice_farm,farm,,20
+DEI,Dutch East Indies,MOLUCCAS,banana_plantation,plantation,,20
+DEI,Dutch East Indies,MOLUCCAS,coffee_plantation,plantation,,20
+DEI,Dutch East Indies,MOLUCCAS,tobacco_plantation,plantation,,20
+DEI,Dutch East Indies,NORTH_SUMATRA,coal_mine,capped,40,60
+DEI,Dutch East Indies,NORTH_SUMATRA,fishing_wharf,capped,13,60
+DEI,Dutch East Indies,NORTH_SUMATRA,sulfur_mine,capped,48,60
+DEI,Dutch East Indies,NORTH_SUMATRA,rubber_plantation,discoverable,28,60
+DEI,Dutch East Indies,NORTH_SUMATRA,livestock_ranch,farm,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,rice_farm,farm,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,banana_plantation,plantation,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,coffee_plantation,plantation,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,dye_plantation,plantation,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,sugar_plantation,plantation,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,tea_plantation,plantation,,60
+DEI,Dutch East Indies,NORTH_SUMATRA,tobacco_plantation,plantation,,60
+DEI,Dutch East Indies,SOUTH_SUMATRA,coal_mine,capped,40,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,fishing_wharf,capped,13,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,sulfur_mine,capped,48,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,oil_rig,discoverable,20,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,rubber_plantation,discoverable,28,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,livestock_ranch,farm,,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,rice_farm,farm,,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,banana_plantation,plantation,,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,coffee_plantation,plantation,,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,dye_plantation,plantation,,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,sugar_plantation,plantation,,40
+DEI,Dutch East Indies,SOUTH_SUMATRA,tea_plantation,plantation,,40
+DEI,Dutch East Indies,SUNDA_ISLANDS,fishing_wharf,capped,10,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,iron_mine,capped,24,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,logging_camp,capped,17,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,sulfur_mine,capped,40,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,rubber_plantation,discoverable,8,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,livestock_ranch,farm,,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,rice_farm,farm,,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,banana_plantation,plantation,,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,coffee_plantation,plantation,,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,dye_plantation,plantation,,60
+DEI,Dutch East Indies,SUNDA_ISLANDS,tea_plantation,plantation,,60
+DEI,Dutch East Indies,WEST_BORNEO,fishing_wharf,capped,7,22
+DEI,Dutch East Indies,WEST_BORNEO,lead_mine,capped,30,22
+DEI,Dutch East Indies,WEST_BORNEO,logging_camp,capped,17,22
+DEI,Dutch East Indies,WEST_BORNEO,gold_field,discoverable,10,22
+DEI,Dutch East Indies,WEST_BORNEO,rubber_plantation,discoverable,12,22
+DEI,Dutch East Indies,WEST_BORNEO,livestock_ranch,farm,,22
+DEI,Dutch East Indies,WEST_BORNEO,rice_farm,farm,,22
+DEI,Dutch East Indies,WEST_BORNEO,banana_plantation,plantation,,22
+DEI,Dutch East Indies,WEST_BORNEO,coffee_plantation,plantation,,22
+DEI,Dutch East Indies,WEST_BORNEO,dye_plantation,plantation,,22
+DEI,Dutch East Indies,WEST_BORNEO,tea_plantation,plantation,,22
+DEI,Dutch East Indies,WEST_BORNEO,tobacco_plantation,plantation,,22
+DEI,Dutch East Indies,WEST_JAVA,coal_mine,capped,20,110
+DEI,Dutch East Indies,WEST_JAVA,fishing_wharf,capped,11,110
+DEI,Dutch East Indies,WEST_JAVA,sulfur_mine,capped,32,110
+DEI,Dutch East Indies,WEST_JAVA,oil_rig,discoverable,20,110
+DEI,Dutch East Indies,WEST_JAVA,rubber_plantation,discoverable,12,110
+DEI,Dutch East Indies,WEST_JAVA,livestock_ranch,farm,,110
+DEI,Dutch East Indies,WEST_JAVA,banana_plantation,plantation,,110
+DEI,Dutch East Indies,WEST_JAVA,sugar_plantation,plantation,,110
+DEI,Dutch East Indies,WEST_JAVA,tea_plantation,plantation,,110
+BIC,East India,AGRA,coal_mine,capped,4,483
+BIC,East India,AGRA,livestock_ranch,farm,,483
+BIC,East India,AGRA,rice_farm,farm,,483
+BIC,East India,AGRA,opium_plantation,plantation,,483
+BIC,East India,AGRA,sugar_plantation,plantation,,483
+BIC,East India,AGRA,tea_plantation,plantation,,483
+BIC,East India,AGRA,tobacco_plantation,plantation,,483
+BIC,East India,ARAKAN,fishing_wharf,capped,10,32
+BIC,East India,ARAKAN,logging_camp,capped,21,32
+BIC,East India,ARAKAN,oil_rig,discoverable,7,32
+BIC,East India,ARAKAN,livestock_ranch,farm,,32
+BIC,East India,ARAKAN,rice_farm,farm,,32
+BIC,East India,ARAKAN,banana_plantation,plantation,,32
+BIC,East India,ARAKAN,cotton_plantation,plantation,,32
+BIC,East India,ARAKAN,dye_plantation,plantation,,32
+BIC,East India,ARAKAN,sugar_plantation,plantation,,32
+BIC,East India,ARAKAN,tobacco_plantation,plantation,,32
+BIC,East India,ASSAM,coal_mine,capped,29,105
+BIC,East India,ASSAM,oil_rig,discoverable,44,105
+BIC,East India,ASSAM,rubber_plantation,discoverable,12,105
+BIC,East India,ASSAM,livestock_ranch,farm,,105
+BIC,East India,ASSAM,rice_farm,farm,,105
+BIC,East India,ASSAM,banana_plantation,plantation,,105
+BIC,East India,ASSAM,coffee_plantation,plantation,,105
+BIC,East India,ASSAM,cotton_plantation,plantation,,105
+BIC,East India,ASSAM,dye_plantation,plantation,,105
+BIC,East India,ASSAM,silk_plantation,plantation,,105
+BIC,East India,ASSAM,tobacco_plantation,plantation,,105
+BIC,East India,AWADH,logging_camp,capped,6,371
+BIC,East India,AWADH,livestock_ranch,farm,,371
+BIC,East India,AWADH,rice_farm,farm,,371
+BIC,East India,AWADH,cotton_plantation,plantation,,371
+BIC,East India,AWADH,sugar_plantation,plantation,,371
+BIC,East India,AWADH,tobacco_plantation,plantation,,371
+BIC,East India,BIHAR,coal_mine,capped,81,375
+BIC,East India,BIHAR,iron_mine,capped,30,375
+BIC,East India,BIHAR,logging_camp,capped,17,375
+BIC,East India,BIHAR,livestock_ranch,farm,,375
+BIC,East India,BIHAR,rice_farm,farm,,375
+BIC,East India,BIHAR,cotton_plantation,plantation,,375
+BIC,East India,BOMBAY,coal_mine,capped,12,400
+BIC,East India,BOMBAY,gold_mine,capped,3,400
+BIC,East India,BOMBAY,iron_mine,capped,23,400
+BIC,East India,BOMBAY,livestock_ranch,farm,,400
+BIC,East India,BOMBAY,rice_farm,farm,,400
+BIC,East India,BOMBAY,banana_plantation,plantation,,400
+BIC,East India,BOMBAY,coffee_plantation,plantation,,400
+BIC,East India,BOMBAY,dye_plantation,plantation,,400
+BIC,East India,BOMBAY,silk_plantation,plantation,,400
+BIC,East India,BOMBAY,sugar_plantation,plantation,,400
+BIC,East India,BOMBAY,tobacco_plantation,plantation,,400
+BIC,East India,BOMBAY,vineyard,plantation,,400
+BIC,East India,CENTRAL_PROVINCES,coal_mine,capped,21,205
+BIC,East India,CENTRAL_PROVINCES,logging_camp,capped,12,205
+BIC,East India,CENTRAL_PROVINCES,livestock_ranch,farm,,205
+BIC,East India,CENTRAL_PROVINCES,rice_farm,farm,,205
+BIC,East India,CENTRAL_PROVINCES,banana_plantation,plantation,,205
+BIC,East India,CENTRAL_PROVINCES,dye_plantation,plantation,,205
+BIC,East India,CENTRAL_PROVINCES,silk_plantation,plantation,,205
+BIC,East India,CENTRAL_PROVINCES,sugar_plantation,plantation,,205
+BIC,East India,CIRCARS,coal_mine,capped,4,181
+BIC,East India,CIRCARS,fishing_wharf,capped,18,181
+BIC,East India,CIRCARS,iron_mine,capped,2,181
+BIC,East India,CIRCARS,logging_camp,capped,11,181
+BIC,East India,CIRCARS,livestock_ranch,farm,,181
+BIC,East India,CIRCARS,rice_farm,farm,,181
+BIC,East India,CIRCARS,dye_plantation,plantation,,181
+BIC,East India,CIRCARS,silk_plantation,plantation,,181
+BIC,East India,CIRCARS,tea_plantation,plantation,,181
+BIC,East India,DELHI,logging_camp,capped,5,252
+BIC,East India,DELHI,sulfur_mine,capped,2,252
+BIC,East India,DELHI,livestock_ranch,farm,,252
+BIC,East India,DELHI,wheat_farm,farm,,252
+BIC,East India,DELHI,banana_plantation,plantation,,252
+BIC,East India,DELHI,opium_plantation,plantation,,252
+BIC,East India,DELHI,sugar_plantation,plantation,,252
+BIC,East India,EAST_BENGAL,coal_mine,capped,4,601
+BIC,East India,EAST_BENGAL,livestock_ranch,farm,,601
+BIC,East India,EAST_BENGAL,rice_farm,farm,,601
+BIC,East India,EAST_BENGAL,banana_plantation,plantation,,601
+BIC,East India,EAST_BENGAL,sugar_plantation,plantation,,601
+BIC,East India,EAST_BENGAL,tea_plantation,plantation,,601
+BIC,East India,EAST_BENGAL,tobacco_plantation,plantation,,601
+BIC,East India,GUJARAT,iron_mine,capped,4,335
+BIC,East India,GUJARAT,logging_camp,capped,4,335
+BIC,East India,GUJARAT,oil_rig,discoverable,8,335
+BIC,East India,GUJARAT,livestock_ranch,farm,,335
+BIC,East India,GUJARAT,wheat_farm,farm,,335
+BIC,East India,GUJARAT,banana_plantation,plantation,,335
+BIC,East India,GUJARAT,dye_plantation,plantation,,335
+BIC,East India,GUJARAT,opium_plantation,plantation,,335
+BIC,East India,GUJARAT,sugar_plantation,plantation,,335
+BIC,East India,HILL_PUNJAB,iron_mine,capped,12,182
+BIC,East India,HILL_PUNJAB,logging_camp,capped,9,182
+BIC,East India,HILL_PUNJAB,livestock_ranch,farm,,182
+BIC,East India,HILL_PUNJAB,wheat_farm,farm,,182
+BIC,East India,HILL_PUNJAB,cotton_plantation,plantation,,182
+BIC,East India,HILL_PUNJAB,opium_plantation,plantation,,182
+BIC,East India,HILL_PUNJAB,silk_plantation,plantation,,182
+BIC,East India,HILL_PUNJAB,sugar_plantation,plantation,,182
+BIC,East India,HILL_PUNJAB,tea_plantation,plantation,,182
+BIC,East India,HILL_PUNJAB,tobacco_plantation,plantation,,182
+BIC,East India,KURNOOL,iron_mine,capped,15,63
+BIC,East India,KURNOOL,logging_camp,capped,9,63
+BIC,East India,KURNOOL,livestock_ranch,farm,,63
+BIC,East India,KURNOOL,rice_farm,farm,,63
+BIC,East India,KURNOOL,banana_plantation,plantation,,63
+BIC,East India,KURNOOL,cotton_plantation,plantation,,63
+BIC,East India,KURNOOL,dye_plantation,plantation,,63
+BIC,East India,KURNOOL,silk_plantation,plantation,,63
+BIC,East India,KURNOOL,sugar_plantation,plantation,,63
+BIC,East India,MADRAS,rubber_plantation,discoverable,7,375
+BIC,East India,MADRAS,livestock_ranch,farm,,375
+BIC,East India,MADRAS,rice_farm,farm,,375
+BIC,East India,MADRAS,banana_plantation,plantation,,375
+BIC,East India,MADRAS,coffee_plantation,plantation,,375
+BIC,East India,MADRAS,cotton_plantation,plantation,,375
+BIC,East India,MADRAS,sugar_plantation,plantation,,375
+BIC,East India,MADRAS,tea_plantation,plantation,,375
+BIC,East India,MYSORE,fishing_wharf,capped,5,210
+BIC,East India,MYSORE,iron_mine,capped,24,210
+BIC,East India,MYSORE,logging_camp,capped,14,210
+BIC,East India,MYSORE,rubber_plantation,discoverable,6,210
+BIC,East India,MYSORE,livestock_ranch,farm,,210
+BIC,East India,MYSORE,rice_farm,farm,,210
+BIC,East India,MYSORE,banana_plantation,plantation,,210
+BIC,East India,MYSORE,cotton_plantation,plantation,,210
+BIC,East India,MYSORE,dye_plantation,plantation,,210
+BIC,East India,MYSORE,silk_plantation,plantation,,210
+BIC,East India,MYSORE,sugar_plantation,plantation,,210
+BIC,East India,MYSORE,tea_plantation,plantation,,210
+BIC,East India,MYSORE,tobacco_plantation,plantation,,210
+BIC,East India,ORISSA,coal_mine,capped,21,83
+BIC,East India,ORISSA,fishing_wharf,capped,7,83
+BIC,East India,ORISSA,iron_mine,capped,36,83
+BIC,East India,ORISSA,livestock_ranch,farm,,83
+BIC,East India,ORISSA,rice_farm,farm,,83
+BIC,East India,ORISSA,banana_plantation,plantation,,83
+BIC,East India,ORISSA,cotton_plantation,plantation,,83
+BIC,East India,ORISSA,dye_plantation,plantation,,83
+BIC,East India,ORISSA,silk_plantation,plantation,,83
+BIC,East India,ORISSA,tea_plantation,plantation,,83
+BIC,East India,ORISSA,tobacco_plantation,plantation,,83
+BIC,East India,PEGU,fishing_wharf,capped,10,40
+BIC,East India,PEGU,logging_camp,capped,18,40
+BIC,East India,PEGU,oil_rig,discoverable,5,40
+BIC,East India,PEGU,rubber_plantation,discoverable,9,40
+BIC,East India,PEGU,livestock_ranch,farm,,40
+BIC,East India,PEGU,rice_farm,farm,,40
+BIC,East India,PEGU,banana_plantation,plantation,,40
+BIC,East India,PEGU,dye_plantation,plantation,,40
+BIC,East India,PEGU,opium_plantation,plantation,,40
+BIC,East India,PEGU,sugar_plantation,plantation,,40
+BIC,East India,PEGU,tobacco_plantation,plantation,,40
+BIC,East India,RAJPUTANA,iron_mine,capped,24,199
+BIC,East India,RAJPUTANA,lead_mine,capped,6,199
+BIC,East India,RAJPUTANA,logging_camp,capped,2,199
+BIC,East India,RAJPUTANA,sulfur_mine,capped,3,199
+BIC,East India,RAJPUTANA,livestock_ranch,farm,,199
+BIC,East India,RAJPUTANA,rice_farm,farm,,199
+BIC,East India,RAJPUTANA,cotton_plantation,plantation,,199
+BIC,East India,RAJPUTANA,dye_plantation,plantation,,199
+BIC,East India,RAJPUTANA,opium_plantation,plantation,,199
+BIC,East India,RAJPUTANA,sugar_plantation,plantation,,199
+BIC,East India,RAJPUTANA,tobacco_plantation,plantation,,199
+BIC,East India,TENASSERIM,fishing_wharf,capped,12,20
+BIC,East India,TENASSERIM,iron_mine,capped,5,20
+BIC,East India,TENASSERIM,logging_camp,capped,17,20
+BIC,East India,TENASSERIM,rubber_plantation,discoverable,16,20
+BIC,East India,TENASSERIM,livestock_ranch,farm,,20
+BIC,East India,TENASSERIM,rice_farm,farm,,20
+BIC,East India,TENASSERIM,banana_plantation,plantation,,20
+BIC,East India,TENASSERIM,cotton_plantation,plantation,,20
+BIC,East India,TENASSERIM,opium_plantation,plantation,,20
+BIC,East India,TENASSERIM,sugar_plantation,plantation,,20
+BIC,East India,TENASSERIM,tea_plantation,plantation,,20
+BIC,East India,TENASSERIM,tobacco_plantation,plantation,,20
+BIC,East India,TRAVANCORE,fishing_wharf,capped,10,120
+BIC,East India,TRAVANCORE,lead_mine,capped,2,120
+BIC,East India,TRAVANCORE,logging_camp,capped,11,120
+BIC,East India,TRAVANCORE,rubber_plantation,discoverable,8,120
+BIC,East India,TRAVANCORE,livestock_ranch,farm,,120
+BIC,East India,TRAVANCORE,rice_farm,farm,,120
+BIC,East India,TRAVANCORE,banana_plantation,plantation,,120
+BIC,East India,TRAVANCORE,cotton_plantation,plantation,,120
+BIC,East India,TRAVANCORE,dye_plantation,plantation,,120
+BIC,East India,TRAVANCORE,sugar_plantation,plantation,,120
+BIC,East India,TRAVANCORE,tea_plantation,plantation,,120
+BIC,East India,TRAVANCORE,tobacco_plantation,plantation,,120
+BIC,East India,WEST_BENGAL,livestock_ranch,farm,,553
+BIC,East India,WEST_BENGAL,rice_farm,farm,,553
+BIC,East India,WEST_BENGAL,banana_plantation,plantation,,553
+BIC,East India,WEST_BENGAL,sugar_plantation,plantation,,553
+BIC,East India,WEST_BENGAL,tea_plantation,plantation,,553
+EGY,Egypt,ADANA,coal_mine,capped,44,15
+EGY,Egypt,ADANA,logging_camp,capped,4,15
+EGY,Egypt,ADANA,wheat_farm,farm,,15
+EGY,Egypt,ADANA,tobacco_plantation,plantation,,15
+EGY,Egypt,ADANA,vineyard,plantation,,15
+EGY,Egypt,ALEPPO,logging_camp,capped,6,40
+EGY,Egypt,ALEPPO,livestock_ranch,farm,,40
+EGY,Egypt,ALEPPO,banana_plantation,plantation,,40
+EGY,Egypt,ALEPPO,cotton_plantation,plantation,,40
+EGY,Egypt,ALEPPO,silk_plantation,plantation,,40
+EGY,Egypt,ALEPPO,vineyard,plantation,,40
+EGY,Egypt,BLUE_NILE,cotton_plantation,plantation,,60
+EGY,Egypt,BLUE_NILE,tobacco_plantation,plantation,,60
+EGY,Egypt,CRETE,logging_camp,capped,2,8
+EGY,Egypt,CRETE,livestock_ranch,farm,,8
+EGY,Egypt,CRETE,wheat_farm,farm,,8
+EGY,Egypt,CRETE,tobacco_plantation,plantation,,8
+EGY,Egypt,CRETE,vineyard,plantation,,8
+EGY,Egypt,DONGOLA,fishing_wharf,capped,4,40
+EGY,Egypt,DONGOLA,logging_camp,capped,4,40
+EGY,Egypt,DONGOLA,oil_rig,discoverable,5,40
+EGY,Egypt,DONGOLA,cotton_plantation,plantation,,40
+EGY,Egypt,DONGOLA,sugar_plantation,plantation,,40
+EGY,Egypt,DONGOLA,tobacco_plantation,plantation,,40
+EGY,Egypt,EGYPTIAN_DESERT,livestock_ranch,farm,,5
+EGY,Egypt,ERITREA,iron_mine,capped,15,30
+EGY,Egypt,ERITREA,livestock_ranch,farm,,30
+EGY,Egypt,ERITREA,millet_farm,farm,,30
+EGY,Egypt,ERITREA,cotton_plantation,plantation,,30
+EGY,Egypt,ERITREA,sugar_plantation,plantation,,30
+EGY,Egypt,ERITREA,tobacco_plantation,plantation,,30
+EGY,Egypt,KORDOFAN,logging_camp,capped,4,40
+EGY,Egypt,KORDOFAN,oil_rig,discoverable,20,40
+EGY,Egypt,LEBANON,coal_mine,capped,44,30
+EGY,Egypt,LEBANON,logging_camp,capped,4,30
+EGY,Egypt,LEBANON,livestock_ranch,farm,,30
+EGY,Egypt,LEBANON,banana_plantation,plantation,,30
+EGY,Egypt,LEBANON,cotton_plantation,plantation,,30
+EGY,Egypt,LEBANON,tobacco_plantation,plantation,,30
+EGY,Egypt,LEBANON,vineyard,plantation,,30
+EGY,Egypt,LOWER_EGYPT,logging_camp,capped,2,80
+EGY,Egypt,LOWER_EGYPT,sulfur_mine,capped,20,80
+EGY,Egypt,LOWER_EGYPT,banana_plantation,plantation,,80
+EGY,Egypt,LOWER_EGYPT,vineyard,plantation,,80
+EGY,Egypt,MATRUH,fishing_wharf,capped,3,3
+EGY,Egypt,MATRUH,livestock_ranch,farm,,3
+EGY,Egypt,MIDDLE_EGYPT,fishing_wharf,capped,4,50
+EGY,Egypt,MIDDLE_EGYPT,logging_camp,capped,2,50
+EGY,Egypt,MIDDLE_EGYPT,livestock_ranch,farm,,50
+EGY,Egypt,MIDDLE_EGYPT,banana_plantation,plantation,,50
+EGY,Egypt,MIDDLE_EGYPT,opium_plantation,plantation,,50
+EGY,Egypt,PALESTINE,iron_mine,capped,24,30
+EGY,Egypt,PALESTINE,logging_camp,capped,5,30
+EGY,Egypt,PALESTINE,sulfur_mine,capped,9,30
+EGY,Egypt,PALESTINE,millet_farm,farm,,30
+EGY,Egypt,PALESTINE,banana_plantation,plantation,,30
+EGY,Egypt,PALESTINE,cotton_plantation,plantation,,30
+EGY,Egypt,PALESTINE,silk_plantation,plantation,,30
+EGY,Egypt,PALESTINE,tobacco_plantation,plantation,,30
+EGY,Egypt,PALESTINE,vineyard,plantation,,30
+EGY,Egypt,SINAI,fishing_wharf,capped,3,10
+EGY,Egypt,SINAI,iron_mine,capped,24,10
+EGY,Egypt,SINAI,lead_mine,capped,24,10
+EGY,Egypt,SINAI,livestock_ranch,farm,,10
+EGY,Egypt,SYRIA,logging_camp,capped,2,30
+EGY,Egypt,SYRIA,livestock_ranch,farm,,30
+EGY,Egypt,SYRIA,cotton_plantation,plantation,,30
+EGY,Egypt,SYRIA,silk_plantation,plantation,,30
+EGY,Egypt,SYRIA,vineyard,plantation,,30
+EGY,Egypt,TRANSJORDAN,fishing_wharf,capped,2,5
+EGY,Egypt,TRANSJORDAN,logging_camp,capped,2,5
+EGY,Egypt,TRANSJORDAN,sulfur_mine,capped,12,5
+EGY,Egypt,TRANSJORDAN,millet_farm,farm,,5
+EGY,Egypt,TRANSJORDAN,banana_plantation,plantation,,5
+EGY,Egypt,UPPER_EGYPT,logging_camp,capped,2,40
+EGY,Egypt,UPPER_EGYPT,livestock_ranch,farm,,40
+EGY,Egypt,UPPER_EGYPT,cotton_plantation,plantation,,40
+EGY,Egypt,UPPER_EGYPT,dye_plantation,plantation,,40
+EGY,Egypt,UPPER_EGYPT,opium_plantation,plantation,,40
+EGY,Egypt,UPPER_EGYPT,sugar_plantation,plantation,,40
+EGY,Egypt,UPPER_EGYPT,tobacco_plantation,plantation,,40
+FRA,France,ALGIERS,fishing_wharf,capped,8,82
+FRA,France,ALGIERS,iron_mine,capped,10,82
+FRA,France,ALGIERS,lead_mine,capped,7,82
+FRA,France,ALGIERS,logging_camp,capped,6,82
+FRA,France,ALGIERS,cotton_plantation,plantation,,82
+FRA,France,ALGIERS,vineyard,plantation,,82
+FRA,France,ALSACE_LORRAINE,coal_mine,capped,60,65
+FRA,France,ALSACE_LORRAINE,livestock_ranch,farm,,65
+FRA,France,AQUITAINE,coal_mine,capped,70,90
+FRA,France,AQUITAINE,livestock_ranch,farm,,90
+FRA,France,AUVERGNE_LIMOUSIN,coal_mine,capped,56,110
+FRA,France,AUVERGNE_LIMOUSIN,iron_mine,capped,15,110
+FRA,France,AUVERGNE_LIMOUSIN,livestock_ranch,farm,,110
+FRA,France,BURGUNDY,livestock_ranch,farm,,80
+FRA,France,CHAMPAGNE,iron_mine,capped,21,80
+FRA,France,CHAMPAGNE,livestock_ranch,farm,,80
+FRA,France,CONSTANTINE,fishing_wharf,capped,4,99
+FRA,France,CONSTANTINE,iron_mine,capped,55,99
+FRA,France,CONSTANTINE,lead_mine,capped,19,99
+FRA,France,CONSTANTINE,logging_camp,capped,6,99
+FRA,France,CONSTANTINE,sulfur_mine,capped,18,99
+FRA,France,CONSTANTINE,oil_rig,discoverable,20,99
+FRA,France,CONSTANTINE,livestock_ranch,farm,,99
+FRA,France,CONSTANTINE,vineyard,plantation,,99
+FRA,France,CORSICA,logging_camp,capped,6,10
+FRA,France,FRANCHE_COMTE,logging_camp,capped,9,50
+FRA,France,FRANCHE_COMTE,livestock_ranch,farm,,50
+FRA,France,FRENCH_LOW_COUNTRIES,fishing_wharf,capped,6,70
+FRA,France,GUAYANA,fishing_wharf,capped,6,30
+FRA,France,GUAYANA,logging_camp,capped,20,30
+FRA,France,GUAYANA,gold_field,discoverable,12,30
+FRA,France,GUAYANA,oil_rig,discoverable,20,30
+FRA,France,GUAYANA,rubber_plantation,discoverable,16,30
+FRA,France,GUAYANA,livestock_ranch,farm,,30
+FRA,France,GUAYANA,rice_farm,farm,,30
+FRA,France,GUAYANA,banana_plantation,plantation,,30
+FRA,France,GUAYANA,coffee_plantation,plantation,,30
+FRA,France,GUAYANA,sugar_plantation,plantation,,30
+FRA,France,GUYENNE,logging_camp,capped,9,90
+FRA,France,ILE_DE_FRANCE,logging_camp,capped,4,40
+FRA,France,INDIAN_OCEAN_TERRITORY,fishing_wharf,capped,10,15
+FRA,France,INDIAN_OCEAN_TERRITORY,whaling_station,capped,5,15
+FRA,France,INDIAN_OCEAN_TERRITORY,rice_farm,farm,,15
+FRA,France,INDIAN_OCEAN_TERRITORY,banana_plantation,plantation,,15
+FRA,France,INDIAN_OCEAN_TERRITORY,coffee_plantation,plantation,,15
+FRA,France,IVORY_COAST,fishing_wharf,capped,5,50
+FRA,France,IVORY_COAST,logging_camp,capped,14,50
+FRA,France,IVORY_COAST,oil_rig,discoverable,5,50
+FRA,France,IVORY_COAST,rubber_plantation,discoverable,22,50
+FRA,France,IVORY_COAST,livestock_ranch,farm,,50
+FRA,France,IVORY_COAST,millet_farm,farm,,50
+FRA,France,IVORY_COAST,banana_plantation,plantation,,50
+FRA,France,IVORY_COAST,coffee_plantation,plantation,,50
+FRA,France,IVORY_COAST,cotton_plantation,plantation,,50
+FRA,France,IVORY_COAST,dye_plantation,plantation,,50
+FRA,France,IVORY_COAST,sugar_plantation,plantation,,50
+FRA,France,IVORY_COAST,tobacco_plantation,plantation,,50
+FRA,France,LANGUEDOC,logging_camp,capped,6,120
+FRA,France,LANGUEDOC,cotton_plantation,plantation,,120
+FRA,France,LORRAINE,iron_mine,capped,60,55
+FRA,France,LORRAINE,livestock_ranch,farm,,55
+FRA,France,MADRAS,fishing_wharf,capped,18,375
+FRA,France,MADRAS,iron_mine,capped,26,375
+FRA,France,MADRAS,logging_camp,capped,20,375
+FRA,France,MADRAS,rubber_plantation,discoverable,7,375
+FRA,France,MADRAS,livestock_ranch,farm,,375
+FRA,France,MADRAS,rice_farm,farm,,375
+FRA,France,MADRAS,banana_plantation,plantation,,375
+FRA,France,MADRAS,coffee_plantation,plantation,,375
+FRA,France,MADRAS,cotton_plantation,plantation,,375
+FRA,France,MADRAS,silk_plantation,plantation,,375
+FRA,France,MADRAS,sugar_plantation,plantation,,375
+FRA,France,MADRAS,tea_plantation,plantation,,375
+FRA,France,MADRAS,tobacco_plantation,plantation,,375
+FRA,France,MAINE_ANJOU,iron_mine,capped,30,112
+FRA,France,NORMANDY,iron_mine,capped,30,120
+FRA,France,NORMANDY,logging_camp,capped,8,120
+FRA,France,NORMANDY,whaling_station,capped,5,120
+FRA,France,ORAN,iron_mine,capped,12,53
+FRA,France,ORAN,logging_camp,capped,3,53
+FRA,France,ORAN,livestock_ranch,farm,,53
+FRA,France,ORAN,vineyard,plantation,,53
+FRA,France,ORLEANS,logging_camp,capped,7,70
+FRA,France,PICARDY,fishing_wharf,capped,1,80
+FRA,France,PICARDY,logging_camp,capped,4,80
+FRA,France,POITOU,logging_camp,capped,5,90
+FRA,France,POITOU,livestock_ranch,farm,,90
+FRA,France,PROVENCE,logging_camp,capped,7,60
+FRA,France,PROVENCE,livestock_ranch,farm,,60
+FRA,France,PROVENCE,cotton_plantation,plantation,,60
+FRA,France,RHONE,iron_mine,capped,36,110
+FRA,France,RHONE,lead_mine,capped,36,110
+FRA,France,RHONE,livestock_ranch,farm,,110
+FRA,France,RHONE,cotton_plantation,plantation,,110
+FRA,France,SENEGAL,fishing_wharf,capped,10,120
+FRA,France,SENEGAL,iron_mine,capped,30,120
+FRA,France,SENEGAL,sulfur_mine,capped,40,120
+FRA,France,SENEGAL,rubber_plantation,discoverable,20,120
+FRA,France,SENEGAL,livestock_ranch,farm,,120
+FRA,France,SENEGAL,millet_farm,farm,,120
+FRA,France,SENEGAL,cotton_plantation,plantation,,120
+FRA,France,SENEGAL,sugar_plantation,plantation,,120
+FRA,France,WEST_INDIES,fishing_wharf,capped,8,30
+FRA,France,WEST_INDIES,oil_rig,discoverable,30,30
+FRA,France,WEST_INDIES,livestock_ranch,farm,,30
+FRA,France,WEST_INDIES,rice_farm,farm,,30
+FRA,France,WEST_INDIES,banana_plantation,plantation,,30
+FRA,France,WEST_INDIES,cotton_plantation,plantation,,30
+GBR,Great Britain,BAHAMAS,fishing_wharf,capped,5,10
+GBR,Great Britain,BAHAMAS,livestock_ranch,farm,,10
+GBR,Great Britain,BAHAMAS,rice_farm,farm,,10
+GBR,Great Britain,BAHAMAS,coffee_plantation,plantation,,10
+GBR,Great Britain,BERMUDA,fishing_wharf,capped,2,10
+GBR,Great Britain,BERMUDA,livestock_ranch,farm,,10
+GBR,Great Britain,BERMUDA,cotton_plantation,plantation,,10
+GBR,Great Britain,BERMUDA,sugar_plantation,plantation,,10
+GBR,Great Britain,BERMUDA,tobacco_plantation,plantation,,10
+GBR,Great Britain,CEYLON,fishing_wharf,capped,13,30
+GBR,Great Britain,CEYLON,logging_camp,capped,11,30
+GBR,Great Britain,CEYLON,rubber_plantation,discoverable,12,30
+GBR,Great Britain,CEYLON,livestock_ranch,farm,,30
+GBR,Great Britain,CEYLON,rice_farm,farm,,30
+GBR,Great Britain,CEYLON,banana_plantation,plantation,,30
+GBR,Great Britain,CEYLON,coffee_plantation,plantation,,30
+GBR,Great Britain,CEYLON,cotton_plantation,plantation,,30
+GBR,Great Britain,CEYLON,dye_plantation,plantation,,30
+GBR,Great Britain,CEYLON,sugar_plantation,plantation,,30
+GBR,Great Britain,CEYLON,tea_plantation,plantation,,30
+GBR,Great Britain,CEYLON,tobacco_plantation,plantation,,30
+GBR,Great Britain,CONNAUGHT,fishing_wharf,capped,4,75
+GBR,Great Britain,CONNAUGHT,logging_camp,capped,7,75
+GBR,Great Britain,CONNAUGHT,sulfur_mine,capped,48,75
+GBR,Great Britain,CONNAUGHT,livestock_ranch,farm,,75
+GBR,Great Britain,EAST_ANGLIA,logging_camp,capped,4,40
+GBR,Great Britain,EAST_ANGLIA,oil_rig,discoverable,20,40
+GBR,Great Britain,GUATEMALA,fishing_wharf,capped,5,40
+GBR,Great Britain,GUATEMALA,iron_mine,capped,30,40
+GBR,Great Britain,GUATEMALA,logging_camp,capped,17,40
+GBR,Great Britain,GUATEMALA,rubber_plantation,discoverable,20,40
+GBR,Great Britain,GUATEMALA,livestock_ranch,farm,,40
+GBR,Great Britain,GUATEMALA,maize_farm,farm,,40
+GBR,Great Britain,GUATEMALA,banana_plantation,plantation,,40
+GBR,Great Britain,GUATEMALA,coffee_plantation,plantation,,40
+GBR,Great Britain,GUATEMALA,cotton_plantation,plantation,,40
+GBR,Great Britain,GUATEMALA,dye_plantation,plantation,,40
+GBR,Great Britain,GUATEMALA,sugar_plantation,plantation,,40
+GBR,Great Britain,GUATEMALA,tobacco_plantation,plantation,,40
+GBR,Great Britain,GUAYANA,fishing_wharf,capped,6,30
+GBR,Great Britain,GUAYANA,logging_camp,capped,20,30
+GBR,Great Britain,GUAYANA,gold_field,discoverable,12,30
+GBR,Great Britain,GUAYANA,oil_rig,discoverable,20,30
+GBR,Great Britain,GUAYANA,rubber_plantation,discoverable,16,30
+GBR,Great Britain,GUAYANA,livestock_ranch,farm,,30
+GBR,Great Britain,GUAYANA,rice_farm,farm,,30
+GBR,Great Britain,GUAYANA,banana_plantation,plantation,,30
+GBR,Great Britain,GUAYANA,coffee_plantation,plantation,,30
+GBR,Great Britain,HIGHLANDS,livestock_ranch,farm,,30
+GBR,Great Britain,HIGHLANDS,rye_farm,farm,,30
+GBR,Great Britain,HOME_COUNTIES,coal_mine,capped,40,40
+GBR,Great Britain,HOME_COUNTIES,logging_camp,capped,6,40
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,fishing_wharf,capped,10,15
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,whaling_station,capped,5,15
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,rice_farm,farm,,15
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,banana_plantation,plantation,,15
+GBR,Great Britain,INDIAN_OCEAN_TERRITORY,coffee_plantation,plantation,,15
+GBR,Great Britain,JAMAICA,fishing_wharf,capped,5,20
+GBR,Great Britain,JAMAICA,logging_camp,capped,4,20
+GBR,Great Britain,JAMAICA,livestock_ranch,farm,,20
+GBR,Great Britain,JAMAICA,rice_farm,farm,,20
+GBR,Great Britain,JAMAICA,tobacco_plantation,plantation,,20
+GBR,Great Britain,LANCASHIRE,lead_mine,capped,45,45
+GBR,Great Britain,LANCASHIRE,logging_camp,capped,9,45
+GBR,Great Britain,LANCASHIRE,oil_rig,discoverable,20,45
+GBR,Great Britain,LEINSTER,fishing_wharf,capped,6,95
+GBR,Great Britain,LEINSTER,iron_mine,capped,33,95
+GBR,Great Britain,LEINSTER,logging_camp,capped,6,95
+GBR,Great Britain,LEINSTER,livestock_ranch,farm,,95
+GBR,Great Britain,MALAYA,coal_mine,capped,32,35
+GBR,Great Britain,MALAYA,fishing_wharf,capped,10,35
+GBR,Great Britain,MALAYA,lead_mine,capped,24,35
+GBR,Great Britain,MALAYA,logging_camp,capped,17,35
+GBR,Great Britain,MALAYA,rubber_plantation,discoverable,40,35
+GBR,Great Britain,MALAYA,livestock_ranch,farm,,35
+GBR,Great Britain,MALAYA,rice_farm,farm,,35
+GBR,Great Britain,MALAYA,banana_plantation,plantation,,35
+GBR,Great Britain,MALAYA,coffee_plantation,plantation,,35
+GBR,Great Britain,MALAYA,sugar_plantation,plantation,,35
+GBR,Great Britain,MALAYA,tea_plantation,plantation,,35
+GBR,Great Britain,MALTA,livestock_ranch,farm,,5
+GBR,Great Britain,MALTA,wheat_farm,farm,,5
+GBR,Great Britain,MALTA,cotton_plantation,plantation,,5
+GBR,Great Britain,MALTA,sugar_plantation,plantation,,5
+GBR,Great Britain,MIDLANDS,fishing_wharf,capped,2,80
+GBR,Great Britain,MIDLANDS,logging_camp,capped,6,80
+GBR,Great Britain,MIDLANDS,sulfur_mine,capped,40,80
+GBR,Great Britain,MUNSTER,fishing_wharf,capped,12,130
+GBR,Great Britain,MUNSTER,lead_mine,capped,24,130
+GBR,Great Britain,MUNSTER,logging_camp,capped,4,130
+GBR,Great Britain,MUNSTER,livestock_ranch,farm,,130
+GBR,Great Britain,NEWFOUNDLAND,iron_mine,capped,24,20
+GBR,Great Britain,NEWFOUNDLAND,lead_mine,capped,24,20
+GBR,Great Britain,NEWFOUNDLAND,logging_camp,capped,24,20
+GBR,Great Britain,NEWFOUNDLAND,whaling_station,capped,6,20
+GBR,Great Britain,NEWFOUNDLAND,livestock_ranch,farm,,20
+GBR,Great Britain,SOUTH_ATLANTIC_ISLANDS,fishing_wharf,capped,2,10
+GBR,Great Britain,SOUTH_ATLANTIC_ISLANDS,whaling_station,capped,3,10
+GBR,Great Britain,SOUTH_ATLANTIC_ISLANDS,livestock_ranch,farm,,10
+GBR,Great Britain,ULSTER,fishing_wharf,capped,11,130
+GBR,Great Britain,UPPER_ANDALUSIA,fishing_wharf,capped,8,53
+GBR,Great Britain,UPPER_ANDALUSIA,iron_mine,capped,7,53
+GBR,Great Britain,UPPER_ANDALUSIA,lead_mine,capped,46,53
+GBR,Great Britain,UPPER_ANDALUSIA,logging_camp,capped,4,53
+GBR,Great Britain,UPPER_ANDALUSIA,livestock_ranch,farm,,53
+GBR,Great Britain,UPPER_ANDALUSIA,wheat_farm,farm,,53
+GBR,Great Britain,UPPER_ANDALUSIA,cotton_plantation,plantation,,53
+GBR,Great Britain,UPPER_ANDALUSIA,silk_plantation,plantation,,53
+GBR,Great Britain,UPPER_ANDALUSIA,sugar_plantation,plantation,,53
+GBR,Great Britain,UPPER_ANDALUSIA,tobacco_plantation,plantation,,53
+GBR,Great Britain,UPPER_ANDALUSIA,vineyard,plantation,,53
+GBR,Great Britain,WALES,fishing_wharf,capped,4,40
+GBR,Great Britain,WALES,rye_farm,farm,,40
+GBR,Great Britain,WEST_COUNTRY,logging_camp,capped,6,60
+GBR,Great Britain,WEST_COUNTRY,vineyard,plantation,,60
+GBR,Great Britain,WEST_INDIES,fishing_wharf,capped,8,30
+GBR,Great Britain,WEST_INDIES,oil_rig,discoverable,30,30
+GBR,Great Britain,WEST_INDIES,livestock_ranch,farm,,30
+GBR,Great Britain,WEST_INDIES,rice_farm,farm,,30
+GBR,Great Britain,WEST_INDIES,banana_plantation,plantation,,30
+GBR,Great Britain,WEST_INDIES,cotton_plantation,plantation,,30
+GBR,Great Britain,YORKSHIRE,fishing_wharf,capped,7,50
+GBR,Great Britain,YORKSHIRE,lead_mine,capped,27,50
+GBR,Great Britain,YORKSHIRE,logging_camp,capped,6,50
+GRE,Greece,ATTICA,lead_mine,capped,21,25
+GRE,Greece,ATTICA,sulfur_mine,capped,32,25
+GRE,Greece,ATTICA,livestock_ranch,farm,,25
+GRE,Greece,PELOPONNESE,iron_mine,capped,21,10
+GRE,Greece,PELOPONNESE,logging_camp,capped,5,10
+GRE,Greece,PELOPONNESE,livestock_ranch,farm,,10
+GRE,Greece,PELOPONNESE,cotton_plantation,plantation,,10
+GRE,Greece,PELOPONNESE,tobacco_plantation,plantation,,10
+GRE,Greece,WEST_AEGEAN_ISLANDS,livestock_ranch,farm,,5
+GRE,Greece,WEST_AEGEAN_ISLANDS,wheat_farm,farm,,5
+GRE,Greece,WEST_AEGEAN_ISLANDS,cotton_plantation,plantation,,5
+GRE,Greece,WEST_AEGEAN_ISLANDS,tobacco_plantation,plantation,,5
+GRE,Greece,WEST_AEGEAN_ISLANDS,vineyard,plantation,,5
+HUN,Hungary,BANAT,logging_camp,capped,9,70
+HUN,Hungary,BANAT,vineyard,plantation,,70
+HUN,Hungary,BEKES,logging_camp,capped,11,80
+HUN,Hungary,BEKES,vineyard,plantation,,80
+HUN,Hungary,CENTRAL_HUNGARY,coal_mine,capped,20,110
+HUN,Hungary,CENTRAL_HUNGARY,logging_camp,capped,6,110
+HUN,Hungary,DELVIDEK,logging_camp,capped,4,50
+HUN,Hungary,DELVIDEK,oil_rig,discoverable,20,50
+HUN,Hungary,DELVIDEK,vineyard,plantation,,50
+HUN,Hungary,RUTHENIA,coal_mine,capped,92,70
+HUN,Hungary,RUTHENIA,lead_mine,capped,33,70
+HUN,Hungary,RUTHENIA,livestock_ranch,farm,,70
+HUN,Hungary,RUTHENIA,vineyard,plantation,,70
+HUN,Hungary,SLOVAKIA,coal_mine,capped,44,105
+HUN,Hungary,SLOVAKIA,logging_camp,capped,8,105
+HUN,Hungary,SLOVAKIA,livestock_ranch,farm,,105
+HUN,Hungary,TRANSDANUBIA,coal_mine,capped,84,125
+HUN,Hungary,TRANSDANUBIA,logging_camp,capped,7,125
+HYD,Hyderabad,CENTRAL_PROVINCES,coal_mine,capped,21,205
+HYD,Hyderabad,CENTRAL_PROVINCES,iron_mine,capped,22,205
+HYD,Hyderabad,CENTRAL_PROVINCES,logging_camp,capped,12,205
+HYD,Hyderabad,CENTRAL_PROVINCES,livestock_ranch,farm,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,rice_farm,farm,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,banana_plantation,plantation,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,cotton_plantation,plantation,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,dye_plantation,plantation,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,opium_plantation,plantation,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,silk_plantation,plantation,,205
+HYD,Hyderabad,CENTRAL_PROVINCES,sugar_plantation,plantation,,205
+HYD,Hyderabad,HYDERABAD,coal_mine,capped,6,250
+HYD,Hyderabad,HYDERABAD,iron_mine,capped,4,250
+HYD,Hyderabad,HYDERABAD,logging_camp,capped,16,250
+HYD,Hyderabad,HYDERABAD,livestock_ranch,farm,,250
+HYD,Hyderabad,HYDERABAD,rice_farm,farm,,250
+HYD,Hyderabad,HYDERABAD,banana_plantation,plantation,,250
+HYD,Hyderabad,HYDERABAD,dye_plantation,plantation,,250
+HYD,Hyderabad,HYDERABAD,opium_plantation,plantation,,250
+HYD,Hyderabad,HYDERABAD,tobacco_plantation,plantation,,250
+JAP,Japan,CHUGOKU,coal_mine,capped,8,101
+JAP,Japan,CHUGOKU,iron_mine,capped,16,101
+JAP,Japan,CHUGOKU,lead_mine,capped,11,101
+JAP,Japan,CHUGOKU,logging_camp,capped,20,101
+JAP,Japan,CHUGOKU,whaling_station,capped,3,101
+JAP,Japan,CHUGOKU,livestock_ranch,farm,,101
+JAP,Japan,CHUGOKU,dye_plantation,plantation,,101
+JAP,Japan,CHUGOKU,silk_plantation,plantation,,101
+JAP,Japan,CHUGOKU,tea_plantation,plantation,,101
+JAP,Japan,HOKKAIDO,coal_mine,capped,59,25
+JAP,Japan,HOKKAIDO,iron_mine,capped,4,25
+JAP,Japan,HOKKAIDO,lead_mine,capped,7,25
+JAP,Japan,HOKKAIDO,logging_camp,capped,9,25
+JAP,Japan,HOKKAIDO,sulfur_mine,capped,22,25
+JAP,Japan,HOKKAIDO,whaling_station,capped,8,25
+JAP,Japan,HOKKAIDO,gold_field,discoverable,4,25
+JAP,Japan,HOKKAIDO,livestock_ranch,farm,,25
+JAP,Japan,HOKKAIDO,wheat_farm,farm,,25
+JAP,Japan,HOKUSHINETSU,iron_mine,capped,15,104
+JAP,Japan,HOKUSHINETSU,lead_mine,capped,4,104
+JAP,Japan,HOKUSHINETSU,sulfur_mine,capped,6,104
+JAP,Japan,HOKUSHINETSU,oil_rig,discoverable,7,104
+JAP,Japan,HOKUSHINETSU,livestock_ranch,farm,,104
+JAP,Japan,HOKUSHINETSU,cotton_plantation,plantation,,104
+JAP,Japan,HOKUSHINETSU,silk_plantation,plantation,,104
+JAP,Japan,HOKUSHINETSU,vineyard,plantation,,104
+JAP,Japan,KANSAI,gold_mine,capped,1,95
+JAP,Japan,KANSAI,lead_mine,capped,18,95
+JAP,Japan,KANSAI,livestock_ranch,farm,,95
+JAP,Japan,KANSAI,opium_plantation,plantation,,95
+JAP,Japan,KANSAI,silk_plantation,plantation,,95
+JAP,Japan,KANSAI,tea_plantation,plantation,,95
+JAP,Japan,KANSAI,vineyard,plantation,,95
+JAP,Japan,KANTO,iron_mine,capped,1,117
+JAP,Japan,KANTO,sulfur_mine,capped,21,117
+JAP,Japan,KANTO,whaling_station,capped,2,117
+JAP,Japan,KANTO,livestock_ranch,farm,,117
+JAP,Japan,KANTO,cotton_plantation,plantation,,117
+JAP,Japan,KYOTO,fishing_wharf,capped,10,44
+JAP,Japan,KYOTO,iron_mine,capped,2,44
+JAP,Japan,KYOTO,cotton_plantation,plantation,,44
+JAP,Japan,KYOTO,tobacco_plantation,plantation,,44
+JAP,Japan,KYUSHU,coal_mine,capped,52,101
+JAP,Japan,KYUSHU,gold_mine,capped,1,101
+JAP,Japan,KYUSHU,iron_mine,capped,6,101
+JAP,Japan,KYUSHU,lead_mine,capped,9,101
+JAP,Japan,KYUSHU,logging_camp,capped,7,101
+JAP,Japan,KYUSHU,sulfur_mine,capped,31,101
+JAP,Japan,KYUSHU,livestock_ranch,farm,,101
+JAP,Japan,KYUSHU,cotton_plantation,plantation,,101
+JAP,Japan,KYUSHU,dye_plantation,plantation,,101
+JAP,Japan,KYUSHU,silk_plantation,plantation,,101
+JAP,Japan,KYUSHU,sugar_plantation,plantation,,101
+JAP,Japan,RYUKYU_ISLANDS,coal_mine,capped,4,15
+JAP,Japan,RYUKYU_ISLANDS,fishing_wharf,capped,5,15
+JAP,Japan,RYUKYU_ISLANDS,sulfur_mine,capped,6,15
+JAP,Japan,RYUKYU_ISLANDS,livestock_ranch,farm,,15
+JAP,Japan,RYUKYU_ISLANDS,rice_farm,farm,,15
+JAP,Japan,RYUKYU_ISLANDS,cotton_plantation,plantation,,15
+JAP,Japan,RYUKYU_ISLANDS,tea_plantation,plantation,,15
+JAP,Japan,RYUKYU_ISLANDS,tobacco_plantation,plantation,,15
+JAP,Japan,SHIKOKU,fishing_wharf,capped,9,56
+JAP,Japan,SHIKOKU,iron_mine,capped,4,56
+JAP,Japan,SHIKOKU,livestock_ranch,farm,,56
+JAP,Japan,SHIKOKU,rice_farm,farm,,56
+JAP,Japan,SHIKOKU,silk_plantation,plantation,,56
+JAP,Japan,SHIKOKU,tea_plantation,plantation,,56
+JAP,Japan,TOHOKU,coal_mine,capped,6,80
+JAP,Japan,TOHOKU,gold_mine,capped,2,80
+JAP,Japan,TOHOKU,iron_mine,capped,53,80
+JAP,Japan,TOHOKU,lead_mine,capped,33,80
+JAP,Japan,TOHOKU,sulfur_mine,capped,51,80
+JAP,Japan,TOHOKU,whaling_station,capped,5,80
+JAP,Japan,TOHOKU,oil_rig,discoverable,4,80
+JAP,Japan,TOHOKU,livestock_ranch,farm,,80
+JAP,Japan,TOHOKU,cotton_plantation,plantation,,80
+JAP,Japan,TOHOKU,vineyard,plantation,,80
+JAP,Japan,TOKAI,fishing_wharf,capped,16,107
+JAP,Japan,TOKAI,lead_mine,capped,38,107
+JAP,Japan,TOKAI,sulfur_mine,capped,12,107
+JAP,Japan,TOKAI,oil_rig,discoverable,1,107
+JAP,Japan,TOKAI,livestock_ranch,farm,,107
+JAP,Japan,TOKAI,silk_plantation,plantation,,107
+JAP,Japan,TOKAI,tobacco_plantation,plantation,,107
+JAP,Japan,TOKAI,vineyard,plantation,,107
+KOR,Korea,BUSAN,coal_mine,capped,6,85
+KOR,Korea,BUSAN,iron_mine,capped,5,85
+KOR,Korea,BUSAN,lead_mine,capped,12,85
+KOR,Korea,BUSAN,logging_camp,capped,7,85
+KOR,Korea,BUSAN,whaling_station,capped,7,85
+KOR,Korea,BUSAN,livestock_ranch,farm,,85
+KOR,Korea,BUSAN,cotton_plantation,plantation,,85
+KOR,Korea,BUSAN,silk_plantation,plantation,,85
+KOR,Korea,BUSAN,tea_plantation,plantation,,85
+KOR,Korea,PYONGYANG,coal_mine,capped,17,100
+KOR,Korea,PYONGYANG,fishing_wharf,capped,8,100
+KOR,Korea,PYONGYANG,gold_mine,capped,5,100
+KOR,Korea,PYONGYANG,lead_mine,capped,15,100
+KOR,Korea,PYONGYANG,logging_camp,capped,7,100
+KOR,Korea,PYONGYANG,cotton_plantation,plantation,,100
+KOR,Korea,PYONGYANG,opium_plantation,plantation,,100
+KOR,Korea,PYONGYANG,silk_plantation,plantation,,100
+KOR,Korea,PYONGYANG,tobacco_plantation,plantation,,100
+KOR,Korea,SARIWON,coal_mine,capped,9,40
+KOR,Korea,SARIWON,fishing_wharf,capped,17,40
+KOR,Korea,SARIWON,gold_mine,capped,2,40
+KOR,Korea,SARIWON,iron_mine,capped,45,40
+KOR,Korea,SARIWON,lead_mine,capped,24,40
+KOR,Korea,SARIWON,logging_camp,capped,21,40
+KOR,Korea,SARIWON,cotton_plantation,plantation,,40
+KOR,Korea,SARIWON,opium_plantation,plantation,,40
+KOR,Korea,SARIWON,silk_plantation,plantation,,40
+KOR,Korea,SEOUL,coal_mine,capped,12,70
+KOR,Korea,SEOUL,gold_mine,capped,2,70
+KOR,Korea,SEOUL,iron_mine,capped,15,70
+KOR,Korea,SEOUL,lead_mine,capped,27,70
+KOR,Korea,SEOUL,logging_camp,capped,19,70
+KOR,Korea,SEOUL,whaling_station,capped,3,70
+KOR,Korea,SEOUL,livestock_ranch,farm,,70
+KOR,Korea,SEOUL,cotton_plantation,plantation,,70
+KOR,Korea,SEOUL,silk_plantation,plantation,,70
+KOR,Korea,YANGHO,coal_mine,capped,5,110
+KOR,Korea,YANGHO,lead_mine,capped,11,110
+KOR,Korea,YANGHO,logging_camp,capped,7,110
+KOR,Korea,YANGHO,sulfur_mine,capped,6,110
+KOR,Korea,YANGHO,whaling_station,capped,2,110
+KOR,Korea,YANGHO,livestock_ranch,farm,,110
+KOR,Korea,YANGHO,cotton_plantation,plantation,,110
+KOR,Korea,YANGHO,silk_plantation,plantation,,110
+KOR,Korea,YANGHO,tea_plantation,plantation,,110
+MEX,Mexico,ARIZONA,iron_mine,capped,21,40
+MEX,Mexico,ARIZONA,logging_camp,capped,2,40
+MEX,Mexico,ARIZONA,gold_field,discoverable,5,40
+MEX,Mexico,ARIZONA,livestock_ranch,farm,,40
+MEX,Mexico,ARIZONA,wheat_farm,farm,,40
+MEX,Mexico,ARIZONA,cotton_plantation,plantation,,40
+MEX,Mexico,BAJA_CALIFORNIA,fishing_wharf,capped,6,20
+MEX,Mexico,BAJA_CALIFORNIA,logging_camp,capped,2,20
+MEX,Mexico,BAJA_CALIFORNIA,whaling_station,capped,4,20
+MEX,Mexico,BAJA_CALIFORNIA,livestock_ranch,farm,,20
+MEX,Mexico,BAJA_CALIFORNIA,wheat_farm,farm,,20
+MEX,Mexico,BAJA_CALIFORNIA,coffee_plantation,plantation,,20
+MEX,Mexico,BAJA_CALIFORNIA,cotton_plantation,plantation,,20
+MEX,Mexico,BAJA_CALIFORNIA,tobacco_plantation,plantation,,20
+MEX,Mexico,BAJA_CALIFORNIA,vineyard,plantation,,20
+MEX,Mexico,BAJIO,iron_mine,capped,23,100
+MEX,Mexico,BAJIO,livestock_ranch,farm,,100
+MEX,Mexico,BAJIO,banana_plantation,plantation,,100
+MEX,Mexico,BAJIO,coffee_plantation,plantation,,100
+MEX,Mexico,BAJIO,sugar_plantation,plantation,,100
+MEX,Mexico,BAJIO,vineyard,plantation,,100
+MEX,Mexico,CALIFORNIA,fishing_wharf,capped,14,300
+MEX,Mexico,CALIFORNIA,iron_mine,capped,33,300
+MEX,Mexico,CALIFORNIA,logging_camp,capped,45,300
+MEX,Mexico,CALIFORNIA,sulfur_mine,capped,40,300
+MEX,Mexico,CALIFORNIA,whaling_station,capped,6,300
+MEX,Mexico,CALIFORNIA,gold_field,discoverable,12,300
+MEX,Mexico,CALIFORNIA,oil_rig,discoverable,80,300
+MEX,Mexico,CALIFORNIA,livestock_ranch,farm,,300
+MEX,Mexico,CALIFORNIA,wheat_farm,farm,,300
+MEX,Mexico,CALIFORNIA,cotton_plantation,plantation,,300
+MEX,Mexico,CALIFORNIA,vineyard,plantation,,300
+MEX,Mexico,CHIAPAS,fishing_wharf,capped,7,40
+MEX,Mexico,CHIAPAS,logging_camp,capped,14,40
+MEX,Mexico,CHIAPAS,rubber_plantation,discoverable,24,40
+MEX,Mexico,CHIAPAS,livestock_ranch,farm,,40
+MEX,Mexico,CHIAPAS,maize_farm,farm,,40
+MEX,Mexico,CHIAPAS,coffee_plantation,plantation,,40
+MEX,Mexico,CHIAPAS,sugar_plantation,plantation,,40
+MEX,Mexico,CHIAPAS,tobacco_plantation,plantation,,40
+MEX,Mexico,CHIHUAHUA,lead_mine,capped,18,40
+MEX,Mexico,CHIHUAHUA,logging_camp,capped,6,40
+MEX,Mexico,CHIHUAHUA,maize_farm,farm,,40
+MEX,Mexico,CHIHUAHUA,cotton_plantation,plantation,,40
+MEX,Mexico,CHIHUAHUA,dye_plantation,plantation,,40
+MEX,Mexico,COLORADO,coal_mine,capped,40,160
+MEX,Mexico,COLORADO,logging_camp,capped,9,160
+MEX,Mexico,COLORADO,gold_field,discoverable,8,160
+MEX,Mexico,COLORADO,oil_rig,discoverable,20,160
+MEX,Mexico,COLORADO,livestock_ranch,farm,,160
+MEX,Mexico,COLORADO,maize_farm,farm,,160
+MEX,Mexico,DURANGO,fishing_wharf,capped,5,60
+MEX,Mexico,DURANGO,iron_mine,capped,17,60
+MEX,Mexico,DURANGO,logging_camp,capped,4,60
+MEX,Mexico,DURANGO,maize_farm,farm,,60
+MEX,Mexico,GUERRERO,coal_mine,capped,24,120
+MEX,Mexico,GUERRERO,lead_mine,capped,15,120
+MEX,Mexico,GUERRERO,gold_field,discoverable,3,120
+MEX,Mexico,GUERRERO,rubber_plantation,discoverable,8,120
+MEX,Mexico,GUERRERO,livestock_ranch,farm,,120
+MEX,Mexico,GUERRERO,banana_plantation,plantation,,120
+MEX,Mexico,GUERRERO,coffee_plantation,plantation,,120
+MEX,Mexico,GUERRERO,dye_plantation,plantation,,120
+MEX,Mexico,GUERRERO,tobacco_plantation,plantation,,120
+MEX,Mexico,JALISCO,fishing_wharf,capped,8,80
+MEX,Mexico,JALISCO,iron_mine,capped,33,80
+MEX,Mexico,JALISCO,rubber_plantation,discoverable,12,80
+MEX,Mexico,JALISCO,livestock_ranch,farm,,80
+MEX,Mexico,JALISCO,coffee_plantation,plantation,,80
+MEX,Mexico,JALISCO,dye_plantation,plantation,,80
+MEX,Mexico,JALISCO,sugar_plantation,plantation,,80
+MEX,Mexico,JALISCO,tobacco_plantation,plantation,,80
+MEX,Mexico,MEXICO,lead_mine,capped,12,160
+MEX,Mexico,MEXICO,logging_camp,capped,7,160
+MEX,Mexico,MEXICO,rubber_plantation,discoverable,8,160
+MEX,Mexico,MEXICO,banana_plantation,plantation,,160
+MEX,Mexico,MEXICO,coffee_plantation,plantation,,160
+MEX,Mexico,MEXICO,sugar_plantation,plantation,,160
+MEX,Mexico,MEXICO,vineyard,plantation,,160
+MEX,Mexico,NEVADA,iron_mine,capped,24,40
+MEX,Mexico,NEVADA,logging_camp,capped,4,40
+MEX,Mexico,NEVADA,gold_field,discoverable,15,40
+MEX,Mexico,NEVADA,livestock_ranch,farm,,40
+MEX,Mexico,NEW_MEXICO,coal_mine,capped,20,40
+MEX,Mexico,NEW_MEXICO,logging_camp,capped,6,40
+MEX,Mexico,NEW_MEXICO,livestock_ranch,farm,,40
+MEX,Mexico,NEW_MEXICO,wheat_farm,farm,,40
+MEX,Mexico,NEW_MEXICO,cotton_plantation,plantation,,40
+MEX,Mexico,NEW_MEXICO,vineyard,plantation,,40
+MEX,Mexico,OAXACA,coal_mine,capped,24,120
+MEX,Mexico,OAXACA,lead_mine,capped,15,120
+MEX,Mexico,OAXACA,logging_camp,capped,7,120
+MEX,Mexico,OAXACA,gold_field,discoverable,2,120
+MEX,Mexico,OAXACA,rubber_plantation,discoverable,6,120
+MEX,Mexico,OAXACA,livestock_ranch,farm,,120
+MEX,Mexico,OAXACA,banana_plantation,plantation,,120
+MEX,Mexico,OAXACA,coffee_plantation,plantation,,120
+MEX,Mexico,OAXACA,dye_plantation,plantation,,120
+MEX,Mexico,OAXACA,sugar_plantation,plantation,,120
+MEX,Mexico,OAXACA,tobacco_plantation,plantation,,120
+MEX,Mexico,RIO_GRANDE,oil_rig,discoverable,80,40
+MEX,Mexico,RIO_GRANDE,livestock_ranch,farm,,40
+MEX,Mexico,RIO_GRANDE,cotton_plantation,plantation,,40
+MEX,Mexico,RIO_GRANDE,dye_plantation,plantation,,40
+MEX,Mexico,SINALOA,fishing_wharf,capped,5,60
+MEX,Mexico,SINALOA,iron_mine,capped,17,60
+MEX,Mexico,SINALOA,logging_camp,capped,7,60
+MEX,Mexico,SINALOA,maize_farm,farm,,60
+MEX,Mexico,SINALOA,opium_plantation,plantation,,60
+MEX,Mexico,SONORA,fishing_wharf,capped,7,40
+MEX,Mexico,SONORA,iron_mine,capped,27,40
+MEX,Mexico,SONORA,logging_camp,capped,4,40
+MEX,Mexico,SONORA,gold_field,discoverable,6,40
+MEX,Mexico,SONORA,livestock_ranch,farm,,40
+MEX,Mexico,SONORA,wheat_farm,farm,,40
+MEX,Mexico,SONORA,cotton_plantation,plantation,,40
+MEX,Mexico,TEXAS,coal_mine,capped,28,500
+MEX,Mexico,TEXAS,fishing_wharf,capped,6,500
+MEX,Mexico,TEXAS,logging_camp,capped,7,500
+MEX,Mexico,TEXAS,sulfur_mine,capped,36,500
+MEX,Mexico,TEXAS,oil_rig,discoverable,100,500
+MEX,Mexico,TEXAS,livestock_ranch,farm,,500
+MEX,Mexico,TEXAS,maize_farm,farm,,500
+MEX,Mexico,TEXAS,cotton_plantation,plantation,,500
+MEX,Mexico,TEXAS,sugar_plantation,plantation,,500
+MEX,Mexico,TEXAS,vineyard,plantation,,500
+MEX,Mexico,UTAH,iron_mine,capped,30,50
+MEX,Mexico,UTAH,logging_camp,capped,6,50
+MEX,Mexico,UTAH,oil_rig,discoverable,20,50
+MEX,Mexico,UTAH,livestock_ranch,farm,,50
+MEX,Mexico,UTAH,maize_farm,farm,,50
+MEX,Mexico,VERACRUZ,iron_mine,capped,9,160
+MEX,Mexico,VERACRUZ,lead_mine,capped,12,160
+MEX,Mexico,VERACRUZ,logging_camp,capped,6,160
+MEX,Mexico,VERACRUZ,oil_rig,discoverable,40,160
+MEX,Mexico,VERACRUZ,rubber_plantation,discoverable,8,160
+MEX,Mexico,VERACRUZ,livestock_ranch,farm,,160
+MEX,Mexico,VERACRUZ,banana_plantation,plantation,,160
+MEX,Mexico,VERACRUZ,coffee_plantation,plantation,,160
+MEX,Mexico,VERACRUZ,dye_plantation,plantation,,160
+MEX,Mexico,YUCATAN,fishing_wharf,capped,9,80
+MEX,Mexico,YUCATAN,logging_camp,capped,18,80
+MEX,Mexico,YUCATAN,rubber_plantation,discoverable,16,80
+MEX,Mexico,YUCATAN,livestock_ranch,farm,,80
+MEX,Mexico,YUCATAN,maize_farm,farm,,80
+MEX,Mexico,YUCATAN,coffee_plantation,plantation,,80
+MEX,Mexico,YUCATAN,dye_plantation,plantation,,80
+MEX,Mexico,YUCATAN,sugar_plantation,plantation,,80
+MEX,Mexico,ZACATECAS,iron_mine,capped,23,80
+MEX,Mexico,ZACATECAS,gold_field,discoverable,4,80
+MEX,Mexico,ZACATECAS,livestock_ranch,farm,,80
+MEX,Mexico,ZACATECAS,banana_plantation,plantation,,80
+MEX,Mexico,ZACATECAS,coffee_plantation,plantation,,80
+MEX,Mexico,ZACATECAS,sugar_plantation,plantation,,80
+MEX,Mexico,ZACATECAS,vineyard,plantation,,80
+MOR,Morocco,AL_RIF,coal_mine,capped,6,50
+MOR,Morocco,AL_RIF,fishing_wharf,capped,7,50
+MOR,Morocco,AL_RIF,wheat_farm,farm,,50
+MOR,Morocco,AL_RIF,banana_plantation,plantation,,50
+MOR,Morocco,AL_RIF,cotton_plantation,plantation,,50
+MOR,Morocco,AL_RIF,sugar_plantation,plantation,,50
+MOR,Morocco,AL_RIF,vineyard,plantation,,50
+MOR,Morocco,FEZ,logging_camp,capped,4,70
+MOR,Morocco,FEZ,wheat_farm,farm,,70
+MOR,Morocco,FEZ,banana_plantation,plantation,,70
+MOR,Morocco,FEZ,cotton_plantation,plantation,,70
+MOR,Morocco,FEZ,sugar_plantation,plantation,,70
+MOR,Morocco,INNER_MOROCCO,coal_mine,capped,6,50
+MOR,Morocco,INNER_MOROCCO,fishing_wharf,capped,4,50
+MOR,Morocco,INNER_MOROCCO,gold_mine,capped,3,50
+MOR,Morocco,INNER_MOROCCO,lead_mine,capped,30,50
+MOR,Morocco,MARRAKECH,iron_mine,capped,30,60
+MOR,Morocco,MARRAKECH,sulfur_mine,capped,52,60
+MOR,Morocco,MARRAKECH,wheat_farm,farm,,60
+MOR,Morocco,MARRAKECH,banana_plantation,plantation,,60
+MOR,Morocco,MARRAKECH,cotton_plantation,plantation,,60
+MOR,Morocco,MARRAKECH,sugar_plantation,plantation,,60
+MOR,Morocco,MARRAKECH,vineyard,plantation,,60
+NEP,Nepal,HIMALAYAS,iron_mine,capped,8,111
+NEP,Nepal,HIMALAYAS,lead_mine,capped,8,111
+NEP,Nepal,HIMALAYAS,logging_camp,capped,10,111
+NEP,Nepal,HIMALAYAS,livestock_ranch,farm,,111
+NEP,Nepal,HIMALAYAS,rice_farm,farm,,111
+NEP,Nepal,HIMALAYAS,opium_plantation,plantation,,111
+NET,Netherlands,FRIESLAND,whaling_station,capped,5,30
+NET,Netherlands,FRIESLAND,oil_rig,discoverable,60,30
+NET,Netherlands,FRIESLAND,livestock_ranch,farm,,30
+NET,Netherlands,FRIESLAND,rye_farm,farm,,30
+NET,Netherlands,GELRE,coal_mine,capped,40,40
+NET,Netherlands,GOLD_COAST,fishing_wharf,capped,5,80
+NET,Netherlands,GOLD_COAST,logging_camp,capped,14,80
+NET,Netherlands,GOLD_COAST,rubber_plantation,discoverable,22,80
+NET,Netherlands,GOLD_COAST,livestock_ranch,farm,,80
+NET,Netherlands,GOLD_COAST,millet_farm,farm,,80
+NET,Netherlands,GOLD_COAST,banana_plantation,plantation,,80
+NET,Netherlands,GOLD_COAST,coffee_plantation,plantation,,80
+NET,Netherlands,GOLD_COAST,cotton_plantation,plantation,,80
+NET,Netherlands,GOLD_COAST,dye_plantation,plantation,,80
+NET,Netherlands,GOLD_COAST,sugar_plantation,plantation,,80
+NET,Netherlands,GOLD_COAST,tobacco_plantation,plantation,,80
+NET,Netherlands,GUAYANA,fishing_wharf,capped,6,30
+NET,Netherlands,GUAYANA,logging_camp,capped,20,30
+NET,Netherlands,GUAYANA,gold_field,discoverable,12,30
+NET,Netherlands,GUAYANA,oil_rig,discoverable,20,30
+NET,Netherlands,GUAYANA,rubber_plantation,discoverable,16,30
+NET,Netherlands,GUAYANA,livestock_ranch,farm,,30
+NET,Netherlands,GUAYANA,rice_farm,farm,,30
+NET,Netherlands,GUAYANA,banana_plantation,plantation,,30
+NET,Netherlands,GUAYANA,coffee_plantation,plantation,,30
+NET,Netherlands,HOLLAND,logging_camp,capped,4,30
+NET,Netherlands,WEST_INDIES,fishing_wharf,capped,8,30
+NET,Netherlands,WEST_INDIES,oil_rig,discoverable,30,30
+NET,Netherlands,WEST_INDIES,livestock_ranch,farm,,30
+NET,Netherlands,WEST_INDIES,rice_farm,farm,,30
+NET,Netherlands,WEST_INDIES,banana_plantation,plantation,,30
+NET,Netherlands,WEST_INDIES,coffee_plantation,plantation,,30
+NET,Netherlands,WEST_INDIES,sugar_plantation,plantation,,30
+NET,Netherlands,WEST_INDIES,tobacco_plantation,plantation,,30
+OMA,Oman,ABU_DHABI,fishing_wharf,capped,4,5
+OMA,Oman,ABU_DHABI,oil_rig,discoverable,80,5
+OMA,Oman,ABU_DHABI,livestock_ranch,farm,,5
+OMA,Oman,ABU_DHABI,tobacco_plantation,plantation,,5
+OMA,Oman,BALUCHISTAN,fishing_wharf,capped,5,63
+OMA,Oman,BALUCHISTAN,iron_mine,capped,20,63
+OMA,Oman,BALUCHISTAN,lead_mine,capped,10,63
+OMA,Oman,BALUCHISTAN,logging_camp,capped,1,63
+OMA,Oman,BALUCHISTAN,livestock_ranch,farm,,63
+OMA,Oman,BALUCHISTAN,wheat_farm,farm,,63
+OMA,Oman,BALUCHISTAN,dye_plantation,plantation,,63
+OMA,Oman,BALUCHISTAN,opium_plantation,plantation,,63
+OMA,Oman,BALUCHISTAN,tea_plantation,plantation,,63
+OMA,Oman,KENYA,logging_camp,capped,6,80
+OMA,Oman,KENYA,rubber_plantation,discoverable,16,80
+OMA,Oman,KENYA,livestock_ranch,farm,,80
+OMA,Oman,KENYA,millet_farm,farm,,80
+OMA,Oman,KENYA,banana_plantation,plantation,,80
+OMA,Oman,KENYA,coffee_plantation,plantation,,80
+OMA,Oman,KENYA,cotton_plantation,plantation,,80
+OMA,Oman,KENYA,dye_plantation,plantation,,80
+OMA,Oman,KENYA,sugar_plantation,plantation,,80
+OMA,Oman,KENYA,tea_plantation,plantation,,80
+OMA,Oman,KENYA,tobacco_plantation,plantation,,80
+OMA,Oman,KENYA,vineyard,plantation,,80
+OMA,Oman,LARISTAN,iron_mine,capped,11,30
+OMA,Oman,LARISTAN,logging_camp,capped,1,30
+OMA,Oman,LARISTAN,oil_rig,discoverable,40,30
+OMA,Oman,LARISTAN,livestock_ranch,farm,,30
+OMA,Oman,LARISTAN,wheat_farm,farm,,30
+OMA,Oman,LARISTAN,cotton_plantation,plantation,,30
+OMA,Oman,LARISTAN,dye_plantation,plantation,,30
+OMA,Oman,LARISTAN,opium_plantation,plantation,,30
+OMA,Oman,LARISTAN,silk_plantation,plantation,,30
+OMA,Oman,LARISTAN,tobacco_plantation,plantation,,30
+OMA,Oman,LARISTAN,vineyard,plantation,,30
+OMA,Oman,OMAN,oil_rig,discoverable,30,10
+OMA,Oman,OMAN,livestock_ranch,farm,,10
+OMA,Oman,OMAN,coffee_plantation,plantation,,10
+OMA,Oman,OMAN,tobacco_plantation,plantation,,10
+OMA,Oman,SISTAN,coal_mine,capped,12,30
+OMA,Oman,SISTAN,fishing_wharf,capped,4,30
+OMA,Oman,SISTAN,iron_mine,capped,14,30
+OMA,Oman,SISTAN,logging_camp,capped,3,30
+OMA,Oman,SISTAN,livestock_ranch,farm,,30
+OMA,Oman,SISTAN,wheat_farm,farm,,30
+OMA,Oman,SISTAN,cotton_plantation,plantation,,30
+OMA,Oman,SISTAN,dye_plantation,plantation,,30
+OMA,Oman,SISTAN,opium_plantation,plantation,,30
+OMA,Oman,SISTAN,tobacco_plantation,plantation,,30
+OMA,Oman,ZANZIBAR,rubber_plantation,discoverable,16,70
+OMA,Oman,ZANZIBAR,livestock_ranch,farm,,70
+OMA,Oman,ZANZIBAR,millet_farm,farm,,70
+OMA,Oman,ZANZIBAR,banana_plantation,plantation,,70
+OMA,Oman,ZANZIBAR,dye_plantation,plantation,,70
+OMA,Oman,ZANZIBAR,sugar_plantation,plantation,,70
+OMA,Oman,ZANZIBAR,tea_plantation,plantation,,70
+OMA,Oman,ZANZIBAR,tobacco_plantation,plantation,,70
+TUR,Ottomans,ADANA,coal_mine,capped,44,15
+TUR,Ottomans,ADANA,fishing_wharf,capped,12,15
+TUR,Ottomans,ADANA,logging_camp,capped,4,15
+TUR,Ottomans,ADANA,livestock_ranch,farm,,15
+TUR,Ottomans,ADANA,wheat_farm,farm,,15
+TUR,Ottomans,ADANA,cotton_plantation,plantation,,15
+TUR,Ottomans,ADANA,tea_plantation,plantation,,15
+TUR,Ottomans,ADANA,tobacco_plantation,plantation,,15
+TUR,Ottomans,ADANA,vineyard,plantation,,15
+TUR,Ottomans,ALBANIA,iron_mine,capped,24,50
+TUR,Ottomans,ALBANIA,oil_rig,discoverable,20,50
+TUR,Ottomans,ALBANIA,livestock_ranch,farm,,50
+TUR,Ottomans,ALBANIA,wheat_farm,farm,,50
+TUR,Ottomans,ALBANIA,cotton_plantation,plantation,,50
+TUR,Ottomans,ALBANIA,tobacco_plantation,plantation,,50
+TUR,Ottomans,ALBANIA,vineyard,plantation,,50
+TUR,Ottomans,ANKARA,logging_camp,capped,9,65
+TUR,Ottomans,ANKARA,cotton_plantation,plantation,,65
+TUR,Ottomans,ANKARA,opium_plantation,plantation,,65
+TUR,Ottomans,ANKARA,vineyard,plantation,,65
+TUR,Ottomans,AYDIN,coal_mine,capped,48,35
+TUR,Ottomans,AYDIN,logging_camp,capped,5,35
+TUR,Ottomans,AYDIN,livestock_ranch,farm,,35
+TUR,Ottomans,AYDIN,vineyard,plantation,,35
+TUR,Ottomans,BAGHDAD,oil_rig,discoverable,40,40
+TUR,Ottomans,BAGHDAD,livestock_ranch,farm,,40
+TUR,Ottomans,BAGHDAD,silk_plantation,plantation,,40
+TUR,Ottomans,BASRA,sulfur_mine,capped,32,30
+TUR,Ottomans,BASRA,oil_rig,discoverable,60,30
+TUR,Ottomans,BASRA,livestock_ranch,farm,,30
+TUR,Ottomans,BASRA,silk_plantation,plantation,,30
+TUR,Ottomans,BOSNIA,lead_mine,capped,39,40
+TUR,Ottomans,BOSNIA,wheat_farm,farm,,40
+TUR,Ottomans,BOSNIA,cotton_plantation,plantation,,40
+TUR,Ottomans,BOSNIA,tobacco_plantation,plantation,,40
+TUR,Ottomans,BOSNIA,vineyard,plantation,,40
+TUR,Ottomans,BULGARIA,fishing_wharf,capped,2,35
+TUR,Ottomans,BULGARIA,cotton_plantation,plantation,,35
+TUR,Ottomans,CYPRUS,fishing_wharf,capped,5,9
+TUR,Ottomans,CYPRUS,iron_mine,capped,5,9
+TUR,Ottomans,CYPRUS,logging_camp,capped,2,9
+TUR,Ottomans,CYPRUS,sulfur_mine,capped,5,9
+TUR,Ottomans,CYPRUS,livestock_ranch,farm,,9
+TUR,Ottomans,CYPRUS,banana_plantation,plantation,,9
+TUR,Ottomans,CYPRUS,cotton_plantation,plantation,,9
+TUR,Ottomans,CYPRUS,vineyard,plantation,,9
+TUR,Ottomans,DEIR_EZ_ZOR,millet_farm,farm,,20
+TUR,Ottomans,DEIR_EZ_ZOR,tobacco_plantation,plantation,,20
+TUR,Ottomans,DIYARBAKIR,coal_mine,capped,32,40
+TUR,Ottomans,DIYARBAKIR,wheat_farm,farm,,40
+TUR,Ottomans,DIYARBAKIR,cotton_plantation,plantation,,40
+TUR,Ottomans,DIYARBAKIR,vineyard,plantation,,40
+TUR,Ottomans,DOBRUDJA,livestock_ranch,farm,,10
+TUR,Ottomans,DOBRUDJA,cotton_plantation,plantation,,10
+TUR,Ottomans,DOBRUDJA,tobacco_plantation,plantation,,10
+TUR,Ottomans,DOBRUDJA,vineyard,plantation,,10
+TUR,Ottomans,EASTERN_SERBIA,coal_mine,capped,30,45
+TUR,Ottomans,EASTERN_SERBIA,lead_mine,capped,12,45
+TUR,Ottomans,EASTERN_SERBIA,logging_camp,capped,10,45
+TUR,Ottomans,EASTERN_SERBIA,vineyard,plantation,,45
+TUR,Ottomans,EASTERN_THRACE,iron_mine,capped,18,30
+TUR,Ottomans,EASTERN_THRACE,logging_camp,capped,4,30
+TUR,Ottomans,EASTERN_THRACE,livestock_ranch,farm,,30
+TUR,Ottomans,EASTERN_THRACE,cotton_plantation,plantation,,30
+TUR,Ottomans,EASTERN_THRACE,opium_plantation,plantation,,30
+TUR,Ottomans,EASTERN_THRACE,vineyard,plantation,,30
+TUR,Ottomans,EAST_AEGEAN_ISLANDS,livestock_ranch,farm,,5
+TUR,Ottomans,EAST_AEGEAN_ISLANDS,wheat_farm,farm,,5
+TUR,Ottomans,EAST_AEGEAN_ISLANDS,cotton_plantation,plantation,,5
+TUR,Ottomans,EAST_AEGEAN_ISLANDS,tobacco_plantation,plantation,,5
+TUR,Ottomans,EAST_AEGEAN_ISLANDS,vineyard,plantation,,5
+TUR,Ottomans,ERZURUM,iron_mine,capped,30,40
+TUR,Ottomans,ERZURUM,lead_mine,capped,36,40
+TUR,Ottomans,ERZURUM,wheat_farm,farm,,40
+TUR,Ottomans,ERZURUM,cotton_plantation,plantation,,40
+TUR,Ottomans,ERZURUM,tobacco_plantation,plantation,,40
+TUR,Ottomans,HUDAVENDIGAR,livestock_ranch,farm,,40
+TUR,Ottomans,HUDAVENDIGAR,cotton_plantation,plantation,,40
+TUR,Ottomans,HUDAVENDIGAR,silk_plantation,plantation,,40
+TUR,Ottomans,HUDAVENDIGAR,tobacco_plantation,plantation,,40
+TUR,Ottomans,HUDAVENDIGAR,vineyard,plantation,,40
+TUR,Ottomans,KARS,fishing_wharf,capped,5,10
+TUR,Ottomans,KARS,logging_camp,capped,9,10
+TUR,Ottomans,KARS,cotton_plantation,plantation,,10
+TUR,Ottomans,KARS,tobacco_plantation,plantation,,10
+TUR,Ottomans,KASTAMONU,coal_mine,capped,72,35
+TUR,Ottomans,KASTAMONU,logging_camp,capped,11,35
+TUR,Ottomans,KASTAMONU,livestock_ranch,farm,,35
+TUR,Ottomans,KASTAMONU,wheat_farm,farm,,35
+TUR,Ottomans,KASTAMONU,cotton_plantation,plantation,,35
+TUR,Ottomans,KASTAMONU,opium_plantation,plantation,,35
+TUR,Ottomans,KASTAMONU,tobacco_plantation,plantation,,35
+TUR,Ottomans,KASTAMONU,vineyard,plantation,,35
+TUR,Ottomans,KONYA,fishing_wharf,capped,6,40
+TUR,Ottomans,KONYA,logging_camp,capped,4,40
+TUR,Ottomans,KONYA,wheat_farm,farm,,40
+TUR,Ottomans,KONYA,opium_plantation,plantation,,40
+TUR,Ottomans,KONYA,vineyard,plantation,,40
+TUR,Ottomans,KOSOVO,coal_mine,capped,10,45
+TUR,Ottomans,KOSOVO,lead_mine,capped,24,45
+TUR,Ottomans,KOSOVO,logging_camp,capped,4,45
+TUR,Ottomans,KOSOVO,livestock_ranch,farm,,45
+TUR,Ottomans,KOSOVO,wheat_farm,farm,,45
+TUR,Ottomans,KOSOVO,vineyard,plantation,,45
+TUR,Ottomans,MACEDONIA,logging_camp,capped,9,20
+TUR,Ottomans,MACEDONIA,livestock_ranch,farm,,20
+TUR,Ottomans,MACEDONIA,tobacco_plantation,plantation,,20
+TUR,Ottomans,MACEDONIA,vineyard,plantation,,20
+TUR,Ottomans,MONTENEGRO,coal_mine,capped,50,38
+TUR,Ottomans,MONTENEGRO,fishing_wharf,capped,15,38
+TUR,Ottomans,MONTENEGRO,logging_camp,capped,15,38
+TUR,Ottomans,MONTENEGRO,wheat_farm,farm,,38
+TUR,Ottomans,MONTENEGRO,vineyard,plantation,,38
+TUR,Ottomans,MOSUL,sulfur_mine,capped,36,30
+TUR,Ottomans,MOSUL,oil_rig,discoverable,40,30
+TUR,Ottomans,MOSUL,livestock_ranch,farm,,30
+TUR,Ottomans,MOSUL,cotton_plantation,plantation,,30
+TUR,Ottomans,MOSUL,tobacco_plantation,plantation,,30
+TUR,Ottomans,NORTHERN_THRACE,fishing_wharf,capped,6,30
+TUR,Ottomans,NORTHERN_THRACE,iron_mine,capped,33,30
+TUR,Ottomans,NORTHERN_THRACE,livestock_ranch,farm,,30
+TUR,Ottomans,NORTHERN_THRACE,cotton_plantation,plantation,,30
+TUR,Ottomans,SKOPIA,logging_camp,capped,16,30
+TUR,Ottomans,SKOPIA,livestock_ranch,farm,,30
+TUR,Ottomans,SKOPIA,cotton_plantation,plantation,,30
+TUR,Ottomans,SKOPIA,vineyard,plantation,,30
+TUR,Ottomans,THESSALIA,logging_camp,capped,11,50
+TUR,Ottomans,THESSALIA,livestock_ranch,farm,,50
+TUR,Ottomans,THESSALIA,tobacco_plantation,plantation,,50
+TUR,Ottomans,THESSALIA,vineyard,plantation,,50
+TUR,Ottomans,TRABZON,iron_mine,capped,21,40
+TUR,Ottomans,TRABZON,wheat_farm,farm,,40
+TUR,Ottomans,TRABZON,cotton_plantation,plantation,,40
+TUR,Ottomans,TRABZON,tobacco_plantation,plantation,,40
+TUR,Ottomans,TRABZON,vineyard,plantation,,40
+TUR,Ottomans,WESTERN_SERBIA,iron_mine,capped,24,35
+TUR,Ottomans,WESTERN_SERBIA,logging_camp,capped,13,35
+TUR,Ottomans,WESTERN_SERBIA,livestock_ranch,farm,,35
+TUR,Ottomans,WESTERN_SERBIA,wheat_farm,farm,,35
+TUR,Ottomans,WESTERN_SERBIA,vineyard,plantation,,35
+TUR,Ottomans,WESTERN_THRACE,iron_mine,capped,27,20
+TUR,Ottomans,WESTERN_THRACE,logging_camp,capped,5,20
+TUR,Ottomans,WESTERN_THRACE,livestock_ranch,farm,,20
+TUR,Ottomans,WESTERN_THRACE,cotton_plantation,plantation,,20
+TUR,Ottomans,WESTERN_THRACE,silk_plantation,plantation,,20
+TUR,Ottomans,WESTERN_THRACE,vineyard,plantation,,20
+PER,Persia,FARS,iron_mine,capped,5,70
+PER,Persia,FARS,logging_camp,capped,6,70
+PER,Persia,FARS,sulfur_mine,capped,28,70
+PER,Persia,FARS,oil_rig,discoverable,60,70
+PER,Persia,FARS,livestock_ranch,farm,,70
+PER,Persia,FARS,cotton_plantation,plantation,,70
+PER,Persia,FARS,dye_plantation,plantation,,70
+PER,Persia,FARS,silk_plantation,plantation,,70
+PER,Persia,FARS,tobacco_plantation,plantation,,70
+PER,Persia,FARS,vineyard,plantation,,70
+PER,Persia,IRAKAJEMI,coal_mine,capped,28,50
+PER,Persia,IRAKAJEMI,iron_mine,capped,7,50
+PER,Persia,IRAKAJEMI,lead_mine,capped,10,50
+PER,Persia,IRAKAJEMI,logging_camp,capped,6,50
+PER,Persia,IRAKAJEMI,cotton_plantation,plantation,,50
+PER,Persia,IRAKAJEMI,dye_plantation,plantation,,50
+PER,Persia,IRAKAJEMI,opium_plantation,plantation,,50
+PER,Persia,IRAKAJEMI,silk_plantation,plantation,,50
+PER,Persia,IRAKAJEMI,tobacco_plantation,plantation,,50
+PER,Persia,IRAKAJEMI,vineyard,plantation,,50
+PER,Persia,ISFAHAN,coal_mine,capped,22,90
+PER,Persia,ISFAHAN,iron_mine,capped,51,90
+PER,Persia,ISFAHAN,lead_mine,capped,28,90
+PER,Persia,ISFAHAN,logging_camp,capped,4,90
+PER,Persia,ISFAHAN,livestock_ranch,farm,,90
+PER,Persia,ISFAHAN,cotton_plantation,plantation,,90
+PER,Persia,ISFAHAN,dye_plantation,plantation,,90
+PER,Persia,ISFAHAN,opium_plantation,plantation,,90
+PER,Persia,ISFAHAN,silk_plantation,plantation,,90
+PER,Persia,ISFAHAN,tobacco_plantation,plantation,,90
+PER,Persia,ISFAHAN,vineyard,plantation,,90
+PER,Persia,KERMAN,coal_mine,capped,14,20
+PER,Persia,KERMAN,iron_mine,capped,40,20
+PER,Persia,KERMAN,logging_camp,capped,2,20
+PER,Persia,KERMAN,sulfur_mine,capped,22,20
+PER,Persia,KERMAN,livestock_ranch,farm,,20
+PER,Persia,KERMAN,cotton_plantation,plantation,,20
+PER,Persia,KERMAN,silk_plantation,plantation,,20
+PER,Persia,KERMAN,tobacco_plantation,plantation,,20
+PER,Persia,KERMAN,vineyard,plantation,,20
+PER,Persia,KHORASAN,coal_mine,capped,12,90
+PER,Persia,KHORASAN,iron_mine,capped,22,90
+PER,Persia,KHORASAN,logging_camp,capped,4,90
+PER,Persia,KHORASAN,oil_rig,discoverable,20,90
+PER,Persia,KHORASAN,cotton_plantation,plantation,,90
+PER,Persia,KHORASAN,dye_plantation,plantation,,90
+PER,Persia,KHORASAN,silk_plantation,plantation,,90
+PER,Persia,KHORASAN,tobacco_plantation,plantation,,90
+PER,Persia,KHORASAN,vineyard,plantation,,90
+PER,Persia,LARISTAN,fishing_wharf,capped,10,30
+PER,Persia,LARISTAN,iron_mine,capped,11,30
+PER,Persia,LARISTAN,logging_camp,capped,1,30
+PER,Persia,LARISTAN,oil_rig,discoverable,40,30
+PER,Persia,LARISTAN,livestock_ranch,farm,,30
+PER,Persia,LARISTAN,cotton_plantation,plantation,,30
+PER,Persia,LARISTAN,dye_plantation,plantation,,30
+PER,Persia,LARISTAN,opium_plantation,plantation,,30
+PER,Persia,LARISTAN,silk_plantation,plantation,,30
+PER,Persia,LARISTAN,tobacco_plantation,plantation,,30
+PER,Persia,LARISTAN,vineyard,plantation,,30
+PER,Persia,LURISTAN,iron_mine,capped,2,40
+PER,Persia,LURISTAN,logging_camp,capped,3,40
+PER,Persia,LURISTAN,oil_rig,discoverable,20,40
+PER,Persia,LURISTAN,livestock_ranch,farm,,40
+PER,Persia,LURISTAN,dye_plantation,plantation,,40
+PER,Persia,LURISTAN,opium_plantation,plantation,,40
+PER,Persia,LURISTAN,silk_plantation,plantation,,40
+PER,Persia,LURISTAN,tobacco_plantation,plantation,,40
+PER,Persia,LURISTAN,vineyard,plantation,,40
+PER,Persia,MAZANDARAN,coal_mine,capped,22,70
+PER,Persia,MAZANDARAN,iron_mine,capped,11,70
+PER,Persia,MAZANDARAN,oil_rig,discoverable,20,70
+PER,Persia,MAZANDARAN,livestock_ranch,farm,,70
+PER,Persia,MAZANDARAN,cotton_plantation,plantation,,70
+PER,Persia,MAZANDARAN,silk_plantation,plantation,,70
+PER,Persia,MAZANDARAN,sugar_plantation,plantation,,70
+PER,Persia,MAZANDARAN,tobacco_plantation,plantation,,70
+PER,Persia,PERSIAN_KURDISTAN,iron_mine,capped,3,50
+PER,Persia,PERSIAN_KURDISTAN,logging_camp,capped,4,50
+PER,Persia,PERSIAN_KURDISTAN,oil_rig,discoverable,20,50
+PER,Persia,PERSIAN_KURDISTAN,livestock_ranch,farm,,50
+PER,Persia,PERSIAN_KURDISTAN,wheat_farm,farm,,50
+PER,Persia,PERSIAN_KURDISTAN,cotton_plantation,plantation,,50
+PER,Persia,PERSIAN_KURDISTAN,dye_plantation,plantation,,50
+PER,Persia,PERSIAN_KURDISTAN,opium_plantation,plantation,,50
+PER,Persia,PERSIAN_KURDISTAN,silk_plantation,plantation,,50
+PER,Persia,PERSIAN_KURDISTAN,tobacco_plantation,plantation,,50
+PER,Persia,PERSIAN_KURDISTAN,vineyard,plantation,,50
+PER,Persia,SEMNAN,iron_mine,capped,4,20
+PER,Persia,SEMNAN,lead_mine,capped,8,20
+PER,Persia,SEMNAN,logging_camp,capped,4,20
+PER,Persia,SEMNAN,wheat_farm,farm,,20
+PER,Persia,SEMNAN,opium_plantation,plantation,,20
+PER,Persia,SEMNAN,tobacco_plantation,plantation,,20
+PER,Persia,TABRIZ,coal_mine,capped,20,110
+PER,Persia,TABRIZ,iron_mine,capped,20,110
+PER,Persia,TABRIZ,lead_mine,capped,25,110
+PER,Persia,TABRIZ,livestock_ranch,farm,,110
+PER,Persia,TABRIZ,dye_plantation,plantation,,110
+PER,Persia,TABRIZ,opium_plantation,plantation,,110
+PER,Persia,TABRIZ,tobacco_plantation,plantation,,110
+PER,Persia,TABRIZ,vineyard,plantation,,110
+PER,Persia,URMIA,iron_mine,capped,10,50
+PER,Persia,URMIA,logging_camp,capped,2,50
+PER,Persia,URMIA,livestock_ranch,farm,,50
+PER,Persia,URMIA,cotton_plantation,plantation,,50
+PER,Persia,URMIA,dye_plantation,plantation,,50
+PER,Persia,URMIA,opium_plantation,plantation,,50
+PER,Persia,URMIA,silk_plantation,plantation,,50
+PER,Persia,URMIA,tea_plantation,plantation,,50
+PER,Persia,URMIA,tobacco_plantation,plantation,,50
+PER,Persia,URMIA,vineyard,plantation,,50
+PHI,Philippines,LUZON,iron_mine,capped,24,80
+PHI,Philippines,LUZON,logging_camp,capped,20,80
+PHI,Philippines,LUZON,rubber_plantation,discoverable,4,80
+PHI,Philippines,LUZON,livestock_ranch,farm,,80
+PHI,Philippines,LUZON,banana_plantation,plantation,,80
+PHI,Philippines,LUZON,coffee_plantation,plantation,,80
+PHI,Philippines,LUZON,cotton_plantation,plantation,,80
+PHI,Philippines,LUZON,dye_plantation,plantation,,80
+PHI,Philippines,LUZON,tea_plantation,plantation,,80
+PHI,Philippines,MINDANAO,fishing_wharf,capped,8,60
+PHI,Philippines,MINDANAO,iron_mine,capped,36,60
+PHI,Philippines,MINDANAO,logging_camp,capped,14,60
+PHI,Philippines,MINDANAO,rubber_plantation,discoverable,10,60
+PHI,Philippines,MINDANAO,livestock_ranch,farm,,60
+PHI,Philippines,MINDANAO,banana_plantation,plantation,,60
+PHI,Philippines,MINDANAO,coffee_plantation,plantation,,60
+PHI,Philippines,MINDANAO,cotton_plantation,plantation,,60
+PHI,Philippines,MINDANAO,dye_plantation,plantation,,60
+PHI,Philippines,MINDANAO,tea_plantation,plantation,,60
+PHI,Philippines,MINDANAO,tobacco_plantation,plantation,,60
+PHI,Philippines,VISAYAS,coal_mine,capped,5,65
+PHI,Philippines,VISAYAS,iron_mine,capped,30,65
+PHI,Philippines,VISAYAS,logging_camp,capped,18,65
+PHI,Philippines,VISAYAS,rubber_plantation,discoverable,4,65
+PHI,Philippines,VISAYAS,livestock_ranch,farm,,65
+PHI,Philippines,VISAYAS,rice_farm,farm,,65
+PHI,Philippines,VISAYAS,banana_plantation,plantation,,65
+PHI,Philippines,VISAYAS,coffee_plantation,plantation,,65
+PHI,Philippines,VISAYAS,cotton_plantation,plantation,,65
+PHI,Philippines,VISAYAS,dye_plantation,plantation,,65
+PHI,Philippines,VISAYAS,tea_plantation,plantation,,65
+PHI,Philippines,WEST_MICRONESIA,fishing_wharf,capped,3,5
+PHI,Philippines,WEST_MICRONESIA,logging_camp,capped,2,5
+PHI,Philippines,WEST_MICRONESIA,whaling_station,capped,3,5
+PHI,Philippines,WEST_MICRONESIA,rice_farm,farm,,5
+PHI,Philippines,WEST_MICRONESIA,banana_plantation,plantation,,5
+POR,Portugal,ALENTEJO,coal_mine,capped,4,25
+POR,Portugal,ALENTEJO,iron_mine,capped,16,25
+POR,Portugal,ALENTEJO,sulfur_mine,capped,22,25
+POR,Portugal,ALENTEJO,banana_plantation,plantation,,25
+POR,Portugal,AZORES,logging_camp,capped,2,6
+POR,Portugal,AZORES,wheat_farm,farm,,6
+POR,Portugal,AZORES,coffee_plantation,plantation,,6
+POR,Portugal,AZORES,cotton_plantation,plantation,,6
+POR,Portugal,AZORES,sugar_plantation,plantation,,6
+POR,Portugal,AZORES,tea_plantation,plantation,,6
+POR,Portugal,AZORES,vineyard,plantation,,6
+POR,Portugal,BEIRA,gold_mine,capped,2,65
+POR,Portugal,BEIRA,iron_mine,capped,3,65
+POR,Portugal,BEIRA,lead_mine,capped,6,65
+POR,Portugal,BEIRA,banana_plantation,plantation,,65
+POR,Portugal,BEIRA,cotton_plantation,plantation,,65
+POR,Portugal,BEIRA,tobacco_plantation,plantation,,65
+POR,Portugal,BOMBAY,coal_mine,capped,12,400
+POR,Portugal,BOMBAY,fishing_wharf,capped,12,400
+POR,Portugal,BOMBAY,gold_mine,capped,3,400
+POR,Portugal,BOMBAY,iron_mine,capped,23,400
+POR,Portugal,BOMBAY,logging_camp,capped,17,400
+POR,Portugal,BOMBAY,livestock_ranch,farm,,400
+POR,Portugal,BOMBAY,banana_plantation,plantation,,400
+POR,Portugal,BOMBAY,coffee_plantation,plantation,,400
+POR,Portugal,BOMBAY,cotton_plantation,plantation,,400
+POR,Portugal,BOMBAY,dye_plantation,plantation,,400
+POR,Portugal,BOMBAY,silk_plantation,plantation,,400
+POR,Portugal,BOMBAY,sugar_plantation,plantation,,400
+POR,Portugal,BOMBAY,tobacco_plantation,plantation,,400
+POR,Portugal,BOMBAY,vineyard,plantation,,400
+POR,Portugal,CAPE_VERDE,logging_camp,capped,2,4
+POR,Portugal,CAPE_VERDE,whaling_station,capped,3,4
+POR,Portugal,CAPE_VERDE,wheat_farm,farm,,4
+POR,Portugal,CAPE_VERDE,sugar_plantation,plantation,,4
+POR,Portugal,ENTRE_DOURO_E_MINHO,gold_mine,capped,2,60
+POR,Portugal,ENTRE_DOURO_E_MINHO,iron_mine,capped,26,60
+POR,Portugal,ENTRE_DOURO_E_MINHO,lead_mine,capped,3,60
+POR,Portugal,ENTRE_DOURO_E_MINHO,livestock_ranch,farm,,60
+POR,Portugal,ESTREMADURA,banana_plantation,plantation,,30
+POR,Portugal,ESTREMADURA,cotton_plantation,plantation,,30
+POR,Portugal,ESTREMADURA,tobacco_plantation,plantation,,30
+POR,Portugal,GUANGDONG,fishing_wharf,capped,14,330
+POR,Portugal,GUANGDONG,logging_camp,capped,8,330
+POR,Portugal,GUANGDONG,livestock_ranch,farm,,330
+POR,Portugal,GUANGDONG,banana_plantation,plantation,,330
+POR,Portugal,GUANGDONG,silk_plantation,plantation,,330
+POR,Portugal,GUANGDONG,tea_plantation,plantation,,330
+POR,Portugal,GUANGDONG,tobacco_plantation,plantation,,330
+POR,Portugal,GUINEA,fishing_wharf,capped,10,80
+POR,Portugal,GUINEA,logging_camp,capped,13,80
+POR,Portugal,GUINEA,whaling_station,capped,2,80
+POR,Portugal,GUINEA,rubber_plantation,discoverable,28,80
+POR,Portugal,GUINEA,livestock_ranch,farm,,80
+POR,Portugal,GUINEA,banana_plantation,plantation,,80
+POR,Portugal,GUINEA,coffee_plantation,plantation,,80
+POR,Portugal,GUINEA,cotton_plantation,plantation,,80
+POR,Portugal,GUINEA,dye_plantation,plantation,,80
+POR,Portugal,GUINEA,sugar_plantation,plantation,,80
+POR,Portugal,GUINEA,tobacco_plantation,plantation,,80
+POR,Portugal,GUJARAT,fishing_wharf,capped,16,335
+POR,Portugal,GUJARAT,iron_mine,capped,4,335
+POR,Portugal,GUJARAT,logging_camp,capped,4,335
+POR,Portugal,GUJARAT,oil_rig,discoverable,8,335
+POR,Portugal,GUJARAT,livestock_ranch,farm,,335
+POR,Portugal,GUJARAT,wheat_farm,farm,,335
+POR,Portugal,GUJARAT,banana_plantation,plantation,,335
+POR,Portugal,GUJARAT,cotton_plantation,plantation,,335
+POR,Portugal,GUJARAT,dye_plantation,plantation,,335
+POR,Portugal,GUJARAT,opium_plantation,plantation,,335
+POR,Portugal,GUJARAT,silk_plantation,plantation,,335
+POR,Portugal,GUJARAT,sugar_plantation,plantation,,335
+POR,Portugal,GUJARAT,tobacco_plantation,plantation,,335
+POR,Portugal,LOURENCO_MARQUES,coal_mine,capped,40,80
+POR,Portugal,LOURENCO_MARQUES,fishing_wharf,capped,8,80
+POR,Portugal,LOURENCO_MARQUES,logging_camp,capped,9,80
+POR,Portugal,LOURENCO_MARQUES,rubber_plantation,discoverable,16,80
+POR,Portugal,LOURENCO_MARQUES,livestock_ranch,farm,,80
+POR,Portugal,LOURENCO_MARQUES,millet_farm,farm,,80
+POR,Portugal,LOURENCO_MARQUES,banana_plantation,plantation,,80
+POR,Portugal,LOURENCO_MARQUES,coffee_plantation,plantation,,80
+POR,Portugal,LOURENCO_MARQUES,cotton_plantation,plantation,,80
+POR,Portugal,LOURENCO_MARQUES,dye_plantation,plantation,,80
+POR,Portugal,LOURENCO_MARQUES,sugar_plantation,plantation,,80
+POR,Portugal,LOURENCO_MARQUES,tea_plantation,plantation,,80
+POR,Portugal,LOURENCO_MARQUES,tobacco_plantation,plantation,,80
+POR,Portugal,MADEIRA,logging_camp,capped,2,9
+POR,Portugal,MADEIRA,wheat_farm,farm,,9
+POR,Portugal,MADEIRA,coffee_plantation,plantation,,9
+POR,Portugal,MADEIRA,cotton_plantation,plantation,,9
+POR,Portugal,MOCAMBIQUE,fishing_wharf,capped,8,80
+POR,Portugal,MOCAMBIQUE,logging_camp,capped,23,80
+POR,Portugal,MOCAMBIQUE,gold_field,discoverable,2,80
+POR,Portugal,MOCAMBIQUE,rubber_plantation,discoverable,28,80
+POR,Portugal,MOCAMBIQUE,livestock_ranch,farm,,80
+POR,Portugal,MOCAMBIQUE,banana_plantation,plantation,,80
+POR,Portugal,MOCAMBIQUE,coffee_plantation,plantation,,80
+POR,Portugal,MOCAMBIQUE,cotton_plantation,plantation,,80
+POR,Portugal,MOCAMBIQUE,dye_plantation,plantation,,80
+POR,Portugal,MOCAMBIQUE,sugar_plantation,plantation,,80
+POR,Portugal,MOCAMBIQUE,tea_plantation,plantation,,80
+POR,Portugal,MOCAMBIQUE,tobacco_plantation,plantation,,80
+POR,Portugal,NORTH_ANGOLA,fishing_wharf,capped,8,50
+POR,Portugal,NORTH_ANGOLA,logging_camp,capped,13,50
+POR,Portugal,NORTH_ANGOLA,whaling_station,capped,4,50
+POR,Portugal,NORTH_ANGOLA,rubber_plantation,discoverable,22,50
+POR,Portugal,NORTH_ANGOLA,livestock_ranch,farm,,50
+POR,Portugal,NORTH_ANGOLA,cotton_plantation,plantation,,50
+POR,Portugal,NORTH_ANGOLA,dye_plantation,plantation,,50
+POR,Portugal,NORTH_ANGOLA,tobacco_plantation,plantation,,50
+POR,Portugal,SENEGAL,fishing_wharf,capped,10,120
+POR,Portugal,SENEGAL,iron_mine,capped,30,120
+POR,Portugal,SENEGAL,sulfur_mine,capped,40,120
+POR,Portugal,SENEGAL,rubber_plantation,discoverable,20,120
+POR,Portugal,SENEGAL,livestock_ranch,farm,,120
+POR,Portugal,SENEGAL,millet_farm,farm,,120
+POR,Portugal,SENEGAL,cotton_plantation,plantation,,120
+POR,Portugal,SENEGAL,sugar_plantation,plantation,,120
+POR,Portugal,SOUTH_ANGOLA,fishing_wharf,capped,7,70
+POR,Portugal,SOUTH_ANGOLA,logging_camp,capped,5,70
+POR,Portugal,SOUTH_ANGOLA,whaling_station,capped,4,70
+POR,Portugal,SOUTH_ANGOLA,rubber_plantation,discoverable,14,70
+POR,Portugal,SOUTH_ANGOLA,livestock_ranch,farm,,70
+POR,Portugal,SOUTH_ANGOLA,coffee_plantation,plantation,,70
+POR,Portugal,SOUTH_ANGOLA,sugar_plantation,plantation,,70
+POR,Portugal,SOUTH_ANGOLA,tobacco_plantation,plantation,,70
+POR,Portugal,SOUTH_ANGOLA,vineyard,plantation,,70
+POR,Portugal,SOUTH_CAMEROON,fishing_wharf,capped,7,70
+POR,Portugal,SOUTH_CAMEROON,logging_camp,capped,30,70
+POR,Portugal,SOUTH_CAMEROON,rubber_plantation,discoverable,24,70
+POR,Portugal,SOUTH_CAMEROON,livestock_ranch,farm,,70
+POR,Portugal,SOUTH_CAMEROON,millet_farm,farm,,70
+POR,Portugal,SOUTH_CAMEROON,banana_plantation,plantation,,70
+POR,Portugal,SOUTH_CAMEROON,cotton_plantation,plantation,,70
+POR,Portugal,SOUTH_CAMEROON,dye_plantation,plantation,,70
+POR,Portugal,SOUTH_CAMEROON,sugar_plantation,plantation,,70
+POR,Portugal,SOUTH_CAMEROON,tea_plantation,plantation,,70
+POR,Portugal,SUNDA_ISLANDS,fishing_wharf,capped,10,60
+POR,Portugal,SUNDA_ISLANDS,iron_mine,capped,24,60
+POR,Portugal,SUNDA_ISLANDS,logging_camp,capped,17,60
+POR,Portugal,SUNDA_ISLANDS,sulfur_mine,capped,40,60
+POR,Portugal,SUNDA_ISLANDS,rubber_plantation,discoverable,8,60
+POR,Portugal,SUNDA_ISLANDS,livestock_ranch,farm,,60
+POR,Portugal,SUNDA_ISLANDS,rice_farm,farm,,60
+POR,Portugal,SUNDA_ISLANDS,banana_plantation,plantation,,60
+POR,Portugal,SUNDA_ISLANDS,coffee_plantation,plantation,,60
+POR,Portugal,SUNDA_ISLANDS,tea_plantation,plantation,,60
+POR,Portugal,SUNDA_ISLANDS,tobacco_plantation,plantation,,60
+POR,Portugal,ZAMBEZIA,fishing_wharf,capped,6,70
+POR,Portugal,ZAMBEZIA,iron_mine,capped,33,70
+POR,Portugal,ZAMBEZIA,gold_field,discoverable,5,70
+POR,Portugal,ZAMBEZIA,rubber_plantation,discoverable,14,70
+POR,Portugal,ZAMBEZIA,banana_plantation,plantation,,70
+POR,Portugal,ZAMBEZIA,coffee_plantation,plantation,,70
+POR,Portugal,ZAMBEZIA,cotton_plantation,plantation,,70
+POR,Portugal,ZAMBEZIA,dye_plantation,plantation,,70
+POR,Portugal,ZAMBEZIA,sugar_plantation,plantation,,70
+POR,Portugal,ZAMBEZIA,tea_plantation,plantation,,70
+POR,Portugal,ZAMBEZIA,tobacco_plantation,plantation,,70
+PRU,Prussia,ANHALT,coal_mine,capped,44,75
+PRU,Prussia,ANHALT,livestock_ranch,farm,,75
+PRU,Prussia,BRANDENBURG,coal_mine,capped,44,50
+PRU,Prussia,BRANDENBURG,logging_camp,capped,6,50
+PRU,Prussia,BRANDENBURG,livestock_ranch,farm,,50
+PRU,Prussia,BRANDENBURG,rye_farm,farm,,50
+PRU,Prussia,BRUNSWICK,coal_mine,capped,40,30
+PRU,Prussia,BRUNSWICK,iron_mine,capped,45,30
+PRU,Prussia,BRUNSWICK,lead_mine,capped,45,30
+PRU,Prussia,BRUNSWICK,logging_camp,capped,6,30
+PRU,Prussia,BRUNSWICK,livestock_ranch,farm,,30
+PRU,Prussia,BRUNSWICK,rye_farm,farm,,30
+PRU,Prussia,EAST_PRUSSIA,fishing_wharf,capped,10,40
+PRU,Prussia,EAST_PRUSSIA,livestock_ranch,farm,,40
+PRU,Prussia,LOWER_SILESIA,logging_camp,capped,10,90
+PRU,Prussia,LOWER_SILESIA,sulfur_mine,capped,9,90
+PRU,Prussia,NORTH_RHINE,livestock_ranch,farm,,77
+PRU,Prussia,NORTH_RHINE,vineyard,plantation,,77
+PRU,Prussia,POSEN,iron_mine,capped,24,90
+PRU,Prussia,POSEN,logging_camp,capped,9,90
+PRU,Prussia,RHINELAND,coal_mine,capped,60,55
+PRU,Prussia,RHINELAND,lead_mine,capped,30,55
+PRU,Prussia,RHINELAND,logging_camp,capped,11,55
+PRU,Prussia,RHINELAND,livestock_ranch,farm,,55
+PRU,Prussia,RUHR,logging_camp,capped,4,39
+PRU,Prussia,RUHR,livestock_ranch,farm,,39
+PRU,Prussia,UPPER_SILESIA,logging_camp,capped,4,45
+PRU,Prussia,UPPER_SILESIA,sulfur_mine,capped,31,45
+PRU,Prussia,WESTPHALIA,coal_mine,capped,80,60
+PRU,Prussia,WESTPHALIA,logging_camp,capped,24,60
+PRU,Prussia,WESTPHALIA,livestock_ranch,farm,,60
+PRU,Prussia,WEST_PRUSSIA,logging_camp,capped,8,40
+PRU,Prussia,WEST_PRUSSIA,sulfur_mine,capped,40,40
+PRU,Prussia,WEST_PRUSSIA,livestock_ranch,farm,,40
+PAN,Punjab,HILL_PUNJAB,logging_camp,capped,9,182
+PAN,Punjab,HILL_PUNJAB,wheat_farm,farm,,182
+PAN,Punjab,HILL_PUNJAB,cotton_plantation,plantation,,182
+PAN,Punjab,HILL_PUNJAB,opium_plantation,plantation,,182
+PAN,Punjab,HILL_PUNJAB,sugar_plantation,plantation,,182
+PAN,Punjab,HILL_PUNJAB,tea_plantation,plantation,,182
+PAN,Punjab,HILL_PUNJAB,tobacco_plantation,plantation,,182
+PAN,Punjab,PASHTUNISTAN,lead_mine,capped,4,150
+PAN,Punjab,PASHTUNISTAN,logging_camp,capped,6,150
+PAN,Punjab,PASHTUNISTAN,tea_plantation,plantation,,150
+PAN,Punjab,PASHTUNISTAN,vineyard,plantation,,150
+PAN,Punjab,PUNJAB,coal_mine,capped,6,505
+PAN,Punjab,PUNJAB,iron_mine,capped,6,505
+PAN,Punjab,PUNJAB,oil_rig,discoverable,7,505
+PAN,Punjab,PUNJAB,coffee_plantation,plantation,,505
+PAN,Punjab,PUNJAB,cotton_plantation,plantation,,505
+PAN,Punjab,PUNJAB,tea_plantation,plantation,,505
+PAN,Punjab,PUNJAB,vineyard,plantation,,505
+RUS,Russia,AKMOLINSK,coal_mine,capped,68,45
+RUS,Russia,AKMOLINSK,iron_mine,capped,16,45
+RUS,Russia,AKMOLINSK,logging_camp,capped,6,45
+RUS,Russia,AKMOLINSK,livestock_ranch,farm,,45
+RUS,Russia,AKMOLINSK,rye_farm,farm,,45
+RUS,Russia,ARKHANGELSK,gold_mine,capped,2,15
+RUS,Russia,ARKHANGELSK,logging_camp,capped,14,15
+RUS,Russia,ARKHANGELSK,gold_field,discoverable,8,15
+RUS,Russia,ARKHANGELSK,livestock_ranch,farm,,15
+RUS,Russia,ARKHANGELSK,rye_farm,farm,,15
+RUS,Russia,ARMENIA,iron_mine,capped,27,60
+RUS,Russia,ARMENIA,lead_mine,capped,21,60
+RUS,Russia,ARMENIA,logging_camp,capped,2,60
+RUS,Russia,ARMENIA,livestock_ranch,farm,,60
+RUS,Russia,ARMENIA,silk_plantation,plantation,,60
+RUS,Russia,ARMENIA,vineyard,plantation,,60
+RUS,Russia,ASTRAKHAN,iron_mine,capped,30,45
+RUS,Russia,ASTRAKHAN,logging_camp,capped,6,45
+RUS,Russia,ASTRAKHAN,sulfur_mine,capped,30,45
+RUS,Russia,ASTRAKHAN,oil_rig,discoverable,30,45
+RUS,Russia,ASTRAKHAN,rice_farm,farm,,45
+RUS,Russia,ASTRAKHAN,tobacco_plantation,plantation,,45
+RUS,Russia,AZERBAIJAN,lead_mine,capped,18,30
+RUS,Russia,AZERBAIJAN,logging_camp,capped,4,30
+RUS,Russia,AZERBAIJAN,oil_rig,discoverable,100,30
+RUS,Russia,AZERBAIJAN,livestock_ranch,farm,,30
+RUS,Russia,AZERBAIJAN,cotton_plantation,plantation,,30
+RUS,Russia,AZERBAIJAN,silk_plantation,plantation,,30
+RUS,Russia,AZERBAIJAN,tobacco_plantation,plantation,,30
+RUS,Russia,AZERBAIJAN,vineyard,plantation,,30
+RUS,Russia,BESSARABIA,logging_camp,capped,6,50
+RUS,Russia,BESSARABIA,livestock_ranch,farm,,50
+RUS,Russia,BESSARABIA,wheat_farm,farm,,50
+RUS,Russia,BESSARABIA,cotton_plantation,plantation,,50
+RUS,Russia,BREST,livestock_ranch,farm,,75
+RUS,Russia,BURYATIA,coal_mine,capped,24,15
+RUS,Russia,BURYATIA,iron_mine,capped,10,15
+RUS,Russia,BURYATIA,logging_camp,capped,16,15
+RUS,Russia,BURYATIA,gold_field,discoverable,16,15
+RUS,Russia,BURYATIA,livestock_ranch,farm,,15
+RUS,Russia,BURYATIA,rye_farm,farm,,15
+RUS,Russia,CHELYABINSK,coal_mine,capped,25,42
+RUS,Russia,CHELYABINSK,gold_mine,capped,3,42
+RUS,Russia,CHELYABINSK,logging_camp,capped,16,42
+RUS,Russia,CHELYABINSK,gold_field,discoverable,9,42
+RUS,Russia,CHELYABINSK,livestock_ranch,farm,,42
+RUS,Russia,CHELYABINSK,rye_farm,farm,,42
+RUS,Russia,CHERNIHIV,logging_camp,capped,16,75
+RUS,Russia,CHERNIHIV,oil_rig,discoverable,6,75
+RUS,Russia,CHERSON,coal_mine,capped,48,80
+RUS,Russia,CHERSON,fishing_wharf,capped,12,80
+RUS,Russia,CHERSON,iron_mine,capped,92,80
+RUS,Russia,CHERSON,logging_camp,capped,8,80
+RUS,Russia,CHUKOTKA,coal_mine,capped,36,2
+RUS,Russia,CHUKOTKA,fishing_wharf,capped,9,2
+RUS,Russia,CHUKOTKA,logging_camp,capped,13,2
+RUS,Russia,CHUKOTKA,whaling_station,capped,3,2
+RUS,Russia,CHUKOTKA,gold_field,discoverable,4,2
+RUS,Russia,CHUKOTKA,livestock_ranch,farm,,2
+RUS,Russia,CHUVASHIA,logging_camp,capped,25,45
+RUS,Russia,CHUVASHIA,sulfur_mine,capped,15,45
+RUS,Russia,CHUVASHIA,oil_rig,discoverable,24,45
+RUS,Russia,CHUVASHIA,livestock_ranch,farm,,45
+RUS,Russia,CHUVASHIA,rye_farm,farm,,45
+RUS,Russia,CRIMEA,iron_mine,capped,15,40
+RUS,Russia,CRIMEA,logging_camp,capped,4,40
+RUS,Russia,CRIMEA,livestock_ranch,farm,,40
+RUS,Russia,CRIMEA,wheat_farm,farm,,40
+RUS,Russia,DAGESTAN,logging_camp,capped,10,25
+RUS,Russia,DAGESTAN,oil_rig,discoverable,30,25
+RUS,Russia,DAGESTAN,cotton_plantation,plantation,,25
+RUS,Russia,DAGESTAN,vineyard,plantation,,25
+RUS,Russia,DOBRUDJA,fishing_wharf,capped,7,10
+RUS,Russia,DOBRUDJA,logging_camp,capped,11,10
+RUS,Russia,DOBRUDJA,livestock_ranch,farm,,10
+RUS,Russia,DOBRUDJA,wheat_farm,farm,,10
+RUS,Russia,DOBRUDJA,cotton_plantation,plantation,,10
+RUS,Russia,DOBRUDJA,tobacco_plantation,plantation,,10
+RUS,Russia,DOBRUDJA,vineyard,plantation,,10
+RUS,Russia,EAST_KARELIA,fishing_wharf,capped,5,10
+RUS,Russia,EAST_KARELIA,livestock_ranch,farm,,10
+RUS,Russia,EAST_KARELIA,rye_farm,farm,,10
+RUS,Russia,ELIZAVETPOL,iron_mine,capped,10,35
+RUS,Russia,ELIZAVETPOL,logging_camp,capped,12,35
+RUS,Russia,ELIZAVETPOL,livestock_ranch,farm,,35
+RUS,Russia,ELIZAVETPOL,vineyard,plantation,,35
+RUS,Russia,GALICH,coal_mine,capped,72,70
+RUS,Russia,GALICH,iron_mine,capped,12,70
+RUS,Russia,GALICH,oil_rig,discoverable,20,70
+RUS,Russia,GALICH,livestock_ranch,farm,,70
+RUS,Russia,GREATER_CAUCASUS,coal_mine,capped,40,75
+RUS,Russia,GREATER_CAUCASUS,fishing_wharf,capped,5,75
+RUS,Russia,GREATER_CAUCASUS,gold_mine,capped,3,75
+RUS,Russia,GREATER_CAUCASUS,iron_mine,capped,24,75
+RUS,Russia,GREATER_CAUCASUS,lead_mine,capped,20,75
+RUS,Russia,GREATER_CAUCASUS,logging_camp,capped,19,75
+RUS,Russia,GREATER_CAUCASUS,livestock_ranch,farm,,75
+RUS,Russia,GREATER_CAUCASUS,wheat_farm,farm,,75
+RUS,Russia,GREATER_CAUCASUS,cotton_plantation,plantation,,75
+RUS,Russia,GREATER_CAUCASUS,silk_plantation,plantation,,75
+RUS,Russia,GREATER_CAUCASUS,tea_plantation,plantation,,75
+RUS,Russia,GREATER_CAUCASUS,vineyard,plantation,,75
+RUS,Russia,GREATER_POLAND,coal_mine,capped,84,132
+RUS,Russia,GREATER_POLAND,iron_mine,capped,48,132
+RUS,Russia,GREATER_POLAND,lead_mine,capped,24,132
+RUS,Russia,GREATER_POLAND,logging_camp,capped,9,132
+RUS,Russia,GREATER_POLAND,livestock_ranch,farm,,132
+RUS,Russia,INGRIA,fishing_wharf,capped,10,50
+RUS,Russia,INGRIA,logging_camp,capped,25,50
+RUS,Russia,INGRIA,livestock_ranch,farm,,50
+RUS,Russia,IRKUTSK,coal_mine,capped,50,30
+RUS,Russia,IRKUTSK,iron_mine,capped,36,30
+RUS,Russia,IRKUTSK,logging_camp,capped,30,30
+RUS,Russia,IRKUTSK,oil_rig,discoverable,10,30
+RUS,Russia,IRKUTSK,livestock_ranch,farm,,30
+RUS,Russia,IRKUTSK,rye_farm,farm,,30
+RUS,Russia,KALMYKIA,logging_camp,capped,3,8
+RUS,Russia,KALMYKIA,oil_rig,discoverable,10,8
+RUS,Russia,KALMYKIA,livestock_ranch,farm,,8
+RUS,Russia,KALMYKIA,wheat_farm,farm,,8
+RUS,Russia,KAMCHATKA,fishing_wharf,capped,15,4
+RUS,Russia,KAMCHATKA,logging_camp,capped,13,4
+RUS,Russia,KAMCHATKA,whaling_station,capped,8,4
+RUS,Russia,KAMCHATKA,gold_field,discoverable,2,4
+RUS,Russia,KAMCHATKA,livestock_ranch,farm,,4
+RUS,Russia,KARS,fishing_wharf,capped,5,10
+RUS,Russia,KARS,logging_camp,capped,9,10
+RUS,Russia,KARS,livestock_ranch,farm,,10
+RUS,Russia,KARS,wheat_farm,farm,,10
+RUS,Russia,KARS,cotton_plantation,plantation,,10
+RUS,Russia,KARS,tea_plantation,plantation,,10
+RUS,Russia,KARS,tobacco_plantation,plantation,,10
+RUS,Russia,KAUNAS,fishing_wharf,capped,2,56
+RUS,Russia,KAUNAS,logging_camp,capped,8,56
+RUS,Russia,KAUNAS,livestock_ranch,farm,,56
+RUS,Russia,KAZAN,coal_mine,capped,30,85
+RUS,Russia,KAZAN,oil_rig,discoverable,60,85
+RUS,Russia,KAZAN,livestock_ranch,farm,,85
+RUS,Russia,KHARKOV,coal_mine,capped,60,150
+RUS,Russia,KHARKOV,iron_mine,capped,28,150
+RUS,Russia,KHARKOV,logging_camp,capped,20,150
+RUS,Russia,KHARKOV,oil_rig,discoverable,12,150
+RUS,Russia,KIEV,coal_mine,capped,36,175
+RUS,Russia,KIEV,iron_mine,capped,14,175
+RUS,Russia,KIEV,logging_camp,capped,32,175
+RUS,Russia,KOLA,fishing_wharf,capped,10,2
+RUS,Russia,KOLA,iron_mine,capped,85,2
+RUS,Russia,KOLA,logging_camp,capped,25,2
+RUS,Russia,KOLA,sulfur_mine,capped,10,2
+RUS,Russia,KOLA,livestock_ranch,farm,,2
+RUS,Russia,KOLYMA,coal_mine,capped,8,4
+RUS,Russia,KOLYMA,logging_camp,capped,10,4
+RUS,Russia,KOLYMA,gold_field,discoverable,16,4
+RUS,Russia,KOLYMA,livestock_ranch,farm,,4
+RUS,Russia,KRASNOYARSK,coal_mine,capped,40,45
+RUS,Russia,KRASNOYARSK,iron_mine,capped,15,45
+RUS,Russia,KRASNOYARSK,logging_camp,capped,60,45
+RUS,Russia,KRASNOYARSK,gold_field,discoverable,12,45
+RUS,Russia,KRASNOYARSK,livestock_ranch,farm,,45
+RUS,Russia,KRASNOYARSK,rye_farm,farm,,45
+RUS,Russia,KUBAN,coal_mine,capped,10,105
+RUS,Russia,KUBAN,fishing_wharf,capped,7,105
+RUS,Russia,KUBAN,iron_mine,capped,10,105
+RUS,Russia,KUBAN,lead_mine,capped,27,105
+RUS,Russia,KUBAN,logging_camp,capped,35,105
+RUS,Russia,KUBAN,oil_rig,discoverable,30,105
+RUS,Russia,KUBAN,cotton_plantation,plantation,,105
+RUS,Russia,KUBAN,tea_plantation,plantation,,105
+RUS,Russia,KURSK,iron_mine,capped,93,115
+RUS,Russia,KURSK,sulfur_mine,capped,12,115
+RUS,Russia,KURSK,gold_field,discoverable,3,115
+RUS,Russia,KURSK,livestock_ranch,farm,,115
+RUS,Russia,LESSER_POLAND,coal_mine,capped,108,60
+RUS,Russia,LESSER_POLAND,iron_mine,capped,32,60
+RUS,Russia,LESSER_POLAND,logging_camp,capped,13,60
+RUS,Russia,LESSER_POLAND,sulfur_mine,capped,32,60
+RUS,Russia,LESSER_POLAND,rye_farm,farm,,60
+RUS,Russia,MAZOVIA,coal_mine,capped,24,75
+RUS,Russia,MAZOVIA,livestock_ranch,farm,,75
+RUS,Russia,MINSK,coal_mine,capped,5,90
+RUS,Russia,MINSK,iron_mine,capped,8,90
+RUS,Russia,MINSK,livestock_ranch,farm,,90
+RUS,Russia,MOGILEV,livestock_ranch,farm,,70
+RUS,Russia,MOSCOW,coal_mine,capped,60,60
+RUS,Russia,MOSCOW,livestock_ranch,farm,,60
+RUS,Russia,MOSCOW,rye_farm,farm,,60
+RUS,Russia,NENETSIA,coal_mine,capped,30,5
+RUS,Russia,NENETSIA,fishing_wharf,capped,12,5
+RUS,Russia,NENETSIA,logging_camp,capped,13,5
+RUS,Russia,NENETSIA,oil_rig,discoverable,30,5
+RUS,Russia,NENETSIA,livestock_ranch,farm,,5
+RUS,Russia,NIZHNY_NOVGOROD,iron_mine,capped,25,80
+RUS,Russia,NIZHNY_NOVGOROD,livestock_ranch,farm,,80
+RUS,Russia,NIZHNY_NOVGOROD,rye_farm,farm,,80
+RUS,Russia,NORTH_CAUCASUS,coal_mine,capped,16,25
+RUS,Russia,NORTH_CAUCASUS,iron_mine,capped,12,25
+RUS,Russia,NORTH_CAUCASUS,logging_camp,capped,25,25
+RUS,Russia,NORTH_CAUCASUS,gold_field,discoverable,4,25
+RUS,Russia,NORTH_CAUCASUS,oil_rig,discoverable,25,25
+RUS,Russia,NORTH_CAUCASUS,livestock_ranch,farm,,25
+RUS,Russia,NORTH_CAUCASUS,wheat_farm,farm,,25
+RUS,Russia,NOVGOROD,coal_mine,capped,24,70
+RUS,Russia,NOVGOROD,livestock_ranch,farm,,70
+RUS,Russia,NOVGOROD,rye_farm,farm,,70
+RUS,Russia,OB,coal_mine,capped,20,2
+RUS,Russia,OB,logging_camp,capped,22,2
+RUS,Russia,OB,oil_rig,discoverable,60,2
+RUS,Russia,OB,livestock_ranch,farm,,2
+RUS,Russia,OKHOTSK,coal_mine,capped,36,2
+RUS,Russia,OKHOTSK,fishing_wharf,capped,10,2
+RUS,Russia,OKHOTSK,logging_camp,capped,10,2
+RUS,Russia,OKHOTSK,whaling_station,capped,5,2
+RUS,Russia,OKHOTSK,gold_field,discoverable,8,2
+RUS,Russia,OKHOTSK,livestock_ranch,farm,,2
+RUS,Russia,ORYOL,coal_mine,capped,58,180
+RUS,Russia,ORYOL,iron_mine,capped,16,180
+RUS,Russia,ORYOL,livestock_ranch,farm,,180
+RUS,Russia,PERM,coal_mine,capped,80,70
+RUS,Russia,PERM,oil_rig,discoverable,60,70
+RUS,Russia,PERM,livestock_ranch,farm,,70
+RUS,Russia,PERM,rye_farm,farm,,70
+RUS,Russia,PSKOV,livestock_ranch,farm,,52
+RUS,Russia,RIGA,fishing_wharf,capped,10,38
+RUS,Russia,RIGA,logging_camp,capped,11,38
+RUS,Russia,RIGA,livestock_ranch,farm,,38
+RUS,Russia,RIGA,rye_farm,farm,,38
+RUS,Russia,ROSTOV,coal_mine,capped,108,125
+RUS,Russia,ROSTOV,wheat_farm,farm,,125
+RUS,Russia,ROSTOV,cotton_plantation,plantation,,125
+RUS,Russia,RYAZAN,coal_mine,capped,21,65
+RUS,Russia,RYAZAN,livestock_ranch,farm,,65
+RUS,Russia,RYAZAN,rye_farm,farm,,65
+RUS,Russia,SAMARA,coal_mine,capped,30,95
+RUS,Russia,SAMARA,logging_camp,capped,9,95
+RUS,Russia,SAMARA,sulfur_mine,capped,15,95
+RUS,Russia,SAMARA,oil_rig,discoverable,90,95
+RUS,Russia,SAMARA,livestock_ranch,farm,,95
+RUS,Russia,SMOLENSK,coal_mine,capped,8,62
+RUS,Russia,SMOLENSK,livestock_ranch,farm,,62
+RUS,Russia,STAVROPOL,logging_camp,capped,14,100
+RUS,Russia,STAVROPOL,oil_rig,discoverable,30,100
+RUS,Russia,STAVROPOL,livestock_ranch,farm,,100
+RUS,Russia,STAVROPOL,wheat_farm,farm,,100
+RUS,Russia,STAVROPOL,cotton_plantation,plantation,,100
+RUS,Russia,STAVROPOL,tea_plantation,plantation,,100
+RUS,Russia,STAVROPOL,tobacco_plantation,plantation,,100
+RUS,Russia,SURGUT,logging_camp,capped,32,4
+RUS,Russia,SURGUT,oil_rig,discoverable,120,4
+RUS,Russia,SURGUT,livestock_ranch,farm,,4
+RUS,Russia,SURGUT,rye_farm,farm,,4
+RUS,Russia,TAMBOV,livestock_ranch,farm,,155
+RUS,Russia,TARTARIA,logging_camp,capped,16,90
+RUS,Russia,TARTARIA,oil_rig,discoverable,15,90
+RUS,Russia,TARTARIA,livestock_ranch,farm,,90
+RUS,Russia,TAURIDA,coal_mine,capped,35,110
+RUS,Russia,TAURIDA,iron_mine,capped,48,110
+RUS,Russia,TAURIDA,logging_camp,capped,8,110
+RUS,Russia,TAURIDA,vineyard,plantation,,110
+RUS,Russia,TOBOLSK,coal_mine,capped,44,53
+RUS,Russia,TOBOLSK,iron_mine,capped,10,53
+RUS,Russia,TOBOLSK,logging_camp,capped,30,53
+RUS,Russia,TOBOLSK,oil_rig,discoverable,60,53
+RUS,Russia,TOBOLSK,livestock_ranch,farm,,53
+RUS,Russia,TOBOLSK,rye_farm,farm,,53
+RUS,Russia,TOMSK,coal_mine,capped,85,90
+RUS,Russia,TOMSK,iron_mine,capped,27,90
+RUS,Russia,TOMSK,logging_camp,capped,26,90
+RUS,Russia,TOMSK,livestock_ranch,farm,,90
+RUS,Russia,TOMSK,rye_farm,farm,,90
+RUS,Russia,TRANS_BAIKAL,coal_mine,capped,80,36
+RUS,Russia,TRANS_BAIKAL,lead_mine,capped,28,36
+RUS,Russia,TRANS_BAIKAL,logging_camp,capped,24,36
+RUS,Russia,TRANS_BAIKAL,sulfur_mine,capped,44,36
+RUS,Russia,TRANS_BAIKAL,oil_rig,discoverable,10,36
+RUS,Russia,TRANS_BAIKAL,livestock_ranch,farm,,36
+RUS,Russia,TRANS_BAIKAL,rye_farm,farm,,36
+RUS,Russia,TVER,coal_mine,capped,8,68
+RUS,Russia,TVER,livestock_ranch,farm,,68
+RUS,Russia,TVER,rye_farm,farm,,68
+RUS,Russia,UFA,coal_mine,capped,10,75
+RUS,Russia,UFA,lead_mine,capped,16,75
+RUS,Russia,UFA,logging_camp,capped,25,75
+RUS,Russia,UFA,oil_rig,discoverable,35,75
+RUS,Russia,UFA,livestock_ranch,farm,,75
+RUS,Russia,UFA,rye_farm,farm,,75
+RUS,Russia,UPPER_YENISEYSK,coal_mine,capped,15,10
+RUS,Russia,UPPER_YENISEYSK,iron_mine,capped,10,10
+RUS,Russia,UPPER_YENISEYSK,logging_camp,capped,48,10
+RUS,Russia,UPPER_YENISEYSK,livestock_ranch,farm,,10
+RUS,Russia,URAL,coal_mine,capped,84,60
+RUS,Russia,URAL,gold_mine,capped,2,60
+RUS,Russia,URAL,lead_mine,capped,81,60
+RUS,Russia,URAL,gold_field,discoverable,6,60
+RUS,Russia,URAL,livestock_ranch,farm,,60
+RUS,Russia,URAL,rye_farm,farm,,60
+RUS,Russia,URALSK,logging_camp,capped,7,35
+RUS,Russia,URALSK,oil_rig,discoverable,60,35
+RUS,Russia,URALSK,livestock_ranch,farm,,35
+RUS,Russia,VILNIUS,logging_camp,capped,7,31
+RUS,Russia,VILNIUS,livestock_ranch,farm,,31
+RUS,Russia,VITEBSK,livestock_ranch,farm,,55
+RUS,Russia,VOLHYNIA,coal_mine,capped,42,40
+RUS,Russia,VOLHYNIA,livestock_ranch,farm,,40
+RUS,Russia,VYATKA,coal_mine,capped,15,115
+RUS,Russia,VYATKA,sulfur_mine,capped,10,115
+RUS,Russia,VYATKA,oil_rig,discoverable,25,115
+RUS,Russia,VYATKA,livestock_ranch,farm,,115
+RUS,Russia,VYATKA,rye_farm,farm,,115
+RUS,Russia,YAKUTSK,coal_mine,capped,36,14
+RUS,Russia,YAKUTSK,lead_mine,capped,16,14
+RUS,Russia,YAKUTSK,logging_camp,capped,23,14
+RUS,Russia,YAKUTSK,gold_field,discoverable,8,14
+RUS,Russia,YAKUTSK,oil_rig,discoverable,5,14
+RUS,Russia,YAKUTSK,livestock_ranch,farm,,14
+RUS,Russia,YAROSLAVL,iron_mine,capped,6,185
+RUS,Russia,YAROSLAVL,livestock_ranch,farm,,185
+RUS,Russia,YAROSLAVL,rye_farm,farm,,185
+SAR,Sardinia-Piedmont,PIEDMONT,coal_mine,capped,28,90
+SAR,Sardinia-Piedmont,PIEDMONT,iron_mine,capped,45,90
+SAR,Sardinia-Piedmont,PIEDMONT,lead_mine,capped,45,90
+SAR,Sardinia-Piedmont,PIEDMONT,logging_camp,capped,8,90
+SAR,Sardinia-Piedmont,PIEDMONT,cotton_plantation,plantation,,90
+SAR,Sardinia-Piedmont,PROVENCE,logging_camp,capped,7,60
+SAR,Sardinia-Piedmont,PROVENCE,livestock_ranch,farm,,60
+SAR,Sardinia-Piedmont,PROVENCE,cotton_plantation,plantation,,60
+SAR,Sardinia-Piedmont,PROVENCE,silk_plantation,plantation,,60
+SAR,Sardinia-Piedmont,PROVENCE,vineyard,plantation,,60
+SAR,Sardinia-Piedmont,SARDINIA,coal_mine,capped,20,15
+SAR,Sardinia-Piedmont,SARDINIA,lead_mine,capped,21,15
+SAR,Sardinia-Piedmont,SARDINIA,sulfur_mine,capped,20,15
+SAR,Sardinia-Piedmont,SARDINIA,livestock_ranch,farm,,15
+SAR,Sardinia-Piedmont,SARDINIA,wheat_farm,farm,,15
+SAR,Sardinia-Piedmont,SARDINIA,cotton_plantation,plantation,,15
+SAR,Sardinia-Piedmont,SAVOY,iron_mine,capped,24,20
+SAR,Sardinia-Piedmont,SAVOY,lead_mine,capped,24,20
+SAR,Sardinia-Piedmont,SAVOY,cotton_plantation,plantation,,20
+SAR,Sardinia-Piedmont,SAVOY,vineyard,plantation,,20
+SHW,Shewa,OROMIA,oil_rig,discoverable,10,130
+SHW,Shewa,OROMIA,rubber_plantation,discoverable,28,130
+SHW,Shewa,OROMIA,livestock_ranch,farm,,130
+SHW,Shewa,OROMIA,cotton_plantation,plantation,,130
+SHW,Shewa,OROMIA,dye_plantation,plantation,,130
+SHW,Shewa,OROMIA,sugar_plantation,plantation,,130
+SHW,Shewa,OROMIA,tea_plantation,plantation,,130
+SHW,Shewa,OROMIA,vineyard,plantation,,130
+SIA,Siam,BANGKOK,logging_camp,capped,17,50
+SIA,Siam,BANGKOK,rubber_plantation,discoverable,16,50
+SIA,Siam,BANGKOK,livestock_ranch,farm,,50
+SIA,Siam,BANGKOK,banana_plantation,plantation,,50
+SIA,Siam,BANGKOK,cotton_plantation,plantation,,50
+SIA,Siam,BANGKOK,opium_plantation,plantation,,50
+SIA,Siam,BANGKOK,silk_plantation,plantation,,50
+SIA,Siam,BANGKOK,sugar_plantation,plantation,,50
+SIA,Siam,CAMBODIA,fishing_wharf,capped,5,35
+SIA,Siam,CAMBODIA,iron_mine,capped,30,35
+SIA,Siam,CAMBODIA,logging_camp,capped,20,35
+SIA,Siam,CAMBODIA,rubber_plantation,discoverable,12,35
+SIA,Siam,CAMBODIA,livestock_ranch,farm,,35
+SIA,Siam,CAMBODIA,rice_farm,farm,,35
+SIA,Siam,CAMBODIA,banana_plantation,plantation,,35
+SIA,Siam,CAMBODIA,cotton_plantation,plantation,,35
+SIA,Siam,CAMBODIA,silk_plantation,plantation,,35
+SIA,Siam,CAMBODIA,sugar_plantation,plantation,,35
+SIA,Siam,CAMBODIA,tobacco_plantation,plantation,,35
+SIA,Siam,LAOS,coal_mine,capped,32,40
+SIA,Siam,LAOS,iron_mine,capped,36,40
+SIA,Siam,LAOS,logging_camp,capped,23,40
+SIA,Siam,LAOS,livestock_ranch,farm,,40
+SIA,Siam,LAOS,rice_farm,farm,,40
+SIA,Siam,LAOS,banana_plantation,plantation,,40
+SIA,Siam,LAOS,coffee_plantation,plantation,,40
+SIA,Siam,LAOS,cotton_plantation,plantation,,40
+SIA,Siam,LAOS,dye_plantation,plantation,,40
+SIA,Siam,LAOS,silk_plantation,plantation,,40
+SIA,Siam,LAOS,sugar_plantation,plantation,,40
+SIA,Siam,LAOS,tea_plantation,plantation,,40
+SIA,Siam,LAOS,tobacco_plantation,plantation,,40
+SIA,Siam,MALAYA,coal_mine,capped,32,35
+SIA,Siam,MALAYA,fishing_wharf,capped,10,35
+SIA,Siam,MALAYA,lead_mine,capped,24,35
+SIA,Siam,MALAYA,logging_camp,capped,17,35
+SIA,Siam,MALAYA,rubber_plantation,discoverable,40,35
+SIA,Siam,MALAYA,livestock_ranch,farm,,35
+SIA,Siam,MALAYA,rice_farm,farm,,35
+SIA,Siam,MALAYA,coffee_plantation,plantation,,35
+SIA,Siam,MALAYA,sugar_plantation,plantation,,35
+SIA,Siam,MALAYA,tea_plantation,plantation,,35
+SIA,Siam,NAKHON_RATCHASIMA,fishing_wharf,capped,6,40
+SIA,Siam,NAKHON_RATCHASIMA,logging_camp,capped,25,40
+SIA,Siam,NAKHON_RATCHASIMA,rubber_plantation,discoverable,2,40
+SIA,Siam,NAKHON_RATCHASIMA,banana_plantation,plantation,,40
+SIA,Siam,NAKHON_RATCHASIMA,cotton_plantation,plantation,,40
+SIA,Siam,NAKHON_RATCHASIMA,opium_plantation,plantation,,40
+SIA,Siam,NAKHON_RATCHASIMA,silk_plantation,plantation,,40
+SIA,Siam,NAKHON_RATCHASIMA,sugar_plantation,plantation,,40
+SIA,Siam,NAKHON_RATCHASIMA,tea_plantation,plantation,,40
+SIA,Siam,TENASSERIM,fishing_wharf,capped,12,20
+SIA,Siam,TENASSERIM,iron_mine,capped,5,20
+SIA,Siam,TENASSERIM,logging_camp,capped,17,20
+SIA,Siam,TENASSERIM,rubber_plantation,discoverable,16,20
+SIA,Siam,TENASSERIM,livestock_ranch,farm,,20
+SIA,Siam,TENASSERIM,rice_farm,farm,,20
+SIA,Siam,TENASSERIM,banana_plantation,plantation,,20
+SIA,Siam,TENASSERIM,cotton_plantation,plantation,,20
+SIA,Siam,TENASSERIM,dye_plantation,plantation,,20
+SIA,Siam,TENASSERIM,opium_plantation,plantation,,20
+SIA,Siam,TENASSERIM,sugar_plantation,plantation,,20
+SIA,Siam,TENASSERIM,tea_plantation,plantation,,20
+SIA,Siam,TENASSERIM,tobacco_plantation,plantation,,20
+SOK,Sokoto,EAST_HAUSALAND,coal_mine,capped,72,140
+SOK,Sokoto,EAST_HAUSALAND,logging_camp,capped,18,140
+SOK,Sokoto,EAST_HAUSALAND,oil_rig,discoverable,5,140
+SOK,Sokoto,EAST_HAUSALAND,banana_plantation,plantation,,140
+SOK,Sokoto,EAST_HAUSALAND,coffee_plantation,plantation,,140
+SOK,Sokoto,EAST_HAUSALAND,dye_plantation,plantation,,140
+SOK,Sokoto,EAST_HAUSALAND,sugar_plantation,plantation,,140
+SOK,Sokoto,HAUSALAND,logging_camp,capped,23,110
+SOK,Sokoto,HAUSALAND,oil_rig,discoverable,10,110
+SOK,Sokoto,HAUSALAND,rubber_plantation,discoverable,20,110
+SOK,Sokoto,HAUSALAND,banana_plantation,plantation,,110
+SOK,Sokoto,HAUSALAND,coffee_plantation,plantation,,110
+SOK,Sokoto,HAUSALAND,cotton_plantation,plantation,,110
+SOK,Sokoto,HAUSALAND,dye_plantation,plantation,,110
+SOK,Sokoto,HAUSALAND,sugar_plantation,plantation,,110
+SOK,Sokoto,NIGERIA,iron_mine,capped,45,60
+SOK,Sokoto,NIGERIA,lead_mine,capped,45,60
+SOK,Sokoto,NIGERIA,logging_camp,capped,20,60
+SOK,Sokoto,NIGERIA,rubber_plantation,discoverable,24,60
+SOK,Sokoto,NIGERIA,livestock_ranch,farm,,60
+SOK,Sokoto,NIGERIA,banana_plantation,plantation,,60
+SOK,Sokoto,NIGERIA,cotton_plantation,plantation,,60
+SOK,Sokoto,NIGERIA,dye_plantation,plantation,,60
+SOK,Sokoto,NIGERIA,sugar_plantation,plantation,,60
+SOK,Sokoto,NIGERIA,tobacco_plantation,plantation,,60
+SOK,Sokoto,NORTH_CAMEROON,logging_camp,capped,18,70
+SOK,Sokoto,NORTH_CAMEROON,livestock_ranch,farm,,70
+SOK,Sokoto,NORTH_CAMEROON,banana_plantation,plantation,,70
+SOK,Sokoto,NORTH_CAMEROON,coffee_plantation,plantation,,70
+SOK,Sokoto,NORTH_CAMEROON,cotton_plantation,plantation,,70
+SOK,Sokoto,NORTH_CAMEROON,dye_plantation,plantation,,70
+SOK,Sokoto,NORTH_CAMEROON,sugar_plantation,plantation,,70
+SOK,Sokoto,NORTH_CAMEROON,tea_plantation,plantation,,70
+SOK,Sokoto,OUTER_HAUSALAND,coal_mine,capped,48,60
+SOK,Sokoto,OUTER_HAUSALAND,logging_camp,capped,4,60
+SOK,Sokoto,OUTER_HAUSALAND,oil_rig,discoverable,5,60
+SOK,Sokoto,OUTER_HAUSALAND,millet_farm,farm,,60
+SAF,South Africa,CAPE_COLONY,logging_camp,capped,8,50
+SAF,South Africa,CAPE_COLONY,whaling_station,capped,4,50
+SAF,South Africa,CAPE_COLONY,livestock_ranch,farm,,50
+SAF,South Africa,CAPE_COLONY,cotton_plantation,plantation,,50
+SAF,South Africa,CAPE_COLONY,tea_plantation,plantation,,50
+SAF,South Africa,EASTERN_CAPE,coal_mine,capped,56,60
+SAF,South Africa,EASTERN_CAPE,fishing_wharf,capped,8,60
+SAF,South Africa,EASTERN_CAPE,logging_camp,capped,9,60
+SAF,South Africa,EASTERN_CAPE,banana_plantation,plantation,,60
+SAF,South Africa,EASTERN_CAPE,cotton_plantation,plantation,,60
+SAF,South Africa,EASTERN_CAPE,tea_plantation,plantation,,60
+SAF,South Africa,EASTERN_CAPE,vineyard,plantation,,60
+SAF,South Africa,NORTHERN_CAPE,iron_mine,capped,33,40
+SAF,South Africa,NORTHERN_CAPE,logging_camp,capped,2,40
+SAF,South Africa,NORTHERN_CAPE,gold_field,discoverable,9,40
+SAF,South Africa,NORTHERN_CAPE,wheat_farm,farm,,40
+SAF,South Africa,NORTHERN_CAPE,cotton_plantation,plantation,,40
+SAF,South Africa,NORTHERN_CAPE,tea_plantation,plantation,,40
+SPA,Spain,AL_RIF,coal_mine,capped,6,50
+SPA,Spain,AL_RIF,fishing_wharf,capped,7,50
+SPA,Spain,AL_RIF,logging_camp,capped,6,50
+SPA,Spain,AL_RIF,livestock_ranch,farm,,50
+SPA,Spain,AL_RIF,banana_plantation,plantation,,50
+SPA,Spain,AL_RIF,cotton_plantation,plantation,,50
+SPA,Spain,AL_RIF,sugar_plantation,plantation,,50
+SPA,Spain,AL_RIF,vineyard,plantation,,50
+SPA,Spain,ARAGON,coal_mine,capped,18,34
+SPA,Spain,ARAGON,iron_mine,capped,5,34
+SPA,Spain,ASTURIAS,iron_mine,capped,5,21
+SPA,Spain,ASTURIAS,maize_farm,farm,,21
+SPA,Spain,BALEARIC_ISLANDS,logging_camp,capped,2,11
+SPA,Spain,BALEARIC_ISLANDS,livestock_ranch,farm,,11
+SPA,Spain,BALEARIC_ISLANDS,cotton_plantation,plantation,,11
+SPA,Spain,BALEARIC_ISLANDS,tobacco_plantation,plantation,,11
+SPA,Spain,BALEARIC_ISLANDS,vineyard,plantation,,11
+SPA,Spain,CANARY_ISLANDS,logging_camp,capped,2,7
+SPA,Spain,CANARY_ISLANDS,wheat_farm,farm,,7
+SPA,Spain,CANARY_ISLANDS,coffee_plantation,plantation,,7
+SPA,Spain,CANARY_ISLANDS,cotton_plantation,plantation,,7
+SPA,Spain,CANARY_ISLANDS,sugar_plantation,plantation,,7
+SPA,Spain,CANARY_ISLANDS,tobacco_plantation,plantation,,7
+SPA,Spain,CANARY_ISLANDS,vineyard,plantation,,7
+SPA,Spain,CATALONIA,coal_mine,capped,14,56
+SPA,Spain,CATALONIA,iron_mine,capped,5,56
+SPA,Spain,CATALONIA,lead_mine,capped,6,56
+SPA,Spain,CATALONIA,cotton_plantation,plantation,,56
+SPA,Spain,CATALONIA,silk_plantation,plantation,,56
+SPA,Spain,CATALONIA,tobacco_plantation,plantation,,56
+SPA,Spain,EXTREMADURA,iron_mine,capped,2,34
+SPA,Spain,EXTREMADURA,logging_camp,capped,13,34
+SPA,Spain,EXTREMADURA,sulfur_mine,capped,4,34
+SPA,Spain,GALICIA,gold_mine,capped,2,51
+SPA,Spain,GALICIA,iron_mine,capped,4,51
+SPA,Spain,GALICIA,whaling_station,capped,1,51
+SPA,Spain,LEON,coal_mine,capped,12,41
+SPA,Spain,LEON,iron_mine,capped,10,41
+SPA,Spain,LOWER_ANDALUSIA,fishing_wharf,capped,9,67
+SPA,Spain,LOWER_ANDALUSIA,iron_mine,capped,4,67
+SPA,Spain,LOWER_ANDALUSIA,sulfur_mine,capped,44,67
+SPA,Spain,LOWER_ANDALUSIA,cotton_plantation,plantation,,67
+SPA,Spain,LOWER_ANDALUSIA,silk_plantation,plantation,,67
+SPA,Spain,LOWER_ANDALUSIA,sugar_plantation,plantation,,67
+SPA,Spain,LOWER_ANDALUSIA,tobacco_plantation,plantation,,67
+SPA,Spain,MURCIA,gold_mine,capped,2,24
+SPA,Spain,MURCIA,iron_mine,capped,7,24
+SPA,Spain,MURCIA,logging_camp,capped,3,24
+SPA,Spain,NEW_CASTILE,coal_mine,capped,7,51
+SPA,Spain,NEW_CASTILE,iron_mine,capped,3,51
+SPA,Spain,NEW_CASTILE,logging_camp,capped,4,51
+SPA,Spain,NEW_CASTILE,sulfur_mine,capped,6,51
+SPA,Spain,NEW_CASTILE,cotton_plantation,plantation,,51
+SPA,Spain,NEW_CASTILE,sugar_plantation,plantation,,51
+SPA,Spain,OLD_CASTILE,coal_mine,capped,8,69
+SPA,Spain,OLD_CASTILE,fishing_wharf,capped,3,69
+SPA,Spain,OLD_CASTILE,iron_mine,capped,5,69
+SPA,Spain,OLD_CASTILE,sulfur_mine,capped,2,69
+SPA,Spain,OLD_CASTILE,cotton_plantation,plantation,,69
+SPA,Spain,OLD_CASTILE,tobacco_plantation,plantation,,69
+SPA,Spain,UPPER_ANDALUSIA,fishing_wharf,capped,8,53
+SPA,Spain,UPPER_ANDALUSIA,iron_mine,capped,7,53
+SPA,Spain,UPPER_ANDALUSIA,logging_camp,capped,4,53
+SPA,Spain,UPPER_ANDALUSIA,cotton_plantation,plantation,,53
+SPA,Spain,UPPER_ANDALUSIA,silk_plantation,plantation,,53
+SPA,Spain,UPPER_ANDALUSIA,tobacco_plantation,plantation,,53
+SPA,Spain,VALENCIA,coal_mine,capped,12,56
+SPA,Spain,VALENCIA,iron_mine,capped,8,56
+SPA,Spain,VALENCIA,lead_mine,capped,5,56
+SPA,Spain,VALENCIA,cotton_plantation,plantation,,56
+SPA,Spain,VALENCIA,tobacco_plantation,plantation,,56
+SWE,Sweden,GOTLAND,fishing_wharf,capped,3,3
+SWE,Sweden,GOTLAND,logging_camp,capped,2,3
+SWE,Sweden,GOTLAND,livestock_ranch,farm,,3
+SWE,Sweden,GOTLAND,rye_farm,farm,,3
+SWE,Sweden,NORRLAND,iron_mine,capped,100,22
+SWE,Sweden,NORRLAND,livestock_ranch,farm,,22
+SWE,Sweden,SCANIA,coal_mine,capped,8,20
+SWE,Sweden,SCANIA,logging_camp,capped,10,20
+SWE,Sweden,SVEALAND,lead_mine,capped,18,30
+SWE,Sweden,SVEALAND,livestock_ranch,farm,,30
+SIC,Two Sicilies,ABRUZZO,fishing_wharf,capped,7,25
+SIC,Two Sicilies,ABRUZZO,cotton_plantation,plantation,,25
+SIC,Two Sicilies,ABRUZZO,sugar_plantation,plantation,,25
+SIC,Two Sicilies,APULIA,logging_camp,capped,4,60
+SIC,Two Sicilies,APULIA,cotton_plantation,plantation,,60
+SIC,Two Sicilies,APULIA,sugar_plantation,plantation,,60
+SIC,Two Sicilies,CALABRIA,coal_mine,capped,16,30
+SIC,Two Sicilies,CALABRIA,logging_camp,capped,7,30
+SIC,Two Sicilies,CALABRIA,cotton_plantation,plantation,,30
+SIC,Two Sicilies,CAMPANIA,fishing_wharf,capped,10,90
+SIC,Two Sicilies,CAMPANIA,cotton_plantation,plantation,,90
+SIC,Two Sicilies,CAMPANIA,sugar_plantation,plantation,,90
+SIC,Two Sicilies,SICILY,logging_camp,capped,6,60
+SIC,Two Sicilies,SICILY,livestock_ranch,farm,,60
+SIC,Two Sicilies,SICILY,cotton_plantation,plantation,,60
+SIC,Two Sicilies,SICILY,silk_plantation,plantation,,60
+SIC,Two Sicilies,SICILY,sugar_plantation,plantation,,60
+USA,United States,ALABAMA,coal_mine,capped,28,170
+USA,United States,ALABAMA,fishing_wharf,capped,3,170
+USA,United States,ALABAMA,iron_mine,capped,30,170
+USA,United States,ALABAMA,lead_mine,capped,24,170
+USA,United States,ALABAMA,logging_camp,capped,17,170
+USA,United States,ALABAMA,oil_rig,discoverable,20,170
+USA,United States,ALABAMA,livestock_ranch,farm,,170
+USA,United States,ALABAMA,sugar_plantation,plantation,,170
+USA,United States,ARKANSAS,lead_mine,capped,45,180
+USA,United States,ARKANSAS,logging_camp,capped,11,180
+USA,United States,ARKANSAS,oil_rig,discoverable,20,180
+USA,United States,ARKANSAS,rice_farm,farm,,180
+USA,United States,ARKANSAS,tobacco_plantation,plantation,,180
+USA,United States,COLORADO,coal_mine,capped,40,160
+USA,United States,COLORADO,logging_camp,capped,9,160
+USA,United States,COLORADO,gold_field,discoverable,8,160
+USA,United States,COLORADO,oil_rig,discoverable,20,160
+USA,United States,COLORADO,livestock_ranch,farm,,160
+USA,United States,COLORADO,maize_farm,farm,,160
+USA,United States,CONNECTICUT,fishing_wharf,capped,5,15
+USA,United States,CONNECTICUT,logging_camp,capped,6,15
+USA,United States,CONNECTICUT,whaling_station,capped,3,15
+USA,United States,CONNECTICUT,livestock_ranch,farm,,15
+USA,United States,CONNECTICUT,wheat_farm,farm,,15
+USA,United States,CONNECTICUT,tobacco_plantation,plantation,,15
+USA,United States,CONNECTICUT,vineyard,plantation,,15
+USA,United States,DELAWARE,logging_camp,capped,4,15
+USA,United States,DELAWARE,maize_farm,farm,,15
+USA,United States,DELAWARE,cotton_plantation,plantation,,15
+USA,United States,DELAWARE,tobacco_plantation,plantation,,15
+USA,United States,DELAWARE,vineyard,plantation,,15
+USA,United States,DISTRICT_OF_COLUMBIA,fishing_wharf,capped,1,3
+USA,United States,DISTRICT_OF_COLUMBIA,livestock_ranch,farm,,3
+USA,United States,DISTRICT_OF_COLUMBIA,maize_farm,farm,,3
+USA,United States,DISTRICT_OF_COLUMBIA,cotton_plantation,plantation,,3
+USA,United States,DISTRICT_OF_COLUMBIA,tobacco_plantation,plantation,,3
+USA,United States,FLORIDA,fishing_wharf,capped,15,100
+USA,United States,FLORIDA,logging_camp,capped,23,100
+USA,United States,FLORIDA,sulfur_mine,capped,42,100
+USA,United States,FLORIDA,oil_rig,discoverable,30,100
+USA,United States,FLORIDA,livestock_ranch,farm,,100
+USA,United States,FLORIDA,maize_farm,farm,,100
+USA,United States,FLORIDA,cotton_plantation,plantation,,100
+USA,United States,FLORIDA,dye_plantation,plantation,,100
+USA,United States,FLORIDA,sugar_plantation,plantation,,100
+USA,United States,GEORGIA,fishing_wharf,capped,6,180
+USA,United States,GEORGIA,logging_camp,capped,20,180
+USA,United States,GEORGIA,rice_farm,farm,,180
+USA,United States,GEORGIA,dye_plantation,plantation,,180
+USA,United States,ILLINOIS,coal_mine,capped,60,270
+USA,United States,ILLINOIS,logging_camp,capped,22,270
+USA,United States,ILLINOIS,livestock_ranch,farm,,270
+USA,United States,ILLINOIS,tobacco_plantation,plantation,,270
+USA,United States,ILLINOIS,vineyard,plantation,,270
+USA,United States,INDIANA,coal_mine,capped,48,220
+USA,United States,INDIANA,livestock_ranch,farm,,220
+USA,United States,INDIANA,tobacco_plantation,plantation,,220
+USA,United States,INDIANA,vineyard,plantation,,220
+USA,United States,IOWA,coal_mine,capped,64,240
+USA,United States,IOWA,logging_camp,capped,11,240
+USA,United States,IOWA,sulfur_mine,capped,40,240
+USA,United States,IOWA,livestock_ranch,farm,,240
+USA,United States,IOWA,maize_farm,farm,,240
+USA,United States,IOWA,tobacco_plantation,plantation,,240
+USA,United States,KANSAS,coal_mine,capped,32,240
+USA,United States,KANSAS,lead_mine,capped,18,240
+USA,United States,KANSAS,logging_camp,capped,7,240
+USA,United States,KANSAS,oil_rig,discoverable,50,240
+USA,United States,KANSAS,livestock_ranch,farm,,240
+USA,United States,KANSAS,wheat_farm,farm,,240
+USA,United States,KENTUCKY,iron_mine,capped,33,180
+USA,United States,KENTUCKY,logging_camp,capped,17,180
+USA,United States,KENTUCKY,cotton_plantation,plantation,,180
+USA,United States,KENTUCKY,vineyard,plantation,,180
+USA,United States,LOUISIANA,coal_mine,capped,24,120
+USA,United States,LOUISIANA,fishing_wharf,capped,12,120
+USA,United States,LOUISIANA,logging_camp,capped,13,120
+USA,United States,LOUISIANA,sulfur_mine,capped,32,120
+USA,United States,LOUISIANA,oil_rig,discoverable,20,120
+USA,United States,LOUISIANA,livestock_ranch,farm,,120
+USA,United States,LOUISIANA,rice_farm,farm,,120
+USA,United States,LOUISIANA,tobacco_plantation,plantation,,120
+USA,United States,MAINE,whaling_station,capped,4,20
+USA,United States,MAINE,livestock_ranch,farm,,20
+USA,United States,MAINE,wheat_farm,farm,,20
+USA,United States,MARYLAND,logging_camp,capped,6,25
+USA,United States,MARYLAND,livestock_ranch,farm,,25
+USA,United States,MARYLAND,maize_farm,farm,,25
+USA,United States,MARYLAND,cotton_plantation,plantation,,25
+USA,United States,MARYLAND,vineyard,plantation,,25
+USA,United States,MASSACHUSETTS,coal_mine,capped,56,20
+USA,United States,MASSACHUSETTS,iron_mine,capped,36,20
+USA,United States,MASSACHUSETTS,livestock_ranch,farm,,20
+USA,United States,MASSACHUSETTS,tobacco_plantation,plantation,,20
+USA,United States,MASSACHUSETTS,vineyard,plantation,,20
+USA,United States,MICHIGAN,iron_mine,capped,60,180
+USA,United States,MICHIGAN,maize_farm,farm,,180
+USA,United States,MICHIGAN,vineyard,plantation,,180
+USA,United States,MINNESOTA,iron_mine,capped,45,200
+USA,United States,MINNESOTA,logging_camp,capped,40,200
+USA,United States,MINNESOTA,sulfur_mine,capped,40,200
+USA,United States,MINNESOTA,livestock_ranch,farm,,200
+USA,United States,MINNESOTA,maize_farm,farm,,200
+USA,United States,MISSISSIPPI,coal_mine,capped,40,160
+USA,United States,MISSISSIPPI,fishing_wharf,capped,5,160
+USA,United States,MISSISSIPPI,logging_camp,capped,14,160
+USA,United States,MISSISSIPPI,oil_rig,discoverable,30,160
+USA,United States,MISSISSIPPI,livestock_ranch,farm,,160
+USA,United States,MISSISSIPPI,sugar_plantation,plantation,,160
+USA,United States,MISSOURI,logging_camp,capped,16,230
+USA,United States,MISSOURI,oil_rig,discoverable,20,230
+USA,United States,MISSOURI,cotton_plantation,plantation,,230
+USA,United States,MISSOURI,tobacco_plantation,plantation,,230
+USA,United States,MISSOURI,vineyard,plantation,,230
+USA,United States,MONTANA,coal_mine,capped,80,200
+USA,United States,MONTANA,iron_mine,capped,33,200
+USA,United States,MONTANA,logging_camp,capped,17,200
+USA,United States,MONTANA,oil_rig,discoverable,20,200
+USA,United States,MONTANA,livestock_ranch,farm,,200
+USA,United States,MONTANA,wheat_farm,farm,,200
+USA,United States,NEBRASKA,logging_camp,capped,5,240
+USA,United States,NEBRASKA,oil_rig,discoverable,20,240
+USA,United States,NEBRASKA,livestock_ranch,farm,,240
+USA,United States,NEBRASKA,maize_farm,farm,,240
+USA,United States,NEW_HAMPSHIRE,fishing_wharf,capped,2,15
+USA,United States,NEW_HAMPSHIRE,whaling_station,capped,2,15
+USA,United States,NEW_HAMPSHIRE,wheat_farm,farm,,15
+USA,United States,NEW_HAMPSHIRE,tobacco_plantation,plantation,,15
+USA,United States,NEW_JERSEY,iron_mine,capped,45,40
+USA,United States,NEW_JERSEY,livestock_ranch,farm,,40
+USA,United States,NEW_JERSEY,cotton_plantation,plantation,,40
+USA,United States,NEW_JERSEY,tobacco_plantation,plantation,,40
+USA,United States,NEW_JERSEY,vineyard,plantation,,40
+USA,United States,NEW_YORK,whaling_station,capped,5,120
+USA,United States,NEW_YORK,livestock_ranch,farm,,120
+USA,United States,NEW_YORK,tobacco_plantation,plantation,,120
+USA,United States,NEW_YORK,vineyard,plantation,,120
+USA,United States,NORTH_CAROLINA,fishing_wharf,capped,6,180
+USA,United States,NORTH_CAROLINA,livestock_ranch,farm,,180
+USA,United States,NORTH_CAROLINA,rice_farm,farm,,180
+USA,United States,NORTH_CAROLINA,tobacco_plantation,plantation,,180
+USA,United States,NORTH_CAROLINA,vineyard,plantation,,180
+USA,United States,NORTH_DAKOTA,coal_mine,capped,48,240
+USA,United States,NORTH_DAKOTA,logging_camp,capped,11,240
+USA,United States,NORTH_DAKOTA,oil_rig,discoverable,20,240
+USA,United States,NORTH_DAKOTA,livestock_ranch,farm,,240
+USA,United States,NORTH_DAKOTA,wheat_farm,farm,,240
+USA,United States,OHIO,lead_mine,capped,36,180
+USA,United States,OHIO,logging_camp,capped,30,180
+USA,United States,OHIO,oil_rig,discoverable,30,180
+USA,United States,OHIO,tobacco_plantation,plantation,,180
+USA,United States,OHIO,vineyard,plantation,,180
+USA,United States,PENNSYLVANIA,oil_rig,discoverable,50,180
+USA,United States,PENNSYLVANIA,tobacco_plantation,plantation,,180
+USA,United States,PENNSYLVANIA,vineyard,plantation,,180
+USA,United States,RHODE_ISLAND,logging_camp,capped,2,10
+USA,United States,RHODE_ISLAND,whaling_station,capped,2,10
+USA,United States,RHODE_ISLAND,livestock_ranch,farm,,10
+USA,United States,RHODE_ISLAND,wheat_farm,farm,,10
+USA,United States,RHODE_ISLAND,tobacco_plantation,plantation,,10
+USA,United States,RHODE_ISLAND,vineyard,plantation,,10
+USA,United States,SOUTH_CAROLINA,fishing_wharf,capped,5,100
+USA,United States,SOUTH_CAROLINA,logging_camp,capped,11,100
+USA,United States,SOUTH_CAROLINA,livestock_ranch,farm,,100
+USA,United States,SOUTH_CAROLINA,rice_farm,farm,,100
+USA,United States,SOUTH_DAKOTA,coal_mine,capped,32,240
+USA,United States,SOUTH_DAKOTA,logging_camp,capped,9,240
+USA,United States,SOUTH_DAKOTA,gold_field,discoverable,8,240
+USA,United States,SOUTH_DAKOTA,oil_rig,discoverable,20,240
+USA,United States,SOUTH_DAKOTA,livestock_ranch,farm,,240
+USA,United States,SOUTH_DAKOTA,wheat_farm,farm,,240
+USA,United States,TENNESSEE,iron_mine,capped,30,180
+USA,United States,TENNESSEE,logging_camp,capped,17,180
+USA,United States,VERMONT,iron_mine,capped,18,25
+USA,United States,VERMONT,wheat_farm,farm,,25
+USA,United States,VERMONT,tobacco_plantation,plantation,,25
+USA,United States,VIRGINIA,coal_mine,capped,60,180
+USA,United States,VIRGINIA,fishing_wharf,capped,8,180
+USA,United States,VIRGINIA,logging_camp,capped,17,180
+USA,United States,VIRGINIA,vineyard,plantation,,180
+USA,United States,WEST_VIRGINIA,iron_mine,capped,24,50
+USA,United States,WEST_VIRGINIA,livestock_ranch,farm,,50
+USA,United States,WEST_VIRGINIA,maize_farm,farm,,50
+USA,United States,WEST_VIRGINIA,cotton_plantation,plantation,,50
+USA,United States,WEST_VIRGINIA,sugar_plantation,plantation,,50
+USA,United States,WEST_VIRGINIA,tobacco_plantation,plantation,,50
+USA,United States,WEST_VIRGINIA,vineyard,plantation,,50
+USA,United States,WISCONSIN,iron_mine,capped,24,180
+USA,United States,WISCONSIN,logging_camp,capped,35,180
+USA,United States,WISCONSIN,sulfur_mine,capped,32,180
+USA,United States,WISCONSIN,livestock_ranch,farm,,180
+USA,United States,WISCONSIN,maize_farm,farm,,180
+USA,United States,WISCONSIN,tobacco_plantation,plantation,,180
+USA,United States,WYOMING,coal_mine,capped,48,160
+USA,United States,WYOMING,logging_camp,capped,13,160
+USA,United States,WYOMING,oil_rig,discoverable,20,160
+USA,United States,WYOMING,livestock_ranch,farm,,160
+USA,United States,WYOMING,wheat_farm,farm,,160

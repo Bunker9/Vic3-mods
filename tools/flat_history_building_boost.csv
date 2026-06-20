@@ -1,0 +1,41 @@
+tag,country,total_states,wood,iron,total_buildings
+RUS,Russia,73,49,27,76
+CHI,China,43,32,12,44
+USA,United States,39,27,11,38
+FRA,France,29,15,11,26
+MEX,Mexico,22,17,9,26
+TUR,Ottomans,30,16,8,24
+BIC,East India,21,12,8,20
+POR,Portugal,19,13,7,20
+GBR,Great Britain,26,15,4,19
+PER,Persia,12,10,5,15
+EGY,Egypt,17,12,3,15
+AUS,Austria,15,11,3,14
+SPA,Spain,15,6,6,12
+PRU,Prussia,13,9,2,11
+DEI,Dutch East Indies,11,6,3,9
+ARG,Argentina,8,6,2,8
+JAP,Japan,11,3,4,7
+BRZ,Brazil,14,3,4,7
+SIA,Siam,6,5,2,7
+KOR,Korea,5,4,2,6
+HUN,Hungary,7,6,0,6
+SOK,Sokoto,5,4,1,5
+DAI,Dai Nam,4,3,2,5
+CLM,Colombia,6,4,1,5
+PHI,Philippines,4,3,2,5
+BUR,Burma,4,3,2,5
+SAR,Sardinia-Piedmont,4,2,2,4
+SIC,Two Sicilies,5,3,0,3
+SWE,Sweden,5,2,1,3
+HYD,Hyderabad,2,2,1,3
+OMA,Oman,7,2,1,3
+SAF,South Africa,3,2,1,3
+PAN,Punjab,3,1,1,2
+NET,Netherlands,6,2,0,2
+GRE,Greece,3,1,1,2
+MOR,Morocco,4,1,1,2
+BAV,Bavaria,3,1,1,2
+NEP,Nepal,1,1,0,1
+BEL,Belgium,3,1,0,1
+SHW,Shewa,1,0,0,0
