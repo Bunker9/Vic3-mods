@@ -1,4 +1,14 @@
-﻿stdinnv_uni_built = {
+﻿# =============================================================================
+# SteadyInnovMod — "graduate via universities" decision
+# -----------------------------------------------------------------------------
+# Shown to penalised nations (and any human player). Only TAKEABLE once the
+# nation has graduated out of penalty status: it must now be recognized and
+# non-subject AND have 10 universities (lvl>=10) in a single state. Firing it
+# triggers uni_event.1, which clears the lingering startup penalty and grants
+# the catch-up reward. (A nation that is STILL unrecognized/subject sees it but
+# cannot yet meet `possible` — that is intentional: graduate first.)
+# =============================================================================
+stdinnv_uni_built = {
 	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
 
 	is_shown = {

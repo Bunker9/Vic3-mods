@@ -1,5 +1,13 @@
 ﻿# =============================================================================
-# stdinnvMod —
+# SteadyInnovMod — startup tagging
+# -----------------------------------------------------------------------------
+# At game start, stamp every country with its starting "innovation tier":
+#   - the four struggling great powers (FRA/JAP/NET/USA) get the permanent boost
+#   - subjects / BIC / CHI get the heavy subject penalty
+#   - other unrecognized powers get the lighter unrecognized penalty
+#   - recognized non-subject middle powers get nothing (neutral baseline)
+# The penalties are permanent and only cleared via the universities decision ->
+# uni_event.1 (see events/uni_events.txt).
 # =============================================================================
 on_game_started_after_lobby = { on_actions = { stdinnv_startup } }
 

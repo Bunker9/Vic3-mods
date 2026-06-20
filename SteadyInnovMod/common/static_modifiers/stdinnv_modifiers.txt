@@ -1,5 +1,15 @@
 ﻿# =============================================================================
-# stdinnvMod
+# SteadyInnovMod — static modifiers
+# -----------------------------------------------------------------------------
+# Design: tech access in Vic3 snowballs. Unrecognized / subject nations start
+# crippled (the two _negative modifiers below, applied at startup). The escape
+# hatch is universities: build 10 (lvl>=10) AFTER you've become recognized and
+# shed subject status, take the decision, and uni_event.1 strips the stale
+# penalty and grants stdinnv_reward (a 20yr decaying catch-up bonus).
+# The four chosen "struggling great powers" (FRA/JAP/NET/USA) instead get a
+# permanent leg-up (stdinnv_boost_gp) so they don't get drowned out by the
+# BIC/CHI economies (which are pushed to the subject penalty).
+# NOTE: values are game-tuned by the author — do not edit without asking.
 # =============================================================================
 
 stdinnv_unrecognized = {
@@ -33,4 +43,8 @@ stdinnv_reward = {
 	country_tech_spread_mult = 1
 	building_throughput_add = 0.05
 	country_authority_mult = 0.25
+
+	# boost + pol strength boost"; tokens verified, values intentionally left for you:
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.5
+	interest_group_ig_intelligentsia_pol_str_mult = 0.5
 }
