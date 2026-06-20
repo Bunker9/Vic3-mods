@@ -147,22 +147,35 @@ if (Test-Path (Join-Path $mod1 '.git')) {
   else { Say 'WARN' "origin not an https github URL ($url)" }
 }
 
-Section "6. Windows credential store (bare host key = default account)"
+Section "6. Windows credential store (bare host key - INFORMATIONAL under the gh-active-account design)"
+# Current design: the DEFAULT account authenticates github.com via the gh CLI helper bound to gh's
+# ACTIVE account (Section 7), NOT via the bare git:https://github.com GCM cred. Vic3 authenticates as
+# $vic3Name via the URL-pinned key git:https://$pinUser@github.com (local 'manager' helper + the
+# $pinUser@ remote). So the OWNER of the bare key no longer gates anyone's auth -> it is informational,
+# not a failure (it is harmless leftover from a past 'gh auth setup-git'). The real Vic3 invariant is
+# that the ISOLATED key exists and caches the Vic3 PAT.
 $creds = Get-StoredCreds
 $bare  = $creds | Where-Object { $_.Target -match 'target=git:https://github\.com$' } | Select-Object -First 1
-if ($bare) {
-  Say 'INFO' "bare 'git:https://github.com' owned by: $($bare.User)"
-  if ($bare.User -eq $vic3Name) { Say 'FAIL' "bare host cred CLOBBERED to $vic3Name (gh auth setup-git) -> default account GCM auth broken"; AddFix "cmdkey /delete:LegacyGeneric:target=git:https://github.com  then push from an XplanMagic repo so GCM re-stores the default account" }
-  elseif ($cfg -and $bare.User -eq $cfg.windows_credentials.bare_host_user) { Say 'PASS' "bare host cred = default account ($($bare.User))" }
-  else { Say 'PASS' "bare host cred is not the Vic3 account" }
-} else { Say 'PASS' "no bare 'git:https://github.com' cred (good - the clobber was removed). Modern GCM authenticates the default account via its provider entry; the bare generic key is optional." }
+$iso   = $creds | Where-Object { $_.Target -match "target=git:https://$pinUser@github\.com$" } | Select-Object -First 1
+if ($bare) { Say 'INFO' "bare 'git:https://github.com' owned by: $($bare.User) (does not gate auth under the current design)" }
+else       { Say 'INFO' "no bare 'git:https://github.com' cred (fine - the gh helper serves the active account)" }
+if ($iso)  { Say 'PASS' "Vic3 token isolated under git:https://$pinUser@github.com ($($iso.User))" }
+else       { Say 'WARN' "no isolated 'git:https://$pinUser@github.com' cred cached yet - run one real Vic3 push to store the $vic3Name PAT" }
 
-Section "7. gh CLI (INFORMATIONAL - no longer used for Vic3 git auth)"
+Section "7. gh CLI (the DEFAULT account's github.com auth path - active account must NOT be Vic3)"
+# The global credential.https://github.com.helper is the gh helper, which serves gh's ACTIVE account.
+# So the default account's github.com pushes auth as whoever gh has active -> that must be the default,
+# never the Vic3 account. Vic3 itself is isolated by its repo-local 'manager' helper + $pinUser@ URL,
+# so it is unaffected by gh's active account.
 $gh = Get-GhAuth
-if (-not $gh.Available) { Say 'INFO' "gh unavailable / not logged in (fine - Vic3 auths via GCM+PAT, not gh)" }
+if (-not $gh.Available) { Say 'WARN' "gh unavailable / not logged in - the default account authenticates github.com via the gh helper, so gh should be logged in as it" }
 else {
   Say 'INFO' "gh accounts: $($gh.Accounts -join ', '); active: $($gh.Active)"
-  Say 'INFO' "Vic3 now authenticates via GCM + PAT (URL-pinned) -> gh's active account does NOT affect git push."
+  $expActive = if ($cfg -and $cfg.gh.active_account) { $cfg.gh.active_account } else { $defActive }
+  if ($expActive -and $gh.Active -eq $vic3Name) { Say 'FAIL' "gh active account is the Vic3 account ($vic3Name) -> the default account's pushes would auth as Vic3"; AddFix "gh auth switch --user $expActive" }
+  elseif ($expActive -and $gh.Active -eq $expActive) { Say 'PASS' "gh active = default ($($gh.Active)) -> resolves the default account's github.com auth; Vic3 is isolated by URL pin" }
+  elseif ($expActive) { Say 'WARN' "gh active = '$($gh.Active)' (expected default '$expActive')" }
+  else { Say 'INFO' "no expected gh.active_account in gitidentity.json (cannot assert active account)" }
 }
 
 Section "8. Write-auth test (push --dry-run; the REAL test - ls-remote is anonymous on a public repo)"
