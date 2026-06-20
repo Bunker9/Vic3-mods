@@ -1,0 +1,343 @@
+{
+  "mod": "Top40EcoBoostMod",
+  "checked_at": "2026-06-18T13:36:42",
+  "metadata": {
+    "ok": true,
+    "msg": "name=Top40EcoBoostMod ver=1.13.*"
+  },
+  "files": [
+    {
+      "path": ".metadata/metadata.json",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "no BOM (correct for json)"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root '.metadata'"
+        }
+      }
+    },
+    {
+      "path": "common/decisions/eco_picker_decisions.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 14  } 14"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "4 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/buildings/zz_eco_flavour.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 1872  } 1872"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "1812 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/buildings/zz_eco_starters.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 2141  } 2141"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "1864 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/buildings/zz_eco_starters_eastafrica.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 11  } 11"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "8 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/on_actions/eco_oilrubber_on_actions.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 16  } 16"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/on_actions/eco_on_actions.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 16  } 16"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "6 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_effects/eco_effects.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 121  } 121"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "14 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_effects/eco_setup_generated.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 603  } 603"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_triggers/eco_target_triggers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 1  } 1"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/static_modifiers/eco_modifiers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 7  } 7"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "14 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "events/eco_events.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'events'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 167  } 167"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "4 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "events/eco_oilrubber_events.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'events'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 22  } 22"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "8 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "events/eco_picker_events.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'events'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 19  } 19"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "localization/english/eco_l_english.yml",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'localization'"
+        }
+      }
+    },
+    {
+      "path": "localization/english/eco_picker_l_english.yml",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'localization'"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checks": 17,
+    "passed": 17,
+    "failed": 0
+  }
+}

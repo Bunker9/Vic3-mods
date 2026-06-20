@@ -1,11 +1,6 @@
 @echo off
-REM Double-click to re-run the test framework (regenerates the HTML report from the current
-REM mod files + bdd.md answers + game logs). Then press F5 in your browser to see the update.
-REM Pass a mod name to limit to one mod, e.g.:  validate.bat Top40EcoBoostMod
+REM Legacy double-click entry. The v1 harness moved to v1\ on 2026-06-18; this thin
+REM forwarder preserves the old root entry point. Passes through any mod-name argument.
+REM (For the active v2 report run:  python v2\run_v2.py )
 cd /d "%~dp0"
-python testkit\run_test.py %*
-echo.
-echo ============================================================
-echo Done. Now press F5 in your browser to refresh the report.
-echo ============================================================
-pause
+call v1\validate.bat %*

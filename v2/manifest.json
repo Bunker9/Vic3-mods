@@ -1,0 +1,481 @@
+{
+  "_generated": "by tools/gen_manifest_from_xlsx.py from testbook_status.xlsx \u2014 DO NOT hand-edit",
+  "version": 3,
+  "tabs": [
+    {
+      "id": "static",
+      "label": "Static Checks"
+    },
+    {
+      "id": "log",
+      "label": "Log"
+    },
+    {
+      "id": "census",
+      "label": "Census / State"
+    },
+    {
+      "id": "modifier",
+      "label": "Modifiers"
+    },
+    {
+      "id": "timeline",
+      "label": "Timeline"
+    },
+    {
+      "id": "diplo",
+      "label": "Diplomacy"
+    },
+    {
+      "id": "config",
+      "label": "Config"
+    },
+    {
+      "id": "bdd",
+      "label": "BDD"
+    }
+  ],
+  "static_rules": [
+    {
+      "id": "GEN-ENCODING",
+      "name": "Static checks"
+    },
+    {
+      "id": "GEN-BRACES",
+      "name": "Static checks"
+    },
+    {
+      "id": "GEN-QUOTES",
+      "name": "Static checks"
+    },
+    {
+      "id": "GEN-LOC",
+      "name": "Static checks"
+    }
+  ],
+  "mods": {
+    "versiontestMod": {
+      "label": "versiontest",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "VT-LOAD",
+          "name": "Load-confirm popup",
+          "tabs": [
+            "log",
+            "bdd"
+          ],
+          "markers": "debug_log=versiontest_log (\"VTEST_BUILD <stamp>\"); loc versiontest.1.d",
+          "status": "WIP",
+          "impl": false
+        },
+        {
+          "id": "VT-FRESH",
+          "name": "Build-stamp freshness (latest > last)",
+          "tabs": [
+            "log"
+          ],
+          "markers": "VTEST_BUILD <yyyy-MM-dd HH:mm:ss> (loc versiontest.1.d + versiontest_log)",
+          "status": "OPEN",
+          "impl": false
+        }
+      ]
+    },
+    "Top40EcoBoostMod": {
+      "label": "EcoBoost",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "ECO-CHAMP",
+          "name": "Champ seeding",
+          "tabs": [
+            "census"
+          ],
+          "markers": "$B$ header + eco_hit_champ + debug_log_scopes (state)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-SUPPORT",
+          "name": "Support seeding",
+          "tabs": [
+            "census"
+          ],
+          "markers": "$B$ + eco_hit_support + scope",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-FLAVOUR",
+          "name": "Flavour seeding",
+          "tabs": [
+            "census",
+            "timeline"
+          ],
+          "markers": "$B$ + eco_hit_flavour + eco_have_flavour + scope",
+          "status": "WIP",
+          "impl": false
+        },
+        {
+          "id": "ECO-GENFLAV",
+          "name": "Generic anti-death-spiral flavour",
+          "tabs": [
+            "census"
+          ],
+          "markers": "$B$ + eco_hit_flavour",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-CHAMPMOD",
+          "name": "Champ throughput+wage modifier",
+          "tabs": [
+            "modifier",
+            "static"
+          ],
+          "markers": "(no log token) modifier name",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-SOLMOD",
+          "name": "Global SoL/edu modifier",
+          "tabs": [
+            "modifier"
+          ],
+          "markers": "(modifier)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-YEARLY",
+          "name": "Yearly pulse spread",
+          "tabs": [
+            "timeline"
+          ],
+          "markers": "eco_hit_champ/support per build; 'ECONOSLOT'",
+          "status": "OPEN",
+          "impl": true
+        },
+        {
+          "id": "ECO-OILRUBBER",
+          "name": "Oil/rubber tech-triggered seed",
+          "tabs": [
+            "timeline",
+            "log"
+          ],
+          "markers": "(verify token) ECOOR / $B$",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-TRACKB",
+          "name": "Track-B starters (wood/iron)",
+          "tabs": [
+            "census"
+          ],
+          "markers": "(history - no runtime token)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-EASTAFR",
+          "name": "East Africa override",
+          "tabs": [
+            "census"
+          ],
+          "markers": "(history)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "ECO-NOTIFY",
+          "name": "Player notification",
+          "tabs": [
+            "bdd"
+          ],
+          "markers": "(visible event)",
+          "status": "OPEN",
+          "impl": false
+        }
+      ]
+    },
+    "MyDiploPlayMod": {
+      "label": "MyDiploPlay",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "MDP-WARS",
+          "name": "Day-1 curated wars",
+          "tabs": [
+            "diplo",
+            "timeline"
+          ],
+          "markers": "(history - no runtime token)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-TRUCES",
+          "name": "All-expander truces",
+          "tabs": [
+            "diplo"
+          ],
+          "markers": "(history)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-BLOB",
+          "name": "Runtime blob chain",
+          "tabs": [
+            "timeline"
+          ],
+          "markers": "mdp_try_next_war TARGET CHOSEN/WAR DECLARED + scope; MDP_CLAIM/MDP_HOMELAND markers",
+          "status": "OPEN",
+          "impl": true
+        },
+        {
+          "id": "MDP-NEPTIB",
+          "name": "NEP->TIB opium event",
+          "tabs": [
+            "timeline",
+            "log"
+          ],
+          "markers": "mdp.2 FIRED / WAR DECLARED vs TIB",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-ANNEX",
+          "name": "Subject annexation",
+          "tabs": [
+            "timeline"
+          ],
+          "markers": "mdp.3 SUBJECT CHOSEN / ANNEXATION PLAY DECLARED",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-DAISIA",
+          "name": "DAI/SIA non-interference + 1837 revert",
+          "tabs": [
+            "timeline",
+            "diplo"
+          ],
+          "markers": "mdp.4 reverting DAI<->SIA non-interference (1837)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-INFAMY",
+          "name": "Infamy-decay modifiers",
+          "tabs": [
+            "modifier"
+          ],
+          "markers": "(modifier) + debug mdp_infamy_armed_row",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-CLAIMS",
+          "name": "Claims + homeland",
+          "tabs": [
+            "census"
+          ],
+          "markers": "(history)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "MDP-SEEDPOP",
+          "name": "Seed pops",
+          "tabs": [
+            "census"
+          ],
+          "markers": "(history)",
+          "status": "CANCELLED",
+          "impl": false
+        }
+      ]
+    },
+    "ExpFightMod": {
+      "label": "ExpFight",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "EXF-BOOST",
+          "name": "War-footing combat boost",
+          "tabs": [
+            "modifier"
+          ],
+          "markers": "(modifier) + expfight on_actions debug",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "EXF-BUMP",
+          "name": "War-footing IG/morale bump",
+          "tabs": [
+            "modifier"
+          ],
+          "markers": "(modifier)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "EXF-LONGWAR",
+          "name": "Long-war 120mo set",
+          "tabs": [
+            "config"
+          ],
+          "markers": "(trigger list)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "EXF-ARGBARR",
+          "name": "Starting barracks (ARG)",
+          "tabs": [
+            "census"
+          ],
+          "markers": "(history - no runtime token)",
+          "status": "OPEN",
+          "impl": false
+        }
+      ]
+    },
+    "ExpMktAccessMod": {
+      "label": "ExpMkt",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "EXM-LAW",
+          "name": "Interventionism switch",
+          "tabs": [
+            "log",
+            "bdd"
+          ],
+          "markers": "debug expmkt_start_row",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "EXM-CAPTC",
+          "name": "Capital trade center",
+          "tabs": [
+            "census"
+          ],
+          "markers": "debug expmkt_start_row",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "EXM-COAST",
+          "name": "Coastal infra seed",
+          "tabs": [
+            "timeline",
+            "census"
+          ],
+          "markers": "debug expmkt_coastal_seed_row + scope",
+          "status": "WIP",
+          "impl": false
+        },
+        {
+          "id": "EXM-PULSE",
+          "name": "4-year coastal pulse",
+          "tabs": [
+            "timeline"
+          ],
+          "markers": "debug expmkt_yearly_pulse_row",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "EXM-INDMOD",
+          "name": "Industrialist boost modifier",
+          "tabs": [
+            "modifier"
+          ],
+          "markers": "(modifier)",
+          "status": "OPEN",
+          "impl": false
+        }
+      ]
+    },
+    "InfraTaxMod": {
+      "label": "InfraTax",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "INF-STATE",
+          "name": "State infra/tax/bureau traits",
+          "tabs": [
+            "modifier"
+          ],
+          "markers": "(history/static - no token)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "INF-SEED",
+          "name": "Infra building seeding (PLANNED)",
+          "tabs": [
+            "census"
+          ],
+          "markers": "(TBD)",
+          "status": "OPEN",
+          "impl": false
+        }
+      ]
+    },
+    "BetterPopPromoMod": {
+      "label": "BetterPopPromo",
+      "modwide": [
+        "static",
+        "log"
+      ],
+      "features": [
+        {
+          "id": "BPP-GATES",
+          "name": "Tiered promotion gates",
+          "tabs": [
+            "config"
+          ],
+          "markers": "(verify bpp tokens)",
+          "status": "OPEN",
+          "impl": false
+        },
+        {
+          "id": "BPP-CYCLE",
+          "name": "Yearly check + toast + conversion",
+          "tabs": [
+            "timeline",
+            "bdd"
+          ],
+          "markers": "(verify bpp debug)",
+          "status": "OPEN",
+          "impl": false
+        }
+      ]
+    }
+  }
+}

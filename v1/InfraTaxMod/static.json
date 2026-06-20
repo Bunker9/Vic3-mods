@@ -1,0 +1,395 @@
+{
+  "mod": "InfraTaxMod",
+  "checked_at": "2026-06-18T13:36:42",
+  "metadata": {
+    "ok": true,
+    "msg": "name=InfraTaxMod ver=1.13.*"
+  },
+  "files": [
+    {
+      "path": ".metadata/metadata.json",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "no BOM (correct for json)"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root '.metadata'"
+        }
+      }
+    },
+    {
+      "path": "common/state_traits/infratax_traits.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 2  } 2"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "localization/english/infratax_l_english.yml",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'localization'"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/00_west_europe.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 374  } 374"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "4998 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/01_south_europe.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 303  } 303"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2358 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/03_north_africa.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 182  } 182"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "6836 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/04_subsaharan_africa.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 376  } 376"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "9012 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/05_north_america.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 431  } 431"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "24382 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/06_central_america.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 86  } 86"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "772 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/07_south_america.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 329  } 329"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "9164 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/08_middle_east.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 206  } 206"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "3972 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/09_central_asia.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 129  } 129"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2790 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/10_india.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 201  } 201"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "3016 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/11_east_asia.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 326  } 326"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "8334 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/12_indonesia.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 175  } 175"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2090 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/13_australasia.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 63  } 63"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "4180 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/14_siberia.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 79  } 79"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "16280 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "map_data/state_regions/15_russia.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'map_data'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 340  } 340"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "13698 quotes (even)"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checks": 19,
+    "passed": 19,
+    "failed": 0
+  }
+}

@@ -1,0 +1,22 @@
+# MyDiploPlayMod — test properties.
+# No placement census (this mod runs wars/claims/pops, it doesn't log build markers).
+# The generic scripts auto-attribute log errors via the mod's own filenames; add extra
+# identifiers / benign substrings below.
+
+[errors]
+# Runtime tokens that may appear in error.log but aren't filenames (the day-1 history is in
+# zz_mdp_*.txt, auto-derived; these catch the runtime blob-chain + annexation effects).
+extra_signatures = ["mdp_try_next_war", "mdp_valid_generic_target", "mdp_expander", "mdp_oma_target_filter"]
+# Load-time validator can't see runtime-saved scopes (culture/religion saved in mdp_try_next_war);
+# the effect works at runtime (MDP_CLAIM/POP/HOMELAND markers fire), so these are benign.
+benign = ["Failed to read key reference: scope:mdp_atk_culture", "Failed to read key reference: scope:mdp_atk_religion"]
+
+# NOTE (2026-06-15): the previous [[tables]] pointed at deleted pre-blob-chain files
+# (00_punjab_sindh_war.txt / 00_sindh_pan_claim.txt) with DIPLO_WAR/DIPLO_TERR markers the
+# current mod never emits — so the diplo table always showed "no rows". Removed.
+# The runtime chain (mdp.1 / mdp_try_next_war / mdp.3) logs PLAIN strings + `debug_log_scopes`
+# (data-function interpolation in debug_log spams loc errors, so names live only in the scope
+# dump). A rich attacker->target table therefore needs a dedicated scope-dump parser keyed on
+# "Root: Country <Name> (" (as parse_census already does) paired with the saved mdp_tgt/
+# mdp_subject scope lines. TODO: finalise that parser against a real debug.log sample, then
+# re-add a [[tables]] (or custom [diplo_log] section) here.

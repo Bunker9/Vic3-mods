@@ -1,0 +1,67 @@
+{
+  "mod": "Top40EcoBoostMod",
+  "checked_at": "2026-06-18T13:36:43",
+  "findings": [
+    {
+      "object": "eco_picker_log_plant",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - plantation chosen'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 13
+    },
+    {
+      "object": "eco_picker_log_log",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - timber chosen'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 14
+    },
+    {
+      "object": "eco_picker_log_ranch",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - ranch chosen'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 15
+    },
+    {
+      "object": "eco_picker_log_mine",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - mining chosen'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 16
+    },
+    {
+      "object": "eco_picker_log_fish",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - fishing chosen'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 17
+    },
+    {
+      "object": "eco_picker_log_ind",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - industry chosen'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 18
+    },
+    {
+      "object": "eco_picker_log_taken",
+      "rule": "LOC-DASH",
+      "severity": "yellow",
+      "msg": "dash in player-facing loc string: 'eco - picker - decision taken'",
+      "file": "localization/english/eco_picker_l_english.yml",
+      "line": 19
+    }
+  ],
+  "summary": {
+    "yellow": 7,
+    "red": 0,
+    "flagged_objects": 7
+  }
+}

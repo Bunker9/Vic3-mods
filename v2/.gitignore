@@ -1,0 +1,11 @@
+# Generated build artifacts — never commit these
+MAIN-*-testing.html
+main.html
+# per-view (_modwide) + per-feature (<Mod>/<ID>) generated outputs, any depth
+**/component.html
+**/component_*.html
+**/data_*.json
+**/aggr_*.json
+**/summary.json
+__pycache__/
+*.pyc

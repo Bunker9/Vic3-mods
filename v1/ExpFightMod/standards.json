@@ -1,0 +1,10 @@
+{
+  "mod": "ExpFightMod",
+  "checked_at": "2026-06-18T13:36:42",
+  "findings": [],
+  "summary": {
+    "yellow": 0,
+    "red": 0,
+    "flagged_objects": 0
+  }
+}

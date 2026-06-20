@@ -1,5 +1,20 @@
-﻿__pycache__/
+__pycache__/
 *.pyc
 
 log.json
+conflicts.json
+timeline.json
+# v1 ARCHIVE (retired; v2 is the only engine going forward) — ALL generated reports gitignored,
+# including the per-mod v1/<Mod>/report.html that used to be committed.
+/v1/*.html
+/v1/**/*.html
 /*.html
+
+# editor
+.idea/
+*.iml
+out/
+.vscode/
+
+# personal analysis/review sheets — never committed anywhere
+*.xlsx

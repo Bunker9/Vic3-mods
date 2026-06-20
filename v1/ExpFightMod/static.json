@@ -1,0 +1,131 @@
+{
+  "mod": "ExpFightMod",
+  "checked_at": "2026-06-18T13:36:42",
+  "metadata": {
+    "ok": true,
+    "msg": "name=ExpFightMod ver=1.13.*"
+  },
+  "files": [
+    {
+      "path": ".metadata/metadata.json",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "no BOM (correct for json)"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root '.metadata'"
+        }
+      }
+    },
+    {
+      "path": "common/history/buildings/zz_expfight_arg_barracks.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 23  } 23"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "16 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/on_actions/expfight_on_actions.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 16  } 16"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "4 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_triggers/expfight_triggers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 6  } 6"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/static_modifiers/expfight_modifiers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 2  } 2"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "10 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "localization/english/expfight_l_english.yml",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'localization'"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checks": 7,
+    "passed": 7,
+    "failed": 0
+  }
+}

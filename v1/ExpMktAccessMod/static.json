@@ -1,0 +1,153 @@
+{
+  "mod": "ExpMktAccessMod",
+  "checked_at": "2026-06-18T13:36:42",
+  "metadata": {
+    "ok": true,
+    "msg": "name=ExpMktAccessMod ver=1.13.*"
+  },
+  "files": [
+    {
+      "path": ".metadata/metadata.json",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "no BOM (correct for json)"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root '.metadata'"
+        }
+      }
+    },
+    {
+      "path": "common/on_actions/expmkt_on_actions.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 9  } 9"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_effects/expmkt_effects.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 26  } 26"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_triggers/expmkt_triggers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 2  } 2"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/static_modifiers/expmkt_modifiers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 1  } 1"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "2 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "events/expmkt_events.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'events'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 10  } 10"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "localization/english/expmkt_l_english.yml",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'localization'"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checks": 8,
+    "passed": 8,
+    "failed": 0
+  }
+}

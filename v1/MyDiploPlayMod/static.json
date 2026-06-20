@@ -1,0 +1,263 @@
+{
+  "mod": "MyDiploPlayMod",
+  "checked_at": "2026-06-18T13:36:42",
+  "metadata": {
+    "ok": true,
+    "msg": "name=MyDiploPlayMod ver=1.13.*"
+  },
+  "files": [
+    {
+      "path": ".metadata/metadata.json",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "no BOM (correct for json)"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root '.metadata'"
+        }
+      }
+    },
+    {
+      "path": "common/history/countries/zz_mdp_countries.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 5  } 5"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/diplomacy/zz_mdp_abu_oman.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 5  } 5"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/diplomacy/zz_mdp_truces.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 51  } 51"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/diplomatic_plays/zz_mdp_wars.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 60  } 60"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/pops/zz_mdp_seed_pops.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 277  } 277"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/history/states/zz_mdp_claims.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 96  } 96"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "0 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/on_actions/mdp_on_actions.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 29  } 29"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "12 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_effects/mdp_effects.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 37  } 37"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "22 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "common/scripted_triggers/mdp_triggers.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'common'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 31  } 31"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "4 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "events/mdp_events.txt",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'events'"
+        },
+        "braces": {
+          "ok": true,
+          "msg": "{ 46  } 46"
+        },
+        "quotes": {
+          "ok": true,
+          "msg": "28 quotes (even)"
+        }
+      }
+    },
+    {
+      "path": "localization/english/mdp_l_english.yml",
+      "ok": true,
+      "checks": {
+        "encoding": {
+          "ok": true,
+          "msg": "UTF-8 BOM"
+        },
+        "folder": {
+          "ok": true,
+          "msg": "root 'localization'"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "checks": 13,
+    "passed": 13,
+    "failed": 0
+  }
+}

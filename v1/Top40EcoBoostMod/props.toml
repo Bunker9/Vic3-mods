@@ -1,0 +1,17 @@
+# Top40EcoBoostMod — test properties.
+# The generic test scripts read THIS file (by mod name); no mod-specific strings live in
+# the scripts themselves.
+#
+# NOTE (2026-06-15): the old [census] (Have/Need/Cap) is RETIRED — it predated the yearly-pulse
+# redesign and rendered garbage ("FORTESTLOG - ECO_PLACED flavour" as a building name). Eco builds
+# are now shown in the TIMELINE tab as a clean, paginated, country-filterable table
+# (Year | Country | Building | Type | Levels), parsed from the uniform markers:
+#   debug_log = $B$              (building header, localized name)
+#   debug_log = eco_hit_<type>   (-> "ECO_PLACED champ|support|flavour")
+#   debug_log_scopes = yes       (Root = country, This = state)
+
+[errors]
+# Identifiers beyond the mod's filenames that should attribute a log error to this mod.
+extra_signatures = ["eco.2", "eco.5", "eco_startup", "eco_pulse", "eco_set_target_flags"]
+# Mod-specific substrings to treat as benign (non-blocking) in error.log.
+benign = []
