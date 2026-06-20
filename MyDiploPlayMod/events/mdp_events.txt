@@ -9,13 +9,13 @@ mdp.1 = {
     hidden = yes
 
     immediate = {
-        debug_log = "mdp.1 FIRED"
-        debug_log_scopes = yes   # logs the firing country (Root) + infamy via scope dump
+        #debug_log = "mdp.1 FIRED"
+        #debug_log_scopes = yes   # logs the firing country (Root) + infamy via scope dump
 
         save_scope_as = mdp_attacker   # MUST be saved here before mdp_try_next_war runs
 
         mdp_try_next_war = yes
-        debug_log = "mdp.1 done for this pulse"
+        #debug_log = "mdp.1 done for this pulse"
     }
 }
 
@@ -46,7 +46,7 @@ mdp.2 = {
     }
 
     immediate = {
-        debug_log = "mdp.2 NEP→TIB event FIRED"
+        #debug_log = "mdp.2 NEP→TIB event FIRED"
 
         save_scope_as = mdp_attacker
 
@@ -59,7 +59,7 @@ mdp.2 = {
         if = {
             limit = { exists = scope:mdp_tgt }
 
-            debug_log = "mdp.2 granting claims+homeland on TIB states"
+            #debug_log = "mdp.2 granting claims+homeland on TIB states"
 
             # Claim + homeland on every Tibet state. add_claim/add_homeland are STATE_REGION
             # effects — calling them in every_scope_state (state scope) errors "Inconsistent
@@ -77,7 +77,7 @@ mdp.2 = {
             #  claim + homeland alone make the conquest low-infamy/incorporable)
 
             # Declare dp_return_state war
-            debug_log = "mdp.2 declaring dp_return_state vs TIB"
+            #debug_log = "mdp.2 declaring dp_return_state vs TIB"
 
             scope:mdp_attacker = {
                 create_diplomatic_play = {
@@ -128,12 +128,12 @@ mdp.2 = {
                 }
             }
 
-            debug_log = "mdp.2 WAR DECLARED vs TIB"
+            #debug_log = "mdp.2 WAR DECLARED vs TIB"
         }
 
         if = {
             limit = { NOT = { exists = scope:mdp_tgt } }
-            debug_log = "mdp.2 TIB does not exist — aborting"
+            #debug_log = "mdp.2 TIB does not exist — aborting"
         }
     }
 }
@@ -160,8 +160,8 @@ mdp.3 = {
     }
 
     immediate = {
-        debug_log = "mdp.3 FIRED — annexing biggest subject"
-        debug_log_scopes = yes
+        #debug_log = "mdp.3 FIRED — annexing biggest subject"
+        #debug_log_scopes = yes
 
         save_scope_as = mdp_annexer
 
@@ -176,14 +176,14 @@ mdp.3 = {
 
             save_scope_as = mdp_subject
 
-            debug_log = "mdp.3 SUBJECT CHOSEN"
-            debug_log_scopes = yes
+            #debug_log = "mdp.3 SUBJECT CHOSEN"
+            #debug_log_scopes = yes
         }
 
         if = {
             limit = { exists = scope:mdp_subject }
 
-            debug_log = "mdp.3 declaring dp_annex_subject"
+            #debug_log = "mdp.3 declaring dp_annex_subject"
 
             scope:mdp_annexer = {
                 create_diplomatic_play = {
@@ -192,12 +192,12 @@ mdp.3 = {
                 }
             }
 
-            debug_log = "mdp.3 ANNEXATION PLAY DECLARED"
+            #debug_log = "mdp.3 ANNEXATION PLAY DECLARED"
         }
 
         if = {
             limit = { NOT = { exists = scope:mdp_subject } }
-            debug_log = "mdp.3 NO VALID SUBJECT — aborting"
+            #debug_log = "mdp.3 NO VALID SUBJECT — aborting"
         }
     }
 }

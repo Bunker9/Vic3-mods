@@ -12,7 +12,7 @@ expmkt.1 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = expmkt_yearly_pulse_row   # so the testbook triage shows the yearly tick fired
+		#debug_log = expmkt_yearly_pulse_row   # so the testbook triage shows the yearly tick fired
 		expmkt_seed_coastal = yes
 
 		if = { limit = { NOT = { has_variable = expmkt_year } } set_variable = { name = expmkt_year value = 0 } }

@@ -15,7 +15,7 @@ expmkt_startup = {
 			limit = { expmkt_is_expand_country = yes }
 			expmkt_start_setup = yes
 			trigger_event = { id = expmkt.1 months = 17 }  # first coastal pulse 1837.6.1, then yearly x4
-			debug_log = expmkt_start_row                  # commented out for master
+			#debug_log = expmkt_start_row                  # commented out for master
 		}
 	}
 }

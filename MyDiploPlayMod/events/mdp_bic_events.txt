@@ -31,8 +31,8 @@ mdpbic.1 = {
     }
 
     immediate = {
-        debug_log = "mdp - bic_annex - fired"
-        debug_log_scopes = yes   # dumps Root (BIC) for the testbook log
+        #debug_log = "mdp - bic_annex - fired"
+        #debug_log_scopes = yes   # dumps Root (BIC) for the testbook log
 
         save_scope_as = mdp_annexer
 
@@ -51,14 +51,14 @@ mdpbic.1 = {
 
             save_scope_as = mdp_subject
 
-            debug_log = "mdp - bic_annex - subject chosen"
-            debug_log_scopes = yes
+            #debug_log = "mdp - bic_annex - subject chosen"
+            #debug_log_scopes = yes
         }
 
         if = {
             limit = { exists = scope:mdp_subject }
 
-            debug_log = "mdp - bic_annex - declaring dp_annex_subject"
+            #debug_log = "mdp - bic_annex - declaring dp_annex_subject"
 
             scope:mdp_annexer = {
                 create_diplomatic_play = {
@@ -67,12 +67,12 @@ mdpbic.1 = {
                 }
             }
 
-            debug_log = "mdp - bic_annex - play declared"
+            #debug_log = "mdp - bic_annex - play declared"
         }
 
         if = {
             limit = { NOT = { exists = scope:mdp_subject } }
-            debug_log = "mdp - bic_annex - no valid Indian subject, aborting"
+            #debug_log = "mdp - bic_annex - no valid Indian subject, aborting"
         }
     }
 }

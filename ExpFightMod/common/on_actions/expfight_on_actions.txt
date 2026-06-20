@@ -30,7 +30,7 @@ expfight_startup = {
 			else = {
 				add_modifier = { name = expfight_warbump months = 60 }    # 5 yr (PER/MEX/BRZ)
 			}
-			debug_log = expfight_armed_row   # commented out for master; -> "ExpFight setup" table
+			#debug_log = expfight_armed_row   # commented out for master; -> "ExpFight setup" table
 		}
 	}
 }

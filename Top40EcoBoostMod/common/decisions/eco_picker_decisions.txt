@@ -31,7 +31,7 @@ eco_picker_choose_modifier = {
 	}
 
 	when_taken = {
-		debug_log = eco_picker_log_taken
+		#debug_log = eco_picker_log_taken
 		trigger_event = { id = eco_picker.1 }
 	}
 

@@ -70,7 +70,7 @@ expmkt_seed_coastal = {
 			}
 			create_building = { building = building_logging_camp level = 1 reserves = 1 }
 		}
-		debug_log = "expmkt_coastal_seed_row"
-		debug_log_scopes = yes
+		#debug_log = "expmkt_coastal_seed_row"
+		#debug_log_scopes = yes
 	}
 }

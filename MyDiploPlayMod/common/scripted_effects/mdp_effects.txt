@@ -10,8 +10,8 @@
 # =============================================================================
 mdp_try_next_war = {
 
-    debug_log = "mdp_try_next_war START"
-    debug_log_scopes = yes   # logs attacker identity + the scope stack
+    #debug_log = "mdp_try_next_war START"
+    #debug_log_scopes = yes   # logs attacker identity + the scope stack
 
     # -------------------------------------------------------------------------
     # Step 1: pick the BIGGEST BEATABLE valid neighbour — army < 80% of ours, then the highest
@@ -40,8 +40,8 @@ mdp_try_next_war = {
 
         save_scope_as = mdp_tgt
 
-        debug_log = "mdp_try_next_war TARGET CHOSEN"
-        debug_log_scopes = yes
+        #debug_log = "mdp_try_next_war TARGET CHOSEN"
+        #debug_log_scopes = yes
     }
 
     # -------------------------------------------------------------------------
@@ -49,13 +49,13 @@ mdp_try_next_war = {
     # -------------------------------------------------------------------------
     if = {
         limit = { NOT = { exists = scope:mdp_tgt } }
-        debug_log = "mdp_try_next_war NO VALID TARGET — aborting"
+        #debug_log = "mdp_try_next_war NO VALID TARGET — aborting"
     }
 
     if = {
         limit = { exists = scope:mdp_tgt }
 
-        debug_log = "mdp_try_next_war granting claims+homeland on target states"
+        #debug_log = "mdp_try_next_war granting claims+homeland on target states"
 
         # ---------------------------------------------------------------------
         # Step 2b: SAVE the attacker's culture scope (for add_homeland). Multi-hop
@@ -85,10 +85,10 @@ mdp_try_next_war = {
                         add_homeland = scope:mdp_atk_culture
                     }
                 }
-                debug_log = "MDP_CLAIM"            # testbook timeline marker (1 per claimed state)
+                #debug_log = "MDP_CLAIM"            # testbook timeline marker (1 per claimed state)
                 if = {
                     limit = { exists = scope:mdp_atk_culture }
-                    debug_log = "MDP_HOMELAND"     # testbook timeline marker (1 per homeland change)
+                    #debug_log = "MDP_HOMELAND"     # testbook timeline marker (1 per homeland change)
                 }
             }
         }
@@ -100,7 +100,7 @@ mdp_try_next_war = {
         # the lowest-infamy way to annex whole states. The play's primary war goal
         # is generated from the play-level target_state (= the capital).
         # ---------------------------------------------------------------------
-        debug_log = "mdp_try_next_war declaring dp_return_state"
+        #debug_log = "mdp_try_next_war declaring dp_return_state"
 
         scope:mdp_attacker = {
             create_diplomatic_play = {
@@ -157,9 +157,9 @@ mdp_try_next_war = {
             }
         }
 
-        debug_log = "mdp_try_next_war WAR DECLARED"
-        debug_log_scopes = yes
+        #debug_log = "mdp_try_next_war WAR DECLARED"
+        #debug_log_scopes = yes
     }
 
-    debug_log = "mdp_try_next_war END"
+    #debug_log = "mdp_try_next_war END"
 }

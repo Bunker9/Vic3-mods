@@ -68,7 +68,7 @@ mdp_monthly = {
                 # Soft-remove: BIC/PRU/EGY/SAR/SWE sealed from day-1 wars; no monthly expansion
                 NOT = { OR = { this = c:BIC this = c:PRU this = c:EGY this = c:SAR this = c:SWE } }
             }
-            debug_log = "on_monthly_pulse expander qualifies — triggering mdp.1"
+            #debug_log = "on_monthly_pulse expander qualifies — triggering mdp.1"
             trigger_event = { id = mdp.1 }
         }
 
@@ -86,7 +86,7 @@ mdp_monthly = {
                     has_modifier = opium_ban_authority   # opium-ban penalty (no `opium_ban_law` law_type exists)
                 }
             }
-            debug_log = "on_monthly_pulse NEP qualifies — triggering mdp.2 (Tibet event)"
+            #debug_log = "on_monthly_pulse NEP qualifies — triggering mdp.2 (Tibet event)"
             trigger_event = { id = mdp.2 }
         }
 
@@ -100,7 +100,7 @@ mdp_monthly = {
                 is_active_in_diplomatic_play = no
                 any_subject_or_below = { count >= 1 }
             }
-            debug_log = "on_monthly_pulse country qualifies — triggering mdp.3 (annexation event)"
+            #debug_log = "on_monthly_pulse country qualifies — triggering mdp.3 (annexation event)"
             trigger_event = { id = mdp.3 }
         }
 
@@ -114,7 +114,7 @@ mdp_monthly = {
                 is_active_in_diplomatic_play = no
                 any_subject_or_below = { count >= 1 }
             }
-            debug_log = "mdp - bic_annex - dispatch (BIC qualifies)"
+            #debug_log = "mdp - bic_annex - dispatch (BIC qualifies)"
             trigger_event = { id = mdpbic.1 }
         }
     }

@@ -31,7 +31,7 @@ eco_picker.1 = {
 	option = {
 		name = eco_picker.1.a
 		add_modifier = { name = eco_champ_tp_plant months = 240 }
-		debug_log = eco_picker_log_plant
+		#debug_log = eco_picker_log_plant
 		ai_chance = {
 			base = 1
 			modifier = { trigger = { country_has_building_group_levels = { type = bg_plantations value >= 25 } } add = 10 }
@@ -43,7 +43,7 @@ eco_picker.1 = {
 	option = {
 		name = eco_picker.1.b
 		add_modifier = { name = eco_champ_tp_log months = 240 }
-		debug_log = eco_picker_log_log
+		#debug_log = eco_picker_log_log
 		ai_chance = {
 			base = 1
 			modifier = { trigger = { country_has_building_group_levels = { type = bg_logging value >= 10 } } add = 10 }
@@ -55,7 +55,7 @@ eco_picker.1 = {
 	option = {
 		name = eco_picker.1.c
 		add_modifier = { name = eco_champ_tp_ranch months = 240 }
-		debug_log = eco_picker_log_ranch
+		#debug_log = eco_picker_log_ranch
 		ai_chance = {
 			base = 1
 			modifier = { trigger = { country_has_building_group_levels = { type = bg_agriculture value >= 30 } } add = 10 }
@@ -69,7 +69,7 @@ eco_picker.1 = {
 	option = {
 		name = eco_picker.1.d
 		add_modifier = { name = eco_champ_tp_mine months = 240 }
-		debug_log = eco_picker_log_mine
+		#debug_log = eco_picker_log_mine
 		ai_chance = {
 			base = 1
 			modifier = { trigger = { country_has_building_group_levels = { type = bg_mining value >= 10 } } add = 10 }
@@ -81,7 +81,7 @@ eco_picker.1 = {
 	option = {
 		name = eco_picker.1.e
 		add_modifier = { name = eco_champ_tp_fish months = 240 }
-		debug_log = eco_picker_log_fish
+		#debug_log = eco_picker_log_fish
 		ai_chance = {
 			base = 1
 			modifier = { trigger = { country_has_building_group_levels = { type = bg_fishing value >= 5 } } add = 10 }
@@ -93,7 +93,7 @@ eco_picker.1 = {
 	option = {
 		name = eco_picker.1.f
 		add_modifier = { name = eco_champ_tp_ind months = 240 }
-		debug_log = eco_picker_log_ind
+		#debug_log = eco_picker_log_ind
 		ai_chance = {
 			base = 1
 			modifier = { trigger = { country_has_building_group_levels = { type = bg_heavy_industry value >= 5 } } add = 10 }

@@ -22,8 +22,8 @@ ecoor.1 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ecoor.1 oil grant FIRED"
-		debug_log_scopes = yes
+		#debug_log = "ecoor.1 oil grant FIRED"
+		#debug_log_scopes = yes
 		if = {
 			limit = { NOT = { has_technology_researched = pumpjacks } }
 			add_technology_researched = pumpjacks
@@ -44,8 +44,8 @@ ecoor.3 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ecoor.3 oil build FIRED"
-		debug_log_scopes = yes
+		#debug_log = "ecoor.3 oil build FIRED"
+		#debug_log_scopes = yes
 		eco_seed_spread_n = { B = building_oil_rig N = 5 }   # max 5, 1 per best constructible state
 	}
 }
@@ -56,8 +56,8 @@ ecoor.2 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ecoor.2 rubber grant FIRED"
-		debug_log_scopes = yes
+		#debug_log = "ecoor.2 rubber grant FIRED"
+		#debug_log_scopes = yes
 		if = {
 			limit = { NOT = { has_technology_researched = rubber_mastication } }
 			add_technology_researched = rubber_mastication
@@ -76,8 +76,8 @@ ecoor.4 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ecoor.4 rubber build FIRED"
-		debug_log_scopes = yes
+		#debug_log = "ecoor.4 rubber build FIRED"
+		#debug_log_scopes = yes
 		eco_seed_spread_n = { B = building_rubber_plantation N = 5 }
 	}
 }
