@@ -1,0 +1,30 @@
+PvtCapCtrlMod — log triage dump
+================================
+Hand-crafted triage commands used while developing / verifying this mod, kept so they can
+become a proper unit-test dashboard later (per DEV-RULES "Log-triage dumps"). APPEND, don't rewrite.
+Each entry: FEATURE, then the command(s), then what a PASS looks like.
+
+LOGDIR = "<Vic3 user dir>/logs"   (this machine: OneDrive\Dokumen\Paradox Interactive\Victoria 3\logs)
+
+--------------------------------------------------------------------------------
+FEATURE: industry-cap  (var:zw_mfg_cap — population-based manufacturing level cap)
+
+# 1. Is the mod even loaded this run? (first thing to rule out)
+grep -rniE "PvtCapCtrl|zw_cpc|pcc -" "$LOGDIR"/*.log
+#   PASS: non-empty. EMPTY while eco/mdp markers exist => mod NOT in the active playset (enable it in the launcher).
+
+# 2. Did the cap diagnostic fire + are caps set/readable the way the gates read them? (needs -debug_mode)
+grep -nE "pcc - diag" "$LOGDIR/debug.log"
+#   PASS: "MIDLANDS cap value = 107 CORRECT" AND "JIANGXI cap value = 1008 CORRECT"
+#   "MISSING on region" / "on INSTANCE" => var landed on the wrong scope (fix the state_region read)
+#   nothing (but other mods' markers present) => on_action didn't fire / file not loaded
+
+# 3. Any errors attributable to the mod?
+grep -niE "zw_cpc|zw_mfg|zw_sv|zw_trigger|state_named_script|default_auto_expand|market_access" "$LOGDIR/error.log"
+#   PASS: empty (no mod-caused errors).
+
+# 4. error.log top signatures (separate mod errors from vanilla / other-mod noise)
+grep -oE '\[[a-z_0-9]+\.cpp:[0-9]+\]' "$LOGDIR/error.log" | sort | uniq -c | sort -rn | head -15
+
+# 5. GROUND TRUTH (in-game, not a log): a low-pop state should stop stacking manufacturing near its cap
+#    (e.g. Midlands total light+heavy ~= 107 effective at 1836, not 163+). The clearest pass signal.
