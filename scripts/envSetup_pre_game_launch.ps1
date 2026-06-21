@@ -21,15 +21,24 @@
 
 .PARAMETER Archive
   Archive old logs to logs\_archive\<timestamp>\ before clearing (optional safeguard).
+.PARAMETER Worktree
+  Which worktree's versiontestMod to bump (default 'mod1' = master baseline). For a mod under active
+  development in its own worktree, pass that worktree (e.g. 'mod1-inov') so the build stamp bumped is
+  the one whose junction the launcher actually loads.
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File scripts\envSetup_pre_game_launch.ps1
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File scripts\envSetup_pre_game_launch.ps1 -Archive
+.EXAMPLE
+  powershell -ExecutionPolicy Bypass -File scripts\envSetup_pre_game_launch.ps1 -Worktree mod1-inov
 #>
 [CmdletBinding()]
 param(
-    [switch]$Archive
+    [switch]$Archive,
+    # Which worktree's versiontestMod build stamp to bump. Default 'mod1' (the master baseline).
+    # Pass an active-dev worktree (e.g. 'mod1-inov') so the day-1 popup reflects THAT build under test.
+    [string]$Worktree = 'mod1'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -52,7 +61,8 @@ Write-Host "  logs directory: $LogsDir" -ForegroundColor Gray
 # repo root = two levels up from this script: hk-config\<scripts|tools> -> hk-config -> victoria-3-mod
 # (works whether this script lives in scripts\ or tools\; both are one level under hk-config).
 $repoRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$versiontestLoc = Join-Path $repoRoot 'mod1\versiontestMod\localization\english\versiontest_l_english.yml'
+$versiontestLoc = Join-Path $repoRoot "$Worktree\versiontestMod\localization\english\versiontest_l_english.yml"
+Write-Host "  versiontest worktree: $Worktree" -ForegroundColor Gray
 if (Test-Path $versiontestLoc) {
     $content = Get-Content $versiontestLoc -Raw
     if ($content -match 'VTEST_BUILD \d{8,}') {
