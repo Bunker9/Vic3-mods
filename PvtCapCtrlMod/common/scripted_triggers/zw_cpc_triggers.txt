@@ -1,0 +1,27 @@
+﻿# PvtCapCtrlMod — cap triggers. HAND-WRITTEN.
+
+# zw_trigger_under_industry_cap (STATE scope): TRUE while the state may still gain manufacturing
+# levels, i.e. its total built industry is below its EFFECTIVE cap (fixed base x decade multiplier).
+# Base cap (var:zw_mfg_cap) is set once at game start on the state-region by zw_cpc_state_caps.txt.
+# FAIL-OPEN: a region with no cap set (uninhabited / not in the pop data) is left unconstrained.
+zw_trigger_under_industry_cap = {
+	# Anti-pileup brake: require FULL market access. An over-built state strains its infrastructure,
+	# which drops market access below 1 and halts further industry there (dynamic self-limit).
+	# Side effect: also blocks manufacturing in any poorly-connected state; change to >= 0.95 if too strict.
+	market_access >= 1
+	# Population cap (fail-open if a region has no cap set: uninhabited / not in the pop data).
+	trigger_if = {
+		limit = { state_region = { has_variable = zw_mfg_cap } }
+		zw_sv_state_mfg_levels < zw_sv_state_mfg_cap_effective
+	}
+}
+
+# Tooltip-wrapped form for can_build_* (player-facing). custom_tooltip shows our own text instead
+# of the engine auto-localizing the raw script value (which produced the
+# "state_named_script_value has no localization" message on the greyed expand button).
+zw_trigger_under_industry_cap_tt = {
+	custom_tooltip = {
+		text = zw_cpc_industry_cap_tt
+		zw_trigger_under_industry_cap = yes
+	}
+}

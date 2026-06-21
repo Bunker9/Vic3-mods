@@ -24,8 +24,24 @@ stdinnv_uni_built = {
 			is_building_type = building_university
 			level >= 10
 		}
-		is_country_type = recognized
-		is_subject = no
+		OR = {
+		    NOR = {
+		        this = c:BIC
+		        this = c:DEI
+		        this = c:CHI
+		    }
+            AND = {
+                OR = {
+                    this = c:BIC
+                    this = c:DEI
+                }
+                is_subject = no
+            }
+            AND = {
+                this = c:CHI
+                is_country_type = recognized
+            }
+		}
 	}
 
 	when_taken = {

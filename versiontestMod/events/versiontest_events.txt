@@ -1,0 +1,42 @@
+﻿namespace = versiontest
+
+# =============================================================================
+# versiontestMod — standalone load-confirmation popup.
+# Fires once on game start, to EVERY country, so whichever country you load
+# (or any AI) surfaces it. Pure diagnostic: no gameplay effect.
+#
+# The build stamp shown to the player is HARDCODED in the localization file
+# (versiontest_l_english.yml). Bump it each time you rebuild so the in-game
+# popup tells you exactly which state of your mods the running game loaded.
+# =============================================================================
+
+versiontest.1 = {
+	type = country_event
+
+	title = versiontest.1.t
+	desc = versiontest.1.d
+
+	# Background: generic, all-nations base-game video (the popup fires to EVERY country, so
+	# the image must not be region/culture-flavoured). "unspecific_world_fair" = a showcase of
+	# new things -> doubles as the version signature for this build. Base-game (no DLC), so it
+	# never falls back to the missing-texture placeholder for any player.
+	event_image = {
+		video = "unspecific_world_fair"
+	}
+	icon = "gfx/interface/icons/event_icons/waving_flag.dds"
+	on_created_soundeffect = "event:/SFX/UI/Alerts/event_appear"
+
+	duration = 3
+
+	option = {
+		name = versiontest.1.a
+		default_option = yes
+		# Log the mode to debug.log (player only -> one line, not one per AI country).
+		# Vic3 option effects go DIRECTLY in the option (no `effect = {}` wrapper).
+		# The logged string is kept in sync with the branch by tools\set-versiontest-mode.ps1.
+		if = {
+			limit = { is_player = yes }
+			debug_log = versiontest_log   # commented out for master: real users generate no logs
+		}
+	}
+}

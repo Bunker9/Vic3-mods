@@ -1,0 +1,19 @@
+﻿# PvtCapCtrlMod — overwrite the vanilla autonomous-expansion rule (00_scripted_triggers.txt).
+# REPLACE swaps the whole default_auto_expand_rule (called by every building group's
+# should_auto_expand). Applies to AI + human, domestic + foreign investment pools.
+# The first 3 lines keep the stricter base behaviour; the trigger_if adds the population cap
+# for MANUFACTURING ONLY (light/heavy/military industry + shipyards). Non-industry groups
+# (agriculture, mining, power, infrastructure) are unaffected and auto-expand as before.
+REPLACE:default_auto_expand_rule = {
+	occupancy >= 0.95
+	weekly_profit > {
+		value = 200
+		multiply = level
+	}
+	state.market_access >= 1
+
+	trigger_if = {
+		limit = { is_building_group = bg_manufacturing }
+		state = { zw_trigger_under_industry_cap = yes }
+	}
+}

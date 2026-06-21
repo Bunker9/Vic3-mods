@@ -1,0 +1,36 @@
+﻿# PvtCapCtrlMod — script values. HAND-WRITTEN.
+
+# zw_sv_state_mfg_levels: total built levels of all manufacturing (bg_manufacturing subtree =
+# light/heavy/military industry + shipyards) in the CURRENT STATE scope. Compared against the
+# state's effective cap below.
+zw_sv_state_mfg_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_group = bg_manufacturing }
+		add = this.level
+	}
+}
+
+# zw_sv_decade_cap_mult: soft decade growth so a START-pop cap doesn't choke late-game pop growth
+# and new industries (motors, electrics, synthetics, etc). +10% of the BASE cap per decade from
+# 1850. Computed at read time from game_date (no stored state, no pulse). TUNABLE: change the 0.1
+# step, or drop decades, to taste. (1850 ->1.0, 1900 ->1.5, 1930 ->1.8.)
+zw_sv_decade_cap_mult = {
+	value = 1
+	if = { limit = { game_date >= 1850.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1860.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1870.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1880.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1890.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1900.1.1 } add = 0.2 }   # late-game acceleration: +0.2/decade from 1900
+	if = { limit = { game_date >= 1910.1.1 } add = 0.2 }
+	if = { limit = { game_date >= 1920.1.1 } add = 0.2 }
+	if = { limit = { game_date >= 1930.1.1 } add = 0.2 }
+}
+
+# zw_sv_state_mfg_cap_effective: STATE scope. Fixed base cap (var:zw_mfg_cap, set on the
+# state-region at game start) scaled by the decade multiplier.
+zw_sv_state_mfg_cap_effective = {
+	value = state_region.var:zw_mfg_cap
+	multiply = zw_sv_decade_cap_mult
+}

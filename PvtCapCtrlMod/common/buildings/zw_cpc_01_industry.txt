@@ -1,0 +1,91 @@
+﻿# PvtCapCtrlMod — inject the state industry cap into every MANUFACTURING building.
+# can_build_government gates the treasury/AI construction queue; can_build_private gates the
+# private + foreign investment pool's NEW construction. Both (plus the auto-expand rule) are
+# refused once the state hits its fixed pop-based cap (see zw_cpc_triggers.txt / zw_cpc_state_caps.txt).
+# Scope of can_build_* is the STATE, so zw_trigger_under_industry_cap is called directly.
+# (Auto-EXPANSION of existing buildings is handled separately via default_auto_expand_rule.)
+
+INJECT_OR_CREATE:building_food_industry = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_textile_mill = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_furniture_manufactory = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_glassworks = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_tooling_workshop = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_paper_mill = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_chemical_plant = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_explosives_factory = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_synthetics_plant = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_steel_mill = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_motor_industry = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_shipyard = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_automotive_industry = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_electrics_industry = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_arms_industry = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_artillery_foundry = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
+
+INJECT_OR_CREATE:building_munition_plant = {
+	can_build_government = { zw_trigger_under_industry_cap_tt = yes }
+	can_build_private = { zw_trigger_under_industry_cap_tt = yes }
+}
