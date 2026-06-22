@@ -62,6 +62,18 @@ DIPLOMACY = {
 			months = 120
 		}
 	}
+	c:BIC ?= {
+		create_bidirectional_truce = {
+			country = c:ASM
+			months = 108
+		}
+	}
+	c:BIC ?= {
+		create_bidirectional_truce = {
+			country = c:MNP
+			months = 108
+		}
+	}
 	c:BRZ ?= {
 		create_bidirectional_truce = {
 			country = c:CLM
