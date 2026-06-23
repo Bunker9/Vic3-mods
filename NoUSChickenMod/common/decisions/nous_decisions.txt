@@ -1,12 +1,16 @@
 ﻿# =============================================================================
-# SteadyInnovMod — "graduate via universities" decision
+# NoUSChickenMod — USA wartime decisions (AI-driven, no pulse).
+# Decisions are evaluated for the AI automatically (ai_chance weight), so they
+# replace on_action pulses for one-shot/conditional behaviour. War-start effects
+# live in common/scripted_effects/nous_effects.txt (pattern copied from master
+# MyDiploPlayMod). Three decisions:
+#   nous_war_play                 — grant the War Bonds funding modifier while at war.
+#   nous_mexico_war_decision      — Task A: force the Mexico war if California is still Mexican by 1851.
+#   nous_restart_csa_war_decision — Task B: re-declare the Civil War whenever the CSA exists and is at peace.
 # -----------------------------------------------------------------------------
-# Shown to penalised nations (and any human player). Only TAKEABLE once the
-# nation has graduated out of penalty status: it must now be recognized and
-# non-subject AND have 10 universities (lvl>=10) in a single state. Firing it
-# triggers uni_event.1, which clears the lingering startup penalty and grants
-# the catch-up reward. (A nation that is STILL unrecognized/subject sees it but
-# cannot yet meet `possible` — that is intentional: graduate first.)
+# nous_war_play: grants modifier_nous_warbonds (debt wipe + war funding) the
+# first time the USA is at war with Mexico, and the first time it is in a civil
+# war with slavery banned. Once-only per scenario via nous_md_done / nous_cw_done.
 # =============================================================================
 nous_war_play = {
 	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
@@ -58,6 +62,64 @@ nous_war_play = {
 			}
 		}
 		add_modifier = { name = modifier_nous_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100 }
+}
+
+# =============================================================================
+# nous_mexico_war_decision (Task A) — fallback Manifest Destiny.
+# If by 1851 Mexico still holds California, the USA hard-declares a return_state
+# war to reclaim it (low infamy, backed by a fresh claim). AI always takes it.
+# =============================================================================
+nous_mexico_war_decision = {
+	is_shown = {
+		c:USA ?= this
+		exists = c:MEX
+	}
+
+	possible = {
+		game_date >= 1837.1.1
+		# Mexico still owns (part of) California.
+		NOT = { has_war_with = c:MEX }
+
+		c:MEX = {
+			any_scope_state = {
+				has_claim_by = c:USA
+			}
+		}
+	}
+
+	when_taken = {
+		# Clean one-line tooltip for the decision; the effect's own steps stay hidden.
+		custom_tooltip = {
+			text = nous_mexico_war_decision_effect_tt
+			nous_start_mexico_war_effect = yes
+		}
+	}
+
+	ai_chance = { value = 100 }
+}
+
+# =============================================================================
+# nous_restart_csa_war_decision (Task B) — "No rest till slavery is crushed."
+# Whenever the Confederacy still exists and the USA is at peace with it, the USA
+# re-declares the war to annex it back. No once-only flag: it re-fires after every
+# white peace until the CSA is gone. AI always takes it.
+# =============================================================================
+nous_restart_csa_war_decision = {
+	is_shown = {
+		c:USA ?= this
+		exists = c:CSA
+	}
+
+	possible = {
+		exists = c:CSA
+		NOT = { has_war_with = c:CSA }
+	}
+
+	when_taken = {
+		nous_restart_csa_war_effect = yes
 	}
 
 	ai_chance = { value = 100 }

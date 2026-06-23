@@ -1,0 +1,63 @@
+﻿# =============================================================================
+# NoUSChickenMod - runtime war-start effects (called from nous decisions). HAND-WRITTEN.
+# The war-declaration pattern is COPIED from master MyDiploPlayMod (verified + in-game tested):
+#   - day-1 form  -> MyDiploPlayMod\common\history\diplomatic_plays\zz_mdp_wars.txt
+#   - runtime loop -> MyDiploPlayMod\common\scripted_effects\mdp_effects.txt (mdp_try_next_war)
+# create_diplomatic_play { war = yes ... } forces an IMMEDIATE war; return_state is the
+# low-infamy war goal, backed by add_claim so the demanded states are claimed first.
+# Scope when each effect is called = c:USA (the decision is country-scoped).
+# =============================================================================
+
+# ---- Task A: hard-start USA vs Mexico to reclaim California -------------------
+# Safety net: if the AI has not taken California by 1851, force the war. Single
+# primary war goal = California (the rest of Mexico is handled by USA's own AI).
+nous_start_mexico_war_effect = {
+	# add_claim on a state_region scope (s:STATE_X) is the vanilla manifest_destiny idiom.
+	random_scope_state = {
+		limit = {
+			owner = c:MEX
+			has_claim_by = c:USA
+		}
+		save_scope_as = primary_target_state
+	}
+	c:USA = {
+		create_diplomatic_play = {
+			target_state = scope:primary_target_state
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:USA
+				type = return_state
+				target_state = scope:primary_target_state
+				primary_demand = yes
+			}
+		}
+	}
+	debug_log = "nous - mexico-war - USA hard-declared return_state on California vs MEX"
+}
+
+# ---- Task B: bare-bone USA vs CSA war ----------------------------------------
+# Simplified to a single decisive war goal on the CSA capital (Mexico-effect form:
+# inline add_war_goal inside create_diplomatic_play, no re-enter-play loop). The
+# decision re-fires while CSA still exists in any state, so one primary goal per
+# firing is enough to keep the pressure on. "No rest till slavery is crushed."
+nous_restart_csa_war_effect = {
+	# Claim the capital state first (add_claim is a state_region effect, so hop from
+	# the c:CSA.capital state scope into its state_region — the mdp scope idiom).
+	c:CSA.capital = { state_region = { add_claim = c:USA } }
+
+	c:USA = {
+		create_diplomatic_play = {
+			target_state = c:CSA.capital
+			war          = yes
+			type         = dp_return_state
+			add_war_goal = {
+				holder         = c:USA
+				type           = return_state
+				target_state   = c:CSA.capital
+				primary_demand = yes
+			}
+		}
+	}
+	debug_log = "nous - csa-war - USA hard-declared return_state vs CSA capital"
+}
