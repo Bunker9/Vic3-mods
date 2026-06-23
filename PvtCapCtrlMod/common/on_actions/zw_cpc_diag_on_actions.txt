@@ -24,6 +24,10 @@ zw_cpc_diag = {
 				if = {
 					limit = { state_region = { var:zw_mfg_cap = 107 } }
 					debug_log = "pcc - diag - MIDLANDS cap value = 107 CORRECT"
+					# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+					# Durable save-side proof the Midlands cap landed correct (=107), readable offline with
+					# no -debug_mode log run. Comment out at Ceremony 3 promote.
+					set_variable = { name = zw_fingerprint_midlands_cap_107 value = yes }
 				}
 			}
 			else = { debug_log = "pcc - diag - MIDLANDS cap var MISSING on region" }
@@ -42,6 +46,9 @@ zw_cpc_diag = {
 			if = {
 				limit = { state_region = { var:zw_mfg_cap = 1008 } }
 				debug_log = "pcc - diag - JIANGXI cap value = 1008 CORRECT"
+				# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+				# Durable save-side proof Jiangxi got the highest cap (=1008). Comment out at promote.
+				set_variable = { name = zw_fingerprint_jiangxi_cap_1008 value = yes }
 			}
 			else = { debug_log = "pcc - diag - JIANGXI cap value WRONG or unreadable on region" }
 		}

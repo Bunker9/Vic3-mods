@@ -20,27 +20,4 @@
 INJECT_OR_CREATE:building_railway = {
 	can_build_government = { zw_trigger_railway_buildable_tt = yes }
 	can_build_private = { zw_trigger_railway_buildable_tt = yes }
-
-	should_auto_expand = {
-		# --- vanilla conditions (kept verbatim so railways still only expand when genuinely needed) ---
-		occupancy >= 0.8
-		OR = {
-			cash_reserves_ratio > 0.5
-			is_subsidized = yes
-		}
-		OR = {
-			state = {
-				sg:transportation = {
-					state_goods_pricier > 0.5
-				}
-			}
-			state = {
-				infrastructure_delta <= -20
-			}
-		}
-		NOT = { is_under_construction = yes }
-
-		# --- PvtCapCtrl strain gate: stop auto-expanding once infrastructure has ample spare capacity ---
-		state = { zw_trigger_railway_buildable = yes }
-	}
 }

@@ -21,6 +21,7 @@ nous_war_play = {
 			NOT = { has_variable = nous_md_done }
 			NOT = { has_variable = nous_cw_done }
 		}
+		is_active_in_diplomatic_play = no
 	}
 
 	possible = {
@@ -35,9 +36,16 @@ nous_war_play = {
 				NOT = { has_variable = nous_cw_done }
 			}
 		}
+		is_active_in_diplomatic_play = no
 	}
 
 	when_taken = {
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+		# Persists on USA, proving the War Bonds decision was TAKEN even after modifier_nous_warbonds
+		# (24mo) expires (the late-game save we parsed had no active modifier - this would still prove
+		# the grant). Scenario is told apart by the existing nous_md_done / nous_cw_done vars.
+		# Comment out at Ceremony 3 promote.
+		set_variable = { name = nous_fingerprint_warbonds_taken value = yes }
 		# Wipe the war debt (only if actually in debt: gold_reserves negative -> add its negation -> 0).
 		if = {
 			limit = { gold_reserves < 0 }
@@ -64,7 +72,7 @@ nous_war_play = {
 		add_modifier = { name = modifier_nous_warbonds months = 24 }
 	}
 
-	ai_chance = { value = 100 }
+	ai_chance = { value = 100000 }
 }
 
 # =============================================================================
@@ -79,9 +87,11 @@ nous_mexico_war_decision = {
 	}
 
 	possible = {
-		game_date >= 1837.1.1
-		# Mexico still owns (part of) California.
-		NOT = { has_war_with = c:MEX }
+
+		c:USA = {
+			is_active_in_diplomatic_play = no
+			NOT = { has_war_with = c:MEX }
+		}
 
 		c:MEX = {
 			any_scope_state = {
@@ -98,7 +108,7 @@ nous_mexico_war_decision = {
 		}
 	}
 
-	ai_chance = { value = 100 }
+	ai_chance = { value = 100000 }
 }
 
 # =============================================================================
@@ -115,12 +125,16 @@ nous_restart_csa_war_decision = {
 
 	possible = {
 		exists = c:CSA
-		NOT = { has_war_with = c:CSA }
+
+		c:USA = {
+			is_active_in_diplomatic_play = no
+			NOT = { has_war_with = c:CSA }
+		}
 	}
 
 	when_taken = {
 		nous_restart_csa_war_effect = yes
 	}
 
-	ai_chance = { value = 100 }
+	ai_chance = { value = 100000 }
 }

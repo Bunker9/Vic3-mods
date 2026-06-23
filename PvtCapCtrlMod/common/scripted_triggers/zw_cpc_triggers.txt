@@ -75,8 +75,9 @@ zw_trigger_under_power_cap_tt = {
 # infra reads work in every inhabited state.
 zw_trigger_railway_buildable = {
 	OR = {
-		zw_sv_state_railway_levels < 3
-		infrastructure_usage >= zw_sv_state_infra_strain_threshold
+		zw_sv_state_railway_levels <= 2
+		#infrastructure_usage >= zw_sv_state_infra_strain_threshold
+		infrastructure_delta <= 5
 	}
 }
 zw_trigger_railway_buildable_tt = {

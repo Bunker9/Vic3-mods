@@ -15,8 +15,8 @@ stdinnv_uni_built = {
 		OR = {
 		    has_modifier = stdinnv_unrecognized
 		    has_modifier = stdinnv_subject
-			is_player = yes
 		}
+		NOT = { has_modifier = stdinnv_reward }
 	}
 
 	possible = {
@@ -24,6 +24,7 @@ stdinnv_uni_built = {
 			is_building_type = building_university
 			level >= 10
 		}
+		NOT = { has_modifier = stdinnv_reward }
 		OR = {
 		    NOR = {
 		        this = c:BIC
@@ -48,5 +49,5 @@ stdinnv_uni_built = {
 		trigger_event = { id = uni_event.1 }
 	}
 
-	ai_chance = { value = 100 }
+	ai_chance = { value = 1000000 }
 }

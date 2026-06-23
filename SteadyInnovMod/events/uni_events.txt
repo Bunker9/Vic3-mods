@@ -20,6 +20,10 @@ uni_event.1 = {
 	option = {
 		name = uni_event.1.a
 		add_modifier = { name = stdinnv_reward months = 240 }
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+		# Proves graduation fired here; PERSISTS after the 240mo reward modifier expires (a late save
+		# still shows who graduated). Comment out at Ceremony 3 promote.
+		set_variable = { name = stdinnv_fingerprint_graduated value = yes }
 		# Convert the aristocracy + the strongest IG's leader. Slavery-era nations
 		# get abolitionists instead of market liberals.
 		if = {

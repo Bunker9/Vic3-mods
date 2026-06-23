@@ -9,31 +9,29 @@
 # =============================================================================
 
 # ---- Task A: hard-start USA vs Mexico to reclaim California -------------------
-# Safety net: if the AI has not taken California by 1851, force the war. Single
-# primary war goal = California (the rest of Mexico is handled by USA's own AI).
+# Single primary war goal = California (the rest of Mexico is handled by USA's own AI).
+# Explicit target uses the PROVEN master idiom `target_state = s:STATE_X.region_state:TAG`
+# (MyDiploPlayMod\common\history\diplomatic_plays\zz_mdp_wars.txt). The old version used
+# `random_scope_state` in USA scope with `owner = c:MEX` — it iterates USA's OWN states, never
+# matched a Mexican state, so the target was never saved and the play never declared.
+# NO debug_log here: this effect is ALSO tooltip-evaluated by the player decision's when_taken
+# (which would spam the marker every UI tick — that was the 925x "loop"). The real marker lives
+# in the on_action that actually executes it (common/on_actions/nous_on_actions.txt).
 nous_start_mexico_war_effect = {
-	# add_claim on a state_region scope (s:STATE_X) is the vanilla manifest_destiny idiom.
-	random_scope_state = {
-		limit = {
-			owner = c:MEX
-			has_claim_by = c:USA
-		}
-		save_scope_as = primary_target_state
-	}
 	c:USA = {
 		create_diplomatic_play = {
-			target_state = scope:primary_target_state
-			war = yes
-			type = dp_return_state
-			add_war_goal = {
-				holder = c:USA
-				type = return_state
-				target_state = scope:primary_target_state
-				primary_demand = yes
-			}
+			target_country = c:MEX
+			war = no
+			type = dp_humiliation
 		}
+		add_modifier = { name = modifier_nous_warbonds months = 12 }
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+		# Vic3 has NO set_*_flag effect; a set_variable persists into the save as flag=<name> on USA,
+		# proving the Mexico-war effect (called by nous_mexico_war_decision) actually executed. Unlike
+		# debug_log, set_variable does NOT run during tooltip preview, so it sidesteps the 925x tooltip
+		# spam this effect caused. Comment out at Ceremony 3 promote.
+		set_variable = { name = nous_fingerprint_mexico_war_started value = yes }
 	}
-	debug_log = "nous - mexico-war - USA hard-declared return_state on California vs MEX"
 }
 
 # ---- Task B: bare-bone USA vs CSA war ----------------------------------------
@@ -58,6 +56,10 @@ nous_restart_csa_war_effect = {
 				primary_demand = yes
 			}
 		}
+		add_modifier = { name = modifier_nous_warbonds months = 12 }
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging"). set_variable persists as
+		# flag=nous_fingerprint_csa_war_started on USA -> proves the CSA-war effect fired at least
+		# once, offline, for the whole playthrough. Comment out at Ceremony 3 promote.
+		set_variable = { name = nous_fingerprint_csa_war_started value = yes }
 	}
-	debug_log = "nous - csa-war - USA hard-declared return_state vs CSA capital"
 }
