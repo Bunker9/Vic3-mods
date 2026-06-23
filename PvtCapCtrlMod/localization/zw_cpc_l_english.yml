@@ -1,2 +1,7 @@
 ﻿l_english:
  zw_cpc_industry_cap_tt:0 "Further industry here is blocked: the state needs full market access and must stay under its population based industry cap. Build in a more populous, better connected state."
+ zw_cpc_light_cap_tt:0 "Further light industry here is blocked: the state needs full market access and must stay under its population based light industry cap. Build in a more populous, better connected state."
+ zw_cpc_heavy_cap_tt:0 "Further heavy industry here is blocked: the state needs full market access and must stay under its heavy industry cap, which grows strongly in the later decades. Build in a more populous, better connected state."
+ zw_cpc_arts_cap_tt:0 "No more art academies can be built here: this state has reached its arts limit, a tenth of its light industry cap. Build art academies in larger states."
+ zw_cpc_railway_tt:0 "No more railways are needed here: this state already has ample spare infrastructure. Railways may be built again once infrastructure is strained, and a few baseline levels are always allowed."
+ zw_cpc_power_cap_tt:0 "No more power plants are needed here: this state already has enough power for the industry it supports. The power limit grows automatically as the state builds more factories."

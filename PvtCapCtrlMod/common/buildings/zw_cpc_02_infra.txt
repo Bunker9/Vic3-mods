@@ -1,0 +1,46 @@
+﻿# PvtCapCtrlMod — railway anti subsidy-bankruptcy gate. HAND-WRITTEN.
+# Railways (building_railway, bg_private_infrastructure, subsidized) get overbuilt late game; the
+# subsidy bill then bankrupts economies, and the investment pool / company auto-expansion stacks them
+# absurdly in small states (observed: Bermuda 61 railway levels).
+#
+# IMPORTANT (verified vs game files 2026-06-23): building_railway is one of only TWO building types
+# (the other is building_government_administration) that define their OWN should_auto_expand block,
+# which OVERRIDES the building-group rule. So this mod's REPLACE:default_auto_expand_rule does NOT
+# reach railways, and can_build_* only gates NEW construction, never auto-expansion of existing levels.
+# That is why gating can_build_* alone left railways auto-expanding without limit. We must therefore
+# override the railway's own should_auto_expand too.
+#
+# can_build_* : allow NEW railway construction only while infrastructure is strained (usage >= 80% of
+#   total) OR the state still has fewer than 3 railway levels (always keep a baseline).
+# should_auto_expand : reproduce vanilla's conditions (only expand a railway that is busy + funded +
+#   actually needed) AND additionally require the same strain-or-baseline gate, so auto-expansion
+#   stops once the state has ample spare infrastructure. INJECT_OR_CREATE replaces the same-named
+#   vanilla key, so the whole block below becomes the railway's should_auto_expand.
+# Ports are intentionally NOT gated (never overbuilt; provide infrastructure, not productive output).
+INJECT_OR_CREATE:building_railway = {
+	can_build_government = { zw_trigger_railway_buildable_tt = yes }
+	can_build_private = { zw_trigger_railway_buildable_tt = yes }
+
+	should_auto_expand = {
+		# --- vanilla conditions (kept verbatim so railways still only expand when genuinely needed) ---
+		occupancy >= 0.8
+		OR = {
+			cash_reserves_ratio > 0.5
+			is_subsidized = yes
+		}
+		OR = {
+			state = {
+				sg:transportation = {
+					state_goods_pricier > 0.5
+				}
+			}
+			state = {
+				infrastructure_delta <= -20
+			}
+		}
+		NOT = { is_under_construction = yes }
+
+		# --- PvtCapCtrl strain gate: stop auto-expanding once infrastructure has ample spare capacity ---
+		state = { zw_trigger_railway_buildable = yes }
+	}
+}

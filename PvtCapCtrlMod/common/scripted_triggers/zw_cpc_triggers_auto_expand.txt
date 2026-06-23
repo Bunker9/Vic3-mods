@@ -1,10 +1,11 @@
 ﻿# PvtCapCtrlMod — overwrite the vanilla autonomous-expansion rule (00_scripted_triggers.txt).
 # REPLACE swaps the whole default_auto_expand_rule (called by every building group's
 # should_auto_expand). Applies to AI + human, domestic + foreign investment pools.
-# The first 3 lines keep the stricter base behaviour; the trigger_if adds the population cap
-# for MANUFACTURING ONLY (light/heavy/military industry + shipyards). Non-industry groups
-# (agriculture, mining, power, infrastructure) are unaffected and auto-expand as before.
+# The base lines keep the stricter behaviour; the trigger_if blocks add the SEPARATE light / heavy
+# population caps for MANUFACTURING, plus the industry-proportional cap for POWER. Other groups that
+# auto-expand (agriculture, ...) see only the base lines, no cap.
 REPLACE:default_auto_expand_rule = {
+	cash_reserves_ratio > 0.95
 	occupancy >= 0.95
 	weekly_profit > {
 		value = 200
@@ -12,8 +13,24 @@ REPLACE:default_auto_expand_rule = {
 	}
 	state.market_access >= 1
 
+	# LIGHT industry (incl. shipyards) respects the light cap.
 	trigger_if = {
-		limit = { is_building_group = bg_manufacturing }
-		state = { zw_trigger_under_industry_cap = yes }
+		limit = { is_building_group = bg_light_industry }
+		state = { zw_trigger_under_light_cap = yes }
+	}
+	# HEAVY + MILITARY industry respects the heavy cap.
+	trigger_if = {
+		limit = {
+			OR = {
+				is_building_group = bg_heavy_industry
+				is_building_group = bg_military_industry
+			}
+		}
+		state = { zw_trigger_under_heavy_cap = yes }
+	}
+	# POWER respects the power cap (scales with the industry present in the state).
+	trigger_if = {
+		limit = { is_building_group = bg_power }
+		state = { zw_trigger_under_power_cap = yes }
 	}
 }

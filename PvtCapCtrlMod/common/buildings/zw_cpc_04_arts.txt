@@ -1,0 +1,10 @@
+﻿# PvtCapCtrlMod — cap art academies per state. HAND-WRITTEN.
+# Art academies (building_art_academy, bg_arts) do NOT auto-expand (bg_arts has no
+# should_auto_expand), so the construction-queue gate (can_build_*) is the only lever needed.
+# Cap = 10% of the effective LIGHT industry cap, floor 3 (see zw_sv_state_arts_cap). Stops the
+# investment pool dumping unemployed pops into dozens of near-empty academies once the manufacturing
+# caps block factories (observed: Luzon 94 art academies at ~1% occupancy).
+INJECT_OR_CREATE:building_art_academy = {
+	can_build_government = { zw_trigger_under_arts_cap_tt = yes }
+	can_build_private = { zw_trigger_under_arts_cap_tt = yes }
+}

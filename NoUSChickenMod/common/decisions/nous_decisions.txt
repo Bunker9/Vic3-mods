@@ -1,0 +1,64 @@
+﻿# =============================================================================
+# SteadyInnovMod — "graduate via universities" decision
+# -----------------------------------------------------------------------------
+# Shown to penalised nations (and any human player). Only TAKEABLE once the
+# nation has graduated out of penalty status: it must now be recognized and
+# non-subject AND have 10 universities (lvl>=10) in a single state. Firing it
+# triggers uni_event.1, which clears the lingering startup penalty and grants
+# the catch-up reward. (A nation that is STILL unrecognized/subject sees it but
+# cannot yet meet `possible` — that is intentional: graduate first.)
+# =============================================================================
+nous_war_play = {
+	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	is_shown = {
+		c:USA ?= this
+		OR = {
+			NOT = { has_variable = nous_md_done }
+			NOT = { has_variable = nous_cw_done }
+		}
+	}
+
+	possible = {
+		OR = {
+			AND = {
+				has_war_with = c:MEX
+				NOT = { has_variable = nous_md_done }
+			}
+			AND = {
+				is_in_civil_war = yes
+				has_law = law_type:law_slavery_banned
+				NOT = { has_variable = nous_cw_done }
+			}
+		}
+	}
+
+	when_taken = {
+		# Wipe the war debt (only if actually in debt: gold_reserves negative -> add its negation -> 0).
+		if = {
+			limit = { gold_reserves < 0 }
+			add_treasury = { value = gold_reserves multiply = -2 } #Wipe debt AND give some money to spare
+		}
+		debug_log = "nous - warbonds - granted (debt wiped) for USA"
+		# Mark whichever scenario(s) are currently satisfied as done, so neither re-grants later.
+		if = {
+			limit = { has_war_with = c:MEX }
+			set_variable = {
+			    name = nous_md_done
+			    value = yes
+			}
+		}
+		if = {
+			limit = {
+				is_in_civil_war = yes
+			}
+			set_variable = {
+				name = nous_cw_done
+				value = yes
+			}
+		}
+		add_modifier = { name = modifier_nous_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100 }
+}
