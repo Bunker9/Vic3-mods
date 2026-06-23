@@ -54,6 +54,19 @@ v2/
                           component[_<tab>].html (generated, gitignored)
 ```
 
+## Standalone analysis tools (`tools/`)
+
+Two per-mod analysis jobs live under `tools/` (separate from the report build; each modular — thin
+`run_*` master + `lib_*`/`ext_*`/`aggr_*`/`anal_*` subs, `arg1 = MOD_NAME`):
+
+- **log-triage** — `tools/run_log_triage.py <MOD>`: joins a mod's filenames / keywords / debug-markers
+  against the game LOGS → `tools/<MOD>/diagnostics.md`. Run BEFORE any manual log deep-dive (DEV-RULES
+  "Triage framework FIRST"). README in `tools/`.
+- **save-game parser** — `tools/save-game-parser/run_save_parser.py <MOD>`: joins a mod's PERSISTING
+  variables/modifiers + its `<abbr>_fingerprint_*` markers against a decompressed `.v3` SAVE →
+  `tools/save-game-parser/<MOD>/matched_savefile_loglines.csv` + `diagnostics.md` (which object got which
+  value / when). README in `tools/save-game-parser/`; method in DEV-RULES "Save-fingerprint debugging".
+
 ## Canonical tabs
 
 `static` Static Checks · `log` Log · `census` Census / State · `modifier` Modifiers ·

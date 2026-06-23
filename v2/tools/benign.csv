@@ -1,0 +1,5 @@
+human_agreed,pattern,count
+Y,should be in utf8-bom encoding,0
+,"Error: ""<X>"" in file: ""<X>"" near line: #",1
+,Script location: <FILE>:#,2
+,PostValidate of effect '<X>' returned false at <FILE>:#,2

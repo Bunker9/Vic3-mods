@@ -9,3 +9,14 @@ main.html
 **/summary.json
 __pycache__/
 *.pyc
+
+# log-triage job (tools/) — per-mod run artifacts are regenerable from the game logs.
+# Keep the *.py scripts AND the SHARED tools/benign.csv (human-curated); ignore per-mod outputs.
+tools/*/list_*.csv
+tools/*/matched_loglines.csv
+tools/*/markers_status.csv
+tools/*/diagnostics.md
+
+# save-game-parser job — per-mod scan outputs are regenerable from a save. Keep scripts + README.
+tools/save-game-parser/*/matched_savefile_loglines.csv
+tools/save-game-parser/*/diagnostics.md
