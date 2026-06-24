@@ -1,0 +1,19 @@
+﻿COUNTRIES = {
+	# Austria: lower liberty desire across subjects for 50 years,
+	# helping Crown Lands drift into annexable range.
+	c:AUS ?= {
+		add_modifier = {
+			name = aus_crownland_management_50y
+			years = 50
+		}
+	}
+
+	# Hungary: directly lower its own liberty desire for 50 years,
+	# making annexation by Austria more likely once it is a Crown Land.
+	c:HUN ?= {
+		add_modifier = {
+			name = hungary_reconciled_to_vienna_50y
+			years = 50
+		}
+	}
+}

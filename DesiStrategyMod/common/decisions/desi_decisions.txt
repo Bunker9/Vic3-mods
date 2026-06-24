@@ -1,0 +1,102 @@
+﻿# =============================================================================
+# DesiStrategyMod - claims for independent Indian-culture nations to unify India.
+# HAND-WRITTEN. Tokens verified vs game files 2026-06-24:
+#   any_primary_culture (country->culture iterator) + has_discrimination_trait_group =
+#   heritage_group_south_asian  (all 9 South Asian heritages - gangetic/indusine/carnatic/
+#   kashmiri/himalayan/rajasthani/gujarati/assamese/deccani - share that group, so this is
+#   the clean "Indian culture" test); owns_entire_state_region = STATE_X (bare name);
+#   add_claim (state_region effect, value = claimant country); has_claim = s:STATE_X.
+# No clean state-OCCUPATION trigger exists in 1.13 (is_occupied / controlled_by absent), so
+# decision 2 gates on OWNERSHIP of Delhi (owns_entire_state_region) per the design fallback.
+# India region = strategic regions south_india + north_india + himalayas (30 states).
+# =============================================================================
+
+# ---- Decision 1: reclaim the Punjab + Delhi heartland ------------------------
+# Any independent (non-subject) Indian-culture nation (NEP, PAN, ...) presses claims on the
+# heartland the British hold: Punjab, Hill Punjab, Delhi.
+desi_claim_heartland = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		NOT = { has_claim = s:STATE_DELHI }
+	}
+
+	possible = {
+		is_subject = no
+		OR = {
+			NOT = { has_claim = s:STATE_DELHI }
+			NOT = { has_claim = s:STATE_PUNJAB }
+			NOT = { has_claim = s:STATE_HILL_PUNJAB }
+		}
+	}
+
+	when_taken = {
+		save_scope_as = desi_actor
+		s:STATE_DELHI       = { add_claim = scope:desi_actor }
+		s:STATE_PUNJAB      = { add_claim = scope:desi_actor }
+		s:STATE_HILL_PUNJAB = { add_claim = scope:desi_actor }
+		# FINGERPRINT (variable, per-country; DEV-RULES "Save-fingerprint debugging"). Comment out at promote.
+		set_variable = { name = desi_fingerprint_heartland_claimed value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision 2: unify India (claims on the whole India region) --------------
+# Once an independent Indian-culture nation OWNS Delhi (the imperial seat), it presses claims
+# on every state of the India region (south + north + himalayas, 30 states). Once-only.
+desi_unify_india = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		has_claim = s:STATE_DELHI
+		NOT = { has_variable = desi_unified_done }
+	}
+
+	possible = {
+		owns_entire_state_region = STATE_DELHI
+		NOT = { has_variable = desi_unified_done }
+	}
+
+	when_taken = {
+		save_scope_as = desi_actor
+		# region_south_india
+		s:STATE_CEYLON           = { add_claim = scope:desi_actor }
+		s:STATE_CIRCARS          = { add_claim = scope:desi_actor }
+		s:STATE_MYSORE           = { add_claim = scope:desi_actor }
+		s:STATE_TRAVANCORE       = { add_claim = scope:desi_actor }
+		s:STATE_MADRAS           = { add_claim = scope:desi_actor }
+		s:STATE_HYDERABAD        = { add_claim = scope:desi_actor }
+		s:STATE_KURNOOL          = { add_claim = scope:desi_actor }
+		s:STATE_BOMBAY           = { add_claim = scope:desi_actor }
+		# region_north_india
+		s:STATE_GUJARAT          = { add_claim = scope:desi_actor }
+		s:STATE_SINDH            = { add_claim = scope:desi_actor }
+		s:STATE_CENTRAL_PROVINCES = { add_claim = scope:desi_actor }
+		s:STATE_AWADH            = { add_claim = scope:desi_actor }
+		s:STATE_MALWA            = { add_claim = scope:desi_actor }
+		s:STATE_AGRA             = { add_claim = scope:desi_actor }
+		s:STATE_BUNDELKHAND      = { add_claim = scope:desi_actor }
+		s:STATE_BIHAR            = { add_claim = scope:desi_actor }
+		s:STATE_EAST_BENGAL      = { add_claim = scope:desi_actor }
+		s:STATE_WEST_BENGAL      = { add_claim = scope:desi_actor }
+		s:STATE_ASSAM            = { add_claim = scope:desi_actor }
+		s:STATE_ORISSA           = { add_claim = scope:desi_actor }
+		s:STATE_PUNJAB           = { add_claim = scope:desi_actor }
+		s:STATE_HILL_PUNJAB      = { add_claim = scope:desi_actor }
+		s:STATE_DELHI            = { add_claim = scope:desi_actor }
+		s:STATE_RAJPUTANA        = { add_claim = scope:desi_actor }
+		# region_himalayas
+		s:STATE_HIMALAYAS        = { add_claim = scope:desi_actor }
+		s:STATE_LHASA            = { add_claim = scope:desi_actor }
+		s:STATE_NGARI            = { add_claim = scope:desi_actor }
+		s:STATE_KASHMIR          = { add_claim = scope:desi_actor }
+		s:STATE_QINGHAI          = { add_claim = scope:desi_actor }
+		s:STATE_EASTERN_HIMALAYAS = { add_claim = scope:desi_actor }
+		# real once-only guard (load-bearing, NOT a fingerprint) + additive fingerprint
+		set_variable = { name = desi_unified_done value = yes }
+		set_variable = { name = desi_fingerprint_india_unified value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}

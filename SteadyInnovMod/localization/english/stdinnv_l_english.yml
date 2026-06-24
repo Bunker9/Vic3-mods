@@ -13,3 +13,7 @@
  uni_event.1.t:0 "Halls of Learning"
  uni_event.1.desc:0 "Our finest minds have gathered in lecture halls and laboratories across the realm. For the first time the old order of landed lords and entrenched interests yields to a confident new elite, eager to take our place among the nations of the world."
  uni_event.1.a:0 "Let the age of reason begin."
+ aus_crownland_management_50y:0 "Crownland Management"
+ aus_crownland_management_50y_desc:0 "The Austrian administration is exerting sustained effort to keep the Crown Lands cooperative, reducing separatist pressure and smoothing subject governance."
+ hungary_reconciled_to_vienna_50y:0 "Reconciled to Vienna"
+ hungary_reconciled_to_vienna_50y_desc:0 "A temporary settlement with Vienna has eased Hungarian resistance to imperial oversight, lowering liberty desire for a generation."

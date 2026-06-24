@@ -1,0 +1,30 @@
+﻿# =============================================================================
+# NoUSChickenMod - restrict CONQUER_STATE in the forced USA-vs-Mexico war. HAND-WRITTEN.
+#
+# WHY: with war=no the forced Manifest-Destiny play stays open and the USA AI piles on
+# expensive conquer_state goals (high infamy) instead of cheap return_state. The user wants
+# the USA-Mexico war to use ONLY return_state on USA's pre-existing claims.
+#
+# HOW: conquer_state's `possible` trigger decides whether the goal is listed/addable (verified
+# vs war_goal_types.md - scopes incl. creator_country / target_country). Vanilla's `possible`
+# is EMPTY (always addable). We INJECT a `possible` that forbids conquer_state ONLY when the
+# USA is the one grabbing a Mexican state, so every other war on the map is untouched.
+# (conquer_state's vanilla `valid` block ALSO fails on a state already `has_claim_by = root`,
+# so USA's claims - zz_nous_usa_claims.txt - independently push it onto return_state too.)
+#
+# INJECT_OR_CREATE = the same cross-Clausewitz merge directive PvtCapCtrlMod verified in-game
+# (injects/replaces just the `possible` key; the rest of conquer_state is untouched). If a run
+# shows USA still adding conquer_state vs MEX, the fallback is a full-file override of
+# common/war_goal_types/03_conquer_state.txt with the same gate. VERIFY in-game.
+# HUMAN(2026-06-24) -- SEEMS to work well. I didnt get any option to add any states apart from the return ones as USA
+# =============================================================================
+INJECT_OR_CREATE:conquer_state = {
+	possible = {
+		NOT = {
+			AND = {
+				creator_country = { this = c:USA }
+				target_country = { this = c:MEX }
+			}
+		}
+	}
+}
