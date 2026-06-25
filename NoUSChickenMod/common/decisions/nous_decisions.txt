@@ -18,41 +18,42 @@ nous_war_play = {
 	is_shown = {
 		c:USA ?= this
 		OR = {
-			NOT = { has_variable = nous_md_done }
-			NOT = { has_variable = nous_cw_done }
+			#mexico has ANY USA states
+			c:MEX = {
+				any_scope_state = {
+					has_claim_by = c:USA
+				}
+			}
+			#slavery exists
+			exists = c:CSA
 		}
-		is_active_in_diplomatic_play = no
 	}
 
 	possible = {
 		OR = {
 			AND = {
 				has_war_with = c:MEX
-				NOT = { has_variable = nous_md_done }
+				NOT = { has_modifier =  modifier_nous_warbonds }
 			}
 			AND = {
 				is_in_civil_war = yes
 				has_law = law_type:law_slavery_banned
-				NOT = { has_variable = nous_cw_done }
+				NOT = { has_modifier =  modifier_nous_warbonds }
 			}
 		}
-		is_active_in_diplomatic_play = no
 	}
 
 	when_taken = {
 		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
 		# Persists on USA, proving the War Bonds decision was TAKEN even after modifier_nous_warbonds
-		# (24mo) expires (the late-game save we parsed had no active modifier - this would still prove
-		# the grant). Scenario is told apart by the existing nous_md_done / nous_cw_done vars.
 		# Comment out at Ceremony 3 promote.
 		set_variable = { name = nous_fingerprint_warbonds_taken value = yes }
-		# Wipe the war debt (only if actually in debt: gold_reserves negative -> add its negation -> 0).
-		if = {
-			limit = { gold_reserves < 0 }
-			add_treasury = { value = gold_reserves multiply = -2 } #Wipe debt AND give some money to spare
+
+		clear_debt = yes  #Wipe debt
+		add_treasury = {
+			value = gold_reserves_limit
 		}
-		debug_log = "nous - warbonds - granted (debt wiped) for USA"
-		# Mark whichever scenario(s) are currently satisfied as done, so neither re-grants later.
+
 		if = {
 			limit = { has_war_with = c:MEX }
 			set_variable = {
@@ -61,9 +62,7 @@ nous_war_play = {
 			}
 		}
 		if = {
-			limit = {
-				is_in_civil_war = yes
-			}
+			limit = { is_in_civil_war = yes }
 			set_variable = {
 				name = nous_cw_done
 				value = yes
@@ -83,7 +82,11 @@ nous_war_play = {
 nous_mexico_war_decision = {
 	is_shown = {
 		c:USA ?= this
-		exists = c:MEX
+		c:MEX = {
+				any_scope_state = {
+					has_claim_by = c:USA
+				}
+		}
 	}
 
 	possible = {
@@ -133,6 +136,7 @@ nous_restart_csa_war_decision = {
 	}
 
 	when_taken = {
+		#TODO cust tooltip here too
 		nous_restart_csa_war_effect = yes
 	}
 

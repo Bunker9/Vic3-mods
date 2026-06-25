@@ -1,0 +1,10 @@
+﻿INJECT:ai_strategy_default = {
+
+	# Explicitly tell the game to overwrite the existing inner subsidies block
+	subsidies = {
+		building_power_plant = nice_to_have
+		building_railway = nice_to_have
+		building_port = must_have
+	}
+
+}
