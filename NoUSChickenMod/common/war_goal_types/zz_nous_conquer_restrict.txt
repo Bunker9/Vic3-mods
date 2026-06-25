@@ -20,16 +20,23 @@
 # =============================================================================
 INJECT_OR_CREATE:conquer_state = {
 	possible = {
+		# A-V2 FIX (verify ask, 2026-06-25): forbid conquer_state ONLY for USA-vs-MEX and ONLY before
+		# 1880 — from 1880 the USA may conquer Mexican states freely. ONE AND inside the NOT
+		# (creator + target + date together) = NOT(USA && MEX && pre-1880). The old attempt failed
+		# because it (a) used ROOT / scope:target_country instead of the working creator_country /
+		# target_country, and (b) put the date in a SEPARATE AND inside the same NOT, i.e.
+		# NOT(AND1 AND AND2) — wrong logic.
+		# WIP CAVEAT: game_date inside a war_goal_type `possible` is UNVERIFIED (no vanilla
+		# war_goal_types use it). If it no-ops in-game, fall back to a global var set at 1880 via an
+		# on_action and gate on NOT = { has_global_variable = nous_mex_conquer_open }.
+		# NOTE: USA day-1 claims (zz_nous_usa_claims.txt) also fail conquer_state's vanilla `valid`
+		# on claimed states regardless of date — full post-1880 conquest may need those claims expired.
 		NOT = {
 			AND = {
 				creator_country = { this = c:USA }
-				target_country = { this = c:MEX }
+				target_country  = { this = c:MEX }
+				game_date < 1880.1.1
 			}
-			# AND = {   #HUMAN todo--- why this doesnt work???
-			# 	game_date < 1880.1.1
-			# 	ROOT = { this = c:USA }
-			# 	scope:target_country = { this = c:MEX }
-			# }
 		}
 	}
 }

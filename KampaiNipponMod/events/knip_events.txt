@@ -1,0 +1,83 @@
+﻿namespace = knip
+
+# =============================================================================
+# KampaiNipponMod - marine-industry event chain.  *** WIP 2026-06-25 (skeletal) ***
+# Fired by decision knip_naval_buildup (knip_decisions.txt). Root = c:JAP.
+#   knip.1 - VISIBLE + RECURSIVE: builds +1 fishing/whaling in EVERY state that can still take one
+#            (can_construct gates to each state's REAL capacity, so tiny/unincorporated states stop at
+#            their cap - no flat-level over-build), then re-fires itself after a 1-day lag while any
+#            state can still build, walking each marine state up to its max. When none can, fires knip.2.
+#   knip.2 - hidden: grants the marine-hiring modifier so the maxed fisheries actually hire (fewer
+#            workers, each earning ~4x). Modifier defined in common/static_modifiers.
+# create_building current+1 idiom from Top40Eco eco_effects.txt (eco_pulse_spread STACK branch).
+# =============================================================================
+
+# ---- knip.1: marine-industry build-out (VISIBLE, RECURSIVE) ----
+knip.1 = {
+	type = country_event
+
+	title = knip.1.t
+	desc = knip.1.d
+	event_image = { video = "unspecific_world_fair" }
+
+	immediate = {
+		# +1 fishing wharf in every state that can STILL build one (target level = current + 1, so empty
+		# states get level 1 and existing ones grow by 1). can_construct false once a state hits its cap,
+		# so unincorporated / low-capacity states stop at their real max. Idiom = eco_pulse_spread STACK.
+		every_scope_state = {
+			limit = { can_construct_building = building_fishing_wharf }
+			set_variable = { name = knip_cur value = 0 }
+			if = { limit = { has_building = building_fishing_wharf } set_variable = { name = knip_cur value = b:building_fishing_wharf.level } }
+			change_variable = { name = knip_cur add = 1 }
+			create_building = { building = building_fishing_wharf level = var:knip_cur } # no reserves, let hiring grow slowly
+			remove_variable = knip_cur
+		}
+		# +1 whaling station in every state that can still build one.
+		every_scope_state = {
+			limit = { can_construct_building = building_whaling_station }
+			set_variable = { name = knip_cur value = 0 }
+			if = { limit = { has_building = building_whaling_station } set_variable = { name = knip_cur value = b:building_whaling_station.level } }
+			change_variable = { name = knip_cur add = 1 }
+			create_building = { building = building_whaling_station level = var:knip_cur } # no reserves, let hiring grow slowly
+			remove_variable = knip_cur
+		}
+
+		# FINGERPRINT (additive; save-parser). Comment out at promote.
+		set_variable = { name = knip_fingerprint_marine_built value = 1 }
+	}
+
+	option = {
+		name = knip.1.a
+		default_option = yes
+		# Keep walking the marine buildings up to max: while ANY state can still build one more, re-fire
+		# knip.1 after a 1-day lag (the lag lets capacity re-evaluate against the levels just placed).
+		if = {
+			limit = {
+				OR = {
+					any_scope_state = { can_construct_building = building_fishing_wharf }
+					any_scope_state = { can_construct_building = building_whaling_station }
+				}
+			}
+			trigger_event = { id = knip.1 weeks = 1 } ( hire and limits cal on weekly pulse to better sync states table update
+			# FINGERPRINT (additive; save-parser). Count of how many loops it took for all.
+			change_variable = { name = knip_fingerprint_marine_built add = 1 } # should be ~17 calls
+		}
+		# Otherwise the build-out is complete -> grant the marine-hiring modifier.
+		else = {
+			trigger_event = { id = knip.2 }
+		}
+	}
+}
+
+# ---- knip.2: marine-hiring modifier ----
+knip.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		add_modifier = { name = knip_marine_hiring months = 600}
+
+		# FINGERPRINT (additive). Comment out at promote.
+		set_variable = { name = knip_fingerprint_marine_modifier value = yes }
+	}
+}
