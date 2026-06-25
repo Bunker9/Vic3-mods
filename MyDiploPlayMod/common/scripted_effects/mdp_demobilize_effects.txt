@@ -1,0 +1,30 @@
+﻿# =============================================================================
+# MyDiploPlayMod - B5 "conquest complete" demobilization effect.  *** WIP 2026-06-25 (skeletal) ***
+# Called in country scope from mdp_demobilize_after_conquest (mdp_demobilize_decisions.txt) when BIC/DEI
+# have annexed all their subjects. Trade-off: wipe the radicalism conquest left behind, BUT pay for it by
+# disbanding the standing army and tearing down its logistics. Conscription centres are KEPT so the
+# nation still raises conscripts for defence (and must rebuild barracks for offence).
+# Tokens verified vs vanilla 2026-06-25: add_loyalists={ value=large_radicals } (warlord-China
+# end-of-period idiom), remove_building=building_X (state effect), building_barrack /
+# building_land_logistics_center / building_conscription_center (common/buildings/05_military.txt).
+# =============================================================================
+
+mdp_demobilize_effect = {
+	# 1) Wipe conquest-era radicalism: convert the bulk of radicals into loyalists.
+	add_loyalists = { value = large_radicals }
+
+	# 2) Disband the standing army + land logistics. Removing the barracks removes the battalions they
+	#    field (= the army is disbanded); land logistics centres go too. Conscription centres are left
+	#    intact (defensive conscripts). remove_building is a state effect; has_building gate => no-op on
+	#    states lacking the building.
+	every_scope_state = {
+		if = {
+			limit = { has_building = building_barrack }
+			remove_building = building_barrack
+		}
+		if = {
+			limit = { has_building = building_land_logistics_center }
+			remove_building = building_land_logistics_center
+		}
+	}
+}

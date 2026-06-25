@@ -1,0 +1,131 @@
+﻿# =============================================================================
+# MyDiploPlayMod - effects for the GENERIC expander DECISIONS.  *** WIP 2026-06-25 (skeletal) ***
+#
+# WHY: the monthly on_action pulse (mdp.1 -> mdp_try_next_war, and the subject-annex mdp.3) is shared
+# across PAN/SIA/DAI/OMA/BUR/DEI and runs every tick for every expander (perf) and is hard to debug.
+# These effects power equivalent DECISIONS (mdp_expander_decisions.txt) so the same behaviour runs only
+# when an expander acts, leaves a save fingerprint, and is generic/reusable (each decision gates on the
+# tag directly via OR = { c:TAG ?= this } in is_shown - NO on_action flag). DEI first; extend later.
+#
+# Tokens all reused from the tested pulse code (mdp_valid_generic_target in mdp_triggers.txt,
+# the return_state war-declaration in mdp_try_next_war, the dp_annex_subject pick in mdp.3).
+# NOTE: Vic3 has NO country_population trigger (see mdp_triggers.txt) - "pop < 1M minor" is approximated
+# by the rank + state-count proxy already inside mdp_valid_generic_target (which also EXCLUDES expanders,
+# so SIA/DAI are never targeted), tightened here with a small state-count cap.
+# =============================================================================
+
+# ---- B-D1: conquer a RANDOM nearby free minor (replaces DEI's share of the mdp.1 pulse) ----
+# scope: ROOT = the acting expander. Picks a random valid minor and declares a low-infamy
+# return_state war on all its states (war-declaration via mdp_decision_expander_declare_war).
+mdp_decision_conquer_minor = {
+	save_scope_as = mdp_attacker
+	random_country = {
+		limit = {
+			mdp_valid_generic_target = yes               # independent / no-truce / adjacent / not-GP / <=6 states / not-an-expander
+			NOT = { any_scope_state = { count >= 4 } }   # WIP: tighter "small SEA minor (pop<1M)" cap (<=3 states); tune after test
+		}
+		save_scope_as = mdp_tgt
+	}
+	if = {
+		limit = { exists = scope:mdp_tgt }
+		mdp_decision_expander_declare_war = yes
+	}
+}
+
+# ---- B-D2: annex the weakest OWN direct subject (replaces the mdp.3 pulse for decision-expanders) ----
+# scope: ROOT = the acting expander. Logic copied from mdp.3 (mdp_events.txt); repeatable via decision.
+mdp_decision_annex_subject = {
+	save_scope_as = mdp_annexer
+	ordered_subject_or_below = {
+		limit = { is_subject_of = scope:mdp_annexer }
+		order_by = prestige        # ascending - weakest first
+		position = 0
+		check_range_bounds = no
+		save_scope_as = mdp_subject
+	}
+	if = {
+		limit = { exists = scope:mdp_subject }
+		scope:mdp_annexer = {
+			create_diplomatic_play = {
+				target_country = scope:mdp_subject
+				type = dp_annex_subject
+			}
+			# Load-bearing marker (NOT a fingerprint): records that this expander began annexing,
+			# gating the B5 demobilize decision. Kept at promote.
+			set_variable = { name = mdp_has_annexed value = yes }
+		}
+	}
+}
+
+# ---- shared return_state war-declaration ----
+# scope:mdp_attacker + scope:mdp_tgt must be saved by the caller. Block copied VERBATIM from
+# mdp_try_next_war (Steps 2b-6, mdp_effects.txt) - kept here so the decisions reuse the exact tested
+# claim+homeland+play+war-goal machinery WITHOUT touching the live pulse effect. TODO: once every
+# expander is on decisions, retire the pulse and fold mdp_try_next_war into this single declaration.
+mdp_decision_expander_declare_war = {
+	# Save the attacker's culture (for add_homeland) - multi-hop key ref is rejected, so save first.
+	scope:mdp_attacker = {
+		ruler ?= { culture = { save_scope_as = mdp_atk_culture } }
+	}
+
+	# Claim + homeland on every target state (low-infamy, incorporable). add_claim/add_homeland are
+	# state_region effects - wrap every_scope_state in state_region (vanilla idiom).
+	scope:mdp_tgt = {
+		every_scope_state = {
+			state_region = {
+				add_claim = scope:mdp_attacker
+				if = {
+					limit = { exists = scope:mdp_atk_culture }
+					add_homeland = scope:mdp_atk_culture
+				}
+			}
+		}
+	}
+
+	# Declare the return_state play (primary goal = capital).
+	scope:mdp_attacker = {
+		create_diplomatic_play = {
+			target_country = scope:mdp_tgt
+			type           = dp_return_state
+			target_state   = scope:mdp_tgt.capital
+		}
+	}
+
+	# Re-enter the play and add a return_state war goal for EVERY target state (capital = primary).
+	random_diplomatic_play = {
+		limit = {
+			is_diplomatic_play_type = dp_return_state
+			any_scope_play_involved = { this = scope:mdp_attacker }
+			any_scope_play_involved = { this = scope:mdp_tgt }
+		}
+		save_scope_as = mdp_play
+	}
+	if = {
+		limit = { exists = scope:mdp_play }
+		scope:mdp_tgt = {
+			every_scope_state = {
+				save_scope_as = mdp_goal_state
+				if = {
+					limit = { this = scope:mdp_tgt.capital }
+					scope:mdp_play = {
+						add_war_goal = {
+							holder       = scope:mdp_attacker
+							type         = return_state
+							target_state = scope:mdp_goal_state
+							primary_demand = yes
+						}
+					}
+				}
+				else = {
+					scope:mdp_play = {
+						add_war_goal = {
+							holder       = scope:mdp_attacker
+							type         = return_state
+							target_state = scope:mdp_goal_state
+						}
+					}
+				}
+			}
+		}
+	}
+}

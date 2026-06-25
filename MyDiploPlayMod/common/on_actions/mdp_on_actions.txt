@@ -38,6 +38,8 @@ mdp_startup = {
 			limit = { OR = { this = c:DAI  this = c:BUR  this = c:SIA  this = c:PAN  this = c:OMA } }
 			set_variable = mdp_subject_annexer
 		}
+		# NOTE: decision-driven expanders (BIC/DEI) need NO startup flag - their decisions gate directly
+		# on the tag via OR = { c:TAG ?= this } (runtime-safe). They are simply excluded from the pulse below.
 	}
 }
 
@@ -58,15 +60,18 @@ mdp_monthly = {
                     game_date < 1846.1.1
                     AND = {
                         game_date < 1849.1.1  #these tags need a bit more time to blob out
-                        OR = { this = c:DEI this = c:SAF this = c:OMA this = c:SOK this = c:PAN }
+                        OR = { this = c:SAF this = c:OMA this = c:SOK this = c:PAN }   # DEI removed: now decision-driven, off the pulse
                     }
                 }
                 mdp_is_expand_country = yes
                 is_at_war = no
                 is_active_in_diplomatic_play = no   # in peace AND no diplo play in progress
                 infamy < 30                         # well below the ~50 "pariah" line — never invite a GP gang-up
-                # Soft-remove: BIC/PRU/EGY/SAR/SWE sealed from day-1 wars; no monthly expansion
-                NOT = { OR = { this = c:BIC this = c:PRU this = c:EGY this = c:SAR this = c:SWE } }
+                # Off the pulse: BIC + DEI expand via DECISIONS (mdp_bic_decisions.txt /
+                # mdp_expander_decisions.txt), not this monthly blob chain - that is the whole point.
+                # PRU/EGY/SAR/SWE were already sealed from day-1 wars. Add PAN/SIA/DAI/OMA/BUR here as
+                # each migrates to decisions after the BIC/DEI test.
+                NOT = { OR = { this = c:BIC this = c:PRU this = c:EGY this = c:SAR this = c:SWE this = c:DEI } }
             }
             #debug_log = "on_monthly_pulse expander qualifies — triggering mdp.1"
             trigger_event = { id = mdp.1 }
@@ -104,18 +109,9 @@ mdp_monthly = {
             trigger_event = { id = mdp.3 }
         }
 
-        # BIC-specific: annex its OWN Indian-cultured princely-state subjects (never a
-        # European-cultured subject). The culture hard-check is in mdpbic.1's subject pick.
-        if = {
-            limit = {
-                this = c:BIC
-                game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
-                is_at_war = no
-                is_active_in_diplomatic_play = no
-                any_subject_or_below = { count >= 1 }
-            }
-            #debug_log = "mdp - bic_annex - dispatch (BIC qualifies)"
-            trigger_event = { id = mdpbic.1 }
-        }
+        # BIC subject-annex MOVED to a DECISION (B2, 2026-06-25): mdp_bic_annex_subject
+        # (common/decisions/mdp_bic_decisions.txt) fires mdpbic.1. Off the monthly pulse for perf +
+        # save-parse fingerprints, and now truce-aware (skips ASM/MNP while their colonization truces
+        # hold). The old pulse dispatch is removed below.
     }
 }

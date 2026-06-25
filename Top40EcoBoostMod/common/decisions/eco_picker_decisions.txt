@@ -15,6 +15,10 @@ eco_picker_choose_modifier = {
 
 	is_shown = {
 		NOT = { has_modifier = eco_sol_edu_global }
+		# B7 FIX (2026-06-25): only RECOGNIZED nations may take this. Stops eco_sol_edu_global (+4 SoL,
+		# +0.25 education) from leaking onto DECENTRALIZED nations - a top-40-GDP decentralized state
+		# (e.g. an African slaver) otherwise qualified via gdp_ranking and grew happy/populous.
+		NOT = {is_country_type = decentralized }
 		OR = {
 			is_player = yes
 			gdp_ranking <= 40   # AI: only top-40 economies (vanilla uses gdp_ranking, e.g. <= 8)

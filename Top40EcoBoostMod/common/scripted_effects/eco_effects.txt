@@ -230,7 +230,20 @@ eco_pulse_spread = {
 		}
 		change_variable = { name = eco_left subtract = 1 }
 	}
-	if = { limit = { var:eco_left > 0 } debug_log = "ECONOSLOT" debug_log_scopes = yes }
+
+	# B1 FINGERPRINTS (additive; save-parser). Per-building, per-country, DYNAMIC var name - the SAME
+	# $-substitution-in-a-variable-name idiom already used above (eco_$TYPE$_here):
+	#  - eco_fingerprint_built_<B>  = levels actually placed this pulse ($N$ minus the leftover);
+	#  - eco_fingerprint_noslot_<B> = shortfall that found NO slot (the old ECONOSLOT debug_log signal,
+	#    now a SAVE value, so "what didn't get built / errored on the yearly pulse" is read offline from
+	#    the save instead of debug.log). A MISSING eco_fingerprint_built_<B> = that building's pulse
+	#    never ran for this tag. Comment out at promote.
+	set_variable    = { name = eco_fingerprint_built_$B$ value = $N$ }
+	change_variable = { name = eco_fingerprint_built_$B$ subtract = var:eco_left }
+	if = {
+		limit = { var:eco_left > 0 }
+		set_variable = { name = eco_fingerprint_noslot_$B$ value = var:eco_left }
+	}
 	remove_variable = eco_left
 }
 

@@ -1,0 +1,31 @@
+﻿# =============================================================================
+# MyDiploPlayMod - British East India Company subject-annex DECISION.  *** WIP 2026-06-25 (skeletal) ***
+# B2: replaces the BIC monthly-pulse dispatch (mdp_on_actions.txt) with a decision (perf + save
+# fingerprints). Reuses the existing culture-gated, now TRUCE-AWARE pick in mdpbic.1
+# (events/mdp_bic_events.txt): annex the weakest Indian-cultured (non-European), NON-TRUCED direct
+# subject. The BIC<->ASM and BIC<->MNP 108mo truces (zz_mdp_truces.txt, PR #4) keep BIC off ASM/MNP
+# until they finish frontier-colonization. Repeatable until no annexable subject remains (then the
+# B5 conquest-complete decision fires). ai_chance large so the AI reliably takes it.
+# =============================================================================
+
+mdp_bic_annex_subject = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		c:BIC ?= this
+		any_subject_or_below = { count >= 1 }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		any_subject_or_below = { count >= 1 }
+	}
+
+	when_taken = {
+		# Culture-gated + truce-aware annex of the weakest Indian princely subject (mdpbic.1 immediate).
+		trigger_event = { id = mdpbic.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}

@@ -1,0 +1,60 @@
+﻿# =============================================================================
+# MyDiploPlayMod - GENERIC, REUSABLE expander decisions.  *** WIP 2026-06-25 (skeletal) ***
+# Replace the shared monthly pulse (mdp.1 / mdp.3) with player/AI decisions: better perf, save-parse
+# fingerprints, and one set of decisions usable by ANY expander. Each decision gates DIRECTLY on the
+# tag via OR = { c:TAG ?= this } in is_shown (runtime-safe; NO on_action flag - the whole point is to
+# drive expansion by decision logic alone). DEI is the only tag now; extend by adding
+# c:PAN/c:SIA/c:DAI/c:OMA/c:BUR to those OR lists after the DEI test. Effects: mdp_expander_decision_effects.txt.
+# ai_chance is large so the AI reliably takes them (idiom proven by DesiStrategy / nous decisions).
+# Fingerprint COUNTERS (change_variable add=1) record how many times each fired, harvested by the
+# save-game-parser. Comment out fingerprint lines at promote.
+# =============================================================================
+
+# ---- Decision: conquer a random nearby free minor (B-D1) ----
+mdp_conquer_free_minor = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		# Decision-driven expanders. DEI is the test tag; add c:PAN/c:SIA/c:DAI/c:OMA/c:BUR here to extend.
+		OR = { c:DEI ?= this }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		infamy < 30                       # never invite a GP gang-up (same gate as the pulse)
+	}
+
+	when_taken = {
+		mdp_decision_conquer_minor = yes
+		# FINGERPRINT COUNTER (additive). Comment out at promote.
+		change_variable = { name = mdp_fingerprint_minor_wars add = 1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision: annex the weakest own subject (B-D2; repeatable until no subjects remain) ----
+mdp_annex_own_subject = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		# Decision-driven expanders. DEI is the test tag; add c:PAN/c:SIA/c:DAI/c:OMA/c:BUR here to extend.
+		OR = { c:DEI ?= this }
+		any_subject_or_below = { count >= 1 }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		any_subject_or_below = { count >= 1 }
+	}
+
+	when_taken = {
+		mdp_decision_annex_subject = yes
+		# FINGERPRINT COUNTER (additive). Comment out at promote.
+		change_variable = { name = mdp_fingerprint_subject_annexations add = 1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
