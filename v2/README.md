@@ -65,7 +65,10 @@ Two per-mod analysis jobs live under `tools/` (separate from the report build; e
 - **save-game parser** — `tools/save-game-parser/run_save_parser.py <MOD>`: joins a mod's PERSISTING
   variables/modifiers + its `<abbr>_fingerprint_*` markers against a decompressed `.v3` SAVE →
   `tools/save-game-parser/<MOD>/matched_savefile_loglines.csv` + `diagnostics.md` (which object got which
-  value / when). README in `tools/save-game-parser/`; method in DEV-RULES "Save-fingerprint debugging".
+  value / when). A second sub-script `aggr_state_census.py` (stage 1b, called from master) emits
+  `state_census.csv` (per state: owner tag · buildings+levels · state variables+values yes/no/int) — the
+  substrate for the over-build analysis (actual level vs the mod's stored cap, classified mod-script-error
+  vs engine-overbuild). README in `tools/save-game-parser/`; method in DEV-RULES "Save-fingerprint debugging".
 
 ## Canonical tabs
 

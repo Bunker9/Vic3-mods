@@ -19,18 +19,21 @@ Examples:
   python run_save_parser.py NoUSChickenMod --save "C:\...\save games\autosave.v3" --rerun
 """
 import lib_saveparse as L
-import aggr_save_matches, anal_save_report
+import aggr_save_matches, ext_save_blocks, aggr_state_census, anal_save_report
 
 
 def main(args):
     L.out_dir(args.mod_name)
     have = L.read_csv(L.out_path(args.mod_name, "matched_savefile_loglines.csv"))[0] is not None
-    do_scan = args.rerun or not have
+    have_raw = L.read_csv(L.out_path(args.mod_name, "raw_buildings.csv"))[0] is not None
+    do_scan = args.rerun or not have or not have_raw
 
     print(f"== save-parse {args.mod_name} ==  (scan: {'RUN' if do_scan else 'reuse'})")
     if do_scan:
-        aggr_save_matches.main(args)
-    anal_save_report.main(args)
+        aggr_save_matches.main(args)     # 1  : mod-token / fingerprint findings
+        ext_save_blocks.main(args)       # 1a : raw per-manager extracts (buildings/states/countries)
+    aggr_state_census.main(args)         # 1b : join raw_* -> state/building census + overbuild view
+    anal_save_report.main(args)          # 2  : diagnostics
     print(f"== done -> {L.out_dir(args.mod_name, create=False)} ==")
 
 
