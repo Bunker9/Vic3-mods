@@ -6,7 +6,7 @@
 # nation still raises conscripts for defence (and must rebuild barracks for offence).
 # Tokens verified vs vanilla 2026-06-25: add_loyalists={ value=large_radicals } (warlord-China
 # end-of-period idiom), remove_building=building_X (state effect), building_barrack /
-# building_land_logistics_center / building_conscription_center (common/buildings/05_military.txt).
+# building_army_logistics_center / building_conscription_center (common/buildings/05_military.txt).
 # =============================================================================
 
 mdp_demobilize_effect = {
@@ -23,8 +23,8 @@ mdp_demobilize_effect = {
 			remove_building = building_barrack
 		}
 		if = {
-			limit = { has_building = building_land_logistics_center }
-			remove_building = building_land_logistics_center
+			limit = { has_building = building_army_logistics_center }
+			remove_building = building_army_logistics_center
 		}
 	}
 }

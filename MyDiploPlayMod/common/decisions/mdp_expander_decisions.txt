@@ -17,17 +17,61 @@ mdp_conquer_free_minor = {
 	is_shown = {
 		# Decision-driven expanders. DEI is the test tag; add c:PAN/c:SIA/c:DAI/c:OMA/c:BUR here to extend.
 		OR = { c:DEI ?= this }
+		#stop showing ( thus spamming war with NULL country) when these conditions are met
+		any_country = {
+			exists = this
+			NOT = { is_country_type = decentralized }
+			mdp_is_expand_country = no
+			NOT = { country_rank >= rank_value:major_power }
+			is_subject = no
+			NOT = { this = root }
+			any_scope_state = { any_neighbouring_state = { owner = root } }
+			NOT = { any_scope_state = { count >= 4 } }
+		}
 	}
 
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
 		infamy < 30                       # never invite a GP gang-up (same gate as the pulse)
+		# BUGFIX 2026-06-26: a VALID adjacent minor must actually EXIST, else the AI takes this decision
+		# every tick (ai_chance 10000) with no effect = the "spam a war vs a NULL country" the user saw.
+		# Mirrors mdp_valid_generic_target but with root (this country) as the attacker (cannot save_scope
+		# in possible{}). EXCLUDES decentralized/primitive + GPs/majors/subjects/expanders/truced/at-war.
+		any_country = {
+			exists = this
+			NOT = { is_country_type = decentralized }
+			mdp_is_expand_country = no
+			NOT = { country_rank >= rank_value:major_power }
+			is_subject = no
+			is_at_war = no
+			NOT = { has_truce_with = root }
+			NOT = { this = root }
+			any_scope_state = { any_neighbouring_state = { owner = root } }
+			NOT = { any_scope_state = { count >= 4 } }
+		}
 	}
 
 	when_taken = {
 		mdp_decision_conquer_minor = yes
-		# FINGERPRINT COUNTER (additive). Comment out at promote.
+		clear_debt = yes  #Wipe debt
+		add_treasury = {
+			value = gold_reserves_limit
+		}
+		add_loyalists = {
+			strata = lower
+			value = very_large_radicals
+		}
+		# FINGERPRINT COUNTER (additive). Comment out at promote. # Increment counter — initialise to 0 first if not set
+		if = {
+			limit = {
+			    NOT = { has_variable = mdp_fingerprint_minor_wars }
+			}
+			set_variable = {
+			    name = mdp_fingerprint_minor_wars
+			    value = 0
+			}
+		}
 		change_variable = { name = mdp_fingerprint_minor_wars add = 1 }
 	}
 
@@ -52,7 +96,26 @@ mdp_annex_own_subject = {
 
 	when_taken = {
 		mdp_decision_annex_subject = yes
+		clear_debt = yes  #Wipe debt
+		add_treasury = {
+			value = gold_reserves_limit
+		}
+		add_loyalists = {
+			strata = lower
+			value = very_large_radicals
+		}
 		# FINGERPRINT COUNTER (additive). Comment out at promote.
+		# TODO -- will change_variable get added to savefiles even without a set_variable?Why would Claude go with this code?Is it slop?
+		# TODO debugging needs standardization of when and where to use int / bool variables . When to capture date in variable. When to use debug_log variable
+		if = {
+			limit = {
+				NOT = { has_variable = mdp_fingerprint_subject_annexations }
+			}
+			set_variable = {
+				name = mdp_fingerprint_subject_annexations
+				value = 0
+			}
+		}
 		change_variable = { name = mdp_fingerprint_subject_annexations add = 1 }
 	}
 

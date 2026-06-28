@@ -52,7 +52,7 @@ mdp_decision_annex_subject = {
 			}
 			# Load-bearing marker (NOT a fingerprint): records that this expander began annexing,
 			# gating the B5 demobilize decision. Kept at promote.
-			set_variable = { name = mdp_has_annexed value = yes }
+			set_variable = { name = mdp_has_annexed value = yes } #TODO add another gate for mdp_decision_expander_declare_war DONT DISBAND ARMY WHILE YOU HAVE FREE NEIGHBOURS TO ANNEX
 		}
 	}
 }
@@ -89,6 +89,13 @@ mdp_decision_expander_declare_war = {
 			type           = dp_return_state
 			target_state   = scope:mdp_tgt.capital
 		}
+		# FINGERPRINTS (save-parser): cumulative wars-started COUNTER (re-fires per declaration) + the
+		# TARGET tag this war was declared on (a country-scope value persists as flag=<...> -> the tag).
+		change_variable = { name = mdp_fingerprint_wars_started add = 1 }
+		set_variable = { name = mdp_fingerprint_last_war_target value = scope:mdp_tgt }
+		# DATE: a variable carries no native timestamp in the save (only modifiers do). The dp_return_state
+		# play above IS dated in the save; for an explicit dated war fingerprint, grant a stamp modifier
+		# (TODO: add static_modifier mdp_war_started_stamp -> parser already reads modifier start_date).
 	}
 
 	# Re-enter the play and add a return_state war goal for EVERY target state (capital = primary).

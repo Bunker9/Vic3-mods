@@ -36,6 +36,43 @@ mdp_is_subject_annexer = {
 mdp_is_in_power_bloc = {
     exists = power_bloc
 }
+# -----------------------------------------------------------------------------
+# EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
+# Evaluated in CANDIDATE country scope.
+# Covers SHW, KFA (Kaffa), and any other Ethiopian-sphere minor.
+# Vanilla script names:
+#   religion: oriental_orthodox
+#   cultures: amhara, oromo, tigrinya, somali (the Horn cultures)
+# -----------------------------------------------------------------------------
+mdp_egy_forbidden_target = {
+    OR = {
+        religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
+        country_has_primary_culture = cu:amhara
+        country_has_primary_culture = cu:oromo
+        country_has_primary_culture = cu:afar
+        country_has_primary_culture = cu:somali
+    }
+}
+
+# -----------------------------------------------------------------------------
+# OMA-only adjacency restriction. Evaluated in CANDIDATE country scope;
+# scope:mdp_attacker = c:OMA.
+# OMA holds African colonial states (e.g. Zanzibar-area holdings), so the generic
+# any_neighbouring_state adjacency check in mdp_valid_generic_target was matching
+# candidates that only border those African holdings — sending OMA into useless wars
+# across the Gulf of Aden instead of expanding on its Arabian mainland. This requires
+# the bordering OMA-owned state to itself be on the Arabian mainland
+# (geographic_region_arabia, verified common/geographic_regions/06_new_strategic_regions.txt).
+# -----------------------------------------------------------------------------
+mdp_oma_target_filter = {
+    any_scope_state = {
+        any_neighbouring_state = {
+            owner = scope:mdp_attacker
+            state_region = { is_in_geographic_region = geographic_region_arabia }
+        }
+    }
+}
+
 
 # -----------------------------------------------------------------------------
 # Valid target for the GENERIC blob chain.
@@ -96,43 +133,6 @@ mdp_valid_generic_target = {
         mdp_oma_target_filter = yes
     }
 }
-# -----------------------------------------------------------------------------
-# EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
-# Evaluated in CANDIDATE country scope.
-# Covers SHW, KFA (Kaffa), and any other Ethiopian-sphere minor.
-# Vanilla script names:
-#   religion: oriental_orthodox
-#   cultures: amhara, oromo, tigrinya, somali (the Horn cultures)
-# -----------------------------------------------------------------------------
-mdp_egy_forbidden_target = {
-    OR = {
-        religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
-        country_has_primary_culture = cu:amhara
-        country_has_primary_culture = cu:oromo
-        country_has_primary_culture = cu:afar
-        country_has_primary_culture = cu:somali
-    }
-}
-
-# -----------------------------------------------------------------------------
-# OMA-only adjacency restriction. Evaluated in CANDIDATE country scope;
-# scope:mdp_attacker = c:OMA.
-# OMA holds African colonial states (e.g. Zanzibar-area holdings), so the generic
-# any_neighbouring_state adjacency check in mdp_valid_generic_target was matching
-# candidates that only border those African holdings — sending OMA into useless wars
-# across the Gulf of Aden instead of expanding on its Arabian mainland. This requires
-# the bordering OMA-owned state to itself be on the Arabian mainland
-# (geographic_region_arabia, verified common/geographic_regions/06_new_strategic_regions.txt).
-# -----------------------------------------------------------------------------
-mdp_oma_target_filter = {
-    any_scope_state = {
-        any_neighbouring_state = {
-            owner = scope:mdp_attacker
-            state_region = { is_in_geographic_region = geographic_region_arabia }
-        }
-    }
-}
-
 # -----------------------------------------------------------------------------
 # Pre-flight check on the ATTACKER. (Currently UNUSED — the monthly on_action does these
 # checks inline. Kept as documentation. The actual target search + adjacency lives in

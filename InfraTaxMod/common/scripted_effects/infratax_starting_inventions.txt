@@ -1,0 +1,15 @@
+﻿# common/scripted_effects/infratax_starting_inventions.txt
+
+REPLACE_OR_CREATE:effect_starting_technology_tier_6_tech = {
+	# Production
+	add_technology_researched = enclosure
+	add_technology_researched = shaft_mining
+
+	# Military
+	add_technology_researched = standing_army
+	add_technology_researched = navigation
+
+	# Society
+	add_technology_researched = urbanization
+	add_technology_researched = tech_bureaucracy
+}

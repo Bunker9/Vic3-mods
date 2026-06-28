@@ -1,0 +1,34 @@
+﻿# common/production_methods/infratax_urban_center.txt
+
+INJECT_OR_CREATE:pm_early_power_plant = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_electricity_add = 15
+		}
+		level_scaled = {
+			goods_output_electricity_add = 10
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_coal-fired_plant = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_electricity_add = 40
+		}
+		level_scaled = {
+			goods_output_electricity_add = 20
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_oil-fired_plant = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_electricity_add = 50
+		}
+		level_scaled = {
+			goods_output_electricity_add = 20
+		}
+	}
+}
