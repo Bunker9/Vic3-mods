@@ -17,3 +17,10 @@
  aus_crownland_management_50y_desc:0 "The Austrian administration is exerting sustained effort to keep the Crown Lands cooperative, reducing separatist pressure and smoothing subject governance."
  hungary_reconciled_to_vienna_50y:0 "Reconciled to Vienna"
  hungary_reconciled_to_vienna_50y_desc:0 "A temporary settlement with Vienna has eased Hungarian resistance to imperial oversight, lowering liberty desire for a generation."
+ stdinnv_austria_uni_art_paper_built: "Reorganize the Crownlands"
+ stdinnv_austria_uni_art_paper_built_desc: "With Hungary fully integrated, we can now bring the remaining crownlands fully into the imperial fold."
+ stdinnv_austria_uni_art_paper_built_tooltip: "A new Hungarian arts and science renaissance."
+ uni_event.2.t:0 "The Imperial Reorganization"
+ uni_event.2.desc:0 "With Hungary fully integrated into the Habsburg fold, the moment has come to bring our remaining crownlands into full imperial standing. Each territory shall receive the institutions befitting a true province of the Empire — universities to educate the populace and academies to cultivate the arts."
+ uni_event.2.a:0 "Let the Empire flourish from Tyrol to Transylvania."
+

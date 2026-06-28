@@ -9,7 +9,6 @@
 # cannot yet meet `possible` — that is intentional: graduate first.)
 # =============================================================================
 stdinnv_uni_built = {
-	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
 
 	is_shown = {
 		OR = {
@@ -47,6 +46,28 @@ stdinnv_uni_built = {
 
 	when_taken = {
 		trigger_event = { id = uni_event.1 }
+	}
+
+	ai_chance = { value = 1000000 }
+}
+
+
+stdinnv_austria_uni_art_paper_built = {
+
+	is_shown = {
+		this = c:AUS
+		has_modifier = aus_crownland_management_50y
+		NOT = { has_variable = aus_crownland_reform_done }
+	}
+
+	possible = {
+		# HUN has been integrated (no longer exists as a country)
+		NOT = { exists = c:HUN }
+	}
+
+	when_taken = {
+		set_variable = { name = aus_crownland_reform_done value = yes }
+		trigger_event = { id = uni_event.2  popup = yes }
 	}
 
 	ai_chance = { value = 1000000 }

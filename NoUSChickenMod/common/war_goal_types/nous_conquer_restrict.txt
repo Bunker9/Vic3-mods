@@ -33,7 +33,7 @@ INJECT_OR_CREATE:conquer_state = {
 		# on claimed states regardless of date — full post-1880 conquest may need those claims expired.
 		NOT = {
 			AND = {
-				creator_country = { this = c:USA }
+				#creator_country = { this = c:USA } #This in NOT a recognized code.
 				target_country  = { this = c:MEX }
 				game_date < 1880.1.1
 			}

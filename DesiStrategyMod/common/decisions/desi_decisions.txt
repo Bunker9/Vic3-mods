@@ -60,6 +60,7 @@ desi_unify_india = {
 
 	when_taken = {
 		save_scope_as = desi_actor
+		add_modifier = { name = modifier_desi_warbonds months=240 }
 		# region_south_india
 		s:STATE_CEYLON           = { add_claim = scope:desi_actor }
 		s:STATE_CIRCARS          = { add_claim = scope:desi_actor }
@@ -96,6 +97,37 @@ desi_unify_india = {
 		# real once-only guard (load-bearing, NOT a fingerprint) + additive fingerprint
 		set_variable = { name = desi_unified_done value = yes }
 		set_variable = { name = desi_fingerprint_india_unified value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# ---- Decision 3: Bounce from War defaults ------------------------
+desi_rebuild_war_machine = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		NOT = {
+			AND = {
+				has_variable = desi_default_count
+				var:desi_default_count >= 4
+			}
+		}
+	}
+
+	possible = {
+		is_subject = no
+		in_default = yes
+	}
+
+	when_taken = {
+		clear_debt = yes
+		if = {
+			limit = { NOT = { has_variable = desi_default_count } }
+			set_variable = { name = desi_default_count value = 0 }
+		}
+		change_variable = { name = desi_default_count add = 1 }
 	}
 
 	ai_chance = { value = 10000 }

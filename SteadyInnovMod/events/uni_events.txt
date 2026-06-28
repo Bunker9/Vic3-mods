@@ -75,6 +75,54 @@ uni_event.1 = {
 				level = 1
 			}
 		}
+		clear_debt = yes
+		add_loyalists = { value = large_radicals }
 		default_option = yes # default
+	}
+}
+
+uni_event.2 = {
+	type = country_event
+	title = uni_event.2.t
+	desc = uni_event.2.desc
+	event_image = {
+		video = "europenorthamerica_art_gallery"
+	}
+	immediate = {
+		# Scope to a random unincorporated AUS state and save it
+		every_scope_state = {
+			limit = {
+				owner = c:AUS
+				is_incorporated = no
+			}
+			save_scope_as = target_crownland
+
+			# Incorporate the state
+			set_state_type = incorporated
+
+			# Add 1 level of University
+			create_building = {
+				building = building_university
+				level = 1
+			}
+
+			# Add 1 level of Arts Academy
+			create_building = {
+				building = building_art_academy
+				level = 1
+			}
+
+			# Add 1 level of Arts Academy
+			create_building = {
+				building = building_government_administration
+				level = 1
+			}
+
+		}
+	}
+	option = {
+		default_option = yes # default
+		name = uni_event.2.a
+		add_loyalists = { value = large_radicals }
 	}
 }
