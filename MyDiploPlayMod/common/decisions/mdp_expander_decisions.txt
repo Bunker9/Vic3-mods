@@ -15,8 +15,11 @@ mdp_conquer_free_minor = {
 	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
 
 	is_shown = {
-		# Decision-driven expanders. DEI is the test tag; add c:PAN/c:SIA/c:DAI/c:OMA/c:BUR here to extend.
-		OR = { c:DEI ?= this }
+		# All expand-flagged tags drive conquest by DECISION now (monthly pulse removed 2026-06-30). Exclude
+		# BIC (own decision) + the sealed PRU/EGY/SAR/SWE. infamy < 4 = strict "near-clean" gate (user).
+		mdp_is_expand_country = yes
+		NOT = { OR = { this = c:BIC  this = c:PRU  this = c:EGY  this = c:SAR  this = c:SWE } }
+		infamy < 4
 		#stop showing ( thus spamming war with NULL country) when these conditions are met
 		any_country = {
 			exists = this
@@ -33,7 +36,7 @@ mdp_conquer_free_minor = {
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
-		infamy < 30                       # never invite a GP gang-up (same gate as the pulse)
+		infamy < 4                        # strict near-clean gate (user 2026-06-30; was 30, mirrors is_shown)
 		# BUGFIX 2026-06-26: a VALID adjacent minor must actually EXIST, else the AI takes this decision
 		# every tick (ai_chance 10000) with no effect = the "spam a war vs a NULL country" the user saw.
 		# Mirrors mdp_valid_generic_target but with root (this country) as the attacker (cannot save_scope
@@ -83,15 +86,18 @@ mdp_annex_own_subject = {
 	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
 
 	is_shown = {
-		# Decision-driven expanders. DEI is the test tag; add c:PAN/c:SIA/c:DAI/c:OMA/c:BUR here to extend.
-		OR = { c:DEI ?= this }
-		any_subject_or_below = { count >= 1 }
+		# subject-annexer tags (DAI/BUR/SIA/PAN/OMA flag) + DEI (own tested tag). Monthly pulse removed 2026-06-30.
+		OR = { mdp_is_subject_annexer = yes  c:DEI ?= this }
+		infamy < 4
+		# a subject (or below) owning FEWER than 4 states (annex the small ones; user "less than 4 states")
+		any_subject_or_below = { NOT = { any_scope_state = { count >= 4 } } }
 	}
 
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
-		any_subject_or_below = { count >= 1 }
+		infamy < 4
+		any_subject_or_below = { NOT = { any_scope_state = { count >= 4 } } }
 	}
 
 	when_taken = {

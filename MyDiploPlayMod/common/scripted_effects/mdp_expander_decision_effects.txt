@@ -91,6 +91,7 @@ mdp_decision_expander_declare_war = {
 		}
 		# FINGERPRINTS (save-parser): cumulative wars-started COUNTER (re-fires per declaration) + the
 		# TARGET tag this war was declared on (a country-scope value persists as flag=<...> -> the tag).
+		if = { limit = { NOT = { has_variable = mdp_fingerprint_wars_started } } set_variable = { name = mdp_fingerprint_wars_started value = 0 } }
 		change_variable = { name = mdp_fingerprint_wars_started add = 1 }
 		set_variable = { name = mdp_fingerprint_last_war_target value = scope:mdp_tgt }
 		# DATE: a variable carries no native timestamp in the save (only modifiers do). The dp_return_state

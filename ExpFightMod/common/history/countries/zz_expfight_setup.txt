@@ -1,0 +1,31 @@
+﻿# =============================================================================
+# ExpFightMod — game-start arming, MOVED from the on_action to STATIC HISTORY (DEV-RULES "prefer history
+# over day-1 events / on_actions"). Each expand tag gets army_reserves + general_staff plus its war-footing
+# modifier. Hand-coded per tag (only 15; not worth a generator). Effects reused verbatim from the old
+# expfight_startup on_action (master-vetted); history idiom COUNTRIES = { c:TAG ?= { ... } } from
+# zz_mdp_countries.txt. NOTE: add_technology_researched + add_modifier here run at game start (same moment as
+# the old on_game_started_after_lobby) — confirm in-game / IntelliJ that the history context accepts them.
+#   long-war  (expfight_warboost 180mo): PAN DEI SOK SHW OMA SAF
+#   short-war (expfight_warboost  48mo): DAI ARG NEP CLM MOR
+#   strong powers (expfight_warbump 60mo): MEX BRZ PER SIA
+# =============================================================================
+COUNTRIES = {
+	# --- long-war expanders: 180-month war footing ---
+	c:PAN ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:DEI ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:SOK ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:SHW ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:OMA ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:SAF ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	# --- short-war expanders: 48-month war footing ---
+	c:DAI ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	c:ARG ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	c:NEP ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	c:CLM ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	c:MOR ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	# --- strong powers: 60-month warbump ---
+	c:MEX ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
+	c:BRZ ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
+	c:PER ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
+	c:SIA ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
+}
