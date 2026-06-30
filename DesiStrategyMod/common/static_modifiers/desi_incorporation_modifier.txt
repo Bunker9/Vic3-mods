@@ -1,0 +1,5 @@
+﻿modifier_desi_incorporation_cost = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_bureaucracy_add = -10    # per 1,000,000 incorporated pop (scaled by the add_modifier multiplier)
+	country_expenses_add = 100       # +100/week expenses per 1,000,000 incorporated pop (cost), scaled likewise
+}

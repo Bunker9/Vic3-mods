@@ -55,6 +55,7 @@ knip.1 = {
 			change_variable = { name = knip_cur add = 1 }
 			create_building = { building = building_fishing_wharf level = var:knip_cur } # no reserves, let hiring grow slowly
 			# PER-STATE build counter (this = state): +1 each pulse this state actually builds a wharf.
+			if = { limit = { NOT = { has_variable = knip_fingerprint_fishing_built } } set_variable = { name = knip_fingerprint_fishing_built value = 0 } }
 			change_variable = { name = knip_fingerprint_fishing_built add = 1 }
 			remove_variable = knip_cur
 		}
@@ -66,6 +67,7 @@ knip.1 = {
 			change_variable = { name = knip_cur add = 1 }
 			create_building = { building = building_whaling_station level = var:knip_cur } # no reserves, let hiring grow slowly
 			# PER-STATE build counter (this = state): +1 each pulse this state actually builds a station.
+			if = { limit = { NOT = { has_variable = knip_fingerprint_whaling_built } } set_variable = { name = knip_fingerprint_whaling_built value = 0 } }
 			change_variable = { name = knip_fingerprint_whaling_built add = 1 }
 			remove_variable = knip_cur
 		}

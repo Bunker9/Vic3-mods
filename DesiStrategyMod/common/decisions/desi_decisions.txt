@@ -92,9 +92,10 @@ desi_unify_india = {
 		s:STATE_LHASA            = { add_claim = scope:desi_actor }
 		s:STATE_NGARI            = { add_claim = scope:desi_actor }
 		s:STATE_KASHMIR          = { add_claim = scope:desi_actor }
-		s:STATE_QINGHAI          = { add_claim = scope:desi_actor }
+		#s:STATE_QINGHAI          = { add_claim = scope:desi_actor } -- Part of Qing
 		s:STATE_EASTERN_HIMALAYAS = { add_claim = scope:desi_actor }
 		# real once-only guard (load-bearing, NOT a fingerprint) + additive fingerprint
+		#TODO add burma, baluch and afghan states ( ONLY PARTS OF SEA and CENT ASIA )
 		set_variable = { name = desi_unified_done value = yes }
 		set_variable = { name = desi_fingerprint_india_unified value = yes }
 	}
@@ -128,6 +129,84 @@ desi_rebuild_war_machine = {
 			set_variable = { name = desi_default_count value = 0 }
 		}
 		change_variable = { name = desi_default_count add = 1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# ---- Decision 4: incorporate a frontier state (India / Burma / Afghan / Himalaya ONLY) -------
+# Any Indian-culture nation formally incorporates ONE of its unincorporated states within the
+# subcontinent and its marches. Allowed strategic regions: north_india + south_india + himalayas
+# (India + Himalaya), region_indochina (contains Burma), region_central_asia (contains Afghanistan).
+# Incorporation is immediate; a 3-year administrative-burden modifier costs, PER 1,000,000 pop of the
+# incorporated territory, -10 bureaucracy + 100/week expenses (so a smaller split region costs less).
+# To AVOID MODIFIER SPAM, ONE modifier is kept and RECALCULATED: each take adds the new state's size to
+# a running burden variable, then removes + re-adds the single modifier scaled to the cumulative burden.
+# Tokens NEW to this decision verified vs game files 2026-06-30:
+#   region = sr:region_X (state scope; vanilla 00_default_strategy any_scope_state); add_modifier
+#   multiplier = var: (france_savoy + negotiation scripted_effects); country_bureaucracy_add /
+#   country_expenses_add (00_modifier_types); state_population + scope:X.state_population (27_unification
+#   war goal). set_state_type = incorporated reused from SteadyInnov uni_events. NOTE: region_indochina is
+#   broader than Burma and region_central_asia broader than Afghanistan (slight over-inclusion) - tighten
+#   to explicit Burma/Afghan state lists later if strict "ONLY" is wanted.
+desi_incorporate_state = {
+	is_shown = {
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = no
+			OR = {
+				region = sr:region_north_india
+				region = sr:region_south_india
+				region = sr:region_himalayas
+				region = sr:region_indochina
+				region = sr:region_central_asia
+			}
+		}
+	}
+
+	when_taken = {
+		# guard-init the cumulative burden (LOAD-BEARING, drives the multiplier) + the per-state fingerprint
+		# COUNTER, once each (set-before-change; the has_variable guard is also the dummy-use reader).
+		if = {
+			limit = { NOT = { has_variable = desi_incorporation_burden } }
+			set_variable = { name = desi_incorporation_burden value = 0 }
+		}
+		if = {
+			limit = { NOT = { has_variable = desi_fingerprint_incorporated } }
+			set_variable = { name = desi_fingerprint_incorporated value = 0 }
+		}
+		# Incorporate EVERY eligible unincorporated state at once (the just-conquered Indian lands). For each,
+		# add its size (millions) to the running burden + bump the counter (scoped back to ROOT = the country).
+		every_scope_state = {
+			limit = {
+				is_incorporated = no
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+					region = sr:region_himalayas
+					region = sr:region_indochina
+					region = sr:region_central_asia
+				}
+			}
+			set_state_type = incorporated
+			save_scope_as = desi_inc_state
+			ROOT = {
+				change_variable = { name = desi_incorporation_burden add = desi_incorporation_state_millions }
+				change_variable = { name = desi_fingerprint_incorporated add = 1 }
+			}
+		}
+		# RECALC the single cost modifier scaled to the cumulative burden (remove + re-add => never spams).
+		remove_modifier = modifier_desi_incorporation_cost
+		add_modifier = {
+			name = modifier_desi_incorporation_cost
+			months = 36
+			multiplier = var:desi_incorporation_burden
+		}
+		debug_log = "desi - incorporate-state - incorporated all eligible states, burden recalculated"
 	}
 
 	ai_chance = { value = 10000 }
