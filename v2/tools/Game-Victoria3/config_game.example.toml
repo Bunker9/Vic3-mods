@@ -1,0 +1,22 @@
+# config-game.example.toml — TEMPLATE for the per-machine game config.
+# COPY this to `config-game.toml` (same folder) and fill in YOUR absolute paths.
+#
+# config-game.toml is GITIGNORED — it is machine-specific and may contain your OS username in a path, which
+# must NEVER be committed (PII rule). This template (no real paths) IS tracked. This is the ONLY file you edit
+# on a new machine/OS (vision §A/§Z): the frameworks resolve everything else.
+#
+# Blank a value ("") to let the framework AUTO-RESOLVE it (Documents/registry). Use forward slashes.
+
+# Absolute path to the unpacked Victoria 3 game files (vanilla), for token verification. Blank = not needed here.
+game_files_path = ""
+
+# Vic3 logs dir. Blank => auto-resolve <Documents>/Paradox Interactive/Victoria 3/logs.
+logs_dir = ""
+
+# Vic3 save-games dir. Blank => auto-resolve <Documents>/Paradox Interactive/Victoria 3/save games.
+save_games_dir = ""
+
+# Per-mod source folders, so ModParse can find a mod by name without passing MOD_PATH (arg2). One line per mod.
+[mod_locations]
+# NoUSChickenMod   = "C:/path/to/mod1-inov/NoUSChickenMod"
+# Top40EcoBoostMod = "C:/path/to/mod1/Top40EcoBoostMod"

@@ -1,0 +1,12 @@
+# config_toggle.toml — testbook-toggle-markers settings (externalized; vision §A/§D). Read-only TOML.
+[toggle]
+comment_marker = "#"
+# A line is toggleable if (after stripping a leading comment marker) it matches ANY of these regexes.
+# Single-quoted = TOML literal strings (no escaping). DEV-RULES makes debug_log + _fingerprint_ names greppable,
+# and the fingerprint statements are single-line, so these anchored/substring patterns suffice.
+patterns = [
+  '^\s*debug_log(_scopes)?\s*=',   # debug_log / debug_log_scopes emit lines
+  '_fingerprint_',                 # any save-fingerprint set/change/has line
+]
+# Mod source file types to touch (script .txt only; loc .yml is never toggled).
+extensions = [".txt"]

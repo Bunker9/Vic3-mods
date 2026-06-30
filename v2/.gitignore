@@ -20,3 +20,13 @@ tools/*/diagnostics.md
 # save-game-parser job — per-mod scan outputs are regenerable from a save. Keep scripts + README.
 tools/save-game-parser/*/matched_savefile_loglines.csv
 tools/save-game-parser/*/diagnostics.md
+
+# THE debug framework ironing (2026-06-30): per-run DATA under Game-Victoria3/ is regenerable (ModParse
+# data-<Mod>, Logtriage log-CURR-*, SaveParse save-CURR-*). Ignore the data dirs; KEEP the tracked
+# config-game.toml / config-naming.toml + the per-framework code (Framework-*/*.py, *.toml) + benign.csv.
+tools/Game-Victoria3/data-*/
+tools/Game-Victoria3/log-*/
+tools/Game-Victoria3/save-*/
+# Per-machine game config holds abs paths (may contain the OS username) — NEVER commit (PII). The
+# config-game.example.toml template + config-naming.toml ARE tracked.
+tools/Game-Victoria3/config_game.toml

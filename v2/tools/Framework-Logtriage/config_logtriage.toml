@@ -1,0 +1,18 @@
+# config_logtriage.toml — Framework-Logtriage settings (externalized literals; vision §A/§B). Read-only TOML.
+[logs]
+# (filename, severity) scanned in order. severity tags the match rows (error lines drive the verdict).
+files = [["error.log", "error"], ["debug.log", "debug"], ["game.log", "info"]]
+
+[analysis]
+refire_flag = 100   # marker hit-count above which a re-fire loop is suspected
+
+[benign]
+# shared, human-curated benign-error catalog (lives in THIS folder; TRACKED). Columns human_agreed,pattern,count.
+file = "benign.csv"
+# seed rows used ONLY if benign.csv has no data rows yet (known mod-agnostic noise).
+seed = [["Y", "should be in utf8-bom encoding"]]
+
+[outputs]
+matches = "aggr_log_matches.csv"
+markers = "aggr_markers_status.csv"
+report  = "diagnostics.md"

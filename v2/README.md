@@ -54,21 +54,34 @@ v2/
                           component[_<tab>].html (generated, gitignored)
 ```
 
-## Standalone analysis tools (`tools/`)
+## THE debug framework (`tools/`) — 3 frameworks + a shared core + a game data area
 
-Two per-mod analysis jobs live under `tools/` (separate from the report build; each modular — thin
-`run_*` master + `lib_*`/`ext_*`/`aggr_*`/`anal_*` subs, `arg1 = MOD_NAME`):
+> **Ironing in progress (2026-06-30, refactor-first).** The two original jobs (`tools/run_log_triage.py` +
+> `tools/save-game-parser/`) are being split into the structure below over a shared `Framework-common/`, with all
+> literals/paths in TOML configs. Canonical design: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Governing rule:
+> DEV-RULES "THE debugging framework — do NOT author ad-hoc debug scripts" ([[the-debug-framework]]).
 
-- **log-triage** — `tools/run_log_triage.py <MOD>`: joins a mod's filenames / keywords / debug-markers
-  against the game LOGS → `tools/<MOD>/diagnostics.md`. Run BEFORE any manual log deep-dive (DEV-RULES
-  "Triage framework FIRST"). README in `tools/`.
-- **save-game parser** — `tools/save-game-parser/run_save_parser.py <MOD>`: joins a mod's PERSISTING
-  variables/modifiers + its `<abbr>_fingerprint_*` markers against a decompressed `.v3` SAVE →
-  `tools/save-game-parser/<MOD>/matched_savefile_loglines.csv` + `diagnostics.md` (which object got which
-  value / when). A second sub-script `aggr_state_census.py` (stage 1b, called from master) emits
-  `state_census.csv` (per state: owner tag · buildings+levels · state variables+values yes/no/int) — the
-  substrate for the over-build analysis (actual level vs the mod's stored cap, classified mod-script-error
-  vs engine-overbuild). README in `tools/save-game-parser/`; method in DEV-RULES "Save-fingerprint debugging".
+All mod debugging is driven through THE framework (run the jobs, read their `diagnostics.md`/CSVs); gaps are
+closed by EXTENDING it generically, never by a one-off script beside it. Each script is modular (`run_*` master
++ `ext_*`/`aggr_*`/`anal_*` subs over `Framework-common`), config-driven, and follows the arg contract `arg1=MOD_NAME`,
+`arg2=MOD_PATH`.
+
+- **`Framework-common/`** — the ONE shared core lib (args · io · paths · config · parse). README in `tools/Framework-common/`.
+- **`Framework-ModParse/`** — mod SOURCE → `data-<Mod>` token files (IDEMPOTENT); the shared upstream both
+  downstream frameworks consume. `run_modparse.py <MOD> <PATH>`.
+- **`Framework-Logtriage/`** — game LOGS + `data-<Mod>` → `log-CURR-*` (markers fired/unfired + benign-filtered
+  errors + loc-for-all-kw). Run BEFORE any manual log deep-dive. `run_logtriage.py <MOD>`.
+- **`Framework-SaveParse/`** — `.v3` SAVE + `data-<Mod>` → `save-CURR-*` (persisted fingerprints + state/building
+  census + over-cap classification via a GENERIC cap-var pattern). `run_saveparse.py <MOD>`.
+- **`Game-Victoria3/`** — game-specific CONFIG (tracked: `config-game.toml` abs paths, `config-naming.toml`) +
+  per-run DATA (gitignored: `data-<Mod>/`, `log-CURR-*/`, `save-CURR-*/`). A future PDX game = a new `Game-<X>/`.
+- **`run_debug_master.py`** — runs ModParse → Logtriage → SaveParse end-to-end for a mod.
+- **`run_scrub.py`** — wipes ALL generated data, leaving code + configs only (dry-run default, `--commit`).
+
+Each framework folder has its own `README.md` (contract) + `MANIFEST.md` (every script registered).
+Method for the fingerprint markers themselves: DEV-RULES "Save-fingerprint debugging" + "Debug & fingerprint
+variable standardization". **DEFERRED (designed, not yet built):** a pytest-bdd BDD layer, plug-and-play v2 HTML
+components fed by the jobs' `diagnostics.md`/CSVs, and CI.
 
 ## Canonical tabs
 

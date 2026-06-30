@@ -1,0 +1,25 @@
+# config_naming.toml — class-prefix naming conventions for THE debug framework (vision §B).
+# Documented OUTSIDE the code (with usage comments) so a future game/maintainer reads the rules without
+# grepping scripts. Mirrors DEV-RULES "Naming conventions"; this is the machine-readable companion. TRACKED.
+
+[prefixes]
+run  = "orchestrator / master launcher (sequences sub-scripts)"
+ext  = "extractor — pulls RAW tokens from a source (mod files / save managers)"
+aggr = "aggregator — joins / rolls up raw_* or data_* (log matches, state census, ...)"
+anal = "analyzer — turns aggregates into a report (diagnostics.md); MAY exceed 50 lines"
+lib  = "shared library (Framework-common: args/io/paths/config/parse); imported, never run directly. Libs keep '_' (Python can't import a hyphen)"
+chk  = "static check on mod source files (report side)"
+parse = "game-LOG parser (report side)"
+gen  = "generator (emits an artifact from a source/CSV)"
+
+# RECALL (§B): data_* are raw_* files ENRICHED by lookups/joins to other DBs (e.g. PRU -> Prussia).
+[data_classes]
+raw  = "pure extraction, tokens as-is (idempotent given the source commit)"
+data = "raw enriched via lookups/joins (e.g. country tag -> country name)"
+aggr = "rollups / cross-tabs over raw_* or data_*"
+
+[rules]
+# Target cap for glue scripts (ext/aggr/run). anal_/lib_ may exceed when cohesive; anal-bdd-* is exempt.
+max_lines = 50
+# The deliberate save-fingerprint marker infix (DEV-RULES "Save-fingerprint debugging").
+fingerprint_infix = "_fingerprint_"

@@ -1,0 +1,42 @@
+# config_saveparse.toml — Framework-SaveParse settings (externalized literals; vision §A/§B). Read-only TOML.
+[markers]
+fingerprint_infix = "_fingerprint_"
+
+[decode]
+fixed_point_factor = 100000   # Vic3 stores a numeric 'value' var as int(real * factor)
+
+# Save-manager databases to RAW-extract -> raw_<out>.csv (columns: id + the listed top-level scalar fields).
+[managers.building_manager]
+out = "raw_buildings"
+fields = ["building", "levels", "last_updated_level", "active", "state", "subsidized", "establishment_date"]
+[managers.states]
+out = "raw_states"
+fields = ["country", "capital", "incorporation", "region", "province"]
+[managers.country_manager]
+out = "raw_countries"
+fields = ["definition", "tag", "country_type"]
+[managers.state_region_manager]
+out = "raw_state_regions"
+fields = ["template"]
+
+[census]
+# GENERIC cap-variable detection (replaces the hardcoded zw_mfg_cap; T101): a persisted state/region variable
+# whose NAME matches this regex is the mod's intended numeric manufacturing cap for that region. Mod-agnostic.
+cap_var_pattern = "_cap(_|$)"
+# Buildings governed by a STORED numeric cap (compared vs the matched cap var):
+manufacturing_capped = [
+  "building_steel_mills", "building_tooling_workshops", "building_textile_mills",
+  "building_furniture_manufacturies", "building_glassworks", "building_paper_mills",
+  "building_chemical_plants", "building_motor_industry", "building_arms_industry",
+  "building_munition_plants", "building_explosives_factory", "building_synthetics_plants",
+  "building_electrics_industry", "building_food_industry", "building_shipyards",
+  "building_military_shipyards",
+]
+# Buildings gated by triggers/script-values (NO stored numeric cap -> reported MISSING-CAP, not a false pass):
+trigger_capped = ["building_railway", "building_power_plant", "building_art_academy"]
+
+[outputs]
+matches   = "aggr_save_matches.csv"
+census    = "aggr_state_census.csv"
+overbuild = "aggr_census_overbuild.csv"
+report    = "diagnostics.md"

@@ -1,0 +1,26 @@
+# config_modparse.toml — Framework-ModParse settings (externalized literals; vision §A/§B). Read-only TOML.
+[scan]
+# Text source extensions worth scanning (the game logs cite these); binaries are skipped.
+extensions = [".txt", ".yml", ".yaml", ".gui", ".json"]
+
+[markers]
+# The deliberate save-fingerprint marker infix (DEV-RULES "Save-fingerprint debugging").
+fingerprint_infix = "_fingerprint_"
+
+[prefix]
+# Common VANILLA command/scope prefixes that are NOT a mod's tag — excluded from auto-detection so the mod's
+# real short prefix (nous/mdp/eco/knip/...) wins instead of 'add'/'building'/etc. Tunable; --prefix overrides.
+stopwords = [
+  "add", "set", "has", "remove", "change", "create", "clr", "save", "every", "any", "random", "is", "can",
+  "trigger", "building", "country", "state", "modifier", "pop", "market", "scope", "owner", "value", "num",
+  "scaled", "relative", "ai", "should", "hidden", "custom", "if", "else", "while", "limit", "not", "or",
+  "and", "exists", "activate", "start", "trade", "interest", "military", "war", "diplomatic",
+]
+
+# Output file names — raw_* = pure extraction; the data-<Mod> contract BOTH downstream frameworks read.
+[outputs]
+files        = "raw_files.csv"
+keywords     = "raw_keywords.csv"
+debuglines   = "raw_debuglines.csv"
+loc          = "raw_loc.csv"
+fingerprints = "raw_fingerprints.csv"
