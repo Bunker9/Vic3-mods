@@ -25,7 +25,7 @@ mdpbic.1 = {
 
     trigger = {
         this = c:BIC
-        game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
+        #game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
         is_at_war = no
         is_active_in_diplomatic_play = no
     }

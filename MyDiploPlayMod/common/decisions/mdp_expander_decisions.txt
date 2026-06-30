@@ -20,13 +20,17 @@ mdp_conquer_free_minor = {
 		mdp_is_expand_country = yes
 		NOT = { OR = { this = c:BIC  this = c:PRU  this = c:EGY  this = c:SAR  this = c:SWE } }
 		infamy < 4
-		#stop showing ( thus spamming war with NULL country) when these conditions are met
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		# stop showing when no actually valid adjacent minor exists
 		any_country = {
 			exists = this
 			NOT = { is_country_type = decentralized }
 			mdp_is_expand_country = no
 			NOT = { country_rank >= rank_value:major_power }
 			is_subject = no
+			is_at_war = no
+			NOT = { has_truce_with = root }
 			NOT = { this = root }
 			any_scope_state = { any_neighbouring_state = { owner = root } }
 			NOT = { any_scope_state = { count >= 4 } }
@@ -36,7 +40,7 @@ mdp_conquer_free_minor = {
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
-		infamy < 4                        # strict near-clean gate (user 2026-06-30; was 30, mirrors is_shown)
+		infamy < 4
 		# BUGFIX 2026-06-26: a VALID adjacent minor must actually EXIST, else the AI takes this decision
 		# every tick (ai_chance 10000) with no effect = the "spam a war vs a NULL country" the user saw.
 		# Mirrors mdp_valid_generic_target but with root (this country) as the attacker (cannot save_scope
@@ -89,15 +93,21 @@ mdp_annex_own_subject = {
 		# subject-annexer tags (DAI/BUR/SIA/PAN/OMA flag) + DEI (own tested tag). Monthly pulse removed 2026-06-30.
 		OR = { mdp_is_subject_annexer = yes  c:DEI ?= this }
 		infamy < 4
-		# a subject (or below) owning FEWER than 4 states (annex the small ones; user "less than 4 states")
-		any_subject_or_below = { NOT = { any_scope_state = { count >= 4 } } }
+		# a direct subject owning FEWER than 4 states
+		any_subject_or_below = {
+			is_subject_of = root
+			NOT = { any_scope_state = { count >= 4 } }
+		}
 	}
 
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
 		infamy < 4
-		any_subject_or_below = { NOT = { any_scope_state = { count >= 4 } } }
+		any_subject_or_below = {
+			is_subject_of = root
+			NOT = { any_scope_state = { count >= 4 } }
+		}
 	}
 
 	when_taken = {
