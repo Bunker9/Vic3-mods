@@ -4,11 +4,9 @@ INJECT_OR_CREATE:company_tata = {
     building_types = {
         building_tooling_workshop
         building_furniture_manufactory
-    }
-
-    extension_building_types = {
         building_electrics_industry
         building_glassworks
+        building_iron_mine
     }
 
     prosperity_modifier = {
@@ -22,15 +20,11 @@ INJECT_OR_CREATE:company_tata = {
 INJECT_OR_CREATE:company_great_indian_railway = {
     building_types = {
         building_coal_mine
-        building_port
         building_shipyard
-    }
-
-    extension_building_types = {
-        building_oil_rig
-        building_explosives_factory
         building_power_plant
         building_automotive_industry
+        building_oil_rig
+        building_explosives_factory
     }
 
     prosperity_modifier = {

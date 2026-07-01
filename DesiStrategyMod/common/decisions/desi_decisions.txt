@@ -138,7 +138,7 @@ desi_rebuild_war_machine = {
 # ---- Decision 4: incorporate a frontier state (India / Burma / Afghan / Himalaya ONLY) -------
 # Any Indian-culture nation formally incorporates ONE of its unincorporated states within the
 # subcontinent and its marches. Allowed strategic regions: north_india + south_india + himalayas
-# (India + Himalaya), region_indochina (contains Burma), region_central_asia (contains Afghanistan).
+# (India + Himalaya), region_indochina (contains Burma), region_greater_persia (contains Afghanistan).
 # Incorporation is immediate; a 3-year administrative-burden modifier costs, PER 1,000,000 pop of the
 # incorporated territory, -10 bureaucracy + 100/week expenses (so a smaller split region costs less).
 # To AVOID MODIFIER SPAM, ONE modifier is kept and RECALCULATED: each take adds the new state's size to
@@ -148,7 +148,7 @@ desi_rebuild_war_machine = {
 #   multiplier = var: (france_savoy + negotiation scripted_effects); country_bureaucracy_add /
 #   country_expenses_add (00_modifier_types); state_population + scope:X.state_population (27_unification
 #   war goal). set_state_type = incorporated reused from SteadyInnov uni_events. NOTE: region_indochina is
-#   broader than Burma and region_central_asia broader than Afghanistan (slight over-inclusion) - tighten
+#   broader than Burma and region_greater_persia broader than Afghanistan (slight over-inclusion) - tighten
 #   to explicit Burma/Afghan state lists later if strict "ONLY" is wanted.
 desi_incorporate_state = {
 	is_shown = {
@@ -163,7 +163,7 @@ desi_incorporate_state = {
 				region = sr:region_south_india
 				region = sr:region_himalayas
 				region = sr:region_indochina
-				region = sr:region_central_asia
+				region = sr:region_greater_persia
 			}
 		}
 	}
@@ -189,7 +189,7 @@ desi_incorporate_state = {
 					region = sr:region_south_india
 					region = sr:region_himalayas
 					region = sr:region_indochina
-					region = sr:region_central_asia
+					region = sr:region_greater_persia
 				}
 			}
 			set_state_type = incorporated
@@ -199,12 +199,22 @@ desi_incorporate_state = {
 				change_variable = { name = desi_fingerprint_incorporated add = 1 }
 			}
 		}
-		# RECALC the single cost modifier scaled to the cumulative burden (remove + re-add => never spams).
-		remove_modifier = modifier_desi_incorporation_cost
-		add_modifier = {
-			name = modifier_desi_incorporation_cost
-			months = 36
-			multiplier = var:desi_incorporation_burden
+
+		custom_tooltip = {
+			text = desi_incorporation_cost_tt
+		}
+
+		hidden_effect = {
+			# RECALC the single cost modifier scaled to the cumulative burden (remove + re-add => never spams).
+			if = {
+				limit = { has_modifier = modifier_desi_incorporation_cost }
+				remove_modifier = modifier_desi_incorporation_cost
+			}
+			add_modifier = {
+				name = modifier_desi_incorporation_cost
+				months = 36
+				multiplier = var:desi_incorporation_burden
+			}
 		}
 		debug_log = "desi - incorporate-state - incorporated all eligible states, burden recalculated"
 	}

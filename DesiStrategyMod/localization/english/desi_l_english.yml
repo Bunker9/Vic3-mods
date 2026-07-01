@@ -10,3 +10,4 @@
  desi_incorporate_state:0 "Integrate the Frontier"
  desi_incorporate_state_desc:0 "Bring one of our outlying provinces fully into the realm. The integration is immediate, but our administrators and treasury bear a heavy strain for three years, in proportion to the size of the land brought to heel."
  modifier_desi_incorporation_cost:0 "Integration Strain"
+ desi_incorporation_cost_tt:0 "Incorporate our core states in India. Doing so will place a long-term strain on our treasury and bureaucracy"
