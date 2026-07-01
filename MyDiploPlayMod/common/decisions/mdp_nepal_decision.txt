@@ -1,0 +1,30 @@
+﻿
+mdp_nepal_trigger_event  = {
+	is_shown = {
+		c:NEP ?= this
+		NOT = { has_variable = mdp_nep_tib_done }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		infamy < 30
+		# China must have the opium ban policy active
+		c:CHI = {
+			exists = yes
+			is_at_war = no
+			# China is under the opium-ban authority penalty (granted when a trade-policy law
+			# such as isolationism/canton_system bans g:opium). This single modifier IS
+			# "China has the opium ban AND is suffering authority/military penalties for it".
+			# Verified vs game files: there is NO `opium_ban_law` law_type — the hook is this modifier.
+			has_modifier = opium_ban_authority
+		}
+	}
+
+	when_taken = {
+		set_variable = { name = mdp_nep_tib_done value = yes }
+		trigger_event = { id = mdp.1  popup = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}

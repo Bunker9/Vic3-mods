@@ -61,14 +61,6 @@ mdp_conquer_free_minor = {
 
 	when_taken = {
 		mdp_decision_conquer_minor = yes
-		clear_debt = yes  #Wipe debt
-		add_treasury = {
-			value = gold_reserves_limit
-		}
-		add_loyalists = {
-			strata = lower
-			value = very_large_radicals
-		}
 		# FINGERPRINT COUNTER (additive). Comment out at promote. # Increment counter — initialise to 0 first if not set
 		if = {
 			limit = {
@@ -91,7 +83,7 @@ mdp_annex_own_subject = {
 
 	is_shown = {
 		# subject-annexer tags (DAI/BUR/SIA/PAN/OMA flag) + DEI (own tested tag). Monthly pulse removed 2026-06-30.
-		OR = { mdp_is_subject_annexer = yes  c:DEI ?= this }
+		OR = { mdp_is_subject_annexer = yes  c:DEI ?= this c:PER ?= this }
 		infamy < 4
 		# a direct subject owning FEWER than 4 states
 		any_subject_or_below = {
@@ -112,14 +104,6 @@ mdp_annex_own_subject = {
 
 	when_taken = {
 		mdp_decision_annex_subject = yes
-		clear_debt = yes  #Wipe debt
-		add_treasury = {
-			value = gold_reserves_limit
-		}
-		add_loyalists = {
-			strata = lower
-			value = very_large_radicals
-		}
 		# FINGERPRINT COUNTER (additive). Comment out at promote.
 		# TODO -- will change_variable get added to savefiles even without a set_variable?Why would Claude go with this code?Is it slop?
 		# TODO debugging needs standardization of when and where to use int / bool variables . When to capture date in variable. When to use debug_log variable

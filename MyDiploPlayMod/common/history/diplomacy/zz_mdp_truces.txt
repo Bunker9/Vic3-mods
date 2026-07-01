@@ -14,6 +14,12 @@ DIPLOMACY = {
 			months = 24
 		}
 	}
+	c:KAF ?= {
+		create_bidirectional_truce = {
+			country = c:PAN
+			months = 30
+		}
+	}
 	c:KAB ?= {
 		create_bidirectional_truce = {
 			country = c:PER

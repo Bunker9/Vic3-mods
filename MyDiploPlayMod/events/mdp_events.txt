@@ -1,48 +1,11 @@
 ﻿namespace = mdp
 
-# =============================================================================
-# mdp.1 — monthly blob-chain driver. Fired per at-peace expand tag.
-# Root = the expanding country.
-# =============================================================================
 mdp.1 = {
     type = country_event
-    hidden = yes
-
-    immediate = {
-        #debug_log = "mdp.1 FIRED"
-        #debug_log_scopes = yes   # logs the firing country (Root) + infamy via scope dump
-
-        save_scope_as = mdp_attacker   # MUST be saved here before mdp_try_next_war runs
-
-        mdp_try_next_war = yes
-        #debug_log = "mdp.1 done for this pulse"
-    }
-}
-
-# =============================================================================
-# mdp.2 — Nepal-specific event: attack Tibet when China suffers from opium
-#         ban + military penalties. Fired monthly for NEP.
-# Root = Nepal (c:NEP).
-# =============================================================================
-mdp.2 = {
-    type = country_event
-    hidden = yes
-
-    trigger = {
-        this = c:NEP
-        is_at_war = no
-        is_active_in_diplomatic_play = no
-        infamy < 30
-        # China must have the opium ban policy active
-        c:CHI = {
-            exists = yes
-            is_at_war = no
-            # China is under the opium-ban authority penalty (granted when a trade-policy law
-            # such as isolationism/canton_system bans g:opium). This single modifier IS
-            # "China has the opium ban AND is suffering authority/military penalties for it".
-            # Verified vs game files: there is NO `opium_ban_law` law_type — the hook is this modifier.
-            has_modifier = opium_ban_authority
-        }
+    title = mdp.1.t
+    desc = mdp.1.desc
+    event_image = {
+        video = "africa_diplomats_negotiating"
     }
 
     immediate = {
@@ -136,68 +99,9 @@ mdp.2 = {
             #debug_log = "mdp.2 TIB does not exist — aborting"
         }
     }
-}
-
-# =============================================================================
-# mdp.3 — subject annexation event: annex the biggest own subject via
-#         dp_annex_subject (<1851 window, at peace 6+ months).
-# Root = the annexer.
-# Window: 15-year expansion window for subject states.
-# =============================================================================
-mdp.3 = {
-    type = country_event
-    hidden = yes
-
-    trigger = {
-        mdp_is_subject_annexer = yes        # DAI/BUR/SIA/PAN, flagged at startup (single source)
-        #game_date <= 1855.12.31 testing with removing this
-        is_at_war = no
-        is_active_in_diplomatic_play = no   # at peace AND not mid-play (no war-recency trigger
-                                            # exists in Vic3 — `years_since_end_of_war` is NOT real)
-        # Must own at least one subject. (`any_subject` is NOT a valid trigger — the real one is
-        # `any_subject_or_below`; the effect below filters to OWN direct subjects via is_subject_of.)
-        any_subject_or_below = { count >= 1 }
-    }
-
-    immediate = {
-        #debug_log = "mdp.3 FIRED — annexing biggest subject"
-        #debug_log_scopes = yes
-
-        save_scope_as = mdp_annexer
-
-        # Pick the weakest DIRECT subject (lowest prestige). The real list-scope is
-        # `ordered_subject_or_below` (no direct-only `ordered_subject` exists); restrict to
-        # OUR direct subjects with is_subject_of. Verified syntax vs game journal entries.
-        ordered_subject_or_below = {
-            limit = { is_subject_of = scope:mdp_annexer }
-            order_by = prestige        # ascending — weakest first
-            position = 0               # take the weakest
-            check_range_bounds = no
-
-            save_scope_as = mdp_subject
-
-            #debug_log = "mdp.3 SUBJECT CHOSEN"
-            #debug_log_scopes = yes
-        }
-
-        if = {
-            limit = { exists = scope:mdp_subject }
-
-            #debug_log = "mdp.3 declaring dp_annex_subject"
-
-            scope:mdp_annexer = {
-                create_diplomatic_play = {
-                    target_country = scope:mdp_subject
-                    type = dp_annex_subject
-                }
-            }
-
-            #debug_log = "mdp.3 ANNEXATION PLAY DECLARED"
-        }
-
-        if = {
-            limit = { NOT = { exists = scope:mdp_subject } }
-            #debug_log = "mdp.3 NO VALID SUBJECT — aborting"
-        }
+    option = {
+        default_option = yes # default
+        name = mdp.1.a
+        add_loyalists = { value = large_radicals }
     }
 }

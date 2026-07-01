@@ -12,15 +12,16 @@
 #   * city_type = city + has_max_level: kept in the 4 most-urban ARG states, BA gets the bulk.
 # =============================================================================
 BUILDINGS = {
-	s:STATE_BUENOS_AIRES = {
-		region_state:ARG = {
-			create_building = {
-				building = "building_barrack"
-				add_ownership = { country = { country = "c:ARG" levels = 4 } }
-				reserves = 1
-			}
-		}
-	}
+	#HUMAN EDIT - REMOVING THIS AS WE CANT BUILD MORE BARACKS HERE
+	# s:STATE_BUENOS_AIRES = {
+	# 	region_state:ARG = {
+	# 		create_building = {
+	# 			building = "building_barrack"
+	# 			add_ownership = { country = { country = "c:ARG" levels = 4 } }
+	# 			reserves = 1
+	# 		}
+	# 	}
+	# }
 	s:STATE_SANTA_FE = {
 		region_state:ARG = {
 			create_building = {

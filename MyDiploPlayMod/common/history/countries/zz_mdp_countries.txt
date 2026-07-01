@@ -6,7 +6,8 @@ COUNTRIES = {
 	# DAI (Dai Viet): frontier colonization to absorb Degar unincorporated highlands naturally.
 	c:DAI ?= {
 		activate_law = law_type:law_frontier_colonization
-
+		add_technology_researched = colonization
+		add_technology_researched = international_relations
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 1
@@ -16,7 +17,8 @@ COUNTRIES = {
 	# MNP (Manipur): frontier colonization KUK
 	c:ASM ?= {
 		activate_law = law_type:law_frontier_colonization
-
+		add_technology_researched = colonization
+		add_technology_researched = international_relations
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 1
@@ -24,7 +26,8 @@ COUNTRIES = {
 	}
 	c:MNP ?= {
 		activate_law = law_type:law_frontier_colonization
-
+		add_technology_researched = colonization
+		add_technology_researched = international_relations
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 1
@@ -33,7 +36,18 @@ COUNTRIES = {
 	# BUR (Burma): frontier colonization to absorb adjacent decentralized frontier regions.
 	c:BUR ?= {
 		activate_law = law_type:law_frontier_colonization
-
+		add_technology_researched = colonization
+		add_technology_researched = international_relations
+		set_institution_investment_level = {
+			institution = institution_colonial_affairs
+			level = 1
+		}
+	}
+	# PER (Persia): frontier colonization to absorb adjacent decentralized frontier regions.
+	c:PER ?= {
+		activate_law = law_type:law_frontier_colonization
+		add_technology_researched = colonization
+		add_technology_researched = international_relations
 		set_institution_investment_level = {
 			institution = institution_colonial_affairs
 			level = 1
