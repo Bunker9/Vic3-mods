@@ -10,7 +10,7 @@ INJECT_OR_CREATE:company_tata = {
     }
 
     prosperity_modifier = {
-        building_construction_sector_throughput_add = 0.15
+        building_construction_sector_throughput_add = 0.05
         country_max_weekly_construction_progress_add = 10
         building_steel_mill_throughput_add = 0.1
         building_tooling_workshop_throughput_add = 0.1
@@ -30,5 +30,32 @@ INJECT_OR_CREATE:company_great_indian_railway = {
     prosperity_modifier = {
         building_paper_mill_throughput_add = 0.1
         country_bureaucracy_mult = 0.1
+    }
+}
+
+INJECT_OR_CREATE:company_krupp = {
+    building_types = {
+        building_coal_mine
+        building_iron_mine
+        building_explosives_factory
+    }
+
+    prosperity_modifier = {
+        building_steel_mill_throughput_add = 0.1
+        country_weekly_innovation_mult = 0.1
+    }
+}
+
+INJECT_OR_CREATE:company_dmc = {
+    building_types = {
+        building_furniture_manufactory
+        building_tooling_workshop
+        building_glassworks
+        building_food_industry
+    }
+
+    prosperity_modifier = {
+        country_prestige_mult = 0.2
+        country_max_weekly_construction_progress_add = 20
     }
 }

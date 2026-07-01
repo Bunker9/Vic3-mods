@@ -61,7 +61,7 @@ knip_claim_korea = {
 		s:STATE_SARIWON   = { add_claim = scope:knip_actor }
 		s:STATE_PYONGYANG = { add_claim = scope:knip_actor }
 		set_variable = { name = knip_korea_claimed_done value = yes }          # load-bearing guard
-		set_variable = { name = knip_fingerprint_korea_claimed value = yes }   # additive fingerprint
+		# set_variable = { name = knip_fingerprint_korea_claimed value = yes }   # additive fingerprint
 	}
 
 	ai_chance = { value = 10000 }

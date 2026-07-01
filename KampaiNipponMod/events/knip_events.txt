@@ -26,27 +26,27 @@ knip.1 = {
 		# so unincorporated / low-capacity states stop at their real max. Idiom = eco_pulse_spread STACK.
 		every_scope_state = {
 			limit = { can_construct_building = building_fishing_wharf }
-			if = {
-				limit = {
-					NOT = { has_variable = knip_fingerprint_fishing_built }
-				}
-				set_variable = {
-					name = knip_fingerprint_fishing_built
-					value = 0
-				}
-			}
+			# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+			# 	limit = {
+			# 		# NOT = { has_variable = knip_fingerprint_fishing_built }
+			# 	}
+			# 	set_variable = {
+			# 		# name = knip_fingerprint_fishing_built
+			# 		value = 0
+			# 	}
+			# }
 		}
 		every_scope_state = {
 			limit = { can_construct_building = building_whaling_station }
-			if = {
-				limit = {
-					NOT = { has_variable = knip_fingerprint_whaling_built }
-				}
-				set_variable = {
-					name = knip_fingerprint_whaling_built
-					value = 0
-				}
-			}
+			# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+			# 	limit = {
+			# 		# NOT = { has_variable = knip_fingerprint_whaling_built }
+			# 	}
+			# 	set_variable = {
+			# 		# name = knip_fingerprint_whaling_built
+			# 		value = 0
+			# 	}
+			# }
 		}
 		every_scope_state = {
 			limit = { can_construct_building = building_fishing_wharf }
@@ -55,8 +55,8 @@ knip.1 = {
 			change_variable = { name = knip_cur add = 1 }
 			create_building = { building = building_fishing_wharf level = var:knip_cur } # no reserves, let hiring grow slowly
 			# PER-STATE build counter (this = state): +1 each pulse this state actually builds a wharf.
-			if = { limit = { NOT = { has_variable = knip_fingerprint_fishing_built } } set_variable = { name = knip_fingerprint_fishing_built value = 0 } }
-			change_variable = { name = knip_fingerprint_fishing_built add = 1 }
+			# if = { limit = { NOT = { has_variable = knip_fingerprint_fishing_built } } set_variable = { name = knip_fingerprint_fishing_built value = 0 } }
+			# change_variable = { name = knip_fingerprint_fishing_built add = 1 }
 			remove_variable = knip_cur
 		}
 		# +1 whaling station in every state that can still build one.
@@ -67,13 +67,13 @@ knip.1 = {
 			change_variable = { name = knip_cur add = 1 }
 			create_building = { building = building_whaling_station level = var:knip_cur } # no reserves, let hiring grow slowly
 			# PER-STATE build counter (this = state): +1 each pulse this state actually builds a station.
-			if = { limit = { NOT = { has_variable = knip_fingerprint_whaling_built } } set_variable = { name = knip_fingerprint_whaling_built value = 0 } }
-			change_variable = { name = knip_fingerprint_whaling_built add = 1 }
+			# if = { limit = { NOT = { has_variable = knip_fingerprint_whaling_built } } set_variable = { name = knip_fingerprint_whaling_built value = 0 } }
+			# change_variable = { name = knip_fingerprint_whaling_built add = 1 }
 			remove_variable = knip_cur
 		}
 
 		# FINGERPRINT (additive; save-parser). Comment out at promote.
-		set_variable = { name = knip_fingerprint_marine_built value = 1 }
+		# set_variable = { name = knip_fingerprint_marine_built value = 1 }
 	}
 
 	option = {
@@ -91,7 +91,7 @@ knip.1 = {
 			trigger_event = { id = knip.1 weeks = 1 } # hire and limits cal on weekly pulse to better sync states table update
 			#TODO recursion is not working well - hint - it always ends giving all states 1 more building level
 			# FINGERPRINT (additive; save-parser). Count of how many loops it took for all.
-			change_variable = { name = knip_fingerprint_marine_built add = 1 } # should be ~17 calls
+			# change_variable = { name = knip_fingerprint_marine_built add = 1 } # should be ~17 calls
 		}
 		# Otherwise the build-out is complete -> grant the marine-hiring modifier.
 		else = {
@@ -109,6 +109,6 @@ knip.2 = {
 		add_modifier = { name = knip_marine_hiring months = 600}
 
 		# FINGERPRINT (additive). Comment out at promote.
-		set_variable = { name = knip_fingerprint_marine_modifier value = yes }
+		# set_variable = { name = knip_fingerprint_marine_modifier value = yes }
 	}
 }

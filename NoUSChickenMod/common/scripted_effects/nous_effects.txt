@@ -30,7 +30,7 @@ nous_start_mexico_war_effect = {
 		# proving the Mexico-war effect (called by nous_mexico_war_decision) actually executed. Unlike
 		# debug_log, set_variable does NOT run during tooltip preview, so it sidesteps the 925x tooltip
 		# spam this effect caused. Comment out at Ceremony 3 promote.
-		set_variable = { name = nous_fingerprint_mexico_war_started value = yes }
+		# set_variable = { name = nous_fingerprint_mexico_war_started value = yes }
 	}
 }
 
@@ -60,6 +60,6 @@ nous_restart_csa_war_effect = {
 		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging"). set_variable persists as
 		# flag=nous_fingerprint_csa_war_started on USA -> proves the CSA-war effect fired at least
 		# once, offline, for the whole playthrough. Comment out at Ceremony 3 promote.
-		set_variable = { name = nous_fingerprint_csa_war_started value = yes }
+		# set_variable = { name = nous_fingerprint_csa_war_started value = yes }
 	}
 }

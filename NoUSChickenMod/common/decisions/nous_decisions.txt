@@ -46,7 +46,7 @@ nous_war_play = {
 		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
 		# Persists on USA
 		# Comment out at Ceremony 3 promote.
-		set_variable = { name = nous_fingerprint_warbonds_taken value = yes }
+		# set_variable = { name = nous_fingerprint_warbonds_taken value = yes }
 
 		clear_debt = yes  #Wipe debt
 		add_treasury = {

@@ -34,5 +34,5 @@ knip_naval_buildup_effect = {
 
 	# FINGERPRINT (additive; DEV-RULES "Save-fingerprint debugging") - per-country, proves the buildup
 	# ran. Comment out at promote.
-	set_variable = { name = knip_fingerprint_navy_built value = yes }
+	# set_variable = { name = knip_fingerprint_navy_built value = yes }
 }

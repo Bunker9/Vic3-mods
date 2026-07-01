@@ -36,7 +36,7 @@ desi_claim_heartland = {
 		s:STATE_PUNJAB      = { add_claim = scope:desi_actor }
 		s:STATE_HILL_PUNJAB = { add_claim = scope:desi_actor }
 		# FINGERPRINT (variable, per-country; DEV-RULES "Save-fingerprint debugging"). Comment out at promote.
-		set_variable = { name = desi_fingerprint_heartland_claimed value = yes }
+		# set_variable = { name = desi_fingerprint_heartland_claimed value = yes }
 	}
 
 	ai_chance = { value = 10000 }
@@ -97,7 +97,7 @@ desi_unify_india = {
 		# real once-only guard (load-bearing, NOT a fingerprint) + additive fingerprint
 		#TODO add burma, baluch and afghan states ( ONLY PARTS OF SEA and CENT ASIA )
 		set_variable = { name = desi_unified_done value = yes }
-		set_variable = { name = desi_fingerprint_india_unified value = yes }
+		# set_variable = { name = desi_fingerprint_india_unified value = yes }
 	}
 
 	ai_chance = { value = 10000 }
@@ -175,10 +175,10 @@ desi_incorporate_state = {
 			limit = { NOT = { has_variable = desi_incorporation_burden } }
 			set_variable = { name = desi_incorporation_burden value = 0 }
 		}
-		if = {
-			limit = { NOT = { has_variable = desi_fingerprint_incorporated } }
-			set_variable = { name = desi_fingerprint_incorporated value = 0 }
-		}
+		#if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+			# limit = { NOT = { has_variable = desi_fingerprint_incorporated } }
+			# set_variable = { name = desi_fingerprint_incorporated value = 0 }
+		#} #TODO fingerprint toggle script missed  taking care of empty if stmt closing braces
 		# Incorporate EVERY eligible unincorporated state at once (the just-conquered Indian lands). For each,
 		# add its size (millions) to the running burden + bump the counter (scoped back to ROOT = the country).
 		every_scope_state = {
@@ -196,7 +196,7 @@ desi_incorporate_state = {
 			save_scope_as = desi_inc_state
 			ROOT = {
 				change_variable = { name = desi_incorporation_burden add = desi_incorporation_state_millions }
-				change_variable = { name = desi_fingerprint_incorporated add = 1 }
+				# change_variable = { name = desi_fingerprint_incorporated add = 1 }
 			}
 		}
 
@@ -216,7 +216,7 @@ desi_incorporate_state = {
 				multiplier = var:desi_incorporation_burden
 			}
 		}
-		debug_log = "desi - incorporate-state - incorporated all eligible states, burden recalculated"
+		# debug_log = "desi - incorporate-state - incorporated all eligible states, burden recalculated"
 	}
 
 	ai_chance = { value = 10000 }
