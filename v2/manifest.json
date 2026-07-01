@@ -1,5 +1,5 @@
 {
-  "_generated": "by tools/gen_manifest_from_xlsx.py from testbook_status.xlsx \u2014 DO NOT hand-edit",
+  "_generated": "by testkit/gen_manifest_from_xlsx.py from testbook_status.xlsx \u2014 DO NOT hand-edit",
   "version": 3,
   "tabs": [
     {

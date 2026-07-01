@@ -7,10 +7,11 @@
 | file | class | lines | purpose | status |
 |---|---|---|---|---|
 | `run-modparse.py` | run- (orchestrator) | 27 | sequence the `ext-*` extractors (subprocess) → `data-<Mod>/` | built |
-| `ext-mod-files.py` | ext- | 27 | mod source filenames → `raw_files.csv` | built (from `tools/ext_mod_files.py`) |
+| `ext-mod-files.py` | ext- | 27 | mod source filenames → `raw_files.csv` | built |
 | `ext-mod-keywords.py` | ext- | 43 | mod keywords/tokens → `raw_keywords.csv` (the shared join key) | built |
 | `ext-mod-debuglines.py` | ext- | 38 | active `debug_log` markers → `raw_debuglines.csv` | built |
 | `ext-mod-loc.py` | ext- | 38 | localization keys → `raw_loc.csv` | built |
 | `ext-mod-fingerprints.py` | ext- | 46 | declared `*_fingerprint_*` markers + op → `raw_fingerprints.csv` | built (NEW) |
-| `config_modparse.toml` | config (data) | n/a | scan extensions, fingerprint infix, output file names | built |
+| `ext-mod-tokens.py` | ext- | 34 | UNFILTERED token dump (ALL tokens, commented-out excluded) → `raw_tokens.csv` (`keyword,occurrence`) | built 2026-07-01 |
+| `config_modparse.toml` | config (data) | n/a | scan extensions, fingerprint infix, output file names (+ `tokens`) | built |
 | `README.md` | doc | n/a | framework contract | done |

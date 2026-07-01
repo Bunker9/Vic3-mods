@@ -6,7 +6,7 @@ The xlsx is the SINGLE SOURCE OF TRUTH for the feature taxonomy (decision 2026-0
 script reads its IDENTITY (mod, feature, id) + WHERE-TO-DISPLAY (tab) + STATUS columns and emits
 the build manifest run_v2.py consumes. Do NOT hand-edit manifest.json — edit the xlsx and re-run:
 
-    python testbook/v2/tools/gen_manifest_from_xlsx.py
+    python testbook/v2/testkit/gen_manifest_from_xlsx.py
 
 "feature" is a PROTECTED WORD: the per-mod `features` list below holds REAL mod mechanics (xlsx
 IDENTITY ids like ECO-CHAMP). The mod-wide views (static / log) are NOT features -> `modwide`.
@@ -18,7 +18,7 @@ several tabs (e.g. "Census ptab + Timeline" -> [census, timeline]).
 """
 import os, sys, json, re
 
-HERE = os.path.dirname(os.path.abspath(__file__))                 # .../testbook/v2/tools
+HERE = os.path.dirname(os.path.abspath(__file__))                 # .../testbook/v2/testkit
 V2   = os.path.dirname(HERE)                                      # .../testbook/v2
 ROOT = os.path.dirname(os.path.dirname(V2))                       # container (v2->testbook->root)
 XLSX = os.path.join(ROOT, "hk-config", "data", "testbook_status.xlsx")
@@ -129,7 +129,7 @@ def main():
         })
 
     manifest = {
-        "_generated": "by tools/gen_manifest_from_xlsx.py from testbook_status.xlsx — DO NOT hand-edit",
+        "_generated": "by testkit/gen_manifest_from_xlsx.py from testbook_status.xlsx — DO NOT hand-edit",
         "version": 3,
         "tabs": [{"id": t, "label": lbl} for t, lbl in TABS],
         "static_rules": generic_static_rules,     # the shared 'static' view's sub-checks

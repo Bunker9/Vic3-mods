@@ -1,0 +1,3 @@
+id,text,condition,logical_reasoning,user_comments,status
+SAV001,"No mod fingerprints persisted in the save",fingerprints == 0,"Zero fp usually means the feature did not fire OR fp/debug was toggled off",,keep
+SAV002,"Buildings over the mod cap present",overbuild_rows > 0,"Over-cap tuples classified mod-script-error vs engine-overbuild",,keep

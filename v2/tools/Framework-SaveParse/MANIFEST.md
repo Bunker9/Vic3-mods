@@ -1,8 +1,8 @@
 # Framework-SaveParse — script manifest
 
-> One row per script/artifact. **STUB skeleton created 2026-06-30; Phase 4 not yet implemented.** Code files
-> are hyphen-named, import `../Framework-common`; the master runs the subs as SUBPROCESSES. Migrates the old
-> `save-game-parser/*`. The old `save-game-parser/` dir is retired once this is built.
+> One row per script/artifact. **BUILT (Phase 4, 2026-06-30; validated on a melted save).** Code files are
+> hyphen-named, import `../Framework-common`; the master runs the subs as SUBPROCESSES. Replaced the original
+> save-game-parser job (retired 2026-07-01).
 
 | file | class | lines | purpose | status |
 |---|---|---|---|---|

@@ -2,8 +2,8 @@
 
 > Status: **BUILT — Phase 3 complete (2026-06-30); smoke-tested on NoUSChickenMod** (surfaced 6 real errors
 > incl. the set-but-unused fingerprints — empirically confirming the dummy-use rule — and the loc-for-all-kw
-> check). Ported the old `tools/aggr_log_matches.py` +
-> `tools/anal_log_triage.py` here. Design home: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Imports `../Framework-common`.
+> check). Replaced the original log-triage job (retired 2026-07-01). Design home:
+> `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Imports `../Framework-common`.
 > **Run this BEFORE any manual log deep-dive** (DEV-RULES "Triage framework FIRST").
 
 Joins a mod's `data-<Mod>` token lists (from Framework-ModParse) against the game LOGS for the current run, and
@@ -14,8 +14,11 @@ python run-logtriage.py <MOD_NAME> [--logs DIR] [--rerun]
 ```
 - Reads `Game-Victoria3/data-<MOD_NAME>/raw_keywords.csv` etc. (run Framework-ModParse first).
 - `--logs` overrides the logs dir (else from `config_game.toml`).
+- **STEP 1 (automatic):** invokes `Framework-common/run-archive-curr.py log-CURR`, which creates the
+  `Game-<game>/` data root if missing and demotes every prior `log-CURR*` to `log-<label>` so ONLY this run keeps
+  the `CURR` marker (the latest-source signal for the report).
 
-## Outputs — `Game-Victoria3/log-CURR-<ts>-<branch>/<MOD_NAME>/`
+## Outputs — `Game-Victoria3/log-CURR/<MOD_NAME>/`
 | file | class | content |
 |---|---|---|
 | `aggr_log_matches.csv` | aggr | one row per file/kw/dbg match in the logs (was `matched_loglines.csv`) |

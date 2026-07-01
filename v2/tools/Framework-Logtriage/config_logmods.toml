@@ -1,0 +1,3 @@
+# config_logmods.toml — TRACKED list of mod names the log convenience master (run-logtriage) batches.
+# Empty/absent => fall back to config_game.toml [mod_locations] (--all).
+mods = ["Top40EcoBoostMod", "MyDiploPlayMod", "NoUSChickenMod"]

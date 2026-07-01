@@ -1,7 +1,7 @@
 # Framework-ModParse — mod SOURCE → `data-<Mod>` token files (idempotent)
 
 > Status: **BUILT — Phase 2 complete (2026-06-30); smoke-tested + idempotent** (NoUSChickenMod: byte-identical
-> across reruns). Ported from the old `tools/ext_mod_*.py` onto `Framework-common`. Design home:
+> across reruns). Built on `Framework-common` (replaced the original `ext_mod_*` extractors, retired 2026-07-01). Design home:
 > `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Imports `../Framework-common` (top-level modules via sys.path).
 
 The upstream framework. Reads a mod's SOURCE tree and emits the `data-<Mod>` token files that BOTH downstream

@@ -1,7 +1,11 @@
 human_agreed,pattern,count
-Y,should be in utf8-bom encoding,0
-,"Invalid scope types for event target link, link: target_country at <FILE>:#",2
-,Variable '<X>' is set but is never used. Note that use in localization doesn't count due to technical limitations. Use in unused scripted triggers and effects also does not count,1
-,Compiling source for eco_pulse_spread failed for unknown arguments: TYPE. At <FILE>:#,78
-,Variable '<X>' is used but is never set. Setting it in an unused scripted trigger or effect does not count,3
-,Compiling source for <TOKEN> failed for unknown arguments: TYPE. At <FILE>:#,78
+N,should be in utf8-bom encoding,0
+N,"Invalid scope types for event target link, link: target_country at <FILE>:#",2
+N,Variable '<X>' is set but is never used. Note that use in localization doesn't count due to technical limitations. Use in unused scripted triggers and effects also does not count,2
+N,Compiling source for eco_pulse_spread failed for unknown arguments: TYPE. At <FILE>:#,78
+N,Variable '<X>' is used but is never set. Setting it in an unused scripted trigger or effect does not count,3
+N,Compiling source for <TOKEN> failed for unknown arguments: TYPE. At <FILE>:#,78
+N,Value of wrong type in '<X>'. Got value of type '<X>',766
+N,Error: remove_modifier effect [ Timed modifier <TOKEN> in scope object Country Khalsa Raj (#) not found. Make sure the modifier is in the same scope as this effect is being run on. ],766
+N,Script location: <FILE>:#,766
+N,<FILE>:#,1

@@ -1,0 +1,6 @@
+id,condition,metrics,expected,sample_snippet
+DS001,markers_fired == 0,markers_fired=0,true,"no `mdp - ...` marker printed this run"
+DS002,tracked_errors > 0,tracked_errors=3,true,"jomini_script_system.cpp: Invalid right side during comparison 'c'"
+DS003,tracked_errors > 0,tracked_errors=0,false,"(no tracked errors this run)"
+DS004,unfired > 0,unfired=2;markers_total=5,true,"a decision whose debug_log marker never printed"
+DS005,fingerprints == 0,fingerprints=4,false,"4 mod fingerprints persisted in the save"

@@ -1,0 +1,4 @@
+id,text,condition,logical_reasoning,user_comments,status
+LOG001,"No mod log markers fired this run",markers_fired == 0,"Zero fired markers usually means the mod did not run or debug is off",,keep
+LOG002,"Tracked (human_agreed=N) errors present",tracked_errors > 0,"Errors we have NOT ruled out — likely mod-caused",,keep
+LOG003,"Unfired debug markers",unfired > 0,"An effect/decision whose marker never printed this session",,keep

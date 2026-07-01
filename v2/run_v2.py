@@ -2,7 +2,7 @@
 """
 v2 testbook orchestrator — xlsx-driven, self-contained (no v1 imports).
 
-manifest.json is GENERATED from testbook_status.xlsx (tools/gen_manifest_from_xlsx.py); it is the
+manifest.json is GENERATED from testbook_status.xlsx (testkit/gen_manifest_from_xlsx.py); it is the
 single source of truth for the FEATURE taxonomy. Do not hand-edit it.
 
 Two kinds of rendered unit (both are "cards"; "feature" is reserved for real mod mechanics):

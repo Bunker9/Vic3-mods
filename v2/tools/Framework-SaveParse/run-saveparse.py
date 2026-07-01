@@ -11,20 +11,26 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), "Framework-common"))
 import lib_args, lib_paths
 
 STAGES = ["ext-save-blocks.py", "aggr-save-matches.py", "aggr-state-census.py", "anal-save-report.py"]
+ARCHIVE = os.path.join(os.path.dirname(HERE), "Framework-common", "run-archive-curr.py")
 
 
 def main():
-    args = lib_args.parse_args("SaveParse master: save + data-<Mod> -> save-CURR/<Mod>/.", save=True)
-    save = lib_paths.resolve_save(lib_paths.game_config(), args.save)   # resolve ONCE so all stages agree
-    print(f"== SaveParse {args.mod_name}  save={os.path.basename(save)} "
-          f"-> {lib_paths.run_dir('save-CURR', args.mod_name)} ==")
-    base = [args.mod_name, "--save", save]              # pass the RESOLVED path to every stage
-    if args.prefix:
-        base += ["--prefix", args.prefix]
-    if args.rerun:
-        base += ["--rerun"]
-    for stage in STAGES:
-        subprocess.run([sys.executable, os.path.join(HERE, stage)] + base, check=True)
+    args = lib_args.parse_master_args("SaveParse master: save + data-<Mod> -> save-CURR/<Mod>/ (one or more mods; --all).",
+                                      save=True)
+    mods = lib_args.selected_mods(args)
+    save = lib_paths.resolve_save(lib_paths.game_config(), args.save)   # resolve ONCE so all mods/stages agree
+    # STEP 1: demote every prior save-CURR* ONCE per run (BEFORE any run_dir creates the fresh one), so ALL mods in
+    # THIS run share the single new save-CURR and the prior run's outputs PERSIST as save-<label> for fallback.
+    subprocess.run([sys.executable, ARCHIVE, "save-CURR"], check=True)
+    for mod in mods:
+        print(f"== SaveParse {mod}  save={os.path.basename(save)} -> {lib_paths.run_dir('save-CURR', mod)} ==")
+        sub = [mod, "--save", save]                    # pass the RESOLVED path to every stage
+        if args.prefix:
+            sub += ["--prefix", args.prefix]
+        if args.rerun:
+            sub += ["--rerun"]
+        for stage in STAGES:
+            subprocess.run([sys.executable, os.path.join(HERE, stage)] + sub, check=True)
     print("== SaveParse done ==")
 
 

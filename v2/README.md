@@ -19,7 +19,7 @@ python testbook/v2/run_v2.py --open     # build + open in browser
 `manifest.json` is **generated** from the xlsx — do not hand-edit it. After editing the tracker:
 
 ```
-python testbook/v2/tools/gen_manifest_from_xlsx.py
+python testbook/v2/testkit/gen_manifest_from_xlsx.py
 ```
 
 ## Two kinds of rendered unit (both are "cards")
@@ -40,9 +40,9 @@ v2/
 ├─ run_v2.py            orchestrator: read manifest -> run views+features -> assemble report
 ├─ run.bat / run.sh     one-click launchers
 ├─ manifest.json        GENERATED from testbook_status.xlsx (tabs + per-mod features/views)
-├─ tools/
-│  └─ gen_manifest_from_xlsx.py   the generator (tab normalization heuristic lives here)
+├─ tools/               THE debug framework (Framework-common + ModParse/Logtriage/SaveParse + Game-Victoria3)
 ├─ testkit/             shared library + analyzers + extractors (flat, class-prefixed; no v1 imports)
+│  ├─ gen_manifest_from_xlsx.py   the manifest generator (tab normalization heuristic lives here)
 │  ├─ lib_components.py   CSS/JS + helpers: tbl (ptable), xtable, badge, card/stub, write_component
 │  ├─ lib_buildstamp.py · lib_paths.py    (build-stamp label · resolve_logs_dir)
 │  ├─ chk_structure.py · chk_standards.py  static checks on mod files
@@ -56,27 +56,32 @@ v2/
 
 ## THE debug framework (`tools/`) — 3 frameworks + a shared core + a game data area
 
-> **Ironing in progress (2026-06-30, refactor-first).** The two original jobs (`tools/run_log_triage.py` +
-> `tools/save-game-parser/`) are being split into the structure below over a shared `Framework-common/`, with all
-> literals/paths in TOML configs. Canonical design: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Governing rule:
-> DEV-RULES "THE debugging framework — do NOT author ad-hoc debug scripts" ([[the-debug-framework]]).
+> **Refactor complete (2026-06-30; old jobs retired 2026-07-01).** The two original jobs (`run_log_triage.py` +
+> `save-game-parser/`) were replaced by the structure below: three frameworks over a shared `Framework-common/`,
+> all literals/paths in TOML configs. **Usage cookbook: `Framework-common/HOW_TO_USE.md`.** Canonical design:
+> `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Governing rule: DEV-RULES "THE debugging framework — do NOT author
+> ad-hoc debug scripts" ([[the-debug-framework]]).
 
 All mod debugging is driven through THE framework (run the jobs, read their `diagnostics.md`/CSVs); gaps are
 closed by EXTENDING it generically, never by a one-off script beside it. Each script is modular (`run_*` master
 + `ext_*`/`aggr_*`/`anal_*` subs over `Framework-common`), config-driven, and follows the arg contract `arg1=MOD_NAME`,
 `arg2=MOD_PATH`.
 
-- **`Framework-common/`** — the ONE shared core lib (args · io · paths · config · parse). README in `tools/Framework-common/`.
+- **`Framework-common/`** — the ONE shared core lib (args · io · paths · config · parse) + the master
+  orchestrators + the toggle script + the usage cookbook (`HOW_TO_USE.md`).
 - **`Framework-ModParse/`** — mod SOURCE → `data-<Mod>` token files (IDEMPOTENT); the shared upstream both
-  downstream frameworks consume. `run_modparse.py <MOD> <PATH>`.
+  downstream frameworks consume. `run-modparse.py <MOD> <PATH>`.
 - **`Framework-Logtriage/`** — game LOGS + `data-<Mod>` → `log-CURR-*` (markers fired/unfired + benign-filtered
-  errors + loc-for-all-kw). Run BEFORE any manual log deep-dive. `run_logtriage.py <MOD>`.
+  errors + loc-for-all-kw). Run BEFORE any manual log deep-dive. `run-logtriage.py <MOD>`.
 - **`Framework-SaveParse/`** — `.v3` SAVE + `data-<Mod>` → `save-CURR-*` (persisted fingerprints + state/building
-  census + over-cap classification via a GENERIC cap-var pattern). `run_saveparse.py <MOD>`.
-- **`Game-Victoria3/`** — game-specific CONFIG (tracked: `config-game.toml` abs paths, `config-naming.toml`) +
-  per-run DATA (gitignored: `data-<Mod>/`, `log-CURR-*/`, `save-CURR-*/`). A future PDX game = a new `Game-<X>/`.
-- **`run_debug_master.py`** — runs ModParse → Logtriage → SaveParse end-to-end for a mod.
-- **`run_scrub.py`** — wipes ALL generated data, leaving code + configs only (dry-run default, `--commit`).
+  census + over-cap classification via a GENERIC cap-var pattern). `run-saveparse.py <MOD>`.
+- **`Game-Victoria3/`** — **DATA ONLY**: per-run outputs (`data-<Mod>/`, `log-CURR*/`, `save-CURR*/`), gitignored
+  WHOLESALE at repo level (`tools/Game-*/`), NO code/config here (created on demand by the masters). The game
+  CONFIG (`config_game.example.toml`, `config_naming.toml`, gitignored per-machine `config_game.toml`) lives in
+  `Framework-common/`. A future PDX game = a new `Game-<X>/` data folder.
+- **`run-debug-master.py`** (in `Framework-common/`) — runs ModParse → Logtriage → SaveParse end-to-end for a mod.
+- **`run-scrub.py`** (in `Framework-common/`) — wipes ALL generated data, leaving code + configs only (dry-run
+  default, `--commit`).
 
 Each framework folder has its own `README.md` (contract) + `MANIFEST.md` (every script registered).
 Method for the fingerprint markers themselves: DEV-RULES "Save-fingerprint debugging" + "Debug & fingerprint

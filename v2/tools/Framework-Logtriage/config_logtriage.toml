@@ -12,7 +12,19 @@ file = "benign.csv"
 # seed rows used ONLY if benign.csv has no data rows yet (known mod-agnostic noise).
 seed = [["Y", "should be in utf8-bom encoding"]]
 
+[smoke]
+# smoke-detector = the COMMON curated filter of ruled-out / known-noise error signatures. The TRACKED seed lives
+# beside this config; run-log-sort LOADS it into log-CURR/ ROOT (the .example -> ROOT config pattern) where per-run
+# counts/examples accrue and new signatures are appended for review.
+example = "smoke_detector.example.csv"
+root    = "smoke_detector.csv"
+
 [outputs]
+# COMMON (log-CURR/ ROOT) — Set 1 (run-log-sort), one per run, mod-agnostic:
+raw_errors     = "raw_errors.csv"
+raw_loglines   = "raw_loglines.csv"
+error_patterns = "error_patterns.csv"
+# PER-MOD (log-CURR/<Mod>/) — Set 2/3:
 matches = "aggr_log_matches.csv"
 markers = "aggr_markers_status.csv"
 report  = "diagnostics.md"

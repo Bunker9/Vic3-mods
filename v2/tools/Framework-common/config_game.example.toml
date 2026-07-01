@@ -1,7 +1,7 @@
-# config-game.example.toml — TEMPLATE for the per-machine game config.
-# COPY this to `config-game.toml` (same folder) and fill in YOUR absolute paths.
+# config_game.example.toml — TEMPLATE for the per-machine game config.
+# COPY this to `config_game.toml` (same folder) and fill in YOUR absolute paths.
 #
-# config-game.toml is GITIGNORED — it is machine-specific and may contain your OS username in a path, which
+# config_game.toml is GITIGNORED — it is machine-specific and may contain your OS username in a path, which
 # must NEVER be committed (PII rule). This template (no real paths) IS tracked. This is the ONLY file you edit
 # on a new machine/OS (vision §A/§Z): the frameworks resolve everything else.
 #

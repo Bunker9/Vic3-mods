@@ -10,23 +10,10 @@ main.html
 __pycache__/
 *.pyc
 
-# log-triage job (tools/) — per-mod run artifacts are regenerable from the game logs.
-# Keep the *.py scripts AND the SHARED tools/benign.csv (human-curated); ignore per-mod outputs.
-tools/*/list_*.csv
-tools/*/matched_loglines.csv
-tools/*/markers_status.csv
-tools/*/diagnostics.md
-
-# save-game-parser job — per-mod scan outputs are regenerable from a save. Keep scripts + README.
-tools/save-game-parser/*/matched_savefile_loglines.csv
-tools/save-game-parser/*/diagnostics.md
-
-# THE debug framework ironing (2026-06-30): per-run DATA under Game-Victoria3/ is regenerable (ModParse
-# data-<Mod>, Logtriage log-CURR-*, SaveParse save-CURR-*). Ignore the data dirs; KEEP the tracked
-# config-game.toml / config-naming.toml + the per-framework code (Framework-*/*.py, *.toml) + benign.csv.
-tools/Game-Victoria3/data-*/
-tools/Game-Victoria3/log-*/
-tools/Game-Victoria3/save-*/
-# Per-machine game config holds abs paths (may contain the OS username) — NEVER commit (PII). The
-# config-game.example.toml template + config-naming.toml ARE tracked.
-tools/Game-Victoria3/config_game.toml
+# THE debug framework: each Game-<game>/ folder hosts ONLY regenerable per-run DATA (ModParse data-<Mod>,
+# Logtriage log-CURR*, SaveParse save-CURR*) and NO code/config — so ignore the Game-* folders WHOLESALE at repo
+# level (one rule here, not a .gitignore peppered into each data folder). The masters recreate the folder on demand.
+tools/Game-*/
+# Per-machine game config (abs paths — may contain the OS username) lives in Framework-common WITH the config
+# code — NEVER commit (PII). Its config_game.example.toml template + config_naming.toml ARE tracked.
+tools/Framework-common/config_game.toml

@@ -1,0 +1,3 @@
+human_agreed,pattern,count,example
+Y,should be in utf8-bom encoding,0,"[..] somefile.txt should be in utf8-bom encoding"
+,jomini_script_system.cpp,0,"jomini_script_system.cpp:123: <exact line captured here for triage>"

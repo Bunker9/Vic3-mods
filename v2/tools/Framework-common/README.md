@@ -12,13 +12,14 @@ EXTENDING it generically.**
 
 ```
 testbook/v2/tools/
-├─ Framework-common/     shared core lib (lib_*) + the MASTER orchestrators (run-debug-master, run-scrub) + the
-│                        mod-agnostic comment/fingerprint TOGGLE script. THIS readme.
+├─ Framework-common/     shared core lib (lib_*) + MASTER orchestrators (run-debug-master, run-scrub,
+│                        run-archive-curr) + the mod-agnostic TOGGLE script + the GAME CONFIG (config_game.toml
+│                        [gitignored, from config_game.example.toml] + config_naming.toml). THIS readme.
 ├─ Framework-ModParse/   mod SOURCE  → Game-<game>/data-<Mod>/   (idempotent token files; the shared upstream)
-├─ Framework-Logtriage/  game LOGS + data-<Mod> → Game-<game>/log-CURR-<run>/<Mod>/
-├─ Framework-SaveParse/  .v3 SAVE  + data-<Mod> → Game-<game>/save-CURR-<save>/<Mod>/
-└─ Game-Victoria3/       GAME-SPECIFIC config (config_game.toml [gitignored], config_naming.toml) + per-run DATA
-                         (gitignored). A future PDX game = a new Game-<X>/. See Game-Victoria3/README.md.
+├─ Framework-Logtriage/  game LOGS + data-<Mod> → Game-<game>/log-CURR/<Mod>/
+├─ Framework-SaveParse/  .v3 SAVE  + data-<Mod> → Game-<game>/save-CURR/<Mod>/
+└─ Game-<game>/          DATA ONLY — per-run outputs (data-<Mod>/, log-CURR*/, save-CURR*/); gitignored WHOLESALE
+                         at repo level, NO code/config here. Created on demand. A future PDX game = a new Game-<X>/.
 ```
 
 ## Framework-common — the shared core lib (`lib_*`)
@@ -64,6 +65,11 @@ duplicate launch logic in the report or CI).
 You can also run any framework standalone: `Framework-ModParse/run-modparse.py <MOD> <PATH>`,
 `Framework-Logtriage/run-logtriage.py <MOD>`, `Framework-SaveParse/run-saveparse.py <MOD>`.
 
+**Newest-only CURR:** as their STEP 1, `run-logtriage` / `run-saveparse` invoke
+`Framework-common/run-archive-curr.py` to strip the `CURR` marker from every prior `log-CURR*` / `save-CURR*`
+dir (and CREATE the `Game-<game>/` data root if missing), so the just-created run is the SOLE `*-CURR` folder —
+the marker the report/unit-test layer uses to find the latest data source.
+
 ## How to USE THE framework (the analysis flow — vision §C)
 1. **`run-modparse <MOD> <PATH>`** → `Game-<game>/data-<Mod>/` (all tokens/filenames/kw/fp; idempotent).
 2. **Run the game SHORT (1–3 months)** with a fresh versiontest log — FIRST do the pre-game ceremony (log
@@ -90,19 +96,21 @@ You can also run any framework standalone: `Framework-ModParse/run-modparse.py <
 | master run-all (`run-debug-master.py`) | `Framework-common/` | no | Phase 5 |
 | **cleanup / scrub** (`run-scrub.py`) | `Framework-common/` | no | Phase 5 |
 | **comment / fingerprint TOGGLE** (debug_log + `_fingerprint_` + dummy-use on/off, mod-agnostic) | `Framework-common/` | no | Phase 6 |
+| **KEEP-newest-CURR** (`run-archive-curr.py`; STEP 1 of log/save masters, standalone; creates Game-<game>/ if missing) | `Framework-common/` | no | built 2026-07-01 |
 | ModParse / Logtriage / SaveParse jobs | `Framework-*/` | no (logic) | Phases 2–4 |
-| game/machine config + per-run data | `Game-Victoria3/` | YES | configs built |
-| **pre-game version-bump + LOG-CLEANUP** (fresh versiontest log before a run) | TARGET `Game-Victoria3/`; CURRENTLY the pre-game ceremony `hk-config/scripts/envSetup_pre_game_launch.ps1` + `clear-vic3-logs.ps1` | YES | exists in hk-config; relocation = a flagged follow-up (CEREMONIES + launcher reference it — confirm before moving) |
+| game/machine CONFIG (`config_game.toml` + `.example` + `config_naming.toml`) | `Framework-common/` | YES (values) | built |
+| per-run DATA (`data-<Mod>/`, `log-CURR*/`, `save-CURR*/`) | `Game-<game>/` (gitignored wholesale) | n/a (data) | built |
+| **pre-game version-bump + LOG-CLEANUP** (fresh versiontest log before a run) | `hk-config/scripts/envSetup_pre_game_launch.ps1` + `clear-vic3-logs.ps1` | YES | exists in hk-config (Game-<game>/ is data-only, so game CODE cannot live there); a dedicated game-code home = a flagged follow-up |
 | pre-dev preflight / promote (debug on/off, versiontest enable) | `hk-config/scripts/predev_preflight.ps1` | YES | exists (ceremony) |
 
 > The toggle script's home moved to `Framework-common` (mod-agnostic) per the 2026-06-30 refinement; this
 > supersedes the earlier "hk-config/scripts" note. The pre-game LOG-CLEANUP + version-bump are GAME-specific
-> (Vic3 launcher/logs/versiontest) and belong under `Game-Victoria3/`, but they currently live as the Ceremony-2
-> PowerShell in hk-config and are wired into `CEREMONIES.md` + the launcher — moving them is a separate,
-> confirm-first task, not silently done here.
+> (Vic3 launcher/logs/versiontest); since `Game-<game>/` is DATA-ONLY (no code/config), they stay in the
+> Ceremony-2 PowerShell in hk-config (wired into `CEREMONIES.md` + the launcher). A future game-specific CODE
+> home (distinct from the data folder) is a confirm-first follow-up, not silently done here.
 
 ## Pointers
 Design/vision: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Rules: DEV-RULES "THE debugging framework",
 "Save-fingerprint debugging", "Debug & fingerprint variable standardization". Per-framework contracts:
-`Framework-{ModParse,Logtriage,SaveParse}/README.md` + their `MANIFEST.md`. Game specifics:
-`Game-Victoria3/README.md`.
+`Framework-{ModParse,Logtriage,SaveParse}/README.md` + their `MANIFEST.md`. Game config:
+`Framework-common/config_game.example.toml` (the `Game-<game>/` folder is a gitignored, code-free data sink).
