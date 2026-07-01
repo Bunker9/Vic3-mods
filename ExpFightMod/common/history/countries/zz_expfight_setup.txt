@@ -12,20 +12,20 @@
 COUNTRIES = {
 	# --- long-war expanders: 180-month war footing ---
 	c:PAN ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
-	c:DEI ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
-	c:SOK ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
-	c:SHW ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:DEI ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 180 } }
+	c:SOK ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 180 } }
+	c:SHW ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 180 } }
 	c:OMA ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
-	c:SAF ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 180 } }
+	c:SAF ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 180 } }
 	# --- short-war expanders: 48-month war footing ---
-	c:DAI ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	c:DAI ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 48 } }
 	c:ARG ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
-	c:NEP ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
-	c:CLM ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
+	c:NEP ?= { add_technology_researched = army_reserves   add_modifier = { name = expfight_warboost months = 48 } }
+	c:CLM ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 48 } }
 	c:MOR ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
 	# --- strong powers: 60-month warbump ---
-	c:MEX ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
-	c:BRZ ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
-	c:PER ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
-	c:SIA ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warbump months = 60 } }
+	c:MEX ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
+	c:BRZ ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
+	c:PER ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
+	c:SIA ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
 }

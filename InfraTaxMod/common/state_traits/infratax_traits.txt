@@ -8,15 +8,93 @@
 # Country-level bureaucracy CAPACITY can't live in a state trait (traits take state modifiers
 # only) — that's handled pre-baked in common/production_methods/ instead, as the old mod did.
 # =============================================================================
+
+
+
 state_trait_infratax = {
 	icon = "gfx/interface/icons/state_trait_icons/good_soils.dds"
 
 	# Buffed 2026-06-12 (Punjab still starving / low tax+infra at test): magnitudes raised.
 	modifier = {
 		state_infrastructure_add  = 50
-		state_infrastructure_mult = 0.5
 		state_tax_capacity_add  = 50
-		state_tax_capacity_mult = 1.0
-		state_bureaucracy_population_base_cost_factor_mult = -0.4   # state-level bureaucracy relief
+		state_tax_capacity_mult = 0.2
+		state_bureaucracy_population_base_cost_factor_mult = -0.2  # state-level bureaucracy relief
+	}
+}
+
+# INDIA — strong revenue/admin regions, but no crazy stacking
+INJECT_OR_CREATE:state_trait_ganges_river = {
+	modifier = {
+		state_infrastructure_add  = 25
+		state_tax_capacity_add  = 75
+		state_tax_capacity_mult = 0.1
+		state_bureaucracy_population_base_cost_factor_mult = -0.2   # state-level bureaucracy relief
+	}
+}
+
+INJECT_OR_CREATE:state_trait_bengal_delta = {
+	modifier = {
+		state_infrastructure_add  = 25
+		state_tax_capacity_add  = 100
+		state_tax_capacity_mult = 0.25
+		state_bureaucracy_population_base_cost_factor_mult = -0.25   # state-level bureaucracy relief
+	}
+}
+
+#give existing eurpoean powers some construction and thruoghput advantages -
+#(buff construction(extraction/bg_industry) ship building throughput and pop hapiness, dependent income +30%, etc)
+#USE BUFFS THAT RESONATE WITH HISTORICAL NATURE OF THESE COUNTRIES
+
+# FRANCE — administrative and skilled industrial edge, but restrained
+INJECT_OR_CREATE:state_trait_seine_river = {
+	modifier = {
+		state_construction_mult = 0.25
+		state_pop_qualifications_mult = 0.10
+		state_dependent_wage_mult = 0.5
+	}
+}
+#BUFF for France to keep them no.2
+INJECT_OR_CREATE:state_trait_loire_river = {
+	modifier = {
+		state_construction_mult = 0.2
+		building_group_bg_light_industry_construction_efficiency_add = 0.25
+	}
+}
+
+# GERMANY — industrial core, tools + extraction
+INJECT_OR_CREATE:state_trait_oder_river = {
+	modifier = {
+		building_tooling_workshop_throughput_add = 0.20
+		building_group_bg_extraction_throughput_add = 0.10
+		state_pop_qualifications_mult = 0.05
+	}
+}
+
+# AUSTRIA — modest resource-development edge
+INJECT_OR_CREATE:state_trait_drava_river = {
+	modifier = {
+		building_group_bg_extraction_construction_efficiency_add = 0.5
+		state_construction_mult = 0.2
+		building_group_bg_extraction_throughput_add = 0.1
+	}
+}
+
+# UK — London as commercial/industrial hub, not absurd minting exploit
+INJECT_OR_CREATE:state_trait_london_docklands = {
+	modifier = {
+		country_minting_mult = 0.1
+		building_throughput_add = 0.1
+		state_tax_capacity_add = 100
+		state_construction_mult = 0.25
+	}
+}
+
+# RUSSIA — transport artery + timber/logistics feel
+INJECT_OR_CREATE:state_trait_volga_river = {
+	modifier = {
+		state_construction_mult = 0.1
+		building_group_bg_logging_throughput_add = 0.2
+		state_dependent_wage_mult = 0.2
 	}
 }

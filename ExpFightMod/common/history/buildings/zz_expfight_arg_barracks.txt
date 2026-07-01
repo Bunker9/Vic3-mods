@@ -49,4 +49,28 @@ BUILDINGS = {
 			}
 		}
 	}
+	s:STATE_SINDH = {
+		region_state:SIN = {
+			create_building = {
+				building = "building_naval_administration"
+				add_ownership = { country = { country = "c:SIN" levels = 5 } }
+				reserves = 1
+				activate_production_methods={ "pm_simple_sailor_recruitment" }
+			}
+		}
+		region_state:SIN = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:SIN" levels = 2 } }
+				activate_production_methods={ "pm_naval_fortification_basic" }
+			}
+		}
+		region_state:SIN = {
+			create_building = {
+				building = "building_iron_mine"
+				add_ownership = { country = { country = "c:SIN" levels = 2 } }
+				reserves = 1
+			}
+		}
+	}
 }

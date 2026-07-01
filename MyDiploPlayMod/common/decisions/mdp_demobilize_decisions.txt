@@ -29,8 +29,8 @@ mdp_demobilize_after_conquest = {
 		mdp_demobilize_effect = yes
 		# FINGERPRINT (additive; save-parser). Comment out at promote.
 		# set-before-change (DEV-RULES): guarded init; the has_variable check is also the dummy-use reader.
-		if = { limit = { NOT = { has_variable = mdp_fingerprint_demobilized } } set_variable = { name = mdp_fingerprint_demobilized value = 0 } }
-		change_variable = { name = mdp_fingerprint_demobilized add = 1 }
+		# if = { limit = { NOT = { has_variable = mdp_fingerprint_demobilized } } set_variable = { name = mdp_fingerprint_demobilized value = 0 } }
+		# change_variable = { name = mdp_fingerprint_demobilized add = 1 }
 	}
 
 	ai_chance = { value = 10000 }

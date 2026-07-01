@@ -73,8 +73,8 @@ mdpbic.1 = {
                 # decision. Kept at promote.
                 set_variable = { name = mdp_has_annexed value = yes }
                 # FINGERPRINT COUNTER (additive; save-parser). Comment out at promote.
-                if = { limit = { NOT = { has_variable = mdp_fingerprint_bic_annexations } } set_variable = { name = mdp_fingerprint_bic_annexations value = 0 } }
-                change_variable = { name = mdp_fingerprint_bic_annexations add = 1 }
+                # if = { limit = { NOT = { has_variable = mdp_fingerprint_bic_annexations } } set_variable = { name = mdp_fingerprint_bic_annexations value = 0 } }
+                # change_variable = { name = mdp_fingerprint_bic_annexations add = 1 }
             }
 
             #debug_log = "mdp - bic_annex - play declared"

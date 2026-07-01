@@ -33,4 +33,15 @@ MILITARY_FORMATIONS = {
 			}
 		}
 	}
+	c:FRA ?= {
+		create_military_formation = {
+			type = fleet
+			hq_region = sr:region_western_europe
+			name = expfight_fra_troop_fleet
+			ship = {
+				type = ship_type:ship_type_troop_ship
+				count = 30
+			}
+		}
+	}
 }

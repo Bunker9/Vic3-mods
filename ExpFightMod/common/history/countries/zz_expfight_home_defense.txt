@@ -2,7 +2,7 @@
 # ExpFightMod — apply the permanent home-defence modifier at game start.
 # HAND-WRITTEN. zz_ prefix = loads after vanilla history; ?= = additive (no overwrite).
 # add_modifier with no months/days = PERMANENT. Modifier defined in
-# common/static_modifiers/expfight_home_defense_modifiers.txt.
+# common/static_modifiers/expfight_modifiers.txt.
 #
 # Recipients (user-selected resilient powers): Prussia, Japan, USA, Punjab (PAN),
 # Nepal, Spain, Portugal.
@@ -15,4 +15,5 @@ COUNTRIES = {
 	c:NEP ?= { add_modifier = { name = expfight_home_defense } }
 	c:SPA ?= { add_modifier = { name = expfight_home_defense } }
 	c:POR ?= { add_modifier = { name = expfight_home_defense } }
+	c:SHW ?= { add_modifier = { name = expfight_home_defense } }
 }

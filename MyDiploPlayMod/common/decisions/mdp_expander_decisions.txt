@@ -33,7 +33,11 @@ mdp_conquer_free_minor = {
 			NOT = { has_truce_with = root }
 			NOT = { this = root }
 			any_scope_state = { any_neighbouring_state = { owner = root } }
-			NOT = { any_scope_state = { count >= 4 } }
+			OR = {  #hopefully thins will lat PAn continue to attack into afghanistan
+				this = c:AFG
+				this = c:KAN
+				NOT = { any_scope_state = { count >= 4 } }
+			}
 		}
 	}
 
@@ -55,23 +59,27 @@ mdp_conquer_free_minor = {
 			NOT = { has_truce_with = root }
 			NOT = { this = root }
 			any_scope_state = { any_neighbouring_state = { owner = root } }
-			NOT = { any_scope_state = { count >= 4 } }
+			OR = {
+				this = c:AFG
+				this = c:KAN
+				NOT = { any_scope_state = { count >= 4 } }
+			}
 		}
 	}
 
 	when_taken = {
 		mdp_decision_conquer_minor = yes
 		# FINGERPRINT COUNTER (additive). Comment out at promote. # Increment counter — initialise to 0 first if not set
-		if = {
-			limit = {
-			    NOT = { has_variable = mdp_fingerprint_minor_wars }
-			}
-			set_variable = {
-			    name = mdp_fingerprint_minor_wars
-			    value = 0
-			}
-		}
-		change_variable = { name = mdp_fingerprint_minor_wars add = 1 }
+		# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+		# 	limit = {
+		# 	    # NOT = { has_variable = mdp_fingerprint_minor_wars }
+		# 	}
+		# 	set_variable = {
+		# 	    # name = mdp_fingerprint_minor_wars
+		# 	    value = 0
+		# 	}
+		# }
+		# change_variable = { name = mdp_fingerprint_minor_wars add = 1 }
 	}
 
 	ai_chance = { value = 10000 }
@@ -107,16 +115,16 @@ mdp_annex_own_subject = {
 		# FINGERPRINT COUNTER (additive). Comment out at promote.
 		# TODO -- will change_variable get added to savefiles even without a set_variable?Why would Claude go with this code?Is it slop?
 		# TODO debugging needs standardization of when and where to use int / bool variables . When to capture date in variable. When to use debug_log variable
-		if = {
-			limit = {
-				NOT = { has_variable = mdp_fingerprint_subject_annexations }
-			}
-			set_variable = {
-				name = mdp_fingerprint_subject_annexations
-				value = 0
-			}
-		}
-		change_variable = { name = mdp_fingerprint_subject_annexations add = 1 }
+		# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+		# 	limit = {
+		# 		# NOT = { has_variable = mdp_fingerprint_subject_annexations }
+		# 	}
+		# 	set_variable = {
+		# 		# name = mdp_fingerprint_subject_annexations
+		# 		value = 0
+		# 	}
+		# }
+		# change_variable = { name = mdp_fingerprint_subject_annexations add = 1 }
 	}
 
 	ai_chance = { value = 10000 }

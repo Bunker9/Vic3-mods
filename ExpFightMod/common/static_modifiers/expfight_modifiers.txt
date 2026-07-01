@@ -51,3 +51,10 @@ expfight_warboost = {
 
 	country_infamy_decay_mult = 9   # 5/yr base -> 50/yr
 }
+
+expfight_home_defense = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds"
+
+	# +30% defence for armies fighting in provinces this country owns.
+	battle_defense_owned_province_mult = 0.3
+}

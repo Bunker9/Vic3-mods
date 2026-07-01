@@ -216,8 +216,8 @@ eco_pulse_spread = {
 				create_building = { building = $B$ level = 1 reserves = 1 }
 				# PER-STATE:building placement COUNTER (this = state): +1 each pulse this state places one,
 				# so the save carries an accurate per-state build trail across the 4 yearly pulses.
-				if = { limit = { NOT = { has_variable = eco_fingerprint_placed_$B$ } } set_variable = { name = eco_fingerprint_placed_$B$ value = 0 } }
-				change_variable = { name = eco_fingerprint_placed_$B$ add = 1 }
+				# if = { limit = { NOT = { has_variable = eco_fingerprint_placed_$B$ } } set_variable = { name = eco_fingerprint_placed_$B$ value = 0 } }
+				# change_variable = { name = eco_fingerprint_placed_$B$ add = 1 }
 				#debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
 				#debug_log_scopes = yes        # Root = country, This = state (table needs both)
 			}
@@ -235,8 +235,8 @@ eco_pulse_spread = {
 				change_variable = { name = eco_cur add = 1 }
 				create_building = { building = $B$ level = var:eco_cur reserves = 1 }
 				# PER-STATE:building placement COUNTER (this = state): +1 each pulse this state stacks one.
-				if = { limit = { NOT = { has_variable = eco_fingerprint_placed_$B$ } } set_variable = { name = eco_fingerprint_placed_$B$ value = 0 } }
-				change_variable = { name = eco_fingerprint_placed_$B$ add = 1 }
+				# if = { limit = { NOT = { has_variable = eco_fingerprint_placed_$B$ } } set_variable = { name = eco_fingerprint_placed_$B$ value = 0 } }
+				# change_variable = { name = eco_fingerprint_placed_$B$ add = 1 }
 				remove_variable = eco_cur
 				#debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
 				#debug_log_scopes = yes
@@ -252,12 +252,12 @@ eco_pulse_spread = {
 	#    now a SAVE value, so "what didn't get built / errored on the yearly pulse" is read offline from
 	#    the save instead of debug.log). A MISSING eco_fingerprint_built_<B> = that building's pulse
 	#    never ran for this tag. Comment out at promote.
-	set_variable    = { name = eco_fingerprint_built_$B$ value = $N$ }
-	change_variable = { name = eco_fingerprint_built_$B$ subtract = var:eco_left }
-	if = {
-		limit = { var:eco_left > 0 }
-		set_variable = { name = eco_fingerprint_noslot_$B$ value = var:eco_left }
-	}
+	# set_variable    = { name = eco_fingerprint_built_$B$ value = $N$ }
+	# change_variable = { name = eco_fingerprint_built_$B$ subtract = var:eco_left }
+	# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+	# 	limit = { var:eco_left > 0 }
+	# 	# set_variable = { name = eco_fingerprint_noslot_$B$ value = var:eco_left }
+	# }
 	remove_variable = eco_left
 }
 

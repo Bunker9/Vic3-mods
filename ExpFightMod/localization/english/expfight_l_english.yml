@@ -8,3 +8,8 @@
  expfight_home_defense_desc:0 "A deeply rooted defensive tradition. This nation's armies fight 30% better when defending provinces it owns."
  expfight_dei_troop_fleet:0 "Koloniale Transportvloot"
  expfight_oma_troop_fleet:0 "Muscat Transport Squadron"
+ expfight_fra_troop_fleet:0 "French Transport Squadron"
+ expfight_turkey_trigger_event:0 "Emergency War Measures"
+ expfight_turkey_trigger_event_desc:0 "The Sublime Porte will adopt extraordinary measures to strengthen the state during the war with Egypt."
+ expfight_turkey_trigger_event_tooltip:0 "Gain Emergency War Measures for 24 months."
+

@@ -22,7 +22,7 @@ eco_picker.1 = {
 		# FINGERPRINT (additive; save-parser): proves WHICH nations got eco_sol_edu_global via the picker
 		# decision (B7). After the NOT = {is_country_type = decentralized } gate this should appear ONLY on CENTRALIZED
 		# nations - a decentralized hit in the save flags a leak. Comment out at promote.
-		set_variable = { name = eco_fingerprint_picker_sol_edu value = yes }
+		# set_variable = { name = eco_fingerprint_picker_sol_edu value = yes }
 	}
 	# AI pick logic (added 2026-06-19): each option is weighted by how big that sector
 	# already is in the country's economy, read cheaply with the country-scope trigger
