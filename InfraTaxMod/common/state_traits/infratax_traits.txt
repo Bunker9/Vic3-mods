@@ -52,7 +52,7 @@ INJECT_OR_CREATE:state_trait_seine_river = {
 		state_construction_mult = 0.25
 		state_pop_qualifications_mult = 0.10
 		state_dependent_wage_mult = 0.25
-		building_urban_center_throughput_add = 0.25 #TODO verify in game
+		building_urban_center_throughput_add = 0.25
 	}
 }
 #BUFF for France to keep them no.2

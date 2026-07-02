@@ -3,10 +3,8 @@
 INJECT_OR_CREATE:pm_early_power_plant = {
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_merchant_marine_add = 2 #50
 			goods_output_electricity_add = 15
-		}
-		level_scaled = {
-			goods_output_electricity_add = 10
 		}
 	}
 }
@@ -14,10 +12,8 @@ INJECT_OR_CREATE:pm_early_power_plant = {
 INJECT_OR_CREATE:pm_coal-fired_plant = {
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_merchant_marine_add = 4 #50
 			goods_output_electricity_add = 40
-		}
-		level_scaled = {
-			goods_output_electricity_add = 10
 		}
 	}
 }
@@ -25,10 +21,8 @@ INJECT_OR_CREATE:pm_coal-fired_plant = {
 INJECT_OR_CREATE:pm_oil-fired_plant = {
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_merchant_marine_add = 4 #50
 			goods_output_electricity_add = 40
-		}
-		level_scaled = {
-			goods_output_electricity_add = 10
 		}
 	}
 }
