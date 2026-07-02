@@ -4,6 +4,8 @@ INJECT_OR_CREATE:pm_anchorage = {
 	state_modifiers = {
 		level_scaled = {
 			state_infrastructure_add = 4
+			goods_output_transportation_add = 3
+			goods_output_services_add = 1
 		}
 	}
 }
@@ -12,6 +14,8 @@ INJECT_OR_CREATE:pm_basic_port = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -3
+			goods_output_transportation_add = 6
+			goods_output_services_add = 3
 		}
 		level_scaled = {
 			state_infrastructure_add = 6
@@ -23,6 +27,8 @@ INJECT_OR_CREATE:pm_industrial_port = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -4
+			goods_output_transportation_add = 8
+			goods_output_services_add = 4
 		}
 		level_scaled = {
 			state_infrastructure_add = 8
@@ -34,6 +40,8 @@ INJECT_OR_CREATE:pm_modern_port = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -5
+			goods_output_transportation_add = 10
+			goods_output_services_add = 5
 		}
 		level_scaled = {
 			state_infrastructure_add = 10
@@ -45,6 +53,7 @@ INJECT_OR_CREATE:pm_early_trains = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -20
+			goods_output_transportation_add = 5
 		}
 		level_scaled = {
 			state_infrastructure_add = 20
@@ -56,6 +65,7 @@ INJECT_OR_CREATE:pm_steam_trains = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -25
+			goods_output_transportation_add = 5
 		}
 		level_scaled = {
 			state_infrastructure_add = 25
@@ -67,6 +77,7 @@ INJECT_OR_CREATE:pm_steam_trains_principle_transport_3 = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -30
+			goods_output_transportation_add = 5
 		}
 		level_scaled = {
 			state_infrastructure_add = 30
@@ -78,6 +89,7 @@ INJECT_OR_CREATE:pm_electric_trains = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -30
+			goods_output_transportation_add = 10
 		}
 		level_scaled = {
 			state_infrastructure_add = 30
@@ -89,6 +101,7 @@ INJECT_OR_CREATE:pm_electric_trains_principle_transport_3 = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -40
+			goods_output_transportation_add = 10
 		}
 		level_scaled = {
 			state_infrastructure_add = 40
@@ -100,6 +113,7 @@ INJECT_OR_CREATE:pm_diesel_trains = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -40
+			goods_output_transportation_add = 10
 		}
 		level_scaled = {
 			state_infrastructure_add = 40
@@ -111,6 +125,7 @@ INJECT_OR_CREATE:pm_diesel_trains_principle_transport_3 = {
 	state_modifiers = {
 		workforce_scaled = {
 			state_infrastructure_add = -55
+			goods_output_transportation_add = 10
 		}
 		level_scaled = {
 			state_infrastructure_add = 55
@@ -123,6 +138,7 @@ INJECT_OR_CREATE:pm_trade_center = {
 		workforce_scaled = {
 			state_weekly_trades_add = 4
 			state_trade_capacity_add = 30
+			goods_output_services_add = 5
 		}
 	}
 }
@@ -132,6 +148,7 @@ INJECT_OR_CREATE:pm_trade_center_principle_external_trade_2 = {
 		workforce_scaled = {
 			state_weekly_trades_add = 4
 			state_trade_capacity_add = 30
+			goods_output_services_add = 5
 		}
 	}
 }

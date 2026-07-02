@@ -17,7 +17,7 @@ INJECT_OR_CREATE:pm_coal-fired_plant = {
 			goods_output_electricity_add = 40
 		}
 		level_scaled = {
-			goods_output_electricity_add = 20
+			goods_output_electricity_add = 10
 		}
 	}
 }
@@ -25,10 +25,10 @@ INJECT_OR_CREATE:pm_coal-fired_plant = {
 INJECT_OR_CREATE:pm_oil-fired_plant = {
 	building_modifiers = {
 		workforce_scaled = {
-			goods_output_electricity_add = 50
+			goods_output_electricity_add = 40
 		}
 		level_scaled = {
-			goods_output_electricity_add = 20
+			goods_output_electricity_add = 10
 		}
 	}
 }

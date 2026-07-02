@@ -51,23 +51,24 @@ INJECT_OR_CREATE:state_trait_seine_river = {
 	modifier = {
 		state_construction_mult = 0.25
 		state_pop_qualifications_mult = 0.10
-		state_dependent_wage_mult = 0.5
+		state_dependent_wage_mult = 0.25
+		building_urban_center_throughput_add = 0.25 #TODO verify in game
 	}
 }
 #BUFF for France to keep them no.2
 INJECT_OR_CREATE:state_trait_loire_river = {
 	modifier = {
 		state_construction_mult = 0.2
-		building_group_bg_light_industry_construction_efficiency_add = 0.25
+		building_group_bg_light_industry_throughput_add = 0.1
 	}
 }
 
 # GERMANY — industrial core, tools + extraction
 INJECT_OR_CREATE:state_trait_oder_river = {
 	modifier = {
-		building_tooling_workshop_throughput_add = 0.20
-		building_group_bg_extraction_throughput_add = 0.10
-		state_pop_qualifications_mult = 0.05
+		building_tooling_workshop_throughput_add = 0.1
+		building_group_bg_extraction_throughput_add = 0.1
+		state_pop_qualifications_mult = 0.1
 	}
 }
 
@@ -83,10 +84,10 @@ INJECT_OR_CREATE:state_trait_drava_river = {
 # UK — London as commercial/industrial hub, not absurd minting exploit
 INJECT_OR_CREATE:state_trait_london_docklands = {
 	modifier = {
-		country_minting_mult = 0.1
 		building_throughput_add = 0.1
-		state_tax_capacity_add = 100
 		state_construction_mult = 0.25
+		building_urban_center_throughput_add = 0.25
+		building_shipyard_throughput_add = 0.15
 	}
 }
 

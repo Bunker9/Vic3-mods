@@ -8,13 +8,10 @@ mdp_nepal_trigger_event  = {
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
-		# China must have the opium ban policy active
+		# China must have the opium wars
 		c:CHI = {
 			exists = yes
-			OR = {
-				is_at_war = yes
-				is_active_in_diplomatic_play = yes
-			}
+			is_at_war = yes
 			# China is under attack
 		}
 	}
