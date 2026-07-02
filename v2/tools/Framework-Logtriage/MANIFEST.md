@@ -17,9 +17,9 @@
 | `aggr-log-markers.py` | aggr- | ≤60 | marker fired/unfired + re-fire flag + loc-for-all-kw → `<Mod>/aggr_markers_status.csv` + `metrics.csv` | built 07-02 |
 | `run-log-diag.py` | run- (Set3 master) | ≤50 | seed diag_literals → ROOT; `aggr-log-smoke` (global); per target `ext-diag-eval` + `gen-diag-md` | built 07-02 |
 | `aggr-log-smoke.py` | aggr- | ≤55 | `raw_errors` × smoke_detector → `_global/metrics.csv`; accrues counts/examples + APPENDS new signatures for review | built 07-02 |
-| `ext-diag-eval.py` | ext- | ≤45 | rules × `<target>/metrics.csv` → `<target>/diag_fired.csv`; `--literals` = SWAPPABLE rules CSV (per game/version, UAT LT-06) | built 07-02 |
-| `gen-diag-md.py` | gen- | ≤40 | metrics + fired rows → `<target>/diagnostics.md`; ALL prose from the CSV (NO-LITERALS) | built 07-02 |
-| `lib_diag.py` | lib_ | 52 | safe condition evaluator (no `eval`) + `fired()` + `render_md()` | built 07-01 |
+| `ext-diag-eval.py` | ext- | ≤50 | rules × `<target>/metrics.csv` → `<target>/diag_fired.csv`; `--literals` = SWAPPABLE rules CSV (per game/version, UAT LT-06); `--kind log-CURR\|save-CURR` — the SHARED engine SaveParse Set-3 also calls | built 07-02 |
+| `gen-diag-md.py` | gen- | ≤40 | metrics + fired rows → `<target>/diagnostics.md`; ALL prose from the CSV (NO-LITERALS); `--kind` shared like ext-diag-eval | built 07-02 |
+| `lib_diag.py` | lib_ | 52 | safe condition evaluator (no `eval`) + `fired()` + `render_md()` — MOVED to `Framework-common/` 2026-07-02 (second consumer: SaveParse Set-3; extract-on-second-use) | built 07-01, relocated |
 | `chk-diagnostics.py` | chk- | 38 | data-driven evaluator self-test (`python chk-diagnostics.py`, NOT pytest) | built 07-01 (5/5) |
 | `config_logtriage.toml` | config (data) | n/a | log files+severity, refire threshold, [smoke]+[diag] example→ROOT names, all output names | built |
 | `config_logmods.toml` | config (data) | n/a | tracked mod list the TOP master batches when called with no mods/`--all` | built |

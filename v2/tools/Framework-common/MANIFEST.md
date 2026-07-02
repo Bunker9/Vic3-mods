@@ -11,7 +11,8 @@
 | `lib_io.py` | lib_ | 50 | deterministic text/CSV IO (`write_csv(sort=)`) + `walk_files` | built |
 | `lib_paths.py` | lib_ | 73 (cohesive) | self-location + all external path resolution via `config_game.toml`; the `data-<Mod>` / `<kind>-<label>/<mod>` output layout | built |
 | `lib_config.py` | lib_ | 21 | read-only TOML loader (`tomllib`) | built |
-| `lib_parse.py` | lib_ | 92 (cohesive) | prefix detect · fixed-point decode · save `iter_save_lines`/`iter_save_blocks` · `normalize_error` | built |
+| `lib_parse.py` | lib_ | 175 (cohesive) | prefix detect · fixed-point decode · save `iter_save_lines`/`iter_save_blocks` · `scan` (per-term) · `scan_kinds` (ALL persisted vars/modifiers — SORT-not-FILTER, added 07-02) · `normalize_error` | built |
+| `lib_diag.py` | lib_ | 52 | the diagnostics engine core: safe condition evaluator (no `eval`) + `fired()` + `render_md()` — moved here from Framework-Logtriage 2026-07-02 (second consumer: SaveParse Set-3) | built |
 | `run-debug-master.py` | run- | ≤50 | MASTER: run ModParse → Logtriage → SaveParse for one mod | built |
 | `run-scrub.py` | run- | ≤50 | MASTER: wipe all generated data, leave code + configs (dry-run default, `--commit`) | built |
 | `run-archive-curr.py` | run- | ≤50 | STEP 1 of the log/save masters (also standalone): create the `Game-<game>/` data root if missing + demote prior `*-CURR` dirs so only the newest keeps the marker | built 2026-07-01 |

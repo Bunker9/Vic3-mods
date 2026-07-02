@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""aggr-save-matches.py — SaveParse aggregator: scan the save for the mod's persisted tokens (from
-data-<Mod>/raw_keywords.csv) + a generic <abbr>_fingerprint_* regex -> save-CURR/<Mod>/aggr_save_matches.csv.
-One row per occurrence that PERSISTED. Numeric var values decoded from fixed-point (factor from config).
-Ported from save-game-parser/aggr_save_matches.py. Standalone-runnable."""
+"""aggr-save-matches.py — SaveParse Set-2 aggregator (REFOCUSED 2026-07-02 onto the common pool): filter the
+COMMON save-CURR/raw_flags.csv (built once by run-save-parse) down to THIS mod's persisted tokens — literal
+data-<Mod> keywords + the <abbr>_fingerprint_* regex -> save-CURR/<Mod>/aggr_save_matches.csv. Numeric var
+values decoded from fixed-point here (the raw pool is undecoded). NEVER re-reads the save. Standalone;
+run-save-aggr invokes it."""
 import os
 import re
 import sys
@@ -13,6 +14,7 @@ import lib_args, lib_io, lib_paths, lib_config, lib_parse
 CFG = lib_config.load_framework_config(HERE, "config_saveparse.toml")
 INFIX = CFG["markers"]["fingerprint_infix"]
 FACTOR = CFG["decode"]["fixed_point_factor"]
+ROOT = os.path.join(lib_paths.GAME_ROOT, "save-CURR")
 HEADER = ["mod", "fp", "fp_type", "save_token", "section", "doc_path",
           "value", "vtype", "date", "line_no", "sample"]
 
@@ -29,22 +31,26 @@ def main(args):
     _h, kwrows = lib_io.read_csv(os.path.join(data, "raw_keywords.csv"))
     if _h is None:
         sys.exit("aggr-save-matches: missing data-<Mod>/raw_keywords.csv; run run-modparse first.")
+    fh, flags = lib_io.read_csv(os.path.join(ROOT, CFG["outputs"]["flags"]))
+    if fh is None:
+        sys.exit("aggr-save-matches: missing the common raw_flags.csv; run run-save-parse first (Set 1).")
     kws = [r[1] for r in kwrows]
     abbr = lib_parse.detect_prefix(kws, args.prefix)
     literal = set(kws)
     fp_re = re.compile(re.escape(abbr) + re.escape(INFIX) + r"[A-Za-z0-9_]+") if abbr else None
-    save = lib_paths.resolve_save(lib_paths.game_config(), args.save)
-    print(f"  scan: {save}\n  keys: {len(literal)} kw + /{abbr}{INFIX}*/")
-    matches = lib_parse.scan(save, literal, fp_re)
-    rows = [[args.mod_name, m["term"], m["fp_type"], m["save_token"], m["section"], m["doc_path"],
-             _decode(m["value"], m["vtype"]), m["vtype"], m["date"], m["line_no"], m["sample"]]
-            for m in matches]
-    rows.sort(key=lambda r: (r[2], r[1], r[9]))
+    ix = {c: i for i, c in enumerate(fh)}     # term, save_token, kind, section, doc_path, value, vtype, date, line_no, sample
+    rows = []
+    for r in flags:
+        term = r[ix["term"]]
+        if term in literal or (fp_re and fp_re.fullmatch(term)):
+            rows.append([args.mod_name, term, r[ix["kind"]], r[ix["save_token"]], r[ix["section"]],
+                         r[ix["doc_path"]], _decode(r[ix["value"]], r[ix["vtype"]]), r[ix["vtype"]],
+                         r[ix["date"]], r[ix["line_no"]], r[ix["sample"]]])
+    rows.sort(key=lambda r: (r[2], r[1], int(r[9]) if str(r[9]).isdigit() else 0))
     out = os.path.join(lib_paths.run_dir("save-CURR", args.mod_name), CFG["outputs"]["matches"])
     lib_io.write_csv(out, HEADER, rows)
-    print(f"  -> {out}  ({len(rows)} persisted occurrences)")
-    return matches
+    print(f"  [save-matches] {len(rows)} persisted occurrences from the common pool -> {out}")
 
 
 if __name__ == "__main__":
-    main(lib_args.parse_args("SaveParse: scan a save for persisted tokens + fingerprints.", save=True))
+    main(lib_args.parse_args("SaveParse Set2: filter the common raw_flags pool to this mod's tokens."))

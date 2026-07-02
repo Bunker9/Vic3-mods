@@ -193,24 +193,32 @@ N,<substring of an error you want COUNTED as tracked>,0,"<example>"
 
 ---
 
-## 4. `run-saveparse.py` — `.v3` SAVE + `data-<Mod>` → `save-CURR/<Mod>/`
-Home: `Framework-SaveParse/`. Reads which `*_fingerprint_*` vars/modifiers PERSISTED and on which object, the
-state/building census, and over-cap tuples (mod-script-error vs engine-overbuild). Needs ModParse to have run.
-**The save must be TEXT/melted** — a binary/ironman `.v3` parses to mojibake (0 rows).
+## 4. `run-saveparse.py` — `.v3` SAVE + `data-<Mod>` → `save-CURR/` (parse-once, reworked 2026-07-02)
+Home: `Framework-SaveParse/`. Three chained sets: **Set 1** parses the save ONCE into a COMMON pool at the
+`save-CURR/` ROOT (manager raws incl. pops, EVERY persisted var/modifier, per-market goods PRICES + the goods
+id→name catalog, the enriched census) — skipped when the pool exists (`--rerun` forces); **Set 2** filters the
+pool per mod (persisted fingerprints with decoded values/dates, T101 over-cap verdicts, `metrics.csv`);
+**Set 3** runs the SHARED diagnostics engine (`--kind save-CURR`). The save is NEVER re-read per mod. Needs
+ModParse to have run. **The save must be TEXT/melted** — a binary/ironman `.v3` parses to mojibake (0 rows).
 
 ```
-# newest *.v3 in the save-games dir:
+# newest *.v3 in the save-games dir (or the save_games_dir/save_file config):
 python Framework-SaveParse/run-saveparse.py NoUSChickenMod
 
-# a specific (melted) save, force re-scan:
-python Framework-SaveParse/run-saveparse.py KampaiNipponMod --save "C:/path/TEST_ME.v3" --rerun
+# several mods over ONE parse of a specific save; force a fresh parse:
+python Framework-SaveParse/run-saveparse.py Top40EcoBoostMod MyDiploPlayMod --save "C:/path/TEST_ME.v3" --rerun
 ```
 
-Output: `Game-Victoria3/save-CURR/<MOD>/` → `diagnostics.md` + `aggr_save_matches.csv` +
-`aggr_state_census.csv` + `aggr_census_overbuild.csv`.
+Output: COMMON `Game-Victoria3/save-CURR/` → `raw_*.csv` (managers + flags + market goods + census) +
+`goods_ids.csv`; per mod `<MOD>/` → `diagnostics.md` + `aggr_save_matches.csv` + `aggr_census_overbuild.csv`
++ `metrics.csv`. (Sets standalone: `run-save-parse.py` / `run-save-aggr.py <MODS>` / `run-save-diag.py <MODS>`.)
 
-**Config — `Framework-SaveParse/config_saveparse.toml`.** Change the fixed-point factor, the generic cap-var
-detection regex, or which buildings are stored-cap vs trigger-gated:
+**Goods prices (T103):** `raw_market_goods.csv` holds current/min/max price per (market × goods id);
+`goods_ids.csv` names the ids (generated from `game_files_path`'s goods files); `raw_countries.market` links
+a country to its market — join the three for "price of G in C's market at save date".
+
+**Config — `Framework-SaveParse/config_saveparse.toml`.** Manager fields, the fixed-point factor, the generic
+cap-var regex, capped-building lists, the nonpersist pattern, the goods/market block keys:
 
 ```toml
 # testbook/v2/tools/Framework-SaveParse/config_saveparse.toml

@@ -11,20 +11,22 @@ sys.path.insert(0, HERE)
 import lib_io, lib_paths, lib_config, lib_diag
 
 CFG = lib_config.load_framework_config(HERE, "config_logtriage.toml")
-ROOT = os.path.join(lib_paths.GAME_ROOT, "log-CURR")
 
 
 def main():
     p = argparse.ArgumentParser(description="Set3: render diagnostics.md from metrics + fired rules.")
-    p.add_argument("target", metavar="TARGET", help="MOD_NAME or _global (a subdir of log-CURR/)")
+    p.add_argument("target", metavar="TARGET", help="MOD_NAME or _global (a subdir of the --kind run dir)")
+    p.add_argument("--kind", default="log-CURR", choices=["log-CURR", "save-CURR"],
+                   help="which run area to render (the engine is SHARED: SaveParse Set-3 calls with save-CURR)")
     a = p.parse_args()
-    tdir = os.path.join(ROOT, a.target)
+    tdir = os.path.join(lib_paths.GAME_ROOT, a.kind, a.target)
     _h, mrows = lib_io.read_csv(os.path.join(tdir, CFG["outputs"]["metrics"]))
     if _h is None:
         sys.exit(f"gen-diag-md: no metrics.csv for {a.target} — run ext-diag-eval's upstream first")
     fired = lib_io.read_csv_dicts(os.path.join(tdir, CFG["outputs"]["fired"]))
     out = os.path.join(tdir, CFG["outputs"]["report"])
-    md = lib_diag.render_md(f"{a.target} (logs)", {k: v for k, v in mrows}, fired)
+    md = lib_diag.render_md(f"{a.target} ({'logs' if a.kind == 'log-CURR' else 'save'})",
+                            {k: v for k, v in mrows}, fired)
     with open(out, "w", encoding="utf-8", newline="") as f:
         f.write(md)
     print(f"  [diag-md] {out} ({len(fired)} findings)")

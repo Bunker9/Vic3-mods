@@ -1,55 +1,53 @@
-# Framework-SaveParse — game SAVE + `data-<Mod>` → `save-CURR-*`
+# Framework-SaveParse — game SAVE + `data-<Mod>` → `save-CURR/` (parse-once)
 
-> Status: **BUILT + VALIDATED (Phase 4, 2026-06-30)** on a melted 147 MB `.v3` (parsed 9903 buildings / 962
-> states / 271 countries; found real fingerprints + census + over-cap). A BINARY ironman save yields 0 rows —
-> feed a non-ironman / **melted** `.v3` (see note below). Replaced the original save-game-parser job (retired
-> 2026-07-01). Design home: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Imports `../Framework-common`.
->
-> **REWORK IN FLIGHT (parse-once split — stubs registered in `MANIFEST.md` §Rework additions):** this flow
-> still re-parses the save PER MOD; the split (`run-save-parse` Set-1 COMMON raws at ROOT → `run-save-aggr`
-> per-mod → `run-save-diag`) replaces it. Design: `hk-config/roadmap/ROADMAP-debug-framework-rework.md`.
+> Status: **REWORKED Sets 1-3 complete (2026-07-02)** — the save is parsed ONCE into a COMMON pool; per-mod
+> analysis joins the pool and NEVER re-reads the 147 MB file (the old per-mod re-parse pipeline is retired).
+> Includes the market/goods price extraction (T103). A BINARY ironman save yields 0 rows — feed a
+> non-ironman / **melted** `.v3`. Design home: `hk-config/roadmap/ROADMAP-debug-framework-rework.md`.
+> Imports `../Framework-common`; Set-3 reuses the SHARED diagnostics engine in `../Framework-Logtriage`.
 
 Where Logtriage joins keys against the LOGS, this joins them against a Victoria 3 **save** (`.v3`), which
-durably persists a mod's variables + modifiers attributed to the exact object that carries them. Also runs a
-state/building census + over-cap classification.
+durably persists a mod's variables + modifiers attributed to the exact object (`doc_path`). Plus the
+state/building census, over-cap classification, and per-market goods prices.
 
 ```
-python run-saveparse.py <MOD_NAME> [--save <file.v3>] [--prefix P] [--rerun]
+python run-saveparse.py <MOD> [<MOD> ...] [--save <file.v3>] [--prefix P] [--rerun]
+python run-saveparse.py --all
 ```
-- Reads `Game-Victoria3/data-<MOD_NAME>/` (run Framework-ModParse first).
-- `--save` a specific save; else newest `*.v3` in the save-games dir (from `config_game.toml`). Handles zip
-  (`gamestate` member) + plaintext via `Framework-common.lib_parse`. (Save-games dir from `config_game.toml`.)
-- **STEP 1 (automatic):** invokes `Framework-common/run-archive-curr.py save-CURR`, which creates the
-  `Game-<game>/` data root if missing and demotes every prior `save-CURR*` to `save-<label>` so ONLY this run
-  keeps the `CURR` marker (the latest-source signal for the report).
+Requires Framework-ModParse first (`data-<Mod>`). The three sets also run standalone:
 
-> **Save format note:** parses a TEXT gamestate — either a normal zip `.v3` (text `gamestate` member) or a
-> plaintext/melted save. A BINARY ironman save is not parseable as-is (mojibake -> 0 rows); melt/decompress it
-> first, or save in non-ironman mode.
+| set | master | what it does | when to run alone |
+|---|---|---|---|
+| 1 | `run-save-parse.py [--save F] [--rerun]` | archive prior `save-CURR*` ONCE + parse the save ONCE → the COMMON pool (skipped entirely when the pool exists and no `--rerun`) | new save to analyse |
+| 2 | `run-save-aggr.py <MOD>.../--all` | per mod: filter/join the pool vs `data-<Mod>` → `<Mod>/aggr_*` + `metrics.csv` | re-attribute without re-parsing |
+| 3 | `run-save-diag.py <MOD>.../--all [--literals CSV]` | the SHARED engine (`Framework-Logtriage/ext-diag-eval` + `gen-diag-md`, `--kind save-CURR`) → `<Mod>/diagnostics.md` | re-diagnose after curating rules |
+
+## Outputs — `Game-Victoria3/save-CURR/`
+| where | file | content |
+|---|---|---|
+| ROOT (common, Set 1) | `raw_buildings/raw_states/raw_countries/raw_state_regions/raw_pops.csv` | one streaming pass per save manager (RAW IDs — UAT SP-02) |
+| ROOT (common) | `raw_flags.csv` | EVERY persisted `flag=`/`variable=`/`modifier=`/`global_variable=` with doc_path (SORT-not-FILTER; undecoded) |
+| ROOT (common) | `raw_market_goods.csv` · `goods_ids.csv` | per (market × goods): current/min/max price, sample date (T103); the id→name catalog (generated from `game_files_path` goods files, or the tracked seed) |
+| ROOT (common) | `raw_state_census.csv` | the ENRICH join: building rows with owner tag + owner market + state-region template |
+| `<Mod>/` (Sets 2-3) | `aggr_save_matches.csv` · `aggr_census_overbuild.csv` · `metrics.csv` · `diag_fired.csv` · `diagnostics.md` | mod tokens/fingerprints persisted (decoded values/dates); over-cap verdicts (T101 generic cap pattern); engine findings |
 
 ## What persists (kind-dependent)
 - **variables** → `flag=X` in the save (Vic3 has no `set_*_flag`; "flags" ARE variables). Numeric `type=value`
-  vars are fixed-point ×100000 (decoded by the single `Framework-common` decoder).
+  vars are fixed-point ×100000 (decoded in Set-2 via the single `Framework-common` decoder).
 - **modifiers** → `modifier=X` with a native `start_date` (a modifier doubles as a *dated* fingerprint).
-- Loc keys / scripted effects / decision ids / file basenames are NOT save state — absence is normal.
+- Loc keys / scripted effects / decision ids are NOT save state — absence is normal (the `metrics.csv`
+  `kw_absent_suspect` counts only absences NOT matching the config `nonpersist_pattern`).
 
-## Outputs — `Game-Victoria3/save-CURR/<MOD_NAME>/` (raw → data/aggr → report)
-| file | class | content |
-|---|---|---|
-| `raw_buildings.csv` / `raw_states.csv` / `raw_countries.csv` / `raw_state_regions.csv` | raw | one pass per save manager |
-| `aggr_save_matches.csv` | aggr | one row per persisted mod-token/fingerprint occurrence (object `doc_path`, value, date) |
-| `aggr_state_census.csv` | aggr | per (state×building) + (state×variable): owner tag · level/value (decoded) |
-| `aggr_census_overbuild.csv` | aggr | (tag,state_region,building) over the mod's intended cap, classified |
-| `diagnostics.md` | report | fingerprints persisted/absent + over-cap classify (mod-script-error vs engine-overbuild) |
-
-## GENERIC cap analysis (kills the `zw_mfg_cap` hardcode — T101)
-The over-cap check matches the mod's cap variable by a **config-driven PATTERN** (e.g. `*_*cap*`), never a
-hardcoded `zw_mfg_cap`. Buildings whose cap is enforced by triggers/script-values (no stored numeric cap) are
-reported **MISSING-CAP**, not a false pass. Raw extractors stay 100% mod-agnostic — no probe-tag literals
-([[no-hardcode-test-probe-nations]], T101).
+## GENERIC cap analysis (T101) + goods prices (T103)
+Over-cap matches the mod's cap variable by the **config `cap_var_pattern`** on state-region variables — never
+a hardcoded name; trigger-gated buildings report `NO_STORED_CAP`, not a false pass. Goods prices come from
+`market_manager` `price_trend` channels (numeric goods id; LAST sample = current price); join
+`raw_market_goods` × `goods_ids` × `raw_countries.market` for "what does good G cost in country C's market".
+Per-state trade/local-goods blocks are NOT yet extracted (tracked in T103's remainder).
 
 ## Config — `config_saveparse.toml`
-Manager targets + per-manager columns, the `÷100000` factor, the generic cap-var pattern, the capped-building
-catalog, doc_path match strings, verdict strings. No literals in the scripts.
+Manager targets + per-manager columns (incl. `pops`), the ÷100000 factor, the cap-var pattern + capped
+catalogs, the nonpersist pattern, the goods/market keys + catalog names, the diag seed names, every output
+filename. No literals in the scripts.
 
 ## Scripts — see `MANIFEST.md`.

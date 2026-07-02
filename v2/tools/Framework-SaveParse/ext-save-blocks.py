@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
-"""ext-save-blocks.py — SaveParse raw extractor: ONE streaming pass over a Vic3 save -> raw_<mgr>.csv per
-configured manager (id + top-level scalar fields). MOD-AGNOSTIC (no tags / probe literals; T101). The reusable
-substrate the census joins (never re-parses the save). Ported from save-game-parser/ext_save_blocks.py.
-Standalone-runnable; the master invokes it as a subprocess with the resolved --save."""
+"""ext-save-blocks.py — SaveParse Set-1 raw extractor (MOD-AGNOSTIC, parse-once): ONE streaming pass over a
+Vic3 save -> COMMON save-CURR/raw_<mgr>.csv per configured manager (id + top-level scalar fields, RAW IDs
+only — enrichment is a separate join, UAT SP-02; no tags/probe literals, T101). Runs ONCE per run; every mod
+reads these. Standalone; run-save-parse invokes it with the resolved --save."""
 import os
 import re
 import sys
+import argparse
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), "Framework-common"))
-import lib_args, lib_io, lib_paths, lib_config, lib_parse
+import lib_io, lib_paths, lib_config, lib_parse
 
 CFG = lib_config.load_framework_config(HERE, "config_saveparse.toml")
 MANAGERS = CFG["managers"]   # mgr -> {out, fields}
+ROOT = os.path.join(lib_paths.GAME_ROOT, "save-CURR")
 _OPENER = re.compile(r'^\s*([\w:.\-]+)=\{')
 _SCALAR = re.compile(r'^\s*([A-Za-z_]\w*)=("?[^"{}\n]*"?)\s*$')
 
 
-def main(args):
-    save = lib_paths.resolve_save(lib_paths.game_config(), args.save)
-    print(f"  ext: scan {save}")
+def main():
+    p = argparse.ArgumentParser(description="SaveParse Set1: raw per-manager block extractor (common, once).")
+    p.add_argument("--save", default=None, help="save file (.v3); else resolved from config_game.toml")
+    a = p.parse_args()
+    save = lib_paths.resolve_save(lib_paths.game_config(), a.save)
+    print(f"  ext-blocks: scan {save}")
     rows = {spec["out"]: [] for spec in MANAGERS.values()}
     named, depth, rec = [], 0, None
     for line in lib_parse.iter_save_lines(save):
@@ -43,13 +48,12 @@ def main(args):
                 _g, outname, fields, idk, data, _d = rec
                 rows[outname].append([idk] + [data.get(f, '') for f in fields])
                 rec = None
-    out_dir = lib_paths.run_dir("save-CURR", args.mod_name)
+    os.makedirs(ROOT, exist_ok=True)
     for spec in MANAGERS.values():
-        p = os.path.join(out_dir, spec["out"] + ".csv")
-        lib_io.write_csv(p, ["id"] + spec["fields"], rows[spec["out"]])
+        path = os.path.join(ROOT, spec["out"] + ".csv")
+        lib_io.write_csv(path, ["id"] + spec["fields"], rows[spec["out"]])
         print(f"  -> {spec['out']}.csv: {len(rows[spec['out']])} rows")
-    return rows
 
 
 if __name__ == "__main__":
-    main(lib_args.parse_args("SaveParse: raw per-manager block extractor.", save=True))
+    main()

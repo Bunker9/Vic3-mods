@@ -56,8 +56,8 @@ v2/
 
 ## THE debug framework (`tools/`) — 3 frameworks + a shared core + a game data area
 
-> **Refactor complete (2026-06-30; old jobs retired 2026-07-01). REWORK in flight (SORT-not-FILTER +
-> parse-once): Logtriage Sets 1-3 DONE 2026-07-02; SaveParse split + Framework-Toggle = stubs.** The
+> **Refactor complete (2026-06-30; old jobs retired 2026-07-01). REWORK: Logtriage SORT-not-FILTER Sets 1-3
+> + SaveParse parse-once Sets 1-3 (incl. market/goods prices) DONE 2026-07-02; Framework-Toggle = stubs.** The
 > frameworks sit over a shared `Framework-common/`, all literals/paths in TOML configs + curated CSVs.
 > **Usage cookbook: `Framework-common/HOW_TO_USE.md`.** Canonical design: `hk-config/roadmap/
 > MOD-DEBUG-FRAMEWORK.md` + `hk-config/roadmap/ROADMAP-debug-framework-rework.md` (design docs live in
@@ -76,9 +76,10 @@ closed by EXTENDING it generically, never by a one-off script beside it. Each sc
 - **`Framework-Logtriage/`** — game LOGS → `log-CURR/` (SORT-not-FILTER: COMMON raws of EVERY line at ROOT,
   per-mod matches/markers/metrics, data-driven diagnostics via `smoke_detector` + `diag_literals` curated
   CSVs). Run BEFORE any manual log deep-dive. `run-logtriage.py [<MOD>... | --all]` (none = config_logmods).
-- **`Framework-SaveParse/`** — `.v3` SAVE + `data-<Mod>` → `save-CURR/` (persisted fingerprints + state/building
-  census + over-cap classification via a GENERIC cap-var pattern). `run-saveparse.py <MOD>`. Parse-once split
-  = registered stubs (see its MANIFEST).
+- **`Framework-SaveParse/`** — `.v3` SAVE + `data-<Mod>` → `save-CURR/` (parse-once: COMMON pool of manager
+  raws + ALL persisted vars/modifiers + market goods PRICES + goods catalog + census; per-mod fingerprints,
+  T101 over-cap verdicts, metrics, diagnostics via the shared engine). The save is never re-read per mod.
+  `run-saveparse.py [<MOD>... | --all]`.
 - **`Framework-Toggle/`** — debug/fp marker toggle SPLIT (stubs; the working interim toggle is
   `Framework-common/testbook-toggle-markers.py`).
 - **`Game-Victoria3/`** — **DATA ONLY**: per-run outputs (`data-<Mod>/`, `log-CURR*/`, `save-CURR*/`), gitignored

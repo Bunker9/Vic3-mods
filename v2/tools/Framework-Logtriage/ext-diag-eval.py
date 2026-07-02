@@ -13,22 +13,24 @@ sys.path.insert(0, HERE)
 import lib_io, lib_paths, lib_config, lib_diag
 
 CFG = lib_config.load_framework_config(HERE, "config_logtriage.toml")
-ROOT = os.path.join(lib_paths.GAME_ROOT, "log-CURR")
 COLS = ["id", "text", "condition", "logical_reasoning", "user_comments", "status"]
 
 
 def main():
     p = argparse.ArgumentParser(description="Set3: evaluate diag_literals rules over a target's metrics.")
-    p.add_argument("target", metavar="TARGET", help="MOD_NAME or _global (a subdir of log-CURR/)")
+    p.add_argument("target", metavar="TARGET", help="MOD_NAME or _global (a subdir of the --kind run dir)")
     p.add_argument("--literals", default=None,
-                   help="rules CSV (default: the diag_literals.csv seeded at log-CURR ROOT) — swappable per game/version")
+                   help="rules CSV (default: the diag_literals.csv seeded at the --kind ROOT) — swappable per game/version")
+    p.add_argument("--kind", default="log-CURR", choices=["log-CURR", "save-CURR"],
+                   help="which run area to evaluate (the engine is SHARED: SaveParse Set-3 calls with save-CURR)")
     a = p.parse_args()
-    tdir = os.path.join(ROOT, a.target)
+    root = os.path.join(lib_paths.GAME_ROOT, a.kind)
+    tdir = os.path.join(root, a.target)
     _h, mrows = lib_io.read_csv(os.path.join(tdir, CFG["outputs"]["metrics"]))
     if _h is None:
         sys.exit(f"ext-diag-eval: no metrics.csv for {a.target} — run run-log-aggr (mods) / aggr-log-smoke (_global) first")
     metrics = {k: v for k, v in mrows}
-    lit_path = a.literals or os.path.join(ROOT, CFG["diag"]["root"])
+    lit_path = a.literals or os.path.join(root, CFG["diag"]["root"])
     literals = lib_io.read_csv_dicts(lit_path)
     if not literals:
         sys.exit(f"ext-diag-eval: no rules at {lit_path} — run run-log-diag (seeds it) or pass --literals")

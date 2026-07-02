@@ -124,6 +124,40 @@ def scan(path, literal_terms, fp_re, lookahead=6):
     return out
 
 
+def scan_kinds(path, lookahead=6):
+    """SORT-not-FILTER save dump (Set-1 common): one streaming pass; record EVERY `flag=` / `variable=` /
+    `modifier=` / `global_variable=` assignment regardless of the value (no mod filter — attribution is a
+    later per-mod join over the resulting raw pool). Same record shape + value/date lookahead as scan()."""
+    out, pending = [], []
+    for ln, line, doc_path, section in iter_save_blocks(path):
+        if pending:
+            still = []
+            for rec, left in pending:
+                if rec["fp_type"] == "modifier":
+                    m = _STARTDATE.search(line)
+                    if m and not rec["date"]:
+                        rec["date"] = m.group(1)
+                else:
+                    mt = _TYPE.search(line)
+                    if mt and not rec["vtype"]:
+                        rec["vtype"] = mt.group(1)
+                    mv = _IDENTITY.search(line) or _VALUE.search(line)
+                    if mv and not rec["value"]:
+                        rec["value"] = mv.group(1)
+                if left - 1 > 0:
+                    still.append((rec, left - 1))
+            pending = still
+        for m in _ASSIGN.finditer(line):
+            tok, val = m.group(1), m.group(2)
+            if tok in _TOKEN_KIND:
+                rec = {"term": val, "save_token": tok, "fp_type": _TOKEN_KIND[tok],
+                       "section": section, "doc_path": doc_path, "value": "", "vtype": "",
+                       "date": "", "line_no": ln, "sample": line.strip()[:120]}
+                out.append(rec)
+                pending.append((rec, lookahead))
+    return out
+
+
 # ---- error-line normalization (logtriage) -----------------------------------
 _BRACKETS = re.compile(r"^\s*(?:\[[^\]]*\]\s*)+:?\s*")
 _FILE = re.compile(r"[\w./\\-]+\.(?:txt|yml|yaml|gui|dds|mod|json|csv|lua|png|tga)\b", re.I)

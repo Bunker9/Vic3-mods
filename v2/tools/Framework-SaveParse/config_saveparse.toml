@@ -5,7 +5,8 @@ fingerprint_infix = "_fingerprint_"
 [decode]
 fixed_point_factor = 100000   # Vic3 stores a numeric 'value' var as int(real * factor)
 
-# Save-manager databases to RAW-extract -> raw_<out>.csv (columns: id + the listed top-level scalar fields).
+# Save-manager databases RAW-extracted ONCE (Set 1, parse-once) -> save-CURR/raw_<out>.csv
+# (columns: id + the listed top-level scalar fields). Raw-ID only — enrichment is a separate join (UAT SP-02).
 [managers.building_manager]
 out = "raw_buildings"
 fields = ["building", "levels", "last_updated_level", "active", "state", "subsidized", "establishment_date"]
@@ -14,10 +15,26 @@ out = "raw_states"
 fields = ["country", "capital", "incorporation", "region", "province"]
 [managers.country_manager]
 out = "raw_countries"
-fields = ["definition", "tag", "country_type"]
+fields = ["definition", "tag", "country_type", "market", "capital"]
 [managers.state_region_manager]
 out = "raw_state_regions"
 fields = ["template"]
+[managers.pops]
+out = "raw_pops"
+fields = ["type", "workforce", "dependents", "location", "culture", "religion", "wealth", "num_literate"]
+
+[goods]
+# market/goods price extraction (T103): market_manager price_trend channels are keyed by NUMERIC goods id
+# (last sample = current price). The CATALOG maps goods id -> name: generated from the game files
+# (<game_files_path>/common/goods/*.txt, id = definition ORDER) when game_files_path is set; else the tracked
+# goods_ids.example.csv seed is copied. Cross-check: a state's trade.goods ids vs its traded_goods names.
+manager = "market_manager"
+world_key = "world_market"
+trend_key = "price_trend"
+channels_key = "channels"
+goods_dir = "common/goods"
+catalog_example = "goods_ids.example.csv"
+catalog_root = "goods_ids.csv"
 
 [census]
 # GENERIC cap-variable detection (replaces the hardcoded zw_mfg_cap; T101): a persisted state/region variable
@@ -35,8 +52,24 @@ manufacturing_capped = [
 # Buildings gated by triggers/script-values (NO stored numeric cap -> reported MISSING-CAP, not a false pass):
 trigger_capped = ["building_railway", "building_power_plant", "building_art_academy"]
 
+[analysis]
+# kw-list tokens that NEVER persist in a save (loc keys / scripted effects / triggers / decision ids / script
+# values): absence is normal when the name matches this pattern; a NON-matching absent kw = suspect.
+nonpersist_pattern = "_sv_|_trigger|_on_action|(_desc|_tooltip|_tt|_effect|_effects|_decision|_yearly|_startup|_check|_values?|_caps?|_levels?|_diag)$"
+
+[diag]
+# save-side diagnostics rules (NO-LITERALS): tracked seed beside this config; run-save-diag LOADS it into
+# save-CURR/ ROOT. The ENGINE is the shared Framework-Logtriage ext-diag-eval/gen-diag-md (--kind save-CURR).
+example = "diag_literals.example.csv"
+root    = "diag_literals.csv"
+
 [outputs]
+# COMMON (save-CURR/ ROOT) — Set 1, parse-once, mod-agnostic:
+flags        = "raw_flags.csv"
+market_goods = "raw_market_goods.csv"
+census       = "raw_state_census.csv"
+# PER-MOD (save-CURR/<Mod>/) — Sets 2/3 (metrics/diagnostics names match the shared engine's conventions):
 matches   = "aggr_save_matches.csv"
-census    = "aggr_state_census.csv"
 overbuild = "aggr_census_overbuild.csv"
+metrics   = "metrics.csv"
 report    = "diagnostics.md"
