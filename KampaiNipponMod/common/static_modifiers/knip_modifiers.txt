@@ -4,12 +4,10 @@
 # knip_marine_hiring: after the marine-industry build-out, the maxed fisheries hire fewer workers
 # (employee_mult -0.75 => ~25% of normal labour, so each fisher works/earns like ~4) and those pops
 # enjoy a higher standard of living. Tokens verified vs 01_building_modifier_types.txt.
-# TODO (tune after test): SoL_add magnitudes are first-cut (+5); confirm employee_mult scope = country.
 # =============================================================================
 
 knip_marine_hiring = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_group_bg_fishing_employee_mult = -0.5
-	building_group_bg_fishing_standard_of_living_add = 3
-	building_group_bg_whaling_standard_of_living_add = 3
+	building_group_bg_fishing_employee_mult = -0.25
+	building_group_bg_whaling_employee_mult = -0.25
 }

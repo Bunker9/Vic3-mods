@@ -5,7 +5,7 @@
  nous_mexico_war_decision:0 "Tryst with Destiny"
  nous_mexico_war_decision_desc:0 "California belongs in the Union. If Mexico will not cede it, the Army will make it cede."
  nous_mexico_war_decision_tooltip:0 "Declare war on Mexico to reclaim California."
- nous_mexico_war_decision_effect_tt:0 "Forcibly press a [Concept('concept_war_goal', 'return state')] claim and declare war on #V Mexico#! to retake #V California#!."
+ nous_mexico_war_decision_effect_tt:0 "Forcibly press a claim and declare war on Mexico!"
  nous_restart_csa_war_decision:0 "No Rest Till Slavery Is Crushed"
  nous_restart_csa_war_decision_desc:0 "The rebellion endures. The Republic will not sheathe its sword while the Confederacy stands."
  nous_restart_csa_war_decision_tooltip:0 "Renew the war to bring the Confederate states back into the Union."

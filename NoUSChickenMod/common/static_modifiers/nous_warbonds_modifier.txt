@@ -6,6 +6,5 @@
 modifier_nous_warbonds = {
 	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
 	country_infamy_decay_mult = 9                 # 9x infamy decay (vanilla convention: base 1 + 8)
-	country_war_exhaustion_casualties_mult = -1   # near-zero war exhaustion -> war support stays high
 	country_minting_add = 50000                   # large minting income to fund the war (TUNABLE; vanilla max ~1000)
 }
