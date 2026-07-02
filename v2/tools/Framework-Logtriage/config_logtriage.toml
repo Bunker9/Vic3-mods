@@ -6,25 +6,29 @@ files = [["error.log", "error"], ["debug.log", "debug"], ["game.log", "info"]]
 [analysis]
 refire_flag = 100   # marker hit-count above which a re-fire loop is suspected
 
-[benign]
-# shared, human-curated benign-error catalog (lives in THIS folder; TRACKED). Columns human_agreed,pattern,count.
-file = "benign.csv"
-# seed rows used ONLY if benign.csv has no data rows yet (known mod-agnostic noise).
-seed = [["Y", "should be in utf8-bom encoding"]]
-
 [smoke]
-# smoke-detector = the COMMON curated filter of ruled-out / known-noise error signatures. The TRACKED seed lives
-# beside this config; run-log-sort LOADS it into log-CURR/ ROOT (the .example -> ROOT config pattern) where per-run
-# counts/examples accrue and new signatures are appended for review.
+# smoke-detector = the COMMON curated rule-out filter of known-noise error signatures (superseded benign.csv,
+# whose curated rows were migrated in 2026-07-02). The TRACKED seed lives beside this config; run-log-sort
+# LOADS it into log-CURR/ ROOT (the .example -> ROOT config pattern) where aggr-log-smoke accrues per-run
+# counts/examples and APPENDS new unreviewed signatures (human_agreed blank) for curation. Append-only.
 example = "smoke_detector.example.csv"
 root    = "smoke_detector.csv"
 
+[diag]
+# diagnostics rules (NO-LITERALS): every human-readable finding string lives in this CSV, none in code.
+# Tracked seed beside this config; run-log-diag LOADS it into log-CURR/ ROOT. ext-diag-eval takes --literals
+# to point at ANY rules CSV (another PDX game / an experimental rule set) — the engine is swappable DATA.
+example = "diag_literals.example.csv"
+root    = "diag_literals.csv"
+
 [outputs]
-# COMMON (log-CURR/ ROOT) — Set 1 (run-log-sort), one per run, mod-agnostic:
+# COMMON (log-CURR/ ROOT) — Set 1 (run-log-sort), once per run, mod-agnostic:
 raw_errors     = "raw_errors.csv"
 raw_loglines   = "raw_loglines.csv"
 error_patterns = "error_patterns.csv"
-# PER-MOD (log-CURR/<Mod>/) — Set 2/3:
+# PER-TARGET (log-CURR/<Mod>/ and log-CURR/_global/) — Sets 2/3:
 matches = "aggr_log_matches.csv"
 markers = "aggr_markers_status.csv"
+metrics = "metrics.csv"
+fired   = "diag_fired.csv"
 report  = "diagnostics.md"

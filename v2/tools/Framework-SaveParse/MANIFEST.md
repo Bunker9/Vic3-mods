@@ -13,3 +13,18 @@
 | `anal-save-report.py` | anal- | cohesive (may exceed 50) | fingerprints persisted/absent + over-cap classify → `diagnostics.md` | built |
 | `config_saveparse.toml` | config (data) | n/a | manager targets+columns, ÷100000 factor, cap-var pattern, capped-building catalog, verdicts | built |
 | `README.md` | doc | n/a | framework contract | done |
+
+## Rework additions — registered 2026-07-02 (parse-once split; stubs pending build phase)
+> Design: `hk-config/roadmap/ROADMAP-debug-framework-rework.md` §SaveParse. UAT directives: the raw extract
+> stays ID-only and a SEPARATE enrich script joins IDs→names via lookup lists (SP-02); per-market goods
+> prices = TODO T103. The old per-mod pipeline rows above RETIRE when the split lands (port the proven T101
+> cap logic from `aggr-state-census`, don't rewrite it).
+
+| file | class | purpose | status |
+|---|---|---|---|
+| `run-save-parse.py` | run- (Set1 master) | parse save ONCE → COMMON raws at `save-CURR/` ROOT; skip-if-present/`--rerun` | STUB |
+| `aggr-save-census.py` | aggr- | COMMON raws → `save-CURR/raw_state_census.csv` (mod-agnostic census) | STUB |
+| `run-save-aggr.py` | run- (Set2 master) | per mod: COMMON raws + `data-<Mod>` → `save-CURR/<Mod>/aggr_*` | STUB |
+| `aggr-save-overbuild.py` | aggr- | per-mod over-cap classify (generic cap pattern, T101 port) | STUB |
+| `run-save-diag.py` | run- (Set3 master) | save diagnostics via the (literals-parameterized) diag engine | STUB |
+| `diag_literals.example.csv` | literal (tracked seed) | save-side diagnostics rules | built (seeded) |

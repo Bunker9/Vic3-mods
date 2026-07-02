@@ -4,6 +4,10 @@
 > states / 271 countries; found real fingerprints + census + over-cap). A BINARY ironman save yields 0 rows —
 > feed a non-ironman / **melted** `.v3` (see note below). Replaced the original save-game-parser job (retired
 > 2026-07-01). Design home: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Imports `../Framework-common`.
+>
+> **REWORK IN FLIGHT (parse-once split — stubs registered in `MANIFEST.md` §Rework additions):** this flow
+> still re-parses the save PER MOD; the split (`run-save-parse` Set-1 COMMON raws at ROOT → `run-save-aggr`
+> per-mod → `run-save-diag`) replaces it. Design: `hk-config/roadmap/ROADMAP-debug-framework-rework.md`.
 
 Where Logtriage joins keys against the LOGS, this joins them against a Victoria 3 **save** (`.v3`), which
 durably persists a mod's variables + modifiers attributed to the exact object that carries them. Also runs a

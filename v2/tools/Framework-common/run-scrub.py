@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """run-scrub.py — MASTER cleanup: wipe ALL generated framework DATA under Game-<game>/ (data-*, log-CURR* /
-log-*, save-CURR* / save-*), leaving CODE + the tracked configs (config_*.toml) + benign.csv. DRY-RUN by
+log-*, save-CURR* / save-*), leaving CODE + the tracked configs (config_*.toml) + the *.example.csv seeds. DRY-RUN by
 default; --commit actually deletes; --mod M scopes to one mod's outputs. Configs never match the data globs,
 so they are always safe."""
 import os

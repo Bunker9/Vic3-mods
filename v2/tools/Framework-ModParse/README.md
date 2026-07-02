@@ -29,6 +29,7 @@ and no timestamps/abs-paths are written into the data. Verified by re-running + 
 | `raw_debuglines.csv` | raw | ACTIVE (uncommented) `debug_log` markers (dbg_id, text, file_id, line_no) |
 | `raw_loc.csv` | raw | localization keys (loc_id, key, file_id, line_no) |
 | `raw_fingerprints.csv` | raw | declared `<abbr>_fingerprint_*` markers (fp_id, fp_name, op[set/change/has/other], file_id, line_no) — feeds SaveParse + the set-before-change check |
+| `raw_tokens.csv` | raw | UNFILTERED token dump: ALL identifiers + occurrence counts (commented-out excluded) — `keyword,occurrence` (rework additive, 2026-07-01) |
 | `data_*.csv` / `aggr_*.csv` | data / aggr | raw enriched via lookups/joins, and rollups — added when a consumer needs them (none yet) |
 
 ## Config — `config_modparse.toml`

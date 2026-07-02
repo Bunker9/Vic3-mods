@@ -18,6 +18,7 @@ testbook/v2/tools/
 ├─ Framework-ModParse/   mod SOURCE  → Game-<game>/data-<Mod>/   (idempotent token files; the shared upstream)
 ├─ Framework-Logtriage/  game LOGS + data-<Mod> → Game-<game>/log-CURR/<Mod>/
 ├─ Framework-SaveParse/  .v3 SAVE  + data-<Mod> → Game-<game>/save-CURR/<Mod>/
+├─ Framework-Toggle/     debug/fp marker TOGGLE split (STUBS — interim tool is testbook-toggle-markers here)
 └─ Game-<game>/          DATA ONLY — per-run outputs (data-<Mod>/, log-CURR*/, save-CURR*/); gitignored WHOLESALE
                          at repo level, NO code/config here. Created on demand. A future PDX game = a new Game-<X>/.
 ```
@@ -44,8 +45,9 @@ See `MANIFEST.md` for the full module + master-script registry.
 ## Standard arg contract (every script, via `lib_args`)
 | arg | kind | meaning |
 |---|---|---|
-| `MOD_NAME` | positional arg1 (always) | output namespace under `Game-<game>/` |
-| `MOD_PATH` | positional arg2 (ModParse only) | mod source folder; else from `config_game.toml [mod_locations]` |
+| `MOD_NAME` | positional — SUB-scripts take exactly ONE; the 4 MASTERS take one or MORE (looped per mod) | output namespace under `Game-<game>/` |
+| `--all` | masters only | run for EVERY mod in `config_game.toml [mod_locations]` |
+| `--path DIR` | masters (ModParse/debug-master; single MOD_NAME only) — subs take it as positional arg2 `MOD_PATH` | mod source folder; else from `config_game.toml [mod_locations]` |
 | `--save PATH` | SaveParse only | a specific `.v3`; else newest in the save-games dir |
 | `--logs DIR` | Logtriage only | override the Vic3 logs dir |
 | `--prefix P` | all | override the auto-derived mod prefix/abbr |
@@ -55,7 +57,7 @@ See `MANIFEST.md` for the full module + master-script registry.
 | script | what it does | example |
 |---|---|---|
 | `run-debug-master.py <MOD> [--save F] [--logs D]` | the whole flow: ModParse → Logtriage → SaveParse for one mod; prints the 3 `diagnostics.md` paths | `python Framework-common/run-debug-master.py NoUSChickenMod` |
-| `run-scrub.py [--mod M] [--commit]` | wipe ALL generated data (`Game-<game>/data-*`, `log-CURR-*`, `save-CURR-*`), leaving CODE + configs + `benign.csv`. **Dry-run by default**; `--commit` actually deletes | `python Framework-common/run-scrub.py --commit` |
+| `run-scrub.py [--mod M] [--commit]` | wipe ALL generated data (`Game-<game>/data-*`, `log-CURR*`, `save-CURR*`), leaving CODE + configs + the tracked `*.example.csv` seeds. **Dry-run by default**; `--commit` actually deletes | `python Framework-common/run-scrub.py --commit` |
 
 **Integration (decided 2026-06-30):** the masters STAY inside the framework folders. The v2 report build
 (`run_v2.py` validate) and the future CI/CD pipeline invoke these masters IN-PLACE to (re)generate the per-run
@@ -75,14 +77,17 @@ the marker the report/unit-test layer uses to find the latest data source.
 2. **Run the game SHORT (1–3 months)** with a fresh versiontest log — FIRST do the pre-game ceremony (log
    clear + version bump; see WHERE-map). Then play, quit.
 3. **`run-logtriage <MOD>`** + **`run-saveparse <MOD>`** (or just `run-debug-master <MOD>`) →
-   `log-CURR-*` / `save-CURR-*` with `diagnostics.md` + CSVs.
+   `log-CURR/` / `save-CURR/` with `diagnostics.md` + CSVs.
 4. **Read the diagnostics** (below). For feature PASS/FAIL, the deferred BDD layer (pytest-bdd) consumes these.
 
 ## How to READ / ANALYSE the outputs
-- **Logtriage `diagnostics.md`** — markers **fired vs unfired** (an unfired `debug_log` marker = that
-  effect/decision never ran; ≥100× = a possible re-fire loop), mod-attributable **errors** (benign-suppressed
-  via the shared `benign.csv`), and **loc-for-all-kw** misses. NO mention of a mod kw in the logs is usually
-  GOOD (no error); an unfired marker is usually BAD (code path didn't run).
+- **Logtriage (SORT-not-FILTER, reworked 2026-07-02)** — `log-CURR/` ROOT holds the COMMON pool (EVERY log
+  line + every error, nothing dropped); `_global/` = grouped error signatures + the smoke-detector verdict
+  metrics + a global `diagnostics.md`; `<Mod>/` = matches over the pool, markers **fired vs unfired**
+  (unfired marker = that effect/decision never ran; ≥100× = possible re-fire loop), loc-for-all-kw, and a
+  per-mod `diagnostics.md`. Findings text is DATA (`diag_literals`); noise triage is the curated
+  `smoke_detector` (Y=noise, N=tracked, blank=review me — new signatures auto-append). NO mention of a mod
+  kw in the logs is usually GOOD; an unfired marker is usually BAD (code path didn't run).
 - **SaveParse `diagnostics.md` + CSVs** — which `*_fingerprint_*` vars/modifiers **persisted** and on WHICH
   object (`doc_path`), with decoded values/dates; the **state/building census**; and **over-cap** tuples
   classified mod-script-error vs engine-overbuild. A fingerprint that is ABSENT from the save = its feature
@@ -95,7 +100,7 @@ the marker the report/unit-test layer uses to find the latest data source.
 | shared lib (`lib_*`) | `Framework-common/` | no | built (Phase 1) |
 | master run-all (`run-debug-master.py`) | `Framework-common/` | no | Phase 5 |
 | **cleanup / scrub** (`run-scrub.py`) | `Framework-common/` | no | Phase 5 |
-| **comment / fingerprint TOGGLE** (debug_log + `_fingerprint_` + dummy-use on/off, mod-agnostic) | `Framework-common/` | no | Phase 6 |
+| **comment / fingerprint TOGGLE** (debug_log + `_fingerprint_` + dummy-use on/off, mod-agnostic) | `Framework-common/` (interim); `Framework-Toggle/` = the split, STUBS | no | built (interim) / split pending |
 | **KEEP-newest-CURR** (`run-archive-curr.py`; STEP 1 of log/save masters, standalone; creates Game-<game>/ if missing) | `Framework-common/` | no | built 2026-07-01 |
 | ModParse / Logtriage / SaveParse jobs | `Framework-*/` | no (logic) | Phases 2–4 |
 | game/machine CONFIG (`config_game.toml` + `.example` + `config_naming.toml`) | `Framework-common/` | YES (values) | built |

@@ -1,12 +1,13 @@
 # Framework-common — manifest (shared lib + master scripts)
 
-> One row per module/script. The `lib_*` modules are the shared core (Phase 1, built + smoke-tested); the
-> master orchestrators + toggle are Phase 5/6 STUBS. Hyphenated dir ⇒ not a Python package: callers put this
-> dir on `sys.path` and import the modules top-level (see README). `lib_*` keep `_` (Python can't `import a-b`).
+> One row per module/script. ALL rows below are BUILT (lib core Phase 1; masters/toggle Phases 5-6; multi-mod
+> `--all` front-end added 2026-07-01). Hyphenated dir ⇒ not a Python package: callers put this dir on
+> `sys.path` and import the modules top-level (see README). `lib_*` keep `_` (Python can't `import a-b`).
+> The TOGGLE script is INTERIM — the Framework-Toggle split (stubs) supersedes it when built.
 
 | file | class | lines | purpose | status |
 |---|---|---|---|---|
-| `lib_args.py` | lib_ | 31 | the ONE standardized CLI arg contract (MOD_NAME/MOD_PATH/--save/--logs/--prefix/--rerun) | built |
+| `lib_args.py` | lib_ | 73 | the ONE standardized CLI arg contract (MOD_NAME/MOD_PATH/--save/--logs/--prefix/--rerun) + the MASTER multi-mod front-end (`parse_master_args`, `--all`, `selected_mods`) | built |
 | `lib_io.py` | lib_ | 50 | deterministic text/CSV IO (`write_csv(sort=)`) + `walk_files` | built |
 | `lib_paths.py` | lib_ | 73 (cohesive) | self-location + all external path resolution via `config_game.toml`; the `data-<Mod>` / `<kind>-<label>/<mod>` output layout | built |
 | `lib_config.py` | lib_ | 21 | read-only TOML loader (`tomllib`) | built |

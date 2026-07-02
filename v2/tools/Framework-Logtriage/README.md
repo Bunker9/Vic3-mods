@@ -1,41 +1,48 @@
-# Framework-Logtriage — game LOGS + `data-<Mod>` → `log-CURR-*`
+# Framework-Logtriage — game LOGS + `data-<Mod>` → `log-CURR/` (SORT-not-FILTER)
 
-> Status: **BUILT — Phase 3 complete (2026-06-30); smoke-tested on NoUSChickenMod** (surfaced 6 real errors
-> incl. the set-but-unused fingerprints — empirically confirming the dummy-use rule — and the loc-for-all-kw
-> check). Replaced the original log-triage job (retired 2026-07-01). Design home:
-> `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`. Imports `../Framework-common`.
+> Status: **REWORKED Sets 1-3 complete (2026-07-02); validated on the 2026-07-01 real run** (6189 error lines
+> captured incl. the jomini/building_manager classes the old triage dropped; MyDiploPlay 5676 common-pool
+> matches; smoke: 1890 tracked + 37 new signatures appended for review). The pre-rework pipeline
+> (`anal-log-triage.py` + `benign.csv`) is retired. Design home:
+> `hk-config/roadmap/ROADMAP-debug-framework-rework.md`. Imports `../Framework-common`.
 > **Run this BEFORE any manual log deep-dive** (DEV-RULES "Triage framework FIRST").
 
-Joins a mod's `data-<Mod>` token lists (from Framework-ModParse) against the game LOGS for the current run, and
-reports markers fired-vs-unfired + mod-attributable errors (benign-filtered).
+Sorts EVERY line of every configured `*.log` into a COMMON pool (drops NOTHING — attribution is a later,
+per-mod concern that deletes nothing), then joins per-mod keys against that pool, then runs a data-driven
+diagnostics engine whose every finding string lives in a swappable rules CSV.
 
 ```
-python run-logtriage.py <MOD_NAME> [--logs DIR] [--rerun]
+python run-logtriage.py                        # mods from config_logmods.toml
+python run-logtriage.py <MOD> [<MOD> ...]      # explicit mods
+python run-logtriage.py --all [--logs DIR]     # every config_game.toml [mod_locations] mod
 ```
-- Reads `Game-Victoria3/data-<MOD_NAME>/raw_keywords.csv` etc. (run Framework-ModParse first).
-- `--logs` overrides the logs dir (else from `config_game.toml`).
-- **STEP 1 (automatic):** invokes `Framework-common/run-archive-curr.py log-CURR`, which creates the
-  `Game-<game>/` data root if missing and demotes every prior `log-CURR*` to `log-<label>` so ONLY this run keeps
-  the `CURR` marker (the latest-source signal for the report).
+Requires Framework-ModParse first (`data-<Mod>`). The three sets also run standalone:
 
-## Outputs — `Game-Victoria3/log-CURR/<MOD_NAME>/`
-| file | class | content |
+| set | master | what it does | when to run alone |
+|---|---|---|---|
+| 1 | `run-log-sort.py [--logs DIR]` | archive prior `log-CURR*` ONCE (the SOLE archive point) + seed `smoke_detector.csv` → ROOT + sort ALL logs → COMMON raws + `_global/error_patterns.csv` | new game run, refresh the pool |
+| 2 | `run-log-aggr.py <MOD>.../--all` | per mod: join the COMMON pool vs `data-<Mod>` → `<Mod>/aggr_*` + `metrics.csv` | re-attribute without re-sorting |
+| 3 | `run-log-diag.py <MOD>.../--all [--literals CSV]` | seed `diag_literals.csv` → ROOT; global smoke metrics; evaluate + render `diagnostics.md` per mod + `_global` | re-diagnose after curating the CSVs |
+
+## Outputs — `Game-Victoria3/log-CURR/`
+| where | file | content |
 |---|---|---|
-| `aggr_log_matches.csv` | aggr | one row per file/kw/dbg match in the logs (was `matched_loglines.csv`) |
-| `aggr_markers_status.csv` | aggr | per-marker fired/unfired + count (was `markers_status.csv`) |
-| `diagnostics.md` | report | markers fired-vs-unfired, errors (benign-suppressed), **loc-for-all-kw** findings |
+| ROOT (common, Set 1) | `raw_loglines.csv` / `raw_errors.csv` | EVERY line / every error line + normalized signature |
+| ROOT (common) | `smoke_detector.csv` · `diag_literals.csv` | loaded from the tracked `.example` seeds; smoke accrues counts + new signatures |
+| `_global/` | `error_patterns.csv` · `metrics.csv` · `diag_fired.csv` · `diagnostics.md` | grouped signatures; smoke verdict metrics; global findings |
+| `<Mod>/` (Sets 2-3) | `aggr_log_matches.csv` · `aggr_markers_status.csv` · `metrics.csv` · `diag_fired.csv` · `diagnostics.md` | matches over the pool; markers fired/unfired/re-fire; loc-for-all-kw; per-mod findings |
 
-## Repurposed: loc-for-all-kw check (§C.3, was the DEAD `list_loc.csv`)
-`raw_loc.csv` (from ModParse) is now CONSUMED: every player-facing kw (modifier/event/decision name) must have a
-matching loc entry; a kw with no loc = a static-check finding surfaced in `diagnostics.md` (and later the
-Static component). Previously `list_loc.csv` was produced but never read.
-
-## Shared benign catalog — `benign.csv` (human-curated, mod-agnostic, TRACKED)
-Each distinct error line is normalised to a mod-agnostic signature and matched. Columns `human_agreed,pattern,count`:
-`Y`→benign (suppressed) · `N`→tracked error (FAIL) · blank→new/unreviewed. Lives here (not under any mod).
+## The two curated CSVs (the ONLY things a session should edit here — append-only)
+- **`smoke_detector`** (`human_agreed,pattern,count,example`): `Y` = agreed noise (suppressed) · `N` = tracked
+  error (drives `tracked_errors`) · blank = unreviewed. `aggr-log-smoke` appends every UNSEEN signature with a
+  blank verdict for human review — curate by filling Y/N, never delete rows.
+- **`diag_literals`** (`id,text,condition,logical_reasoning,user_comments,status`): the diagnostics RULES; all
+  human-readable finding text lives here (NO-LITERALS). `condition` = `metric OP value` over `metrics.csv`
+  (safe evaluator, no `eval`; unknown metric ⇒ rule doesn't fire). **Swappable data:** `--literals <csv>`
+  points the engine at another rules file — another PDX game or an experimental set — with zero code change.
 
 ## Config — `config_logtriage.toml`
-Log filenames + severity map (`error.log`=error, `debug.log`=debug, `game.log`=info), refire-loop threshold,
-benign-catalog path, verdict strings. No literals in the scripts.
+Log filenames + severity map, refire-loop threshold, the smoke/diag example→ROOT names, every output filename.
+No literals in the scripts. `config_logmods.toml` = the tracked mod list the top master batches by default.
 
 ## Scripts — see `MANIFEST.md`.

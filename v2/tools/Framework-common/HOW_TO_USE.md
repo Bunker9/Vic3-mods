@@ -58,8 +58,9 @@ mod folder explicitly (arg2 / `--path`).
 
 | arg | kind | meaning |
 |---|---|---|
-| `MOD_NAME` | positional arg1 (always required) | output namespace under `Game-Victoria3/` |
-| `MOD_PATH` | positional arg2 (ModParse + debug-master) | mod source folder; else from `config_game.toml [mod_locations]` |
+| `MOD_NAME` | positional, one or MORE (the masters loop per mod) | output namespace under `Game-Victoria3/` |
+| `--all` | all four masters | run for EVERY mod in `config_game.toml [mod_locations]` |
+| `--path DIR` | ModParse + debug-master (single MOD_NAME only) | explicit mod source folder; else from `[mod_locations]` |
 | `--save PATH` | SaveParse + debug-master | a specific `.v3`; else newest in the save-games dir |
 | `--logs DIR` | Logtriage + debug-master | override the Vic3 logs dir |
 | `--prefix P` | all four | override the auto-derived mod prefix/abbr (e.g. `nous`) |
@@ -81,8 +82,12 @@ This is the single entry point the v2 report build + CI invoke.
 # mod folder resolved from config_game.toml [mod_locations]:
 python Framework-common/run-debug-master.py NoUSChickenMod
 
-# mod folder given explicitly as arg2 (no [mod_locations] entry needed):
-python Framework-common/run-debug-master.py MyDiploPlayMod "C:/Users/<you>/Projects/victoria-3-mod/mod1/MyDiploPlayMod"
+# several mods in one run (share one log-CURR/save-CURR), or every configured mod:
+python Framework-common/run-debug-master.py Top40EcoBoostMod MyDiploPlayMod NoUSChickenMod
+python Framework-common/run-debug-master.py --all
+
+# mod folder given explicitly (single mod only; no [mod_locations] entry needed):
+python Framework-common/run-debug-master.py MyDiploPlayMod --path "C:/Users/<you>/Projects/victoria-3-mod/mod1/MyDiploPlayMod"
 
 # point at a specific save + a specific logs dir, force a clean re-scan:
 python Framework-common/run-debug-master.py Top40EcoBoostMod --save "C:/path/TEST_ME.v3" --logs "C:/path/logs" --rerun
@@ -97,7 +102,7 @@ Outputs (printed at the end):
 - `Game-Victoria3/save-CURR/<MOD>/diagnostics.md`
 
 Configs it reads (transitively, via the three sub-frameworks): `config_game.toml`, `config_modparse.toml`,
-`config_logtriage.toml` + `benign.csv`, `config_saveparse.toml`.
+`config_logtriage.toml` (+ the smoke/diag seed CSVs), `config_saveparse.toml`.
 
 ---
 
@@ -106,11 +111,12 @@ Home: `Framework-ModParse/`. Builds the idempotent `data-<Mod>/raw_*.csv` token 
 frameworks read. Must run before Logtriage/SaveParse. Byte-identical across reruns for the same source.
 
 ```
-# resolve folder from config:
+# resolve folder from config (one, several, or all mods):
 python Framework-ModParse/run-modparse.py NoUSChickenMod
+python Framework-ModParse/run-modparse.py --all
 
-# explicit folder (arg2):
-python Framework-ModParse/run-modparse.py DesiStrategyMod "C:/Users/<you>/Projects/victoria-3-mod/mod1-inov/DesiStrategyMod"
+# explicit folder (single mod only):
+python Framework-ModParse/run-modparse.py DesiStrategyMod --path "C:/Users/<you>/Projects/victoria-3-mod/mod1-inov/DesiStrategyMod"
 
 # force a rebuild + pin the prefix:
 python Framework-ModParse/run-modparse.py MyDiploPlayMod --prefix mdp --rerun
@@ -134,23 +140,31 @@ stopwords = ["add", "set", "has", "building", "country", "state", "modifier", ".
 
 ---
 
-## 3. `run-logtriage.py` — game LOGS + `data-<Mod>` → `log-CURR/<Mod>/`
-Home: `Framework-Logtriage/`. Scans `error.log` / `debug.log` / `game.log` against the mod's join keys; reports
-markers **fired vs unfired**, mod-attributable errors (benign-suppressed), and loc-for-all-kw misses. **Run this
-BEFORE any manual log deep-dive** (DEV-RULES "Triage framework FIRST"). Needs ModParse to have run.
+## 3. `run-logtriage.py` — game LOGS + `data-<Mod>` → `log-CURR/` (SORT-not-FILTER, reworked 2026-07-02)
+Home: `Framework-Logtriage/`. Three chained sets: **Set 1** sorts EVERY line of every configured `*.log` into
+COMMON raws at the `log-CURR/` ROOT (drops nothing — this is the ONLY step that archives the prior CURR);
+**Set 2** joins each mod's `data-<Mod>` keys against that pool (matches, markers fired/unfired, re-fire,
+loc-for-all-kw, per-mod `metrics.csv`); **Set 3** runs the data-driven diagnostics engine (smoke verdicts +
+`diagnostics.md` per mod and `_global`). **Run this BEFORE any manual log deep-dive** (DEV-RULES "Triage
+framework FIRST"). Needs ModParse to have run.
 
 ```
-# default logs dir (auto-resolved from config_game.toml / Documents):
-python Framework-Logtriage/run-logtriage.py NoUSChickenMod
+# mods from config_logmods.toml (the no-args default):
+python Framework-Logtriage/run-logtriage.py
 
-# override the logs dir (e.g. an archived run) + force re-scan:
-python Framework-Logtriage/run-logtriage.py Top40EcoBoostMod --logs "C:/path/to/logs" --rerun
+# explicit mods / all configured mods / an archived logs dir:
+python Framework-Logtriage/run-logtriage.py NoUSChickenMod MyDiploPlayMod
+python Framework-Logtriage/run-logtriage.py --all --logs "C:/path/to/logs"
 ```
 
-Output: `Game-Victoria3/log-CURR/<MOD>/` → `diagnostics.md` + `aggr_log_matches.csv` + `aggr_markers_status.csv`.
+Output: `Game-Victoria3/log-CURR/` → COMMON `raw_loglines.csv` + `raw_errors.csv` + `smoke_detector.csv` +
+`diag_literals.csv` at ROOT; `_global/` → `error_patterns.csv` + `metrics.csv` + `diagnostics.md`; per mod
+`<MOD>/` → `aggr_log_matches.csv` + `aggr_markers_status.csv` + `metrics.csv` + `diagnostics.md`.
+(Each set is standalone too: `run-log-sort.py` / `run-log-aggr.py <MODS>` / `run-log-diag.py <MODS>` — see
+`Framework-Logtriage/README.md`.)
 
-**Config — `Framework-Logtriage/config_logtriage.toml`.** Change which log files are scanned (and their
-severity), the re-fire-loop threshold, or the benign-noise catalog:
+**Config — `Framework-Logtriage/config_logtriage.toml`.** Which log files are scanned (and severity), the
+re-fire threshold, and the smoke/diag seed→ROOT filenames:
 
 ```toml
 # testbook/v2/tools/Framework-Logtriage/config_logtriage.toml
@@ -158,19 +172,24 @@ severity), the re-fire-loop threshold, or the benign-noise catalog:
 files = [["error.log", "error"], ["debug.log", "debug"], ["game.log", "info"]]
 [analysis]
 refire_flag = 100        # a marker hit-count above this flags a suspected re-fire loop
-[benign]
-file = "benign.csv"      # the shared human-curated benign-error catalog (next file)
 ```
 
-**Benign-error allowlist — `Framework-Logtriage/benign.csv`** (columns `human_agreed,pattern,count`). Add a row
-to suppress a known, agreed-benign error from the verdict:
+**The two CURATED CSVs (append-only; the only files you edit here):**
+- `Framework-Logtriage/smoke_detector.example.csv` → loaded to `log-CURR/smoke_detector.csv`
+  (`human_agreed,pattern,count,example`): `Y` = agreed noise (suppressed), `N` = tracked error, blank =
+  unreviewed. Every UNSEEN error signature is auto-appended with a blank verdict — fill Y/N to curate:
 
 ```csv
-# testbook/v2/tools/Framework-Logtriage/benign.csv
-human_agreed,pattern,count
-Y,should be in utf8-bom encoding,0
-Y,<a substring of the benign error line you want to ignore>,0
+# testbook/v2/tools/Framework-Logtriage/smoke_detector.example.csv
+human_agreed,pattern,count,example
+Y,<substring or signature of a known-noise error>,0,"<the exact matched line>"
+N,<substring of an error you want COUNTED as tracked>,0,"<example>"
 ```
+
+- `Framework-Logtriage/diag_literals.example.csv` → loaded to `log-CURR/diag_literals.csv`
+  (`id,text,condition,logical_reasoning,user_comments,status`): the diagnostics RULES — all human-readable
+  finding text lives here, none in code. `condition` = `metric OP value` over a target's `metrics.csv`.
+  Swap the whole rules file per game/version with `run-log-diag.py --literals <csv>`.
 
 ---
 
@@ -207,7 +226,7 @@ trigger_capped       = ["building_railway", "building_power_plant", "..."]  # no
 
 ## 5. `run-scrub.py` — wipe regenerable per-run DATA (cleanup)
 Home: `Framework-common/`. Deletes generated `data-*` / `log-CURR*` / `save-CURR*` dirs under `Game-Victoria3/`,
-leaving CODE + the tracked configs + `benign.csv`. **Dry-run by default; `--commit` actually deletes.** Takes
+leaving CODE + the tracked configs + the `*.example.csv` seeds. **Dry-run by default; `--commit` actually deletes.** Takes
 **no `MOD_NAME` positional** — scope with `--mod`.
 
 ```
@@ -287,10 +306,10 @@ python Framework-common/run-archive-curr.py save-CURR
 
 | Script | Home | Positional | Key flags | Output |
 |---|---|---|---|---|
-| `run-debug-master.py` | `Framework-common/` | `MOD_NAME [MOD_PATH]` | `--save --logs --prefix --rerun` | data + both diagnostics |
-| `run-modparse.py` | `Framework-ModParse/` | `MOD_NAME [MOD_PATH]` | `--prefix --rerun` | `data-<Mod>/raw_*.csv` |
-| `run-logtriage.py` | `Framework-Logtriage/` | `MOD_NAME` | `--logs --prefix --rerun` | `log-CURR/<Mod>/` |
-| `run-saveparse.py` | `Framework-SaveParse/` | `MOD_NAME` | `--save --prefix --rerun` | `save-CURR/<Mod>/` |
+| `run-debug-master.py` | `Framework-common/` | `MOD_NAME...` or `--all` | `--path --save --logs --prefix --rerun` | data + both diagnostics |
+| `run-modparse.py` | `Framework-ModParse/` | `MOD_NAME...` or `--all` | `--path --prefix --rerun` | `data-<Mod>/raw_*.csv` |
+| `run-logtriage.py` | `Framework-Logtriage/` | `[MOD_NAME...]` (none = `config_logmods.toml`) or `--all` | `--logs` | `log-CURR/` common + `_global/` + `<Mod>/` |
+| `run-saveparse.py` | `Framework-SaveParse/` | `MOD_NAME...` or `--all` | `--save --prefix --rerun` | `save-CURR/<Mod>/` |
 | `run-scrub.py` | `Framework-common/` | — | `--mod --commit` | (deletes generated data) |
 | `testbook-toggle-markers.py` | `Framework-common/` | — | `--on/--off --mod --path --commit` | (rewrites mod `.txt`) |
 | `run-archive-curr.py` | `Framework-common/` | `<log-CURR\|save-CURR>` | — | auto STEP 1 of log/save masters; demotes prior CURR + creates Game-<game>/ if missing |
@@ -301,8 +320,10 @@ python Framework-common/run-archive-curr.py save-CURR
 | `Framework-common/config_game.example.toml` | yes | template (copy, don't edit) |
 | `Framework-common/config_naming.toml` | yes | naming-rule reference |
 | `Framework-ModParse/config_modparse.toml` | yes | scan extensions, prefix stopwords, output names |
-| `Framework-Logtriage/config_logtriage.toml` | yes | log files/severity, re-fire threshold |
-| `Framework-Logtriage/benign.csv` | yes | benign-error allowlist rows |
+| `Framework-Logtriage/config_logtriage.toml` | yes | log files/severity, re-fire threshold, smoke/diag seed names |
+| `Framework-Logtriage/config_logmods.toml` | yes | the default mod list `run-logtriage` batches |
+| `Framework-Logtriage/smoke_detector.example.csv` | yes | curated noise/tracked verdicts (append-only; replaces the retired `benign.csv`) |
+| `Framework-Logtriage/diag_literals.example.csv` | yes | the diagnostics RULES (all finding text; swappable via `--literals`) |
 | `Framework-SaveParse/config_saveparse.toml` | yes | fixed-point factor, cap regex, capped building lists |
 | `Framework-common/config_toggle.toml` | yes | comment marker, toggle patterns, extensions |
 
