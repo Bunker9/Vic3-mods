@@ -62,6 +62,7 @@ STATE_ABU_DHABI = {
         type = "building_oil_rig"
         undiscovered_amount = 80
     }
+    traits = { "state_trait_infratax_cheat" }
     naval_exit_id = 3046
 }
 
@@ -174,6 +175,7 @@ STATE_PALESTINE = {
     id = 406
     subsistence_building = "building_subsistence_farm"
     provinces = { "x0EC997" "x136A0C" "x365E8F" "x605060" "x60D060" "xC9CBC0" "xE05060" "xE0D060" }
+    traits = { "state_trait_infratax_cheat" }
     city = "xC9CBC0"
     port = "x605060"
     farm = "x60D060"

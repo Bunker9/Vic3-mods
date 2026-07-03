@@ -40,19 +40,19 @@ STATE_VICTORIA = {
     farm = "xCC9C60"
     mine = "xC04012"
     wood = "xC21B54"
-    traits = { "state_trait_infratax" }
-    arable_land = 40
+    traits = { "state_trait_infratax_cheat" }
+    arable_land = 90
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_cotton_plantation" "building_tea_plantation" "building_sugar_plantation" "building_vineyard" }
     capped_resources = {
         building_sulfur_mine = 24
-        building_logging_camp = 11
-        building_whaling_station = 3
-        building_fishing_wharf = 8
+        building_logging_camp = 41
+        building_whaling_station = 6
+        building_fishing_wharf = 11
     }
     resource = {
         type = "building_gold_field"
         depleted_type = "building_gold_mine"
-        undiscovered_amount = 6
+        undiscovered_amount = 21
     }
     naval_exit_id = 3122
 }

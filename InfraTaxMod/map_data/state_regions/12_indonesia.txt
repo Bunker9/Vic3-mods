@@ -392,6 +392,7 @@ STATE_SUNDA_ISLANDS = {
     id = 551
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x100090" "x108090" "x28EC3F" "x3CCE91" "x4CFCE1" "x4EE71E" "x5ABA94" "x5F978F" "x699245" "x7D205E" "x7F4592" "x900090" "x908090" "x929145" "xCF8A98" "xE90740" }
+    traits = { "state_trait_infratax_cheat" }
     prime_land = { "x5ABA94" "x100090" }
     city = "xCF8A98"
     port = "x5ABA94"
@@ -408,7 +409,7 @@ STATE_SUNDA_ISLANDS = {
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 8
+        undiscovered_amount = 21
     }
     naval_exit_id = 3052
 }
