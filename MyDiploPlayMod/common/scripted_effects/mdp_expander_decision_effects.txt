@@ -20,10 +20,7 @@
 mdp_decision_conquer_minor = {
 	save_scope_as = mdp_attacker
 	random_country = {
-		limit = {
-			mdp_valid_generic_target = yes               # independent / no-truce / adjacent / not-GP / <=6 states / not-an-expander
-			NOT = { any_scope_state = { count >= 4 } }   # WIP: tighter "small SEA minor (pop<1M)" cap (<=3 states); tune after test
-		}
+		limit = { mdp_valid_generic_target = yes    }           # independent / no-truce / adjacent / not-GP / <=6 states / not-an-expander
 		save_scope_as = mdp_tgt
 	}
 	if = {
@@ -100,43 +97,5 @@ mdp_decision_expander_declare_war = {
 		# DATE: a variable carries no native timestamp in the save (only modifiers do). The dp_return_state
 		# play above IS dated in the save; for an explicit dated war fingerprint, grant a stamp modifier
 		# (TODO: add static_modifier mdp_war_started_stamp -> parser already reads modifier start_date).
-	}
-
-	# Re-enter the play and add a return_state war goal for EVERY target state (capital = primary).
-	random_diplomatic_play = {
-		limit = {
-			is_diplomatic_play_type = dp_return_state
-			any_scope_play_involved = { this = scope:mdp_attacker }
-			any_scope_play_involved = { this = scope:mdp_tgt }
-		}
-		save_scope_as = mdp_play
-	}
-	if = {
-		limit = { exists = scope:mdp_play }
-		scope:mdp_tgt = {
-			every_scope_state = {
-				save_scope_as = mdp_goal_state
-				if = {
-					limit = { this = scope:mdp_tgt.capital }
-					scope:mdp_play = {
-						add_war_goal = {
-							holder       = scope:mdp_attacker
-							type         = return_state
-							target_state = scope:mdp_goal_state
-							primary_demand = yes
-						}
-					}
-				}
-				else = {
-					scope:mdp_play = {
-						add_war_goal = {
-							holder       = scope:mdp_attacker
-							type         = return_state
-							target_state = scope:mdp_goal_state
-						}
-					}
-				}
-			}
-		}
 	}
 }

@@ -2,30 +2,22 @@
 # MyDiploPlayMod — scripted triggers
 # =============================================================================
 
-# Raw tag list — used ONLY at game start (mdp_startup), when all 20 tags are guaranteed live.
-# At runtime, `this = c:DEADTAG` errors ("Invalid right side during comparison") once any of
-# these gets annexed — which spammed error.log 942× — so runtime code uses the flag below.
-mdp_is_expand_tag = {
-    OR = {
-        this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
-        this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
-        this = c:SOK   this = c:SAR   this = c:SWE   this = c:DAI
-        this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
-        this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
-    }
-}
-
 # Runtime-safe expander check: mdp_startup sets var:mdp_expander on each live expand tag at
 # game start. Testing a variable never errors on a tag that later dies.
 mdp_is_expand_country = {
-    has_variable = mdp_expander
+    OR = {
+        this = c:MEX   this = c:BRZ   this = c:PAN   this = c:DEI
+        this = c:PER   this = c:SWE   this = c:DAI   this = c:SOK
+        this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
+        this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
+    }
 }
 
 # Runtime-safe subject-annexer check: mdp_startup sets var:mdp_subject_annexer on the SEA+Punjab
 # annexer tags (DAI/BUR/SIA/PAN). Single source of truth used by BOTH mdp.3 and the on_action
 # dispatch — replaces the duplicated OR={...} list (cleaner, performant, tag-death-safe).
 mdp_is_subject_annexer = {
-    has_variable = mdp_subject_annexer
+    OR = { this = c:DAI  this = c:BUR  this = c:SIA  this = c:PAN  this = c:OMA  this = c:DEI  this = c:PER }
 }
 
 # -----------------------------------------------------------------------------
@@ -142,5 +134,5 @@ mdp_can_blob_now = {
     mdp_is_expand_country = yes
     is_at_war = no
     is_active_in_diplomatic_play = no   # not already maneuvering a play (pre-war phase)
-    infamy < 30
+    infamy < 5
 }
