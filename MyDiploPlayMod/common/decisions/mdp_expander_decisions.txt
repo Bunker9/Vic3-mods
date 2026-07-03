@@ -18,10 +18,6 @@ mdp_conquer_free_minor = {
 		# All expand-flagged tags drive conquest by DECISION now (monthly pulse removed 2026-06-30). Exclude
 		# BIC (own decision) + the sealed PRU/EGY/SAR/SWE. infamy < 4 = strict "near-clean" gate (user).
 		mdp_is_expand_country = yes #THIS now handles below countries ( hard coded)
-		#NOT = { OR = { this = c:BIC  this = c:PRU  this = c:EGY  this = c:SAR  this = c:SWE } }
-		infamy < 4
-		is_at_war = no
-		is_active_in_diplomatic_play = no
 		# stop showing when no actually valid adjacent minor exists
 		any_country = {
 			exists = this
@@ -29,8 +25,6 @@ mdp_conquer_free_minor = {
 			mdp_is_expand_country = no
 			NOT = { country_rank >= rank_value:major_power }
 			is_subject = no
-			# is_at_war = no
-			# NOT = { has_truce_with = root }
 			NOT = { this = root }
 			any_scope_state = { any_neighbouring_state = { owner = root } }
 		}
@@ -44,17 +38,22 @@ mdp_conquer_free_minor = {
 		# every tick (ai_chance 10000) with no effect = the "spam a war vs a NULL country" the user saw.
 		# Mirrors mdp_valid_generic_target but with root (this country) as the attacker (cannot save_scope
 		# in possible{}). EXCLUDES decentralized/primitive + GPs/majors/subjects/expanders/truced/at-war.
-		any_country = {
-			exists = this
-			NOT = { is_country_type = decentralized }
-			mdp_is_expand_country = no
-			NOT = { country_rank >= rank_value:major_power }
-			is_subject = no
-			is_at_war = no
-			NOT = { has_truce_with = root }
-			NOT = { this = root }
-			any_scope_state = { any_neighbouring_state = { owner = root } }
-			NOT = { any_scope_state = { count >= 6 } }
+		custom_tooltip = {
+			text = mdp_valid_adjacent_minor_target_tt
+			hidden_trigger = {
+				any_country = {
+					exists = this
+					NOT = { is_country_type = decentralized }
+					mdp_is_expand_country = no
+					NOT = { country_rank >= rank_value:major_power }
+					is_subject = no
+					is_at_war = no
+					NOT = { has_truce_with = root }
+					NOT = { this = root }
+					any_scope_state = { any_neighbouring_state = { owner = root } }
+					NOT = { any_scope_state = { count >= 6 } }
+				}
+			}
 		}
 	}
 

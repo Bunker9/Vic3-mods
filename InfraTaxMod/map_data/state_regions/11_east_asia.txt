@@ -408,8 +408,8 @@ STATE_GUANGDONG = {
     arable_land = 330
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_silk_plantation" "building_dye_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_banana_plantation" }
     capped_resources = {
-        building_logging_camp = 8
-        building_fishing_wharf = 14
+        building_logging_camp = 31
+        building_fishing_wharf = 41
     }
     naval_exit_id = 3056
 }

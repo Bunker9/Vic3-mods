@@ -2251,11 +2251,6 @@ BUILDINGS = {
 	s:STATE_GOLD_COAST = {
 		region_state:NET = {
 			create_building = {
-				building = "building_dye_plantation"
-				add_ownership = { country = { country = "c:NET" levels = 1 } }
-				reserves = 1
-			}
-			create_building = {
 				building = "building_coffee_plantation"
 				add_ownership = { country = { country = "c:NET" levels = 1 } }
 				reserves = 1
@@ -2270,17 +2265,6 @@ BUILDINGS = {
 				add_ownership = { country = { country = "c:NET" levels = 1 } }
 				reserves = 1
 			}
-			create_building = {
-				building = "building_cotton_plantation"
-				add_ownership = { country = { country = "c:NET" levels = 1 } }
-				reserves = 1
-			}
-			# HUMAN EDIT - REMOVING TO GET RID OF ERROR DUE TO THE SPLIT STATE (like STATE_IVORY_COAST) UNDER COUNTRY (like region_state:FRA ) BEING TOO SMALL TO HAVE RESOURCE
-			# create_building = {
-			# 	building = "building_logging_camp"
-			# 	add_ownership = { country = { country = "c:NET" levels = 1 } }
-			# 	reserves = 1
-			# }
 		}
 	}
 	s:STATE_GUAYANA = {
@@ -2986,23 +2970,6 @@ BUILDINGS = {
 	}
 	s:STATE_BALUCHISTAN = {
 		region_state:OMA = {
-			# HUMAN EDIT - REMOVING TO GET RID OF ERROR DUE TO THE SPLIT STATE (like STATE_IVORY_COAST) UNDER COUNTRY (like region_state:FRA ) BEING TOO SMALL TO HAVE RESOURCE
-			# create_building = {
-			# 	building = "building_lead_mine"
-			# 	add_ownership = { country = { country = "c:OMA" levels = 1 } }
-			# 	reserves = 1
-			# }
-			create_building = {
-				building = "building_opium_plantation"
-				add_ownership = { country = { country = "c:OMA" levels = 1 } }
-				reserves = 1
-			}
-			# HUMAN EDIT - REMOVING TO GET RID OF ERROR DUE TO THE SPLIT STATE (like STATE_IVORY_COAST) UNDER COUNTRY (like region_state:FRA ) BEING TOO SMALL TO HAVE RESOURCE
-			# create_building = {
-			# 	building = "building_logging_camp"
-			# 	add_ownership = { country = { country = "c:OMA" levels = 1 } }
-			# 	reserves = 1
-			# }
 			create_building = {
 				building = "building_wheat_farm"
 				add_ownership = { country = { country = "c:OMA" levels = 1 } }

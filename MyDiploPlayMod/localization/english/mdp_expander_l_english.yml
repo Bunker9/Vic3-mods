@@ -1,9 +1,0 @@
-﻿l_english:
- mdp_conquer_free_minor:0 "Press Our Advantage Abroad"
- mdp_conquer_free_minor_desc:0 "A weak and unaligned neighbour lies within reach. Press claims across its provinces and bring them into our realm before a greater power does."
- mdp_annex_own_subject:0 "Bring a Vassal to Heel"
- mdp_annex_own_subject_desc:0 "One of our protectorates has outlived its usefulness as a separate state. Move to annex it outright and fold its lands into the nation."
- mdp_bic_annex_subject:0 "Annex a Princely State"
- mdp_bic_annex_subject_desc:0 "A loyal princely state under our protection is ripe for direct administration. Annex the weakest of them into the Company's territory, leaving aside any we are bound to by treaty."
- mdp_demobilize_after_conquest:0 "Beat the Swords into Ploughshares"
- mdp_demobilize_after_conquest_desc:0 "Our wars of expansion are won and the last vassal is folded into the realm. Proclaim a lasting peace: pardon the malcontents and let radicalism fade, but stand down the standing army and dismantle its barracks and supply lines. Our soldiers go home; should we be threatened, the conscript levy will answer."
