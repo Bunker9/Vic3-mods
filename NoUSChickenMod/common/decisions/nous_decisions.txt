@@ -52,21 +52,6 @@ nous_war_play = {
 		add_treasury = {
 			value = gold_reserves_limit
 		}
-
-		if = {
-			limit = { has_war_with = c:MEX }
-			set_variable = {
-			    name = nous_md_done
-			    value = yes
-			}
-		}
-		if = {
-			limit = { is_in_civil_war = yes }
-			set_variable = {
-				name = nous_cw_done
-				value = yes
-			}
-		}
 		add_modifier = { name = modifier_nous_warbonds months = 24 }
 	}
 

@@ -35,21 +35,21 @@
 			}
 		}
 	}
-	# Transit Rights Agreement for Afghan #TODO this doesnt get generated.Rest of the treaties do. Why??
+	# Transit Rights Agreement for Kabul
 	create_treaty = {
 		name = treaty_name_afg_transit_rights
-		first_country = c:AFG
-		second_country = c:KAL
+		first_country = c:KAB
+		second_country = c:PAN
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 2 } # 2 years
+		binding_period = { years = 2 } # 10 years
 
 		articles_to_create = {
 			{
 				article = transit_rights
-				source_country = c:KAL
-				target_country = c:AFG
+				source_country = c:PAN
+				target_country = c:KAB
 			}
 		}
 	}

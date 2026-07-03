@@ -181,39 +181,39 @@ desi_incorporate_state = {
 		#} #TODO fingerprint toggle script missed  taking care of empty if stmt closing braces
 		# Incorporate EVERY eligible unincorporated state at once (the just-conquered Indian lands). For each,
 		# add its size (millions) to the running burden + bump the counter (scoped back to ROOT = the country).
-		every_scope_state = {
-			limit = {
-				is_incorporated = no
-				OR = {
-					region = sr:region_north_india
-					region = sr:region_south_india
-					region = sr:region_himalayas
-					region = sr:region_indochina
-					region = sr:region_greater_persia
-				}
-			}
-			set_state_type = incorporated
-			save_scope_as = desi_inc_state
-			ROOT = {
-				change_variable = { name = desi_incorporation_burden add = desi_incorporation_state_millions }
-				# change_variable = { name = desi_fingerprint_incorporated add = 1 }
-			}
-		}
 
 		custom_tooltip = {
 			text = desi_incorporation_cost_tt
-		}
-
-		hidden_effect = {
-			# RECALC the single cost modifier scaled to the cumulative burden (remove + re-add => never spams).
-			if = {
-				limit = { has_modifier = modifier_desi_incorporation_cost }
-				remove_modifier = modifier_desi_incorporation_cost
-			}
-			add_modifier = {
-				name = modifier_desi_incorporation_cost
-				months = 36
-				multiplier = var:desi_incorporation_burden
+			hidden_effect = {
+				every_scope_state = {
+					limit = {
+						is_incorporated = no
+						OR = {
+							region = sr:region_north_india
+							region = sr:region_south_india
+							region = sr:region_himalayas
+							region = sr:region_indochina
+							region = sr:region_greater_persia
+						}
+					}
+					set_state_type = incorporated
+					save_scope_as = desi_inc_state
+					ROOT = {
+						change_variable = { name = desi_incorporation_burden add = desi_incorporation_state_millions }
+						# change_variable = { name = desi_fingerprint_incorporated add = 1 }
+					}
+				}
+				# RECALC the single cost modifier scaled to the cumulative burden (remove + re-add => never spams).
+				if = {
+					limit = { has_modifier = modifier_desi_incorporation_cost }
+					remove_modifier = modifier_desi_incorporation_cost
+				}
+				add_modifier = { #TODO this line spams LOTS of error in log. fix it somehow.
+					# ERROR: [14:58:43][jomini_scriptvalue.cpp:1659]: Value of wrong type in 'common/decisions/desi_decisions.txt:211'. Got value of type 'none'
+					name = modifier_desi_incorporation_cost
+					months = 36
+					multiplier = var:desi_incorporation_burden
+				}
 			}
 		}
 		# debug_log = "desi - incorporate-state - incorporated all eligible states, burden recalculated"
