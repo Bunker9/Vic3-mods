@@ -10,6 +10,7 @@ mdp_is_expand_country = {
         c:PER ?= this   c:SWE ?= this   c:DAI ?= this   c:SOK ?= this
         c:NEP ?= this   c:CLM ?= this   c:ARG ?= this   c:SIA ?= this
         c:MOR ?= this   c:OMA ?= this   c:SHW ?= this   c:SAF ?= this
+        c:ETH ?= this   c:BUR ?= this
     }
 }
 

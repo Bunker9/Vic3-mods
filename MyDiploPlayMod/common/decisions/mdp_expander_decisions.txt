@@ -15,9 +15,9 @@ mdp_conquer_free_minor = {
 	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
 
 	is_shown = {
-		# All expand-flagged tags drive conquest by DECISION now (monthly pulse removed 2026-06-30). Exclude
-		# BIC (own decision) + the sealed PRU/EGY/SAR/SWE. infamy < 4 = strict "near-clean" gate (user).
 		mdp_is_expand_country = yes #THIS now handles below countries ( hard coded)
+		#should not show up IF these countries have expanded far enough
+		game_date < 1860.1.1 
 		# stop showing when no actually valid adjacent minor exists
 		any_country = {
 			exists = this
