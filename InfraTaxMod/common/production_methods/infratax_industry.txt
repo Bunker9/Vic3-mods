@@ -3,8 +3,13 @@
 INJECT_OR_CREATE:pm_cannery = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_grain_add = 25		
-            goods_output_groceries_add = 20		
+            goods_input_grain_add = 25		#base_price:20
+            goods_output_groceries_add = 20		#base_price:30
+            # goods_input_meat_add = 20 #base_price:30
+            # goods_input_iron_add = 10 #base_price:40
+            #OG profit: 300
+            #NEW profit: 400
+            #display OG: IN-grain(-20),IN-meat(+20),IN-iron(+10),OUT-groceries(+30) | New: IN-grain(+5),IN-meat(+20),IN-iron(+10),OUT-groceries(+50)
         }
     }
 }
@@ -12,8 +17,13 @@ INJECT_OR_CREATE:pm_cannery = {
 INJECT_OR_CREATE:pm_cannery_fish = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_grain_add = 25		
-            goods_output_groceries_add = 25		
+            goods_input_grain_add = 25		#base_price:20
+            goods_output_groceries_add = 20		#base_price:30
+            # goods_input_fish_add = 30 #base_price:20
+            # goods_input_iron_add = 10 #base_price:40
+            #OG profit: 300
+            #NEW profit: 400
+            #display OG: IN-grain(-20),IN-fish(+30),IN-iron(+10),OUT-groceries(+30) | New: IN-grain(+5),IN-fish(+30),IN-iron(+10),OUT-groceries(+50)
         }
     }
 }
@@ -21,8 +31,15 @@ INJECT_OR_CREATE:pm_cannery_fish = {
 INJECT_OR_CREATE:pm_vacuum_canning = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_grain_add = 35		
-            goods_output_groceries_add = 25		
+            goods_input_grain_add = 35		#base_price:20
+            goods_output_groceries_add = 30		#base_price:30
+            # goods_input_fish_add = 30 #base_price:20
+            # goods_input_meat_add = 20 #base_price:30
+            # goods_input_iron_add = 10 #base_price:40
+            # goods_input_oil_add = 5 #base_price:40
+            #OG profit: 600
+            #NEW profit: 800
+            #display OG: IN-grain(-30),IN-fish(+30),IN-meat(+20),IN-iron(+10),IN-oil(+5),OUT-groceries(+60) | New: IN-grain(+5),IN-fish(+30),IN-meat(+20),IN-iron(+10),IN-oil(+5),OUT-groceries(+90)
         }
     }
 }
@@ -30,8 +47,15 @@ INJECT_OR_CREATE:pm_vacuum_canning = {
 INJECT_OR_CREATE:pm_vacuum_canning_principle_3 = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_grain_add = 35		
-            goods_output_groceries_add = 25		
+            goods_input_grain_add = 35		#base_price:20
+            goods_output_groceries_add = 30		#base_price:30
+            # goods_input_fish_add = 30 #base_price:20
+            # goods_input_meat_add = 20 #base_price:30
+            # goods_input_iron_add = 10 #base_price:40
+            # goods_input_oil_add = 5 #base_price:40
+            #OG profit: 900
+            #NEW profit: 1100
+            #display OG: IN-grain(-30),IN-fish(+30),IN-meat(+20),IN-iron(+10),IN-oil(+5),OUT-groceries(+70) | New: IN-grain(+5),IN-fish(+30),IN-meat(+20),IN-iron(+10),IN-oil(+5),OUT-groceries(+100)
         }
     }
 }
@@ -39,9 +63,12 @@ INJECT_OR_CREATE:pm_vacuum_canning_principle_3 = {
 INJECT_OR_CREATE:pm_pot_stills = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_sugar_add = 15
-            goods_output_liquor_add = -10
-            goods_output_groceries_add = 60		
+            goods_input_sugar_add = 15		#base_price:30
+            goods_output_liquor_add = -10		#base_price:30
+            goods_output_groceries_add = 25		#base_price:30
+            #OG profit: 150
+            #NEW profit: 150
+            #display OG: IN-sugar(+25),OUT-liquor(+60),OUT-groceries(-30) | New: IN-sugar(+40),OUT-liquor(+50),OUT-groceries(-5)
         }
     }
 }
@@ -49,9 +76,13 @@ INJECT_OR_CREATE:pm_pot_stills = {
 INJECT_OR_CREATE:pm_patent_stills = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_sugar_add = 25
-            goods_output_liquor_add = -20
-            goods_output_groceries_add = 95		
+            goods_input_sugar_add = 25		#base_price:30
+            goods_output_liquor_add = -20		#base_price:30
+            goods_output_groceries_add = 50		#base_price:30
+            # goods_input_glass_add = 10 #base_price:40
+            #OG profit: 650
+            #NEW profit: 800
+            #display OG: IN-sugar(+25),IN-glass(+10),OUT-liquor(+100),OUT-groceries(-40) | New: IN-sugar(+50),IN-glass(+10),OUT-liquor(+80),OUT-groceries(+10)
         }
     }
 }
@@ -59,8 +90,13 @@ INJECT_OR_CREATE:pm_patent_stills = {
 INJECT_OR_CREATE:pm_craftsman_sewing = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_fabric_add = 20		
-            goods_output_clothes_add = 15		
+            goods_input_fabric_add = 20		#base_price:20
+            goods_output_clothes_add = 15		#base_price:30
+            # goods_input_silk_add = 15 #base_price:40
+            # goods_output_luxury_clothes_add = 30 #base_price:60
+            #OG profit: 600
+            #NEW profit: 650
+            #display OG: IN-silk(+15),IN-fabric(-15),OUT-clothes(-30),OUT-luxury_clothes(+30) | New: IN-silk(+15),IN-fabric(+5),OUT-clothes(-15),OUT-luxury_clothes(+30)
         }
     }
 }
@@ -68,8 +104,14 @@ INJECT_OR_CREATE:pm_craftsman_sewing = {
 INJECT_OR_CREATE:pm_elastics = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_fabric_add = 40		
-            goods_output_clothes_add = 35		
+            goods_input_fabric_add = 40		#base_price:20
+            goods_output_clothes_add = 35		#base_price:30
+            # goods_input_rubber_add = 10 #base_price:40
+            # goods_input_silk_add = 35 #base_price:40
+            # goods_output_luxury_clothes_add = 70 #base_price:60
+            #OG profit: 1000
+            #NEW profit: 1250
+            #display OG: IN-rubber(+10),IN-silk(+35),IN-fabric(-35),OUT-clothes(-70),OUT-luxury_clothes(+70) | New: IN-rubber(+10),IN-silk(+35),IN-fabric(+5),OUT-clothes(-35),OUT-luxury_clothes(+70)
         }
     }
 }
@@ -77,8 +119,13 @@ INJECT_OR_CREATE:pm_elastics = {
 INJECT_OR_CREATE:pm_luxury_furniture = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_wood_add = 20		
-            goods_output_furniture_add = 15		
+            goods_input_wood_add = 20		#base_price:20
+            goods_output_furniture_add = 15		#base_price:30
+            # goods_input_hardwood_add = 15 #base_price:40
+            # goods_output_luxury_furniture_add = 25 #base_price:60
+            #OG profit: 450
+            #NEW profit: 500
+            #display OG: IN-hardwood(+15),IN-wood(-15),OUT-furniture(-25),OUT-luxury_furniture(+25) | New: IN-hardwood(+15),IN-wood(+5),OUT-furniture(-10),OUT-luxury_furniture(+25)
         }
     }
 }
@@ -86,8 +133,14 @@ INJECT_OR_CREATE:pm_luxury_furniture = {
 INJECT_OR_CREATE:pm_precision_tools = {
     building_modifiers = {
         workforce_scaled = {
-            goods_input_wood_add = 30		
-            goods_output_furniture_add = 25		
+            goods_input_wood_add = 30		#base_price:20
+            goods_output_furniture_add = 25		#base_price:30
+            # goods_input_hardwood_add = 25 #base_price:40
+            # goods_input_tools_add = 10 #base_price:40
+            # goods_output_luxury_furniture_add = 55 #base_price:60
+            #OG profit: 750
+            #NEW profit: 900
+            #display OG: IN-hardwood(+25),IN-tools(+10),IN-wood(-25),OUT-furniture(-55),OUT-luxury_furniture(+55) | New: IN-hardwood(+25),IN-tools(+10),IN-wood(+5),OUT-furniture(-30),OUT-luxury_furniture(+55)
         }
     }
 }
@@ -95,7 +148,12 @@ INJECT_OR_CREATE:pm_precision_tools = {
 INJECT_OR_CREATE:pm_ceramics = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_glass_add = 0		
+            goods_output_glass_add = 5		#base_price:40
+            # goods_input_dye_add = 5 #base_price:40
+            # goods_output_porcelain_add = 10 #base_price:70
+            #OG profit: 100
+            #NEW profit: 300
+            #display OG: IN-dye(+5),OUT-glass(-10),OUT-porcelain(+10) | New: IN-dye(+5),OUT-glass(-5),OUT-porcelain(+10)
         }
     }
 }
@@ -103,15 +161,12 @@ INJECT_OR_CREATE:pm_ceramics = {
 INJECT_OR_CREATE:pm_bone_china = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_glass_add = 5		
-        }
-    }
-}
-
-INJECT_OR_CREATE:pm_rayon = {
-    building_modifiers = {
-        workforce_scaled = {
-            goods_output_dye_add = 0		
+            goods_output_glass_add = 15		#base_price:40
+            goods_input_dye_add = 10 #base_price:40
+            # goods_output_porcelain_add = 30 #base_price:70
+            #OG profit: 900
+            #NEW profit: 1100
+            #display OG: IN-dye(+10),OUT-glass(-20),OUT-porcelain(+30) | New: IN-dye(+20),OUT-glass(-5),OUT-porcelain(+30)
         }
     }
 }
@@ -119,7 +174,13 @@ INJECT_OR_CREATE:pm_rayon = {
 INJECT_OR_CREATE:pm_aeroplane_production = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_automobiles_add = 10		
+            goods_output_automobiles_add = 8		#base_price:100
+            # goods_input_hardwood_add = 4 #base_price:40
+            # goods_input_fabric_add = 4 #base_price:20
+            # goods_output_aeroplanes_add = 10 #base_price:80
+            #OG profit: -440
+            #NEW profit: 360
+            #display OG: IN-hardwood(+4),IN-fabric(+4),OUT-automobiles(-10),OUT-aeroplanes(+10) | New: IN-hardwood(+4),IN-fabric(+4),OUT-automobiles(-2),OUT-aeroplanes(+10)
         }
     }
 }
@@ -127,7 +188,12 @@ INJECT_OR_CREATE:pm_aeroplane_production = {
 INJECT_OR_CREATE:pm_tank_production = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_automobiles_add = 10		
+            goods_output_automobiles_add = 10		#base_price:100
+            # goods_input_steel_add = 5 #base_price:50
+            # goods_output_tanks_add = 20 #base_price:80
+            #OG profit: -650
+            #NEW profit: 350
+            #display OG: IN-steel(+5),OUT-automobiles(-20),OUT-tanks(+20) | New: IN-steel(+5),OUT-automobiles(-10),OUT-tanks(+20)
         }
     }
 }
@@ -135,7 +201,12 @@ INJECT_OR_CREATE:pm_tank_production = {
 INJECT_OR_CREATE:pm_radios = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_telephones_add = 10		
+            goods_output_telephones_add = 10		#base_price:70
+            # goods_input_electricity_add = 50 #base_price:30
+            # goods_output_radios_add = 40 #base_price:80
+            #OG profit: 300
+            #NEW profit: 1000
+            #display OG: IN-electricity(+50),OUT-telephones(-20),OUT-radios(+40) | New: IN-electricity(+50),OUT-telephones(-10),OUT-radios(+40)
         }
     }
 }

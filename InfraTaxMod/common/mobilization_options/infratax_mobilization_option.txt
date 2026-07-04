@@ -1,0 +1,24 @@
+﻿#common\mobilization_options\00_mobilization_option.txt
+
+INJECT_OR_CREATE:mobilization_option_basic_supplies = {
+
+	upkeep_modifier = {
+		goods_input_liquor_add = 0.2
+	}
+}
+
+INJECT_OR_CREATE:mobilization_option_extra_supplies = {
+
+	upkeep_modifier = {
+		goods_input_liquor_add = 0.3
+	}
+}
+
+INJECT_OR_CREATE:mobilization_option_luxurious_supplies = {
+	upkeep_modifier = {
+		goods_input_liquor_add = 0.5
+	}
+	upkeep_modifier_unscaled = {
+		goods_output_liquor_mult = 0.25
+	}
+}

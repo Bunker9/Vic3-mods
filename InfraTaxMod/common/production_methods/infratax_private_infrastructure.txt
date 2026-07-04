@@ -220,10 +220,10 @@ INJECT_OR_CREATE:pm_trade_center = {
 		workforce_scaled = {
 			goods_input_wine_add = 1 #50
 			goods_input_opium_add = 1 #50
-			goods_input_liquor_add = 1 #30
+			goods_input_liquor_add = 2 #30
 			goods_input_merchant_marine_add = 1 #50
 			goods_output_services_add = 5
-			goods_output_transportation_add = 3
+			goods_output_transportation_add = 4
 		}
 	}
 }
@@ -239,10 +239,10 @@ INJECT_OR_CREATE:pm_trade_center_principle_external_trade_2 = {
 		workforce_scaled = {
 			goods_input_wine_add = 1 #50
 			goods_input_opium_add = 1 #50
-			goods_input_liquor_add = 1 #30
+			goods_input_liquor_add = 2 #30
 			goods_input_merchant_marine_add = 1 #50
 			goods_output_services_add = 5
-			goods_output_transportation_add = 3
+			goods_output_transportation_add = 4
 		}
 	}
 }

@@ -27,7 +27,7 @@ state_trait_infratax_cheat = {
 	icon = "gfx/interface/icons/state_trait_icons/waterfall.dds"
 
 	modifier = {
-		building_group_bg_manufacturing_employee_mult = -0.25
+		building_group_bg_manufacturing_employee_mult = -0.4
 		building_group_bg_service_employee_mult = -0.5
 		state_construction_mult = 0.5
 		state_pollution_reduction_health_mult = -0.5
