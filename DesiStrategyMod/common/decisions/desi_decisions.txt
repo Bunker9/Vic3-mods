@@ -112,7 +112,7 @@ desi_rebuild_war_machine = {
 		NOT = {
 			AND = {
 				has_variable = desi_default_count
-				var:desi_default_count >= 4
+				var:desi_default_count >= 5
 			}
 		}
 	}
@@ -124,6 +124,15 @@ desi_rebuild_war_machine = {
 
 	when_taken = {
 		clear_debt = yes
+		add_treasury = { value = gold_reserves_limit }
+		# Instantly pass whatever law the player is currently enacting (rally the legislature behind the war
+		# effort). currently_enacting_law = the in-progress law scope; activate_law wants a law_type, so use
+		# .type (vanilla 00_ep2_victoria_scripted_triggers.txt: currently_enacting_law.type). Guard with exists
+		# so the decision is safe when no enactment is in progress.
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
 		if = {
 			limit = { NOT = { has_variable = desi_default_count } }
 			set_variable = { name = desi_default_count value = 0 }
@@ -220,4 +229,48 @@ desi_incorporate_state = {
 	}
 
 	ai_chance = { value = 10000 }
+}
+
+
+# ---- Decision 5: Punjab presses Persia to return claimed lands (post-1850) ---
+# If Persia holds any state Punjab has a claim on (claims come from decisions 1/2),
+# PAN opens a return_state diplomatic play for one such state. AI weight 100000 =
+# "will definitely take" (NoUSChicken-proven). Repeatable: after each war it can
+# re-fire while Persia still holds claimed states, one state per firing.
+# Pattern copied from NoUSChickenMod (create_diplomatic_play, master-vetted); play is
+# started EMPTY (no add_war_goal - the goal-less dp form is the proven Mexico/dp_humiliation
+# shape) so the AI fills in its own return_state goals from the standing claims. Also
+# grants modifier_desi_warbonds (war funding, as in desi_unify_india). has_claim_by
+# (nous + vanilla 00_default_strategy.txt:952); is_active_in_diplomatic_play (nous).
+desi_panjab_return_from_persia = {
+	is_shown = {
+		c:PAN ?= this
+		game_date > 1850.1.1
+		c:PER ?= {
+			any_scope_state = { has_claim_by = c:PAN }
+		}
+	}
+
+	possible = {
+		is_active_in_diplomatic_play = no
+		NOT = { has_war_with = c:PER }
+	}
+
+	when_taken = {
+		save_scope_as = desi_pan_actor
+		c:PER ?= {
+			random_scope_state = {
+				limit = { has_claim_by = scope:desi_pan_actor }
+				save_scope_as = desi_pan_target
+			}
+		}
+		create_diplomatic_play = {
+			target_state = scope:desi_pan_target
+			war          = no
+			type         = dp_return_state
+		}
+		add_modifier = { name = modifier_desi_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100000 }
 }
