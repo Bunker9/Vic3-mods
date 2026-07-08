@@ -26,3 +26,30 @@ INJECT_OR_CREATE:pm_oil-fired_plant = {
 		}
 	}
 }
+
+INJECT_OR_CREATE:pm_market_squares = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 1
+			goods_output_transportation_add = 1
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_covered_markets= {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 2
+			goods_output_transportation_add = 2
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_arcades = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 3
+			goods_output_transportation_add = 4
+		}
+	}
+}

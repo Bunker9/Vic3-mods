@@ -128,10 +128,14 @@ INJECT_OR_CREATE:pm_steam_trains_principle_transport_3 = {
 			state_infrastructure_add = 30
 		}
 	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_fabric_add = 2 # 20
-			goods_input_merchant_marine_add = 2 #50
+			goods_input_engines_add = -2 # -120
+			goods_input_merchant_marine_add = 4 #50
 			goods_output_transportation_add = 5
 		}
 	}
@@ -163,6 +167,9 @@ INJECT_OR_CREATE:pm_electric_trains_principle_transport_3 = {
 		level_scaled = {
 			state_infrastructure_add = 40
 		}
+	}
+	unlocking_principles = {
+		principle_sacred_civics_3
 	}
 	building_modifiers = {
 		workforce_scaled = {
@@ -200,6 +207,9 @@ INJECT_OR_CREATE:pm_diesel_trains_principle_transport_3 = {
 			state_infrastructure_add = 55
 		}
 	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_fabric_add = 4 # 80
@@ -235,6 +245,9 @@ INJECT_OR_CREATE:pm_trade_center_principle_external_trade_2 = {
 			state_trade_capacity_add = 30
 		}
 	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_wine_add = 1 #50
@@ -242,7 +255,7 @@ INJECT_OR_CREATE:pm_trade_center_principle_external_trade_2 = {
 			goods_input_liquor_add = 2 #30
 			goods_input_merchant_marine_add = 1 #50
 			goods_output_services_add = 5
-			goods_output_transportation_add = 4
+			goods_output_transportation_add = 5
 		}
 	}
 }
