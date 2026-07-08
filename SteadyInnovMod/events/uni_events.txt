@@ -126,3 +126,113 @@ uni_event.2 = {
 		add_loyalists = { value = large_radicals }
 	}
 }
+
+# uni_event.3 — "Building Bridges" payoff, fired by stdinnv_building_bridges (the
+# decision already did cohesion + bloc relations in when_taken). BOTH options pay the
+# 12mo _cost modifier (the bill; it is also the decision cooldown). Default option adds
+# the _diplo buff on top; the alternative instead converts the goodwill inward:
+#   - large loyalists for us, and for 1 random fellow bloc member that still
+#     practices slavery (if the whole bloc is already slavery-free, the outward
+#     half does nothing);
+#   - that member is emancipated + modernized: slavery banned OUTRIGHT with all
+#     pro-slavery IG party ideology stripped, landowner leader turned market liberal,
+#     and its top-2 non-landowner IG leaders made modernizer / reformer;
+#   - our own landowner leader (if conservative) turned market liberal, and our top-2
+#     non-landowner IG leaders made modernizer / reformer.
+# Tokens: random_country (vanilla india_decisions.txt:43) + power_bloc ?= ROOT.power_bloc
+# membership trigger (vanilla british_dictates.txt:616); slavery ban block per vanilla
+# law_events/slavery_laws.txt:613; rest is this repo's own code.
+uni_event.3 = {
+	type = country_event
+	title = uni_event.3.t
+	desc = uni_event.3.desc
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+	option = {
+		default_option = yes # default
+		name = uni_event.3.a
+		add_modifier = { name = stdinnv_building_bridges_cost_1y months = 12 }
+		add_modifier = { name = stdinnv_building_bridges_diplo_1y months = 12 }
+	}
+	option = {
+		name = uni_event.3.b
+		add_modifier = { name = stdinnv_building_bridges_cost_1y months = 12 }
+		add_loyalists = { value = large_radicals }
+
+		random_country = {
+			limit = {
+				power_bloc ?= ROOT.power_bloc
+				NOT = { this = ROOT }
+				NOT = { has_law = law_type:law_slavery_banned }
+			}
+			add_loyalists = { value = large_radicals }
+			# Emancipation is the price of friendship: no slow abolitionist-leader campaign
+			# (it never actually flipped the law in play). If the member still has slavery,
+			# ban it OUTRIGHT and strip the pro-slavery party ideology from every IG.
+			# Tokens: every_interest_group + guarded remove_ideology of ideology_pro_slavery /
+			# _colonial copied from vanilla law_events/slavery_laws.txt:613 (verified 2026-07-07).
+			if = {
+				limit = { NOT = { has_law = law_type:law_slavery_banned } }
+				activate_law = law_type:law_slavery_banned
+				every_interest_group = {
+					limit = {
+						OR = {
+							has_ideology = ideology:ideology_pro_slavery
+							has_ideology = ideology:ideology_pro_slavery_colonial
+						}
+					}
+					if = {
+						limit = { has_ideology = ideology:ideology_pro_slavery }
+						remove_ideology = ideology_pro_slavery
+					}
+					if = {
+						limit = { has_ideology = ideology:ideology_pro_slavery_colonial }
+						remove_ideology = ideology_pro_slavery_colonial
+					}
+				}
+			}
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+			ordered_interest_group = {
+				limit = { NOT = { is_interest_group_type = ig_landowners } }
+				order_by = ig_clout
+				position = 0
+				check_range_bounds = no
+				leader = { set_ideology = ideology:ideology_modernizer_leader }
+			}
+			ordered_interest_group = {
+				limit = { NOT = { is_interest_group_type = ig_landowners } }
+				order_by = ig_clout
+				position = 1
+				check_range_bounds = no
+				leader = { set_ideology = ideology:ideology_reformer }
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					leader = { has_conservative_ideology = yes }
+				}
+			}
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+		}
+		ordered_interest_group = {
+			limit = { NOT = { is_interest_group_type = ig_landowners } }
+			order_by = ig_clout
+			position = 0
+			check_range_bounds = no
+			leader = { set_ideology = ideology:ideology_modernizer_leader }
+		}
+		ordered_interest_group = {
+			limit = { NOT = { is_interest_group_type = ig_landowners } }
+			order_by = ig_clout
+			position = 1
+			check_range_bounds = no
+			leader = { set_ideology = ideology:ideology_reformer }
+		}
+	}
+}

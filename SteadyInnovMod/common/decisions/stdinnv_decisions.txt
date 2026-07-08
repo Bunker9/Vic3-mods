@@ -72,3 +72,51 @@ stdinnv_austria_uni_art_paper_built = {
 
 	ai_chance = { value = 1000000 }
 }
+
+
+# =============================================================================
+# "Building Bridges" — player-only power bloc diplomacy push (2026-07-06)
+# Spammable roughly yearly: taking it maxes out bloc cohesion and improves
+# relations with every bloc member, then fires uni_event.3 whose options apply
+# the 12-month stdinnv_building_bridges_cost_1y modifier (the bill: authority +
+# bureaucracy + weekly expenses) and optionally the _diplo_1y buff. The cost
+# modifier is the cooldown: while it is active the decision cannot be retaken
+# (possible gate), so the natural cadence is once a year.
+# Tokens NEW here verified vs game files 2026-07-06:
+#   is_power_bloc_leader (alert_types); power_bloc scope-link + add_cohesion_percent
+#   (events/india_events/british_dictates.txt:616, effect clamps at max so +1 = 100%
+#   = maxed); every_power_bloc_member (power_bloc scope iterator, script_values/
+#   ip4_bloc_values.txt); country_rank >= rank_value:great_power (000_decisions_help).
+#   is_player + change_relations + save_scope_as/scope: reused from master-vetted code.
+# =============================================================================
+stdinnv_building_bridges = {
+
+	is_shown = {
+		is_player = yes
+		country_rank >= rank_value:great_power
+		is_power_bloc_leader = yes
+	}
+
+	possible = {
+		NOT = { has_modifier = stdinnv_building_bridges_cost_1y }
+	}
+
+	when_taken = {
+		save_scope_as = stdinnv_bridge_builder
+		power_bloc = {
+			add_cohesion_percent = 1 # clamps at cap => cohesion maxed out
+			every_power_bloc_member = {
+				limit = { NOT = { this = scope:stdinnv_bridge_builder } }
+				change_relations = { country = scope:stdinnv_bridge_builder value = 30 }
+			}
+		}
+		# Payoff moved to uni_event.3. BOTH options apply the 12mo _cost modifier
+		# (the bill, and the cooldown checked above); option 1 adds the _diplo buff,
+		# option 2 instead gives large loyalists to us + 1 random bloc member and
+		# modernizes that member (outright slavery ban + pro-slavery IG ideology
+		# strip + leader ideology conversions; details in uni_events.txt header).
+		trigger_event = { id = uni_event.3 popup = yes }
+	}
+
+	ai_chance = { value = 0 } # player-only; is_shown gates the AI out anyway
+}
