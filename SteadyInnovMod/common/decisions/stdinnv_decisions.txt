@@ -80,8 +80,9 @@ stdinnv_austria_uni_art_paper_built = {
 # relations with every bloc member, then fires uni_event.3 whose options apply
 # the 12-month stdinnv_building_bridges_cost_1y modifier (the bill: authority +
 # bureaucracy + weekly expenses) and optionally the _diplo_1y buff. The cost
-# modifier is the cooldown: while it is active the decision cannot be retaken
-# (possible gate), so the natural cadence is once a year.
+# modifier is the yearly cooldown; a SECOND gate caps the whole thing: once the
+# bloc has banked 9+ mandates (power_bloc num_mandates) the decision stops showing,
+# so it is not endlessly spammable.
 # Tokens NEW here verified vs game files 2026-07-06:
 #   is_power_bloc_leader (alert_types); power_bloc scope-link + add_cohesion_percent
 #   (events/india_events/british_dictates.txt:616, effect clamps at max so +1 = 100%
@@ -92,13 +93,21 @@ stdinnv_austria_uni_art_paper_built = {
 stdinnv_building_bridges = {
 
 	is_shown = {
-		is_player = yes
-		country_rank >= rank_value:great_power
+		global_country_ranking = 1
 		is_power_bloc_leader = yes
 	}
 
 	possible = {
 		NOT = { has_modifier = stdinnv_building_bridges_cost_1y }
+		# power bloc mandate gate: NOT spammable once the bloc has banked 9+ mandates.
+		# num_mandates is a power_bloc-scope trigger (vanilla 00_alert_types.txt:
+		# `power_bloc ?= { num_mandates > 0 }`); is_shown already guarantees a bloc leader.
+		power_bloc ?= { num_mandates < 9 }
+		# gap between #1 (this) and #2 exceeds 1000
+		any_country = {
+			global_country_ranking = 2
+			prestige < stdinnv_gp1_gap_floor
+		}
 	}
 
 	when_taken = {
@@ -119,4 +128,172 @@ stdinnv_building_bridges = {
 	}
 
 	ai_chance = { value = 0 } # player-only; is_shown gates the AI out anyway
+}
+
+
+# =============================================================================
+# GP-MAINTENANCE SUITE (2026-07-09) - keep ~8 great powers alive.
+# GP status is prestige RELATIVE to the field (bar = 5.0 x AVERAGE country prestige,
+# 00_country_ranks.txt), so a runaway leader inflates the bar and the roster collapses.
+# Three decisions counteract that, DECISIONS-ONLY (no on_actions / events):
+#   3a stdinnv_gp1_burden        - the #1 power sheds prestige for economic payout.
+#   3b stdinnv_uplift_subjects   - an overlord modernizes its subjects.
+#   3c stdinnv_gp_shot_at_greatness - nudge a deserving climber over the bar.
+# Prestige-gap thresholds live in common/script_values/stdinnv_script_values.txt
+# (triggers can't do inline arithmetic). NO debug_log (decision when_taken re-runs in
+# tooltip preview); the applied modifiers + the stdinnv_gp1_gap var ARE the save
+# fingerprints (SaveParse). Tokens verified vs game files 2026-07-09.
+# =============================================================================
+
+# --- 3a "Burden of the Crown" -------------------------------------------------
+# The #1 country (AI or player) voluntarily sheds prestige - scaled to how far ahead
+# of #2 it is (-500 per 1000 of gap) - in exchange for flat welfare + extraction
+# throughput + influence/authority for itself and its subjects. Renewable every 4
+# years (the 48mo stdinnv_gp1_drain modifier is the cooldown). Available ONLY while
+# the #1-vs-#2 prestige gap exceeds 1000.
+stdinnv_gp1_burden = {
+
+	is_shown = {
+		global_country_ranking = 1
+	}
+
+	possible = {
+		NOT = { has_modifier = stdinnv_gp1_drain }   # 4yr cooldown
+		# gap between #1 (this) and #2 exceeds 1000
+		any_country = {
+			global_country_ranking = 2
+			prestige < stdinnv_gp1_gap_floor
+		}
+	}
+
+	when_taken = {
+		# WHOLE payout wrapped in custom_tooltip + hidden_effect (2026-07-10 UAT: the
+		# tooltip preview re-evaluates when_taken, and the var-fed multiplier plus the
+		# every-state SoL loops spammed script errors on hover - the exact class the
+		# desi_incorporate_state wrapper already handles). The player sees the loc line
+		# instead; the real effects run only on take.
+		custom_tooltip = {
+			text = stdinnv_gp1_payout_tt
+			hidden_effect = {
+				# gap = my prestige - #2's prestige, in thousands (drives the drain multiplier).
+				# set-before-change (this set is the base), then subtract #2, then /1000.
+				set_variable = { name = stdinnv_gp1_gap value = prestige }
+				every_country = {
+					limit = { global_country_ranking = 2 }
+					ROOT = { change_variable = { name = stdinnv_gp1_gap subtract = prev.prestige } }
+				}
+				change_variable = { name = stdinnv_gp1_gap divide = 1000 }
+
+				# scaled prestige drain (-500 per 1000 of gap).
+				add_modifier = {
+					name = stdinnv_gp1_drain
+					months = 48
+					multiplier = var:stdinnv_gp1_gap
+				}
+				# flat payout to self (economy + per-state welfare).
+				add_modifier = { name = stdinnv_gp1_welfare months = 48 }
+				every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
+				# flat payout to every subject (economy + per-state welfare).
+				every_subject_or_below = {
+					add_modifier = { name = stdinnv_gp1_subject months = 48 }
+					every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
+				}
+				remove_variable = stdinnv_gp1_gap
+			}
+		}
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# --- 3b "Lift Up the Vassals" -------------------------------------------------
+# An overlord that has reached the CIVILIZING MISSION tech pays a huge money + influence
+# bill (AS a 5yr modifier, stdinnv_uplift_cost) to modernize its LOYAL subjects: every
+# subject carrying the stdinnv_subject penalty AND with low liberty desire (won't break
+# away) sheds that penalty, gains a 5yr 100% tech-spread gift (stdinnv_uplift_gift) and a
+# free university in each of its INCORPORATED, populous states. NO favours to a subject
+# about to break away (liberty_desire > 50). Cooldown = the 5yr cost modifier. 3b touches
+# ONLY stdinnv_subject; the unrecognized penalty clears via the stdinnv_uni_built decision.
+# Tokens verified 2026-07-09: has_technology_researched = civilizing_mission (30_society.txt);
+# liberty_desire (0..100 value); is_incorporated / state_population (state triggers);
+# every_subject_or_below + every_scope_state (effect iters).
+stdinnv_uplift_subjects = {
+
+	is_shown = {
+		# has a LOYAL subject still carrying the subject penalty
+		any_subject_or_below = {
+			has_modifier = stdinnv_subject
+		}
+	}
+
+	possible = {
+		has_technology_researched = civilizing_mission   # gate: the imperial "civilizing" reach
+		NOT = { has_modifier = stdinnv_uplift_cost }      # 5yr cooldown (and the cost)
+		any_subject_or_below = {
+			has_modifier = stdinnv_subject
+			liberty_desire <= 20 #make it so its visible to AI but at game start neither BIC/DEI loses it to GB
+		}
+	}
+
+	when_taken = {
+		add_modifier = { name = stdinnv_uplift_cost months = 60 }
+		# Uplift ONLY loyal subjects still carrying the subject penalty (no favours to one
+		# about to break away). The limit guarantees the modifier is present, so the remove
+		# is safe - the loop's limit IS the effect-guard.
+		every_subject_or_below = {
+			limit = {
+				has_modifier = stdinnv_subject
+				liberty_desire <= 20 #make it so its visible to AI but at game start neither BIC/DEI loses it to GB
+			}
+			remove_modifier = stdinnv_subject
+			add_modifier = { name = stdinnv_uplift_gift months = 60 }
+			# one free university in each INCORPORATED state with population >= 100k.
+			every_scope_state = {
+				limit = {
+					is_incorporated = yes
+					state_population >= 200000
+				}
+				create_building = { building = "building_university" level = 1 reserves = 1 }
+			}
+		}
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# --- 3c "A Shot at Greatness" -------------------------------------------------
+# Available to any recognized, independent nation in the global top 20 that is NOT
+# already a great power, ONLY while the GP roster is short of 8 AND the nation sits
+# more than 150 prestige below the weakest great power (a smaller gap means it will
+# climb on its own, so the flat nudge would be wasted). Grants a flat, permanent +100
+# prestige / +25% prestige (stdinnv_gp_shot) - enough to tip a real contender over the
+# bar. One-shot: the modifier is the guard.
+stdinnv_gp_shot_at_greatness = {
+
+	is_shown = {
+		is_country_type = recognized
+		is_subject = no
+		global_country_ranking <= 20
+		NOT = { has_modifier = stdinnv_gp_shot }
+	}
+
+	possible = {
+		# roster short of 8 great powers
+		NOT = { any_country = { count >= 8  country_rank >= rank_value:great_power } }
+		# not already a great power
+		NOT = { country_rank >= rank_value:great_power }
+		# meaningful gap: no great power is within 150 above us (weakest GP > 150 over us)
+		NOT = {
+			any_country = {
+				country_rank >= rank_value:great_power
+				prestige <= stdinnv_gp_cand_ceiling
+			}
+		}
+	}
+
+	when_taken = {
+		add_modifier = { name = stdinnv_gp_shot years = 4 }
+	}
+
+	ai_chance = { value = 10000 }
 }

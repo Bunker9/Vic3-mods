@@ -274,3 +274,49 @@ desi_panjab_return_from_persia = {
 
 	ai_chance = { value = 100000 }
 }
+
+
+# ---- Decision 6: the Khalsa marches on Kandahar (2026-07-10) ------------------
+# Punjab opens a return_state diplomatic play for Kandahar's capital, unblocking the
+# frontier chain (Persia could not reach its colonization targets while KAN sat in the
+# way and Punjab never declared). Same master-vetted shape as Decision 5: claim first
+# (return_state needs a pre-existing claim), then the goal-less create_diplomatic_play
+# so the AI fills its own return_state goals. Repeatable while KAN exists (the exists
+# gate auto-hides it after the annex); no once-guard needed.
+# Tokens NEW here verified vs game files 2026-07-10: capital (country -> state scope
+# link, vanilla usage widespread); KAN = Kandahar, capital STATE_KANDAHAR
+# (00_countries.txt:4409). Rest reused from Decision 5 / master-vetted code.
+desi_panjab_take_kandahar = {
+	is_shown = {
+		c:PAN ?= this
+		exists = c:KAN
+		# shared border with Kandahar
+		any_scope_state = {
+			any_neighbouring_state = { owner = c:KAN }
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+	}
+
+	when_taken = {
+		save_scope_as = desi_pan_actor
+		# claim Kandahar's capital state region, then press it home.
+		c:KAN ?= {
+			capital = {
+				state_region = { add_claim = scope:desi_pan_actor }
+				save_scope_as = desi_kan_target
+			}
+		}
+		create_diplomatic_play = {
+			target_state = scope:desi_kan_target
+			war          = no
+			type         = dp_return_state
+		}
+		add_modifier = { name = modifier_desi_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100000 }
+}

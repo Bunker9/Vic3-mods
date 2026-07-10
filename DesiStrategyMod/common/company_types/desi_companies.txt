@@ -12,9 +12,6 @@ INJECT_OR_CREATE:company_basic_metalworks={
         building_motor_industry_throughput_add = 0.1
     }
 
-    ai_will_do = {
-        has_technology_researched = paved_roads
-    }
 }
 
 INJECT_OR_CREATE:company_tata = {

@@ -18,7 +18,7 @@ stdinnv_unrecognized = {
 	country_tech_spread_mult = -0.2
 	building_group_bg_manufacturing_employee_mult = 0.5
 	building_group_bg_manufacturing_throughput_add = -0.2
-	state_dependent_wage_mult  = 0.2 #TODO verify in game
+	state_dependent_wage_mult  = 0.2
 }
 
 stdinnv_subject = {
@@ -33,7 +33,7 @@ stdinnv_subject = {
 	building_group_bg_extraction_construction_efficiency_add = 0.2
 	building_group_bg_extraction_throughput_add = 0.1
 	building_group_bg_plantations_throughput_add = 0.1
-	state_dependent_wage_mult  = 0.5 #TODO verify in game
+	state_dependent_wage_mult  = 0.5
 }
 
 stdinnv_boost_gp = {
@@ -42,7 +42,7 @@ stdinnv_boost_gp = {
 	country_tech_spread_mult = 0.2
 	country_prestige_mult = 0.2
 	country_minting_mult = 0.5
-	country_max_companies_add = 2 #TODO verify in game
+	country_max_companies_add = 2
 }
 
 stdinnv_reward = {
@@ -107,4 +107,64 @@ hungary_reconciled_to_vienna_50y = {
 	country_authority_mult = 0.05
 	building_group_bg_extraction_construction_efficiency_add = 0.5
 	country_max_weekly_construction_progress_add = 5
+}
+
+# =============================================================================
+# GP-maintenance decisions (2026-07-09) - modifiers. All magnitudes TUNABLE in game.
+# Tokens reused from vetted in-mod usage above: country_prestige_add/_mult,
+# country_influence_add, country_authority_add, country_expenses_add,
+# country_tech_spread_mult, building_group_bg_extraction_throughput_add.
+# state_standard_of_living_add verified vanilla 2026-07-09.
+# =============================================================================
+
+# 3a - GP#1 prestige drain. UNIT modifier: the decision RESCALES it via
+# multiplier = var:stdinnv_gp1_gap (= gap/1000), so the drain is -500 per 1000 of the
+# #1-vs-#2 prestige gap. Keep the base at -500 (the multiplier scales this line).
+stdinnv_gp1_drain = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_prestige_add = -900
+}
+
+# 3a - flat welfare/economy payout to GP#1 for the sacrifice (self, 48mo).
+stdinnv_gp1_welfare = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_tech_spread_mult = 0.1
+	country_influence_add = 500
+	country_authority_add = 500
+}
+
+# 3a - flat extraction payout to each subject of GP#1 (48mo).
+stdinnv_gp1_subject = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	building_group_bg_extraction_throughput_add = 0.1
+	building_group_bg_plantations_throughput_add = 0.1
+}
+
+# 3a - per-state welfare (standard of living) for GP#1 and its subjects (48mo).
+stdinnv_gp1_sol_state = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	state_dependent_wage_mult  = 0.1
+	state_standard_of_living_add = 1
+}
+
+# 3b - overlord "uplift" bill: the huge money + influence cost, paid AS a 5yr modifier
+# (self). Also the decision cooldown (has_modifier gate).
+stdinnv_uplift_cost = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds"
+	country_influence_add = -100
+	country_expenses_add = 5000
+}
+
+# 3b - gift to each uplifted subject: 5yr, 100% tech spread (matches stdinnv_reward's lever).
+stdinnv_uplift_gift = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	country_tech_spread_mult = 1
+}
+
+# 3c - flat prestige nudge to tip a qualifying candidate over the GP bar (permanent;
+# the once-guard is has_modifier in the decision is_shown).
+stdinnv_gp_shot = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_prestige_add = 100
+	country_prestige_mult = 0.25
 }

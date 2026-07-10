@@ -126,3 +126,32 @@ nous_restart_csa_war_decision = {
 
 	ai_chance = { value = 100000 }
 }
+
+# =============================================================================
+# nous_calitex_boom - Texas + California industrial boom.
+# One-shot decision for ANY nation that owns BOTH state regions entire, after 1860.
+# Turns the two states into permanent migration magnets and seeds a fixed industrial
+# package in each (see nous_calitex_boom_effect). nous_calitex_done is the once-guard
+# AND the save fingerprint (a variable persists into the save; NO debug_log here - a
+# decision's when_taken re-runs during tooltip preview). Tokens verified 2026-07-09:
+# owns_entire_state_region (state ownership gate); game_date compare.
+# =============================================================================
+nous_calitex_boom = {
+
+	is_shown = {
+		owns_entire_state_region = STATE_TEXAS
+		owns_entire_state_region = STATE_CALIFORNIA
+		NOT = { has_variable = nous_calitex_done }
+	}
+
+	possible = {
+		game_date >= 1860.1.1
+	}
+
+	when_taken = {
+		set_variable = { name = nous_calitex_done value = yes }
+		nous_calitex_boom_effect = yes
+	}
+
+	ai_chance = { value = 100000 }
+}

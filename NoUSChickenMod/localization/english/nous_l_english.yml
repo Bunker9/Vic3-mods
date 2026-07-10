@@ -10,3 +10,6 @@
  nous_restart_csa_war_decision_desc:0 "The rebellion endures. The Republic will not sheathe its sword while the Confederacy stands."
  nous_restart_csa_war_decision_tooltip:0 "Renew the war to bring the Confederate states back into the Union."
  modifier_nous_warbonds:0 "War Bonds"
+ nous_calitex_boom:0 "The Golden Frontier"
+ nous_calitex_boom_desc:0 "With Texas and California both firmly in our hands, the moment has come to make the western shore the engine of the age. Pour capital into their harbours, foundries and universities, and throw open the gates to every settler seeking a new life."
+ nous_migrant_magnet:0 "Land of Opportunity"

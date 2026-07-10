@@ -1,4 +1,4 @@
-# =============================================================================
+﻿# =============================================================================
 # DesiStrategyMod - country_definitions merge: add nepali to Bharat's culture list
 # so Nepal (primary culture nepali) can form India via the MINOR unification path.
 # HAND-WRITTEN. NEW FILE ONLY

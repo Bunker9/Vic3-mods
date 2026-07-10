@@ -1,0 +1,23 @@
+﻿# =============================================================================
+# SteadyInnovMod - script values for the GP-maintenance decisions (2026-07-09).
+# `root` = the decision-taking country. Decision TRIGGERS cannot do inline
+# arithmetic, so the prestige-gap offsets live here and are compared as the RHS of
+# a trigger (vanilla pattern: `average_sol < average_expected_sol`; cross-country
+# prestige arithmetic in a script value: ip4_cuba_values.txt `subtract = c:USA.prestige`).
+# =============================================================================
+
+# 3a "Burden of the Crown" gate: the #1 country's prestige minus 1000. A country
+# ranked #2 whose prestige is BELOW this => the #1-vs-#2 prestige gap exceeds 1000.
+stdinnv_gp1_gap_floor = {
+	value = root.prestige
+	subtract = 1000
+}
+
+# 3c "A Shot at Greatness" guard: the candidate's prestige plus 150. If ANY great
+# power sits at or below this, the candidate is within 150 of it (small gap => it
+# will climb on its own => skip). Requiring NO great power at/below this means the
+# weakest GP is more than 150 above the candidate (a meaningful gap worth nudging).
+stdinnv_gp_cand_ceiling = {
+	value = root.prestige
+	add = 150
+}

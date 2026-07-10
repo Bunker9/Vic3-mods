@@ -8,3 +8,14 @@ modifier_nous_warbonds = {
 	country_infamy_decay_mult = 9                 # 9x infamy decay (vanilla convention: base 1 + 8)
 	country_minting_add = 50000                   # large minting income to fund the war (TUNABLE; vanilla max ~1000)
 }
+
+# nous_migrant_magnet - permanent STATE modifier granted by the nous_calitex_boom
+# decision to STATE_TEXAS + STATE_CALIFORNIA: makes them extreme migration magnets.
+# State-scoped tokens (verified 2026-07-09: state_migration_pull_mult /
+# state_migration_pull_unincorporated_mult). No duration = till end of game. TUNABLE.
+nous_migrant_magnet = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds
+	state_migration_pull_add = 30
+	state_migration_pull_mult = 1
+	building_group_bg_manufacturing_throughput_add = 0.1
+}

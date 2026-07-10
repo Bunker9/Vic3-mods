@@ -63,3 +63,33 @@ nous_restart_csa_war_effect = {
 		# set_variable = { name = nous_fingerprint_csa_war_started value = yes }
 	}
 }
+
+# ---- Feature: Texas + California industrial boom (nous_calitex_boom decision) ----
+# One-shot gift to a nation owning BOTH state regions after 1860: makes the two states
+# migration magnets (permanent nous_migrant_magnet) and seeds a fixed industrial package
+# in each. Loops the caller's OWN states and filters by state_region (region_state:ROOT
+# is NOT a valid dynamic scope link - 0 vanilla hits). Runtime create_building idiom
+# (building/level/reserves, no add_ownership) = the vanilla Montenegro-barracks /
+# adversarial-capital pattern; the engine assigns ownership to the state owner.
+# Tokens verified 2026-07-09: every_scope_state (effect iter); state_region = s:STATE_X
+# (state trigger); the singular building_* keys; state_migration_pull_mult (modifier).
+# Watch error.log on first run: create_building on a pre-existing port/trade_center.
+nous_calitex_boom_effect = {
+	every_scope_state = {
+		limit = {
+			OR = {
+				state_region = s:STATE_TEXAS
+				state_region = s:STATE_CALIFORNIA
+			}
+		}
+		set_state_type = incorporated
+		add_modifier = { name = nous_migrant_magnet }
+		create_building = { building = "building_motor_industry"   level = 3  reserves = 1 }
+		create_building = { building = "building_steel_mill"       level = 2  reserves = 1 }
+		create_building = { building = "building_tooling_workshop" level = 2  reserves = 1 }
+		create_building = { building = "building_university"       level = 6  reserves = 1 }
+		create_building = { building = "building_shipyard"         level = 4  reserves = 1 }
+		create_building = { building = "building_port"             level = 3  reserves = 1 }
+		create_building = { building = "building_trade_center"     level = 5  reserves = 1 }
+	}
+}
