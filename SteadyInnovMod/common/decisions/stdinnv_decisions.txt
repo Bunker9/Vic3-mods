@@ -167,40 +167,15 @@ stdinnv_gp1_burden = {
 	}
 
 	when_taken = {
-		# WHOLE payout wrapped in custom_tooltip + hidden_effect (2026-07-10 UAT: the
-		# tooltip preview re-evaluates when_taken, and the var-fed multiplier plus the
-		# every-state SoL loops spammed script errors on hover - the exact class the
-		# desi_incorporate_state wrapper already handles). The player sees the loc line
-		# instead; the real effects run only on take.
+		# Payout LIVES IN uni_event.4 (hidden, triggered-only), NOT here (2026-07-10 UAT
+		# round 2: even inside hidden_effect the tooltip preview still COMPUTES the
+		# var-fed multiplier - "Value of wrong type ... none" spam at every hover. An
+		# event's immediate never runs in tooltip preview, so the calc is safe there).
+		# The custom_tooltip line is what the player reads on the decision.
 		custom_tooltip = {
 			text = stdinnv_gp1_payout_tt
-			hidden_effect = {
-				# gap = my prestige - #2's prestige, in thousands (drives the drain multiplier).
-				# set-before-change (this set is the base), then subtract #2, then /1000.
-				set_variable = { name = stdinnv_gp1_gap value = prestige }
-				every_country = {
-					limit = { global_country_ranking = 2 }
-					ROOT = { change_variable = { name = stdinnv_gp1_gap subtract = prev.prestige } }
-				}
-				change_variable = { name = stdinnv_gp1_gap divide = 1000 }
-
-				# scaled prestige drain (-500 per 1000 of gap).
-				add_modifier = {
-					name = stdinnv_gp1_drain
-					months = 48
-					multiplier = var:stdinnv_gp1_gap
-				}
-				# flat payout to self (economy + per-state welfare).
-				add_modifier = { name = stdinnv_gp1_welfare months = 48 }
-				every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
-				# flat payout to every subject (economy + per-state welfare).
-				every_subject_or_below = {
-					add_modifier = { name = stdinnv_gp1_subject months = 48 }
-					every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
-				}
-				remove_variable = stdinnv_gp1_gap
-			}
 		}
+		trigger_event = { id = uni_event.4 }
 	}
 
 	ai_chance = { value = 10000 }

@@ -237,3 +237,40 @@ uni_event.3 = {
 		}
 	}
 }
+
+# uni_event.4 - "Burden of the Crown" payout engine (2026-07-10). Fired hidden by
+# stdinnv_gp1_burden.when_taken. The gap calc + var-fed drain multiplier live HERE
+# because a decision's when_taken is re-computed during tooltip preview (the
+# var:stdinnv_gp1_gap multiplier evaluated to 'none' on every hover - error spam);
+# a hidden triggered event's immediate never runs in preview.
+uni_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# gap = my prestige - #2's prestige, in thousands (drives the drain multiplier).
+		# set-before-change (this set is the base), then subtract #2, then /1000.
+		set_variable = { name = stdinnv_gp1_gap value = prestige }
+		every_country = {
+			limit = { global_country_ranking = 2 }
+			ROOT = { change_variable = { name = stdinnv_gp1_gap subtract = prev.prestige } }
+		}
+		change_variable = { name = stdinnv_gp1_gap divide = 1000 }
+
+		# scaled prestige drain (-500 per 1000 of gap).
+		add_modifier = {
+			name = stdinnv_gp1_drain
+			months = 48
+			multiplier = var:stdinnv_gp1_gap
+		}
+		# flat payout to self (economy + per-state welfare).
+		add_modifier = { name = stdinnv_gp1_welfare months = 48 }
+		every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
+		# flat payout to every subject (economy + per-state welfare).
+		every_subject_or_below = {
+			add_modifier = { name = stdinnv_gp1_subject months = 48 }
+			every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
+		}
+		remove_variable = stdinnv_gp1_gap
+	}
+}
