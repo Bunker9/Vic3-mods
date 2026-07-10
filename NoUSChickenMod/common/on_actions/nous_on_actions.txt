@@ -1,0 +1,81 @@
+﻿## =============================================================================
+## NoUSChickenMod — yearly pulse: FORCE the wars the USA AI refuses to start.
+##
+## WHY a pulse, not the decision: in-game (build 202606231826, observer mode) the AI evaluated
+## nous_mexico_war_decision EVERY tick (possible=yes, visible+clickable) but NEVER took it — the
+## 925 "nous - mexico-war" markers were the decision's when_taken being TOOLTIP-evaluated, not the
+## war declaring. `ai_chance = { value = 100 }` cannot override the AI's unwillingness to open a
+## diplomatic play it doesn't strategically want. A pulse just RUNS the effect, so the war is
+## guaranteed. `is_ai = yes` leaves a HUMAN-controlled USA free to use the decision instead.
+##
+## Merge-safe form (proven in master MyDiploPlayMod\common\on_actions\mdp_on_actions.txt): a bare
+## `effect = {}` on the shared on_yearly_pulse_country is OVERRIDDEN across the merge ("more than
+## one effect defined"); the `on_actions = { ... }` sub-list MERGES instead.
+## =============================================================================
+#on_yearly_pulse_country = { on_actions = { nous_yearly } }
+#
+#nous_yearly = {
+#	effect = {
+#		# Task A — force USA -> Mexico for California while Mexico still holds it. Re-fires after any
+#		# white peace (gated by is_at_war / active play / California still Mexican), so there is "no
+#		# rest till California is in the Union". No once-only flag by design.
+#		if = {
+#			limit = {
+#				c:USA ?= this
+#				is_ai = yes
+#				game_date >= 1837.1.1
+#				is_at_war = no
+#				is_active_in_diplomatic_play = no
+#				exists = c:MEX
+#				OR = {
+#					AND = {
+#						exists = s:STATE_CALIFORNIA.region_state:MEX
+#						c:USA = { has_claim = s:STATE_CALIFORNIA }
+#					}
+#					AND = {
+#						exists = s:STATE_NEVADA.region_state:MEX
+#						c:USA = { has_claim = s:STATE_NEVADA }
+#					}
+#					AND = {
+#						exists = s:STATE_UTAH.region_state:MEX
+#						c:USA = { has_claim = s:STATE_UTAH }
+#					}
+#					AND = {
+#						exists = s:STATE_ARIZONA.region_state:MEX
+#						c:USA = { has_claim = s:STATE_ARIZONA }
+#					}
+#					AND = {
+#						exists = s:STATE_NEW_MEXICO.region_state:MEX
+#						c:USA = { has_claim = s:STATE_NEW_MEXICO }
+#					}
+#					AND = {
+#						exists = s:STATE_TEXAS.region_state:MEX
+#						c:USA = { has_claim = s:STATE_TEXAS }
+#					}
+#					AND = {
+#						exists = s:STATE_MONTANA.region_state:MEX
+#						c:USA = { has_claim = s:STATE_MONTANA }
+#					}
+#					AND = {
+#						exists = s:STATE_WYOMING.region_state:MEX
+#						c:USA = { has_claim = s:STATE_WYOMING }
+#					}
+#					AND = {
+#						exists = s:STATE_COLORADO.region_state:MEX
+#						c:USA = { has_claim = s:STATE_COLORADO }
+#					}
+#					AND = {
+#						exists = s:STATE_NORTH_DAKOTA.region_state:MEX
+#						c:USA = { has_claim = s:STATE_NORTH_DAKOTA }
+#					}
+#					AND = {
+#						exists = s:STATE_KANSAS.region_state:MEX
+#						c:USA = { has_claim = s:STATE_KANSAS }
+#					}
+#				}
+#			}
+#			nous_start_mexico_war_effect = yes
+#			debug_log = "nous - mexico-war - USA forced return_state on California vs MEX (pulse)"
+#		}
+#	}
+#}

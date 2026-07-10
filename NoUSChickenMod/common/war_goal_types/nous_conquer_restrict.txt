@@ -1,0 +1,16 @@
+﻿# =============================================================================
+# NoUSChickenMod - restrict CONQUER_STATE in the forced USA-vs-Mexico war. HAND-WRITTEN.
+#
+# WHY: with war=no the forced Manifest-Destiny play stays open and the USA AI piles on
+# expensive conquer_state goals (high infamy) instead of cheap return_state. The user wants
+# the USA-Mexico war to use ONLY return_state on USA's pre-existing claims.
+# =============================================================================
+INJECT_OR_CREATE:conquer_state = {
+	possible = {
+		# STOPPING AI STUPIDLY CONQUERING STATES THEY DONT HAVE ANY BUSINESS TO TAKE
+		OR = {
+			game_date > 1900.1.1
+			is_player = yes
+		}
+	}
+}

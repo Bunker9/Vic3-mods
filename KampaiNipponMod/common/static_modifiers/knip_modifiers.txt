@@ -1,0 +1,13 @@
+﻿# =============================================================================
+# KampaiNipponMod - static modifiers (used by add_modifier).  *** WIP 2026-06-25 (skeletal) ***
+# Modifiers for add_modifier MUST live in common/static_modifiers (not common/modifiers).
+# knip_marine_hiring: after the marine-industry build-out, the maxed fisheries hire fewer workers
+# (employee_mult -0.75 => ~25% of normal labour, so each fisher works/earns like ~4) and those pops
+# enjoy a higher standard of living. Tokens verified vs 01_building_modifier_types.txt.
+# =============================================================================
+
+knip_marine_hiring = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	building_group_bg_fishing_employee_mult = -0.25
+	building_group_bg_whaling_employee_mult = -0.25
+}

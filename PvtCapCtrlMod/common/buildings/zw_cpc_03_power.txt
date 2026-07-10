@@ -1,0 +1,18 @@
+﻿# PvtCapCtrlMod — cap power plants per state, proportional to the industry they serve. HAND-WRITTEN.
+# building_power_plant (the only bg_power building type) auto-expands via the building-GROUP rule
+# (bg_power.should_auto_expand = { default_auto_expand_rule = yes }, which this mod REPLACEs) and had
+# NO construction gate at all, so the investment pool / company auto-expansion stacked power plants in
+# tiny states regardless of need (observed: Bermuda 9 plants with ~0 industry to power).
+#
+# Power exists to feed factories, so the cap scales with the LIGHT + HEAVY levels actually present
+# (plus a small base), not population. A state with no industry keeps only the base; an industrial hub
+# scales its power ceiling up automatically as it builds. See zw_sv_state_power_cap (zw_cpc_values.txt)
+# and zw_trigger_under_power_cap (zw_cpc_triggers.txt).
+#
+# Two levers, same as the industry caps:
+#   can_build_* ......... gates NEW power plant construction.
+#   default_auto_expand_rule (zw_cpc_triggers_auto_expand.txt) ... gates auto-EXPANSION of bg_power.
+INJECT_OR_CREATE:building_power_plant = {
+	can_build_government = { zw_trigger_under_power_cap_tt = yes }
+	can_build_private = { zw_trigger_under_power_cap_tt = yes }
+}

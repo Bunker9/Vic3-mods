@@ -1,0 +1,68 @@
+﻿# =============================================================================
+# KampaiNipponMod - Japan flavour decisions.  *** WIP 2026-06-25 (skeletal) ***
+# Prefix: knip. Tokens verified vs vanilla 2026-06-25 (building_naval_administration,
+# ship_type_troop_ship, navy_size, is_country_type=recognized, Korea states SEOUL/BUSAN/
+# YANGHO/SARIWON/PYONGYANG, law_isolationism). Effects in knip_effects.txt; events in
+# events/knip_events.txt. Fingerprint vars (knip_fingerprint_*) for save-parser debugging.
+#
+# TODO (detailed docs at in-game-test state):
+#  - Decision 1 is DAY-1 available for testing. Re-gate with NOT={ has_law =
+#    law_type:law_isolationism } once verified (commented below).
+#  - "max" fish/whale + naval-admin count are first-cut values to tune after the test run.
+# =============================================================================
+
+# ---- Decision 1: naval build up (troop ships + naval administrations + marine industry) ----
+# Once-only (guard knip_navy_buildup_done). Grants the fleet + buildings via knip_naval_buildup_effect,
+# then fires the marine-industry event chain (knip.1 -> knip.2).
+knip_naval_buildup = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		c:JAP ?= this
+		NOT = { has_variable = knip_navy_buildup_done }
+	}
+
+	possible = {
+		#TODO this is AI slop. Japan has Sakoku  law  which is a variant of law_isolationism. REDO
+		NOT = { has_law = law_type:law_isolationism }
+	}
+
+	when_taken = {
+		#TODO add a tooltip .. something like " dutch , spanish and portugese mothballed ships added to jap navy"
+		set_variable = { name = knip_navy_buildup_done value = yes }   # load-bearing once-only guard
+		knip_naval_buildup_effect = yes                                # ships + naval administrations
+		trigger_event = { id = knip.1 }                                # marine-industry event chain
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision 2: claim Korea (gated on a real navy, i.e. decision 1 paid off) ----
+# Recognized Japan with a navy larger than 30 presses claims on every Korean state. Once-only.
+knip_claim_korea = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		c:JAP ?= this
+		is_country_type = recognized
+		NOT = { has_variable = knip_korea_claimed_done }
+	}
+
+	possible = {
+		navy_size > 30                       # proxy for "decision 1 fired and gave ships"
+		#NOT = { has_variable = knip_korea_claimed_done } # already done in is_shown so whats the point keep it here ? remove
+	}
+
+	when_taken = {
+		save_scope_as = knip_actor
+		s:STATE_SEOUL     = { add_claim = scope:knip_actor }
+		s:STATE_BUSAN     = { add_claim = scope:knip_actor }
+		s:STATE_YANGHO    = { add_claim = scope:knip_actor }
+		s:STATE_SARIWON   = { add_claim = scope:knip_actor }
+		s:STATE_PYONGYANG = { add_claim = scope:knip_actor }
+		set_variable = { name = knip_korea_claimed_done value = yes }          # load-bearing guard
+		# set_variable = { name = knip_fingerprint_korea_claimed value = yes }   # additive fingerprint
+	}
+
+	ai_chance = { value = 10000 }
+}

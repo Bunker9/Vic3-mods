@@ -1,0 +1,95 @@
+﻿# =============================================================================
+# NoUSChickenMod - runtime war-start effects (called from nous decisions). HAND-WRITTEN.
+# The war-declaration pattern is COPIED from master MyDiploPlayMod (verified + in-game tested):
+#   - day-1 form  -> MyDiploPlayMod\common\history\diplomatic_plays\zz_mdp_wars.txt
+#   - runtime loop -> MyDiploPlayMod\common\scripted_effects\mdp_effects.txt (mdp_try_next_war)
+# create_diplomatic_play { war = yes ... } forces an IMMEDIATE war; return_state is the
+# low-infamy war goal, backed by add_claim so the demanded states are claimed first.
+# Scope when each effect is called = c:USA (the decision is country-scoped).
+# =============================================================================
+
+# ---- Task A: hard-start USA vs Mexico to reclaim California -------------------
+# Single primary war goal = California (the rest of Mexico is handled by USA's own AI).
+# Explicit target uses the PROVEN master idiom `target_state = s:STATE_X.region_state:TAG`
+# (MyDiploPlayMod\common\history\diplomatic_plays\zz_mdp_wars.txt). The old version used
+# `random_scope_state` in USA scope with `owner = c:MEX` — it iterates USA's OWN states, never
+# matched a Mexican state, so the target was never saved and the play never declared.
+# NO debug_log here: this effect is ALSO tooltip-evaluated by the player decision's when_taken
+# (which would spam the marker every UI tick — that was the 925x "loop"). The real marker lives
+# in the on_action that actually executes it (common/on_actions/nous_on_actions.txt).
+nous_start_mexico_war_effect = {
+	c:USA = {
+		create_diplomatic_play = {
+			target_country = c:MEX
+			war = no
+			type = dp_humiliation
+		}
+		add_modifier = { name = modifier_nous_warbonds months = 12 }
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+		# Vic3 has NO set_*_flag effect; a set_variable persists into the save as flag=<name> on USA,
+		# proving the Mexico-war effect (called by nous_mexico_war_decision) actually executed. Unlike
+		# debug_log, set_variable does NOT run during tooltip preview, so it sidesteps the 925x tooltip
+		# spam this effect caused. Comment out at Ceremony 3 promote.
+		# set_variable = { name = nous_fingerprint_mexico_war_started value = yes }
+	}
+}
+
+# ---- Task B: bare-bone USA vs CSA war ----------------------------------------
+# Simplified to a single decisive war goal on the CSA capital (Mexico-effect form:
+# inline add_war_goal inside create_diplomatic_play, no re-enter-play loop). The
+# decision re-fires while CSA still exists in any state, so one primary goal per
+# firing is enough to keep the pressure on. "No rest till slavery is crushed."
+nous_restart_csa_war_effect = {
+	# Claim the capital state first (add_claim is a state_region effect, so hop from
+	# the c:CSA.capital state scope into its state_region — the mdp scope idiom).
+	c:CSA.capital = { state_region = { add_claim = c:USA } }
+
+	c:USA = {
+		create_diplomatic_play = {
+			target_state = c:CSA.capital
+			war          = no
+			type         = dp_return_state
+			add_war_goal = {
+				holder         = c:USA
+				type           = return_state
+				target_state   = c:CSA.capital
+				primary_demand = yes
+			}
+		}
+		add_modifier = { name = modifier_nous_warbonds months = 12 }
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging"). set_variable persists as
+		# flag=nous_fingerprint_csa_war_started on USA -> proves the CSA-war effect fired at least
+		# once, offline, for the whole playthrough. Comment out at Ceremony 3 promote.
+		# set_variable = { name = nous_fingerprint_csa_war_started value = yes }
+	}
+}
+
+# ---- Feature: Texas + California industrial boom (nous_calitex_boom decision) ----
+# One-shot gift to a nation owning BOTH state regions after 1860: makes the two states
+# migration magnets (permanent nous_migrant_magnet) and seeds a fixed industrial package
+# in each. Loops the caller's OWN states and filters by state_region (region_state:ROOT
+# is NOT a valid dynamic scope link - 0 vanilla hits). Runtime create_building idiom
+# (building/level/reserves, no add_ownership) = the vanilla Montenegro-barracks /
+# adversarial-capital pattern; the engine assigns ownership to the state owner.
+# Tokens verified 2026-07-09: every_scope_state (effect iter); state_region = s:STATE_X
+# (state trigger); the singular building_* keys; state_migration_pull_mult (modifier).
+# Watch error.log on first run: create_building on a pre-existing port/trade_center.
+nous_calitex_boom_effect = {
+	every_scope_state = {
+		limit = {
+			OR = {
+				state_region = s:STATE_TEXAS
+				state_region = s:STATE_CALIFORNIA
+			}
+		}
+		set_state_type = incorporated
+		add_modifier = { name = nous_migrant_magnet }
+		create_building = { building = "building_motor_industry"   level = 3  reserves = 1 }
+		create_building = { building = "building_steel_mill"       level = 2  reserves = 1 }
+		create_building = { building = "building_tooling_workshop" level = 2  reserves = 1 }
+		create_building = { building = "building_university"       level = 6  reserves = 1 }
+		create_building = { building = "building_shipyard"         level = 4  reserves = 1 }
+		create_building = { building = "building_port"             level = 3  reserves = 1 }
+		create_building = { building = "building_trade_center"     level = 5  reserves = 1 }
+	}
+}

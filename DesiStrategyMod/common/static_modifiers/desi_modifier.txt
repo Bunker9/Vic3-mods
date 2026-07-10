@@ -1,0 +1,17 @@
+﻿modifier_desi_warbonds = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_infamy_decay_mult = 9                 # 5x infamy decay (vanilla convention: base 1 + 4)
+	country_minting_add = 50000                   # large minting income to fund the war (TUNABLE; vanilla max ~1000)
+	building_group_bg_extraction_construction_efficiency_add = 0.4
+	country_max_weekly_construction_progress_add = 40
+	country_military_goods_cost_mult = -0.5
+	unit_offense_add = 50
+	unit_defense_add = 60
+	interest_group_ig_armed_forces_approval_add = 30
+}
+
+modifier_desi_incorporation_cost = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds
+	country_bureaucracy_add = -10    # per 1,000,000 incorporated pop (scaled by the add_modifier multiplier)
+	country_expenses_add = 100       # +100/week expenses per 1,000,000 incorporated pop (cost), scaled likewise
+}

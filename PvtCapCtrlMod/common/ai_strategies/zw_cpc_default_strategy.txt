@@ -1,0 +1,22 @@
+﻿# =============================================================================
+# PvtCapCtrlMod - AI subsidy-stance override.  *** DISABLED 2026-06-25 (A-V1 verify ask) ***
+#
+# FINDING ("does INJECT:ai_strategy_default work?"): NO, not as written.
+#  - Vanilla ai_strategy_default ALREADY defines a `subsidies` block
+#    (game/common/ai_strategies/00_default_strategy.txt: building_power_plant / building_railway /
+#    building_port = must_have). INJECT / INJECT_OR_CREATE are Clausewitz mod-load merge directives
+#    that APPEND keys; they do NOT replace a key the object already owns - so this APPENDS a second
+#    `subsidies` block (duplicate) and the intended downgrade to nice_to_have never lands.
+#  - A real override needs REPLACE_OR_CREATE:ai_strategy_default (rewrite the whole multi-thousand-
+#    line object - impractical + patch-brittle), and even then other adopted ai_strategies re-assert
+#    must_have (the engine takes the strongest requirement). The subsidy enum also has no "off".
+#  => Correct lever for runaway infra is the should_auto_expand cash-gate (zw_cpc_02_infra.txt,
+#     railway fix 2026-06-24), NOT this strategy override. Disabled below; delete after review.
+# =============================================================================
+#INJECT:ai_strategy_default = {
+#	subsidies = {
+#		building_power_plant = nice_to_have
+#		building_railway = nice_to_have
+#		building_port = must_have
+#	}
+#}

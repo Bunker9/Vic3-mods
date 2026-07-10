@@ -1,0 +1,13 @@
+{
+  "name": "DesiStrategyMod",
+  "id": "DesiStrategyMod",
+  "game_id": "victoria3",
+  "version": "0.1.0",
+  "supported_game_version": "1.13.*",
+  "short_description": "Lets any independent Indian culture nation press claims to unify the subcontinent: claim the Punjab and Delhi heartland, then once Delhi is held, claim every state of the India region.",
+  "tags": [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

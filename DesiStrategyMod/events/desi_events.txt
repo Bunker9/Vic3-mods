@@ -1,0 +1,61 @@
+﻿namespace = desi_event
+
+# =============================================================================
+# DesiStrategyMod - hidden effect-engine events (2026-07-10).
+# desi_event.1 = the "Integrate the Frontier" (desi_incorporate_state) payload.
+# WHY an event: a decision's when_taken is re-computed during tooltip preview,
+# and the var-fed `multiplier = var:desi_incorporation_burden` evaluated to
+# 'none' on every hover - the long-standing "Value of wrong type" spam noted in
+# the decision's TODO. A hidden triggered event's immediate never runs in
+# preview (same fix as SteadyInnov uni_event.4, in-game verified 2026-07-10).
+# =============================================================================
+desi_event.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# guard-init the cumulative burden (LOAD-BEARING, drives the multiplier) once
+		# (set-before-change; the has_variable guard is also the dummy-use reader).
+		if = {
+			limit = { NOT = { has_variable = desi_incorporation_burden } }
+			set_variable = { name = desi_incorporation_burden value = 0 }
+		}
+		#if = { #TODO fingerprint toggle script missed taking care of empty if stmt
+			# limit = { NOT = { has_variable = desi_fingerprint_incorporated } }
+			# set_variable = { name = desi_fingerprint_incorporated value = 0 }
+		#} #TODO fingerprint toggle script missed taking care of empty if stmt closing braces
+
+		# Incorporate EVERY eligible unincorporated state at once (the just-conquered
+		# Indian lands). For each, add its size (millions) to the running burden
+		# (scoped back to ROOT = the country).
+		every_scope_state = {
+			limit = {
+				is_incorporated = no
+				OR = {
+					region = sr:region_north_india
+					region = sr:region_south_india
+					region = sr:region_himalayas
+					region = sr:region_indochina
+					region = sr:region_greater_persia
+				}
+			}
+			set_state_type = incorporated
+			save_scope_as = desi_inc_state
+			ROOT = {
+				change_variable = { name = desi_incorporation_burden add = desi_incorporation_state_millions }
+				# change_variable = { name = desi_fingerprint_incorporated add = 1 }
+			}
+		}
+		# RECALC the single cost modifier scaled to the cumulative burden
+		# (remove + re-add => never spams modifier stacks).
+		if = {
+			limit = { has_modifier = modifier_desi_incorporation_cost }
+			remove_modifier = modifier_desi_incorporation_cost
+		}
+		add_modifier = {
+			name = modifier_desi_incorporation_cost
+			months = 36
+			multiplier = var:desi_incorporation_burden
+		}
+	}
+}

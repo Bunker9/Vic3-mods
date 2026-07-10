@@ -36,7 +36,7 @@ versiontest.1 = {
 		# The logged string is kept in sync with the branch by tools\set-versiontest-mode.ps1.
 		if = {
 			limit = { is_player = yes }
-			#debug_log = versiontest_log   # commented out for master: real users generate no logs
+			debug_log = versiontest_log   # commented out for master: real users generate no logs
 		}
 	}
 }
