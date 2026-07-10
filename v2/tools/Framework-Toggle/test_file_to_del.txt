@@ -1,0 +1,16 @@
+﻿namespace = test
+
+test_effect = {
+    debug_log = "vt - test - fired"
+    set_variable = { name = vt_fingerprint_test value = 0 }
+    change_variable = { name = vt_fingerprint_test add = 1 }
+    if = {
+        limit = { has_variable = vt_fingerprint_test }
+        set_variable = { name = vt_fingerprint_seen value = yes }
+    }
+    if = {
+        limit = { is_player = yes }
+        add_treasury = 100
+        debug_log = "vt - real - kept scope"
+    }
+}

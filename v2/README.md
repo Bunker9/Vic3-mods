@@ -46,6 +46,9 @@ v2/
 │  ├─ lib_components.py   CSS/JS + helpers: tbl (ptable), xtable, badge, card/stub, write_component
 │  ├─ lib_buildstamp.py · lib_paths.py    (build-stamp label · resolve_logs_dir)
 │  ├─ chk_structure.py · chk_standards.py  static checks on mod files
+│  ├─ chk-mods-have-metadata.py  repo-level guard: every mod folder MUST have .metadata/metadata.json
+│  │                     (closes the CI hole where a metadata-less mod is silently skipped;
+│  │                     wire into static-checks.yml via a UI edit: `python _harness/v2/testkit/chk-mods-have-metadata.py .`)
 │  ├─ parse_log.py · parse_timeline.py     game-log parsers
 │  └─ ext_static.py · ext_log.py           generic VIEW extractors (the mod-wide views)
 └─ <Mod>/
@@ -54,10 +57,11 @@ v2/
                           component[_<tab>].html (generated, gitignored)
 ```
 
-## THE debug framework (`tools/`) — 3 frameworks + a shared core + a game data area
+## THE debug framework (`tools/`) — 4 frameworks + a shared core + a game data area
 
-> **Refactor complete (2026-06-30; old jobs retired 2026-07-01). REWORK: Logtriage SORT-not-FILTER Sets 1-3
-> + SaveParse parse-once Sets 1-3 (incl. market/goods prices) DONE 2026-07-02; Framework-Toggle = stubs.** The
+> **REWORK Phases 1-4 DONE (2026-07-01 → 07-03): Logtriage SORT-not-FILTER Sets 1-3 + SaveParse parse-once
+> Sets 1-3 (incl. market/goods prices) + Framework-Toggle ss1-ss4 split; old jobs (`anal-log-triage`,
+> `aggr-state-census`+`anal-save-report`, interim `testbook-toggle-markers`) retired. Phase 5 sweep in tail.** The
 > frameworks sit over a shared `Framework-common/`, all literals/paths in TOML configs + curated CSVs.
 > **Usage cookbook: `Framework-common/HOW_TO_USE.md`.** Canonical design: `hk-config/roadmap/
 > MOD-DEBUG-FRAMEWORK.md` + `hk-config/roadmap/ROADMAP-debug-framework-rework.md` (design docs live in
@@ -80,8 +84,10 @@ closed by EXTENDING it generically, never by a one-off script beside it. Each sc
   raws + ALL persisted vars/modifiers + market goods PRICES + goods catalog + census; per-mod fingerprints,
   T101 over-cap verdicts, metrics, diagnostics via the shared engine). The save is never re-read per mod.
   `run-saveparse.py [<MOD>... | --all]`.
-- **`Framework-Toggle/`** — debug/fp marker toggle SPLIT (stubs; the working interim toggle is
-  `Framework-common/testbook-toggle-markers.py`).
+- **`Framework-Toggle/`** — debug/fp marker toggle SPLIT (ss1–ss4 over `lib_toggle`): `run-toggle.py` master
+  (target = file / mod folder / `--mod`) + independently-runnable per-file subs `ext-toggle-markers` (find),
+  `run-toggle-file` (toggle one file), `chk-toggle-scopes` (brace + empty-scope check). Comments/uncomments
+  `debug_log`/`_fingerprint_` lines + fp-only scope wrappers; BOM + line endings preserved; `--commit` to write.
 - **`Game-Victoria3/`** — **DATA ONLY**: per-run outputs (`data-<Mod>/`, `log-CURR*/`, `save-CURR*/`), gitignored
   WHOLESALE at repo level (`tools/Game-*/`), NO code/config here (created on demand by the masters). The game
   CONFIG (`config_game.example.toml`, `config_naming.toml`, gitignored per-machine `config_game.toml`) lives in

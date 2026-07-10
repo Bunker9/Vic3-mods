@@ -8,6 +8,56 @@
 > Naming: scripts are hyphenated CODE names (`run-debug-master.py`), configs/data are underscore names
 > (`config_game.toml`), folders are hyphenated (`Framework-common`) — per DEV-RULES "Naming conventions".
 
+## TLDR — copy-paste commands (current game logs + `TEST_ME.v3`, ALL mods)
+
+Run from `testbook/v2/tools`. Assumes one-time setup (§0) is already done: `config_game.toml` has
+`logs_dir`/`save_games_dir` blank-or-pointed-at-TEST_ME.v3 and every mod listed under `[mod_locations]` — with
+that in place, **none of these need `--save`/`--logs`/`--path`**, they auto-resolve.
+
+**The one command that does everything (ModParse → Logtriage → SaveParse, every configured mod):**
+```
+python Framework-common/run-debug-master.py --all
+```
+Prints, per mod: `data-<Mod>/`, `log-CURR/<Mod>/diagnostics.md`, `save-CURR/<Mod>/diagnostics.md`. Read
+`log-CURR/_global/diagnostics.md` too (cross-mod log summary).
+
+**Same flow, force a clean re-scan (ignore any cached outputs):**
+```
+python Framework-common/run-debug-master.py --all --rerun
+```
+
+**Run just one stage for every mod** (rarely needed — `--all` above already chains all three):
+```
+python Framework-ModParse/run-modparse.py --all
+python Framework-Logtriage/run-logtriage.py --all
+python Framework-SaveParse/run-saveparse.py --all
+```
+
+**Run for one mod only** (swap in any name from `[mod_locations]`, e.g. `NoUSChickenMod`):
+```
+python Framework-common/run-debug-master.py NoUSChickenMod
+```
+
+**Before a fresh game run** — clear markers off and rebuild `data-*` isn't required here (that's the hk-config
+pre-game ceremony); after the run, re-triage with the `--all --rerun` command above.
+
+**Cleanup — wipe all generated data before a fresh pass** (dry-run first, then commit):
+```
+python Framework-common/run-scrub.py
+python Framework-common/run-scrub.py --commit
+```
+
+**Toggle debug_log/fingerprint lines across every configured mod** (dry-run first, then commit):
+```
+python Framework-Toggle/run-toggle.py --off --mod MyDiploPlayMod
+python Framework-Toggle/run-toggle.py --off --mod MyDiploPlayMod --commit
+```
+
+See §1–§7 below for per-script detail, single-mod flag overrides (`--save`/`--logs`/`--path`/`--prefix`), and
+what each output CSV/`diagnostics.md` means.
+
+---
+
 ## Where to run from
 Every script self-locates (`__file__`), so it runs from any directory. All examples below assume your shell is
 in the tools root:
@@ -36,7 +86,6 @@ folder as arg2:
 
 ```toml
 # testbook/v2/tools/Framework-common/config_game.toml   (copy of config_game.example.toml; GITIGNORED)
-game_files_path = ""        # unpacked vanilla game files (token verification); blank = not needed here
 logs_dir        = ""        # blank => auto <Documents>/Paradox Interactive/Victoria 3/logs
 save_games_dir  = ""        # blank => auto <Documents>/Paradox Interactive/Victoria 3/save games
 
@@ -66,8 +115,8 @@ mod folder explicitly (arg2 / `--path`).
 | `--prefix P` | all four | override the auto-derived mod prefix/abbr (e.g. `nous`) |
 | `--rerun` | all four | force rebuild/re-scan (else reuse outputs if already present) |
 
-> `run-scrub` and `testbook-toggle-markers` (both in `Framework-common`) are utilities, **not** part of this
-> contract — they take **no `MOD_NAME` positional**; they scope with `--mod`/`--path`. See §5–§6.
+> `run-scrub` (`Framework-common`) and `run-toggle` (`Framework-Toggle`) are utilities, **not** part of this
+> contract — they take **no `MOD_NAME` positional**; they scope with `--mod`/`--path`/a target. See §5–§6.
 
 `MOD_NAME` is any of the real mods: `NoUSChickenMod`, `MyDiploPlayMod`, `Top40EcoBoostMod`, `KampaiNipponMod`,
 `DesiStrategyMod`, `ExpFightMod`, `ExpMktAccessMod`, `InfraTaxMod`, `PvtCapCtrlMod`, `versiontestMod`.
@@ -214,7 +263,9 @@ Output: COMMON `Game-Victoria3/save-CURR/` → `raw_*.csv` (managers + flags + m
 + `metrics.csv`. (Sets standalone: `run-save-parse.py` / `run-save-aggr.py <MODS>` / `run-save-diag.py <MODS>`.)
 
 **Goods prices (T103):** `raw_market_goods.csv` holds current/min/max price per (market × goods id);
-`goods_ids.csv` names the ids (generated from `game_files_path`'s goods files); `raw_countries.market` links
+`goods_ids.csv` names the ids (seeded from the tracked, hand-curated `Framework-SaveParse/goods_ids.example.csv`;
+that literal is GENERATED offline by `hk-config/tools/testbook_lookup_generators/anal-goods-ids.py` — the
+frameworks never read base game files); `raw_countries.market` links
 a country to its market — join the three for "price of G in C's market at save date".
 
 **Config — `Framework-SaveParse/config_saveparse.toml`.** Manager fields, the fixed-point factor, the generic
@@ -250,31 +301,37 @@ python Framework-common/run-scrub.py --mod NoUSChickenMod --commit
 
 ---
 
-## 6. `testbook-toggle-markers.py` — flip debug_log + fingerprints ON/OFF (mod-agnostic)
-Home: `Framework-common/`. Comments (`--off`) or uncomments (`--on`) every `debug_log` / `debug_log_scopes` /
-`_fingerprint_` line across mod source `.txt`. **Dry-run by default; `--commit` rewrites** (BOM + line endings
-preserved). `--on`/`--off` is required and mutually exclusive. Takes **no `MOD_NAME` positional**; scope with
-`--mod` (a `[mod_locations]` key) or `--path` (explicit folder). Without either it toggles ALL configured mods.
+## 6. `run-toggle.py` — flip debug_log + fingerprints ON/OFF (mod-agnostic, Framework-Toggle)
+Home: `Framework-Toggle/` (the ss1–ss4 split; the old `Framework-common/testbook-toggle-markers.py` is RETIRED).
+Comments (`--off`) or uncomments (`--on`) every `debug_log` / `debug_log_scopes` / `_fingerprint_` line — plus the
+wrapper lines of any fp-only scope — across a TARGET, BOM + line endings preserved. **Dry-run by default;
+`--commit` rewrites.** `--on`/`--off` is required and mutually exclusive. The target is a single `.txt` FILE, a
+mod/repo FOLDER (walked for the config'd extensions), or a mod NAME via `--mod` (a `[mod_locations]` key).
 
 ```
-# preview turning markers OFF across every configured mod:
-python Framework-common/testbook-toggle-markers.py --off
+# preview turning markers OFF across one mod (folder walk):
+python Framework-Toggle/run-toggle.py --off --mod MyDiploPlayMod
 
 # turn markers ON for one mod and apply:
-python Framework-common/testbook-toggle-markers.py --on --mod MyDiploPlayMod --commit
+python Framework-Toggle/run-toggle.py --on --mod MyDiploPlayMod --commit
 
-# target a folder not in config:
-python Framework-common/testbook-toggle-markers.py --off --path "C:/Users/<you>/Projects/victoria-3-mod/mod1/Top40EcoBoostMod" --commit
+# target a single file or explicit folder by absolute path:
+python Framework-Toggle/run-toggle.py --off "C:/Users/<you>/Projects/victoria-3-mod/mod1/Top40EcoBoostMod" --commit
+
+# operate on ONE file with the standalone sub-scripts (each independently runnable, full path as arg):
+python Framework-Toggle/ext-toggle-markers.py <file.txt>              # list marker lines
+python Framework-Toggle/run-toggle-file.py --off --commit <file.txt>  # toggle one file
+python Framework-Toggle/chk-toggle-scopes.py <file.txt>               # brace balance + empty-scope check
 ```
 
-> **Promote / Ceremony 3 = `--off --commit`** across all mods, then verify ZERO active `debug_log` /
+> **Promote / Ceremony 3 = `--off --commit`** per mod, then verify ZERO active `debug_log` /
 > `_fingerprint_` lines remain (DEV-RULES "Save-fingerprint debugging" promote discipline).
 
-**Config — `Framework-common/config_toggle.toml`.** Change the comment marker, the line patterns, or which file
-types are touched:
+**Config — `Framework-Toggle/config_toggle.toml`.** Change the comment marker, the line patterns, the file types
+touched, or the `scope_keywords` set the empty-scope collapse/check operates over:
 
 ```toml
-# testbook/v2/tools/Framework-common/config_toggle.toml
+# testbook/v2/tools/Framework-Toggle/config_toggle.toml
 [toggle]
 comment_marker = "#"
 patterns = ['^\s*debug_log(_scopes)?\s*=', '_fingerprint_']   # add a regex to toggle more line kinds
@@ -319,7 +376,7 @@ python Framework-common/run-archive-curr.py save-CURR
 | `run-logtriage.py` | `Framework-Logtriage/` | `[MOD_NAME...]` (none = `config_logmods.toml`) or `--all` | `--logs` | `log-CURR/` common + `_global/` + `<Mod>/` |
 | `run-saveparse.py` | `Framework-SaveParse/` | `MOD_NAME...` or `--all` | `--save --prefix --rerun` | `save-CURR/<Mod>/` |
 | `run-scrub.py` | `Framework-common/` | — | `--mod --commit` | (deletes generated data) |
-| `testbook-toggle-markers.py` | `Framework-common/` | — | `--on/--off --mod --path --commit` | (rewrites mod `.txt`) |
+| `run-toggle.py` | `Framework-Toggle/` | — | `--on/--off --mod --path <target> --commit` | (rewrites mod `.txt`; subs `ext-/run-toggle-file/chk-toggle-scopes` act on ONE file) |
 | `run-archive-curr.py` | `Framework-common/` | `<log-CURR\|save-CURR>` | — | auto STEP 1 of log/save masters; demotes prior CURR + creates Game-<game>/ if missing |
 
 | Config file (from `tools/`) | Tracked? | What you change there |
@@ -333,7 +390,7 @@ python Framework-common/run-archive-curr.py save-CURR
 | `Framework-Logtriage/smoke_detector.example.csv` | yes | curated noise/tracked verdicts (append-only; replaces the retired `benign.csv`) |
 | `Framework-Logtriage/diag_literals.example.csv` | yes | the diagnostics RULES (all finding text; swappable via `--literals`) |
 | `Framework-SaveParse/config_saveparse.toml` | yes | fixed-point factor, cap regex, capped building lists |
-| `Framework-common/config_toggle.toml` | yes | comment marker, toggle patterns, extensions |
+| `Framework-Toggle/config_toggle.toml` | yes | comment marker, toggle patterns, extensions, `scope_keywords` set |
 
 See `README.md` (concepts + how to READ the diagnostics) and each `Framework-*/README.md` for per-framework
 detail. Design/vision: `hk-config/roadmap/MOD-DEBUG-FRAMEWORK.md`.

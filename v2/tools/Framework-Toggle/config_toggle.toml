@@ -1,0 +1,26 @@
+# config_toggle.toml — Framework-Toggle settings (externalized literals; vision §A/§D). Read-only TOML.
+# RELOCATED here from Framework-common 2026-07-03 when the ss1-ss4 split landed (the interim
+# testbook-toggle-markers.py that loaded it from Framework-common is retired). Loaded by lib_toggle.
+[toggle]
+comment_marker = "#"
+
+# A line is toggleable if (after stripping a leading comment marker) it matches ANY of these regexes.
+# Single-quoted = TOML literal strings (no escaping). DEV-RULES makes debug_log + _fingerprint_ names greppable,
+# and the fingerprint statements are single-line, so these anchored/substring patterns suffice.
+patterns = [
+  '^\s*debug_log(_scopes)?\s*=',   # debug_log / debug_log_scopes emit lines
+  '_fingerprint_',                 # any save-fingerprint set/change/has line
+]
+
+# Mod source file types to touch (script .txt only; loc .yml is never toggled).
+extensions = [".txt"]
+
+# Scope-keyword set (TG-05): the wrapper block types whose EMPTY-EXCEPT-LIMIT collapse the toggle manages, and
+# that chk-toggle-scopes (ss3) verifies are never left active-but-empty after a toggle. A `<key> = { ... }`
+# block is only collapsed/checked when <key> is in this set, so data/definition blocks are never touched. The
+# `limit` sub-block is excluded from the body (it is a condition, not an effect), so an if/limit-only scope
+# whose only effect was a fingerprint collapses cleanly.
+scope_keywords = [
+  "if", "else_if", "else", "immediate", "option", "trigger", "hidden_effect",
+  "when_taken", "random", "random_list", "first_valid", "switch",
+]

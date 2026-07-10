@@ -27,7 +27,7 @@ Requires Framework-ModParse first (`data-<Mod>`). The three sets also run standa
 |---|---|---|
 | ROOT (common, Set 1) | `raw_buildings/raw_states/raw_countries/raw_state_regions/raw_pops.csv` | one streaming pass per save manager (RAW IDs — UAT SP-02) |
 | ROOT (common) | `raw_flags.csv` | EVERY persisted `flag=`/`variable=`/`modifier=`/`global_variable=` with doc_path (SORT-not-FILTER; undecoded) |
-| ROOT (common) | `raw_market_goods.csv` · `goods_ids.csv` | per (market × goods): current/min/max price, sample date (T103); the id→name catalog (generated from `game_files_path` goods files, or the tracked seed) |
+| ROOT (common) | `raw_market_goods.csv` · `goods_ids.csv` | per (market × goods): current/min/max price, sample date (T103); the id→name/base_price catalog (seeded from the tracked, hand-curated `goods_ids.example.csv`; generator lives in `hk-config/tools/testbook_lookup_generators/`) |
 | ROOT (common) | `raw_state_census.csv` | the ENRICH join: building rows with owner tag + owner market + state-region template |
 | `<Mod>/` (Sets 2-3) | `aggr_save_matches.csv` · `aggr_census_overbuild.csv` · `metrics.csv` · `diag_fired.csv` · `diagnostics.md` | mod tokens/fingerprints persisted (decoded values/dates); over-cap verdicts (T101 generic cap pattern); engine findings |
 

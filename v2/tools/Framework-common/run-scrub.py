@@ -29,12 +29,23 @@ def main():
         print("scrub: nothing to remove.")
         return
     print(f"scrub {'(COMMIT)' if a.commit else '(dry-run)'} — {len(targets)} dir(s) under {root}:")
-    for t in targets:
-        print(f"  {'DELETED' if a.commit else 'would delete'}  {os.path.relpath(t, root)}")
-        if a.commit:
-            shutil.rmtree(t, ignore_errors=True)
     if not a.commit:
+        for t in targets:
+            print(f"  would delete  {os.path.relpath(t, root)}")
         print("  (dry-run; pass --commit to actually delete)")
+        return
+    locked = []
+    for t in targets:
+        rel = os.path.relpath(t, root)
+        shutil.rmtree(t, ignore_errors=True)
+        if os.path.exists(t):                              # rmtree swallowed a failure — report the TRUTH
+            print(f"  LOCKED (open elsewhere? a CSV open in Excel?)  {rel}")
+            locked.append(rel)
+        else:
+            print(f"  DELETED  {rel}")
+    if locked:
+        sys.exit(f"scrub: {len(locked)} dir(s) could NOT be removed (a file inside is open — commonly a "
+                 f"CSV open in Excel). Close it and re-run: {', '.join(locked)}")
 
 
 if __name__ == "__main__":

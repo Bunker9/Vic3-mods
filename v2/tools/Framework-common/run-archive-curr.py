@@ -46,7 +46,11 @@ def archive_curr(kind):
         if not label:                                     # bare '<kind>' -> synthesize a label from its mtime
             label = time.strftime("%Y%m%d%H%M", time.localtime(os.path.getmtime(d)))
         dest = _unique(os.path.join(root, f"{prefix}-{label}"))
-        os.rename(d, dest)
+        try:
+            os.rename(d, dest)
+        except OSError as e:                               # WinError 5 = a file inside is held open
+            sys.exit(f"archive-curr: cannot demote '{os.path.basename(d)}' — it is LOCKED (a file inside is "
+                     f"open, commonly a CSV open in Excel). Close it and re-run. [{e.__class__.__name__}: {e}]")
         print(f"  archived {os.path.basename(d)} -> {os.path.basename(dest)}")
         n += 1
     print(f"archive-curr {kind}: demoted {n} prior dir(s)")

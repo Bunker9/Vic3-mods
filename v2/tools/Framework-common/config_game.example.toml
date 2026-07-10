@@ -6,9 +6,10 @@
 # on a new machine/OS (vision §A/§Z): the frameworks resolve everything else.
 #
 # Blank a value ("") to let the framework AUTO-RESOLVE it (Documents/registry). Use forward slashes.
-
-# Absolute path to the unpacked Victoria 3 game files (vanilla), for token verification. Blank = not needed here.
-game_files_path = ""
+#
+# NOTE: the frameworks NEVER read the unpacked vanilla game files. The one lookup that needs them (the goods
+# id->name catalog) is generated OFFLINE by hk-config/tools/testbook_lookup_generators/anal-goods-ids.py, which
+# reads its own hk-config/config/refpaths.json — so there is no game_files_path here.
 
 # Vic3 logs dir. Blank => auto-resolve <Documents>/Paradox Interactive/Victoria 3/logs.
 logs_dir = ""

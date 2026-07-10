@@ -6,9 +6,35 @@
 > Governing rule: DEV-RULES "THE debugging framework — do NOT author ad-hoc debug scripts" ([[the-debug-framework]]).
 
 ## What THE framework is
-ALL Victoria 3 mod debugging is driven through THE framework — three single-purpose frameworks over a shared
+ALL Victoria 3 mod debugging is driven through THE framework — single-purpose frameworks over a shared
 common lib, reading/writing one game-data area. **Never write a one-off debug script beside it; close gaps by
 EXTENDING it generically.**
+
+## The analysis MANDATE — what Claude DOES with the outputs (SORT, don't FILTER; attribute to a mod FEATURE)
+> **"feature" is a PROTECTED word** — a real mod game-mechanic (a `testbook_status.xlsx` IDENTITY id, e.g.
+> `ECO-CHAMP`), NEVER a tab / view / HTML object. Below, "feature" always means that.
+
+Running the frameworks is not about hiding noise — it is to LIST/SORT and ATTRIBUTE:
+1. **LIST/SORT every error — never FILTER.** The raw stages capture every log line + every save object; nothing
+   is deleted. A "known/benign" verdict SORTS a signature, it must not hide it. (The current `smoke_detector`
+   benign-suppress model VIOLATES this — flagged for rework, see TODO T107.)
+2. **Go over the SAVE data blocks for feature-related content.** For any/all mod, join the persisted
+   vars / modifiers / fingerprints / building + state census against each mod-FEATURE's declared tokens
+   (kw / vars / modifiers / `debug_log` — the per-feature list in `v2/<Mod>/`) to judge, per feature:
+   **intended-effect / side-effect / no-effect.**
+3. **Attribute with a PROBABILITY.** Give an explicit confidence that an observed effect (or error) is caused by
+   that mod-feature vs vanilla / another mod — not a binary. Over-build errors are attributed to the pulse/seeding
+   feature that most likely caused them, NOT rubber-stamped "benign".
+4. **Diagnostics are DATA, keyed to a mod-feature.** Findings come from `diag_literals` rules
+   (`id, text, condition, logical_reasoning, user_comments, status` + a mod-FEATURE dimension — TODO T108), never
+   hardcoded prose. Concrete save-side checks the diagnostics MUST carry: over-build of **railways**, **art
+   academies**, and **light & heavy manufacturing** buildings; **market goods trading too cheap globally**; and
+   **industrial / staple goods priced >25% over base**.
+5. **`actinfo` is a PROTECTED SCORING WORD** — "actionable info". Every file an `aggr_*` / `diag_*` / `gen_*`
+   stage produces must be SCORED on whether a human gains ACTINFO by looking at it. A generated aggr/diag with
+   NO actinfo (an identical-across-mods generic boilerplate, an empty per-mod file, a mod-agnostic census
+   duplicated per-mod, a bare flag) is **SLOP** by definition and must be removed or made feature-attributed.
+   The bar for a per-mod file is: does it tell you something TRUE and ACTIONABLE about THAT mod's feature(s)?
 
 ```
 testbook/v2/tools/
@@ -18,7 +44,7 @@ testbook/v2/tools/
 ├─ Framework-ModParse/   mod SOURCE  → Game-<game>/data-<Mod>/   (idempotent token files; the shared upstream)
 ├─ Framework-Logtriage/  game LOGS + data-<Mod> → Game-<game>/log-CURR/<Mod>/
 ├─ Framework-SaveParse/  .v3 SAVE  + data-<Mod> → Game-<game>/save-CURR/<Mod>/
-├─ Framework-Toggle/     debug/fp marker TOGGLE split (STUBS — interim tool is testbook-toggle-markers here)
+├─ Framework-Toggle/     debug/fp marker TOGGLE split — ss1-ss4 over lib_toggle (run-toggle master; per-file subs)
 └─ Game-<game>/          DATA ONLY — per-run outputs (data-<Mod>/, log-CURR*/, save-CURR*/); gitignored WHOLESALE
                          at repo level, NO code/config here. Created on demand. A future PDX game = a new Game-<X>/.
 ```
@@ -97,12 +123,12 @@ the marker the report/unit-test layer uses to find the latest data source.
 ## WHERE-map — every debug / test / ceremony script and its home
 | script / job | home | game-specific? | status |
 |---|---|---|---|
-| shared lib (`lib_*`) | `Framework-common/` | no | built (Phase 1) |
-| master run-all (`run-debug-master.py`) | `Framework-common/` | no | Phase 5 |
-| **cleanup / scrub** (`run-scrub.py`) | `Framework-common/` | no | Phase 5 |
-| **comment / fingerprint TOGGLE** (debug_log + `_fingerprint_` + dummy-use on/off, mod-agnostic) | `Framework-common/` (interim); `Framework-Toggle/` = the split, STUBS | no | built (interim) / split pending |
+| shared lib (`lib_*`) | `Framework-common/` | no | built |
+| master run-all (`run-debug-master.py`) | `Framework-common/` | no | built |
+| **cleanup / scrub** (`run-scrub.py`) | `Framework-common/` | no | built |
+| **comment / fingerprint TOGGLE** (debug_log + `_fingerprint_` on/off, mod-agnostic) | `Framework-Toggle/` (ss1–ss4 over `lib_toggle`: `run-toggle` master + per-file subs) | no | built (interim `testbook-toggle-markers` RETIRED 2026-07-03) |
 | **KEEP-newest-CURR** (`run-archive-curr.py`; STEP 1 of log/save masters, standalone; creates Game-<game>/ if missing) | `Framework-common/` | no | built 2026-07-01 |
-| ModParse / Logtriage / SaveParse jobs | `Framework-*/` | no (logic) | Phases 2–4 |
+| ModParse / Logtriage / SaveParse jobs | `Framework-*/` | no (logic) | built (reworked: parse-once + SORT-not-FILTER Sets) |
 | game/machine CONFIG (`config_game.toml` + `.example` + `config_naming.toml`) | `Framework-common/` | YES (values) | built |
 | per-run DATA (`data-<Mod>/`, `log-CURR*/`, `save-CURR*/`) | `Game-<game>/` (gitignored wholesale) | n/a (data) | built |
 | **pre-game version-bump + LOG-CLEANUP** (fresh versiontest log before a run) | `hk-config/scripts/envSetup_pre_game_launch.ps1` + `clear-vic3-logs.ps1` | YES | exists in hk-config (Game-<game>/ is data-only, so game CODE cannot live there); a dedicated game-code home = a flagged follow-up |

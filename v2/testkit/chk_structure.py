@@ -6,20 +6,48 @@ PORTED into v2 (self-contained) on 2026-06-18 from testkit/checks/structure.py.
 Identical logic; v2 owns this copy so it no longer reaches into the v1 testkit.
 
 Deterministic, zero-false-positive checks done BEFORE a mod is allowed to PR to master:
-  - encoding   : script .txt + loc .yml must be UTF-8 BOM ; metadata .json must be NO BOM
-  - braces     : '{' vs '}' balance per .txt
-  - quotes     : even number of unescaped '"' per .txt
-  - folder     : file sits under a known-valid mod root (allowlist; folders.cwt = v2)
-  - metadata   : .metadata/metadata.json parses + has required keys
+  - encoding     : script .txt + loc .yml must be UTF-8 BOM ; metadata .json must be NO BOM
+  - braces       : '{' vs '}' balance per .txt
+  - quotes       : even number of unescaped '"' per .txt
+  - empty_scopes : no ACTIVE (non-commented) empty control/effect block per .txt (an
+                   `if`/`immediate`/`option`/`trigger`/`when_taken`/... scope left empty
+                   except a `limit`). Added 2026-07-04; REUSES the Framework-Toggle
+                   scope_keywords config (config_toggle.toml) as the single-source keyword
+                   allowlist so data empties (`traits = {}`, `impassable = {}`) are never
+                   considered. Detection is char/column level (the toggle's own line-granular
+                   check_scopes false-positives on single-line `if = { ... }` blocks).
+  - debug_markers: INFORMATIONAL (never fails) count of ACTIVE debug_log / _fingerprint_
+                   lines, via lib_toggle's own patterns - the static side of the Ceremony 3
+                   promote check (must read 0 at PR/merge; expected non-zero mid-dev).
+  - folder       : file sits under a known-valid mod root (allowlist; folders.cwt = v2)
+  - metadata     : .metadata/metadata.json parses + has required keys
+
+Reuse note: the last two checks import lib_toggle (Framework-Toggle) + lib_config
+(Framework-common). If that framework is not importable they degrade to n/a and the core
+brace/quote/encoding checks still run (best-effort import, never a hard dependency).
 
 This is the "Static" tab data source. It reads NO game state; it only inspects files.
 
 Usage:
     python structure.py <path-to-mod-folder> [--json <out.json>]
 """
-import sys, os, json, argparse, datetime
+import sys, os, json, argparse, datetime, re
 
 BOM = b"\xef\xbb\xbf"
+
+# --- REUSE the Framework-Toggle comment-agnostic scope/marker engine (empty-scope + debug/fp leak detection)
+#     instead of re-implementing a brace parser here. Best-effort: if the toggle framework is not importable
+#     (moved/renamed, missing tomllib), _TOGGLE stays None and both derived checks degrade to n/a - the core
+#     brace/quote/encoding/metadata checks still run so this never becomes a hard dependency.
+_TOOLS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools")
+_TOGGLE_DIR = os.path.join(_TOOLS, "Framework-Toggle")
+try:
+    sys.path.insert(0, _TOGGLE_DIR)
+    sys.path.insert(0, os.path.join(_TOOLS, "Framework-common"))
+    import lib_toggle
+    _TCFG = lib_toggle.config(_TOGGLE_DIR)
+except Exception:                       # toggle framework absent / config unreadable
+    lib_toggle, _TCFG = None, None
 
 # Valid top-level roots inside a Vic3 mod (v1 allowlist; refine from folders.cwt later).
 VALID_ROOTS = {"common", "events", "localization", "gfx", "music", "sound",
@@ -57,6 +85,90 @@ def check_quotes(text):
     # count unescaped double-quotes; odd = unbalanced
     q = text.count('"') - text.count('\\"')
     return (q % 2 == 0, f'{q} quotes ({"even" if q % 2 == 0 else "ODD"})')
+
+
+def _match_brace(s, i):
+    """s[i] is '{'; return index of the matching '}', or -1 if unbalanced."""
+    depth = 0
+    while i < len(s):
+        if s[i] == "{":
+            depth += 1
+        elif s[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return i
+        i += 1
+    return -1
+
+
+def _strip_limit_children(inner):
+    """Remove complete `limit = { ... }` spans (a limit is a condition, not body), so an `if` whose only
+    content is its limit reads as empty. Depth-matched, char-level."""
+    out, i = [], 0
+    while i < len(inner):
+        m = re.match(r"limit\s*=\s*\{", inner[i:])
+        if m:
+            close = _match_brace(inner, i + m.end() - 1)
+            if close != -1:
+                i = close + 1
+                continue
+        out.append(inner[i])
+        i += 1
+    return "".join(out)
+
+
+def check_empty_scopes(text):
+    """Structural check: flag any ACTIVE (uncommented) control/effect scope left empty-except-limit - an
+    `if`/`else_if`/`immediate`/`option`/`trigger`/`hidden_effect`/`when_taken`/`random`/... block whose body
+    is nothing but a `limit` and/or comments. The keyword set is REUSED from the Framework-Toggle config
+    (config_toggle.toml scope_keywords) so it stays single-sourced and data empties (`traits = {}`,
+    `impassable = {}`) are never considered. Detection is CHAR/COLUMN level (not line-granular like the
+    toggle's own check_scopes, which false-positives on single-line `if = { ... }` blocks) - so compact
+    one-line control blocks with a real inline body are correctly seen as non-empty."""
+    if lib_toggle is None or _TCFG is None:
+        return (None, "n/a (toggle lib unavailable)")
+    scopes = _TCFG["scopes"]
+    orig = text.splitlines()
+    # comment-stripped copy, newlines preserved so we can recover line numbers; a commented-out scope
+    # therefore has no opener to match and is never flagged.
+    stripped = "\n".join(ln.split("#", 1)[0] for ln in orig)
+    defects, cruft = [], []
+    for m in re.finditer(r"([A-Za-z_]\w*)\s*=\s*\{", stripped):
+        key = m.group(1)
+        if key not in scopes:
+            continue
+        close = _match_brace(stripped, m.end() - 1)
+        if close == -1:
+            continue                       # unbalanced; the braces check owns that failure
+        body = _strip_limit_children(stripped[m.end():close])
+        if re.search(r"[A-Za-z0-9]", body):
+            continue                       # has a real inline/nested effect -> not empty
+        oline = stripped.count("\n", 0, m.start()) + 1
+        cline = stripped.count("\n", 0, close) + 1
+        # Empty ONLY because a debug_log / _fingerprint_ inside it is commented out (the expected promote
+        # state, or a toggle that left the wrapper) -> benign cruft, NOT a gating defect. A scope empty with
+        # no such marker is a genuine authoring dead-branch (e.g. an else_if with a limit but no effect).
+        if any(lib_toggle._has_marker(l, _TCFG) for l in orig[oline - 1:cline]):
+            cruft.append(oline)
+        else:
+            defects.append(f"line {oline}: '{key}' scope has no effect (only a limit / comments)")
+    parts = []
+    if defects:
+        parts.append("; ".join(defects[:10]) + (f" (+{len(defects) - 10} more)" if len(defects) > 10 else ""))
+    if cruft:
+        parts.append(f"{len(cruft)} debug/fingerprint-only empty scope(s) [benign, collapsible]")
+    return (not defects, " | ".join(parts) if parts else "no empty control scope")
+
+
+def check_debug_markers(lines):
+    """INFORMATIONAL (never fails the file): count ACTIVE (uncommented) debug_log / _fingerprint_ lines using
+    the toggle's own patterns. The static half of the Ceremony 3 promote gate - must be 0 at PR/merge, but is
+    expected non-zero mid-dev, so this only surfaces the count and never flips file_ok."""
+    if lib_toggle is None or _TCFG is None:
+        return (None, "n/a")
+    m = _TCFG["marker"]
+    n = sum(1 for ln in lines if lib_toggle._is_active(ln, m) and lib_toggle._has_marker(ln, _TCFG))
+    return (True, f"{n} active debug_log/fingerprint line(s)" + (" (OFF; promote-ready)" if n == 0 else ""))
 
 
 def check_folder(rel):
@@ -110,6 +222,10 @@ def run(mod_dir):
                 q_ok, q_msg = check_quotes(text)
                 checks["braces"] = {"ok": b_ok, "msg": b_msg}
                 checks["quotes"] = {"ok": q_ok, "msg": q_msg}
+                es_ok, es_msg = check_empty_scopes(text)
+                checks["empty_scopes"] = {"ok": es_ok, "msg": es_msg}
+                dm_ok, dm_msg = check_debug_markers(text.splitlines())
+                checks["debug_markers"] = {"ok": dm_ok, "msg": dm_msg}
             file_ok = all(c["ok"] for c in checks.values() if c["ok"] is not None)
             files.append({"path": rel.replace("\\", "/"), "ok": file_ok, "checks": checks})
 

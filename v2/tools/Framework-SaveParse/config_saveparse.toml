@@ -25,14 +25,15 @@ fields = ["type", "workforce", "dependents", "location", "culture", "religion", 
 
 [goods]
 # market/goods price extraction (T103): market_manager price_trend channels are keyed by NUMERIC goods id
-# (last sample = current price). The CATALOG maps goods id -> name: generated from the game files
-# (<game_files_path>/common/goods/*.txt, id = definition ORDER) when game_files_path is set; else the tracked
-# goods_ids.example.csv seed is copied. Cross-check: a state's trade.goods ids vs its traded_goods names.
+# (last sample = current price). The CATALOG (goods_id,goods_name,base_price) is a hand-curated TRACKED
+# LITERAL seeded to save-CURR/ ROOT at runtime. It is GENERATED offline by
+# hk-config/tools/testbook_lookup_generators/anal-goods-ids.py (frameworks NEVER read base game files) and
+# manually copied here on a game patch / new-goods DLC. Validated: 41=Tea/43=Sugar match a state's
+# trade.goods ids vs its traded_goods names.
 manager = "market_manager"
 world_key = "world_market"
 trend_key = "price_trend"
 channels_key = "channels"
-goods_dir = "common/goods"
 catalog_example = "goods_ids.example.csv"
 catalog_root = "goods_ids.csv"
 

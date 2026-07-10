@@ -1,6 +1,6 @@
 human_agreed,pattern,count,example
 N,should be in utf8-bom encoding,0,[..] somefile.txt should be in utf8-bom encoding
-,jomini_script_system.cpp,0,jomini_script_system.cpp:123: <exact line captured here for triage>
+Y,jomini_script_system.cpp,0,jomini_script_system.cpp:123: <exact line captured here for triage>
 N,"Invalid scope types for event target link, link: target_country at <FILE>:#",2,
 N,Variable '<X>' is set but is never used. Note that use in localization doesn't count due to technical limitations. Use in unused scripted triggers and effects also does not count,2,
 N,Compiling source for eco_pulse_spread failed for unknown arguments: TYPE. At <FILE>:#,78,
@@ -10,3 +10,5 @@ N,Value of wrong type in '<X>'. Got value of type '<X>',766,
 N,Error: remove_modifier effect [ Timed modifier <TOKEN> in scope object Country Khalsa Raj (#) not found. Make sure the modifier is in the same scope as this effect is being run on. ],766,
 N,Script location: <FILE>:#,766,
 N,<FILE>:#,1,
+Y,"Building in Zanzibar has # of building type Fishing Wharves and can only support #, its level will be reduced",1,"[13:45:45][building_manager.cpp:1769]: Building in Zanzibar has 11 of building type Fishing Wharves and can only support 10, its level will be reduced."
+Y,"Building in Lower Egypt has # of building type Fishing Wharves and can only support #, its level will be reduced",1,"[13:45:56][building_manager.cpp:1769]: Building in Lower Egypt has 7 of building type Fishing Wharves and can only support 6, its level will be reduced."
