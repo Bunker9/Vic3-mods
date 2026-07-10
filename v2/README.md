@@ -45,10 +45,13 @@ v2/
 │  ├─ gen_manifest_from_xlsx.py   the manifest generator (tab normalization heuristic lives here)
 │  ├─ lib_components.py   CSS/JS + helpers: tbl (ptable), xtable, badge, card/stub, write_component
 │  ├─ lib_buildstamp.py · lib_paths.py    (build-stamp label · resolve_logs_dir)
-│  ├─ chk_structure.py · chk_standards.py  static checks on mod files
-│  ├─ chk-mods-have-metadata.py  repo-level guard: every mod folder MUST have .metadata/metadata.json
-│  │                     (closes the CI hole where a metadata-less mod is silently skipped;
-│  │                     wire into static-checks.yml via a UI edit: `python _harness/v2/testkit/chk-mods-have-metadata.py .`)
+│  ├─ chk_structure.py · chk_standards.py  static checks on mod files (chk_structure = THE master;
+│  │                     its checks are modular and it CALLS the reusable sub-scripts below)
+│  ├─ chk-mods-have-metadata.py  SUB-SCRIPT (individually callable): repo-level guard - every
+│  │                     sibling mod folder MUST have .metadata/metadata.json. Called by
+│  │                     chk_structure on every per-mod run (subprocess, hyphen-name rule), so the
+│  │                     CI hole (metadata-less mods silently skipped by the workflow loop) is
+│  │                     closed with NO workflow change. Standalone: `python chk-mods-have-metadata.py <repo-root>`
 │  ├─ parse_log.py · parse_timeline.py     game-log parsers
 │  └─ ext_static.py · ext_log.py           generic VIEW extractors (the mod-wide views)
 └─ <Mod>/

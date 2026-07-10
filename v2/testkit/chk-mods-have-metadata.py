@@ -10,12 +10,13 @@ closes that hole: run it once per PR against the repo ROOT; it fails if any
 top-level folder looks like a mod (contains common/ events/ localization/
 map_data/ or gfx/) but has no .metadata/metadata.json.
 
-Usage:
-    python chk-mods-have-metadata.py <repo-root>
+SUB-SCRIPT of the chk_structure master (individually callable, per the
+modular-tooling dev rule): chk_structure invokes it as a subprocess on every
+per-mod run (its "sibling mods metadata" check), so the guard reaches CI
+through the EXISTING workflow with no workflow edit.
 
-CI wiring (one-line UI edit to .github/workflows/static-checks.yml, since the
-push PAT deliberately lacks workflow scope):
-    python _harness/v2/testkit/chk-mods-have-metadata.py .
+Standalone usage:
+    python chk-mods-have-metadata.py <repo-root>
 """
 import sys, os
 

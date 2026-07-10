@@ -176,6 +176,38 @@ def check_folder(rel):
     return (root in VALID_ROOTS, f"root '{root}'" + ("" if root in VALID_ROOTS else " UNKNOWN"))
 
 
+def check_sibling_mods_metadata(mod_dir):
+    """Repo-level guard, run as part of EVERY per-mod check (2026-07-10).
+
+    WHY: the CI workflow loop only invokes this checker on folders that HAVE
+    .metadata/metadata.json, so a mod that accidentally lost its metadata was
+    silently skipped and shipped broken (the game will not load it). Scanning
+    the CHECKED mod's sibling folders closes that hole with NO workflow change:
+    any per-mod run fails if a sibling looks like a mod but carries no metadata.
+
+    The logic lives in the individually-callable SUB-SCRIPT
+    chk-mods-have-metadata.py (run it standalone on a repo root for details);
+    hyphen-named sub-scripts are invoked as SUBPROCESSES per the naming rule.
+    Degrades to n/a if the sub-script is absent (same best-effort stance as the
+    lib_toggle imports).
+    """
+    sub = os.path.join(os.path.dirname(os.path.abspath(__file__)), "chk-mods-have-metadata.py")
+    if not os.path.isfile(sub):
+        return {"ok": None, "msg": "chk-mods-have-metadata.py sub-script not found - n/a"}
+    root = os.path.dirname(os.path.abspath(os.path.normpath(mod_dir)))
+    try:
+        import subprocess
+        r = subprocess.run([sys.executable, sub, root],
+                           capture_output=True, text=True, timeout=60)
+    except Exception as e:
+        return {"ok": None, "msg": f"sibling scan unavailable: {e}"}
+    if r.returncode == 0:
+        return {"ok": True, "msg": "all sibling mod folders carry metadata"}
+    detail = "; ".join(l.strip() for l in (r.stdout or "").splitlines() if "FAIL" in l) \
+             or (r.stdout or r.stderr or "").strip()[-200:]
+    return {"ok": False, "msg": detail or "sibling mod folder(s) missing metadata"}
+
+
 def check_metadata(mod_dir):
     mp = os.path.join(mod_dir, ".metadata", "metadata.json")
     if not os.path.isfile(mp):
@@ -230,12 +262,16 @@ def run(mod_dir):
             files.append({"path": rel.replace("\\", "/"), "ok": file_ok, "checks": checks})
 
     meta = check_metadata(mod_dir)
-    passed = sum(1 for f in files if f["ok"]) + (1 if meta["ok"] else 0)
-    total = len(files) + 1
+    siblings = check_sibling_mods_metadata(mod_dir)
+    extra = 1 if siblings["ok"] is not None else 0
+    passed = (sum(1 for f in files if f["ok"]) + (1 if meta["ok"] else 0)
+              + (1 if siblings["ok"] else 0))
+    total = len(files) + 1 + extra
     return {
         "mod": mod,
         "checked_at": datetime.datetime.now().isoformat(timespec="seconds"),
         "metadata": meta,
+        "sibling_mods_metadata": siblings,
         "files": files,
         "summary": {"checks": total, "passed": passed, "failed": total - passed},
     }
@@ -245,6 +281,9 @@ def print_summary(res):
     print(f"\n=== STATIC CHECKS: {res['mod']} ===")
     m = res["metadata"]
     print(f"  [{'OK ' if m['ok'] else 'FAIL'}] metadata.json  {m['msg']}")
+    sib = res.get("sibling_mods_metadata")
+    if sib and sib["ok"] is not None:
+        print(f"  [{'OK ' if sib['ok'] else 'FAIL'}] sibling mods metadata  {sib['msg']}")
     for f in res["files"]:
         flag = "OK " if f["ok"] else "FAIL"
         bad = "" if f["ok"] else "  <- " + "; ".join(
