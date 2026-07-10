@@ -86,7 +86,14 @@ foreach ($name in $names) {
         # Robust, non-fatal removal: PS5.1 + EAP=Stop turns a native rmdir stderr into a
         # terminating error that used to kill the whole -All run - keep every attempt in
         # try/catch and fall through to the next method.
-        try { attrib -R $link } catch {}
+        # ORDER MATTERS (2026-07-10): OneDrive stamps junctions ReadOnly, which makes
+        # Directory.Delete/rmdir throw Access denied. Clear ReadOnly FIRST - via .NET
+        # attributes (bare `attrib -R` on a DIRECTORY silently no-ops without /d).
+        try {
+            $it = Get-Item $link -Force
+            $it.Attributes = $it.Attributes -band (-bnot ([System.IO.FileAttributes]::ReadOnly))
+        } catch {}
+        try { attrib -r "$link" /d } catch {}
         try { [System.IO.Directory]::Delete($link) } catch {
             try { cmd /c "rmdir /q `"$link`"" } catch {}
         }
