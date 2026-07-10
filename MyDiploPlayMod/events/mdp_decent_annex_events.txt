@@ -97,7 +97,7 @@ mdp_decent_annex.2 = {
 	}
 
 	immediate = {
-		debug_log = "mdp - decent-annex-adjacency - fired"
+		#debug_log = "mdp - decent-annex-adjacency - fired"
 
 		# BIC / NSW: peacefully absorb the decentralized nations that BORDER us
 		# (state-side: walk OUR states, then their neighbours). 2026-07-10 UAT tweak:
@@ -148,7 +148,7 @@ mdp_decent_annex.3 = {
 	}
 
 	immediate = {
-		debug_log = "mdp - decent-annex-sakhalin - fired"
+		#debug_log = "mdp - decent-annex-sakhalin - fired"
 
 		# Annex every decentralized owner of a STATE_SAKHALIN region_state (state-side).
 		s:STATE_SAKHALIN = {

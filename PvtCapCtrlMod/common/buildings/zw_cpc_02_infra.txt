@@ -149,6 +149,7 @@ REPLACE:building_railway = {
 					}
 				}
 			}
+			add = 10000 # restored from vanilla 11_private_infrastructure.txt:177 (was dropped in the copy)
 		}
 
 		if = { # Manchurian Railway
