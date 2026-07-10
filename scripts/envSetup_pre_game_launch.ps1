@@ -38,10 +38,24 @@ param(
     [switch]$Archive,
     # Which worktree's versiontestMod build stamp to bump. Default 'mod1' (the master baseline).
     # Pass an active-dev worktree (e.g. 'mod1-inov') so the day-1 popup reflects THAT build under test.
-    [string]$Worktree = 'mod1'
+    # Accepts -Worktree mod1-inov, a bare positional (mod1-inov), or a bare flag (--mod1-inov / -mod1-inov).
+    [Parameter(Position = 0)]
+    [string]$Worktree = 'mod1',
+    # Catch a worktree passed as a bare flag (e.g. --mod1-inov) that PowerShell would otherwise
+    # reject as an unknown parameter. The leading dashes are stripped below.
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [string[]]$Rest
 )
 
 $ErrorActionPreference = 'Stop'
+
+# Normalise the worktree selector: a bare flag (--mod1-inov) lands in $Rest; strip leading dashes
+# and let it override the default. Also strip dashes off an explicit -Worktree value just in case.
+foreach ($a in $Rest) {
+    $cand = ($a -replace '^-+', '').Trim()
+    if ($cand) { $Worktree = $cand }
+}
+$Worktree = ($Worktree -replace '^-+', '').Trim()
 
 Write-Host "=== PRE-GAME-LAUNCH ceremony ===" -ForegroundColor Cyan
 
@@ -61,8 +75,23 @@ Write-Host "  logs directory: $LogsDir" -ForegroundColor Gray
 # repo root = two levels up from this script: hk-config\<scripts|tools> -> hk-config -> victoria-3-mod
 # (works whether this script lives in scripts\ or tools\; both are one level under hk-config).
 $repoRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$versiontestLoc = Join-Path $repoRoot "$Worktree\versiontestMod\localization\english\versiontest_l_english.yml"
+$locRel = 'versiontestMod\localization\english\versiontest_l_english.yml'
+$versiontestLoc = Join-Path $repoRoot (Join-Path $Worktree $locRel)
 Write-Host "  versiontest worktree: $Worktree" -ForegroundColor Gray
+
+# If the chosen worktree has no versiontest loc, auto-discover which sibling worktrees do, so the
+# user gets an actionable list instead of a silent fall-through onto the wrong (default) build stamp.
+if (-not (Test-Path $versiontestLoc)) {
+    $candidates = Get-ChildItem -Path $repoRoot -Directory -ErrorAction SilentlyContinue |
+        Where-Object { Test-Path (Join-Path $_.FullName $locRel) } |
+        Select-Object -ExpandProperty Name
+    Write-Host "  [!] no versiontest loc under worktree '$Worktree'" -ForegroundColor Yellow
+    Write-Host "      looked for: $versiontestLoc" -ForegroundColor Gray
+    if ($candidates) {
+        Write-Host "      worktrees that DO have it: $($candidates -join ', ')" -ForegroundColor Gray
+    }
+    exit 1
+}
 if (Test-Path $versiontestLoc) {
     $content = Get-Content $versiontestLoc -Raw
     if ($content -match 'VTEST_BUILD \d{8,}') {

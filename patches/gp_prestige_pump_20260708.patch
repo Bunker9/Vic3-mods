@@ -1,0 +1,211 @@
+SHELVED FEATURE — SteadyInnov GP prestige pump (rev B, coded 2026-07-08, shelved same day)
+Design doc: hk-config/roadmap/ROADMAP-gp-og-gate.md (status SHELVED). History: docs/PROGRESS.md.
+Contents: stdinnv_triggers.txt + stdinnv_gp_decisions.txt + stdinnv_gp_events.txt (whole new
+files, incl. the in-progress TODO in the trigger file) and the stdinnv_great_power_prestige
+modifier block + 4 loc lines (re-added to the two shared files; building_bridges untouched).
+RESTORE: from the mod1 worktree root run   git apply -p1 <this file>
+(git apply skips this preamble; verify first with   git apply --check -p1 <this file>)
+
+diff -ruN a/SteadyInnovMod/common/decisions/stdinnv_gp_decisions.txt b/SteadyInnovMod/common/decisions/stdinnv_gp_decisions.txt
+--- a/SteadyInnovMod/common/decisions/stdinnv_gp_decisions.txt	1970-01-01 11:00:00.000000000 +1100
++++ b/SteadyInnovMod/common/decisions/stdinnv_gp_decisions.txt	2026-07-08 20:09:52.949183100 +1000
+@@ -0,0 +1,41 @@
++# =============================================================================
++# SteadyInnovMod — "Claim Great Power Status" decision (2026-07-08, rev B)
++# Design: hk-config/roadmap/ROADMAP-gp-og-gate.md (user-reviewed D1-D5)
++# -----------------------------------------------------------------------------
++# WHY: the GP bar = 5.0 x AVERAGE country prestige (00_country_ranks.txt), so a
++# prestige-hoarding player inflates the average and organic GPs drop out (roster
++# collapses to 2-3). This decision opts a CANDIDATE nation into the stdinnv_gp.1
++# feedback controller (events/stdinnv_gp_events.txt): ramp prestige while below GP
++# and the roster is deficient (fewer than 9 GPs), hold when converged, full
++# deactivate + re-arm if candidacy is lost.
++#
++# Candidacy is DYNAMIC (stdinnv_gp_candidate, the mod's single trigger file): no
++# hardcoded tags, so risers (JAP/KOR/BHT/IND) qualify too. Decision itself only
++# takeable AT PEACE (covers the civil-war ranking dip). Player may take it as well
++# (harmless while already a GP: the controller ramps nothing, boost stays 0).
++# One-shot while active via the stdinnv_gp_active flag; the controller clears the
++# flag on deactivation, which re-arms this decision automatically.
++# Tokens verified vs game files 2026-07-08: is_at_war = no (vanilla decisions);
++# scripted-trigger invocation `name = yes` (ai_triggers usage); rest master-vetted.
++# =============================================================================
++stdinnv_become_great_power = {
++
++	is_shown = {
++		stdinnv_gp_candidate = yes
++		NOT = { has_variable = stdinnv_gp_active }
++	}
++
++	possible = {
++		stdinnv_gp_candidate = yes   # repeated so requirements show in the tooltip
++		is_at_war = no
++	}
++
++	when_taken = {
++		set_variable = { name = stdinnv_gp_active value = yes }
++		trigger_event = { id = stdinnv_gp.1 }
++	}
++
++	# Every AI candidate takes it promptly; harmless while the roster is healthy
++	# (the controller's 9-GP cap keeps the pumps idle until the roster dips).
++	ai_chance = { value = 10000 }
++}
+diff -ruN a/SteadyInnovMod/common/scripted_triggers/stdinnv_triggers.txt b/SteadyInnovMod/common/scripted_triggers/stdinnv_triggers.txt
+--- a/SteadyInnovMod/common/scripted_triggers/stdinnv_triggers.txt	1970-01-01 11:00:00.000000000 +1100
++++ b/SteadyInnovMod/common/scripted_triggers/stdinnv_triggers.txt	2026-07-08 20:09:52.899501900 +1000
+@@ -0,0 +1,19 @@
++﻿# =============================================================================
++# SteadyInnovMod — scripted triggers (THE single trigger file for this mod;
++# dev rule: one trigger file per mod, dependencies first)
++# =============================================================================
++
++# stdinnv_gp_candidate — may claim / keep the GP prestige pump: recognized,
++# independent, top 20 of the global country ranking (dynamic on purpose: no
++# hardcoded tags, so risers like JAP/KOR/BHT/IND qualify once they modernize).
++# Shared single source of truth for the stdinnv_become_great_power decision AND
++# the stdinnv_gp.1 controller (losing candidacy deactivates the pump).
++# Tokens verified vs game files 2026-07-08: global_country_ranking literal compare
++# (vanilla `<= 3`, 02_diplomatic_strategies); is_country_type / is_subject reused
++# from master-vetted code in this mod.
++stdinnv_gp_candidate = {
++	is_country_type = recognized
++	is_subject = no
++	global_country_ranking <= 20
++	#TODO add countries who are already GP BUT their
++}
+diff -ruN a/SteadyInnovMod/common/static_modifiers/stdinnv_modifiers.txt b/SteadyInnovMod/common/static_modifiers/stdinnv_modifiers.txt
+--- a/SteadyInnovMod/common/static_modifiers/stdinnv_modifiers.txt	2026-07-08 20:10:57.979572500 +1000
++++ b/SteadyInnovMod/common/static_modifiers/stdinnv_modifiers.txt	2026-07-08 20:09:53.048729500 +1000
+@@ -100,6 +100,19 @@
+ 	country_influence_add = 200
+ }
+ 
++# Prestige leg-up granted by the stdinnv_become_great_power decision, kept sized by
++# the stdinnv_gp.1 FEEDBACK controller event. GP status is derived from prestige
++# RELATIVE to the field, so a fixed boost can't chase a runaway leader. This is a UNIT
++# modifier (country_prestige_add = 1) that the controller RESCALES every 30 days via
++# add_modifier { multiplier = var:stdinnv_gp_boost }, where the boost is ramped up
++# until the nation actually IS a great power, then held. Permanent; the controller
++# remove+re-adds it each cycle (vanilla montenegrin-raiding pattern, no spam).
++# multiplier scales this add, so the value below MUST stay 1 (do not re-add a flat/mult).
++stdinnv_great_power_prestige = {
++	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
++	country_prestige_add = 1
++}
++
+ hungary_reconciled_to_vienna_50y = {
+ 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+ 	country_liberty_desire_add = -0.25
+diff -ruN a/SteadyInnovMod/events/stdinnv_gp_events.txt b/SteadyInnovMod/events/stdinnv_gp_events.txt
+--- a/SteadyInnovMod/events/stdinnv_gp_events.txt	1970-01-01 11:00:00.000000000 +1100
++++ b/SteadyInnovMod/events/stdinnv_gp_events.txt	2026-07-08 20:09:52.999808100 +1000
+@@ -0,0 +1,96 @@
++﻿namespace = stdinnv_gp
++
++# =============================================================================
++# SteadyInnovMod — dynamic Great Power prestige controller (2026-07-08, rev B)
++# Design: hk-config/roadmap/ROADMAP-gp-og-gate.md (user-reviewed D1-D5)
++# -----------------------------------------------------------------------------
++# THE FORMULA (00_country_ranks.txt): GP bar = 5.0 x AVERAGE country prestige
++# (or 0.75 x top country). A hoarding player inflates the average and organic GPs
++# fall out. The bar is engine-computed, so we never calculate it — this is a
++# FEEDBACK controller on the nation's ACTUAL rank.
++#
++# Every 30 days, per opted-in nation (stdinnv_gp_active, set by the decision):
++#   1. If no longer a CANDIDATE (stdinnv_gp_candidate, single trigger file):
++#      FULL DEACTIVATE — strip the modifier, clear all vars, END the event chain.
++#      The decision re-arms automatically (its is_shown checks the flag), so a
++#      nation that re-qualifies later simply takes it again (boost restarts at 0).
++#   2. Else, if below GP rank AND the GP roster is deficient (< 9 GPs): ramp the
++#      integral boost and re-apply the unit modifier at the new magnitude.
++#      THE CAP IS LOAD-BEARING: every pumped point raises the 5x-average bar for
++#      everyone (~5% of the pumped amount); ~20 uncapped concurrent pumps would
++#      raise the bar as fast as the ramp (treadmill, no convergence) and knock
++#      organic GPs below it. Capping at 9 makes the system a thermostat: pumps
++#      engage only while the roster is short, then hold and the bar stabilises.
++#   3. GP count uses the verified counter-loop (set_variable + every_country +
++#      ROOT writeback, desi-vetted); `any_country = { count >= N }` exists only
++#      COMMENTED in vanilla and was rejected as unverified.
++# War does NOT pause the controller (a GP bleeding prestige in a war is exactly
++# when the pump matters); war only gates TAKING the decision.
++#
++# Tokens verified vs game files 2026-07-08: else = { } (scripted_effects/events);
++# scripted trigger in event limit (`x = yes`, ai_triggers); every_country + limit
++# (00_chris_scripted_effects); country_rank >= rank_value:great_power; guarded
++# remove_modifier / remove_variable (repo effect-guard rule); add_modifier
++# { multiplier = var:X } permanent-modifier rescale (montenegrin raiding).
++# TODO tune in game: RAMP_STEP (300), cadence (30d), roster target (9).
++# =============================================================================
++stdinnv_gp.1 = {
++	type = country_event
++	hidden = yes
++
++	# Runs only while the nation is opted in (set by the decision when_taken).
++	trigger = {
++		has_variable = stdinnv_gp_active
++	}
++
++	immediate = {
++		# guard-init the integral boost, once (set-before-change).
++		if = {
++			limit = { NOT = { has_variable = stdinnv_gp_boost } }
++			set_variable = { name = stdinnv_gp_boost value = 0 }
++		}
++
++		if = {
++			# (1) candidacy lost -> FULL DEACTIVATE + end chain (no reschedule).
++			limit = { NOT = { stdinnv_gp_candidate = yes } }
++			if = {
++				limit = { has_modifier = stdinnv_great_power_prestige }
++				remove_modifier = stdinnv_great_power_prestige
++			}
++			remove_variable = stdinnv_gp_boost
++			if = {
++				limit = { has_variable = stdinnv_gp_count }
++				remove_variable = stdinnv_gp_count
++			}
++			remove_variable = stdinnv_gp_active   # re-arms the decision
++		}
++		else = {
++			# (3) count the current great powers (overwrite each cycle).
++			set_variable = { name = stdinnv_gp_count value = 0 }
++			every_country = {
++				limit = { country_rank >= rank_value:great_power }
++				ROOT = { change_variable = { name = stdinnv_gp_count add = 1 } }
++			}
++
++			# (2) ramp only while below GP AND the roster is short of 9.
++			if = {
++				limit = {
++					NOT = { country_rank >= rank_value:great_power }
++					var:stdinnv_gp_count < 9   # roster target, tune
++				}
++				change_variable = { name = stdinnv_gp_boost add = 300 } # RAMP_STEP, tune
++				if = {
++					limit = { has_modifier = stdinnv_great_power_prestige }
++					remove_modifier = stdinnv_great_power_prestige
++				}
++				add_modifier = {
++					name = stdinnv_great_power_prestige
++					multiplier = var:stdinnv_gp_boost
++				}
++			}
++
++			# reschedule the controller (chain continues only while active).
++			trigger_event = { id = stdinnv_gp.1 days = 30 }
++		}
++	}
++}
+diff -ruN a/SteadyInnovMod/localization/english/stdinnv_l_english.yml b/SteadyInnovMod/localization/english/stdinnv_l_english.yml
+--- a/SteadyInnovMod/localization/english/stdinnv_l_english.yml	2026-07-08 20:10:58.037670400 +1000
++++ b/SteadyInnovMod/localization/english/stdinnv_l_english.yml	2026-07-08 20:09:53.099605600 +1000
+@@ -34,4 +34,8 @@
+  uni_event.3.desc:0 "Envoys and dignitaries from across the bloc have gathered in our capital. The question now is where to direct this outpouring of goodwill."
+  uni_event.3.a:0 "Press on with the diplomatic campaign."
+  uni_event.3.b:0 "Let the celebrations spill into the streets."
++ stdinnv_become_great_power:0 "Claim Our Place Among the Powers"
++ stdinnv_become_great_power_desc:0 "The age rewards nations that press their claim. With our standing secured, let us mount the campaign of exhibitions, patronage and diplomacy that announces us to the world as a great power in our own right."
++ stdinnv_great_power_prestige:0 "A Seat at the Table"
++ stdinnv_great_power_prestige_desc:0 "A sustained campaign of prestige has won us lasting recognition among the foremost nations, keeping us firmly within the ranks of the great powers."
+ 

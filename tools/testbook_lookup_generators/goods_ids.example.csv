@@ -1,0 +1,54 @@
+goods_id,goods_name,base_price
+0,Ammunition,50
+1,Small Arms,60
+2,Artillery,70
+3,Tanks,80
+4,Aeroplanes,80
+5,Manowars,70
+6,Ironclads,80
+7,Grain,20
+8,Fish,20
+9,Fabric,20
+10,Wood,20
+11,Groceries,30
+12,Clothes,30
+13,Furniture,30
+14,Paper,30
+15,Services,30
+16,Transportation,30
+17,Electricity,30
+18,Merchant Marine,50
+19,Clippers,60
+20,Steamers,70
+21,Silk,40
+22,Dye,40
+23,Sulfur,50
+24,Coal,30
+25,Iron,40
+26,Lead,40
+27,Hardwood,40
+28,Rubber,40
+29,Oil,40
+30,Engines,60
+31,Steel,50
+32,Glass,40
+33,Fertilizer,30
+34,Tools,40
+35,Explosives,50
+36,Porcelain,70
+37,Meat,30
+38,Fruit,30
+39,Liquor,30
+40,Wine,50
+41,Tea,50
+42,Coffee,50
+43,Sugar,30
+44,Tobacco,40
+45,Opium,50
+46,Automobiles,100
+47,Telephones,70
+48,Radios,80
+49,Luxury Clothes,60
+50,Luxury Furniture,60
+51,Gold,100
+52,Fine Art,200

@@ -1,0 +1,41 @@
+file,all_mods,rows,verdict,mod_feature_verified,comment_claude,comment_user
+,,,,,,
+# ===== data-<Mod>/ (per-mod inventory; ModParse extract) =====,,,,,,
+data-[Mod]/raw_files.csv,ALL,44682,USEFUL,n/a (source-file inventory / provenance),mod source-file list + join base,
+data-[Mod]/raw_keywords.csv,ALL,20515,USEFUL,ALL features (the token SET that DEFINES every feature - the lookup source),the shared prefix-keyword join key,
+data-[Mod]/raw_loc.csv,ALL,48976,USEFUL,ALL features (loc-string inference source),loc keys,
+data-[Mod]/raw_tokens.csv,ALL,17-325,USEFUL,ALL features (unfiltered token census),token+count dump,
+data-[Mod]/raw_debuglines.csv,ALL,0 (vt=1),USEFUL,features' debug_log markers (only when debug ON),ACTIVE debug_log inventory; 0 = debug toggled off (correct),
+data-[Mod]/raw_fingerprints.csv,ALL,0,USEFUL,features' fp markers (only when fp ON),"BUG FIXED 2026-07-03: extractor now strips comments (ACTIVE-only, like debuglines); was grabbing COMMENTED/toggled-off fps + comment-prose. Now 0 = fp off (correct)",fps are OFF in mods - Not to be grabbed by script (FIXED)
+# ===== log-CURR ROOT (common pool, built once) =====,,,,,
+log-CURR/raw_errors.csv,,1918,USEFUL,n/a (common error pool; SORT-not-FILTER),every error line - the real value,
+log-CURR/raw_loglines.csv,,3184,USEFUL,n/a (common pool),every log line,HOW? What script relies upon it
+log-CURR/diag_literals.csv,,3,USEFUL,SHOULD map rule->feature but is generic (T108),the diagnostics rules (log-side),
+log-CURR/smoke_detector.csv,,13,SLOP,n/a,benign-SUPPRESS mechanism FILTERS (violates SORT-not-FILTER) + whack-a-mole per-state - T107,SLOP agreed
+log-CURR/_global/error_patterns.csv,,3,USEFUL,n/a (grouped global signatures),grouped error signatures,
+log-CURR/_global/metrics.csv,,5,SLOP,none,just a flag - no actinfo (conceded; not defending),there is no ACTIONABLE INFO
+log-CURR/_global/diag_fired.csv,,1,SLOP,none (generic rule),no actinfo,no actinfo. SLOP
+log-CURR/_global/diagnostics.md,,13,SLOP,none (generic global rollup),no actinfo - a diag/aggr with no actinfo is SLOP by definition,SLOP without actinfo (actinfo now a protected scoring word)
+# ===== log-CURR/<Mod>/ per-mod =====,,,,,,
+log-CURR/[Mod]/aggr_log_matches.csv,ALL,varies 0-4874,SLOP,features that logged (raw token match - imprecise),verdict VARIES: mdp 4874 = OVER-match (tokens hit common log lines); eco5/knip2/... thin USEFUL; infra/nous/pvtcap=0 empty. Needs mod-FEATURE scoping not raw token match - T108,
+log-CURR/[Mod]/aggr_markers_status.csv,ALL,0 (vt=1),SLOP,features' fired/unfired markers (only with debug ON),0 for all (debug off) = no actinfo unless debug ON,
+log-CURR/[Mod]/diag_fired.csv,ALL,1,SLOP,none (generic LOG001),identical every mod; no feature; no actinfo - T108,
+log-CURR/[Mod]/diagnostics.md,ALL,16,SLOP,none (generic boilerplate),identical across all 10 mods; zero feature attribution - core SLOP T108,
+log-CURR/[Mod]/metrics.csv,ALL,8,SLOP,none yet (generic metrics),intermediate feeding a generic diag; no actinfo until feature metrics land - T108,
+# ===== save-CURR ROOT (common pool, built ONCE) =====,,,,,
+save-CURR/raw_buildings.csv,,16058,USEFUL,n/a (common census base),all buildings,
+save-CURR/raw_state_census.csv,,16058,USEFUL,n/a (common),enriched building census (owner/market/region),
+save-CURR/raw_pops.csv,,162421,USEFUL,n/a (common),all pops,
+save-CURR/raw_flags.csv,,10759,USEFUL,ALL features' persisted vars/modifiers (when fp ON),the fp harvest pool,
+save-CURR/raw_states.csv,,885,USEFUL,n/a (common),states,
+save-CURR/raw_state_regions.csv,,781,USEFUL,n/a (common; cap-join bridge),srid->template bridge,
+save-CURR/raw_countries.csv,,184,USEFUL,n/a (common),countries (tag/market/capital),
+save-CURR/raw_market_goods.csv,,49,USEFUL,feeds the goods-price diagnostics (cheap-global / >25% over base) - T108,per-goods world price,
+save-CURR/goods_ids.csv,,49,USEFUL,price-vs-base lookup for the goods diagnostics - T108,goods id->name->base_price literal,
+save-CURR/diag_literals.csv,,2,USEFUL,SHOULD map rule->feature but generic (T108),the diagnostics rules (save-side),
+# ===== save-CURR/<Mod>/ per-mod =====,,,,,,
+save-CURR/[Mod]/aggr_census_overbuild.csv,ALL,2144,SLOP,ONLY PvtCapCtrl 'industry cap' feature; mod-agnostic dup for the other 9,2144 IDENTICAL rows in EVERY mod folder = mod-agnostic capped-building census DUPLICATED per-mod; belongs at ROOT. No actinfo for non-cap mods (versiontest/InfraTax/ExpMkt/...) - YOUR example. Only PvtCap's over-cap ROWS carry actinfo; even there the 2144 census is mixed in - split needed,
+save-CURR/[Mod]/aggr_save_matches.csv,ALL,varies 0-675,USEFUL,the mod's feature(s) whose vars/modifiers persisted (PvtCap cap 675; eco boost 93; stdinnv 56; mdp 35; expmkt 19),"USEFUL where non-zero (real per-feature persistence = actinfo); SLOP-empty for InfraTax/versiontest (0, nothing persists)",
+save-CURR/[Mod]/diag_fired.csv,ALL,1 (PvtCap 2),SLOP,none (generic SAV001/002),generic; no feature; no actinfo - T108,
+save-CURR/[Mod]/diagnostics.md,ALL,14 (PvtCap 16),SLOP,none (generic boilerplate),identical across mods; zero feature attribution - core SLOP T108,
+save-CURR/[Mod]/metrics.csv,ALL,6,SLOP,none yet (generic metrics),intermediate feeding a generic diag; no actinfo until feature metrics - T108,
