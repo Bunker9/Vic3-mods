@@ -18,8 +18,7 @@ out/
 descriptor.mod
 
 # Local-only working notes — never committed/pushed to ANY branch (incl. master)
-TODO-CI.md
-INOV-NOTES.md
-/NoUSChickenMod/CHANGELOG.md
-/PvtCapCtrlMod/CHANGELOG.md
-/KampaiNipponMod/CHANGELOG.md
+*.md
+
+#Claude
+.claude
