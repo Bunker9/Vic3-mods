@@ -14,6 +14,12 @@ DIPLOMACY = {
 			months = 24
 		}
 	}
+	c:KAF ?= {
+		create_bidirectional_truce = {
+			country = c:PAN
+			months = 30
+		}
+	}
 	c:KAB ?= {
 		create_bidirectional_truce = {
 			country = c:PER
@@ -161,14 +167,6 @@ DIPLOMACY = {
 	c:OMA ?= {
 		create_bidirectional_truce = {
 			country = c:SHW
-			months = 120
-		}
-	}
-	# SHW<->WTU (user 2026-06-16): after conquering Somalia, Shewa kept getting dragged into an
-	# odd event-claim war with Witu (Kenya). 120 mo covers the whole 1836-1846 blob-chain window.
-	c:SHW ?= {
-		create_bidirectional_truce = {
-			country = c:WTU
 			months = 120
 		}
 	}

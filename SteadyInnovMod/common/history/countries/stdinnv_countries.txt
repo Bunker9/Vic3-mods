@@ -1,0 +1,59 @@
+﻿COUNTRIES = {
+	# Austria: lower liberty desire across subjects for 50 years,
+	# helping Crown Lands drift into annexable range.
+	c:AUS ?= {
+		add_modifier = {
+			name = aus_crownland_management_50y
+			years = 50
+		}
+	}
+
+	# Hungary: directly lower its own liberty desire for 50 years,
+	# making annexation by Austria more likely once it is a Crown Land.
+	c:HUN ?= {
+		add_modifier = {
+			name = hungary_reconciled_to_vienna_50y
+			years = 50
+		}
+	}
+
+	# =========================================================================
+	# SteadyInnov startup innovation tiers (2026-07-09) - MOVED here from the
+	# stdinnv_startup on_action, which stamped stdinnv_subject on EVERY subject
+	# worldwide (design intent was only to slow the big Asian economies). These
+	# are permanent (no duration), cleared only via the mod's decisions.
+	# Lists curated with the user from the SaveParse extract + EcoBoost targets
+	# (see hk-config PROGRESS 2026-07-09). `?=` makes each a safe no-op if absent.
+	# =========================================================================
+
+	# GP boost - the four struggling great powers.
+	c:FRA ?= { add_modifier = { name = stdinnv_boost_gp } }
+	c:JAP ?= { add_modifier = { name = stdinnv_boost_gp } }
+	c:NET ?= { add_modifier = { name = stdinnv_boost_gp } }
+	c:USA ?= { add_modifier = { name = stdinnv_boost_gp } }
+
+	# Subject penalty - ONLY the big Asian economies (India / China / Dutch East Indies).
+	c:BIC ?= { add_modifier = { name = stdinnv_subject } }
+	c:CHI ?= { add_modifier = { name = stdinnv_subject } }
+	c:DEI ?= { add_modifier = { name = stdinnv_subject } }
+
+	# Unrecognized penalty - major/minor unrecognized powers (save-survivors >3M + day-1
+	# majors conquered in the save) + TIB/KOR (subjects, but the SOFT penalty) + EcoBoost
+	# unrecognized targets (EGY/HYD/OMA/SHW).
+	c:SOK ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:SIA ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:BUR ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:MAD ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:PER ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:AFG ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:MOR ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:DAI ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:NEP ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:PAN ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:TIB ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:KOR ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:EGY ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:HYD ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:OMA ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:SHW ?= { add_modifier = { name = stdinnv_unrecognized } }
+}

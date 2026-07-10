@@ -1,0 +1,38 @@
+﻿# =============================================================================
+# KampaiNipponMod - scripted effects.  *** WIP 2026-06-25 (skeletal) ***
+# Called in c:JAP (country) scope from knip_naval_buildup (knip_decisions.txt).
+# Troop-ship idiom copied from ExpFightMod/common/history/military_formations/zz_expfight_troopships.txt
+# (verified + in-game tested): create_military_formation { type=fleet ... ship={ ship_type_troop_ship } }.
+# unlocking_technologies gates CONSTRUCTING new ships, not a formation placed by effect - no tech grant.
+# =============================================================================
+
+knip_naval_buildup_effect = {
+	# --- 20 troop ships, HQ in the northeast-asia strategic region (Japan has no own land region;
+	#     region_japan_current is the WATER region). ---
+	create_military_formation = {
+		type = fleet
+		hq_region = sr:region_northeast_asia
+		name = knip_imperial_troop_fleet
+		ship = {
+			type = ship_type:ship_type_troop_ship
+			count = 20
+		}
+	}
+
+	# --- ~10 naval administrations (recruits_sailors) spread across Japan's states. ---
+	# TODO: building_naval_administration needs tech `admiralty` to CONSTRUCT; verify create_building
+	# placement works without it in-game (grant admiralty here if not). Count = one per buildable state
+	# (~10-12 for Japan) - cap/tune after the test run.
+	every_scope_state = {
+		limit = { can_construct_building = building_naval_administration }
+		create_building = {
+			building = building_naval_administration
+			level = 1
+			reserves = 1
+		}
+	}
+
+	# FINGERPRINT (additive; DEV-RULES "Save-fingerprint debugging") - per-country, proves the buildup
+	# ran. Comment out at promote.
+	# set_variable = { name = knip_fingerprint_navy_built value = yes }
+}

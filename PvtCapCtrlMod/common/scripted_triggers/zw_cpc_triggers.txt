@@ -1,0 +1,88 @@
+﻿# PvtCapCtrlMod — cap triggers. HAND-WRITTEN.
+# SEPARATE light and heavy industry caps, an arts cap, and a railway build gate. Each is STATE
+# scope. FAIL-OPEN: a region with no cap variable set (uninhabited / not in the pop data) is left
+# unconstrained for the industry caps.
+# The _tt variants wrap the raw check in a custom_tooltip so the greyed build button shows our own
+# text instead of the engine auto-localizing a raw script value.
+
+# Shared market-access brake: an over-built state strains its infrastructure, market access drops
+# below 1, and further industry halts there (dynamic self-limit). Light + heavy both use it.
+zw_trigger_state_industry_allowed = {
+	market_access >= 1
+}
+
+# -------- LIGHT industry cap --------
+zw_trigger_under_light_cap = {
+	zw_trigger_state_industry_allowed = yes
+	trigger_if = {
+		limit = { state_region = { has_variable = zw_mfg_cap } }
+		zw_sv_state_light_levels < zw_sv_state_light_cap_effective
+	}
+}
+zw_trigger_under_light_cap_tt = {
+	custom_tooltip = {
+		text = zw_cpc_light_cap_tt
+		zw_trigger_under_light_cap = yes
+	}
+}
+
+# -------- HEAVY (+ military) industry cap --------
+zw_trigger_under_heavy_cap = {
+	zw_trigger_state_industry_allowed = yes
+	trigger_if = {
+		limit = { state_region = { has_variable = zw_mfg_cap } }
+		zw_sv_state_heavy_levels < zw_sv_state_heavy_cap_effective
+	}
+}
+zw_trigger_under_heavy_cap_tt = {
+	custom_tooltip = {
+		text = zw_cpc_heavy_cap_tt
+		zw_trigger_under_heavy_cap = yes
+	}
+}
+
+# -------- ARTS cap (pure count cap; no market-access brake) --------
+zw_trigger_under_arts_cap = {
+	trigger_if = {
+		limit = { state_region = { has_variable = zw_mfg_cap } }
+		zw_sv_state_arts_levels < zw_sv_state_arts_cap
+	}
+}
+zw_trigger_under_arts_cap_tt = {
+	custom_tooltip = {
+		text = zw_cpc_arts_cap_tt
+		zw_trigger_under_arts_cap = yes
+	}
+}
+
+# -------- POWER cap (proportional to industry present; no market-access brake) --------
+zw_trigger_under_power_cap = {
+	trigger_if = {
+		limit = { state_region = { has_variable = zw_mfg_cap } }
+		zw_sv_state_power_levels < zw_sv_state_power_cap
+	}
+}
+zw_trigger_under_power_cap_tt = {
+	custom_tooltip = {
+		text = zw_cpc_power_cap_tt
+		zw_trigger_under_power_cap = yes
+	}
+}
+
+# -------- RAILWAY build gate (anti subsidy-bankruptcy) --------
+# Allow building railways only while infrastructure is strained (usage >= 80% of total) OR the
+# state still has fewer than 3 railway levels (always keep a baseline). FAIL-OPEN not needed: the
+# infra reads work in every inhabited state.
+zw_trigger_railway_buildable = {
+	OR = {
+		zw_sv_state_railway_levels <= 2
+		#infrastructure_usage >= zw_sv_state_infra_strain_threshold
+		infrastructure_delta <= 5
+	}
+}
+zw_trigger_railway_buildable_tt = {
+	custom_tooltip = {
+		text = zw_cpc_railway_tt
+		zw_trigger_railway_buildable = yes
+	}
+}

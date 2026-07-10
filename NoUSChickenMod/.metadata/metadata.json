@@ -1,0 +1,13 @@
+{
+  "name": "NoUSChickenMod",
+  "id": "NoUSChickenMod",
+  "game_id": "victoria3",
+  "version": "0.1.0",
+  "supported_game_version": "1.13.*",
+  "short_description": "Gives the USA a one-time wartime War Bonds boost (Manifest Destiny and the Civil War) so it presses those wars to their historic conclusion instead of white-peacing out",
+  "tags": [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

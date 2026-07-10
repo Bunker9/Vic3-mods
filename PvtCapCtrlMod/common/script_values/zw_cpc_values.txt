@@ -1,0 +1,144 @@
+﻿# PvtCapCtrlMod — script values. HAND-WRITTEN.
+
+# ============================================================================================
+# Built-level counters (evaluated in the CURRENT STATE scope)
+# ============================================================================================
+
+# zw_sv_state_mfg_levels: total built levels of ALL manufacturing (bg_manufacturing subtree =
+# light + heavy + military industry + shipyards). RETAINED for the diagnostic probe
+# (zw_cpc_diag_on_actions.txt); the caps below count light and heavy SEPARATELY.
+zw_sv_state_mfg_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_group = bg_manufacturing }
+		add = this.level
+	}
+}
+
+# zw_sv_state_light_levels: built levels of LIGHT industry only. bg_light_industry INCLUDES
+# shipyards (bg_ship_construction is a child of bg_light_industry).
+zw_sv_state_light_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_group = bg_light_industry }
+		add = this.level
+	}
+}
+
+# zw_sv_state_heavy_levels: built levels of HEAVY + MILITARY industry (everything in the
+# manufacturing subtree that is NOT light). One pass.
+zw_sv_state_heavy_levels = {
+	value = 0
+	every_scope_building = {
+		limit = {
+			is_building_group = bg_manufacturing
+			NOT = { is_building_group = bg_light_industry }
+		}
+		add = this.level
+	}
+}
+
+# zw_sv_state_arts_levels: built levels of art academies (bg_arts) in the state.
+zw_sv_state_arts_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_group = bg_arts }
+		add = this.level
+	}
+}
+
+# zw_sv_state_railway_levels: built railway levels in the state.
+zw_sv_state_railway_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_type = building_railway }
+		add = this.level
+	}
+}
+
+# zw_sv_state_power_levels: built power plant levels (bg_power) in the state.
+zw_sv_state_power_levels = {
+	value = 0
+	every_scope_building = {
+		limit = { is_building_group = bg_power }
+		add = this.level
+	}
+}
+
+# ============================================================================================
+# Decade growth multipliers (read at compare-time from game_date; no stored state, no pulse)
+# ============================================================================================
+
+# LIGHT — gentle. +10% of base per decade 1850-1890, then +20%/decade from 1900.
+# (1836 ->1.0, 1900 ->1.7, 1930 ->2.3.) TUNABLE.
+zw_sv_decade_cap_mult_light = {
+	value = 1
+	if = { limit = { game_date >= 1850.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1860.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1870.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1880.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1890.1.1 } add = 0.1 }
+	if = { limit = { game_date >= 1900.1.1 } add = 0.2 }
+	if = { limit = { game_date >= 1910.1.1 } add = 0.2 }
+	if = { limit = { game_date >= 1920.1.1 } add = 0.2 }
+	if = { limit = { game_date >= 1930.1.1 } add = 0.2 }
+}
+
+# HEAVY — aggressive late-game ramp. +40% of heavy base per decade, flat, from 1850.
+# (1836 ->1.0, 1900 ->3.4, 1930 ->4.6.) Lets heavy + military industry boom past mid-game.
+zw_sv_decade_cap_mult_heavy = {
+	value = 1
+	if = { limit = { game_date >= 1850.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1860.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1870.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1880.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1890.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1900.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1910.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1920.1.1 } add = 0.4 }
+	if = { limit = { game_date >= 1930.1.1 } add = 0.4 }
+}
+
+# ============================================================================================
+# Effective caps (STATE scope). Base = var:zw_mfg_cap, set per state-region at game start by
+# zw_cpc_state_caps.txt (= max(40, start_pop // 24000)).
+# ============================================================================================
+
+# LIGHT cap = base x light multiplier.
+zw_sv_state_light_cap_effective = {
+	value = state_region.var:zw_mfg_cap
+	multiply = zw_sv_decade_cap_mult_light
+}
+
+# HEAVY cap = (base x 0.25) x heavy multiplier. Heavy STARTS at a quarter of light, then the
+# steeper heavy multiplier lets it overtake parity late game.
+zw_sv_state_heavy_cap_effective = {
+	value = state_region.var:zw_mfg_cap
+	multiply = 0.25
+	multiply = zw_sv_decade_cap_mult_heavy
+}
+
+# ARTS cap = 10% of the effective LIGHT cap, floor 3 (so small states still get a few).
+zw_sv_state_arts_cap = {
+	value = zw_sv_state_light_cap_effective
+	multiply = 0.1
+	min = 3
+}
+
+# POWER cap = proportional to the industry it serves, NOT population: (light + heavy levels) x ratio
+# + a small base. Power plants exist to feed factories, so a state with no industry keeps only the
+# base (kills the tiny-state stacking, e.g. Bermuda) while an industrial hub scales its power ceiling
+# up automatically as it builds. TUNABLE: ratio 0.34 ~ one plant per three industry levels; base 2.
+zw_sv_state_power_cap = {
+	value = zw_sv_state_light_levels
+	add = zw_sv_state_heavy_levels
+	multiply = 0.34
+	add = 2
+}
+
+# Railway strain threshold = 80% of the state's total infrastructure. Railways may be built while
+# usage is at/over this (infrastructure is strained); below it the state has ample spare capacity.
+zw_sv_state_infra_strain_threshold = {
+	value = infrastructure
+	multiply = 0.8
+}

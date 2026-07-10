@@ -2,30 +2,23 @@
 # MyDiploPlayMod — scripted triggers
 # =============================================================================
 
-# Raw tag list — used ONLY at game start (mdp_startup), when all 20 tags are guaranteed live.
-# At runtime, `this = c:DEADTAG` errors ("Invalid right side during comparison") once any of
-# these gets annexed — which spammed error.log 942× — so runtime code uses the flag below.
-mdp_is_expand_tag = {
-    OR = {
-        this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ
-        this = c:PER   this = c:EGY   this = c:PAN   this = c:DEI
-        this = c:SOK   this = c:SAR   this = c:SWE   this = c:DAI
-        this = c:NEP   this = c:CLM   this = c:ARG   this = c:SIA
-        this = c:MOR   this = c:OMA   this = c:SHW   this = c:SAF
-    }
-}
-
 # Runtime-safe expander check: mdp_startup sets var:mdp_expander on each live expand tag at
 # game start. Testing a variable never errors on a tag that later dies.
 mdp_is_expand_country = {
-    has_variable = mdp_expander
+    OR = {
+        c:MEX ?= this   c:BRZ ?= this   c:PAN ?= this   c:DEI ?= this
+        c:PER ?= this   c:SWE ?= this   c:DAI ?= this   c:SOK ?= this
+        c:NEP ?= this   c:CLM ?= this   c:ARG ?= this   c:SIA ?= this
+        c:MOR ?= this   c:OMA ?= this   c:SHW ?= this   c:SAF ?= this
+        c:ETH ?= this   c:BUR ?= this
+    }
 }
 
 # Runtime-safe subject-annexer check: mdp_startup sets var:mdp_subject_annexer on the SEA+Punjab
 # annexer tags (DAI/BUR/SIA/PAN). Single source of truth used by BOTH mdp.3 and the on_action
 # dispatch — replaces the duplicated OR={...} list (cleaner, performant, tag-death-safe).
 mdp_is_subject_annexer = {
-    has_variable = mdp_subject_annexer
+    OR = { c:DAI ?= this  c:BUR ?= this  c:SIA ?= this  c:PAN ?= this  c:OMA ?= this  c:DEI ?= this  c:PER ?= this }
 }
 
 # -----------------------------------------------------------------------------
@@ -36,6 +29,43 @@ mdp_is_subject_annexer = {
 mdp_is_in_power_bloc = {
     exists = power_bloc
 }
+# -----------------------------------------------------------------------------
+# EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
+# Evaluated in CANDIDATE country scope.
+# Covers SHW, KFA (Kaffa), and any other Ethiopian-sphere minor.
+# Vanilla script names:
+#   religion: oriental_orthodox
+#   cultures: amhara, oromo, tigrinya, somali (the Horn cultures)
+# -----------------------------------------------------------------------------
+mdp_egy_forbidden_target = {
+    OR = {
+        religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
+        country_has_primary_culture = cu:amhara
+        country_has_primary_culture = cu:oromo
+        country_has_primary_culture = cu:afar
+        country_has_primary_culture = cu:somali
+    }
+}
+
+# -----------------------------------------------------------------------------
+# OMA-only adjacency restriction. Evaluated in CANDIDATE country scope;
+# scope:mdp_attacker = c:OMA.
+# OMA holds African colonial states (e.g. Zanzibar-area holdings), so the generic
+# any_neighbouring_state adjacency check in mdp_valid_generic_target was matching
+# candidates that only border those African holdings — sending OMA into useless wars
+# across the Gulf of Aden instead of expanding on its Arabian mainland. This requires
+# the bordering OMA-owned state to itself be on the Arabian mainland
+# (geographic_region_arabia, verified common/geographic_regions/06_new_strategic_regions.txt).
+# -----------------------------------------------------------------------------
+mdp_oma_target_filter = {
+    any_scope_state = {
+        any_neighbouring_state = {
+            owner = scope:mdp_attacker
+            state_region = { is_in_geographic_region = geographic_region_arabia }
+        }
+    }
+}
+
 
 # -----------------------------------------------------------------------------
 # Valid target for the GENERIC blob chain.
@@ -83,7 +113,7 @@ mdp_valid_generic_target = {
      # EGY must never target Oriental Orthodox / Ethiopian-culture countries
         NOT = {
             AND = {
-                scope:mdp_attacker = { this = c:EGY }
+                scope:mdp_attacker ?= { c:EGY ?= this }
                 mdp_egy_forbidden_target = yes
             }
         }
@@ -92,47 +122,10 @@ mdp_valid_generic_target = {
     # holdings (Zanzibar etc.) — otherwise the adjacency check above picks up African
     # neighbours and OMA ends up in useless wars across the Gulf of Aden.
     trigger_if = {
-        limit = { scope:mdp_attacker = { this = c:OMA } }
+        limit = { scope:mdp_attacker ?= { c:OMA ?= this } }
         mdp_oma_target_filter = yes
     }
 }
-# -----------------------------------------------------------------------------
-# EGY must never attack Oriental Orthodox / Ethiopian-culture countries.
-# Evaluated in CANDIDATE country scope.
-# Covers SHW, KFA (Kaffa), and any other Ethiopian-sphere minor.
-# Vanilla script names:
-#   religion: oriental_orthodox
-#   cultures: amhara, oromo, tigrinya, somali (the Horn cultures)
-# -----------------------------------------------------------------------------
-mdp_egy_forbidden_target = {
-    OR = {
-        religion = rel:oriental_orthodox            # country state-religion (has_state_religion is a POP trigger)
-        country_has_primary_culture = cu:amhara
-        country_has_primary_culture = cu:oromo
-        country_has_primary_culture = cu:afar
-        country_has_primary_culture = cu:somali
-    }
-}
-
-# -----------------------------------------------------------------------------
-# OMA-only adjacency restriction. Evaluated in CANDIDATE country scope;
-# scope:mdp_attacker = c:OMA.
-# OMA holds African colonial states (e.g. Zanzibar-area holdings), so the generic
-# any_neighbouring_state adjacency check in mdp_valid_generic_target was matching
-# candidates that only border those African holdings — sending OMA into useless wars
-# across the Gulf of Aden instead of expanding on its Arabian mainland. This requires
-# the bordering OMA-owned state to itself be on the Arabian mainland
-# (geographic_region_arabia, verified common/geographic_regions/06_new_strategic_regions.txt).
-# -----------------------------------------------------------------------------
-mdp_oma_target_filter = {
-    any_scope_state = {
-        any_neighbouring_state = {
-            owner = scope:mdp_attacker
-            state_region = { is_in_geographic_region = geographic_region_arabia }
-        }
-    }
-}
-
 # -----------------------------------------------------------------------------
 # Pre-flight check on the ATTACKER. (Currently UNUSED — the monthly on_action does these
 # checks inline. Kept as documentation. The actual target search + adjacency lives in
@@ -142,5 +135,37 @@ mdp_can_blob_now = {
     mdp_is_expand_country = yes
     is_at_war = no
     is_active_in_diplomatic_play = no   # not already maneuvering a play (pre-war phase)
-    infamy < 30
+    infamy < 5
+}
+
+# -----------------------------------------------------------------------------
+# Border-cleanup END-REWARD gate helpers (2026-07-09). Used by the generic
+# mdp_consolidate_frontier decision (common/decisions/mdp_decent_annex_decisions.txt)
+# to detect "this expander has finished its job". ROOT-based (evaluated on the acting
+# expander in a decision is_shown/possible, where save_scope is not allowed), mirroring
+# the inline checks in mdp_conquer_free_minor / mdp_annex_own_subject above.
+# -----------------------------------------------------------------------------
+
+# Is there still a conquerable free minor? TRUCE-AGNOSTIC ON PURPOSE: a truced minor
+# still counts as "a target", so an active truce with a free minor BLOCKS the reward
+# (mirrors mdp_conquer_free_minor's is_shown, which likewise omits the truce exclusion).
+mdp_has_conquerable_minor = {
+    any_country = {
+        exists = this
+        NOT = { is_country_type = decentralized }
+        mdp_is_expand_country = no
+        NOT = { country_rank >= rank_value:minor_power }
+        is_subject = no
+        NOT = { this = root }
+        any_scope_state = { any_neighbouring_state = { owner = root } }
+    }
+}
+
+# Does the country still hold a small direct subject worth annexing (fewer than 4 states)?
+# Mirrors mdp_annex_own_subject.
+mdp_has_annexable_subject = {
+    any_subject_or_below = {
+        is_subject_of = root
+        NOT = { any_scope_state = { count >= 4 } }
+    }
 }

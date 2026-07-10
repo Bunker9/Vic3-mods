@@ -129,6 +129,14 @@ STATES = {
 		add_homeland = cu:panjabi
 		add_claim = c:PAN
 	}
+	s:STATE_HILL_PUNJAB = {
+		add_homeland = cu:panjabi
+		add_claim = c:PAN
+	}
+	s:STATE_DELHI = {
+		add_homeland = cu:panjabi
+		add_claim = c:PAN
+	}
 	s:STATE_NORTH_SUMATRA = {
 		add_homeland = cu:dutch
 		add_claim = c:DEI
@@ -327,9 +335,6 @@ STATES = {
 		add_homeland = cu:amhara
 		add_claim = c:SHW
 		add_claim = c:EGY
-	}
-	s:STATE_DELHI = {
-		add_claim = c:PAN
 	}
 	s:STATE_RAJPUTANA = {
 		add_claim = c:PAN

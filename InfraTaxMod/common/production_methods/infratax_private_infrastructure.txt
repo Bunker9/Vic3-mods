@@ -1,0 +1,261 @@
+﻿# common/production_methods/infratax_private_infrastructure.txt
+#TODO figure out a good balance to improve urban centers in very high GDP states to use less employees
+# like if they are 50% or more empty and building levels are more that
+# +X(like 50 or current pop/10k x4(dependents per worker) x 5(split workers/ whole state is not going to just work in urban centers)
+
+INJECT_OR_CREATE:pm_anchorage = {
+	state_modifiers = {
+		level_scaled = {
+			state_infrastructure_add = 4
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 2 #60
+			goods_input_grain_add = 2 #40
+			goods_output_transportation_add = 4 #120
+			goods_output_services_add = 2 #60
+			#profit - 180 - 100 = 80
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_basic_port = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -3
+		}
+		level_scaled = {
+			state_infrastructure_add = 6
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 2 #60
+			goods_input_grain_add = 2 #40
+			goods_input_wine_add = 1 #50
+			goods_output_transportation_add = 6 #180
+			goods_output_services_add = 3 #90
+			#profit - 270 - 150 = 120
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_industrial_port = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -4
+		}
+		level_scaled = {
+			state_infrastructure_add = 8
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 3 #90
+			goods_input_grain_add = 2 #40
+			goods_input_wine_add = 2 #100
+			goods_output_transportation_add = 8 #240
+			goods_output_services_add = 4 #120
+			#profit - 360 - 230 = 130
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_modern_port = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -5
+		}
+		level_scaled = {
+			state_infrastructure_add = 10
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 4 #120
+			goods_input_grain_add = 3 #60
+			goods_input_wine_add = 4 #200
+			goods_output_transportation_add = 12 #390
+			goods_output_services_add = 5 #150
+			#profit - 540 - 380 = 130
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_early_trains = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -20
+		}
+		level_scaled = {
+			state_infrastructure_add = 20
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 2 # 40
+			goods_input_merchant_marine_add = 2 #100
+			goods_output_transportation_add = 5 #150
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_steam_trains = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -25
+		}
+		level_scaled = {
+			state_infrastructure_add = 25
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 2 # 20
+			goods_input_merchant_marine_add = 2 #50
+			goods_output_transportation_add = 5
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_steam_trains_principle_transport_3 = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -30
+		}
+		level_scaled = {
+			state_infrastructure_add = 30
+		}
+	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 2 # 20
+			goods_input_engines_add = -2 # -120
+			goods_input_merchant_marine_add = 4 #50
+			goods_output_transportation_add = 5
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_electric_trains = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -30
+		}
+		level_scaled = {
+			state_infrastructure_add = 30
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 4 # 20
+			goods_input_merchant_marine_add = 4 #50
+			goods_output_transportation_add = 10
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_electric_trains_principle_transport_3 = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -40
+		}
+		level_scaled = {
+			state_infrastructure_add = 40
+		}
+	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 4 # 20
+			goods_input_merchant_marine_add = 4 #50
+			goods_output_transportation_add = 10
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_diesel_trains = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -40
+		}
+		level_scaled = {
+			state_infrastructure_add = 40
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 4 # 20
+			goods_input_merchant_marine_add = 4 #50
+			goods_output_transportation_add = 10
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_diesel_trains_principle_transport_3 = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_infrastructure_add = -55
+		}
+		level_scaled = {
+			state_infrastructure_add = 55
+		}
+	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_fabric_add = 4 # 80
+			goods_input_merchant_marine_add = 4 #200
+			goods_output_transportation_add = 10 #300
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_trade_center = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_weekly_trades_add = 4
+			state_trade_capacity_add = 30
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wine_add = 1 #50
+			goods_input_opium_add = 1 #50
+			goods_input_liquor_add = 2 #30
+			goods_input_merchant_marine_add = 1 #50
+			goods_output_services_add = 5
+			goods_output_transportation_add = 4
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_trade_center_principle_external_trade_2 = {
+	state_modifiers = {
+		workforce_scaled = {
+			state_weekly_trades_add = 4
+			state_trade_capacity_add = 30
+		}
+	}
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wine_add = 1 #50
+			goods_input_opium_add = 1 #50
+			goods_input_liquor_add = 2 #30
+			goods_input_merchant_marine_add = 1 #50
+			goods_output_services_add = 5
+			goods_output_transportation_add = 5
+		}
+	}
+}

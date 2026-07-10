@@ -1,0 +1,276 @@
+﻿namespace = uni_event
+
+# uni_event.1 — "graduation" payoff fired by the stdinnv_uni_built decision.
+# Strips whatever stale start-of-game penalty the nation still carries, then
+# rewards the catch-up bonus and pivots the elite politically: the aristocracy
+# (landowners) and the single most powerful interest group (highest clout) have
+# their leaders converted to market liberalism — or to abolitionism instead if
+# the nation still has a slavery law on the books.
+uni_event.1 = {
+	type = country_event
+	title = uni_event.1.t
+	desc = uni_event.1.desc
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+	immediate = {
+	    if = { limit = { has_modifier = stdinnv_unrecognized } remove_modifier = stdinnv_unrecognized }
+	    if = { limit = { has_modifier = stdinnv_subject } remove_modifier = stdinnv_subject }
+	}
+	option = {
+		name = uni_event.1.a
+		add_modifier = { name = stdinnv_reward months = 240 }
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+		# Proves graduation fired here; PERSISTS after the 240mo reward modifier expires (a late save
+		# still shows who graduated). Comment out at Ceremony 3 promote.
+		# set_variable = { name = stdinnv_fingerprint_graduated value = yes }
+		# Convert the aristocracy + the strongest IG's leader. Slavery-era nations
+		# get abolitionists instead of market liberals.
+		if = {
+			limit = { NOT = { has_law = law_type:law_slavery_banned } }
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_abolitionist }
+			}
+			ordered_interest_group = {
+				order_by = ig_clout
+				position = 0
+				check_range_bounds = no
+				leader = { set_ideology = ideology:ideology_abolitionist }
+			}
+		}
+		else = {
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+			ordered_interest_group = {
+				order_by = ig_clout
+				position = 0
+				check_range_bounds = no
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+		}
+		# Innovation dividend: pull the most backward economic / land / colonial laws up
+		# one rung. Law ids verified vs game files (00_economic_system, 00_land_reform,
+		# 00_colonial_affairs). "Serfdom" = law_serfdom (line 1, the base land law).
+		if = {
+			limit = { has_law = law_type:law_traditionalism }
+			activate_law = law_type:law_interventionism
+		}
+		if = {
+			limit = { has_law = law_type:law_serfdom }
+			activate_law = law_type:law_tenant_farmers
+		}
+		#HUMAN - removing this. Frontier colonization is now being handled with an mdp mod event this here is NOT needed
+		# "No colonial affairs" = none of the lawgroup_colonization laws active. Grant
+		# Frontier Colonization, plus the colonial-affairs institution at level 1 so it
+		# sticks (master mdp pattern: lvl 2 exceeds small nations' bureaucracy cap).
+		# if = {
+		# 	limit = {
+		# 		NOT = { has_law = law_type:law_frontier_colonization }
+		# 		NOT = { has_law = law_type:law_colonial_resettlement }
+		# 		NOT = { has_law = law_type:law_colonial_exploitation }
+		# 	}
+		# 	activate_law = law_type:law_frontier_colonization
+		# 	set_institution_investment_level = {
+		# 		institution = institution_colonial_affairs
+		# 		level = 1
+		# 	}
+		# }
+		clear_debt = yes
+		add_loyalists = { value = large_radicals }
+		default_option = yes # default
+	}
+}
+
+uni_event.2 = {
+	type = country_event
+	title = uni_event.2.t
+	desc = uni_event.2.desc
+	event_image = {
+		video = "europenorthamerica_art_gallery"
+	}
+	immediate = {
+		# Scope to a random unincorporated AUS state and save it
+		every_scope_state = {
+			limit = {
+				owner = c:AUS
+				is_incorporated = no
+			}
+			save_scope_as = target_crownland
+
+			# Incorporate the state
+			set_state_type = incorporated
+
+			# Add 1 level of University
+			create_building = {
+				building = building_university
+				level = 1
+			}
+
+			# Add 1 level of Arts Academy
+			create_building = {
+				building = building_art_academy
+				level = 1
+			}
+
+			# Add 1 level of Arts Academy
+			create_building = {
+				building = building_government_administration
+				level = 1
+			}
+
+		}
+	}
+	option = {
+		default_option = yes # default
+		name = uni_event.2.a
+		add_loyalists = { value = large_radicals }
+	}
+}
+
+# uni_event.3 — "Building Bridges" payoff, fired by stdinnv_building_bridges (the
+# decision already did cohesion + bloc relations in when_taken). BOTH options pay the
+# 12mo _cost modifier (the bill; it is also the decision cooldown). Default option adds
+# the _diplo buff on top; the alternative instead converts the goodwill inward:
+#   - large loyalists for us, and for 1 random fellow bloc member that still
+#     practices slavery (if the whole bloc is already slavery-free, the outward
+#     half does nothing);
+#   - that member is emancipated + modernized: slavery banned OUTRIGHT with all
+#     pro-slavery IG party ideology stripped, landowner leader turned market liberal,
+#     and its top-2 non-landowner IG leaders made modernizer / reformer;
+#   - our own landowner leader (if conservative) turned market liberal, and our top-2
+#     non-landowner IG leaders made modernizer / reformer.
+# Tokens: random_country (vanilla india_decisions.txt:43) + power_bloc ?= ROOT.power_bloc
+# membership trigger (vanilla british_dictates.txt:616); slavery ban block per vanilla
+# law_events/slavery_laws.txt:613; rest is this repo's own code.
+uni_event.3 = {
+	type = country_event
+	title = uni_event.3.t
+	desc = uni_event.3.desc
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+	option = {
+		default_option = yes # default
+		name = uni_event.3.a
+		add_modifier = { name = stdinnv_building_bridges_cost_1y months = 12 }
+		add_modifier = { name = stdinnv_building_bridges_diplo_1y months = 12 }
+	}
+	option = {
+		name = uni_event.3.b
+		add_modifier = { name = stdinnv_building_bridges_cost_1y months = 12 }
+		add_loyalists = { value = large_radicals }
+
+		random_country = {
+			limit = {
+				power_bloc ?= ROOT.power_bloc
+				NOT = { this = ROOT }
+				NOT = { has_law = law_type:law_slavery_banned }
+			}
+			add_loyalists = { value = large_radicals }
+			# Emancipation is the price of friendship: no slow abolitionist-leader campaign
+			# (it never actually flipped the law in play). If the member still has slavery,
+			# ban it OUTRIGHT and strip the pro-slavery party ideology from every IG.
+			# Tokens: every_interest_group + guarded remove_ideology of ideology_pro_slavery /
+			# _colonial copied from vanilla law_events/slavery_laws.txt:613 (verified 2026-07-07).
+			if = {
+				limit = { NOT = { has_law = law_type:law_slavery_banned } }
+				activate_law = law_type:law_slavery_banned
+				every_interest_group = {
+					limit = {
+						OR = {
+							has_ideology = ideology:ideology_pro_slavery
+							has_ideology = ideology:ideology_pro_slavery_colonial
+						}
+					}
+					if = {
+						limit = { has_ideology = ideology:ideology_pro_slavery }
+						remove_ideology = ideology_pro_slavery
+					}
+					if = {
+						limit = { has_ideology = ideology:ideology_pro_slavery_colonial }
+						remove_ideology = ideology_pro_slavery_colonial
+					}
+				}
+			}
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+			ordered_interest_group = {
+				limit = { NOT = { is_interest_group_type = ig_landowners } }
+				order_by = ig_clout
+				position = 0
+				check_range_bounds = no
+				leader = { set_ideology = ideology:ideology_modernizer_leader }
+			}
+			ordered_interest_group = {
+				limit = { NOT = { is_interest_group_type = ig_landowners } }
+				order_by = ig_clout
+				position = 1
+				check_range_bounds = no
+				leader = { set_ideology = ideology:ideology_reformer }
+			}
+		}
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					leader = { has_conservative_ideology = yes }
+				}
+			}
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+		}
+		ordered_interest_group = {
+			limit = { NOT = { is_interest_group_type = ig_landowners } }
+			order_by = ig_clout
+			position = 0
+			check_range_bounds = no
+			leader = { set_ideology = ideology:ideology_modernizer_leader }
+		}
+		ordered_interest_group = {
+			limit = { NOT = { is_interest_group_type = ig_landowners } }
+			order_by = ig_clout
+			position = 1
+			check_range_bounds = no
+			leader = { set_ideology = ideology:ideology_reformer }
+		}
+	}
+}
+
+# uni_event.4 - "Burden of the Crown" payout engine (2026-07-10). Fired hidden by
+# stdinnv_gp1_burden.when_taken. The gap calc + var-fed drain multiplier live HERE
+# because a decision's when_taken is re-computed during tooltip preview (the
+# var:stdinnv_gp1_gap multiplier evaluated to 'none' on every hover - error spam);
+# a hidden triggered event's immediate never runs in preview.
+uni_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# gap = my prestige - #2's prestige, in thousands (drives the drain multiplier).
+		# set-before-change (this set is the base), then subtract #2, then /1000.
+		set_variable = { name = stdinnv_gp1_gap value = prestige }
+		every_country = {
+			limit = { global_country_ranking = 2 }
+			ROOT = { change_variable = { name = stdinnv_gp1_gap subtract = prev.prestige } }
+		}
+		change_variable = { name = stdinnv_gp1_gap divide = 1000 }
+
+		# scaled prestige drain (-500 per 1000 of gap).
+		add_modifier = {
+			name = stdinnv_gp1_drain
+			months = 48
+			multiplier = var:stdinnv_gp1_gap
+		}
+		# flat payout to self (economy + per-state welfare).
+		add_modifier = { name = stdinnv_gp1_welfare months = 48 }
+		every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
+		# flat payout to every subject (economy + per-state welfare).
+		every_subject_or_below = {
+			add_modifier = { name = stdinnv_gp1_subject months = 48 }
+			every_scope_state = { add_modifier = { name = stdinnv_gp1_sol_state months = 48 } }
+		}
+		remove_variable = stdinnv_gp1_gap
+	}
+}

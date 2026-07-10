@@ -1,0 +1,16 @@
+{
+	"name": "SteadyInnovMod",
+	"id": "SteadyInnovMod",
+	"game_id": "victoria3",
+	"version": "0.1.0",
+	"supported_game_version": "1.13.*",
+	"short_description": "Innovate to get on the world stage",
+	"tags": [
+		"Gameplay",
+		"Alternative History"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

@@ -25,7 +25,7 @@ mdpbic.1 = {
 
     trigger = {
         this = c:BIC
-        game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
+        #game_date < 1856.1.1                # 20-yr window; matches BIC's expfight_warbump (240mo)
         is_at_war = no
         is_active_in_diplomatic_play = no
     }
@@ -44,6 +44,10 @@ mdpbic.1 = {
                 is_subject_of = scope:mdp_annexer
                 any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
                 NOT = { any_primary_culture = { has_discrimination_trait_group = heritage_group_european } }
+                # B2 truce guard (2026-06-25): never annex a subject BIC holds a truce with - the
+                # BIC<->ASM and BIC<->MNP 108mo truces (zz_mdp_truces.txt, PR #4) thus protect ASM/MNP
+                # until they finish frontier-colonization. has_truce_with reused from mdp_valid_generic_target.
+                NOT = { has_truce_with = scope:mdp_annexer }
             }
             order_by = prestige        # ascending — weakest first
             position = 0
@@ -65,6 +69,12 @@ mdpbic.1 = {
                     target_country = scope:mdp_subject
                     type = dp_annex_subject
                 }
+                # Load-bearing marker (NOT a fingerprint): begun annexing; gates the B5 demobilize
+                # decision. Kept at promote.
+                set_variable = { name = mdp_has_annexed value = yes }
+                # FINGERPRINT COUNTER (additive; save-parser). Comment out at promote.
+                # if = { limit = { NOT = { has_variable = mdp_fingerprint_bic_annexations } } set_variable = { name = mdp_fingerprint_bic_annexations value = 0 } }
+                # change_variable = { name = mdp_fingerprint_bic_annexations add = 1 }
             }
 
             #debug_log = "mdp - bic_annex - play declared"

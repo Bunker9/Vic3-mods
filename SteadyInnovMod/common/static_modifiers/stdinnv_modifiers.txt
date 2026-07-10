@@ -1,0 +1,170 @@
+﻿# =============================================================================
+# SteadyInnovMod — static modifiers
+# -----------------------------------------------------------------------------
+# Design: tech access in Vic3 snowballs. Unrecognized / subject nations start
+# crippled (the two _negative modifiers below, applied at startup). The escape
+# hatch is universities: build 10 (lvl>=10) AFTER you've become recognized and
+# shed subject status, take the decision, and uni_event.1 strips the stale
+# penalty and grants stdinnv_reward (a 20yr decaying catch-up bonus).
+# The four chosen "struggling great powers" (FRA/JAP/NET/USA) instead get a
+# permanent leg-up (stdinnv_boost_gp) so they don't get drowned out by the
+# BIC/CHI economies (which are pushed to the subject penalty).
+# NOTE: values are game-tuned by the author — do not edit without asking.
+# =============================================================================
+
+stdinnv_unrecognized = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+
+	country_tech_spread_mult = -0.2
+	building_group_bg_manufacturing_employee_mult = 0.5
+	building_group_bg_manufacturing_throughput_add = -0.2
+	state_dependent_wage_mult  = 0.2
+}
+
+stdinnv_subject = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+
+	country_tech_spread_mult = -0.5
+	country_weekly_innovation_mult = -0.2
+	country_prestige_mult = -0.5
+	building_group_bg_manufacturing_throughput_add = -0.3
+	building_group_bg_manufacturing_employee_mult = 1
+	country_aristocrats_pol_str_mult = 0.5
+	building_group_bg_extraction_construction_efficiency_add = 0.2
+	building_group_bg_extraction_throughput_add = 0.1
+	building_group_bg_plantations_throughput_add = 0.1
+	state_dependent_wage_mult  = 0.5
+}
+
+stdinnv_boost_gp = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	country_tech_spread_mult = 0.2
+	country_prestige_mult = 0.2
+	country_minting_mult = 0.5
+	country_max_companies_add = 2
+}
+
+stdinnv_reward = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	country_tech_spread_mult = 1
+	building_throughput_add = 0.05
+	country_authority_mult = 0.25
+
+	# boost + pol strength boost
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.25
+	interest_group_ig_intelligentsia_pol_str_mult = 0.25
+	interest_group_ig_intelligentsia_approval_add = 5
+
+	# boost + pol strength boost
+	interest_group_ig_industrialists_pop_attraction_mult = 0.5
+	interest_group_ig_industrialists_pol_str_mult = 0.5
+	interest_group_ig_industrialists_approval_add = 5
+
+}
+
+aus_crownland_management_50y = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_liberty_desire_of_subjects_add = -0.2
+	country_weekly_innovation_mult = 0.2
+	country_prestige_mult = 0.2
+	country_authority_mult = 0.2
+	building_group_bg_light_industry_construction_efficiency_add = 0.2
+	building_group_bg_extraction_construction_efficiency_add = 0.2
+	country_max_weekly_construction_progress_add = 20
+
+
+	# boost + pol strength boost
+	interest_group_ig_industrialists_pop_attraction_mult = 0.5
+	interest_group_ig_industrialists_pol_str_mult = 0.2
+	interest_group_ig_industrialists_approval_add = 5
+}
+
+# 12-month "Building Bridges" pair (stdinnv_building_bridges decision -> uni_event.3).
+# _cost = the bill, applied by BOTH event options and checked as the decision cooldown.
+# _diplo = the good diplo stuff, option 1 only (option 2 takes loyalists instead).
+# Vanilla-calibrated first pass, tune in game: subjects LD add is fractional in
+# vanilla (0.03..0.35), influence add runs 50..200.
+stdinnv_building_bridges_cost_1y = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds"
+	country_authority_add = -50
+	country_bureaucracy_add = -200
+	country_expenses_add = 250
+	country_infamy_decay_mult = 9
+}
+
+stdinnv_building_bridges_diplo_1y = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_liberty_desire_of_subjects_add = -0.25
+	country_influence_add = 200
+}
+
+hungary_reconciled_to_vienna_50y = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_liberty_desire_add = -0.25
+	country_tech_spread_mult = 0.05
+	country_authority_mult = 0.05
+	building_group_bg_extraction_construction_efficiency_add = 0.5
+	country_max_weekly_construction_progress_add = 5
+}
+
+# =============================================================================
+# GP-maintenance decisions (2026-07-09) - modifiers. All magnitudes TUNABLE in game.
+# Tokens reused from vetted in-mod usage above: country_prestige_add/_mult,
+# country_influence_add, country_authority_add, country_expenses_add,
+# country_tech_spread_mult, building_group_bg_extraction_throughput_add.
+# state_standard_of_living_add verified vanilla 2026-07-09.
+# =============================================================================
+
+# 3a - GP#1 prestige drain. UNIT modifier: the decision RESCALES it via
+# multiplier = var:stdinnv_gp1_gap (= gap/1000), so the drain is -500 per 1000 of the
+# #1-vs-#2 prestige gap. Keep the base at -500 (the multiplier scales this line).
+stdinnv_gp1_drain = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
+	country_prestige_add = -900
+}
+
+# 3a - flat welfare/economy payout to GP#1 for the sacrifice (self, 48mo).
+stdinnv_gp1_welfare = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_tech_spread_mult = 0.1
+	country_influence_add = 500
+	country_authority_add = 500
+}
+
+# 3a - flat extraction payout to each subject of GP#1 (48mo).
+stdinnv_gp1_subject = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	building_group_bg_extraction_throughput_add = 0.1
+	building_group_bg_plantations_throughput_add = 0.1
+}
+
+# 3a - per-state welfare (standard of living) for GP#1 and its subjects (48mo).
+stdinnv_gp1_sol_state = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	state_dependent_wage_mult  = 0.1
+	state_standard_of_living_add = 1
+}
+
+# 3b - overlord "uplift" bill: the huge money + influence cost, paid AS a 5yr modifier
+# (self). Also the decision cooldown (has_modifier gate).
+stdinnv_uplift_cost = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds"
+	country_influence_add = -100
+	country_expenses_add = 5000
+}
+
+# 3b - gift to each uplifted subject: 5yr, 100% tech spread (matches stdinnv_reward's lever).
+stdinnv_uplift_gift = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	country_tech_spread_mult = 1
+}
+
+# 3c - flat prestige nudge to tip a qualifying candidate over the GP bar (permanent;
+# the once-guard is has_modifier in the decision is_shown).
+stdinnv_gp_shot = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_positive.dds"
+	country_prestige_add = 100
+	country_prestige_mult = 0.25
+}

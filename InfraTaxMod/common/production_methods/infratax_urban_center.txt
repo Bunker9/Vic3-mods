@@ -1,0 +1,55 @@
+﻿# common/production_methods/infratax_urban_center.txt
+
+INJECT_OR_CREATE:pm_early_power_plant = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_merchant_marine_add = 2 #50
+			goods_output_electricity_add = 15
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_coal-fired_plant = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_merchant_marine_add = 4 #50
+			goods_output_electricity_add = 40
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_oil-fired_plant = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_merchant_marine_add = 4 #50
+			goods_output_electricity_add = 40
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_market_squares = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 1
+			goods_output_transportation_add = 1
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_covered_markets= {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 2
+			goods_output_transportation_add = 2
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_arcades = {
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 3
+			goods_output_transportation_add = 4
+		}
+	}
+}

@@ -1,0 +1,74 @@
+﻿TREATIES = {
+	# Transit Rights Agreement for Nepal
+	create_treaty = {
+		name = treaty_name_nep_transit_rights
+		first_country = c:NEP
+		second_country = c:GBR
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 } # 10 years
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:GBR
+				target_country = c:NEP
+			}
+		}
+	}
+	# Transit Rights Agreement for Panjab
+	create_treaty = {
+		name = treaty_name_pan_transit_rights
+		first_country = c:PAN
+		second_country = c:GBR
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 } # 10 years
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:GBR
+				target_country = c:PAN
+			}
+		}
+	}
+	# Transit Rights Agreement for Kabul
+	create_treaty = {
+		name = treaty_name_afg_transit_rights
+		first_country = c:KAB
+		second_country = c:PAN
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 2 } # 10 years
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:PAN
+				target_country = c:KAB
+			}
+		}
+	}
+	# Transit Rights Agreement for Kandhar
+	create_treaty = {
+		name = treaty_name_kan_transit_rights
+		first_country = c:KAN
+		second_country = c:KAL
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 } # 10 years
+
+		articles_to_create = {
+			{
+				article = transit_rights
+				source_country = c:KAL
+				target_country = c:KAN
+			}
+		}
+	}
+}

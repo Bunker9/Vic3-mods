@@ -1,0 +1,170 @@
+﻿# =============================================================================
+# MyDiploPlayMod - expander "border cleanup" END-REWARD decision (2026-07-09)
+# -----------------------------------------------------------------------------
+# MODULAR + GENERIC: the shared annex mechanic lives in
+# events/mdp_decent_annex_events.txt (mdp_decent_annex.1) - it peacefully annexes
+# every DECENTRALIZED nation that co-owns a state region with the acting
+# country (border cleanup, NOT blobbing). ONE decision serves ALL expander tags:
+# it is the reward for a job well done, granted once an expander has FINISHED -
+# no free minor left to conquer and no small subject left to annex - reusing the
+# same in-game-tested checks as mdp_conquer_free_minor / mdp_annex_own_subject
+# (factored into mdp_has_conquerable_minor / mdp_has_annexable_subject in
+# common/scripted_triggers/mdp_triggers.txt). No per-tag hardcoding - any tag in
+# mdp_is_expand_country qualifies (ETH included: c:ETH is only true once formed).
+#
+# TRUCE HANDLING (user design): the "conquerable minor" check is truce-AGNOSTIC, so
+# a lingering truce with a free minor still reads as "a target remains" and BLOCKS
+# the reward until the truce lapses and the minor is actually taken.
+#
+# REWORKED 2026-07-10 (the Ethiopia fix, in-game verified on mdp_ethiopia_annex_horn):
+# trigger-context any_country does NOT match decentralized nations (every vanilla
+# any_country + decentralized pairing is a NEGATIVE filter). All decentral checks are
+# now STATE-SIDE (vanilla 00_opium_wars.txt:62 idiom): walk our own states, hop to the
+# state_region, test the co-owners. is_split_state dropped as redundant (co-ownership
+# already implies a split region).
+# =============================================================================
+
+# --- "Consolidate the Frontier" - the expander's end reward --------------------
+# Once-only (mdp_decent_annex_done). when_taken: absorb the decentralized fragments
+# inside our own split states (shared event), wipe the war debt, reward the nation
+# with loyalists, and instantly pass whatever law is mid-enactment.
+# Tokens verified vs game files 2026-07-09: clear_debt (in-mod NoUSChicken); add_loyalists
+# = { value = large_radicals } (austro_hungarian / ip4_portugal decisions); activate_law =
+# currently_enacting_law.type (vanilla activate_law RHS form); mdp_has_* gate triggers.
+mdp_consolidate_frontier = {
+
+	is_shown = {
+		mdp_is_expand_country = yes
+		NOT = { has_variable = mdp_decent_annex_done }
+		# something to absorb: a decentralized nation co-owning a state region with us
+		# (state-side; see header - any_country skips decentralized in triggers).
+		any_scope_state = {
+			state_region = {
+				any_scope_state = {
+					owner = { is_country_type = decentralized }
+				}
+			}
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		# JOB DONE: nothing left to conquer or annex (a truce with a minor still blocks,
+		# because mdp_has_conquerable_minor is deliberately truce-agnostic).
+		NOT = { mdp_has_conquerable_minor = yes }
+		NOT = { mdp_has_annexable_subject = yes }
+	}
+
+	when_taken = {
+		# once-only guard (read by is_shown -> also satisfies the used-var rule).
+		set_variable = { name = mdp_decent_annex_done value = yes }
+
+		# --- reward perks ---
+		clear_debt = yes                              # wipe the war debt
+		add_loyalists = { value = large_radicals }    # a grateful, loyal populace
+		# instantly pass whatever law is currently being enacted
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
+
+		# --- core annex mechanic (shared, tag-agnostic) ---
+		trigger_event = { id = mdp_decent_annex.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# --- Hard-coded DAY-1 border cleanup for NON-expander tags (JAP / BIC / NSW) ----
+# These three are NOT expander tags. Their decentralized targets do NOT co-own a SPLIT
+# state with them (that is Ethiopia+Ogaden geography) - they BORDER them (BIC: Assam /
+# Arakan-Kuki; NSW: the Aboriginal nations, e.g. around Victoria), EXCEPT Japan, which
+# does not even border its target by land (Sakhalin is a separate island held by the
+# decentralized SKH). So the check per tag differs:
+#   - BIC / NSW -> annex ADJACENT decentralized nations          (event mdp_decent_annex.2)
+#   - JAP       -> HARD-CODED annex of STATE_SAKHALIN's decentralized owners (mdp_decent_annex.3)
+# DEBUG SETUP (user): is_shown is JUST the tag (+ once-guard) so the decision ALWAYS
+# shows; the "a target exists" requirement lives in POSSIBLE wrapped in a custom_tooltip
+# so hovering renders a clear pass/fail line. Both fire a VISIBLE popup event.
+# Tokens verified 2026-07-09: any_neighbouring_state = { owner = root } (mdp_valid_generic_target);
+# state_region = s:STATE_SAKHALIN (state trigger); owner = { is_country_type = decentralized }.
+# 2026-07-10: adjacency check flipped state-side for the same any_country reason - walk OUR
+# states, test any_neighbouring_state's owner (any_neighbouring_state is a state-scope
+# iterator, so this stays inside proven territory).
+
+mdp_consolidate_frontier_special = {
+
+	is_shown = {
+		OR = {
+			c:BIC ?= this
+			c:NSW ?= this
+		}
+		NOT = { has_variable = mdp_decent_annex_done }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		# a decentralized nation BORDERS us (adjacency, not split-state; state-side).
+		custom_tooltip = {
+			text = mdp_adjacent_decentralized_exists_tt
+			any_scope_state = {
+				any_neighbouring_state = {
+					owner = { is_country_type = decentralized }
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		set_variable = { name = mdp_decent_annex_done value = yes }
+		add_loyalists = { value = large_radicals }
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
+		# VISIBLE popup: annex adjacent decentralized nations.
+		trigger_event = { id = mdp_decent_annex.2 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# --- JAP-only: annex the decentralized owners of STATE_SAKHALIN (hard-coded) --------
+mdp_consolidate_frontier_japan = {
+
+	is_shown = {
+		c:JAP ?= this
+		NOT = { has_variable = mdp_decent_annex_done }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		# STATE_SAKHALIN holds a decentralized owner to absorb.
+		custom_tooltip = {
+			text = mdp_sakhalin_decentralized_exists_tt
+			s:STATE_SAKHALIN = {
+				any_scope_state = {
+					owner = { is_country_type = decentralized }
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		set_variable = { name = mdp_decent_annex_done value = yes }
+		add_loyalists = { value = large_radicals }
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
+		# VISIBLE popup: annex STATE_SAKHALIN's decentralized owners.
+		trigger_event = { id = mdp_decent_annex.3 }
+	}
+
+	ai_chance = { value = 10000 }
+}

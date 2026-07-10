@@ -1,0 +1,12 @@
+﻿# desi_incorporation_state_millions — the just-incorporated state's population expressed in millions
+# (fractional). Used by desi_incorporate_state to bump the cumulative burden variable. Reads the saved
+# scope:desi_inc_state; safe (0) if that scope is somehow unset. state_population is a verified state-scope
+# value (vanilla order_by = state_population; value = scope:X.state_population in 27_unification war goal).
+desi_incorporation_state_millions = {
+	value = 0
+	if = {
+		limit = { exists = scope:desi_inc_state }
+		add = scope:desi_inc_state.state_population
+	}
+	divide = 1000000
+}

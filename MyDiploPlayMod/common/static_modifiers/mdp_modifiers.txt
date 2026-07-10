@@ -1,0 +1,17 @@
+﻿# =============================================================================
+# MyDiploPlayMod - static modifiers (single modifier file per mod, DEV-RULE).
+# -----------------------------------------------------------------------------
+# mdp_bic_imperial_overstretch (2026-07-10, user ask B5): a 30-year leash on the
+# East India Company, applied at game start from history
+# (common/history/countries/zz_mdp_countries.txt). x4 infamy decay = +300% = 3;
+# influence and defense drains keep BIC from steamrolling early.
+# Tokens verified vs game files 2026-07-10: country_infamy_decay_mult /
+# country_influence_add / unit_defense_mult (00_modifier_types.txt).
+# =============================================================================
+mdp_bic_imperial_overstretch = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds"
+
+	country_infamy_decay_mult = 4
+	country_influence_add = -800
+	unit_defense_mult = -0.3
+}

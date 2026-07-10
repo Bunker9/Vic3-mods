@@ -358,15 +358,15 @@ STATE_GOLD_COAST = {
     farm = "x8504E6"
     mine = "xEC0AF9"
     wood = "xE797D7"
-    arable_land = 80
+    arable_land = 120
     arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_dye_plantation" "building_tobacco_plantation" "building_sugar_plantation" "building_banana_plantation" }
     capped_resources = {
-        building_logging_camp = 14
-        building_fishing_wharf = 5
+        building_logging_camp = 21
+        building_fishing_wharf = 21
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 22
+        undiscovered_amount = 31
     }
     naval_exit_id = 3091
 }
@@ -539,23 +539,27 @@ STATE_OROMIA = {
     subsistence_building = "building_subsistence_farm"
     provinces = { "x02BFCD" "x055C75" "x077343" "x0BB3A0" "x0D5E96" "x0E0BF3" "x0FA741" "x0FBF6B" "x107FA1" "x14A492" "x1527DC" "x156474" "x19A599" "x1A441F" "x1E8D53" "x206111" "x20EBC8" "x28B782" "x318256" "x3286BD" "x35477F" "x35C9A6" "x396D03" "x3D8E7B" "x4160D0" "x41E0D0" "x435967" "x489C2A" "x4AD726" "x4CE17E" "x513574" "x516EB2" "x560028" "x582778" "x5C59E3" "x5FDD08" "x6075E2" "x6AEDF6" "x6E7998" "x6E8CCA" "x721216" "x74C88E" "x75E6F0" "x7A2004" "x7FCE33" "x82F3F6" "x84C294" "x869C8E" "x8CA5FB" "x8F6EB2" "x91C70C" "x939EDA" "x98DC27" "x98F62E" "x9B2CD2" "x9D4A30" "x9D5DFC" "xA51575" "xA8A20B" "xAA8CB0" "xAF0800" "xB41950" "xB480F1" "xB56BDC" "xB9A342" "xBEDF90" "xC74C78" "xC77DDF" "xC7AA4B" "xCCBD1F" "xCE40EE" "xD033B3" "xD1CB36" "xD20B42" "xD25F58" "xD26E35" "xD61F68" "xD68922" "xD6B588" "xDBA052" "xDFB76F" "xE04093" "xE156F9" "xE1D0E7" "xE7D29C" "xFC0BCC" "xFD0A16" }
     prime_land = { "xE04093" "x1A441F" "x0FBF6B" "x5FDD08" "x41E0D0" "x91C70C" "x435967" "x4CE17E" "x9D5DFC" "xC77DDF" "xE7D29C" "xD6B588" "xD033B3" "xA8A20B" "x98F62E" "x35C9A6" "xC7AA4B" }
-    traits = { "state_trait_malaria" }
+    traits = { "state_trait_malaria" "state_trait_infratax" }
     city = "xD6B588"
     farm = "x41E0D0"
     mine = "x869C8E"
     wood = "xCE40EE"
-    arable_land = 130
+    arable_land = 160
     arable_resources = { "building_millet_farm" "building_livestock_ranch" "building_coffee_plantation" "building_cotton_plantation" "building_dye_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_sugar_plantation" "building_vineyard" }
     capped_resources = {
         building_logging_camp = 11
+        building_coal_mine = 6
+        building_iron_mine = 6
+        building_lead_mine = 6
+        building_sulfur_mine = 6
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 28
+        undiscovered_amount = 41
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 10
+        undiscovered_amount = 21
     }
 }
 

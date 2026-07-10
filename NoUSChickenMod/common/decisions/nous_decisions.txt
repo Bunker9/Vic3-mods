@@ -1,0 +1,157 @@
+﻿# =============================================================================
+# NoUSChickenMod — USA wartime decisions (AI-driven, no pulse).
+# Decisions are evaluated for the AI automatically (ai_chance weight), so they
+# replace on_action pulses for one-shot/conditional behaviour. War-start effects
+# live in common/scripted_effects/nous_effects.txt (pattern copied from master
+# MyDiploPlayMod). Three decisions:
+#   nous_war_play                 — grant the War Bonds funding modifier while at war.
+#   nous_mexico_war_decision      — Task A: force the Mexico war if California is still Mexican by 1851.
+#   nous_restart_csa_war_decision — Task B: re-declare the Civil War whenever the CSA exists and is at peace.
+# -----------------------------------------------------------------------------
+# nous_war_play: grants modifier_nous_warbonds (debt wipe + war funding) the
+# first time the USA is at war with Mexico, and the first time it is in a civil
+# war with slavery banned. Once-only per scenario via nous_md_done / nous_cw_done.
+# =============================================================================
+nous_war_play = {
+	#icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	is_shown = {
+		c:USA ?= this
+		OR = {
+			#mexico has ANY USA states
+			c:MEX = {
+				any_scope_state = {
+					has_claim_by = c:USA
+				}
+			}
+			#slavery exists
+			exists = c:CSA
+		}
+	}
+
+	possible = {
+		OR = {
+			AND = {
+				has_war_with = c:MEX
+			}
+			AND = {
+				is_in_civil_war = yes
+				has_law = law_type:law_slavery_banned
+			}
+		}
+		NOT = { has_modifier =  modifier_nous_warbonds }
+	}
+
+	when_taken = {
+		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+		# Persists on USA
+		# Comment out at Ceremony 3 promote.
+		# set_variable = { name = nous_fingerprint_warbonds_taken value = yes }
+
+		clear_debt = yes  #Wipe debt
+		add_treasury = {
+			value = gold_reserves_limit
+		}
+		add_modifier = { name = modifier_nous_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100000 }
+}
+
+# =============================================================================
+# nous_mexico_war_decision (Task A) — fallback Manifest Destiny.
+# If by 1851 Mexico still holds California, the USA hard-declares a return_state
+# war to reclaim it (low infamy, backed by a fresh claim). AI always takes it.
+# =============================================================================
+nous_mexico_war_decision = {
+	is_shown = {
+		c:USA ?= this
+		c:MEX = {
+				any_scope_state = {
+					has_claim_by = c:USA
+				}
+		}
+	}
+
+	possible = {
+
+		c:USA = {
+			is_active_in_diplomatic_play = no
+			NOT = { has_war_with = c:MEX }
+		}
+
+		c:MEX = {
+			any_scope_state = {
+				has_claim_by = c:USA
+			}
+		}
+	}
+
+	when_taken = {
+		# Clean one-line tooltip for the decision; the effect's own steps stay hidden.
+		custom_tooltip = {
+			text = nous_mexico_war_decision_effect_tt
+			nous_start_mexico_war_effect = yes
+		}
+	}
+
+	ai_chance = { value = 100000 }
+}
+
+# =============================================================================
+# nous_restart_csa_war_decision (Task B) — "No rest till slavery is crushed."
+# Whenever the Confederacy still exists and the USA is at peace with it, the USA
+# re-declares the war to annex it back. No once-only flag: it re-fires after every
+# white peace until the CSA is gone. AI always takes it.
+# =============================================================================
+nous_restart_csa_war_decision = {
+	is_shown = {
+		c:USA ?= this
+		exists = c:CSA
+	}
+
+	possible = {
+		exists = c:CSA
+
+		c:USA = {
+			is_active_in_diplomatic_play = no
+			NOT = { has_war_with = c:CSA }
+		}
+	}
+
+	when_taken = {
+		#TODO cust tooltip here too
+		nous_restart_csa_war_effect = yes
+	}
+
+	ai_chance = { value = 100000 }
+}
+
+# =============================================================================
+# nous_calitex_boom - Texas + California industrial boom.
+# One-shot decision for ANY nation that owns BOTH state regions entire, after 1860.
+# Turns the two states into permanent migration magnets and seeds a fixed industrial
+# package in each (see nous_calitex_boom_effect). nous_calitex_done is the once-guard
+# AND the save fingerprint (a variable persists into the save; NO debug_log here - a
+# decision's when_taken re-runs during tooltip preview). Tokens verified 2026-07-09:
+# owns_entire_state_region (state ownership gate); game_date compare.
+# =============================================================================
+nous_calitex_boom = {
+
+	is_shown = {
+		owns_entire_state_region = STATE_TEXAS
+		owns_entire_state_region = STATE_CALIFORNIA
+		NOT = { has_variable = nous_calitex_done }
+	}
+
+	possible = {
+		game_date >= 1860.1.1
+	}
+
+	when_taken = {
+		set_variable = { name = nous_calitex_done value = yes }
+		nous_calitex_boom_effect = yes
+	}
+
+	ai_chance = { value = 100000 }
+}

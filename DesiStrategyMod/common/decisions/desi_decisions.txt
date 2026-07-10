@@ -1,0 +1,285 @@
+﻿# =============================================================================
+# DesiStrategyMod - claims for independent Indian-culture nations to unify India.
+# HAND-WRITTEN. Tokens verified vs game files 2026-06-24:
+#   any_primary_culture (country->culture iterator) + has_discrimination_trait_group =
+#   heritage_group_south_asian  (all 9 South Asian heritages - gangetic/indusine/carnatic/
+#   kashmiri/himalayan/rajasthani/gujarati/assamese/deccani - share that group, so this is
+#   the clean "Indian culture" test); owns_entire_state_region = STATE_X (bare name);
+#   add_claim (state_region effect, value = claimant country); has_claim = s:STATE_X.
+# No clean state-OCCUPATION trigger exists in 1.13 (is_occupied / controlled_by absent), so
+# decision 2 gates on OWNERSHIP of Delhi (owns_entire_state_region) per the design fallback.
+# India region = strategic regions south_india + north_india + himalayas (30 states).
+# =============================================================================
+
+# ---- Decision 1: reclaim the Punjab + Delhi heartland ------------------------
+# Any independent (non-subject) Indian-culture nation (NEP, PAN, ...) presses claims on the
+# heartland the British hold: Punjab, Hill Punjab, Delhi.
+desi_claim_heartland = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		NOT = { has_claim = s:STATE_DELHI }
+	}
+
+	possible = {
+		is_subject = no
+		OR = {
+			NOT = { has_claim = s:STATE_DELHI }
+			NOT = { has_claim = s:STATE_PUNJAB }
+			NOT = { has_claim = s:STATE_HILL_PUNJAB }
+		}
+	}
+
+	when_taken = {
+		save_scope_as = desi_actor
+		s:STATE_DELHI       = { add_claim = scope:desi_actor }
+		s:STATE_PUNJAB      = { add_claim = scope:desi_actor }
+		s:STATE_HILL_PUNJAB = { add_claim = scope:desi_actor }
+		# FINGERPRINT (variable, per-country; DEV-RULES "Save-fingerprint debugging"). Comment out at promote.
+		# set_variable = { name = desi_fingerprint_heartland_claimed value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision 2: unify India (claims on the whole India region) --------------
+# Once an independent Indian-culture nation OWNS Delhi (the imperial seat), it presses claims
+# on every state of the India region (south + north + himalayas, 30 states). Once-only.
+desi_unify_india = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		has_claim = s:STATE_DELHI
+		NOT = { has_variable = desi_unified_done }
+	}
+
+	possible = {
+		owns_entire_state_region = STATE_DELHI
+		NOT = { has_variable = desi_unified_done }
+	}
+
+	when_taken = {
+		save_scope_as = desi_actor
+		add_modifier = { name = modifier_desi_warbonds months=240 }
+		# region_south_india
+		s:STATE_CEYLON           = { add_claim = scope:desi_actor }
+		s:STATE_CIRCARS          = { add_claim = scope:desi_actor }
+		s:STATE_MYSORE           = { add_claim = scope:desi_actor }
+		s:STATE_TRAVANCORE       = { add_claim = scope:desi_actor }
+		s:STATE_MADRAS           = { add_claim = scope:desi_actor }
+		s:STATE_HYDERABAD        = { add_claim = scope:desi_actor }
+		s:STATE_KURNOOL          = { add_claim = scope:desi_actor }
+		s:STATE_BOMBAY           = { add_claim = scope:desi_actor }
+		# region_north_india
+		s:STATE_GUJARAT          = { add_claim = scope:desi_actor }
+		s:STATE_SINDH            = { add_claim = scope:desi_actor }
+		s:STATE_CENTRAL_PROVINCES = { add_claim = scope:desi_actor }
+		s:STATE_AWADH            = { add_claim = scope:desi_actor }
+		s:STATE_MALWA            = { add_claim = scope:desi_actor }
+		s:STATE_AGRA             = { add_claim = scope:desi_actor }
+		s:STATE_BUNDELKHAND      = { add_claim = scope:desi_actor }
+		s:STATE_BIHAR            = { add_claim = scope:desi_actor }
+		s:STATE_EAST_BENGAL      = { add_claim = scope:desi_actor }
+		s:STATE_WEST_BENGAL      = { add_claim = scope:desi_actor }
+		s:STATE_ASSAM            = { add_claim = scope:desi_actor }
+		s:STATE_ORISSA           = { add_claim = scope:desi_actor }
+		s:STATE_PUNJAB           = { add_claim = scope:desi_actor }
+		s:STATE_HILL_PUNJAB      = { add_claim = scope:desi_actor }
+		s:STATE_DELHI            = { add_claim = scope:desi_actor }
+		s:STATE_RAJPUTANA        = { add_claim = scope:desi_actor }
+		# region_himalayas
+		s:STATE_HIMALAYAS        = { add_claim = scope:desi_actor }
+		s:STATE_LHASA            = { add_claim = scope:desi_actor }
+		s:STATE_NGARI            = { add_claim = scope:desi_actor }
+		s:STATE_KASHMIR          = { add_claim = scope:desi_actor }
+		#s:STATE_QINGHAI          = { add_claim = scope:desi_actor } -- Part of Qing
+		s:STATE_EASTERN_HIMALAYAS = { add_claim = scope:desi_actor }
+		# real once-only guard (load-bearing, NOT a fingerprint) + additive fingerprint
+		#TODO add burma, baluch and afghan states ( ONLY PARTS OF SEA and CENT ASIA )
+		set_variable = { name = desi_unified_done value = yes }
+		# set_variable = { name = desi_fingerprint_india_unified value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# ---- Decision 3: Bounce from War defaults ------------------------
+desi_rebuild_war_machine = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		NOT = {
+			AND = {
+				has_variable = desi_default_count
+				var:desi_default_count >= 5
+			}
+		}
+	}
+
+	possible = {
+		is_subject = no
+		in_default = yes
+	}
+
+	when_taken = {
+		clear_debt = yes
+		add_treasury = { value = gold_reserves_limit }
+		# Instantly pass whatever law the player is currently enacting (rally the legislature behind the war
+		# effort). currently_enacting_law = the in-progress law scope; activate_law wants a law_type, so use
+		# .type (vanilla 00_ep2_victoria_scripted_triggers.txt: currently_enacting_law.type). Guard with exists
+		# so the decision is safe when no enactment is in progress.
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
+		if = {
+			limit = { NOT = { has_variable = desi_default_count } }
+			set_variable = { name = desi_default_count value = 0 }
+		}
+		change_variable = { name = desi_default_count add = 1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# ---- Decision 4: incorporate a frontier state (India / Burma / Afghan / Himalaya ONLY) -------
+# Any Indian-culture nation formally incorporates ONE of its unincorporated states within the
+# subcontinent and its marches. Allowed strategic regions: north_india + south_india + himalayas
+# (India + Himalaya), region_indochina (contains Burma), region_greater_persia (contains Afghanistan).
+# Incorporation is immediate; a 3-year administrative-burden modifier costs, PER 1,000,000 pop of the
+# incorporated territory, -10 bureaucracy + 100/week expenses (so a smaller split region costs less).
+# To AVOID MODIFIER SPAM, ONE modifier is kept and RECALCULATED: each take adds the new state's size to
+# a running burden variable, then removes + re-adds the single modifier scaled to the cumulative burden.
+# Tokens NEW to this decision verified vs game files 2026-06-30:
+#   region = sr:region_X (state scope; vanilla 00_default_strategy any_scope_state); add_modifier
+#   multiplier = var: (france_savoy + negotiation scripted_effects); country_bureaucracy_add /
+#   country_expenses_add (00_modifier_types); state_population + scope:X.state_population (27_unification
+#   war goal). set_state_type = incorporated reused from SteadyInnov uni_events. NOTE: region_indochina is
+#   broader than Burma and region_greater_persia broader than Afghanistan (slight over-inclusion) - tighten
+#   to explicit Burma/Afghan state lists later if strict "ONLY" is wanted.
+desi_incorporate_state = {
+	is_shown = {
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+	}
+
+	possible = {
+		any_scope_state = {
+			is_incorporated = no
+			OR = {
+				region = sr:region_north_india
+				region = sr:region_south_india
+				region = sr:region_himalayas
+				region = sr:region_indochina
+				region = sr:region_greater_persia
+			}
+		}
+	}
+
+	when_taken = {
+		# Payload LIVES IN desi_event.1 (hidden, triggered-only), NOT here (2026-07-10:
+		# even inside hidden_effect the tooltip preview still COMPUTES the var-fed
+		# multiplier - the long-standing "Value of wrong type ... none" spam from the
+		# old TODO. An event's immediate never runs in tooltip preview; same fix as
+		# SteadyInnov uni_event.4, in-game verified). The custom_tooltip line is what
+		# the player reads on the decision.
+		custom_tooltip = {
+			text = desi_incorporation_cost_tt
+		}
+		trigger_event = { id = desi_event.1 }
+		# debug_log = "desi - incorporate-state - incorporated all eligible states, burden recalculated"
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+
+# ---- Decision 5: Punjab presses Persia to return claimed lands (post-1850) ---
+# If Persia holds any state Punjab has a claim on (claims come from decisions 1/2),
+# PAN opens a return_state diplomatic play for one such state. AI weight 100000 =
+# "will definitely take" (NoUSChicken-proven). Repeatable: after each war it can
+# re-fire while Persia still holds claimed states, one state per firing.
+# Pattern copied from NoUSChickenMod (create_diplomatic_play, master-vetted); play is
+# started EMPTY (no add_war_goal - the goal-less dp form is the proven Mexico/dp_humiliation
+# shape) so the AI fills in its own return_state goals from the standing claims. Also
+# grants modifier_desi_warbonds (war funding, as in desi_unify_india). has_claim_by
+# (nous + vanilla 00_default_strategy.txt:952); is_active_in_diplomatic_play (nous).
+desi_panjab_return_from_persia = {
+	is_shown = {
+		c:PAN ?= this
+		game_date > 1850.1.1
+		c:PER ?= {
+			any_scope_state = { has_claim_by = c:PAN }
+		}
+	}
+
+	possible = {
+		is_active_in_diplomatic_play = no
+		NOT = { has_war_with = c:PER }
+	}
+
+	when_taken = {
+		save_scope_as = desi_pan_actor
+		c:PER ?= {
+			random_scope_state = {
+				limit = { has_claim_by = scope:desi_pan_actor }
+				save_scope_as = desi_pan_target
+			}
+		}
+		create_diplomatic_play = {
+			target_state = scope:desi_pan_target
+			war          = no
+			type         = dp_return_state
+		}
+		add_modifier = { name = modifier_desi_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100000 }
+}
+
+
+# ---- Decision 6: the Khalsa marches on Kandahar (2026-07-10) ------------------
+# Punjab opens a return_state diplomatic play for Kandahar's capital, unblocking the
+# frontier chain (Persia could not reach its colonization targets while KAN sat in the
+# way and Punjab never declared). Same master-vetted shape as Decision 5: claim first
+# (return_state needs a pre-existing claim), then the goal-less create_diplomatic_play
+# so the AI fills its own return_state goals. Repeatable while KAN exists (the exists
+# gate auto-hides it after the annex); no once-guard needed.
+# Tokens NEW here verified vs game files 2026-07-10: capital (country -> state scope
+# link, vanilla usage widespread); KAN = Kandahar, capital STATE_KANDAHAR
+# (00_countries.txt:4409). Rest reused from Decision 5 / master-vetted code.
+desi_panjab_take_kandahar = {
+	is_shown = {
+		c:PAN ?= this
+		exists = c:KAN
+		# shared border with Kandahar
+		any_scope_state = {
+			any_neighbouring_state = { owner = c:KAN }
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+	}
+
+	when_taken = {
+		save_scope_as = desi_pan_actor
+		# claim Kandahar's capital state region, then press it home.
+		c:KAN ?= {
+			capital = {
+				state_region = { add_claim = scope:desi_pan_actor }
+				save_scope_as = desi_kan_target
+			}
+		}
+		create_diplomatic_play = {
+			target_state = scope:desi_kan_target
+			war          = no
+			type         = dp_return_state
+		}
+		add_modifier = { name = modifier_desi_warbonds months = 24 }
+	}
+
+	ai_chance = { value = 100000 }
+}

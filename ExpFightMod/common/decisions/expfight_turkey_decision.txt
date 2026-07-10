@@ -1,0 +1,21 @@
+﻿
+expfight_turkey_trigger_event  = {
+	is_shown = {
+		c:TUR ?= this
+		NOT = { has_variable = expfight_TUR_tib_done }
+	}
+
+	possible = {
+		is_at_war = yes
+		has_war_with = c:EGY
+	}
+
+	when_taken = {
+		set_variable = { name = expfight_TUR_tib_done value = yes }
+		add_modifier = { name = expfight_warboost months = 24 }
+		clear_debt = yes
+		add_loyalists = { value = large_radicals }
+	}
+
+	ai_chance = { value = 1000 }
+}

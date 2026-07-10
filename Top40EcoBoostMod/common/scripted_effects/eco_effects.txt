@@ -193,6 +193,13 @@ eco_generic_flavour = {
 eco_pulse_spread = {
 	#debug_log = $B$               # building header (localized name) — pairs with the markers below
 	set_variable = { name = eco_left value = $N$ }
+	# FIX 2026-06-30: declare the $TYPE$ param with an ACTIVE line so the effect compiles when the
+	# eco_hit_$TYPE$ debug_log lines (its only other $TYPE$ users) are toggled OFF. With those commented,
+	# callers passing TYPE=champ/support hit "Compiling source for eco_pulse_spread failed for unknown
+	# arguments: TYPE" (jomini_script_argument.cpp:182) -> the pulse never ran (PAN etc. got no plantations).
+	# set+remove uses $TYPE$ harmlessly (no persisted var), robust to the debug toggle. Idiom = eco_$TYPE$_here.
+	set_variable = eco_pulse_type_$TYPE$
+	remove_variable = eco_pulse_type_$TYPE$
 	while = {
 		limit = {
 			var:eco_left > 0
@@ -207,6 +214,10 @@ eco_pulse_spread = {
 				position = 0
 				check_range_bounds = no
 				create_building = { building = $B$ level = 1 reserves = 1 }
+				# PER-STATE:building placement COUNTER (this = state): +1 each pulse this state places one,
+				# so the save carries an accurate per-state build trail across the 4 yearly pulses.
+				# if = { limit = { NOT = { has_variable = eco_fingerprint_placed_$B$ } } set_variable = { name = eco_fingerprint_placed_$B$ value = 0 } }
+				# change_variable = { name = eco_fingerprint_placed_$B$ add = 1 }
 				#debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
 				#debug_log_scopes = yes        # Root = country, This = state (table needs both)
 			}
@@ -223,6 +234,9 @@ eco_pulse_spread = {
 				if = { limit = { has_building = $B$ } set_variable = { name = eco_cur value = b:$B$.level } }
 				change_variable = { name = eco_cur add = 1 }
 				create_building = { building = $B$ level = var:eco_cur reserves = 1 }
+				# PER-STATE:building placement COUNTER (this = state): +1 each pulse this state stacks one.
+				# if = { limit = { NOT = { has_variable = eco_fingerprint_placed_$B$ } } set_variable = { name = eco_fingerprint_placed_$B$ value = 0 } }
+				# change_variable = { name = eco_fingerprint_placed_$B$ add = 1 }
 				remove_variable = eco_cur
 				#debug_log = eco_hit_$TYPE$    # loc-key marker -> "ECO_PLACED champ|support" (clean type)
 				#debug_log_scopes = yes
@@ -230,7 +244,20 @@ eco_pulse_spread = {
 		}
 		change_variable = { name = eco_left subtract = 1 }
 	}
-	if = { limit = { var:eco_left > 0 } debug_log = "ECONOSLOT" debug_log_scopes = yes }
+
+	# B1 FINGERPRINTS (additive; save-parser). Per-building, per-country, DYNAMIC var name - the SAME
+	# $-substitution-in-a-variable-name idiom already used above (eco_$TYPE$_here):
+	#  - eco_fingerprint_built_<B>  = levels actually placed this pulse ($N$ minus the leftover);
+	#  - eco_fingerprint_noslot_<B> = shortfall that found NO slot (the old ECONOSLOT debug_log signal,
+	#    now a SAVE value, so "what didn't get built / errored on the yearly pulse" is read offline from
+	#    the save instead of debug.log). A MISSING eco_fingerprint_built_<B> = that building's pulse
+	#    never ran for this tag. Comment out at promote.
+	# set_variable    = { name = eco_fingerprint_built_$B$ value = $N$ }
+	# change_variable = { name = eco_fingerprint_built_$B$ subtract = var:eco_left }
+	# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+	# 	limit = { var:eco_left > 0 }
+	# 	# set_variable = { name = eco_fingerprint_noslot_$B$ value = var:eco_left }
+	# }
 	remove_variable = eco_left
 }
 

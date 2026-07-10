@@ -1,0 +1,96 @@
+﻿# =============================================================================
+# MyDiploPlayMod - GENERIC, REUSABLE expander decisions.  *** WIP 2026-06-25 (skeletal) ***
+# Replace the shared monthly pulse (mdp.1 / mdp.3) with player/AI decisions: better perf, save-parse
+# fingerprints, and one set of decisions usable by ANY expander. Each decision gates DIRECTLY on the
+# tag via OR = { c:TAG ?= this } in is_shown (runtime-safe; NO on_action flag - the whole point is to
+# drive expansion by decision logic alone). DEI is the only tag now; extend by adding
+# c:PAN/c:SIA/c:DAI/c:OMA/c:BUR to those OR lists after the DEI test. Effects: mdp_expander_decision_effects.txt.
+# ai_chance is large so the AI reliably takes them (idiom proven by DesiStrategy / nous decisions).
+# Fingerprint COUNTERS (change_variable add=1) record how many times each fired, harvested by the
+# save-game-parser. Comment out fingerprint lines at promote.
+# =============================================================================
+
+# ---- Decision: conquer a random nearby free minor (B-D1) ----
+mdp_conquer_free_minor = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		mdp_is_expand_country = yes #THIS now handles below countries ( hard coded)
+		#should not show up IF these countries have expanded far enough
+		game_date < 1860.1.1 
+		# stop showing when no actually valid adjacent minor exists
+		any_country = {
+			exists = this
+			NOT = { is_country_type = decentralized }
+			mdp_is_expand_country = no
+			NOT = { country_rank >= rank_value:major_power }
+			is_subject = no
+			NOT = { this = root }
+			any_scope_state = { any_neighbouring_state = { owner = root } }
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		infamy < 4
+		# BUGFIX 2026-06-26: a VALID adjacent minor must actually EXIST, else the AI takes this decision
+		# every tick (ai_chance 10000) with no effect = the "spam a war vs a NULL country" the user saw.
+		# Mirrors mdp_valid_generic_target but with root (this country) as the attacker (cannot save_scope
+		# in possible{}). EXCLUDES decentralized/primitive + GPs/majors/subjects/expanders/truced/at-war.
+		custom_tooltip = {
+			text = mdp_valid_adjacent_minor_target_tt
+			hidden_trigger = {
+				any_country = {
+					exists = this
+					NOT = { is_country_type = decentralized }
+					mdp_is_expand_country = no
+					NOT = { country_rank >= rank_value:major_power }
+					is_subject = no
+					is_at_war = no
+					NOT = { has_truce_with = root }
+					NOT = { this = root }
+					any_scope_state = { any_neighbouring_state = { owner = root } }
+					NOT = { any_scope_state = { count >= 6 } }
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		mdp_decision_conquer_minor = yes
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision: annex the weakest own subject (B-D2; repeatable until no subjects remain) ----
+mdp_annex_own_subject = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		# subject-annexer tags (DAI/BUR/SIA/PAN/OMA flag) + DEI/PER (own tested tag). Monthly pulse removed 2026-06-30.
+		mdp_is_subject_annexer = yes
+		# a direct subject owning FEWER than 4 states
+		any_subject_or_below = {
+			is_subject_of = root
+			NOT = { any_scope_state = { count >= 4 } }
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		infamy < 4
+		any_subject_or_below = {
+			is_subject_of = root
+			NOT = { any_scope_state = { count >= 4 } }
+		}
+	}
+
+	when_taken = {
+		mdp_decision_annex_subject = yes
+	}
+
+	ai_chance = { value = 10000 }
+}

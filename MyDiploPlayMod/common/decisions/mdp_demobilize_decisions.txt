@@ -1,0 +1,37 @@
+﻿# =============================================================================
+# MyDiploPlayMod - B5 "conquest complete" demobilization DECISION.  *** WIP 2026-06-25 (skeletal) ***
+# Once BIC/DEI have annexed all their subjects (none left) they may demobilize: a one-time decision that
+# wipes conquest radicalism but disbands the army + logistics (effect: mdp_demobilize_effects.txt).
+# Gated on the LOAD-BEARING marker mdp_has_annexed (set when they actually annex a subject - so a nation
+# that never expanded is not offered it) and once-only via mdp_demobilized_done. Generic for BIC + DEI;
+# extend to other expanders alongside the annex decisions.
+# =============================================================================
+
+mdp_demobilize_after_conquest = {
+	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
+
+	is_shown = {
+		OR = { c:BIC ?= this  c:DEI ?= this }
+		has_variable = mdp_has_annexed                   # only after they actually annexed something
+		NOT = { any_subject_or_below = { count >= 1 } }  # ...and have no subject left to annex
+		NOT = { has_variable = mdp_demobilized_done }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		NOT = { any_subject_or_below = { count >= 1 } }
+		#NOT = { has_variable = mdp_demobilized_done }	#no need to duplicate from  is_shown / once variable is assigned to tag, this wont show for decision to get spammed
+	}
+
+	when_taken = {
+		set_variable = { name = mdp_demobilized_done value = yes }   # load-bearing once-only guard
+		mdp_demobilize_effect = yes
+		# FINGERPRINT (additive; save-parser). Comment out at promote.
+		# set-before-change (DEV-RULES): guarded init; the has_variable check is also the dummy-use reader.
+		# if = { limit = { NOT = { has_variable = mdp_fingerprint_demobilized } } set_variable = { name = mdp_fingerprint_demobilized value = 0 } }
+		# change_variable = { name = mdp_fingerprint_demobilized add = 1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
