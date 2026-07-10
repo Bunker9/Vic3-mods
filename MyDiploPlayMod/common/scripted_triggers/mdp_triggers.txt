@@ -137,3 +137,35 @@ mdp_can_blob_now = {
     is_active_in_diplomatic_play = no   # not already maneuvering a play (pre-war phase)
     infamy < 5
 }
+
+# -----------------------------------------------------------------------------
+# Border-cleanup END-REWARD gate helpers (2026-07-09). Used by the generic
+# mdp_consolidate_frontier decision (common/decisions/mdp_decent_annex_decisions.txt)
+# to detect "this expander has finished its job". ROOT-based (evaluated on the acting
+# expander in a decision is_shown/possible, where save_scope is not allowed), mirroring
+# the inline checks in mdp_conquer_free_minor / mdp_annex_own_subject above.
+# -----------------------------------------------------------------------------
+
+# Is there still a conquerable free minor? TRUCE-AGNOSTIC ON PURPOSE: a truced minor
+# still counts as "a target", so an active truce with a free minor BLOCKS the reward
+# (mirrors mdp_conquer_free_minor's is_shown, which likewise omits the truce exclusion).
+mdp_has_conquerable_minor = {
+    any_country = {
+        exists = this
+        NOT = { is_country_type = decentralized }
+        mdp_is_expand_country = no
+        NOT = { country_rank >= rank_value:minor_power }
+        is_subject = no
+        NOT = { this = root }
+        any_scope_state = { any_neighbouring_state = { owner = root } }
+    }
+}
+
+# Does the country still hold a small direct subject worth annexing (fewer than 4 states)?
+# Mirrors mdp_annex_own_subject.
+mdp_has_annexable_subject = {
+    any_subject_or_below = {
+        is_subject_of = root
+        NOT = { any_scope_state = { count >= 4 } }
+    }
+}

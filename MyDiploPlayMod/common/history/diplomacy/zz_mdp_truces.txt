@@ -170,14 +170,6 @@ DIPLOMACY = {
 			months = 120
 		}
 	}
-	# SHW<->WTU (user 2026-06-16): after conquering Somalia, Shewa kept getting dragged into an
-	# odd event-claim war with Witu (Kenya). 120 mo covers the whole 1836-1846 blob-chain window.
-	c:SHW ?= {
-		create_bidirectional_truce = {
-			country = c:WTU
-			months = 120
-		}
-	}
 	# DEI 2-yr cooling period vs Siak + Aceh (2026-06-17): AI never arms their fronts despite
 	# mobilized troops; DEI wins too fast and over-expands in SEA. Truce buys breathing room.
 	c:DEI ?= {

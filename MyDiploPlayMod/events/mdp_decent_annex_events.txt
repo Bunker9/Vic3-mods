@@ -1,0 +1,168 @@
+﻿namespace = mdp_decent_annex
+
+# =============================================================================
+# MyDiploPlayMod - SHARED "annex the decentralized remnants" core (2026-07-09)
+# -----------------------------------------------------------------------------
+# The reusable engine behind the per-tag border-cleanup decisions in
+# common/decisions/mdp_decent_annex_decisions.txt. Fired (hidden) by a decision's
+# when_taken; ROOT = the acting country. It PEACEFULLY annexes every DECENTRALIZED
+# nation that co-owns a state region with ROOT (ETH + Ogaden inside
+# STATE_OROMIA is the archetype) - border cleanup, NOT blobbing: a standalone
+# decentralized nation on its own separate state is left for normal colonization.
+#
+# Tag-agnostic on purpose: every expander decision (Ethiopia now; Sokoto / Japan /
+# South Africa / NSW / DEI / BIC / Dai Nam / Argentina / Brazil / ... later, each
+# under its OWN gate) triggers THIS same event, so the annex mechanic lives in ONE
+# place. Per-tag once-guards live in the DECISIONS, not here.
+#
+# REWORKED 2026-07-10 (the Ethiopia fix, in-game verified on mdp_ethiopia_annex_horn):
+# every_country's limit is TRIGGER-evaluated and any_country/every_country limits do
+# NOT match decentralized nations. All three events now annex STATE-SIDE: iterate the
+# relevant states, scope to each decentral owner, ROOT annexes it. Self-guarding
+# against double-annex: once annexed, the fragment's states are ROOT's, so the
+# owner-is-decentralized limit stops matching that nation.
+# TIGHTENED 2026-07-10 (post-UAT): in events .1/.2 a SINGLE-STATE owner is annexed
+# whole, while a MULTI-STATE decentral nation only hands over the shared/bordering
+# state itself via set_state_owner = ROOT (SOK/MOR/SAF/NSW were blobbing whole
+# nations). set_state_owner in region_state scope verified (natural_borders.txt:367).
+# owner ?= safe-scope guards the invalid-owner sentinel (4294967295) hit mid-loop
+# at game start (B7 errors).
+# annex direction verified: <annexer> = { annex = <annexed> }
+# (00_code_on_actions.txt:2489 scope:initiator = { annex = prev };
+# montenegro_events.txt:772 c:MON ?= { annex = c:SER }).
+# The event is hidden with NO trigger/MTTH, so it is triggered-only (never
+# self-fires) and - unlike a decision's when_taken - never runs during tooltip
+# preview, so debug_log here is safe.
+# =============================================================================
+mdp_decent_annex.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "mdp - decent-annex - fired"
+
+		# FINGERPRINT (counter; DEV-RULES "Save-fingerprint debugging" + set-before-change).
+		# Per-country, so the save attributes which tag ran the cleanup and how often. The
+		# guard's has_variable read also satisfies the "variable must be used" rule.
+		# if = {
+		# 	limit = { NOT = { has_variable = mdp_fingerprint_decent_annex } }
+		# 	set_variable = { name = mdp_fingerprint_decent_annex value = 0 }
+		# }
+		# change_variable = { name = mdp_fingerprint_decent_annex add = 1 }
+
+		# Peacefully absorb the decentralized fragments in our co-owned state regions
+		# (state-side; see header). 2026-07-10 UAT tweak: SINGLE-STATE owners are annexed
+		# whole; MULTI-STATE owners only hand over THIS shared state (set_state_owner) -
+		# no more SOK/MOR/SAF whole-nation blobs. owner ?= is the safe-scope form:
+		# mid-loop an already-annexed owner link can return the INVALID sentinel
+		# (4294967295) - the B7 script error.
+		every_scope_state = {
+			state_region = {
+				every_scope_state = {
+					limit = {
+						owner ?= { is_country_type = decentralized }
+					}
+					if = {
+						limit = {
+							owner = { NOT = { any_scope_state = { count >= 2 } } }
+						}
+						owner = {
+							ROOT = { annex = prev }
+						}
+					}
+					else = {
+						set_state_owner = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+# =============================================================================
+# DEBUG / player-facing POPUP variant of the annex core (2026-07-09, user), for the
+# hard-coded JAP / BIC / NSW decision (mdp_consolidate_frontier_special). SAME annex
+# principle as mdp_decent_annex.1 but ADJACENCY-based and VISIBLE (a popup with loc),
+# so the annexation can be observed and debugged in game. Fired by that decision's
+# when_taken. event_image is a working placeholder - swap for a fitting one.
+# =============================================================================
+mdp_decent_annex.2 = {
+	type = country_event
+
+	title = mdp_decent_annex.2.t
+	desc = mdp_decent_annex.2.desc
+
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+
+	immediate = {
+		debug_log = "mdp - decent-annex-adjacency - fired"
+
+		# BIC / NSW: peacefully absorb the decentralized nations that BORDER us
+		# (state-side: walk OUR states, then their neighbours). 2026-07-10 UAT tweak:
+		# SINGLE-STATE owners are annexed whole; MULTI-STATE owners only hand over the
+		# bordering state itself (set_state_owner) - no more NSW whole-nation blobs.
+		# owner ?= guards the invalid-owner link that spammed script errors at game
+		# start (B7: an owner annexed earlier in this loop returns the 4294967295 sentinel).
+		every_scope_state = {
+			every_neighbouring_state = {
+				limit = {
+					owner ?= { is_country_type = decentralized }
+				}
+				if = {
+					limit = {
+						owner = { NOT = { any_scope_state = { count >= 2 } } }
+					}
+					owner = {
+						ROOT = { annex = prev }
+					}
+				}
+				else = {
+					set_state_owner = ROOT
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mdp_decent_annex.2.a
+		default_option = yes
+	}
+}
+
+# =============================================================================
+# JAP-only POPUP: annex the decentralized owners of STATE_SAKHALIN
+# (mdp_consolidate_frontier_japan). Japan does not border Sakhalin by land, so this is
+# hard-coded to the state region rather than adjacency. SKH (decentralized) holds
+# STATE_SAKHALIN at 1836 (vanilla history/states 00_states.txt:6911).
+# =============================================================================
+mdp_decent_annex.3 = {
+	type = country_event
+
+	title = mdp_decent_annex.3.t
+	desc = mdp_decent_annex.3.desc
+
+	event_image = {
+		video = "africa_diplomats_negotiating"
+	}
+
+	immediate = {
+		debug_log = "mdp - decent-annex-sakhalin - fired"
+
+		# Annex every decentralized owner of a STATE_SAKHALIN region_state (state-side).
+		s:STATE_SAKHALIN = {
+			every_scope_state = {
+				limit = { owner = { is_country_type = decentralized } }
+				owner = {
+					ROOT = { annex = prev }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = mdp_decent_annex.3.a
+		default_option = yes
+	}
+}

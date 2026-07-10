@@ -1,0 +1,43 @@
+﻿# =============================================================================
+# MyDiploPlayMod - Brazil "Consolidate the Amazon" border cleanup (2026-07-10, B6)
+# -----------------------------------------------------------------------------
+# From 1840, Brazil takes ownership of EVERY part of the STATE_AMAZONAS and
+# STATE_MATO_GROSSO state regions (1836 co-owners: CLM/PRA/BOL in Amazonas,
+# PRG/BRZ/BOL in Mato Grosso) - a one-shot South-America border cleanup so the
+# map stops looking like a shattered frontier. Peaceful transfer, no play.
+# Once-only via mdp_brz_amazon_done (read by is_shown = the used-var rule).
+# Tokens verified vs game files 2026-07-10: set_state_owner = <country> in state
+# scope (natural_borders.txt:367 set_state_owner = ROOT); s:STATE_X = { } effect
+# scope + every_scope_state (france_savoy show_as_tooltip; this repo's Sakhalin
+# event). game_date (vanilla trigger).
+# =============================================================================
+mdp_brazil_consolidate_amazon = {
+
+	is_shown = {
+		c:BRZ ?= this
+		NOT = { has_variable = mdp_brz_amazon_done }
+	}
+
+	possible = {
+		game_date >= 1840.1.1
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+	}
+
+	when_taken = {
+		set_variable = { name = mdp_brz_amazon_done value = yes }
+		# transfer every region_state of both regions to Brazil.
+		s:STATE_AMAZONAS = {
+			every_scope_state = {
+				set_state_owner = c:BRZ
+			}
+		}
+		s:STATE_MATO_GROSSO = {
+			every_scope_state = {
+				set_state_owner = c:BRZ
+			}
+		}
+	}
+
+	ai_chance = { value = 10000 }
+}

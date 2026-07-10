@@ -1,56 +1,14 @@
-﻿# HAND-WRITTEN. MyDiploPlayMod — country-level law seeding at game start.
-# Uses activate_law = law_type:X (confirmed syntax from vanilla: arg/mex/nsw etc.)
-# Colonial-affairs institution seeded at level 1: level 2 exceeded these small nations' starting
-# bureaucracy cap -> "not permitted to retain Frontier Colonization" warn (T87). Tags: DAI ASM MNP BUR.
+﻿# =============================================================================
+# BIC leash (2026-07-10, user ask B5): 30-year mdp_bic_imperial_overstretch on the
+# East India Company at game start (x4 infamy decay, -800 influence, -30% defense;
+# defined in common/static_modifiers/mdp_modifiers.txt). History-not-day-1-event
+# per DEV-RULE. `?=` = safe no-op if the tag is absent.
+# =============================================================================
 COUNTRIES = {
-	# DAI (Dai Viet): frontier colonization to absorb Degar unincorporated highlands naturally.
-	c:DAI ?= {
-		activate_law = law_type:law_frontier_colonization
-		add_technology_researched = colonization
-		add_technology_researched = international_relations
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
-		}
-	}
-	# ASM (Assam): frontier colonization NGA
-	# MNP (Manipur): frontier colonization KUK
-	c:ASM ?= {
-		activate_law = law_type:law_frontier_colonization
-		add_technology_researched = colonization
-		add_technology_researched = international_relations
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
-		}
-	}
-	c:MNP ?= {
-		activate_law = law_type:law_frontier_colonization
-		add_technology_researched = colonization
-		add_technology_researched = international_relations
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
-		}
-	}
-	# BUR (Burma): frontier colonization to absorb adjacent decentralized frontier regions.
-	c:BUR ?= {
-		activate_law = law_type:law_frontier_colonization
-		add_technology_researched = colonization
-		add_technology_researched = international_relations
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
-		}
-	}
-	# PER (Persia): frontier colonization to absorb adjacent decentralized frontier regions.
-	c:PER ?= {
-		activate_law = law_type:law_frontier_colonization
-		add_technology_researched = colonization
-		add_technology_researched = international_relations
-		set_institution_investment_level = {
-			institution = institution_colonial_affairs
-			level = 1
+	c:BIC ?= {
+		add_modifier = {
+			name = mdp_bic_imperial_overstretch
+			years = 30
 		}
 	}
 }
