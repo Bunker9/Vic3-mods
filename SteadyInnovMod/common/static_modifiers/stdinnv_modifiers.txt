@@ -122,7 +122,7 @@ hungary_reconciled_to_vienna_50y = {
 # #1-vs-#2 prestige gap. Keep the base at -500 (the multiplier scales this line).
 stdinnv_gp1_drain = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_flag_negative.dds"
-	country_prestige_add = -900
+	country_prestige_add = -700
 }
 
 # 3a - flat welfare/economy payout to GP#1 for the sacrifice (self, 48mo).
