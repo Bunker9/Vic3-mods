@@ -272,3 +272,92 @@ stdinnv_gp_shot_at_greatness = {
 
 	ai_chance = { value = 10000 }
 }
+
+
+# =============================================================================
+# "Offer of Protection" - peaceful protectorate of friendly minor bloc members
+# (2026-07-14). A rank #1 great power that LEADS a Religious Convocation bloc
+# (identity_religious) may fold the friendly, insignificant, still-independent
+# members of its OWN bloc into protectorates - no war, no infamy. When taken it
+# subjugates EVERY eligible member at once via create_diplomatic_pact
+# type=protectorate (the same no-war mechanism vanilla force_become_subject uses)
+# and grants a one-off cohesion bump; the new subjects then feed bloc mandate
+# income organically. Player-only (ai_chance = 0) like stdinnv_building_bridges.
+# NO debug_log (decision when_taken re-runs in tooltip preview).
+# Tokens verified vs game files 2026-07-14:
+#   create_diplomatic_pact type=protectorate + country_rank < rank_value:minor_power
+#     + is_subject=no (diplomatic_actions/31_power_bloc_force_become_subject.txt);
+#   power_bloc has_identity = identity:identity_religious (00_power_bloc_principles
+#     ai_weight idiom; power_bloc_identities/00: identity_religious);
+#   relations:root >= relations_threshold:friendly (=80; decisions/canal_decisions.txt
+#     + defines RELATIONS_THRESHOLD_FRIENDLY); add_cohesion_percent (effect, reused
+#     from stdinnv_building_bridges); global_country_ranking / country_rank /
+#     is_power_bloc_leader reused from master-vetted stdinnv decisions.
+# NOTE: no vanilla effect ADDS a mandate directly (mandates accrue only when the
+# bloc's weekly mandate_progress reaches 2000); the "mandate bump" is the organic
+# income from locking the new subjects into the bloc (design decision 2026-07-14).
+# Leverage gate dropped: Vic3 exposes no leverage TRIGGER (add_leverage is an
+# effect only), so it cannot gate a decision.
+# =============================================================================
+stdinnv_offer_protectorate = {
+
+	is_shown = {
+		global_country_ranking = 1
+		country_rank >= rank_value:great_power
+		is_power_bloc_leader = yes
+		power_bloc ?= { has_identity = identity:identity_religious }
+	}
+
+	possible = {
+		# green only when at least one friendly, insignificant, independent member of
+		# OUR bloc is available to take under protection
+		custom_tooltip = {
+			text = stdinnv_offer_protectorate_tt
+			any_country = {
+				is_subject = no
+				country_rank < rank_value:minor_power
+				relations:root >= relations_threshold:friendly
+				power_bloc ?= { this = root.power_bloc }
+			}
+		}
+	}
+
+	when_taken = {
+		# subjugate EVERY eligible bloc member as a protectorate (no war / no infamy)
+		every_country = {
+			limit = {
+				is_subject = no
+				country_rank < rank_value:minor_power
+				relations:root >= relations_threshold:friendly
+				power_bloc ?= { this = root.power_bloc }
+			}
+			save_scope_as = stdinnv_protectorate_target
+			root = {
+				# subject TYPE depends on the target's country type (mirrors vanilla
+				# force_become_subject): a COLONIAL nation cannot become a protectorate,
+				# so it is made a dominion; everyone else (recognized / unrecognized)
+				# becomes a protectorate.
+				if = {
+					limit = { scope:stdinnv_protectorate_target = { is_country_type = colonial } }
+					create_diplomatic_pact = {
+						country = scope:stdinnv_protectorate_target
+						type = dominion
+					}
+				}
+				else = {
+					create_diplomatic_pact = {
+						country = scope:stdinnv_protectorate_target
+						type = protectorate
+					}
+				}
+			}
+		}
+		# one-off reward: a bump in bloc cohesion (the mandate gain is organic - the
+		# new subjects keep feeding mandate income as bloc members). 0.1 = +10%, tunable.
+		power_bloc ?= {
+			add_cohesion_percent = 0.3
+		}
+	}
+
+	ai_chance = { value = 0 } # player-only; is_shown gates typical AI out anyway
+}

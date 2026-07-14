@@ -48,3 +48,7 @@
  stdinnv_gp_shot_at_greatness_desc:0 "The first rank of nations stands thin, and we sit close enough to press our claim. With a determined campaign of exhibitions, patronage and diplomacy, we can announce ourselves to the world and take our place among the great powers."
  stdinnv_gp_shot:0 "Ascendant Nation"
  stdinnv_gp1_payout_tt:0 "Shed prestige in proportion to our lead and grant four years of welfare and economic relief to ourselves and every one of our subjects."
+ stdinnv_offer_protectorate:0 "Offer of Protection"
+ stdinnv_offer_protectorate_desc:0 "As first among the great powers and steward of our sacred convocation, we may extend our protection over the smaller, friendly nations that share our bloc. Let them place themselves in our care as protectorates, bound to us without a shot fired, their loyalty gathered under our banner."
+ stdinnv_offer_protectorate_tt:0 "A friendly, independent minor member of our bloc is willing to become our protectorate"
+ stdinnv_lapsed_treaty_port_desc:0 "Restoring a lapsed treaty port to a friendly leading power"
