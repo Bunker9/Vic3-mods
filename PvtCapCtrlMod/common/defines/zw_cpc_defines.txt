@@ -1,0 +1,10 @@
+﻿# PvtCapCtrlMod - defines override. HAND-WRITTEN.
+# Partial override: only the NEconomy group + the single changed key (defines merge key-by-key;
+# this file loads after vanilla 00_defines.txt so this value wins). Do NOT copy the whole vanilla file.
+NEconomy = {
+	# Aggressive autonomous downsizing. Vanilla waits 6 months after a building decides to
+	# auto-downsize before it actually shrinks; drop to 1 so overbuilt, understaffed levels are
+	# shed quickly (complements the PCC construction / expansion caps). Global define: affects
+	# every country incl. the player and all building types.
+	AUTO_DOWNSIZE_BUILDING_MONTHS_TO_WAIT = 1
+}

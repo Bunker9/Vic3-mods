@@ -1,5 +1,32 @@
 ﻿# common/company_types/desi_companies.txt
 
+INJECT_OR_CREATE:company_panama_company = {
+    building_types = {
+        building_maize_farm
+        building_cotton_plantation
+        building_sulfur_mine
+        building_coffee_plantation
+        building_whaling_station
+    }
+    prosperity_modifier = {
+        country_tax_income_add = 150000
+    }
+}
+
+INJECT_OR_CREATE:company_suez_company = {
+    building_types = {
+        building_rice_farm
+        building_food_industry
+        building_rubber_plantation
+        building_banana_plantation
+        building_sugar_plantation
+        building_gold_mine
+    }
+    prosperity_modifier = {
+        country_tax_income_add = 150000
+    }
+}
+
 INJECT_OR_CREATE:company_basic_metalworks={
 
     building_types = {

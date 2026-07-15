@@ -1,5 +1,21 @@
 ﻿#common/production_methods/01_industry.txt
 
+INJECT_OR_CREATE:automatic_irrigation_building_banana_plantation = {
+    building_modifiers = {
+        workforce_scaled = {
+            goods_output_grain_add = 2
+            goods_output_fertilizer_add = 2
+            goods_input_engines_add = -2
+        }
+    }
+    state_modifiers = {
+        workforce_scaled = {
+            state_pollution_generation_add = -2
+        }
+    }
+}
+
+
 INJECT_OR_CREATE:pm_cannery = {
     building_modifiers = {
         workforce_scaled = {
