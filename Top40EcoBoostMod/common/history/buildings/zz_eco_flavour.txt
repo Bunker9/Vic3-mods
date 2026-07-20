@@ -7,6 +7,24 @@
 # SKIPPED (see the generator report).
 # =============================================================================
 BUILDINGS = {
+	s:STATE_SUZHOU = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_tooling_workshop"
+				add_ownership = { country = { country = "c:CHI" levels = 10 } }
+				reserves = 1
+			}
+		}
+	}
+	s:STATE_FORMOSA = {
+		region_state:CHI = {
+			create_building = {
+				building = "building_tooling_workshop"
+				add_ownership = { country = { country = "c:CHI" levels = 10 } }
+				reserves = 1
+			}
+		}
+	}
 	s:STATE_SHANXI = {
 		region_state:CHI = {
 			create_building = {

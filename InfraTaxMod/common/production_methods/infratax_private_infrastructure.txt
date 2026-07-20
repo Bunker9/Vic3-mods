@@ -195,6 +195,9 @@ INJECT_OR_CREATE:pm_diesel_trains = {
 		workforce_scaled = {
 			goods_input_fabric_add = 4 # 20
 			goods_input_steamers_add = 1
+			goods_input_engines_add = -2 # 180
+			goods_input_oil_add = -2 # 320
+			goods_input_electricity_add = 2 # 240
 			goods_input_aeroplanes_add = 1
 			goods_input_merchant_marine_add = 4 #50
 			goods_output_transportation_add = 10
@@ -219,12 +222,13 @@ INJECT_OR_CREATE:pm_diesel_trains_principle_transport_3 = {
 		workforce_scaled = {
 			goods_input_engines_add = -4 # 360
 			goods_input_oil_add = -4 # 320
+			goods_input_electricity_add = 3 # 240
 			goods_input_steamers_add = 2
 			goods_input_aeroplanes_add = 2
 			goods_input_fabric_add = 4 # 80
 			goods_input_merchant_marine_add = 4 #200
 			goods_output_transportation_add = 10 #300
-			goods_output_automobiles_add = 1
+			goods_output_automobiles_add = 3
 		}
 	}
 }

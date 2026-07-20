@@ -202,7 +202,7 @@ stdinnv_uplift_subjects = {
 	}
 
 	possible = {
-		has_technology_researched = civilizing_mission   # gate: the imperial "civilizing" reach
+		has_technology_researched = central_planning   # gate: the imperial "civilizing" reach
 		NOT = { has_modifier = stdinnv_uplift_cost }      # 5yr cooldown (and the cost)
 		any_subject_or_below = {
 			has_modifier = stdinnv_subject
