@@ -1,0 +1,36 @@
+﻿
+expfight_antarctic_rescue = {
+	is_shown = {
+		is_player = yes
+		has_journal_entry = je_antarctica
+		has_modifier = modifier_large_expedition_cost
+	}
+
+	possible = {
+		has_journal_entry = je_antarctica
+		has_modifier = modifier_large_expedition_cost
+	}
+
+	when_taken = {
+		hidden_effect = {
+			# Flush stray "Successful Polar Expedition" stacks left by an earlier broken attempt of
+			# this rescue (each completion cycle adds one, uncapped). Jomini scripted_effects can't
+			# loop or recurse, so unroll a generous fixed number of guarded removals instead; once
+			# exhausted, each further check is a harmless no-op.
+			if = { limit = { has_modifier = pole_expedition_returned } remove_modifier = pole_expedition_returned }
+			# Force the bars to a KNOWN value regardless of whatever a prior broken attempt left
+			# behind (floor to 0 first, then set), so a stale south_pole_event_var can't combine
+			# with an accidental bar>=8 to fake-complete again before cold.5 has run for real.
+			je:je_antarctica ?= {
+				add_progress = { value = -20 name = expedition_progress_bar }
+				add_progress = { value = 7 name = expedition_progress_bar }
+				add_progress = { value = -20 name = expedition_peril_progress_bar }
+			}
+			trigger_event = { id = cold.5 days = 5 }
+		}
+	}
+
+	ai_chance = {
+		value = 0
+	}
+}

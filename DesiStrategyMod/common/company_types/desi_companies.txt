@@ -1,5 +1,32 @@
 ﻿# common/company_types/desi_companies.txt
 
+INJECT_OR_CREATE:company_russian_american_company = {
+    building_types = {
+        building_livestock_ranch
+        building_tooling_workshop
+        building_iron_mine
+        building_coal_mine
+    }
+    prosperity_modifier = {
+        state_conversion_mult = 0.15
+        country_max_weekly_construction_progress_add = 10
+    }
+}
+
+INJECT_OR_CREATE:company_assam_company = {
+    building_types = {
+        building_wheat_farm
+        building_cotton_plantation
+        building_tobacco_plantation
+        building_coffee_plantation
+        building_silk_plantation
+    }
+    prosperity_modifier = {
+        building_group_bg_oil_extraction_throughput_add = 0.2
+        building_group_bg_light_industry_throughput_add = 0.1
+    }
+}
+
 INJECT_OR_CREATE:company_panama_company = {
     building_types = {
         building_maize_farm

@@ -1,11 +1,66 @@
 ﻿#common/production_methods/01_industry.txt
 
+INJECT_OR_CREATE:automatic_irrigation_building_vineyard = {
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_engines_add = -3
+            goods_input_tobacco_add = 1
+        }
+        level_scaled = {
+            building_employment_laborers_add = -1000
+        }
+    }
+}
+
+INJECT_OR_CREATE:pm_compression_ignition_tractors = {
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_oil_add = -1
+            goods_input_aeroplanes_add = 1
+        }
+        level_scaled = {
+            building_employment_farmers_add = -500
+        }
+    }
+}
+
+INJECT_OR_CREATE:pm_fig_orchards_building_rice_farm = {
+    building_modifiers = {
+        workforce_scaled = {
+            goods_output_grain_add = 10
+            goods_output_liquor_add = 2
+            goods_output_fabric_add = 2
+            goods_output_oil_add = 2
+            goods_input_wine_add = 1
+            goods_input_tobacco_add = 1
+            goods_input_glass_add = 1
+        }
+    }
+}
+
+INJECT_OR_CREATE:pm_steam_whaling_ships = {
+    building_modifiers = {
+        workforce_scaled = {
+            goods_input_coal_add = -10 #30
+            goods_input_wine_add = 2 #50
+            goods_input_tobacco_add = 2 #40
+            goods_output_fabric_add = 1 #20
+            goods_input_grain_add = 1 #20
+            goods_input_merchant_marine_add = 3 #50
+            goods_output_oil_add = 20 #40
+        }
+    }
+}
+
 INJECT_OR_CREATE:automatic_irrigation_building_banana_plantation = {
     building_modifiers = {
         workforce_scaled = {
             goods_output_grain_add = 2
             goods_output_fertilizer_add = 2
             goods_input_engines_add = -2
+        }
+        level_scaled = {
+            building_employment_laborers_add = -1000
         }
     }
     state_modifiers = {
