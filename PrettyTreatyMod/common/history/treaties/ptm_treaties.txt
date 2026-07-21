@@ -1,0 +1,447 @@
+﻿# =============================================================================
+# PrettyTreatyMod - the 1836 concession treaties.
+# HAND-WRITTEN. Shape copied verbatim from vanilla
+# common/history/treaties/00_historical_treaties.txt (the Luso-Chinese / Macau treaty
+# for the treaty_port article, the France-Egypt aid treaty for goods_transfer).
+#
+# ONE TREATY PER COUNTRY PAIR, carrying ALL of that pair's articles. No conditionals.
+#
+# Treaty ports, investment rights and goods supply are all TREATY ARTICLES - there is no
+# create_treaty_port effect and no diplomatic pact for any of them.
+#
+# ARTICLE DIRECTION (easy to get backwards):
+#   treaty_port                source = the HOST giving up the port, target = the European
+#   foreign_investment_rights  source = the country invested IN, target = the investor
+#   goods_transfer             source = whoever SENDS. Here the EUROPEAN supplies the host.
+# One goods_transfer article PER GOOD. Engine minimum quantity is 10.
+#
+# NO DLC CHECK on foreign_investment_rights: the foreign_investment feature ships in the
+# 1.13.9 free base patch, so gating on it is dead weight. (Vanilla still wraps its own
+# treaties in has_dlc_feature if/else - that is legacy, do not copy it here.)
+# RUS is the only pair with no investment rights: Shengjing is a port concession only.
+#
+# Both halves are required for a working treaty port: this file for the diplomatic object,
+# and common/history/states/zz_ptm_states.txt for the day-1 province ownership. Verified
+# in game 2026-07-20 - cede_treaty_port alone transfers land but creates no articles.
+#
+# Do NOT define the treaty_port ARTICLE here - SteadyInnovMod already REPLACE_OR_CREATEs it.
+# =============================================================================
+TREATIES = {
+	# FRA concession in STATE_FORMOSA (host CHI)
+	create_treaty = {
+		name = treaty_name_ptm_franco_chinese_formosa
+		first_country = c:FRA
+		second_country = c:CHI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:CHI
+				target_country = c:FRA
+				inputs = {
+					{ state = s:STATE_FORMOSA.region_state:CHI }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:CHI
+				target_country = c:FRA
+			}
+			{ # FRA supplies small_arms
+				article = goods_transfer
+				source_country = c:FRA
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 20 }
+				}
+			}
+			{ # FRA supplies wine
+				article = goods_transfer
+				source_country = c:FRA
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 50 }
+				}
+			}
+			{ # FRA supplies tools
+				article = goods_transfer
+				source_country = c:FRA
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 30 }
+				}
+			}
+		}
+	}
+
+	# FRA concession in STATE_MEKONG (host DAI)
+	create_treaty = {
+		name = treaty_name_ptm_franco_daiviet_namky
+		first_country = c:FRA
+		second_country = c:DAI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:DAI
+				target_country = c:FRA
+				inputs = {
+					{ state = s:STATE_MEKONG.region_state:DAI }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:DAI
+				target_country = c:FRA
+			}
+			{ # FRA supplies small_arms
+				article = goods_transfer
+				source_country = c:FRA
+				target_country = c:DAI
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 20 }
+				}
+			}
+			{ # FRA supplies wine
+				article = goods_transfer
+				source_country = c:FRA
+				target_country = c:DAI
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 50 }
+				}
+			}
+			{ # FRA supplies tools
+				article = goods_transfer
+				source_country = c:FRA
+				target_country = c:DAI
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 30 }
+				}
+			}
+		}
+	}
+
+	# RUS concession in STATE_SHENGJING (host CHI)
+	create_treaty = {
+		name = treaty_name_ptm_russo_chinese_shengjing
+		first_country = c:RUS
+		second_country = c:CHI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:CHI
+				target_country = c:RUS
+				inputs = {
+					{ state = s:STATE_SHENGJING.region_state:CHI }
+				}
+			}
+			{ # RUS supplies small_arms
+				article = goods_transfer
+				source_country = c:RUS
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # RUS supplies merchant_marine
+				article = goods_transfer
+				source_country = c:RUS
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # RUS supplies wine
+				article = goods_transfer
+				source_country = c:RUS
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # RUS supplies liquor
+				article = goods_transfer
+				source_country = c:RUS
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# NET concession in STATE_FARS (host PER)
+	create_treaty = {
+		name = treaty_name_ptm_dutch_persian_fars
+		first_country = c:NET
+		second_country = c:PER
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:PER
+				target_country = c:NET
+				inputs = {
+					{ state = s:STATE_FARS.region_state:PER }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:PER
+				target_country = c:NET
+			}
+			{ # NET supplies small_arms
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:PER
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # NET supplies merchant_marine
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:PER
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # NET supplies wine
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:PER
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # NET supplies liquor
+				article = goods_transfer
+				source_country = c:NET
+				target_country = c:PER
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# BEL concession in STATE_OMAN (host OMA)
+	create_treaty = {
+		name = treaty_name_ptm_belgo_omani_muscat
+		first_country = c:BEL
+		second_country = c:OMA
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:OMA
+				target_country = c:BEL
+				inputs = {
+					{ state = s:STATE_OMAN.region_state:OMA }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:OMA
+				target_country = c:BEL
+			}
+			{ # BEL supplies small_arms
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:OMA
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # BEL supplies merchant_marine
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:OMA
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # BEL supplies wine
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:OMA
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # BEL supplies liquor
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:OMA
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# SWE concession in STATE_SOUTH_MADAGASCAR (host MAD)
+	create_treaty = {
+		name = treaty_name_ptm_swedo_merina_tulear
+		first_country = c:SWE
+		second_country = c:MAD
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:MAD
+				target_country = c:SWE
+				inputs = {
+					{ state = s:STATE_SOUTH_MADAGASCAR.region_state:MAD }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:MAD
+				target_country = c:SWE
+			}
+			{ # SWE supplies small_arms
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:MAD
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # SWE supplies merchant_marine
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:MAD
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # SWE supplies wine
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:MAD
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # SWE supplies liquor
+				article = goods_transfer
+				source_country = c:SWE
+				target_country = c:MAD
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# PRU concession in STATE_ANTIOQUIA (host CLM)
+	create_treaty = {
+		name = treaty_name_ptm_prusso_colombian_antioquia
+		first_country = c:PRU
+		second_country = c:CLM
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:CLM
+				target_country = c:PRU
+				inputs = {
+					{ state = s:STATE_ANTIOQUIA.region_state:CLM }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:CLM
+				target_country = c:PRU
+			}
+			{ # PRU supplies small_arms
+				article = goods_transfer
+				source_country = c:PRU
+				target_country = c:CLM
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # PRU supplies merchant_marine
+				article = goods_transfer
+				source_country = c:PRU
+				target_country = c:CLM
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # PRU supplies wine
+				article = goods_transfer
+				source_country = c:PRU
+				target_country = c:CLM
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # PRU supplies liquor
+				article = goods_transfer
+				source_country = c:PRU
+				target_country = c:CLM
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+}

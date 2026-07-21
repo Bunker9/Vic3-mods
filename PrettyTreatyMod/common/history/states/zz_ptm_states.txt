@@ -1,0 +1,84 @@
+﻿# =============================================================================
+# PrettyTreatyMod - treaty-port province splits at 1836.
+# HAND-WRITTEN.
+#
+# This file OVERWRITES the matching s:STATE_X blocks in the game base file
+# (common/history/states/00_states.txt), so it carries ONLY the change: the one
+# create_state that hands the European power the state's port province. The host's
+# own province list and the state's add_homeland lines are NOT restated.
+#
+# The ceded province is in every case the state's own port = "x..." from map_data,
+# which is how vanilla does it - see Macau, where STATE_GUANGDONG declares
+# port = "xB031E0" and POR is given exactly { xB031E0 }.
+#
+# IN-GAME VERIFIED 2026-07-20: this change-only form WORKS - the split is applied and
+# the host keeps its remaining provinces. Both halves are needed: this file for the
+# day-1 ownership, and the matching treaty_port article in
+# common/history/treaties/ptm_treaties.txt to make it a mechanical treaty port.
+# The cede_treaty_port route was tested and DROPPED: the effect transfers the land
+# but creates NO treaty articles, so the concession has no diplomatic object.
+# =============================================================================
+STATES = {
+	# FRA treaty port in STATE_FORMOSA (host CHI)
+	s:STATE_FORMOSA = {
+		create_state = {
+			country = c:FRA
+			owned_provinces = { x44797F }
+			state_type = unincorporated
+		}
+	}
+
+	# FRA treaty port in STATE_MEKONG (host DAI)
+	s:STATE_MEKONG = {
+		create_state = {
+			country = c:FRA
+			owned_provinces = { xE5A4DA }
+			state_type = unincorporated
+		}
+	}
+
+	# RUS treaty port in STATE_SHENGJING (host CHI)
+	s:STATE_SHENGJING = {
+		create_state = {
+			country = c:RUS
+			owned_provinces = { x709001 }
+			state_type = unincorporated
+		}
+	}
+
+	# NET treaty port in STATE_FARS (host PER)
+	s:STATE_FARS = {
+		create_state = {
+			country = c:NET
+			owned_provinces = { x0130E0 }
+			state_type = unincorporated
+		}
+	}
+
+	# BEL treaty port in STATE_OMAN (host OMA)
+	s:STATE_OMAN = {
+		create_state = {
+			country = c:BEL
+			owned_provinces = { xBC6325 }
+			state_type = unincorporated
+		}
+	}
+
+	# SWE treaty port in STATE_SOUTH_MADAGASCAR (host MAD)
+	s:STATE_SOUTH_MADAGASCAR = {
+		create_state = {
+			country = c:SWE
+			owned_provinces = { x52ED6A }
+			state_type = unincorporated
+		}
+	}
+
+	# PRU treaty port in STATE_ANTIOQUIA (host CLM)
+	s:STATE_ANTIOQUIA = {
+		create_state = {
+			country = c:PRU
+			owned_provinces = { x303844 }
+			state_type = unincorporated
+		}
+	}
+}

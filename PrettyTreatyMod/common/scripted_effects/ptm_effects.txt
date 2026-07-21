@@ -1,0 +1,116 @@
+﻿# =============================================================================
+# PrettyTreatyMod - shared effects for the China concession race.
+# HAND-WRITTEN.
+#
+# THE RACE: the two European build-out decisions are each ONCE PER GAME globally.
+# Whoever researches the gating tech first AND holds a treaty port in Qing takes it,
+# and nobody else can. Modelled on the vanilla Suez pattern the user pointed at
+# (fastest qualifying nation takes the prize, decision then closes for everyone).
+# The guards are GLOBAL variables, not country variables - a country variable would
+# only stop the SAME country retaking it.
+#
+# THE PRIZE fires only for the FIRST winner of EITHER race (its own global guard), so
+# a nation that wins both races does not collect the buildings and pops twice.
+#
+# REWARD MODIFIERS ARE VANILLA, NOT NEW (user directive: reuse, do not create):
+#   opium_wars_export_modifier      state modifier, state_trade_advantage_mult = 0.10
+#                                   (content_1_modifiers.txt:33 - thematically exact,
+#                                   treaty ports ARE the Opium War settlement)
+#   modifier_relations_with_west    country modifier, state_trade_advantage_mult = 0.15
+#                                   + country_influence_mult = 0.10 (content_4_modifiers.txt:363)
+#   0.10 in the port + 0.15 country-wide = the +25% trade advantage asked for, in the port.
+#
+# POP CULTURE IS BRANCHED PER TAG, NOT DYNAMIC. Every vanilla create_pop passes a LITERAL
+# culture key; passing a scope (ROOT.primary_culture) is not a pattern vanilla uses anywhere
+# and is unverified, so the six possible takers are enumerated instead. Cultures and
+# religions verified in common/country_definitions/00_countries.txt + common/cultures/00_cultures.txt.
+# =============================================================================
+
+# Saves the taker's treaty port state as scope:ptm_port_state, if it has one.
+# D1 RESOLVED 2026-07-20: is_treaty_port is a real state-scope trigger (used in
+# common/ai_strategies/00_default_strategy.txt:1371, 2023, 2144), so the port state can be
+# found directly. This replaces the old is_split_state + region proxy.
+ptm_save_treaty_port_state = {
+	random_scope_state = {
+		limit = { is_treaty_port = yes }
+		save_scope_as = ptm_port_state
+	}
+}
+
+# The concession prize. Assumes scope:ptm_port_state is saved and the global guard is clear.
+ptm_grant_concession_prize = {
+	if = {
+		limit = {
+			exists = scope:ptm_port_state
+			NOT = { has_global_variable = ptm_concession_prize_awarded }
+		}
+
+		set_global_variable = { name = ptm_concession_prize_awarded value = yes }
+		debug_log = "ptm - concession-prize - first mover takes the China concession prize"
+
+		# country half of the +25%: +15% trade advantage, +10% influence
+		add_modifier = { name = modifier_relations_with_west }
+
+		scope:ptm_port_state = {
+			# port half of the +25%: +10% trade advantage in the concession itself
+			add_modifier = { name = opium_wars_export_modifier }
+
+			create_building = { building = building_trade_center level = 20 reserves = 1 }
+			create_building = { building = building_port level = 3 reserves = 1 }
+			create_building = { building = building_railway level = 1 reserves = 1 }
+
+			if = {
+				limit = { NOT = { has_variable = ptm_fingerprint_concession_prize } }
+				set_variable = { name = ptm_fingerprint_concession_prize value = 0 }
+			}
+			change_variable = { name = ptm_fingerprint_concession_prize add = 1 }
+		}
+
+		ptm_settle_concession_pops = yes
+	}
+}
+
+# 16000 clerks + 4000 shopkeepers of the taker's own culture and religion, settled in the
+# treaty port to staff the new trade centers.
+ptm_settle_concession_pops = {
+	scope:ptm_port_state = {
+		if = {
+			limit = { ROOT = { this = c:FRA } }
+			create_pop = { culture = french religion = catholic pop_type = clerks size = 16000 }
+			create_pop = { culture = french religion = catholic pop_type = shopkeepers size = 4000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:NET } }
+			create_pop = { culture = dutch religion = protestant pop_type = clerks size = 16000 }
+			create_pop = { culture = dutch religion = protestant pop_type = shopkeepers size = 4000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:BEL } }
+			create_pop = { culture = flemish religion = catholic pop_type = clerks size = 16000 }
+			create_pop = { culture = flemish religion = catholic pop_type = shopkeepers size = 4000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:SWE } }
+			create_pop = { culture = swedish religion = protestant pop_type = clerks size = 16000 }
+			create_pop = { culture = swedish religion = protestant pop_type = shopkeepers size = 4000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:PRU } }
+			create_pop = { culture = north_german religion = protestant pop_type = clerks size = 16000 }
+			create_pop = { culture = north_german religion = protestant pop_type = shopkeepers size = 4000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:RUS } }
+			create_pop = { culture = russian religion = orthodox pop_type = clerks size = 16000 }
+			create_pop = { culture = russian religion = orthodox pop_type = shopkeepers size = 4000 }
+		}
+		# D8 RESOLVED 2026-07-20: any OTHER winner (a power that took a Chinese treaty port by
+		# conquest, or a formed tag like GER/ITA that is none of the six original takers) staffs
+		# the trade centers with local labour instead of settlers.
+		# han religion = confucian, verified in common/cultures/00_cultures.txt.
+		else = {
+			create_pop = { culture = han religion = confucian pop_type = clerks size = 16000 }
+			create_pop = { culture = han religion = confucian pop_type = shopkeepers size = 4000 }
+		}
+	}
+}

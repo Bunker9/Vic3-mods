@@ -26,19 +26,19 @@ stdinnv_uni_built = {
 		NOT = { has_modifier = stdinnv_reward }
 		OR = {
 		    NOR = {
-		        this = c:BIC
-		        this = c:DEI
-		        this = c:CHI
+		        c:BIC ?= ROOT
+		        c:DEI ?= ROOT
+		        c:CHI ?= ROOT
 		    }
             AND = {
                 OR = {
-                    this = c:BIC
-                    this = c:DEI
+                    c:BIC ?= ROOT
+                    c:DEI ?= ROOT
                 }
                 is_subject = no
             }
             AND = {
-                this = c:CHI
+                c:CHI ?= ROOT
                 is_country_type = recognized
             }
 		}
@@ -55,7 +55,7 @@ stdinnv_uni_built = {
 stdinnv_austria_uni_art_paper_built = {
 
 	is_shown = {
-		this = c:AUS
+		c:AUS ?= ROOT
 		has_modifier = aus_crownland_management_50y
 		NOT = { has_variable = aus_crownland_reform_done }
 	}
@@ -99,10 +99,6 @@ stdinnv_building_bridges = {
 
 	possible = {
 		NOT = { has_modifier = stdinnv_building_bridges_cost_1y }
-		# power bloc mandate gate: NOT spammable once the bloc has banked 9+ mandates.
-		# num_mandates is a power_bloc-scope trigger (vanilla 00_alert_types.txt:
-		# `power_bloc ?= { num_mandates > 0 }`); is_shown already guarantees a bloc leader.
-		power_bloc ?= { num_mandates < 9 }
 		# gap between #1 (this) and #2 exceeds 1000
 		any_country = {
 			global_country_ranking = 2
@@ -127,7 +123,7 @@ stdinnv_building_bridges = {
 		trigger_event = { id = uni_event.3 popup = yes }
 	}
 
-	ai_chance = { value = 0 } # player-only; is_shown gates the AI out anyway
+	ai_chance = { value = 100 }
 }
 
 
@@ -178,7 +174,7 @@ stdinnv_gp1_burden = {
 		trigger_event = { id = uni_event.4 }
 	}
 
-	ai_chance = { value = 10000 }
+	ai_chance = { value = 100 }
 }
 
 # --- 3b "Lift Up the Vassals" -------------------------------------------------

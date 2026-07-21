@@ -1,0 +1,190 @@
+﻿namespace = ptm_event
+
+# =============================================================================
+# PrettyTreatyMod - hidden effect-engine events.
+# HAND-WRITTEN.
+#
+# WHY EVENTS AND NOT when_taken: a decision's when_taken is re-computed during
+# TOOLTIP PREVIEW. Every payload here reads var:ptm_cur to compute a create_building
+# level, and in preview that variable evaluates to 'none' -> "Value of wrong type"
+# error spam on every hover. A hidden triggered-only event's immediate never runs in
+# preview. Same fix as DesiStrategyMod desi_event.1 and SteadyInnov uni_event.4, both
+# in-game verified. The decision carries only a custom_tooltip + trigger_event.
+#
+# ONCE-ONLY GUARDS LIVE HERE, in the payload, so they are set exactly when the payload
+# actually runs:
+#   ptm_event.1  country variable ptm_rice_expansion_done  (CHI only ever takes it)
+#   ptm_event.2  GLOBAL variable  ptm_railway_race_won     (first European wins, race)
+#   ptm_event.3  GLOBAL variable  ptm_mining_race_won      (first European wins, race)
+# Global, not country, for the two races: a country variable would only stop the SAME
+# country retaking it, and the whole point is that it closes for everyone.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# ptm_event.1 - Granary of the Empire payload. Qing rice build-out.
+# -----------------------------------------------------------------------------
+ptm_event.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ptm - rice-expansion - CHI rice build-out fired"
+		set_variable = { name = ptm_rice_expansion_done value = yes }
+
+		every_scope_state = {
+			limit = {
+				can_construct_building = building_rice_farm
+			}
+
+			set_variable = { name = ptm_cur value = 0 }
+			if = {
+				limit = { has_building = building_rice_farm }
+				set_variable = { name = ptm_cur value = b:building_rice_farm.level }
+			}
+			if = {
+				limit = { var:ptm_cur < 10 }
+				create_building = { building = building_rice_farm level = 10 reserves = 1 }
+			}
+			remove_variable = ptm_cur
+
+			if = {
+				limit = { NOT = { has_variable = ptm_fingerprint_rice_expansion } }
+				set_variable = { name = ptm_fingerprint_rice_expansion value = 0 }
+			}
+			change_variable = { name = ptm_fingerprint_rice_expansion add = 1 }
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.2 - Iron Road Concession payload. Level 2 railways across populous China.
+# -----------------------------------------------------------------------------
+ptm_event.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ptm - china-railways - treaty port power funds Chinese railways"
+
+		# close the race first, so no other power can take it
+		set_global_variable = { name = ptm_railway_race_won value = yes }
+
+		# first mover across EITHER race collects the concession prize (guarded inside)
+		ptm_save_treaty_port_state = yes
+		ptm_grant_concession_prize = yes
+
+		c:CHI ?= {
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_railway
+				}
+
+				set_variable = { name = ptm_cur value = 0 }
+				if = {
+					limit = { has_building = building_railway }
+					set_variable = { name = ptm_cur value = b:building_railway.level }
+				}
+				change_variable = { name = ptm_cur add = 2 }
+				create_building = { building = building_railway level = var:ptm_cur reserves = 1 }
+				remove_variable = ptm_cur
+
+				if = {
+					limit = { NOT = { has_variable = ptm_fingerprint_china_railways } }
+					set_variable = { name = ptm_fingerprint_china_railways value = 0 }
+				}
+				change_variable = { name = ptm_fingerprint_china_railways add = 1 }
+			}
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.3 - Powder and Pit Concession payload. +4 levels of each mine.
+# Coal, iron, lead and sulfur are capped_resources, NOT discoverable, so
+# can_construct_building is the complete and sufficient gate for all four.
+# -----------------------------------------------------------------------------
+ptm_event.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ptm - china-mining - treaty port power funds Chinese mines"
+
+		# close the race first, so no other power can take it
+		set_global_variable = { name = ptm_mining_race_won value = yes }
+
+		# first mover across EITHER race collects the concession prize (guarded inside,
+		# so winning both races does NOT pay the prize twice)
+		ptm_save_treaty_port_state = yes
+		ptm_grant_concession_prize = yes
+
+		c:CHI ?= {
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_coal_mine
+				}
+				set_variable = { name = ptm_cur value = 0 }
+				if = {
+					limit = { has_building = building_coal_mine }
+					set_variable = { name = ptm_cur value = b:building_coal_mine.level }
+				}
+				change_variable = { name = ptm_cur add = 4 }
+				create_building = { building = building_coal_mine level = var:ptm_cur reserves = 1 }
+				remove_variable = ptm_cur
+			}
+
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_iron_mine
+				}
+				set_variable = { name = ptm_cur value = 0 }
+				if = {
+					limit = { has_building = building_iron_mine }
+					set_variable = { name = ptm_cur value = b:building_iron_mine.level }
+				}
+				change_variable = { name = ptm_cur add = 4 }
+				create_building = { building = building_iron_mine level = var:ptm_cur reserves = 1 }
+				remove_variable = ptm_cur
+			}
+
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_lead_mine
+				}
+				set_variable = { name = ptm_cur value = 0 }
+				if = {
+					limit = { has_building = building_lead_mine }
+					set_variable = { name = ptm_cur value = b:building_lead_mine.level }
+				}
+				change_variable = { name = ptm_cur add = 4 }
+				create_building = { building = building_lead_mine level = var:ptm_cur reserves = 1 }
+				remove_variable = ptm_cur
+			}
+
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_sulfur_mine
+				}
+				set_variable = { name = ptm_cur value = 0 }
+				if = {
+					limit = { has_building = building_sulfur_mine }
+					set_variable = { name = ptm_cur value = b:building_sulfur_mine.level }
+				}
+				change_variable = { name = ptm_cur add = 4 }
+				create_building = { building = building_sulfur_mine level = var:ptm_cur reserves = 1 }
+				remove_variable = ptm_cur
+
+				if = {
+					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				}
+				change_variable = { name = ptm_fingerprint_china_mining add = 1 }
+			}
+		}
+	}
+}

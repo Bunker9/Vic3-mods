@@ -1,0 +1,128 @@
+﻿# =============================================================================
+# PrettyTreatyMod - the three Qing China build-out decisions.
+# HAND-WRITTEN.
+#
+# EVERY PAYLOAD LIVES IN A HIDDEN EVENT, not in when_taken. A decision's when_taken is
+# re-computed during tooltip preview, where var:ptm_cur evaluates to 'none' and spams
+# "Value of wrong type". The decision carries only a custom_tooltip + trigger_event.
+# Repo pattern, in-game verified: DesiStrategyMod desi_incorporate_state -> desi_event.1,
+# SteadyInnov uni_event.4. Payloads are in events/ptm_events.txt.
+#
+# ONCE-ONLY: every decision here fires exactly once. The guard variable is SET IN THE
+# EVENT (with the payload) and TESTED here in is_shown. Rice uses a country variable
+# (only CHI ever takes it); the two European decisions use GLOBAL variables because they
+# are RACES - first past the post closes them for everyone, not just the taker.
+#
+# AI: these are meant to be taken by the AI. ai_chance is deliberately HIGH, not 0.
+# ai_chance = { value = 0 } means the AI will NEVER take a decision.
+#
+# OWNERSHIP: buildings created are CHINESE-owned. add_ownership exists ONLY in
+# common/history/buildings/ (zero runtime occurrences game-wide), so a decision cannot
+# create a foreign-owned building.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. Granary of the Empire. Qing rice build-out. Once only.
+# -----------------------------------------------------------------------------
+ptm_rice_expansion_decision = {
+
+	is_shown = {
+		c:CHI ?= this
+		game_date > 1837.1.1
+		NOT = { has_variable = ptm_rice_expansion_done }
+	}
+
+	possible = {
+		any_scope_state = {
+			can_construct_building = building_rice_farm
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_rice_expansion_tt
+		}
+		trigger_event = { id = ptm_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# -----------------------------------------------------------------------------
+# 2. Iron Road Concession. A European power holding a treaty port in Qing.
+#    RACE: once per game, globally.
+# -----------------------------------------------------------------------------
+ptm_china_railways_decision = {
+
+	is_shown = {
+		NOT = { has_global_variable = ptm_railway_race_won }
+
+		# owns_treaty_port_in is the real trigger: country scope, takes a STATE_REGION key.
+		# Vanilla uses it exactly this way at common/buildings/10_canals.txt:23 and
+		# common/decisions/canal_decisions.txt:96 (owns_treaty_port_in = STATE_SINAI).
+		# OR = {
+		# 	owns_treaty_port_in = STATE_FORMOSA
+		# 	owns_treaty_port_in = STATE_SHENGJING
+		# }
+	}
+
+	possible = {
+		has_technology_researched = steel_railway_cars
+		# c:CHI ?= {
+		# 	any_scope_state = {
+		# 		state_population > 1000000
+		# 		can_construct_building = building_railway
+		# 	}
+		# }
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_china_railways_tt
+		}
+		trigger_event = { id = ptm_event.2 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# -----------------------------------------------------------------------------
+# 3. Powder and Pit Concession. Same gate, on dynamite.
+#    RACE: once per game, globally.
+# -----------------------------------------------------------------------------
+ptm_china_mining_decision = {
+
+	is_shown = {
+		NOT = { has_global_variable = ptm_mining_race_won }
+
+		# same gate as the railway decision, see the note there
+		# OR = {
+		# 	owns_treaty_port_in = STATE_FORMOSA
+		# 	owns_treaty_port_in = STATE_SHENGJING
+		# }
+	}
+
+	possible = {
+		has_technology_researched = dynamite
+		c:CHI ?= {
+			any_scope_state = {
+				state_population > 1000000
+				OR = {
+					can_construct_building = building_coal_mine
+					can_construct_building = building_iron_mine
+					can_construct_building = building_lead_mine
+					can_construct_building = building_sulfur_mine
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_china_mining_tt
+		}
+		trigger_event = { id = ptm_event.3 }
+	}
+
+	ai_chance = { value = 10000 }
+}

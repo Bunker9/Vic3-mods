@@ -1,0 +1,24 @@
+﻿#common\mobilization_options\00_mobilization_option.txt
+# ExpFightMod - balloon reconnaissance reworked:
+#   1. reachable through the Sacred Civics power bloc principle (religious/civic blocs get an
+#      early recon option, not just the military-industry blocs)
+#   2. now burns an aeroplane on top of its vanilla fabric/oil upkeep
+# Vanilla object: 00_mobilization_option.txt:772, gated on principle_military_industry_3.
+# The aeroplane upkeep copies mobilization_option_aerial_recon (:825), which already uses
+# goods_input_aeroplanes_add = 1.
+#
+# OPEN - VERIFY IN GAME: unlocking_principles is a list-valued key vanilla already fills. If
+# INJECT_OR_CREATE merges the list additively (as it does for the Desi company block keys),
+# balloon recon will end up requiring BOTH principles. If that AND is not wanted, convert this
+# one object to REPLACE_OR_CREATE (single object, still no full-file replacement).
+
+INJECT_OR_CREATE:mobilization_option_balloon_recon = {
+
+	unlocking_principles = {
+		principle_sacred_civics_3
+	}
+
+	upkeep_modifier = {
+		goods_input_aeroplanes_add = 1
+	}
+}

@@ -27,6 +27,8 @@
  mdp_decent_annex.3.t:0 "Sakhalin Secured"
  mdp_decent_annex.3.desc:0 "The peoples of Sakhalin have been brought peacefully under our rule, and the northern frontier is ours at last."
  mdp_decent_annex.3.a:0 "The north is ours."
+ mdp_consolidate_frontier_japan:0 "Nippon Secured"
+ mdp_consolidate_frontier_japan_desc:0 "Nippon must secure the homeland"
  mdp_bic_imperial_overstretch:0 "Imperial Overstretch"
  mdp_bic_imperial_overstretch_desc:0 "The Company governs a subcontinent with a merchant board and a borrowed army. London tolerates its adventures, but the ledger and the garrisons are stretched thin."
  mdp_brazil_consolidate_amazon:0 "Consolidate the Amazon"
