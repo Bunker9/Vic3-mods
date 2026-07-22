@@ -1,0 +1,205 @@
+﻿# =============================================================================
+# PrettyTreatyMod - the people who staff each concession at 1836.
+# HAND-WRITTEN.
+#
+# WHY: the province splits in zz_ptm_states.txt hand each grantee one bare port
+# province with NO pops of its own, so the buildings in zz_ptm_concession_buildings.txt
+# would stand empty. Vanilla's own treaty ports are pop-rich (GBR Singapore 124k,
+# OMA Hormuz 64k, POR Macau 348k).
+#
+# SIZED FROM THE JOBS, NOT GUESSED. Package = 1 port + 3 trade centres + 1 tooling
+# workshop + the manor house the engine raises once aristocrats and clergy exist:
+#   port pm_anchorage        70 lab  /  20 clerk /  10 bur          (11_private_infrastructure.txt:7)
+#   3x trade centre          2400 clerk / 600 shopkeeper            (11_private_infrastructure.txt:349)
+#   tooling workshop         4500 lab / 500 shopkeeper              (01_industry.txt:933)
+#   manor house              50 aristocrat / 100 clergyman          (11_private_infrastructure.txt:514, :571)
+#   TOTAL                    4570 lab, 2420 clerk, 1100 shopkeeper, 10 bur, 50 arist, 100 clergy
+#
+# JOBS TO POP SIZE: divide by the working adult ratio. WORKING_ADULT_RATIO_BASE = 0.25
+# (common/defines/00_defines.txt:1454), so pop = jobs x 4, EXCEPT aristocrats, which
+# override to 0.2 (common/pop_types/aristocrats.txt:5) and so need jobs x 5.
+# Full package therefore comes to ~33,050 people per concession.
+#
+# EVERY create_pop CARRIES AN EXPLICIT pop_type. Omitting pop_type is the vanilla idiom
+# for bulk population, but it drops the pops in as unemployed subsistence peasants and
+# the qualified jobs then fill only as literacy and wealth allow - clerks gate on
+# literacy (common/pop_types/clerks.txt:52), shopkeepers on wealth (shopkeepers.txt:37),
+# aristocrats on wealth and serfdom (aristocrats.txt:33). Naming the type puts each pop
+# straight into the job it was counted for. Only laborers and peasants are ungated.
+#
+# CULTURE SPLIT: the labouring bulk is LOCAL, matching the host state's dominant pops. The
+# whole MERCHANT AND CLERICAL class is the GRANTEE'S - shopkeepers and clergymen are entirely
+# grantee culture and religion, alongside the bureaucrats, aristocrats and the settler clerks.
+# A concession's shops and its church belong to the power that took it; a European chapel
+# staffed by local clergy of another faith makes no sense.
+#   local per concession    18,280 laborers + 7,680 clerks
+#   grantee per concession   4,400 shopkeepers + 400 clergymen + 2,000 clerks
+#                            + 40 bureaucrats + 250 aristocrats
+# Totals are unchanged from the job maths above - only the culture assignment moved.
+#
+# RELIGION IS OMITTED ON LOCAL POPS so the culture default applies, which is what vanilla
+# does for a state's dominant pops. The one exception is Oman, where the local norm is
+# ibadi rather than the bedouin default of sunni, so it is stated. Grantee religions are
+# stated explicitly and match the six already verified in common/scripted_effects/ptm_effects.txt
+# plus AUS south_german/catholic, USA yankee/protestant, SAR north_italian/catholic.
+#
+# LOCAL CULTURES read out of common/history/pops/** per host state, not guessed:
+#   Formosa min, Mekong vietnamese, Shengjing han, Fars persian, Oman bedouin/ibadi,
+#   South Madagascar malagasy, Antioquia north_andean, North Borneo bornean,
+#   Bas-Congo bakongo, Hail bedouin, Dongola bedouin, Somaliland somali.
+#
+# DELIBERATE OVERLAP, DO NOT "DEDUPLICATE": ptm_effects.txt's ptm_settle_concession_pops
+# also creates pops. That is the RACE PRIZE for whoever wins the railway or mining
+# decision, a separate one-off reward on top of this day-1 seeding. The two are not
+# duplicates of each other.
+#
+# SAR / STATE_SOMALILAND IS SIZED FOR ITS REDUCED PACKAGE (1 port + 1 trade centre + the
+# manor house): 70 lab, 820 clerk, 200 shopkeeper, 10 bur, 50 arist, 100 clergy = ~5,050.
+# =============================================================================
+POPS = {
+
+	# --- FRA, Formosa (host CHI) - local min ---------------------------------
+	s:STATE_FORMOSA = {
+		region_state:FRA = {
+			create_pop = { pop_type = laborers culture = min size = 18280 }
+			create_pop = { pop_type = clerks culture = min size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = french religion = catholic size = 4400 }
+			create_pop = { pop_type = clergymen culture = french religion = catholic size = 400 }
+			create_pop = { pop_type = clerks culture = french religion = catholic size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = french religion = catholic size = 40 }
+			create_pop = { pop_type = aristocrats culture = french religion = catholic size = 250 }
+		}
+	}
+	# --- FRA, Mekong (host DAI) - local vietnamese ---------------------------
+	s:STATE_MEKONG = {
+		region_state:FRA = {
+			create_pop = { pop_type = laborers culture = vietnamese size = 18280 }
+			create_pop = { pop_type = clerks culture = vietnamese size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = french religion = catholic size = 4400 }
+			create_pop = { pop_type = clergymen culture = french religion = catholic size = 400 }
+			create_pop = { pop_type = clerks culture = french religion = catholic size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = french religion = catholic size = 40 }
+			create_pop = { pop_type = aristocrats culture = french religion = catholic size = 250 }
+		}
+	}
+	# --- RUS, Shengjing (host CHI) - local han -------------------------------
+	s:STATE_SHENGJING = {
+		region_state:RUS = {
+			create_pop = { pop_type = laborers culture = han size = 18280 }
+			create_pop = { pop_type = clerks culture = han size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = russian religion = orthodox size = 4400 }
+			create_pop = { pop_type = clergymen culture = russian religion = orthodox size = 400 }
+			create_pop = { pop_type = clerks culture = russian religion = orthodox size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = russian religion = orthodox size = 40 }
+			create_pop = { pop_type = aristocrats culture = russian religion = orthodox size = 250 }
+		}
+	}
+	# --- NET, Fars (host PER) - local persian --------------------------------
+	s:STATE_FARS = {
+		region_state:NET = {
+			create_pop = { pop_type = laborers culture = persian size = 18280 }
+			create_pop = { pop_type = clerks culture = persian size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = dutch religion = protestant size = 4400 }
+			create_pop = { pop_type = clergymen culture = dutch religion = protestant size = 400 }
+			create_pop = { pop_type = clerks culture = dutch religion = protestant size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = dutch religion = protestant size = 40 }
+			create_pop = { pop_type = aristocrats culture = dutch religion = protestant size = 250 }
+		}
+	}
+	# --- BEL, Oman (host OMA) - local bedouin, ibadi not the sunni default ---
+	s:STATE_OMAN = {
+		region_state:BEL = {
+			create_pop = { pop_type = laborers culture = bedouin religion = ibadi size = 18280 }
+			create_pop = { pop_type = clerks culture = bedouin religion = ibadi size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = flemish religion = catholic size = 4400 }
+			create_pop = { pop_type = clergymen culture = flemish religion = catholic size = 400 }
+			create_pop = { pop_type = clerks culture = flemish religion = catholic size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = flemish religion = catholic size = 40 }
+			create_pop = { pop_type = aristocrats culture = flemish religion = catholic size = 250 }
+		}
+	}
+	# --- SWE, South Madagascar (host MAD) - local malagasy -------------------
+	s:STATE_SOUTH_MADAGASCAR = {
+		region_state:SWE = {
+			create_pop = { pop_type = laborers culture = malagasy size = 18280 }
+			create_pop = { pop_type = clerks culture = malagasy size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = swedish religion = protestant size = 4400 }
+			create_pop = { pop_type = clergymen culture = swedish religion = protestant size = 400 }
+			create_pop = { pop_type = clerks culture = swedish religion = protestant size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = swedish religion = protestant size = 40 }
+			create_pop = { pop_type = aristocrats culture = swedish religion = protestant size = 250 }
+		}
+	}
+	# --- PRU, Antioquia (host CLM) - local north_andean ----------------------
+	s:STATE_ANTIOQUIA = {
+		region_state:PRU = {
+			create_pop = { pop_type = laborers culture = north_andean size = 18280 }
+			create_pop = { pop_type = clerks culture = north_andean size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = north_german religion = protestant size = 4400 }
+			create_pop = { pop_type = clergymen culture = north_german religion = protestant size = 400 }
+			create_pop = { pop_type = clerks culture = north_german religion = protestant size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = north_german religion = protestant size = 40 }
+			create_pop = { pop_type = aristocrats culture = north_german religion = protestant size = 250 }
+		}
+	}
+	# --- AUS, North Borneo (host BRU) - local bornean ------------------------
+	s:STATE_NORTH_BORNEO = {
+		region_state:AUS = {
+			create_pop = { pop_type = laborers culture = bornean size = 18280 }
+			create_pop = { pop_type = clerks culture = bornean size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = south_german religion = catholic size = 4400 }
+			create_pop = { pop_type = clergymen culture = south_german religion = catholic size = 400 }
+			create_pop = { pop_type = clerks culture = south_german religion = catholic size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = south_german religion = catholic size = 40 }
+			create_pop = { pop_type = aristocrats culture = south_german religion = catholic size = 250 }
+		}
+	}
+	# --- BEL, Lower Congo (host KON) - local bakongo -------------------------
+	s:STATE_BAS_CONGO = {
+		region_state:BEL = {
+			create_pop = { pop_type = laborers culture = bakongo size = 18280 }
+			create_pop = { pop_type = clerks culture = bakongo size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = flemish religion = catholic size = 4400 }
+			create_pop = { pop_type = clergymen culture = flemish religion = catholic size = 400 }
+			create_pop = { pop_type = clerks culture = flemish religion = catholic size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = flemish religion = catholic size = 40 }
+			create_pop = { pop_type = aristocrats culture = flemish religion = catholic size = 250 }
+		}
+	}
+	# --- USA, Hail (host NEJ) - local bedouin --------------------------------
+	s:STATE_HAIL = {
+		region_state:USA = {
+			create_pop = { pop_type = laborers culture = bedouin size = 18280 }
+			create_pop = { pop_type = clerks culture = bedouin size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = yankee religion = protestant size = 4400 }
+			create_pop = { pop_type = clergymen culture = yankee religion = protestant size = 400 }
+			create_pop = { pop_type = clerks culture = yankee religion = protestant size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = yankee religion = protestant size = 40 }
+			create_pop = { pop_type = aristocrats culture = yankee religion = protestant size = 250 }
+		}
+	}
+	# --- USA, Dongola (host EGY) - local bedouin -----------------------------
+	s:STATE_DONGOLA = {
+		region_state:USA = {
+			create_pop = { pop_type = laborers culture = bedouin size = 18280 }
+			create_pop = { pop_type = clerks culture = bedouin size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = yankee religion = protestant size = 4400 }
+			create_pop = { pop_type = clergymen culture = yankee religion = protestant size = 400 }
+			create_pop = { pop_type = clerks culture = yankee religion = protestant size = 2000 }
+			create_pop = { pop_type = bureaucrats culture = yankee religion = protestant size = 40 }
+			create_pop = { pop_type = aristocrats culture = yankee religion = protestant size = 250 }
+		}
+	}
+	# --- SAR, Somaliland (host ISQ) - local somali, REDUCED package ----------
+	s:STATE_SOMALILAND = {
+		region_state:SAR = {
+			create_pop = { pop_type = laborers culture = somali size = 280 }
+			create_pop = { pop_type = clerks culture = somali size = 2480 }
+			create_pop = { pop_type = shopkeepers culture = north_italian religion = catholic size = 800 }
+			create_pop = { pop_type = clergymen culture = north_italian religion = catholic size = 400 }
+			create_pop = { pop_type = clerks culture = north_italian religion = catholic size = 800 }
+			create_pop = { pop_type = bureaucrats culture = north_italian religion = catholic size = 40 }
+			create_pop = { pop_type = aristocrats culture = north_italian religion = catholic size = 250 }
+		}
+	}
+}

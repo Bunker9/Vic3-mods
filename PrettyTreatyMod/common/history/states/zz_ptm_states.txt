@@ -81,4 +81,65 @@ STATES = {
 			state_type = unincorporated
 		}
 	}
+
+	# -------------------------------------------------------------------------
+	# Added 2026-07-21. Same change-only form. In every case the ceded province is
+	# the state region's own port = "x..." value, and in every case that province
+	# is verified as belonging to the named host at 1836.
+	# -------------------------------------------------------------------------
+
+	# AUS treaty port in STATE_NORTH_BORNEO (host BRU)
+	# The port is BRUNEI's (00_states.txt:4748). Sulu owns seven other provinces of the
+	# same state region but not the port, so Brunei is the host.
+	s:STATE_NORTH_BORNEO = {
+		create_state = {
+			country = c:AUS
+			owned_provinces = { xC531AE }
+			state_type = unincorporated
+		}
+	}
+
+	# BEL treaty port in STATE_BAS_CONGO (host KON)
+	# STATE_BAS_CONGO is localised "Lower Congo". Port x811426 is Kongo's (00_states.txt:5689).
+	s:STATE_BAS_CONGO = {
+		create_state = {
+			country = c:BEL
+			owned_provinces = { x811426 }
+			state_type = unincorporated
+		}
+	}
+
+	# USA treaty port in STATE_HAIL (host NEJ)
+	# Hail is coastal. Port x4C5D5F is Nejd's (00_states.txt:6206); Jabal Shammar holds
+	# the city and the interior.
+	s:STATE_HAIL = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { x4C5D5F }
+			state_type = unincorporated
+		}
+	}
+
+	# USA treaty port in STATE_DONGOLA (host EGY)
+	s:STATE_DONGOLA = {
+		create_state = {
+			country = c:USA
+			owned_provinces = { xF4022B }
+			state_type = unincorporated
+		}
+	}
+
+	# SAR port in STATE_SOMALILAND (host ISQ) - NO TREATY, deliberately.
+	# This is a plain colonial holding, not a mechanical treaty port: there is no
+	# treaty_port article for it in ptm_treaties.txt, so is_treaty_port will read NO here.
+	# It is Sardinia's coastal outlet for the treaty-only SAR/SHW accord, whose own state
+	# (STATE_OROMIA) is landlocked. Port x524E91 is Isaaq's (00_states.txt:5065); the city
+	# province belongs to GLD, a different country.
+	s:STATE_SOMALILAND = {
+		create_state = {
+			country = c:SAR
+			owned_provinces = { x524E91 }
+			state_type = unincorporated
+		}
+	}
 }

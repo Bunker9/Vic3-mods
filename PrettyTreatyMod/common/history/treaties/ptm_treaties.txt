@@ -444,4 +444,332 @@ TREATIES = {
 			}
 		}
 	}
+
+	# -------------------------------------------------------------------------
+	# Added 2026-07-21. Same shape as the seven above: one treaty per country
+	# pair, every article inside it, no conditionals.
+	# -------------------------------------------------------------------------
+
+	# AUS concession in STATE_NORTH_BORNEO (host BRU)
+	# The North Borneo port province xC531AE belongs to BRUNEI, not Sulu - Sulu holds
+	# seven inland provinces of the same state region (00_states.txt:4748 vs :4752).
+	create_treaty = {
+		name = treaty_name_ptm_austro_bruneian_borneo
+		first_country = c:AUS
+		second_country = c:BRU
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:BRU
+				target_country = c:AUS
+				inputs = {
+					{ state = s:STATE_NORTH_BORNEO.region_state:BRU }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:BRU
+				target_country = c:AUS
+			}
+			{ # AUS supplies small_arms
+				article = goods_transfer
+				source_country = c:AUS
+				target_country = c:BRU
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # AUS supplies merchant_marine
+				article = goods_transfer
+				source_country = c:AUS
+				target_country = c:BRU
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # AUS supplies wine
+				article = goods_transfer
+				source_country = c:AUS
+				target_country = c:BRU
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # AUS supplies liquor
+				article = goods_transfer
+				source_country = c:AUS
+				target_country = c:BRU
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# BEL concession in STATE_BAS_CONGO (host KON)
+	# STATE_BAS_CONGO is the state region localised as "Lower Congo". BEL's second
+	# concession - the Oman one above is a different country pair, so the one treaty
+	# per pair rule still holds.
+	create_treaty = {
+		name = treaty_name_ptm_belgo_kongolese_lower_congo
+		first_country = c:BEL
+		second_country = c:KON
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:KON
+				target_country = c:BEL
+				inputs = {
+					{ state = s:STATE_BAS_CONGO.region_state:KON }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:KON
+				target_country = c:BEL
+			}
+			{ # BEL supplies small_arms
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:KON
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # BEL supplies merchant_marine
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:KON
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # BEL supplies wine
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:KON
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # BEL supplies liquor
+				article = goods_transfer
+				source_country = c:BEL
+				target_country = c:KON
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# USA concession in STATE_HAIL (host NEJ)
+	# STATE_HAIL is coastal: port = "x4C5D5F", naval_exit_id 3046. The port province is
+	# Nejd's; Jabal Shammar (JAB) holds the city and the interior of the same state region.
+	create_treaty = {
+		name = treaty_name_ptm_american_nejdi_hail
+		first_country = c:USA
+		second_country = c:NEJ
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:NEJ
+				target_country = c:USA
+				inputs = {
+					{ state = s:STATE_HAIL.region_state:NEJ }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:NEJ
+				target_country = c:USA
+			}
+			{ # USA supplies small_arms
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:NEJ
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # USA supplies merchant_marine
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:NEJ
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # USA supplies wine
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:NEJ
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # USA supplies liquor
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:NEJ
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# USA concession in STATE_DONGOLA (host EGY)
+	# Dongola is a Nile state and coastal on the Red Sea: port = "xF4022B", wholly EGY-owned.
+	create_treaty = {
+		name = treaty_name_ptm_american_egyptian_dongola
+		first_country = c:USA
+		second_country = c:EGY
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # the treaty port itself
+				article = treaty_port
+				source_country = c:EGY
+				target_country = c:USA
+				inputs = {
+					{ state = s:STATE_DONGOLA.region_state:EGY }
+				}
+			}
+			{ # investment rights
+				article = foreign_investment_rights
+				source_country = c:EGY
+				target_country = c:USA
+			}
+			{ # USA supplies small_arms
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:EGY
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # USA supplies merchant_marine
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:EGY
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # USA supplies wine
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:EGY
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # USA supplies liquor
+				article = goods_transfer
+				source_country = c:USA
+				target_country = c:EGY
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# SAR and SHW (Shewa) - investment and trade privileges, NO TREATY PORT.
+	#
+	# DELIBERATE: Shewa's only state is STATE_OROMIA, which has NO port line and no
+	# naval_exit_id in map_data/state_regions/04_subsaharan_africa.txt:530 - it is
+	# landlocked. common/treaty_articles/14_treaty_port.txt requires is_coastal = yes in
+	# BOTH its visible and its possible block, so a treaty port article against SHW can
+	# never be created. Do not "fix" this by adding one.
+	# Sardinia's coastal foothold in the region is the separate, treaty-free province split
+	# of the Somaliland port in common/history/states/zz_ptm_states.txt.
+	create_treaty = {
+		name = treaty_name_ptm_sardo_shewan_accord
+		first_country = c:SAR
+		second_country = c:SHW
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 10 }
+
+		articles_to_create = {
+			{ # investment rights: SHW is the country invested in, SAR the investor
+				article = foreign_investment_rights
+				source_country = c:SHW
+				target_country = c:SAR
+			}
+			{ # SAR supplies small_arms
+				article = goods_transfer
+				source_country = c:SAR
+				target_country = c:SHW
+				inputs = {
+					{ goods = g:small_arms }
+					{ quantity = 10 }
+				}
+			}
+			{ # SAR supplies merchant_marine
+				article = goods_transfer
+				source_country = c:SAR
+				target_country = c:SHW
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # SAR supplies wine
+				article = goods_transfer
+				source_country = c:SAR
+				target_country = c:SHW
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # SAR supplies liquor
+				article = goods_transfer
+				source_country = c:SAR
+				target_country = c:SHW
+				inputs = {
+					{ goods = g:liquor }
+					{ quantity = 10 }
+				}
+			}
+		}
+	}
 }

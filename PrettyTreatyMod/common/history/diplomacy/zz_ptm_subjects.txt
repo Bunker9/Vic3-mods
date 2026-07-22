@@ -1,0 +1,40 @@
+﻿# =============================================================================
+# PrettyTreatyMod - Austrian protectorates in East and Southeast Africa at 1836.
+# HAND-WRITTEN. Shape copied from vanilla
+# common/history/diplomacy/00_subject_relationships.txt (RUS over KZH/UZH/OZH,
+# GBR over ABU/ION) and this repo's MyDiploPlayMod zz_mdp_abu_oman.txt.
+#
+# WITU AND GAZA ARE COUNTRY TAGS, NOT STATES. Witu is WTU (country_definitions
+# 01_africa.txt:1669, the Sultanate of Pate in exile, capital STATE_KENYA) and Gaza is
+# GZA (01_africa.txt:1613, capital STATE_LOURENCO_MARQUES). Neither owns its capital
+# state's port province at 1836, which is why they are subjects here rather than
+# treaty-port hosts: Kenya's port belongs to Oman and Lourenco Marques' to Portugal.
+#
+# IN HISTORY YOU PASS THE diplomatic_action TOKEN, NOT THE subject_type_ KEY.
+# subject_type_protectorate declares diplomatic_action = protectorate
+# (common/subject_types/00_subject_types.txt:1), so type = protectorate is correct and
+# type = subject_type_protectorate would not resolve.
+#
+# VALIDITY: subject_type_protectorate wants
+#   valid_overlord_country_types = { recognized colonial company }  - AUS is recognized
+#   valid_overlord_ranks = { great_power major_power minor_power }  - AUS is tier empire
+#   valid_subject_ranks includes the unrecognized ranks               - WTU and GZA are unrecognized
+# overlord_must_be_higher_rank = yes is satisfied at any plausible Austrian rank.
+#
+# EXPECTED, NOT A BUG: subject_type_protectorate sets breaks_if_subject_not_protected = yes,
+# so either pact can lapse in game if Austria cannot project protection that far. Austria
+# is landlocked in Europe and these are African coastal minors, so treat a mid-game break
+# as normal behaviour rather than a defect to patch.
+# =============================================================================
+DIPLOMACY = {
+	c:AUS ?= {
+		create_diplomatic_pact = {
+			country = c:WTU
+			type = protectorate
+		}
+		create_diplomatic_pact = {
+			country = c:GZA
+			type = protectorate
+		}
+	}
+}

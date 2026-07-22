@@ -69,31 +69,34 @@ ptm_event.2 = {
 		# close the race first, so no other power can take it
 		set_global_variable = { name = ptm_railway_race_won value = yes }
 
-		# first mover across EITHER race collects the concession prize (guarded inside)
-		ptm_save_treaty_port_state = yes
-		ptm_grant_concession_prize = yes
+		# rails winner collects its own concession prize (guarded once inside)
+		ptm_grant_concession_prize_rails = yes
 
 		c:CHI ?= {
 			every_scope_state = {
 				limit = {
 					state_population > 1000000
-					can_construct_building = building_railway
 				}
 
-				set_variable = { name = ptm_cur value = 0 }
-				if = {
-					limit = { has_building = building_railway }
-					set_variable = { name = ptm_cur value = b:building_railway.level }
-				}
-				change_variable = { name = ptm_cur add = 2 }
-				create_building = { building = building_railway level = var:ptm_cur reserves = 1 }
-				remove_variable = ptm_cur
+				# China deletes its own construction sectors mid-game, starving the build
+				# queue. Give each populous province a fresh sector so the queued track
+				# actually gets laid. (create_building tech-gates on the state owner CHI;
+				# the base construction sector is start-available to every country.)
+				create_building = { building = building_construction_sector level = 1 reserves = 1 }
 
+				# The construction QUEUE does NOT tech-gate on the low-tech host the way
+				# create_building does (in-game verified 2026-07-22, test_todel.2). Queue one
+				# railway in each of the government and private queues; both build out to
+				# CHINESE ownership, which is intended for the trunk line.
+				start_building_construction = building_railway
+				start_privately_funded_building_construction = building_railway
+
+				# fingerprint: SET before CHANGE in STATE scope (was set in country scope -> empty-var error)
 				if = {
 					limit = { NOT = { has_variable = ptm_fingerprint_china_railways } }
 					set_variable = { name = ptm_fingerprint_china_railways value = 0 }
 				}
-				change_variable = { name = ptm_fingerprint_china_railways add = 1 }
+				change_variable = { name = ptm_fingerprint_china_railways add = 2 } # 2 rails queued per state
 			}
 		}
 	}
@@ -114,10 +117,11 @@ ptm_event.3 = {
 		# close the race first, so no other power can take it
 		set_global_variable = { name = ptm_mining_race_won value = yes }
 
-		# first mover across EITHER race collects the concession prize (guarded inside,
-		# so winning both races does NOT pay the prize twice)
-		ptm_save_treaty_port_state = yes
-		ptm_grant_concession_prize = yes
+		# mines winner collects its own concession prize (guarded once inside)
+		ptm_grant_concession_prize_mines = yes
+
+		# fingerprint set-before-change now lives INSIDE each state loop (below), in STATE scope.
+		# A state that qualifies for several mines is initialised once (guard) then +4 per mine.
 
 		c:CHI ?= {
 			every_scope_state = {
@@ -125,14 +129,16 @@ ptm_event.3 = {
 					state_population > 1000000
 					can_construct_building = building_coal_mine
 				}
-				set_variable = { name = ptm_cur value = 0 }
-				if = {
-					limit = { has_building = building_coal_mine }
-					set_variable = { name = ptm_cur value = b:building_coal_mine.level }
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
 				}
-				change_variable = { name = ptm_cur add = 4 }
-				create_building = { building = building_coal_mine level = var:ptm_cur reserves = 1 }
-				remove_variable = ptm_cur
+				if = {
+					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				}
+				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 
 			every_scope_state = {
@@ -140,14 +146,16 @@ ptm_event.3 = {
 					state_population > 1000000
 					can_construct_building = building_iron_mine
 				}
-				set_variable = { name = ptm_cur value = 0 }
-				if = {
-					limit = { has_building = building_iron_mine }
-					set_variable = { name = ptm_cur value = b:building_iron_mine.level }
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
 				}
-				change_variable = { name = ptm_cur add = 4 }
-				create_building = { building = building_iron_mine level = var:ptm_cur reserves = 1 }
-				remove_variable = ptm_cur
+				if = {
+					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				}
+				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 
 			every_scope_state = {
@@ -155,14 +163,16 @@ ptm_event.3 = {
 					state_population > 1000000
 					can_construct_building = building_lead_mine
 				}
-				set_variable = { name = ptm_cur value = 0 }
-				if = {
-					limit = { has_building = building_lead_mine }
-					set_variable = { name = ptm_cur value = b:building_lead_mine.level }
+				create_building = {
+					building = building_lead_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
 				}
-				change_variable = { name = ptm_cur add = 4 }
-				create_building = { building = building_lead_mine level = var:ptm_cur reserves = 1 }
-				remove_variable = ptm_cur
+				if = {
+					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				}
+				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 
 			every_scope_state = {
@@ -170,20 +180,16 @@ ptm_event.3 = {
 					state_population > 1000000
 					can_construct_building = building_sulfur_mine
 				}
-				set_variable = { name = ptm_cur value = 0 }
-				if = {
-					limit = { has_building = building_sulfur_mine }
-					set_variable = { name = ptm_cur value = b:building_sulfur_mine.level }
+				create_building = {
+					building = building_sulfur_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
 				}
-				change_variable = { name = ptm_cur add = 4 }
-				create_building = { building = building_sulfur_mine level = var:ptm_cur reserves = 1 }
-				remove_variable = ptm_cur
-
 				if = {
 					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
 					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
 				}
-				change_variable = { name = ptm_fingerprint_china_mining add = 1 }
+				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 		}
 	}

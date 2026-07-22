@@ -1,0 +1,322 @@
+﻿# =============================================================================
+# PrettyTreatyMod - what actually stands in each concession at 1836.
+# HAND-WRITTEN.
+#
+# WHY THIS FILE EXISTS: the province split in common/history/states/zz_ptm_states.txt
+# hands the grantee one bare port province. Vanilla gives its own treaty ports real
+# infrastructure - GBR's Singapore split of STATE_MALAYA carries a 2 level trade centre
+# plus a port (common/history/buildings/12_indonesia.txt:96), OMA's Hormuz split of
+# STATE_LARISTAN carries a trade centre, a fishing wharf and a port
+# (08_middle_east.txt:925) - so without this file the concessions are inert land.
+#
+# PACKAGE, per concession: 1 port, 3 trade centres, 1 light-industry building.
+#
+# THE LIGHT-INDUSTRY SLOT IS CHOSEN PER HOST MARKET, not fixed. Only the two CHINESE
+# concessions (Formosa, Shengjing) get a tooling workshop - the Qing market is big enough to
+# absorb tools. Everywhere else the host is a small agrarian market that, as of 1836, runs NO
+# light industry at all (checked: of the ten non-Chinese hosts only PER and EGY own any, and
+# only glassworks), so almost anything sells. The pick is therefore driven by which input the
+# state can actually supply, one line of reasoning recorded above each building:
+#   timber-rich   -> building_furniture_manufactory   (North Borneo, Bas-Congo, S. Madagascar)
+#   fibre-growing -> building_textile_mill            (Fars, Antioquia, Dongola)
+#   neither       -> building_food_industry           (Mekong, Oman, Hail)
+# This is a quick commercial read, not a modelled one. All four candidates share the SAME
+# basic-PM employment (500 shopkeepers + 4500 laborers per level: pm_crude_tools,
+# pm_handsewn_clothes, pm_handcrafted_furniture, pm_bakery are identical on that line), so the
+# swap does NOT change the pop sizing in zz_ptm_concession_pops.txt.
+# The MANOR HOUSE is deliberately NOT created here - the engine raises it once
+# aristocrat and clergy pops exist, which zz_ptm_concession_pops.txt provides. That
+# pops file is sized against exactly this building list; change one and change the other.
+#
+# SAR / STATE_SOMALILAND GETS A REDUCED PACKAGE (port + 1 trade centre, no tooling
+# workshop) because it is a treaty-free colonial holding, not a treaty port.
+#
+# LEVELS COME FROM THE add_ownership levels SUM, as vanilla does it - not from a bare
+# level = key. Idiom copied from InfraTaxMod/common/history/buildings/infratax_infrastructure.txt:9.
+#
+# PRODUCTION METHODS: defaults are taken everywhere (port defaults to pm_anchorage,
+# 100 jobs per level) EXCEPT trade centres, which need
+# activate_production_methods = { "pm_trade_center_trade_quantity_normal" } - the
+# group 2 default is the trade-quantity-LIMITED PM, which is why every vanilla history
+# trade centre writes this line explicitly.
+#
+# TECH: every light-industry building used here (tooling workshop, textile mill, furniture
+# manufactory, food industry) is gated on the same manufacturies tech. VERIFIED 2026-07-21
+# that all nine grantees hold it at 1836 - each already owns at least one manufacturies-gated
+# building in vanilla history (NET via its food industry and glassworks, the other eight own
+# tooling workshops outright). If a create_building here ever starts logging "must have
+# invented", re-check that before touching anything else.
+# NOTE THE KEYS ARE SINGULAR: building_tooling_workshop, building_textile_mill,
+# building_furniture_manufactory, building_paper_mill (common/buildings/01_industry.txt:28-127).
+# The plural forms are aliases at best and building_furniture_manufacturies is not a key at all.
+# =============================================================================
+BUILDINGS = {
+
+	# --- FRA, Formosa (host CHI) ---------------------------------------------
+	s:STATE_FORMOSA = {
+		region_state:FRA = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:FRA" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:FRA" levels = 3 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_tooling_workshop"
+				add_ownership = { country = { country = "c:FRA" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- FRA, Mekong (host DAI) ----------------------------------------------
+	s:STATE_MEKONG = {
+		region_state:FRA = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:FRA" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:FRA" levels = 3 } }
+				reserves = 1
+			}
+			# DAI: rice and grain surplus on the Mekong delta, no local light industry at all
+			create_building = {
+				building = "building_food_industry"
+				add_ownership = { country = { country = "c:FRA" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- RUS, Shengjing (host CHI) -------------------------------------------
+	s:STATE_SHENGJING = {
+		region_state:RUS = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:RUS" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:RUS" levels = 3 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_tooling_workshop"
+				add_ownership = { country = { country = "c:RUS" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- NET, Fars (host PER) ------------------------------------------------
+	s:STATE_FARS = {
+		region_state:NET = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:NET" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:NET" levels = 3 } }
+				reserves = 1
+			}
+			# PER: cotton and silk country; Persia already runs glassworks so cloth is the open niche
+			create_building = {
+				building = "building_textile_mill"
+				add_ownership = { country = { country = "c:NET" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- BEL, Oman (host OMA) ------------------------------------------------
+	s:STATE_OMAN = {
+		region_state:BEL = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:BEL" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:BEL" levels = 3 } }
+				reserves = 1
+			}
+			# OMA: dates, fish and livestock, effectively no timber for a wood industry
+			create_building = {
+				building = "building_food_industry"
+				add_ownership = { country = { country = "c:BEL" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- SWE, South Madagascar (host MAD) ------------------------------------
+	s:STATE_SOUTH_MADAGASCAR = {
+		region_state:SWE = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:SWE" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:SWE" levels = 3 } }
+				reserves = 1
+			}
+			# MAD: forested, timber is the obvious local input
+			create_building = {
+				building = "building_furniture_manufactory"
+				add_ownership = { country = { country = "c:SWE" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- PRU, Antioquia (host CLM) -------------------------------------------
+	s:STATE_ANTIOQUIA = {
+		region_state:PRU = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:PRU" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:PRU" levels = 3 } }
+				reserves = 1
+			}
+			# CLM: Andean cotton and wool, no light industry in the Colombian market at 1836
+			create_building = {
+				building = "building_textile_mill"
+				add_ownership = { country = { country = "c:PRU" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- AUS, North Borneo (host BRU) ----------------------------------------
+	s:STATE_NORTH_BORNEO = {
+		region_state:AUS = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:AUS" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:AUS" levels = 3 } }
+				reserves = 1
+			}
+			# BRU: state_trait_borneo_rainforest, timber-rich
+			create_building = {
+				building = "building_furniture_manufactory"
+				add_ownership = { country = { country = "c:AUS" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- BEL, Lower Congo (host KON) -----------------------------------------
+	s:STATE_BAS_CONGO = {
+		region_state:BEL = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:BEL" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:BEL" levels = 3 } }
+				reserves = 1
+			}
+			# KON: state_trait_congo_forest, timber-rich
+			create_building = {
+				building = "building_furniture_manufactory"
+				add_ownership = { country = { country = "c:BEL" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- USA, Hail (host NEJ) ------------------------------------------------
+	s:STATE_HAIL = {
+		region_state:USA = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:USA" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:USA" levels = 3 } }
+				reserves = 1
+			}
+			# NEJ: state_trait_arabian_desert, no timber and no fibre crop, so food is the only sane fit
+			create_building = {
+				building = "building_food_industry"
+				add_ownership = { country = { country = "c:USA" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- USA, Dongola (host EGY) ---------------------------------------------
+	s:STATE_DONGOLA = {
+		region_state:USA = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:USA" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:USA" levels = 3 } }
+				reserves = 1
+			}
+			# EGY: Nile cotton; Egypt already runs glassworks so cloth is the open niche
+			create_building = {
+				building = "building_textile_mill"
+				add_ownership = { country = { country = "c:USA" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+
+	# --- SAR, Somaliland (host ISQ) - REDUCED PACKAGE, no treaty behind it ----
+	s:STATE_SOMALILAND = {
+		region_state:SAR = {
+			create_building = {
+				building = "building_port"
+				add_ownership = { country = { country = "c:SAR" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_trade_center"
+				activate_production_methods = { "pm_trade_center_trade_quantity_normal" }
+				add_ownership = { country = { country = "c:SAR" levels = 1 } }
+				reserves = 1
+			}
+		}
+	}
+}

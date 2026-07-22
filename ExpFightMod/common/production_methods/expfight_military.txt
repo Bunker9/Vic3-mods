@@ -1,0 +1,169 @@
+﻿# common\production_methods\05_military.txt
+# ExpFightMod - garrison infrastructure costs half the workforce, and skews toward officers.
+#
+# WHY: naval fortifications burn 1000 workforce per level in vanilla and logistics centres 100,
+# which prices coastal defence and supply out of reach for the small expansionist tags this mod
+# arms. Halving the totals keeps the buildings usable for a minor power, and shifting the mix
+# toward officers rewards a professional cadre over mass conscription.
+#
+# THESE NUMBERS ARE DELTAS, NOT TARGETS. READ THIS BEFORE EDITING ANY VALUE BELOW.
+# building_modifiers is a nested MODIFIER block, so INJECT_OR_CREATE DEEP-MERGES it and the
+# injected line lands ALONGSIDE vanilla's rather than replacing it. Both lines are _add
+# modifiers on the same target, so the game sums them. Writing the target value here would
+# therefore give vanilla PLUS the target (900 + 350 soldiers), not the target.
+# See hk-config\docs\vic3-token-gotchas.md, merge-directive section: the "changes an existing
+# scalar" clause covers plain key = value assignments; the "nested modifier blocks deep-merge"
+# clause is the one that governs here.
+#
+# NAVAL FORTIFICATIONS - vanilla 05_military.txt:433 / :461 / :493. Total 1000 -> 500 per level:
+#   basic       900 sol / 100 off  ->  350 / 150   =>  delta -550 sol / +50 off
+#   reinforced  850 sol / 150 off  ->  300 / 200   =>  delta -550 sol / +50 off
+#   advanced    800 sol / 200 off  ->  250 / 250   =>  delta -550 sol / +50 off
+# The delta happens to be uniform across all three tiers; that is arithmetic, not a copy-paste
+# error. If a tier's vanilla value changes in a patch, its delta must be recomputed.
+#
+# LOGISTICS CENTRES - vanilla 05_military.txt:543 / :555. Total 100 -> 50 per level:
+#   60 lab / 30 bur / 10 off  ->  20 / 10 / 20     =>  delta -40 lab / -20 bur / +10 off
+# Both the army and navy variants ship byte-identical employment blocks in vanilla; they are
+# kept identical here.
+#
+# INJECT_OR_CREATE, NOT REPLACE_OR_CREATE. A whole-object REPLACE would drag in a verbatim copy
+# of each vanilla PM, including the naval fortification state_modifiers, and would silently drop
+# unscaled = { state_control_strait_bool = yes } if vanilla ever reshuffles it.
+#
+# THE MODIFIERS ADDED BELOW ARE NEW LINES, so no delta arithmetic applies to them - vanilla has
+# no turmoil, devastation, officer or aeroplane line on any of these PMs, so the value written IS
+# the value applied. The delta rule above governs ONLY the employment lines.
+#
+# UPPER TIER FORTS EARN THEIR KEEP (added 2026-07-21, on top of the employment cut):
+#   reinforced  -5% turmoil effects per level
+#   advanced    -5% turmoil effects per level, faster devastation recovery per level,
+#               +2% officer political strength per fort, and 5 aeroplanes of upkeep
+#
+# SIGN CORRECTION, READ THIS: the ask was "devastation red mult -10%/level". VIC3 HAS NO
+# DEVASTATION-REDUCTION MODIFIER. The only state-scope devastation token is
+# state_devastation_decay_mult, which controls how fast existing devastation DECAYS, so LESS
+# devastation means a POSITIVE value, not a negative one. Vanilla confirms the polarity both
+# ways: 00_code_static_modifiers.txt:732 grants +3.0 as a benefit, 00_ep2_02_modifiers.txt:145
+# applies -1 as a penalty. Written here as +0.10 = devastation clears 10% faster per level.
+# Writing the literal -0.10 would have made bombed-out states recover SLOWER, the exact opposite
+# of the intent. (unit_devastation_mult, the "cause less devastation" lever, is a UNIT modifier -
+# it appears only on combat_unit_types and character traits - so it cannot go in a PM's
+# state_modifiers.)
+#
+# OFFICER POLITICAL STRENGTH IS BACK, DELIBERATELY, AND IT STACKS. This reverses the earlier
+# "dropped" note below. country_officers_pol_str_mult is COUNTRY scope, so an unscaled line in a
+# PM's country_modifiers applies once per naval fortification the country owns and the copies
+# SUM. That stacking is the intended design, not a leak: +2% per fort means a country that
+# fortifies 50 states reaches +100%. Unscaled, so a fort's LEVEL does not matter - only how many
+# fortified states the country holds. If this ever needs capping, cap it by making the line
+# level_scaled or by lowering 0.02, not by deleting it.
+#
+# HISTORY OF THE OFFICER LINE, so it is not re-litigated: the first ask was for an unscaled LOCAL
+# STATE modifier of +200% officer political strength. That is impossible - Vic3 has no state-scope
+# officer political strength token, only the country-scope country_officers_pol_str_mult
+# (common\modifier_type_definitions\99_todo_sort_into_other_files.txt:3239), and the state-scope
+# state_pop_pol_str_mult hits every pop in the state rather than officers. It was dropped for that
+# reason, then reinstated on 2026-07-21 in the form directly above: country scope, +2% per fort,
+# stacking accepted as the design.
+#
+# OPEN - VERIFY IN GAME:
+#   1. the soldier/officer numbers actually change AND naval forts still grant state_control_strait_bool
+#   2. the new state_modifiers level_scaled block merges alongside vanilla's workforce_scaled and
+#      unscaled children rather than displacing them
+#   3. advanced forts do not starve for aeroplanes - military_aviation is era_4 and
+#      concrete_fortifications era_5, so supply exists before the demand does, but a small navy
+#      with no aeroplane industry will still feel it
+
+# -----------------------------------------------------------------------------
+# Naval fortifications
+# -----------------------------------------------------------------------------
+INJECT_OR_CREATE:pm_naval_fortification_basic = {
+	state_modifiers = {
+		level_scaled = {
+			state_turmoil_effects_mult = -0.02	# a garrisoned port keeps order
+		}
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_soldiers_add = -550	# 900 -> 350
+			building_employment_officers_add = 50	# 100 -> 150
+		}
+	}
+	country_modifiers = {
+		unscaled = {
+			country_officers_pol_str_mult = 0.01	# per fortified state, stacks on purpose
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_naval_fortification_reinforced = {
+	state_modifiers = {
+		level_scaled = {
+			state_turmoil_effects_mult = -0.05	# a garrisoned port keeps order
+		}
+	}
+	building_modifiers = {
+		level_scaled = {
+			building_employment_soldiers_add = -550	# 850 -> 300
+			building_employment_officers_add = 50	# 150 -> 200
+		}
+	}
+	country_modifiers = {
+		unscaled = {
+			country_officers_pol_str_mult = 0.01	# per fortified state, stacks on purpose
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_naval_fortification_advanced = {
+	state_modifiers = {
+		level_scaled = {
+			state_turmoil_effects_mult = -0.05	# a garrisoned port keeps order
+			state_devastation_decay_mult = 0.10	# POSITIVE = devastation clears FASTER, see the sign note in the header
+		}
+	}
+	country_modifiers = {
+		unscaled = {
+			country_officers_pol_str_mult = 0.02	# per fortified state, stacks on purpose
+		}
+	}
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_aeroplanes_add = 5	# aerial patrol; workforce_scaled to match vanilla's other goods lines on this PM
+		}
+		level_scaled = {
+			building_employment_soldiers_add = -550	# 800 -> 250
+			building_employment_officers_add = 50	# 200 -> 250
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# Logistics centres. Engine-granted buildings (buildable = no), so the per-level
+# saving applies wherever the game places them.
+# -----------------------------------------------------------------------------
+INJECT_OR_CREATE:pm_basic_naval_logistics_center = {
+	building_modifiers = {
+		level_scaled = {
+			building_employment_laborers_add = -40		# 60 -> 20
+			building_employment_bureaucrats_add = -20	# 30 -> 10
+			building_employment_officers_add = 10		# 10 -> 20
+		}
+	}
+	state_modifiers = {
+		level_scaled = {
+			state_pop_qualifications_mult = 0.01
+		}
+	}
+}
+
+INJECT_OR_CREATE:pm_basic_army_logistics_center = {
+	building_modifiers = {
+		level_scaled = {
+			building_employment_laborers_add = -40		# 60 -> 20
+			building_employment_bureaucrats_add = -20	# 30 -> 10
+			building_employment_officers_add = 10		# 10 -> 20
+		}
+	}
+}

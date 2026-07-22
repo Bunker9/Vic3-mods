@@ -1,0 +1,14 @@
+﻿# =============================================================================
+# BIC leash (2026-07-10, user ask B5): 30-year mdp_bic_imperial_overstretch on the
+# East India Company at game start (x4 infamy decay, -800 influence, -30% defense;
+# defined in common/static_modifiers/mdp_modifiers.txt). History-not-day-1-event
+# per DEV-RULE. `?=` = safe no-op if the tag is absent.
+# =============================================================================
+COUNTRIES = {
+	c:WTU ?= {
+		activate_law = law_type:law_crownland_diets
+	}
+	c:GZA ?= {
+		activate_law = law_type:law_crownland_diets
+	}
+}

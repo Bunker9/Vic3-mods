@@ -1,5 +1,5 @@
 ﻿l_english:
  versiontest.1.t:0 "versiontestMod loaded"
- versiontest.1.d:0 "BUILD 202607141612"
- versiontest.1.a:0 "(versiontestMod is soft-disabled on master)"
- versiontest_log:0 "VTEST_LOG (versiontestMod is soft-disabled on master)"
+ versiontest.1.d:0 "BUILD 202607221459"
+ versiontest.1.a:0 "DEV - read me"
+ versiontest_log:0 "VTEST_BUILD 202607221459 (dev/tweak/july-late-game-tweaks) ptm add_ownership runtime probe"
