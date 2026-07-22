@@ -369,13 +369,15 @@ REPLACE_OR_CREATE:treaty_port = {
 								}
 							}
 							scope:target_country = {
-								global_country_ranking = 1                       # the #1 great power
-								relations:root >= relations_threshold:friendly   # friendly with us (the host)
-								power_bloc ?= { this = root.power_bloc }          # in our power bloc
+								#let Ai reclaim lapsed treaty ports
+								#global_country_ranking = 1                       # the #1 great power
+								relations:root >= relations_threshold:neutral   # neutral with us (the host)
+								#NOT THIS SO GBR can get back HK Tp from CHI
+								#power_bloc ?= { this = root.power_bloc }          # in our power bloc
 							}
 						}
 						add = {
-							value = 200
+							value = 600
 							desc = "stdinnv_lapsed_treaty_port_desc"
 						}
 					}
