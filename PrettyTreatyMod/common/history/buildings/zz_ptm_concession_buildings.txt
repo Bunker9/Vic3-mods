@@ -74,8 +74,8 @@ BUILDINGS = {
 		}
 	}
 
-	# --- FRA, Mekong (host DAI) ----------------------------------------------
-	s:STATE_MEKONG = {
+	# --- FRA, Tonkin (host DAI) ----------------------------------------------
+	s:STATE_TONKIN = {
 		region_state:FRA = {
 			create_building = {
 				building = "building_port"

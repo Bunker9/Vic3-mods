@@ -63,7 +63,12 @@ ptm_china_railways_decision = {
 
 	possible = {
 		ptm_is_great_power_with_a_china_treaty_port = yes
-		has_technology_researched = steel_railway_cars
+		has_technology_researched = railways
+		is_at_war = no
+		c:CHI = {
+			is_at_war = no
+		}
+		game_date >= 1838.1.1
 	}
 
 	when_taken = {
@@ -90,7 +95,11 @@ ptm_china_mining_decision = {
 
 	possible = {
 		ptm_is_great_power_with_a_china_treaty_port = yes
-		has_technology_researched = dynamite
+		has_technology_researched = nitroglycerin
+		is_at_war = no
+		c:CHI = {
+			is_at_war = no
+		}
 	}
 
 	when_taken = {
@@ -98,6 +107,35 @@ ptm_china_mining_decision = {
 			text = ptm_china_mining_tt
 		}
 		trigger_event = { id = ptm_event.3 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# -----------------------------------------------------------------------------
+# 4. Reclaim Our Lapsed Treaty Port.
+#    Shown to an original grantee whose PTM port has been lost (conquered/reverted). Opens a
+#    dp_take_treaty_port diplomatic play vs the current holder. REPEATABLE, self-limiting:
+#    hidden again once the port is back or during any war/play; 5y cooldown var blocks re-spam.
+# -----------------------------------------------------------------------------
+ptm_reclaim_lapsed_port = {
+
+	is_shown = {
+		NOT = { has_variable = ptm_reclaim_cooldown }
+		ptm_has_any_lapsed_treaty_port = yes
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		infamy < 20
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_reclaim_lapsed_port_tt
+		}
+		trigger_event = { id = ptm_event.4 }
 	}
 
 	ai_chance = { value = 10000 }

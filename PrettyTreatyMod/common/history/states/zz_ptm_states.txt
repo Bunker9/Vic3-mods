@@ -28,11 +28,12 @@ STATES = {
 		}
 	}
 
-	# FRA treaty port in STATE_MEKONG (host DAI)
-	s:STATE_MEKONG = {
+	# FRA treaty port in STATE_TONKIN (host DAI). Moved off STATE_MEKONG, whose port==city
+	# (xE5A4DA Saigon) grew France's port; Tonkin port x4BB178 != city xF0E531, both DAI-owned.
+	s:STATE_TONKIN = {
 		create_state = {
 			country = c:FRA
-			owned_provinces = { xE5A4DA }
+			owned_provinces = { x4BB178 }
 			state_type = unincorporated
 		}
 	}

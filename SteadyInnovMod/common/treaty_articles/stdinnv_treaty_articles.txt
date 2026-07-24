@@ -1,10 +1,11 @@
 ﻿# SteadyInnovMod - Treaty Port article AI-acceptance tweak
 # HAND-WRITTEN. REPLACE_OR_CREATE of the vanilla treaty_port treaty article
-# (common/treaty_articles/14_treaty_port.txt, Vic3 1.13.x), copied verbatim with ONE
-# added term in ai.inherent_accept_score: when a GP#1, friendly, same-bloc requester
-# already owns part of the target state (a LAPSED treaty port that reverted to normal
-# ownership), the host AI's unwillingness is offset by +200 so the port can be restored
-# peacefully via the Diplomatic Treaties system (no war, no infamy).
+# (common/treaty_articles/14_treaty_port.txt, Vic3 1.13.x), copied verbatim, tweaked so a
+# LAPSED treaty port can be restored peacefully (no war, no infamy) when the requester still
+# owns a coastal part of the state region and relations are neutral or better:
+#   HOST side     - ai.inherent_accept_score +600 to give it back
+#   REQUESTER side - ai.inherent_accept_score +500 to want it, proposal_weight x5 to ASK for it,
+#                    evaluation_chance x3 for great powers so the article gets weighed at all.
 # BRITTLE: full-object copy - re-check against vanilla after any patch touching 14_treaty_port.txt.
 # The added condition mirrors this file's own input_state/state_region/any_scope_state idiom;
 # relations_threshold:friendly / power_bloc / global_country_ranking are master-vetted.
@@ -276,13 +277,39 @@ REPLACE_OR_CREATE:treaty_port = {
 			expansion
 		}
 
+		# SteadyInnovMod: vanilla 0.1 means a GP almost never even weighs a treaty port.
 		evaluation_chance = {
 			value = 0.1
+
+			if = {
+				limit = { country_rank >= rank_value:great_power }
+				multiply = 3
+			}
 		}
 
 		article_ai_usage = {
             request
         }
+
+		# SteadyInnovMod: the REQUESTER side. Push the composing AI to actually ask for a port
+		# in a state region it already holds a coastal part of (its lapsed concession).
+		proposal_weight = {
+			value = 1
+
+			if = {
+				limit = {
+					scope:article.input_state ?= {
+						state_region = {
+							any_scope_state = {
+								owner = root
+								is_coastal = yes
+							}
+						}
+					}
+				}
+				multiply = 5
+			}
+		}
 
 		inherent_accept_score = {
 			value = 0
@@ -370,10 +397,8 @@ REPLACE_OR_CREATE:treaty_port = {
 							}
 							scope:target_country = {
 								#let Ai reclaim lapsed treaty ports
-								#global_country_ranking = 1                       # the #1 great power
 								relations:root >= relations_threshold:neutral   # neutral with us (the host)
-								#NOT THIS SO GBR can get back HK Tp from CHI
-								#power_bloc ?= { this = root.power_bloc }          # in our power bloc
+								# THIS SO GBR can get back HK Tp from CHI
 							}
 						}
 						add = {
@@ -408,6 +433,27 @@ REPLACE_OR_CREATE:treaty_port = {
 						add = {
 							desc = "HOSTING_DIPLOMATIC_MISSION"
 							value = -50
+						}
+					}
+					# SteadyInnovMod: REQUESTER side, mirror of the host's +600 below. We already hold a
+					# coastal part of this region, so wanting the port back beats the standard -300 apathy.
+					if = {
+						limit = {
+							scope:article.input_state = {
+								state_region = {
+									any_scope_state = {
+										owner = scope:target_country
+										is_coastal = yes
+									}
+								}
+							}
+							scope:source_country = {
+								relations:root >= relations_threshold:neutral
+							}
+						}
+						add = {
+							value = 500
+							desc = "stdinnv_reclaim_lapsed_port_desc"
 						}
 					}
 				}

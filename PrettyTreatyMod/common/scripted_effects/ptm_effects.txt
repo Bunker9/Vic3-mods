@@ -27,7 +27,7 @@
 #
 # PORT-FINDING IS INLINE, NOT A SHARED SCRIPTED EFFECT. is_treaty_port is a real state-scope
 # trigger; the state_region clause keeps the pick IN CHINA (a taker can hold treaty ports
-# elsewhere - FRANCE ships with STATE_FORMOSA host CHI and STATE_MEKONG host DAI - and a bare
+# elsewhere - FRANCE ships with STATE_FORMOSA host CHI and STATE_TONKIN host DAI - and a bare
 # is_treaty_port landed the prize in Vietnam half the time). "in China" = the port's STATE REGION
 # still contains a region_state owned by Qing (the treaty port is a sibling region_state carved
 # out of the host's, so the host is not the port's owner). NO STATE IS NAMED, deliberately.
@@ -64,9 +64,10 @@ ptm_grant_concession_prize_rails = {
 
 			scope:ptm_port_state = {
 				create_building = { building = building_trade_center level = 8 reserves = 1 }
-				create_building = { building = building_motor_industry level = 6 reserves = 1 }
+				create_building = { building = building_motor_industry level = 4 reserves = 1 }
+				create_building = { building = building_steel_mill level = 2 reserves = 1 }
 				create_building = { building = building_port level = 2 reserves = 1 }
-
+				create_building = { building = building_railway level = 2 reserves = 1 }
 				ptm_settle_concession_pops = yes
 
 				if = {
@@ -106,10 +107,11 @@ ptm_grant_concession_prize_mines = {
 			debug_log = "ptm - concession-prize-mines - port found, prize granted"
 
 			scope:ptm_port_state = {
-				create_building = { building = building_trade_center level = 8 reserves = 1 }
+				create_building = { building = building_trade_center level = 10 reserves = 1 }
 				create_building = { building = building_explosives_factory level = 4 reserves = 1 }
 				create_building = { building = building_chemical_plant level = 2 reserves = 1 }
-				create_building = { building = building_port level = 2 reserves = 1 }
+				create_building = { building = building_port level = 3 reserves = 1 }
+				create_building = { building = building_railway level = 3 reserves = 1 }
 
 				ptm_settle_concession_pops = yes
 
@@ -168,5 +170,75 @@ ptm_settle_concession_pops = {
 		else = {
 			create_pop = { culture = han religion = confucian size = 6000 }
 		}
+	}
+}
+
+# =============================================================================
+# LAPSED-PORT RECLAIM. ptm_event.4 payload.
+# =============================================================================
+
+# $PTM_STATE$ = a concession state region key. If ROOT's port there has lapsed, open a
+# dp_take_treaty_port diplomatic play against whoever now owns a coastal, port-eligible part
+# of the region. create_diplomatic_play runs in country scope, so it is nested under root={}
+# inside the state search - that way it fires ONLY for a state that actually matched (no stale
+# saved-scope re-fire). Guarded to one reclaim play at a time. Owner-eligibility limit MIRRORS
+# ptm_port_is_lapsed_for_root (not our subject / not a market partner / relations below neutral).
+ptm_try_reclaim_port = {
+	if = {
+		limit = {
+			root = { is_active_in_diplomatic_play = no }
+			ptm_port_is_lapsed_for_root = { PTM_STATE = $PTM_STATE$ }
+		}
+		s:$PTM_STATE$ = {
+			random_scope_state = {
+				limit = {
+					is_coastal = yes
+					is_potential_treaty_port = root
+					owner = {
+						NOT = { this = root }
+						NOT = { is_subject_of = root }
+						NOT = { market = root.market }              # same market area (covers customs unions, subject markets)
+						NOT = { is_in_customs_union_with = root }   # explicit customs-union partner
+						relations:root < relations_threshold:neutral # war route only when relations are sour
+					}
+				}
+				save_scope_as = ptm_reclaim_state
+				owner = { save_scope_as = ptm_reclaim_target }
+				root = {
+					create_diplomatic_play = {
+						name = ptm_reclaim_treaty_port
+						target_country = scope:ptm_reclaim_target
+						type = dp_take_treaty_port
+						target_state = scope:ptm_reclaim_state
+					}
+					debug_log = "ptm - reclaim - dp_take_treaty_port started"
+				}
+			}
+		}
+	}
+}
+
+# Enumerate ROOT's concession ports and reclaim the lapsed one(s). All eight PTM colonizers;
+# tags are mutually exclusive so else_if. Pairs match ptm_has_any_lapsed_treaty_port / ptm_treaties.txt.
+ptm_reclaim_lapsed_ports = {
+	if = {
+		limit = { c:FRA ?= root }
+		ptm_try_reclaim_port = { PTM_STATE = STATE_FORMOSA }
+		ptm_try_reclaim_port = { PTM_STATE = STATE_TONKIN }
+	}
+	else_if = { limit = { c:RUS ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_SHENGJING } }
+	else_if = { limit = { c:NET ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_FARS } }
+	else_if = {
+		limit = { c:BEL ?= root }
+		ptm_try_reclaim_port = { PTM_STATE = STATE_OMAN }
+		ptm_try_reclaim_port = { PTM_STATE = STATE_BAS_CONGO }
+	}
+	else_if = { limit = { c:SWE ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_SOUTH_MADAGASCAR } }
+	else_if = { limit = { c:PRU ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_ANTIOQUIA } }
+	else_if = { limit = { c:AUS ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_NORTH_BORNEO } }
+	else_if = {
+		limit = { c:USA ?= root }
+		ptm_try_reclaim_port = { PTM_STATE = STATE_HAIL }
+		ptm_try_reclaim_port = { PTM_STATE = STATE_DONGOLA }
 	}
 }

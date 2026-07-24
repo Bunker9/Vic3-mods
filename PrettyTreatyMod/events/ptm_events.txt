@@ -194,3 +194,18 @@ ptm_event.3 = {
 		}
 	}
 }
+
+# -----------------------------------------------------------------------------
+# ptm_event.4 - Reclaim Lapsed Treaty Port payload.
+# Sets a 5-year anti-spam cooldown, then hands off to the enumerated reclaim effect.
+# -----------------------------------------------------------------------------
+ptm_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ptm - reclaim-lapsed-port - decision fired"
+		set_variable = { name = ptm_reclaim_cooldown value = yes days = 1825 }
+		ptm_reclaim_lapsed_ports = yes
+	}
+}

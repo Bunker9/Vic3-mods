@@ -908,7 +908,7 @@ STATE_NAKHON_RATCHASIMA = {
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 2
+        undiscovered_amount = 21
     }
     naval_exit_id = 3072
 }
@@ -930,12 +930,12 @@ STATE_SAKHALIN = {
         building_iron_mine = 45
         building_sulfur_mine = 22
         building_logging_camp = 11
-        building_whaling_station = 3
-        building_fishing_wharf = 14
+        building_whaling_station = 11
+        building_fishing_wharf = 21
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 10
+        undiscovered_amount = 21
     }
     naval_exit_id = 3118
 }
@@ -961,8 +961,8 @@ STATE_HOKKAIDO = {
         building_lead_mine = 36
         building_sulfur_mine = 32
         building_logging_camp = 9
-        building_whaling_station = 8
-        building_fishing_wharf = 15
+        building_whaling_station = 16
+        building_fishing_wharf = 21
     }
     
     naval_exit_id = 3059
@@ -972,7 +972,7 @@ STATE_HOKKAIDO = {
     }
 }
 
-# [InfraTaxMod] state buffs (signal: capped_5x+1) — capped:building_iron_mine 53->60; capped:building_lead_mine 33->45; capped:building_whaling_station 5->6
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — capped:building_iron_mine 53->60; capped:building_lead_mine 33->45; capped:building_whaling_station 5->16
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_TOHOKU = {
     id = 529
@@ -993,13 +993,13 @@ STATE_TOHOKU = {
         building_sulfur_mine = 51
         building_lead_mine = 45
         building_logging_camp = 15
-        building_whaling_station = 6
-        building_fishing_wharf = 15
+        building_whaling_station = 16
+        building_fishing_wharf = 21
     }
     resource = {
         # Akita Oil Fields. Oil struck in 1935, and would later become a big supplier, but production was more limited before 1936
         type = "building_oil_rig"
-        undiscovered_amount = 4
+        undiscovered_amount = 11
     }
     naval_exit_id = 3059
 }
@@ -1024,8 +1024,8 @@ STATE_KANTO = {
         building_lead_mine = 49
         building_sulfur_mine = 21
         building_logging_camp = 9
-        building_whaling_station = 7
-        building_fishing_wharf = 10
+        building_whaling_station = 11
+        building_fishing_wharf = 21
     }
     naval_exit_id = 3086
 }
@@ -1045,12 +1045,12 @@ STATE_TOKAI = {
         building_lead_mine = 38
         building_sulfur_mine = 12
         building_logging_camp = 16
-        building_fishing_wharf = 16
+        building_fishing_wharf = 26
     }
     resource = {
         # Sagara Oil Field
         type = "building_oil_rig"
-        undiscovered_amount = 1
+        undiscovered_amount = 21
     }
     naval_exit_id = 3086
 }
@@ -1071,13 +1071,13 @@ STATE_HOKUSHINETSU = {
         building_lead_mine = 4
         building_sulfur_mine = 6
         building_logging_camp = 10
-        building_fishing_wharf = 16
+        building_fishing_wharf = 26
         building_gold_mine = 3
     }
     resource = {
         # Echigo Oil Fields (Niitsu Oil Field, etc.)
         type = "building_oil_rig"
-        undiscovered_amount = 7
+        undiscovered_amount = 11
     }
     naval_exit_id = 3059
 }
@@ -1234,8 +1234,8 @@ STATE_SEOUL = {
         building_coal_mine = 12
         building_lead_mine = 27
         building_logging_camp = 19
-        building_whaling_station = 3
-        building_fishing_wharf = 6
+        building_whaling_station = 16
+        building_fishing_wharf = 16
         building_gold_mine = 2
     }
     naval_exit_id = 3138
@@ -1258,8 +1258,8 @@ STATE_BUSAN = {
         building_coal_mine = 6
         building_lead_mine = 12
         building_logging_camp = 7
-        building_whaling_station = 7
-        building_fishing_wharf = 11
+        building_whaling_station = 16
+        building_fishing_wharf = 16
     }
     naval_exit_id = 3058
 }
@@ -1335,7 +1335,7 @@ STATE_PYONGYANG = {
         building_iron_mine = 36
         building_lead_mine = 36
         building_logging_camp = 15
-        building_fishing_wharf = 8
+        building_fishing_wharf = 16
     }
     naval_exit_id = 3138
 }

@@ -35,7 +35,8 @@ mdp_consolidate_frontier = {
 
 	is_shown = {
 		mdp_is_expand_country = yes
-		NOT = { c:MOR = ROOT }
+		NOT = { c:MOR ?= this }
+		NOT = { c:OMA ?= this }
 		NOT = { has_variable = mdp_decent_annex_done }
 		# something to absorb: a decentralized nation co-owning a state region with us
 		# (state-side; see header - any_country skips decentralized in triggers).

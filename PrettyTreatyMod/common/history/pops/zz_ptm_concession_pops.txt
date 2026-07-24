@@ -70,11 +70,11 @@ POPS = {
 			create_pop = { pop_type = aristocrats culture = french religion = catholic size = 250 }
 		}
 	}
-	# --- FRA, Mekong (host DAI) - local vietnamese ---------------------------
-	s:STATE_MEKONG = {
+	# --- FRA, Tonkin (host DAI) - local vietnamese ---------------------------
+	s:STATE_TONKIN = {
 		region_state:FRA = {
-			create_pop = { pop_type = laborers culture = vietnamese size = 18280 }
-			create_pop = { pop_type = clerks culture = vietnamese size = 7680 }
+			create_pop = { pop_type = laborers culture = vietnamese religion = hindu size = 18280 }
+			create_pop = { pop_type = clerks culture = vietnamese religion = hindu size = 7680 }
 			create_pop = { pop_type = shopkeepers culture = french religion = catholic size = 4400 }
 			create_pop = { pop_type = clergymen culture = french religion = catholic size = 400 }
 			create_pop = { pop_type = clerks culture = french religion = catholic size = 2000 }
@@ -109,8 +109,8 @@ POPS = {
 	# --- BEL, Oman (host OMA) - local bedouin, ibadi not the sunni default ---
 	s:STATE_OMAN = {
 		region_state:BEL = {
-			create_pop = { pop_type = laborers culture = bedouin religion = ibadi size = 18280 }
-			create_pop = { pop_type = clerks culture = bedouin religion = ibadi size = 7680 }
+			create_pop = { pop_type = laborers culture = bedouin religion = hindu size = 18280 }
+			create_pop = { pop_type = clerks culture = bedouin religion = jewish size = 7680 }
 			create_pop = { pop_type = shopkeepers culture = flemish religion = catholic size = 4400 }
 			create_pop = { pop_type = clergymen culture = flemish religion = catholic size = 400 }
 			create_pop = { pop_type = clerks culture = flemish religion = catholic size = 2000 }
@@ -121,8 +121,8 @@ POPS = {
 	# --- SWE, South Madagascar (host MAD) - local malagasy -------------------
 	s:STATE_SOUTH_MADAGASCAR = {
 		region_state:SWE = {
-			create_pop = { pop_type = laborers culture = malagasy size = 18280 }
-			create_pop = { pop_type = clerks culture = malagasy size = 7680 }
+			create_pop = { pop_type = laborers culture = malayalam religion = hindu size = 18280 }
+			create_pop = { pop_type = clerks culture = malayalam religion = hindu size = 7680 }
 			create_pop = { pop_type = shopkeepers culture = swedish religion = protestant size = 4400 }
 			create_pop = { pop_type = clergymen culture = swedish religion = protestant size = 400 }
 			create_pop = { pop_type = clerks culture = swedish religion = protestant size = 2000 }
@@ -145,8 +145,8 @@ POPS = {
 	# --- AUS, North Borneo (host BRU) - local bornean ------------------------
 	s:STATE_NORTH_BORNEO = {
 		region_state:AUS = {
-			create_pop = { pop_type = laborers culture = bornean size = 18280 }
-			create_pop = { pop_type = clerks culture = bornean size = 7680 }
+			create_pop = { pop_type = laborers culture = malayalam religion = hindu size = 18280 }
+			create_pop = { pop_type = clerks culture = malayalam religion = hindu size = 7680 }
 			create_pop = { pop_type = shopkeepers culture = south_german religion = catholic size = 4400 }
 			create_pop = { pop_type = clergymen culture = south_german religion = catholic size = 400 }
 			create_pop = { pop_type = clerks culture = south_german religion = catholic size = 2000 }
@@ -169,8 +169,8 @@ POPS = {
 	# --- USA, Hail (host NEJ) - local bedouin --------------------------------
 	s:STATE_HAIL = {
 		region_state:USA = {
-			create_pop = { pop_type = laborers culture = bedouin size = 18280 }
-			create_pop = { pop_type = clerks culture = bedouin size = 7680 }
+			create_pop = { pop_type = laborers culture = gujarati religion = hindu size = 18280 }
+			create_pop = { pop_type = clerks culture = malayalam religion = hindu size = 7680 }
 			create_pop = { pop_type = shopkeepers culture = yankee religion = protestant size = 4400 }
 			create_pop = { pop_type = clergymen culture = yankee religion = protestant size = 400 }
 			create_pop = { pop_type = clerks culture = yankee religion = protestant size = 2000 }
@@ -181,8 +181,8 @@ POPS = {
 	# --- USA, Dongola (host EGY) - local bedouin -----------------------------
 	s:STATE_DONGOLA = {
 		region_state:USA = {
-			create_pop = { pop_type = laborers culture = bedouin size = 18280 }
-			create_pop = { pop_type = clerks culture = bedouin size = 7680 }
+			create_pop = { pop_type = laborers culture = malayalam religion = hindu size = 18280 }
+			create_pop = { pop_type = clerks culture = gujarati religion = hindu size = 7680 }
 			create_pop = { pop_type = shopkeepers culture = yankee religion = protestant size = 4400 }
 			create_pop = { pop_type = clergymen culture = yankee religion = protestant size = 400 }
 			create_pop = { pop_type = clerks culture = yankee religion = protestant size = 2000 }
@@ -193,8 +193,8 @@ POPS = {
 	# --- SAR, Somaliland (host ISQ) - local somali, REDUCED package ----------
 	s:STATE_SOMALILAND = {
 		region_state:SAR = {
-			create_pop = { pop_type = laborers culture = somali size = 280 }
-			create_pop = { pop_type = clerks culture = somali size = 2480 }
+			create_pop = { pop_type = laborers culture = malayalam religion = hindu size = 280 }
+			create_pop = { pop_type = clerks culture = gujarati religion = hindu size = 2480 }
 			create_pop = { pop_type = shopkeepers culture = north_italian religion = catholic size = 800 }
 			create_pop = { pop_type = clergymen culture = north_italian religion = catholic size = 400 }
 			create_pop = { pop_type = clerks culture = north_italian religion = catholic size = 800 }

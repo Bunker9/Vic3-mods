@@ -15,3 +15,12 @@ mdp_bic_imperial_overstretch = {
 	country_influence_add = -800
 	unit_defense_mult = -0.3
 }
+
+# 2y Qing military distraction so Nepal's Tibet campaign can land (mdp.1). Same three unit
+# debuffs as vanilla opium_wars_addiction_modifier - applied only when China lacks that one.
+mdp_china_military_distraction = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds"
+	unit_offense_mult = -0.5
+	unit_defense_mult = -0.5
+	unit_morale_loss_mult = 0.75
+}

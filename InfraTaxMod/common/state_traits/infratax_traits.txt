@@ -35,10 +35,20 @@ state_trait_infratax_cheat = {
 	}
 }
 
+#love to australia
+INJECT_OR_CREATE:state_trait_great_dividing_range = {
+	modifier = {
+		building_group_bg_whaling_employee_mult = -0.5
+		building_group_bg_fishing_employee_mult = -0.5
+		building_group_bg_mining_employee_mult = -0.5
+		building_group_bg_logging_employee_mult = -0.5
+	}
+}
+
 #North America whaling buffs
 INJECT_OR_CREATE:state_trait_new_england_whaling = {
 	modifier = {
-		building_group_bg_whaling_employee_mult = -0.2
+		building_group_bg_whaling_employee_mult = -0.5
 		building_group_bg_manufacturing_employee_mult = -0.2
 		building_group_bg_service_employee_mult = -0.2
 		building_group_bg_extraction_construction_efficiency_add = 0.5
@@ -110,6 +120,13 @@ INJECT_OR_CREATE:state_trait_london_docklands = {
 		state_construction_mult = 0.25
 		building_urban_center_throughput_add = 0.25
 		building_shipyard_throughput_add = 0.15
+	}
+}
+
+INJECT_OR_CREATE:state_trait_black_country = {
+	modifier = {
+		building_group_bg_mining_employee_mult = -0.5
+		building_group_bg_mining_engineers_standard_of_living_add = 5
 	}
 }
 

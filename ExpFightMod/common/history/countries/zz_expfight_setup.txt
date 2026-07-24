@@ -28,4 +28,5 @@ COUNTRIES = {
 	c:BRZ ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
 	c:PER ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
 	c:SIA ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
+	c:GBR ?= { add_modifier = { name = expfight_warboost months = 36 } }
 }

@@ -4,7 +4,10 @@
 # common/history/treaties/00_historical_treaties.txt (the Luso-Chinese / Macau treaty
 # for the treaty_port article, the France-Egypt aid treaty for goods_transfer).
 #
-# ONE TREATY PER COUNTRY PAIR, carrying ALL of that pair's articles. No conditionals.
+# PORT PAIRS GET TWO TREATIES. The treaty_port article lives ALONE in a 99-year binding
+# treaty: a port must never lapse (the AI never renews a 10-year port, and the port is the
+# whole point of the concession). Investment rights + goods supply stay in the 10-year aid
+# treaty. Pairs with no port (SAR/SHW) keep their single 10-year treaty. No conditionals.
 #
 # Treaty ports, investment rights and goods supply are all TREATY ARTICLES - there is no
 # create_treaty_port effect and no diplomatic pact for any of them.
@@ -27,7 +30,7 @@
 # Do NOT define the treaty_port ARTICLE here - SteadyInnovMod already REPLACE_OR_CREATEs it.
 # =============================================================================
 TREATIES = {
-	# FRA concession in STATE_FORMOSA (host CHI)
+	# FRA-CHI commerce half in STATE_FORMOSA (investment + goods); port is the 99y treaty below
 	create_treaty = {
 		name = treaty_name_ptm_franco_chinese_formosa
 		first_country = c:FRA
@@ -35,17 +38,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:CHI
-				target_country = c:FRA
-				inputs = {
-					{ state = s:STATE_FORMOSA.region_state:CHI }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:CHI
@@ -81,25 +76,17 @@ TREATIES = {
 		}
 	}
 
-	# FRA concession in STATE_MEKONG (host DAI)
+	# FRA-DAI commerce half in STATE_TONKIN (investment + goods); port is the 99y treaty below
 	create_treaty = {
-		name = treaty_name_ptm_franco_daiviet_namky
+		name = treaty_name_ptm_franco_daiviet_tonkin
 		first_country = c:FRA
 		second_country = c:DAI
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:DAI
-				target_country = c:FRA
-				inputs = {
-					{ state = s:STATE_MEKONG.region_state:DAI }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:DAI
@@ -135,7 +122,7 @@ TREATIES = {
 		}
 	}
 
-	# RUS concession in STATE_SHENGJING (host CHI)
+	# RUS-CHI commerce half in STATE_SHENGJING (goods only, no investment); port is the 99y treaty below
 	create_treaty = {
 		name = treaty_name_ptm_russo_chinese_shengjing
 		first_country = c:RUS
@@ -143,17 +130,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:CHI
-				target_country = c:RUS
-				inputs = {
-					{ state = s:STATE_SHENGJING.region_state:CHI }
-				}
-			}
 			{ # RUS supplies small_arms
 				article = goods_transfer
 				source_country = c:RUS
@@ -193,7 +172,7 @@ TREATIES = {
 		}
 	}
 
-	# NET concession in STATE_FARS (host PER)
+	# NET-PER commerce half in STATE_FARS (investment + goods); port is the 99y treaty below
 	create_treaty = {
 		name = treaty_name_ptm_dutch_persian_fars
 		first_country = c:NET
@@ -201,17 +180,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:PER
-				target_country = c:NET
-				inputs = {
-					{ state = s:STATE_FARS.region_state:PER }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:PER
@@ -256,7 +227,7 @@ TREATIES = {
 		}
 	}
 
-	# BEL concession in STATE_OMAN (host OMA)
+	# BEL-OMA commerce half in STATE_OMAN (investment + goods); port is the 99y treaty below
 	create_treaty = {
 		name = treaty_name_ptm_belgo_omani_muscat
 		first_country = c:BEL
@@ -264,17 +235,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:OMA
-				target_country = c:BEL
-				inputs = {
-					{ state = s:STATE_OMAN.region_state:OMA }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:OMA
@@ -319,7 +282,7 @@ TREATIES = {
 		}
 	}
 
-	# SWE concession in STATE_SOUTH_MADAGASCAR (host MAD)
+	# SWE-MAD commerce half in STATE_SOUTH_MADAGASCAR (investment + goods); port is the 99y treaty below
 	create_treaty = {
 		name = treaty_name_ptm_swedo_merina_tulear
 		first_country = c:SWE
@@ -327,17 +290,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:MAD
-				target_country = c:SWE
-				inputs = {
-					{ state = s:STATE_SOUTH_MADAGASCAR.region_state:MAD }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:MAD
@@ -382,7 +337,7 @@ TREATIES = {
 		}
 	}
 
-	# PRU concession in STATE_ANTIOQUIA (host CLM)
+	# PRU-CLM commerce half in STATE_ANTIOQUIA (investment + goods); port is the 99y treaty below
 	create_treaty = {
 		name = treaty_name_ptm_prusso_colombian_antioquia
 		first_country = c:PRU
@@ -390,17 +345,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:CLM
-				target_country = c:PRU
-				inputs = {
-					{ state = s:STATE_ANTIOQUIA.region_state:CLM }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:CLM
@@ -446,11 +393,11 @@ TREATIES = {
 	}
 
 	# -------------------------------------------------------------------------
-	# Added 2026-07-21. Same shape as the seven above: one treaty per country
-	# pair, every article inside it, no conditionals.
+	# Added 2026-07-21. Same shape as the seven above: commerce half here (10y),
+	# treaty port in its own 99y treaty in the port section below. No conditionals.
 	# -------------------------------------------------------------------------
 
-	# AUS concession in STATE_NORTH_BORNEO (host BRU)
+	# AUS-BRU commerce half in STATE_NORTH_BORNEO (investment + goods); port is the 99y treaty below.
 	# The North Borneo port province xC531AE belongs to BRUNEI, not Sulu - Sulu holds
 	# seven inland provinces of the same state region (00_states.txt:4748 vs :4752).
 	create_treaty = {
@@ -460,17 +407,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:BRU
-				target_country = c:AUS
-				inputs = {
-					{ state = s:STATE_NORTH_BORNEO.region_state:BRU }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:BRU
@@ -515,7 +454,7 @@ TREATIES = {
 		}
 	}
 
-	# BEL concession in STATE_BAS_CONGO (host KON)
+	# BEL-KON commerce half in STATE_BAS_CONGO (investment + goods); port is the 99y treaty below
 	# STATE_BAS_CONGO is the state region localised as "Lower Congo". BEL's second
 	# concession - the Oman one above is a different country pair, so the one treaty
 	# per pair rule still holds.
@@ -526,17 +465,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:KON
-				target_country = c:BEL
-				inputs = {
-					{ state = s:STATE_BAS_CONGO.region_state:KON }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:KON
@@ -581,7 +512,7 @@ TREATIES = {
 		}
 	}
 
-	# USA concession in STATE_HAIL (host NEJ)
+	# USA-NEJ commerce half in STATE_HAIL (investment + goods); port is the 99y treaty below
 	# STATE_HAIL is coastal: port = "x4C5D5F", naval_exit_id 3046. The port province is
 	# Nejd's; Jabal Shammar (JAB) holds the city and the interior of the same state region.
 	create_treaty = {
@@ -591,17 +522,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:NEJ
-				target_country = c:USA
-				inputs = {
-					{ state = s:STATE_HAIL.region_state:NEJ }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:NEJ
@@ -646,7 +569,7 @@ TREATIES = {
 		}
 	}
 
-	# USA concession in STATE_DONGOLA (host EGY)
+	# USA-EGY commerce half in STATE_DONGOLA (investment + goods); port is the 99y treaty below
 	# Dongola is a Nile state and coastal on the Red Sea: port = "xF4022B", wholly EGY-owned.
 	create_treaty = {
 		name = treaty_name_ptm_american_egyptian_dongola
@@ -655,17 +578,9 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
-			{ # the treaty port itself
-				article = treaty_port
-				source_country = c:EGY
-				target_country = c:USA
-				inputs = {
-					{ state = s:STATE_DONGOLA.region_state:EGY }
-				}
-			}
 			{ # investment rights
 				article = foreign_investment_rights
 				source_country = c:EGY
@@ -726,7 +641,7 @@ TREATIES = {
 
 		is_draft = no
 		entered_into_force_on = 1836.1.1
-		binding_period = { years = 10 }
+		binding_period = { years = 25 }
 
 		articles_to_create = {
 			{ # investment rights: SHW is the country invested in, SAR the investor
@@ -768,6 +683,254 @@ TREATIES = {
 				inputs = {
 					{ goods = g:liquor }
 					{ quantity = 10 }
+				}
+			}
+		}
+	}
+
+	# -------------------------------------------------------------------------
+	# PERPETUAL PORT TREATIES - one treaty_port article each, 99-year binding so
+	# the port never lapses (AI never renews a 10-year port). Same country pairs
+	# and directions as the aid treaties above.
+	# -------------------------------------------------------------------------
+
+	# FRA perpetual port in STATE_FORMOSA (host CHI)
+	create_treaty = {
+		name = treaty_name_ptm_franco_chinese_formosa_port
+		first_country = c:FRA
+		second_country = c:CHI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:CHI
+				target_country = c:FRA
+				inputs = {
+					{ state = s:STATE_FORMOSA.region_state:CHI }
+				}
+			}
+		}
+	}
+
+	# FRA perpetual port in STATE_TONKIN (host DAI)
+	create_treaty = {
+		name = treaty_name_ptm_franco_daiviet_tonkin_port
+		first_country = c:FRA
+		second_country = c:DAI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:DAI
+				target_country = c:FRA
+				inputs = {
+					{ state = s:STATE_TONKIN.region_state:DAI }
+				}
+			}
+		}
+	}
+
+	# RUS perpetual port in STATE_SHENGJING (host CHI)
+	create_treaty = {
+		name = treaty_name_ptm_russo_chinese_shengjing_port
+		first_country = c:RUS
+		second_country = c:CHI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:CHI
+				target_country = c:RUS
+				inputs = {
+					{ state = s:STATE_SHENGJING.region_state:CHI }
+				}
+			}
+		}
+	}
+
+	# NET perpetual port in STATE_FARS (host PER)
+	create_treaty = {
+		name = treaty_name_ptm_dutch_persian_fars_port
+		first_country = c:NET
+		second_country = c:PER
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:PER
+				target_country = c:NET
+				inputs = {
+					{ state = s:STATE_FARS.region_state:PER }
+				}
+			}
+		}
+	}
+
+	# BEL perpetual port in STATE_OMAN (host OMA)
+	create_treaty = {
+		name = treaty_name_ptm_belgo_omani_muscat_port
+		first_country = c:BEL
+		second_country = c:OMA
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:OMA
+				target_country = c:BEL
+				inputs = {
+					{ state = s:STATE_OMAN.region_state:OMA }
+				}
+			}
+		}
+	}
+
+	# SWE perpetual port in STATE_SOUTH_MADAGASCAR (host MAD)
+	create_treaty = {
+		name = treaty_name_ptm_swedo_merina_tulear_port
+		first_country = c:SWE
+		second_country = c:MAD
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:MAD
+				target_country = c:SWE
+				inputs = {
+					{ state = s:STATE_SOUTH_MADAGASCAR.region_state:MAD }
+				}
+			}
+		}
+	}
+
+	# PRU perpetual port in STATE_ANTIOQUIA (host CLM)
+	create_treaty = {
+		name = treaty_name_ptm_prusso_colombian_antioquia_port
+		first_country = c:PRU
+		second_country = c:CLM
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:CLM
+				target_country = c:PRU
+				inputs = {
+					{ state = s:STATE_ANTIOQUIA.region_state:CLM }
+				}
+			}
+		}
+	}
+
+	# AUS perpetual port in STATE_NORTH_BORNEO (host BRU)
+	create_treaty = {
+		name = treaty_name_ptm_austro_bruneian_borneo_port
+		first_country = c:AUS
+		second_country = c:BRU
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:BRU
+				target_country = c:AUS
+				inputs = {
+					{ state = s:STATE_NORTH_BORNEO.region_state:BRU }
+				}
+			}
+		}
+	}
+
+	# BEL perpetual port in STATE_BAS_CONGO (host KON)
+	create_treaty = {
+		name = treaty_name_ptm_belgo_kongolese_lower_congo_port
+		first_country = c:BEL
+		second_country = c:KON
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:KON
+				target_country = c:BEL
+				inputs = {
+					{ state = s:STATE_BAS_CONGO.region_state:KON }
+				}
+			}
+		}
+	}
+
+	# USA perpetual port in STATE_HAIL (host NEJ)
+	create_treaty = {
+		name = treaty_name_ptm_american_nejdi_hail_port
+		first_country = c:USA
+		second_country = c:NEJ
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:NEJ
+				target_country = c:USA
+				inputs = {
+					{ state = s:STATE_HAIL.region_state:NEJ }
+				}
+			}
+		}
+	}
+
+	# USA perpetual port in STATE_DONGOLA (host EGY)
+	create_treaty = {
+		name = treaty_name_ptm_american_egyptian_dongola_port
+		first_country = c:USA
+		second_country = c:EGY
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = treaty_port
+				source_country = c:EGY
+				target_country = c:USA
+				inputs = {
+					{ state = s:STATE_DONGOLA.region_state:EGY }
 				}
 			}
 		}

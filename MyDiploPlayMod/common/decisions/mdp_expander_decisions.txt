@@ -24,6 +24,7 @@ mdp_conquer_free_minor = {
 			NOT = { is_country_type = decentralized }
 			mdp_is_expand_country = no
 			NOT = { country_rank >= rank_value:major_power }
+			NOT = { mdp_capital_in_europe = yes }   # never a European power (PTM treaty-port adjacency)
 			is_subject = no
 			NOT = { this = root }
 			any_scope_state = { any_neighbouring_state = { owner = root } }
@@ -46,6 +47,7 @@ mdp_conquer_free_minor = {
 					NOT = { is_country_type = decentralized }
 					mdp_is_expand_country = no
 					NOT = { country_rank >= rank_value:major_power }
+					NOT = { mdp_capital_in_europe = yes }   # never a European power (PTM treaty-port adjacency)
 					is_subject = no
 					is_at_war = no
 					NOT = { has_truce_with = root }
@@ -76,6 +78,7 @@ mdp_annex_own_subject = {
 			is_subject_of = root
 			NOT = { any_scope_state = { count >= 4 } }
 		}
+		game_date >= 1838.1.1
 	}
 
 	possible = {

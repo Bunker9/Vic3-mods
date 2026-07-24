@@ -21,4 +21,7 @@ INJECT_OR_CREATE:mobilization_option_balloon_recon = {
 	upkeep_modifier = {
 		goods_input_aeroplanes_add = 1
 	}
+	unit_modifier = {
+		unit_offense_add = 10
+	}
 }
