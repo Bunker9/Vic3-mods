@@ -36,10 +36,32 @@
  ptm_gp_china_treaty_port_tt:0 "Is a great power holding a treaty port in China"
 
  ptm_reclaim_lapsed_port:0 "Reclaim Our Lapsed Treaty Port"
- ptm_reclaim_lapsed_port_desc:0 "A port once ceded to us by treaty has slipped from our grasp, taken by another power. Press the old claim and open a diplomatic play to restore the concession, by force of arms if it comes to that."
- ptm_reclaim_lapsed_port_tt:0 "Opens a diplomatic play to retake our lapsed treaty port from whoever now holds it"
+ ptm_reclaim_lapsed_port_desc:0 "A port once ceded to us by treaty has slipped from our grasp, taken by another power. Where relations are cordial we press the old claim as a fresh concession, and where they have soured we take it back by force."
+ ptm_reclaim_lapsed_port_tt:0 "Retake our lapsed treaty port from whoever now holds it, by treaty if relations are neutral or better, otherwise by a diplomatic play"
+ ptm_reclaimable_port_exists_tt:0 "A large power outside Europe holds a port in a coastal region where we keep a foothold of our own"
  ptm_reclaim_treaty_port:0 "Reclaim Treaty Port"
 
  ptm_rice_expansion_tt:0 "Brings every rice paddy the land can support up to full working strength"
  ptm_china_railways_tt:0 "Funds the construction works and queues a trunk line in every populous Chinese province, and raises foreign owned trade houses and motor works in the treaty port"
  ptm_china_mining_tt:0 "Deepens the coal, iron, lead and sulfur workings of every populous Chinese province under our own flag, and raises powder mills in the treaty port"
+
+ treaty_name_ptm_anglo_raj_calcutta:0 "Perpetual Concession of Calcutta"
+
+ ptm_raj_settlement_decision:0 "The Raj Settlement"
+ ptm_raj_settlement_decision_desc:0 "The Company has become a dominion in all but name, and the fiction of a merchant house governing India can no longer be maintained. Let the Raj keep its own market and answer for its own accounts, while Calcutta passes to us as a concession under our own flag and a quarter of every rupee raised in India comes home."
+ ptm_raj_settlement_tt:0 "Grants the Raj its own market centred on Calcutta, takes the Calcutta concession as our treaty port under a perpetual treaty, and binds the Raj to pass us a quarter of its tax income"
+ ptm_raj_calcutta_held_tt:0 "The Raj still holds Calcutta"
+
+ ptm_raj_tribute:0 "Raj Tribute"
+ ptm_raj_tribute_desc:0 "A share of every rupee the Raj raises passes to us, for as long as it remains our subject."
+ ptm_raj_tribute_pact_desc:0 "[SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] passes a share of its tax income to [SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] under the Raj Settlement."
+ ptm_raj_tribute_action_propose_name:0 "$ptm_raj_tribute$"
+ ptm_raj_tribute_action_break_name:0 "End the Raj Tribute"
+ ptm_raj_tribute_action_notification_name:0 "[INITIATOR_COUNTRY.GetName] claims the Raj tribute"
+ ptm_raj_tribute_action_notification_desc:0 "[INITIATOR_COUNTRY.GetName] has bound us to pass a share of our tax income to them under the Raj Settlement."
+ ptm_raj_tribute_action_notification_break_name:0 "[INITIATOR_COUNTRY.GetName] ended the Raj tribute"
+ ptm_raj_tribute_action_notification_break_desc:0 "[INITIATOR_COUNTRY.GetName] has released us from the Raj tribute."
+ ptm_raj_tribute_trigger_desc_global:0 "Collects the Raj tribute"
+
+ ptm_treaty_port_order:0 "Concession Order"
+ ptm_treaty_port_order_desc:0 "The concession is policed and rebuilt at its holder's expense."

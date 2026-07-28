@@ -55,8 +55,8 @@ INJECT_OR_CREATE:pm_steam_whaling_ships = {
 INJECT_OR_CREATE:automatic_irrigation_building_banana_plantation = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_grain_add = 2
-            goods_output_fertilizer_add = 2
+            goods_output_grain_add = 5
+            goods_output_fertilizer_add = 5
             goods_input_engines_add = -2
         }
         level_scaled = {

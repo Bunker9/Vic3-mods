@@ -1,0 +1,41 @@
+﻿# =============================================================================
+# PrettyTreatyMod - the Raj tribute pact. HAND-WRITTEN.
+#
+# WHY A PACT AND NOT A MODIFIER: country_subject_income_transfer_mult is OVERLORD
+# side in every vanilla use (00_power_bloc_principles.txt:265), so on GBR it would
+# also tax Canada and Australia. A pact binds ONE pair only.
+#
+# Shape copied from vanilla 32_subjects_raise_payments.txt; fields per
+# common/diplomatic_actions/diplomatic_action.md.
+# Created only by ptm_event.5; potential keeps it off every other subject.
+# =============================================================================
+
+ptm_raj_tribute = {
+	requires_approval = no
+	groups = { overlord }
+
+	texture = "gfx/interface/icons/diplomatic_action_icons/raise_payments.dds"
+
+	potential = {
+		scope:target_country = { this = c:BIC }
+	}
+
+	possible = {
+		scope:target_country = { is_direct_subject_of = root }
+	}
+
+	pact = {
+		cost = 0
+		forced_duration = 1200 # 100 years, effectively indefinite
+
+		income_transfer = 0.1
+		second_country_gets_income_transfer = no # BIC pays GBR
+		income_transfer_based_on_second_country = yes # 25% of BIC tax income
+
+		requirement_to_maintain = {
+			trigger = {
+				scope:target_country = { is_direct_subject_of = root }
+			}
+		}
+	}
+}

@@ -17,11 +17,12 @@
         building_logging_camp = 31
         building_whaling_station = 16
         building_fishing_wharf = 21
+        building_gold_mine = 5
     }
     resource = {
         type = "building_gold_field"
         depleted_type = "building_gold_mine"
-        undiscovered_amount = 31
+        undiscovered_amount = 26
     }
     resource = {
         type = "building_oil_rig"
@@ -112,6 +113,7 @@ STATE_QUEENSLAND = {
     naval_exit_id = 3129
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 16
     }
 }

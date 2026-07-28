@@ -7,7 +7,7 @@
 #   the clean "Indian culture" test); owns_entire_state_region = STATE_X (bare name);
 #   add_claim (state_region effect, value = claimant country); has_claim = s:STATE_X.
 # No clean state-OCCUPATION trigger exists in 1.13 (is_occupied / controlled_by absent), so
-# decision 2 gates on OWNERSHIP of Delhi (owns_entire_state_region) per the design fallback.
+# decision 2 gates on OWNING ANY PART of Delhi (any_scope_state state_region = s:STATE_DELHI).
 # India region = strategic regions south_india + north_india + himalayas (30 states).
 # =============================================================================
 
@@ -54,7 +54,11 @@ desi_unify_india = {
 	}
 
 	possible = {
-		owns_entire_state_region = STATE_DELHI
+		# ANY part of Delhi is enough - the imperial seat is rarely held whole.
+		custom_tooltip = {
+			text = desi_holds_part_of_delhi_tt
+			any_scope_state = { state_region = s:STATE_DELHI }
+		}
 		NOT = { has_variable = desi_unified_done }
 	}
 
@@ -92,10 +96,8 @@ desi_unify_india = {
 		s:STATE_LHASA            = { add_claim = scope:desi_actor }
 		s:STATE_NGARI            = { add_claim = scope:desi_actor }
 		s:STATE_KASHMIR          = { add_claim = scope:desi_actor }
-		#s:STATE_QINGHAI          = { add_claim = scope:desi_actor } -- Part of Qing
 		s:STATE_EASTERN_HIMALAYAS = { add_claim = scope:desi_actor }
-		# real once-only guard (load-bearing, NOT a fingerprint) + additive fingerprint
-		#TODO add burma, baluch and afghan states ( ONLY PARTS OF SEA and CENT ASIA )
+
 		set_variable = { name = desi_unified_done value = yes }
 		# set_variable = { name = desi_fingerprint_india_unified value = yes }
 	}
@@ -282,4 +284,31 @@ desi_panjab_take_kandahar = {
 	}
 
 	ai_chance = { value = 100000 }
+}
+
+# ---- Decision: the Peacock Throne (move the capital to Delhi) ----------------
+# Vanilla make_delhi_capital (common/decisions/india_decisions.txt:75) is locked to c:BIC.
+# This is the same move opened to ANY independent South Asian nation that has taken Delhi,
+# so a Nepal or a Panjab that unifies India seats itself in the imperial capital.
+# Payload in desi_event.2 per the decision-payload rule. Once only.
+desi_peacock_throne = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		NOT = { has_variable = desi_peacock_throne_done }
+		NOT = { capital = { state_region = s:STATE_DELHI } }
+	}
+
+	possible = {
+		owns_entire_state_region = STATE_DELHI
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = desi_peacock_throne_tt
+		}
+		trigger_event = { id = desi_event.2 }
+	}
+
+	ai_chance = { value = 10000 }
 }

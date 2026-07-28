@@ -205,7 +205,119 @@ ptm_event.4 = {
 
 	immediate = {
 		debug_log = "ptm - reclaim-lapsed-port - decision fired"
-		set_variable = { name = ptm_reclaim_cooldown value = yes days = 1825 }
+		set_variable = { name = ptm_reclaim_cooldown value = yes years = 10 }
 		ptm_reclaim_lapsed_ports = yes
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.5 - Raj Settlement payload. ROOT is BIC's overlord.
+# THREE STAGES, deliberately spread: .5 market + tribute, .6 the port 14 days later,
+# .7 incorporation 7 days after that. The port is carved out of BIC's market capital
+# state, so BIC must own its market before the carve.
+# The tribute is a PACT (ptm_raj_tribute), not a modifier - see that file's header.
+# -----------------------------------------------------------------------------
+ptm_event.5 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ptm - raj-settlement - decision fired"
+		set_variable = { name = ptm_raj_settlement_done value = yes }
+
+		# 1. BIC leaves the overlord market. set_market_capital ALONE did nothing (save
+		# 2026-07-25: GBR and BIC both market 0) - it moves a market's centre, it does not
+		# create one. Market OWNERSHIP moves via the pact field market_owner = second_country
+		# in vanilla 36_subjects_grant_own_market.txt, so take that action first.
+		create_diplomatic_pact = {
+			country = c:BIC
+			type = grant_own_market
+		}
+		c:BIC ?= {
+			set_market_capital = STATE_WEST_BENGAL
+		}
+
+		# 2. The port follows two weeks later, once the new market has settled
+		trigger_event = { id = ptm_event.6 days = 14 }
+
+		# 3. Tribute to the overlord, forced for 100 years. The two debug_log branches say
+		# whether the PACT ITSELF took: SaveParse does not read diplomatic pacts, so this
+		# marker is the only evidence of it (2026-07-25 run showed no money moving).
+		create_diplomatic_pact = {
+			country = c:BIC
+			type = ptm_raj_tribute
+		}
+		if = {
+			limit = { has_diplomatic_pact = { who = c:BIC type = ptm_raj_tribute } }
+			debug_log = "ptm - raj-settlement - tribute pact created"
+		}
+		else = { debug_log = "ptm - raj-settlement - tribute pact NOT created" }
+
+		if = {
+			limit = { has_diplomatic_pact = { who = c:BIC type = grant_own_market } }
+			debug_log = "ptm - raj-settlement - own market pact created"
+		}
+		else = { debug_log = "ptm - raj-settlement - own market pact NOT created" }
+
+		if = {
+			limit = { NOT = { has_variable = ptm_fingerprint_raj_settlement } }
+			set_variable = { name = ptm_fingerprint_raj_settlement value = 0 }
+		}
+		change_variable = { name = ptm_fingerprint_raj_settlement add = 1 }
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.6 - Raj Settlement stage 2: the Calcutta treaty port, 14 days after .5.
+# 99 years like every other PTM concession. Hands off to .7 for incorporation.
+# -----------------------------------------------------------------------------
+ptm_event.6 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { exists = s:STATE_WEST_BENGAL.region_state:BIC }
+			create_treaty = {
+				name = treaty_name_ptm_anglo_raj_calcutta
+				first_country = root
+				second_country = c:BIC
+				is_draft = no
+				binding_period = { years = 99 }
+				articles_to_create = {
+					{
+						article = treaty_port
+						source_country = c:BIC
+						target_country = root
+						inputs = { { state = s:STATE_WEST_BENGAL.region_state:BIC } }
+					}
+				}
+			}
+			debug_log = "ptm - raj-settlement - Calcutta treaty port created"
+			trigger_event = { id = ptm_event.7 days = 7 }
+		}
+		else = { debug_log = "ptm - raj-settlement - BIC holds no West Bengal state" }
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.7 - Raj Settlement stage 3: incorporate the port, 7 days after the carve.
+# INCORPORATED, still a treaty port: the two are independent (vanilla incorporates
+# states wholesale via set_state_type, 04_sepoy_mutiny.txt:497). Delayed so the
+# article's land transfer has resolved before we look for our own region_state.
+# -----------------------------------------------------------------------------
+ptm_event.7 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		s:STATE_WEST_BENGAL = {
+			random_scope_state = {
+				limit = { owner = root }
+				set_state_type = incorporated
+				add_modifier = { name = ptm_treaty_port_order }
+				debug_log = "ptm - raj-settlement - port incorporated and pacified"
+			}
+		}
 	}
 }

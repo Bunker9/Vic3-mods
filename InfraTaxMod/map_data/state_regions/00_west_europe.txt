@@ -248,7 +248,7 @@ STATE_HOME_COUNTIES = {
     id = 15
     subsistence_building = "building_subsistence_farm"
     provinces = { "x19CECD" "x39F45B" "x58D3AE" "x60E0C0" "x625993" "x7543C8" "x800020" "xE060C0" "xE0E0C0" }
-    traits = { "state_trait_good_soils" "state_trait_london_docklands" state_trait_black_country}
+    traits = { "state_trait_good_soils" "state_trait_london_docklands"}
     city = "x7543C8"
     port = "xE060C0"
     farm = "x625993"
@@ -394,7 +394,7 @@ STATE_EAST_ANGLIA = {
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 20
+        undiscovered_amount = 31
     }
     naval_exit_id = 3105
 }
@@ -403,7 +403,7 @@ STATE_WEST_COUNTRY = {
     id = 22
     subsistence_building = "building_subsistence_farm"
     provinces = { "x1E38F8" "x225544" "x6060C0" "x63EF7E" "x65B395" "xA2DD9E" "xB78E54" "xC900EF" "xE020C0" "xE0E040" "xEB9862" }
-    traits = { "state_trait_natural_harbors" state_trait_black_country }
+    traits = { "state_trait_natural_harbors"  }
     city = "xE0E040"
     port = "x63EF7E"
     farm = "xE0E040"
@@ -974,7 +974,7 @@ STATE_BOHEMIA = {
         building_iron_mine = 45
         building_logging_camp = 17
         building_lead_mine = 8
-        building_gold_mine = 5
+        building_gold_mine = 6
     }
 }
 
@@ -1026,7 +1026,7 @@ STATE_TYROL = {
     arable_land = 30
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
     capped_resources = {
-        building_gold_mine = 2
+        building_gold_mine = 3
         building_iron_mine = 36
         building_logging_camp = 9
     }

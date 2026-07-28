@@ -1,0 +1,58 @@
+﻿# Montenegro flagship company. Owns Austrian gold and Ottoman paper at game start.
+# Ottoman gold is impossible: no Ottoman state has building_gold_mine capacity.
+
+company_lovcen_concordat = {
+	icon = "gfx/interface/icons/company_icons/basic_gold_mining.dds"
+	background = "gfx/interface/icons/company_icons/company_backgrounds/comp_illu_mining.dds"
+
+	# capitalist_owned HQ: 25 capitalists per level vs 10, and they feed the investment pool.
+	category = capitalist_owned
+
+	flavored_company = yes
+
+	preferred_headquarters = { STATE_MONTENEGRO }
+
+	building_types = {
+		building_gold_mine
+		building_paper_mill
+		building_automotive_industry
+		building_oil_rig
+		building_electrics_industry
+	}
+
+	extension_building_types = {
+		building_logging_camp
+	}
+
+	potential = {
+		c:MON ?= this
+	}
+
+	attainable = {
+		hidden_trigger = {
+			any_scope_state = {
+				state_region = s:STATE_MONTENEGRO
+			}
+		}
+	}
+
+	possible = {
+		any_scope_state = {
+			state_region = s:STATE_MONTENEGRO
+			is_incorporated = yes
+		}
+	}
+
+	prosperity_modifier = {
+		building_gold_mine_throughput_add = 0.25
+		country_tax_income_add = 10000
+	}
+
+	ai_will_do = {
+		always = yes
+	}
+
+	ai_weight = {
+		value = 5
+	}
+}

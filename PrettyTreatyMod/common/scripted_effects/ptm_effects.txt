@@ -177,68 +177,59 @@ ptm_settle_concession_pops = {
 # LAPSED-PORT RECLAIM. ptm_event.4 payload.
 # =============================================================================
 
-# $PTM_STATE$ = a concession state region key. If ROOT's port there has lapsed, open a
-# dp_take_treaty_port diplomatic play against whoever now owns a coastal, port-eligible part
-# of the region. create_diplomatic_play runs in country scope, so it is nested under root={}
-# inside the state search - that way it fires ONLY for a state that actually matched (no stale
-# saved-scope re-fire). Guarded to one reclaim play at a time. Owner-eligibility limit MIRRORS
-# ptm_port_is_lapsed_for_root (not our subject / not a market partner / relations below neutral).
-ptm_try_reclaim_port = {
+# Find ROOT's coastal foothold whose region holds a host, then branch war/peace by relations.
+# treaty_port article: source = host, target = root, input = host state.
+ptm_reclaim_lapsed_ports = {
 	if = {
-		limit = {
-			root = { is_active_in_diplomatic_play = no }
-			ptm_port_is_lapsed_for_root = { PTM_STATE = $PTM_STATE$ }
-		}
-		s:$PTM_STATE$ = {
-			random_scope_state = {
-				limit = {
-					is_coastal = yes
-					is_potential_treaty_port = root
-					owner = {
-						NOT = { this = root }
-						NOT = { is_subject_of = root }
-						NOT = { market = root.market }              # same market area (covers customs unions, subject markets)
-						NOT = { is_in_customs_union_with = root }   # explicit customs-union partner
-						relations:root < relations_threshold:neutral # war route only when relations are sour
-					}
+		limit = { is_active_in_diplomatic_play = no }
+		random_scope_state = {
+			limit = {
+				owner = root
+				is_coastal = yes
+				is_under_colonization = no
+				state_region = {
+					any_scope_state = { ptm_is_reclaimable_host_port = yes }
 				}
-				save_scope_as = ptm_reclaim_state
-				owner = { save_scope_as = ptm_reclaim_target }
-				root = {
-					create_diplomatic_play = {
-						name = ptm_reclaim_treaty_port
-						target_country = scope:ptm_reclaim_target
-						type = dp_take_treaty_port
-						target_state = scope:ptm_reclaim_state
-					}
-					debug_log = "ptm - reclaim - dp_take_treaty_port started"
+			}
+			state_region = {
+				random_scope_state = {
+					limit = { ptm_is_reclaimable_host_port = yes }
+					save_scope_as = ptm_reclaim_state
+					owner = { save_scope_as = ptm_reclaim_target }
 				}
 			}
 		}
-	}
-}
-
-# Enumerate ROOT's concession ports and reclaim the lapsed one(s). All eight PTM colonizers;
-# tags are mutually exclusive so else_if. Pairs match ptm_has_any_lapsed_treaty_port / ptm_treaties.txt.
-ptm_reclaim_lapsed_ports = {
-	if = {
-		limit = { c:FRA ?= root }
-		ptm_try_reclaim_port = { PTM_STATE = STATE_FORMOSA }
-		ptm_try_reclaim_port = { PTM_STATE = STATE_TONKIN }
-	}
-	else_if = { limit = { c:RUS ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_SHENGJING } }
-	else_if = { limit = { c:NET ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_FARS } }
-	else_if = {
-		limit = { c:BEL ?= root }
-		ptm_try_reclaim_port = { PTM_STATE = STATE_OMAN }
-		ptm_try_reclaim_port = { PTM_STATE = STATE_BAS_CONGO }
-	}
-	else_if = { limit = { c:SWE ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_SOUTH_MADAGASCAR } }
-	else_if = { limit = { c:PRU ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_ANTIOQUIA } }
-	else_if = { limit = { c:AUS ?= root }  ptm_try_reclaim_port = { PTM_STATE = STATE_NORTH_BORNEO } }
-	else_if = {
-		limit = { c:USA ?= root }
-		ptm_try_reclaim_port = { PTM_STATE = STATE_HAIL }
-		ptm_try_reclaim_port = { PTM_STATE = STATE_DONGOLA }
+		if = {
+			limit = { exists = scope:ptm_reclaim_target }
+			if = {
+				limit = {
+					scope:ptm_reclaim_target = { relations:root < relations_threshold:neutral }
+				}
+				create_diplomatic_play = {
+					name = ptm_reclaim_treaty_port
+					target_country = scope:ptm_reclaim_target
+					type = dp_take_treaty_port
+					target_state = scope:ptm_reclaim_state
+				}
+				debug_log = "ptm - reclaim - WAR dp_take_treaty_port started"
+			}
+			else = {
+				create_treaty = {
+					first_country = root
+					second_country = scope:ptm_reclaim_target
+					is_draft = no
+					binding_period = { years = 99 }
+					articles_to_create = {
+						{
+							article = treaty_port
+							source_country = scope:ptm_reclaim_target
+							target_country = root
+							inputs = { { state = scope:ptm_reclaim_state } }
+						}
+					}
+				}
+				debug_log = "ptm - reclaim - PEACE create_treaty treaty_port"
+			}
+		}
 	}
 }

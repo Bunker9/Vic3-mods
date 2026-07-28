@@ -54,47 +54,39 @@ ptm_is_great_power_with_a_china_treaty_port = {
 }
 
 # -----------------------------------------------------------------------------
-# LAPSED-PORT RECLAIM.
-# ptm_port_is_lapsed_for_root: $PTM_STATE$ = a concession state region key. True when ROOT (the
-# original grantee) no longer holds a treaty port in that region AND another ELIGIBLE country now
-# owns a coastal, port-eligible part of it. Matches take_treaty_port's valid{} (owner = target_country,
-# is_potential_treaty_port = root; war_goal_types/25_take_treaty_port.txt).
-# NO is_country_type check on the owner: a lapsed port is always held by a CENTRALIZED nation
-# (host, conqueror or released tag) - decentralized nations neither conquer nor hold ports, they
-# exist only to be colonized (hk vic3-token-gotchas.md); dp_take_treaty_port.possible blocks them too.
-# OWNER MUST BE ELIGIBLE: not our own subject, and not already sharing our market / customs union
-# (a treaty port only grants market access - it adds nothing against a market partner, and the
-# war goal would be pointless). These exclusions nullify both TP eligibility and this decision.
-# RELATIONS BELOW NEUTRAL: at neutral or better the treaty route should win, so the war route
-# hides itself (SteadyInnovMod's treaty_port article boosts asking + giving from neutral up).
-ptm_port_is_lapsed_for_root = {
-	NOT = { s:$PTM_STATE$ = { any_scope_state = { owner = root  is_treaty_port = yes } } }
-	s:$PTM_STATE$ = {
-		any_scope_state = {
-			is_coastal = yes
-			is_potential_treaty_port = root
-			owner = {
-				NOT = { this = root }
-				NOT = { is_subject_of = root }
-				NOT = { market = root.market }              # same market area (covers customs unions, subject markets)
-				NOT = { is_in_customs_union_with = root }   # explicit customs-union partner
-				relations:root < relations_threshold:neutral # war route only when relations are sour
-			}
-		}
+# LAPSED-PORT RECLAIM - generic, no tags. Covers formed/renamed nations (GERMANY from PRU).
+#
+# ptm_is_grantee_power: PTM colonizer set = capital in Europe OR USA.
+ptm_is_grantee_power = {
+	OR = {
+		capital.state_region = { is_in_geographic_region = geographic_region_europe }
+		c:USA ?= this
 	}
 }
 
-# Does ROOT have ANY lapsed concession port? Enumerated for all eight PTM colonizers, mirroring
-# ptm_settle_concession_pops' per-tag branching (no runtime fingerprint). Pairs match ptm_treaties.txt.
-ptm_has_any_lapsed_treaty_port = {
-	OR = {
-		AND = { c:FRA ?= this  OR = { ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_FORMOSA }  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_TONKIN } } }
-		AND = { c:RUS ?= this  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_SHENGJING } }
-		AND = { c:NET ?= this  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_FARS } }
-		AND = { c:BEL ?= this  OR = { ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_OMAN }  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_BAS_CONGO } } }
-		AND = { c:SWE ?= this  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_SOUTH_MADAGASCAR } }
-		AND = { c:PRU ?= this  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_ANTIOQUIA } }
-		AND = { c:AUS ?= this  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_NORTH_BORNEO } }
-		AND = { c:USA ?= this  OR = { ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_HAIL }  ptm_port_is_lapsed_for_root = { PTM_STATE = STATE_DONGOLA } } }
+# ptm_is_reclaimable_host_port: STATE scope. A part owned by a host ROOT can reclaim from.
+# Article uses ROOT's own coastal province, so no coastal/port check on the host part.
+ptm_is_reclaimable_host_port = {
+	owner = {
+		NOT = { this = root }
+		NOT = { is_subject_of = root }
+		NOT = { market = root.market }              # same market area (covers customs unions, subject markets)
+		NOT = { is_in_customs_union_with = root }   # explicit customs-union partner
+		NOT = { is_country_type = decentralized }
+		NOT = { ptm_is_grantee_power = yes }         # host is not a grantee (not Europe, not USA)
+	}
+}
+
+# ptm_has_any_reclaimable_port: COUNTRY scope. Grantee ROOT keeps a settled (non-colonizing) coastal
+# foothold in a region a qualifying host holds a reclaimable port of.
+ptm_has_any_reclaimable_port = {
+	ptm_is_grantee_power = yes
+	any_scope_state = {
+		owner = root
+		is_coastal = yes
+		is_under_colonization = no
+		state_region = {
+			any_scope_state = { ptm_is_reclaimable_host_port = yes }
+		}
 	}
 }

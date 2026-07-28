@@ -1,7 +1,12 @@
 ﻿l_english:
  state_trait_infratax:0 "Developed Region"
+ state_trait_dracula_castle_infratax:0 "Dracula's Castle"
  state_trait_infratax_cheat:0 "Great Region"
  state_trait_infratax_desc:0 "Improved roads, land surveys and revenue offices: more infrastructure, higher tax capacity, and lighter bureaucratic overhead. Being part of the land, it endures through changes of ruler."
  infratax_suez_custodian_decision:0 "Entrust the Sinai to a Vassal"
  infratax_suez_custodian_decision_desc:0 "We hold the whole of the Sinai, yet our true interest is the isthmus itself. Hand the peninsula to a bordering vassal to administer, while we retain the canal port and city under our direct control."
  infratax_suez_custodian_heir_tt:0 "A vassal of ours owns a state bordering the Sinai and will receive the peninsula"
+ building_group_bg_ship_construction_employee_mult:0 "Shipyard Employees"
+ building_group_bg_ship_construction_employee_mult_desc:0 "A bonus or penalty to the number of employees in Shipyards"
+ building_group_bg_extraction_employee_mult:0 "Extraction Employees"
+ building_group_bg_extraction_employee_mult_desc:0 "A bonus or penalty to the number of employees in Extraction Buildings"

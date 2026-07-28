@@ -185,6 +185,11 @@ BUILDINGS = {
 				add_ownership = { country = { country = "c:SWE" levels = 1 } }
 				reserves = 1
 			}
+			create_building = {
+				building = "building_tooling_workshop"
+				add_ownership = { country = { country = "c:SWE" levels = 1 } }
+				reserves = 1
+			}
 		}
 	}
 
@@ -251,6 +256,11 @@ BUILDINGS = {
 			# KON: state_trait_congo_forest, timber-rich
 			create_building = {
 				building = "building_furniture_manufactory"
+				add_ownership = { country = { country = "c:BEL" levels = 1 } }
+				reserves = 1
+			}
+			create_building = {
+				building = "building_tooling_workshop"
 				add_ownership = { country = { country = "c:BEL" levels = 1 } }
 				reserves = 1
 			}

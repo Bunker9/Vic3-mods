@@ -1,0 +1,55 @@
+﻿# The Count. Executive of the Lovcen Concordat from day one.
+# Shape copied from vanilla HBC_george_simpson (country_can.txt): the `company`
+# field plus executive_usage is how a character is bound to a company.
+# create_character cannot take `company`, so this has to be a template.
+# Popularity comes from traits: charismatic 50 + expensive_tastes 25 + elder 25.
+# Birth date is the Impaler's. Traits read straight once you know.
+
+stdinnv_lovcen_count = {
+	first_name = "stdinnv_the_Count"
+	last_name = "stdinnv_of_Montenegro"
+	historical = yes
+	culture = primary_culture
+	religion = rel:orthodox
+	dna = dna_dracula # vanilla's own, from exile_count_dracula
+	birth_date = 1428.11.8
+	noble = yes
+
+	is_general = yes
+	commander_rank = commander_rank_1
+
+	# Noble industrialist is vanilla normal: ig_industrialists
+	# noble_chance is 0.3, and it carries executive_weight 5.0.
+	interest_group = ig_industrialists
+	ideology = ideology_authoritarian
+	home_region = STATE_MONTENEGRO
+
+	company = company:company_lovcen_concordat
+
+	traits = {
+		charismatic
+		expensive_tastes
+		elder
+		explorer
+
+		# Defence. Two separate chains, so they stack.
+		expert_defensive_strategist
+		defense_in_depth_specialist
+		mountain_commander
+	}
+
+	executive_usage = { # must be the country that owns the company
+		country_trigger = {
+			c:MON ?= this
+		}
+		company_trigger = {
+			is_company_type = company_type:company_lovcen_concordat
+		}
+		earliest_usage_date = 1836.1.1
+		latest_usage_date = 1936.1.1
+	}
+
+	on_created = {
+		set_character_immortal = yes
+	}
+}

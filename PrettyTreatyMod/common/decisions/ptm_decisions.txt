@@ -112,23 +112,23 @@ ptm_china_mining_decision = {
 	ai_chance = { value = 10000 }
 }
 
-# -----------------------------------------------------------------------------
-# 4. Reclaim Our Lapsed Treaty Port.
-#    Shown to an original grantee whose PTM port has been lost (conquered/reverted). Opens a
-#    dp_take_treaty_port diplomatic play vs the current holder. REPEATABLE, self-limiting:
-#    hidden again once the port is back or during any war/play; 5y cooldown var blocks re-spam.
-# -----------------------------------------------------------------------------
+# 4. Reclaim Lapsed Treaty Port. Any grantee power. ptm_event.4 branches war/peace by relations.
+#    is_shown simple so it stays visible; existence test in possible tooltip. 5y cooldown.
 ptm_reclaim_lapsed_port = {
 
 	is_shown = {
+		ptm_is_grantee_power = yes
 		NOT = { has_variable = ptm_reclaim_cooldown }
-		ptm_has_any_lapsed_treaty_port = yes
 	}
 
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
 		infamy < 20
+		custom_tooltip = {
+			text = ptm_reclaimable_port_exists_tt
+			ptm_has_any_reclaimable_port = yes
+		}
 	}
 
 	when_taken = {
@@ -136,6 +136,41 @@ ptm_reclaim_lapsed_port = {
 			text = ptm_reclaim_lapsed_port_tt
 		}
 		trigger_event = { id = ptm_event.4 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# 5. The Raj Settlement. Offered to BIC's overlord once BIC is a DOMINION.
+#    Own market for BIC, a Calcutta treaty port and a 25% tribute for the overlord.
+#    Dominion test copied from vanilla journal_entries/04_india_home_rule.txt:66.
+#    Once only, country variable set in ptm_event.5.
+ptm_raj_settlement_decision = {
+
+	is_shown = {
+		NOT = { has_variable = ptm_raj_settlement_done }
+		c:BIC ?= {
+			has_diplomatic_pact = {
+				who = root
+				type = dominion
+				is_initiator = no
+			}
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+			text = ptm_raj_calcutta_held_tt
+			exists = s:STATE_WEST_BENGAL.region_state:BIC
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_raj_settlement_tt
+		}
+		trigger_event = { id = ptm_event.5 }
 	}
 
 	ai_chance = { value = 10000 }
