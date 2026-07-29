@@ -23,18 +23,6 @@ state_trait_infratax = {
 	}
 }
 
-state_trait_dracula_castle_infratax = {
-	icon = "gfx/interface/icons/state_trait_icons/bat.dds"
-
-	# Buffed 2026-06-12 (Punjab still starving / low tax+infra at test): magnitudes raised.
-	modifier = {
-		building_gold_mine_throughput_add = 0.25
-		building_group_bg_mining_employee_mult = -0.4
-		building_aristocrats_standard_of_living_add = 10
-		state_aristocrats_mortality_mult = 0.02
-	}
-}
-
 state_trait_infratax_cheat = {
 	icon = "gfx/interface/icons/state_trait_icons/waterfall.dds"
 
@@ -128,8 +116,8 @@ INJECT_OR_CREATE:state_trait_drava_river = {
 INJECT_OR_CREATE:state_trait_terra_rossa = {
 	modifier = {
 		state_infrastructure_add  = 20
+		state_market_access_price_impact = 0.5
 	}
-
 }
 
 # BRAZIL - this is for Maria

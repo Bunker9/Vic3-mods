@@ -22,6 +22,7 @@ company_lovcen_concordat = {
 
 	extension_building_types = {
 		building_logging_camp
+		building_coal_mine
 	}
 
 	potential = {

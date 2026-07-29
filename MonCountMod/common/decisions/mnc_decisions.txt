@@ -1,0 +1,26 @@
+﻿# Montenegro buys back the Austrian slice of its home state once the Concordat
+# is at peak prosperity and the investment pool can cover the price.
+# Payload + once-guard live in mnc_event.1 (when_taken re-runs in tooltip preview).
+
+mnc_reclaim_montenegro = {
+
+	is_shown = {
+		c:MON ?= ROOT
+		NOT = { has_variable = mnc_reclaim_done }
+		c:AUS ?= {
+			any_scope_state = { state_region = s:STATE_MONTENEGRO }
+		}
+	}
+
+	possible = {
+		company:company_lovcen_concordat ?= { company_prosperity >= 100 }
+		investment_pool >= 1000000
+	}
+
+	when_taken = {
+		custom_tooltip = { text = mnc_reclaim_tt }
+		trigger_event = { id = mnc_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}

@@ -4,7 +4,7 @@
 
 TREATIES = {
 	create_treaty = {
-		name = treaty_name_stdinnv_lovcen_vienna
+		name = treaty_name_mnc_lovcen_vienna
 		first_country = c:MON
 		second_country = c:AUS
 
@@ -22,7 +22,7 @@ TREATIES = {
 
 	# The City of London takes Montenegrin money too. Investment only, no transit.
 	create_treaty = {
-		name = treaty_name_stdinnv_lovcen_london
+		name = treaty_name_mnc_lovcen_london
 		first_country = c:MON
 		second_country = c:GBR
 
@@ -38,9 +38,27 @@ TREATIES = {
 		}
 	}
 
-	# Rome is c:PAP, the Papal States. The fullest of the three.
+	# Saint Petersburg. Orthodox patron, and the Concordat's deepest pocket.
 	create_treaty = {
-		name = treaty_name_stdinnv_lovcen_rome
+		name = treaty_name_mnc_lovcen_petersburg
+		first_country = c:MON
+		second_country = c:RUS
+
+		is_draft = no
+		binding_period = { years = 99 }
+
+		articles_to_create = {
+			{
+				article = foreign_investment_rights
+				source_country = c:RUS
+				target_country = c:MON
+			}
+		}
+	}
+
+	# Rome is c:PAP, the Papal States. The fullest of the four.
+	create_treaty = {
+		name = treaty_name_mnc_lovcen_rome
 		first_country = c:MON
 		second_country = c:PAP
 

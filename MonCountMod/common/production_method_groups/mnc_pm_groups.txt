@@ -1,0 +1,21 @@
+﻿# A PM reaches a building only through a group. The mine already carries the
+# vanilla automation group, so the gold PM just joins it. The salon group is new
+# and this mod owns it, so mnc_buildings.txt puts it on the HQ.
+
+INJECT_OR_CREATE:pmg_steam_automation_building_gold_mine = {
+	production_methods = {
+		pm_mnc_thralls
+	}
+}
+
+pmg_mnc_salon = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_profitable # the AI runs the salon only while it pays
+
+	production_methods = {
+		pm_mnc_no_salons
+		pm_mnc_thralls_salon
+		pm_mnc_salon_option_a
+		pm_mnc_salon_option_b
+	}
+}

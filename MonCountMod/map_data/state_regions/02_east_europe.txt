@@ -335,12 +335,12 @@ STATE_NORTHERN_TRANSYLVANIA = {
     wood = "x897F3D"
     arable_land = 50
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
-    traits = { state_trait_dracula_castle_infratax }
+    traits = { state_trait_mnc_dracula_castle }
     capped_resources = {
         building_coal_mine = 48
         building_iron_mine = 63
         building_logging_camp = 13
-        building_gold_mine = 2
+        building_gold_mine = 5
     }
 }
 

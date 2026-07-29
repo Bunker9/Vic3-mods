@@ -1,0 +1,7 @@
+﻿# pmg_mnc_salon is a new group, so the HQ has to be told it exists.
+
+INJECT_OR_CREATE:building_company_headquarter = {
+	production_method_groups = {
+		pmg_mnc_salon
+	}
+}

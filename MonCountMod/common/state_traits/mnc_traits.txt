@@ -1,0 +1,12 @@
+﻿# Northern Transylvania. Applied in map_data/state_regions/02_east_europe.txt.
+
+state_trait_mnc_dracula_castle = {
+	icon = "gfx/interface/icons/state_trait_icons/bat.dds"
+
+	modifier = {
+		building_gold_mine_throughput_add = 0.25
+		building_group_bg_mining_employee_mult = -0.4
+		building_aristocrats_standard_of_living_add = 10
+		state_aristocrats_mortality_mult = 0.02
+	}
+}

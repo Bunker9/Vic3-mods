@@ -274,27 +274,3 @@ uni_event.4 = {
 		remove_variable = stdinnv_gp1_gap
 	}
 }
-
-
-# uni_event.5 - payload for stdinnv_mon_reclaim_montenegro. Hidden + triggered only.
-# Sets the once-guard the decision's is_shown tests.
-uni_event.5 = {
-	type = country_event
-	hidden = yes
-
-	immediate = {
-		set_variable = { name = stdinnv_mon_reclaim_done value = yes }
-
-		c:AUS ?= {
-			random_scope_state = {
-				limit = { state_region = s:STATE_MONTENEGRO }
-				set_state_owner = c:MON
-			}
-			add_treasury = 1000000
-		}
-
-		# MON pays: obligation owed to Austria, and the pool covers the price.
-		set_owes_obligation_to = { country = c:AUS setting = yes }
-		add_investment_pool = -1000000
-	}
-}

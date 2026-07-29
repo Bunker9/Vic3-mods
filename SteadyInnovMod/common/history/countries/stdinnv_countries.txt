@@ -56,27 +56,4 @@
 	c:HYD ?= { add_modifier = { name = stdinnv_unrecognized } }
 	c:OMA ?= { add_modifier = { name = stdinnv_unrecognized } }
 	c:SHW ?= { add_modifier = { name = stdinnv_unrecognized } }
-
-	# Montenegro: the Concordat exists from day one and holds the foreign gold
-	# and paper set up in zz_stdinnv_mon_company.txt.
-	# stock_exchange is in no starting tech tier; MON has its prerequisite
-	# international_trade from the tier 3 bundle.
-	c:MON ?= {
-		add_technology_researched = stock_exchange
-		add_technology_researched = corporate_charters
-		add_modifier = { name = stdinnv_count_of_montenegro }
-		add_modifier = { name = stdinnv_counts_greed years = 5 }
-		add_company = company_type:company_lovcen_concordat
-		company:company_lovcen_concordat = {
-			set_company_establishment_date = 1463.1.26
-			set_company_state_region = s:STATE_MONTENEGRO
-		}
-		activate_law = law_type:law_laissez_faire
-
-		# The Count. Defined in common/character_templates/stdinnv_characters.txt,
-		# which is where the company binding has to live.
-		create_character = {
-			template = stdinnv_lovcen_count
-		}
-	}
 }

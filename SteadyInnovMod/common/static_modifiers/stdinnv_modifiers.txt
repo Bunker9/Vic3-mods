@@ -169,19 +169,3 @@ stdinnv_gp_shot = {
 	country_prestige_mult = 0.25
 }
 
-stdinnv_count_of_montenegro = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
-	state_standard_of_living_add = 8
-	state_education_access_add = 0.25
-	state_dependent_wage_mult = 0.5
-	# Relative to base mortality, so deaths scale with the aristocrat count.
-	# 0.5 matches vanilla taiping_land_socialization, the only other user.
-	state_aristocrats_mortality_mult = 0.02
-	country_construction_add = 10
-}
-
-stdinnv_counts_greed = {
-	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	country_authority_mult = -0.2
-	country_minting_add = 6000
-}

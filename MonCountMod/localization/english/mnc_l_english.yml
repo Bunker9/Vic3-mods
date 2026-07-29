@@ -1,0 +1,32 @@
+﻿l_english:
+ state_trait_mnc_dracula_castle:0 "Dracula's Castle"
+
+ mnc_the_count:0 "The Count"
+ mnc_of_montenegro:0 "of Montenegro"
+ mnc_counts_greed:0 "The Count's Blessings"
+ mnc_counts_library:0 "The Count's Library"
+ mnc_counts_library_desc:0 "Four centuries of ledgers, letters and stolen manuscripts, kept in a cellar that has never seen daylight. The Count reads faster than his scholars can copy."
+ mnc_count_of_montenegro:0 "The Count of Montenegro"
+ mnc_count_of_montenegro_desc:0 "Foreign gold pays for bread, schooling and honest wages in the Black Mountain, and a household here lives far better than its stony fields could ever provide. The Count asks only that his accounts be settled at night, and in person. Those of noble blood who keep such appointments are not always seen at breakfast."
+
+ company_lovcen_concordat:0 "Lovćen Golden Concordat"
+ company_lovcen_concordat_desc:0 "The princes of the Black Mountain hold no coast, no coin and no bank, yet their agents sit on the gold of Bohemia and the paper of Vienna and Constantinople. What the mountain cannot grow, it owns abroad."
+ treaty_name_mnc_lovcen_vienna:0 "Lovćen Vienna Convention"
+ treaty_name_mnc_lovcen_london:0 "Lovćen London Investment Accord"
+ treaty_name_mnc_lovcen_petersburg:0 "Lovćen Petersburg Investment Accord"
+ treaty_name_mnc_lovcen_rome:0 "Lovćen Roman Concord"
+
+ geographic_region_mnc_transylvania:0 "The Count's Old Country"
+ geographic_region_mnc_montenegro:0 "The Black Mountain"
+
+ pm_mnc_thralls:0 "Thralls Meat Quota"
+ pmg_mnc_salon:0 "Salon"
+ pm_mnc_no_salons:0 "Shutters Drawn"
+ pm_mnc_thralls_salon:0 "Thralls at the Salon"
+ pm_mnc_salon_option_a:0 "Wine and Cigars"
+ pm_mnc_salon_option_b:0 "Liquor and Broadsheets"
+
+ mnc_reclaim_montenegro:0 "Redeem the Black Mountain"
+ mnc_reclaim_montenegro_desc:0 "The Concordat stands at the height of its fortune. Vienna will part with its corner of our homeland for a million in gold and a debt of honour owed in return."
+ mnc_reclaim_tt:0 "Austria cedes its share of Montenegro. Austria receives 1 million pounds from our investment pool, and we owe Austria an obligation."
+ building_company_lovcen_concordat:0 "Lovćen Golden Concordat HQ"

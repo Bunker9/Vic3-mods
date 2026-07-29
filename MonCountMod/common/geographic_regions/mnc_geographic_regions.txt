@@ -1,0 +1,19 @@
+﻿# Single-state regions so a PM can be gated to one state.
+# unlocking_geographic_regions is the only state gate a PM has
+# (vanilla coffee: geographic_region_wet_process_coffee_region).
+
+geographic_region_mnc_transylvania = {
+	short_key = "mnc_transylvania"
+
+	state_regions = {
+		STATE_NORTHERN_TRANSYLVANIA
+	}
+}
+
+geographic_region_mnc_montenegro = {
+	short_key = "mnc_montenegro"
+
+	state_regions = {
+		STATE_MONTENEGRO
+	}
+}

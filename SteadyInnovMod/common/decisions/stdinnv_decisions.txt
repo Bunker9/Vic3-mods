@@ -357,29 +357,3 @@ stdinnv_offer_protectorate = {
 
 	ai_chance = { value = 0 } # player-only; is_shown gates typical AI out anyway
 }
-
-# Montenegro buys back the Austrian slice of its home state once the Concordat
-# is at peak prosperity and the investment pool can cover the price.
-# Payload + once-guard live in uni_event.5 (when_taken re-runs in tooltip preview).
-stdinnv_mon_reclaim_montenegro = {
-
-	is_shown = {
-		c:MON ?= ROOT
-		NOT = { has_variable = stdinnv_mon_reclaim_done }
-		c:AUS ?= {
-			any_scope_state = { state_region = s:STATE_MONTENEGRO }
-		}
-	}
-
-	possible = {
-		company:company_lovcen_concordat ?= { company_prosperity >= 100 }
-		investment_pool >= 1000000
-	}
-
-	when_taken = {
-		custom_tooltip = { text = stdinnv_mon_reclaim_tt }
-		trigger_event = { id = uni_event.5 }
-	}
-
-	ai_chance = { value = 10000 }
-}

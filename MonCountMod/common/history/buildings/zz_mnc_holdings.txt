@@ -2,12 +2,11 @@
 # These blocks ADD to whatever vanilla already built in the state, so each declares
 # ONLY the Concordat's own levels. For a capped resource the total is clamped to the
 # state cap and the surplus is destroyed, so only free capacity can be claimed.
-# DEPENDS ON InfraTaxMod: the free gold level in Bohemia, Tyrol, New South Wales and
-# Queensland exists only because InfraTaxMod's map_data raises those caps. Without it
-# loaded, those four levels are clamped away again.
+# All the Concordat's gold sits in Northern Transylvania, whose cap of 5 ships with
+# this mod. No other mod is needed for the gold to survive game start.
 
 BUILDINGS = {
-	# Dracula's gold: The OG place.
+	# Dracula's gold: the OG place, and now the only place. Cap 5, vanilla builds none.
 	s:STATE_NORTHERN_TRANSYLVANIA = {
 		region_state:TRS = {
 			create_building = {
@@ -16,75 +15,7 @@ BUILDINGS = {
 					company = {
 						type = company_lovcen_concordat
 						country = "c:MON"
-						levels = 2
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-
-	# Mysore gold: InfraTax raises the cap to 24, vanilla builds 2, so 22 are free.
-	s:STATE_MYSORE = {
-		region_state:MYS = {
-			create_building = {
-				building = "building_gold_mine"
-				add_ownership = {
-					company = {
-						type = company_lovcen_concordat
-						country = "c:MON"
-						levels = 4
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-
-	# Austrian gold: InfraTax lifts Bohemia 5->6 and Tyrol 2->3, freeing one level each.
-	s:STATE_BOHEMIA = {
-		region_state:AUS = {
-			create_building = {
-				building = "building_gold_mine"
-				add_ownership = {
-					company = {
-						type = company_lovcen_concordat
-						country = "c:MON"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-
-	s:STATE_TYROL = {
-		region_state:AUS = {
-			create_building = {
-				building = "building_gold_mine"
-				add_ownership = {
-					company = {
-						type = company_lovcen_concordat
-						country = "c:MON"
-						levels = 1
-					}
-				}
-				reserves = 1
-			}
-		}
-	}
-
-	# Australian gold: InfraTax gives both states a cap of 1, vanilla builds none.
-	# Both are owned by c:NSW, the British colony, at game start.
-	s:STATE_NEW_SOUTH_WALES = {
-		region_state:NSW = {
-			create_building = {
-				building = "building_gold_mine"
-				add_ownership = {
-					company = {
-						type = company_lovcen_concordat
-						country = "c:MON"
-						levels = 1
+						levels = 5
 					}
 				}
 				reserves = 1
@@ -169,7 +100,31 @@ BUILDINGS = {
 				reserves = 1
 			}
 			create_building = {
+				building = "building_coal_mine"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:MON"
+						levels = 2
+						region = "STATE_MONTENEGRO"
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
 				building = "building_wheat_farm"
+				add_ownership = {
+					building = {
+						type = "building_manor_house"
+						country = "c:MON"
+						levels = 2
+						region = "STATE_MONTENEGRO"
+					}
+				}
+				reserves = 1
+			}
+			create_building = {
+				building = "building_vineyard"
 				add_ownership = {
 					building = {
 						type = "building_manor_house"

@@ -1,0 +1,34 @@
+﻿namespace = mnc_event
+
+# mnc_event.1 - payload for mnc_reclaim_montenegro. Hidden + triggered only.
+# Sets the once-guard the decision's is_shown tests.
+mnc_event.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "mnc - reclaim - decision fired"
+		set_variable = { name = mnc_reclaim_done value = yes }
+
+		# Permanent: no years, so it never expires.
+		add_modifier = { name = mnc_counts_library }
+
+		c:AUS ?= {
+			random_scope_state = {
+				limit = { state_region = s:STATE_MONTENEGRO }
+				set_state_owner = c:MON
+			}
+			add_treasury = 1000000
+		}
+
+		# MON pays: obligation owed to Austria, and the pool covers the price.
+		set_owes_obligation_to = { country = c:AUS setting = yes }
+		add_investment_pool = -1000000
+
+		if = {
+			limit = { NOT = { has_variable = mnc_fingerprint_reclaim } }
+			set_variable = { name = mnc_fingerprint_reclaim value = 0 }
+		}
+		change_variable = { name = mnc_fingerprint_reclaim add = 1 }
+	}
+}

@@ -1,0 +1,30 @@
+﻿mnc_count_of_montenegro = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	#state_standard_of_living_add = 8
+	state_education_access_add = 0.25
+	state_dependent_wage_mult = 0.5
+	# Relative to base mortality, so deaths scale with the aristocrat count.
+	# 0.5 matches vanilla taiping_land_socialization, the only other user.
+	state_aristocrats_mortality_mult = 0.05
+	country_construction_add = 10
+}
+
+mnc_counts_library = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	country_weekly_innovation_add = 100
+	building_group_bg_manufacturing_employee_mult = -0.5
+	building_group_bg_mining_employee_mult = -0.5
+	building_group_bg_logging_employee_mult = -0.5
+	building_group_bg_fishing_employee_mult = -0.5
+	building_group_bg_agriculture_employee_mult = -0.5
+	building_group_bg_government_employee_mult =  -0.5
+	building_group_bg_infrastructure_employee_mult =  -0.5
+	building_group_bg_service_employee_mult = -0.5
+	building_group_bg_plantations_employee_mult = -0.5
+}
+
+mnc_counts_greed = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	country_authority_mult = -0.2
+	country_minting_add = 6000
+}
