@@ -24,3 +24,62 @@ mnc_reclaim_montenegro = {
 
 	ai_chance = { value = 10000 }
 }
+
+# The Count buys the Landowner leader's politics, or a shove for the law in progress.
+# Payload + the three choices live in mnc_event.4 (when_taken re-runs in tooltip preview).
+
+mnc_landowner_persuasion = {
+
+	is_shown = {
+		c:MON ?= ROOT
+		# Hides the decision outright, so it cannot be spam clicked while paused.
+		NOT = { has_variable = mnc_persuasion_cooldown_var }
+	}
+
+	possible = {
+		investment_pool >= 10000000
+	}
+
+	when_taken = {
+		custom_tooltip = { text = mnc_landowner_persuasion_tt }
+		# Set here, not in the event: the gate must close on the click itself.
+		# 1825 days = 5 years, matching the modifier. Vanilla tibet_expedition idiom.
+		set_variable = { name = mnc_persuasion_cooldown_var value = yes days = 1825 }
+		trigger_event = { id = mnc_event.4 }
+	}
+
+	# Player only lever, by user instruction. The cooldown modifier is the guard.
+	ai_chance = { value = 0 }
+}
+
+# Montenegro skips the 18 month Suez survey and buys the canal outright.
+# Payload + once-guard live in mnc_event.2 (when_taken re-runs in tooltip preview).
+
+mnc_suez_rush = {
+
+	is_shown = {
+		c:MON ?= ROOT
+		NOT = { has_variable = mnc_suez_done }
+		NOT = { has_variable = mnc_des_suez_done }
+		# vanilla latches: someone already bought, or the canal chain is closed
+		NOT = { has_global_variable = suez_canal_purchase_var }
+		NOT = { has_global_variable = suez_canal_complete }
+		s:STATE_SINAI = {
+			NOT = { any_scope_state = { owner = ROOT } }
+		}
+	}
+
+	possible = {
+		produced_bureaucracy > 1000
+		investment_pool >= 5000000
+	}
+
+	when_taken = {
+
+		custom_tooltip = { text = mnc_suez_rush_tt }
+		trigger_event = { id = mnc_event.2 weeks = 1 }
+		set_variable = { name = mnc_des_suez_done value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}

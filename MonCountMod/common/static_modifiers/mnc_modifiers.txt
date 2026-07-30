@@ -23,6 +23,27 @@ mnc_counts_library = {
 	building_group_bg_plantations_employee_mult = -0.5
 }
 
+mnc_private_suez_purchase = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	# replaces vanilla suez_purchase: private money pays, the state administers
+	country_bureaucracy_add = -300
+	country_tax_income_add = 1000
+	country_construction_add = 100
+	country_max_weekly_construction_progress_add = 200
+}
+
+mnc_landowner_persuasion_cooldown = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds"
+	# The Landowners resent being handled. Five years of sulking.
+	interest_group_ig_landowners_pol_str_mult = -0.1
+}
+
+mnc_landowner_enactment_push = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds"
+	# Flat percentage points. Vanilla's largest single source is 0.2.
+	country_law_enactment_success_add = 0.5
+}
+
 mnc_counts_greed = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
 	country_authority_mult = -0.2
