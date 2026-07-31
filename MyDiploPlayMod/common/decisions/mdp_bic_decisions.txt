@@ -27,5 +27,5 @@ mdp_bic_annex_subject = {
 		trigger_event = { id = mdpbic.1 }
 	}
 
-	ai_chance = { value = 10000 }
+	ai_chance = { value = 0 } #toggle ON (10000) when testing done for prestige rankings
 }

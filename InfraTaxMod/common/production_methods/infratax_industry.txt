@@ -27,7 +27,7 @@ INJECT_OR_CREATE:pm_compression_ignition_tractors = {
 INJECT_OR_CREATE:pm_steam_threshers_building_rice_farm = {
     building_modifiers = {
         workforce_scaled = {
-            goods_output_oil_add = 2
+            goods_output_oil_add = 4
         }
         level_scaled = {
             building_employment_laborers_add = -2000
@@ -42,8 +42,7 @@ INJECT_OR_CREATE:pm_fig_orchards_building_rice_farm = {
             goods_output_liquor_add = 2
             goods_output_fabric_add = 2
             goods_output_sugar_add = 2
-            goods_output_oil_add = 2
-            goods_input_wine_add = 1
+            goods_input_wine_add = 3
             goods_input_tobacco_add = 1
             goods_input_glass_add = 1
         }

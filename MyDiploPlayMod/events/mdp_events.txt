@@ -30,6 +30,12 @@ mdp.1 = {
                     add_modifier = { name = mdp_china_military_distraction years = 2 }
                 }
             }
+            c:TIB ?= {
+                if = {
+                    limit = { NOT = { has_modifier = opium_wars_addiction_modifier } }
+                    add_modifier = { name = mdp_china_military_distraction years = 2 }
+                }
+            }
 
             #debug_log = "mdp.2 granting claims+homeland on TIB states"
 

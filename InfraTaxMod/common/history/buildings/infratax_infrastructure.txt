@@ -7,6 +7,33 @@
 # (sakoku/canton block them everywhere). Country-owned, default PM. Verify in error.log.
 # =============================================================================
 BUILDINGS = {
+	s:STATE_BRANDENBURG = {
+		region_state:PRU = {
+			create_building={
+				building="building_steel_mill"
+				add_ownership={
+					company={
+						type=company_krupp
+						country="c:PRU"
+						levels=2
+					}
+				}
+				reserves=1
+				activate_production_methods={ "pm_blister_steel_process" "pm_automation_disabled"  }
+			}
+			create_building={
+				building="building_tooling_workshop"
+				add_ownership={
+					company={
+						type=company_krupp
+						country="c:PRU"
+						levels=2
+					}
+				}
+				reserves=1
+			}
+		}
+	}
 	s:STATE_ACEH = {
 		region_state:ACE = {
 			create_building = {

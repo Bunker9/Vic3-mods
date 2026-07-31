@@ -31,7 +31,7 @@ STATE_GUAYANA = {
     id = 352
     subsistence_building = "building_subsistence_farm"
     provinces = { "x049E29" "x063557" "x0753FE" "x102B13" "x148FB5" "x19A3D9" "x1F5190" "x20DD27" "x210190" "x218011" "x24A66B" "x27E268" "x29D96A" "x350473" "x3A069F" "x3EC2E7" "x41552E" "x439BC2" "x43E136" "x4AE8F7" "x4B427A" "x50D012" "x518580" "x58ABBF" "x61BE2C" "x63ABD4" "x6816FF" "x6B802F" "x6C6251" "x705AB9" "x719492" "x734F81" "x771D68" "x7B4B5E" "x805A8C" "x80C050" "x822364" "x8C64ED" "x8E31E8" "x9A88B5" "x9F0090" "x9FEDF7" "xA00111" "xA08011" "xA082D3" "xA22A4C" "xA299AE" "xA350D5" "xA52CE3" "xA9777B" "xAA1153" "xADE6C2" "xB1960A" "xB21306" "xB3512B" "xB6F7B4" "xBB88B5" "xC0C0D0" "xC2E46E" "xC591AC" "xCD1A5A" "xD0678B" "xD0BA2B" "xD8362B" "xDB86CE" "xDBF640" "xE18467" "xE600F3" "xE6BBD3" "xE7864B" "xE85635" "xE8D6CB" "xF17CCC" "xF1E3BF" "xF20136" "xF23696" "xF6408F" "xFAE8C5" }
-    traits = { "state_trait_amazon_rainforest" "state_trait_infratax" }
+    traits = { "state_trait_amazon_rainforest" "state_trait_infratax" state_trait_infratax_ext_cheat }
     city = "x50D012"
     port = "x8E31E8"
     farm = "xA52CE3"
@@ -40,21 +40,21 @@ STATE_GUAYANA = {
     arable_land = 30
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_coffee_plantation" "building_sugar_plantation" "building_banana_plantation" }
     capped_resources = {
-        building_logging_camp = 70
+        building_logging_camp = 71
         building_fishing_wharf = 36
     }
     resource = {
         type = "building_gold_field"
         depleted_type = "building_gold_mine"
-        undiscovered_amount = 12
+        undiscovered_amount = 24
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 16
+        undiscovered_amount = 36
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 20
+        undiscovered_amount = 36
     }
     naval_exit_id = 3062
 }
@@ -63,7 +63,7 @@ STATE_ZULIA = {
     id = 353
     subsistence_building = "building_subsistence_rice_farm"
     provinces = { "x0B05AC" "x0CDC94" "x0DB8C7" "x112339" "x251032" "x2F2B52" "x3B3F04" "x507041" "x5847DC" "x695B1C" "x703080" "x73C5F1" "x75D6A1" "x89104B" "x91A5A3" "x922DCE" "x9EB190" "xAF5192" "xD92C8F" "xDBDB3C" "xEA1264" "xEF3001" "xF0B001" }
-    traits = { "state_trait_lake_maracaibo" }
+    traits = { "state_trait_lake_maracaibo" state_trait_infratax_ext_cheat }
     city = "xEA1264"
     port = "x9EB190"
     farm = "x507041"
@@ -79,7 +79,7 @@ STATE_ZULIA = {
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 4
+        undiscovered_amount = 16
     }
     resource = {
         type = "building_oil_rig"

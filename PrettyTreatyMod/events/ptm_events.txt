@@ -72,7 +72,71 @@ ptm_event.2 = {
 		# rails winner collects its own concession prize (guarded once inside)
 		ptm_grant_concession_prize_rails = yes
 
+		c:KOR ?= {
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+		}
+		c:JAP ?= {
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+		}
 		c:CHI ?= {
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
 			every_scope_state = {
 				limit = {
 					state_population > 1000000

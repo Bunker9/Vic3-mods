@@ -19,6 +19,7 @@ stdinnv_unrecognized = {
 	building_group_bg_manufacturing_employee_mult = 0.5
 	building_group_bg_manufacturing_throughput_add = -0.2
 	state_dependent_wage_mult  = 0.2
+	country_prestige_mult = -0.2
 }
 
 stdinnv_subject = {
@@ -26,7 +27,7 @@ stdinnv_subject = {
 
 	country_tech_spread_mult = -0.5
 	country_weekly_innovation_mult = -0.2
-	country_prestige_mult = -0.5
+	country_prestige_mult = -0.7
 	building_group_bg_manufacturing_throughput_add = -0.3
 	building_group_bg_manufacturing_employee_mult = 1
 	country_aristocrats_pol_str_mult = 0.5

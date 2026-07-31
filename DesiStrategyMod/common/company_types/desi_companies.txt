@@ -125,6 +125,7 @@ INJECT_OR_CREATE:company_krupp = {
         building_coal_mine
         building_iron_mine
         building_explosives_factory
+        building_tooling_workshop
     }
 
     prosperity_modifier = {

@@ -26,11 +26,11 @@ STATE_LOWER_SILESIA = {
     arable_land = 90
     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
     capped_resources = {
-        building_coal_mine = 20
-        building_iron_mine = 20
-        building_lead_mine = 4
-        building_sulfur_mine = 9
-        building_logging_camp = 10
+        building_coal_mine = 41
+        building_iron_mine = 61
+        building_lead_mine = 21
+        building_sulfur_mine = 21
+        building_logging_camp = 21
     }
 }
 
@@ -47,7 +47,7 @@ STATE_UPPER_SILESIA = {
     arable_resources = { "building_rye_farm" "building_livestock_ranch" }
     capped_resources = {
         building_coal_mine = 110
-        building_iron_mine = 40
+        building_iron_mine = 80
         building_lead_mine = 50
         building_sulfur_mine = 31
         building_logging_camp = 4

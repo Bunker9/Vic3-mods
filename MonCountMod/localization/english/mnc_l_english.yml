@@ -50,3 +50,8 @@
  mnc_landowner_persuasion_cooldown_desc:0 "The landed men know when they have been managed, even if none of them can say quite how. They keep their distance from the castle, and their weight in our politics suffers for the sulk."
  mnc_landowner_enactment_push:0 "The Count's Whip"
  mnc_landowner_enactment_push_desc:0 "Every wavering vote has been visited at home, at night, by someone very persuasive. The bill will pass."
+ mnc_spa_hosts_van_helsing:0 "Van Helsing Construction Company"
+ mnc_spa_hosts_van_helsing_endorsements:0 "Van Helsing Construction Company's German Outreach"
+ mnc_spa_hosts_van_helsing_banking:0 "Van Helsing Construction Company's Dutch Outreach"
+ company_van_helsing:0 "Van Helsing Construction Company"
+ company_van_helsing_desc:0 "Van Helsing Construction Company"

@@ -36,6 +36,17 @@ state_trait_infratax_cheat = {
 	}
 }
 
+state_trait_infratax_ext_cheat = {
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+
+	modifier = {
+		building_group_bg_extraction_employee_mult = -0.4
+		building_group_bg_extraction_throughput_add = 0.2
+		building_group_bg_extraction_construction_efficiency_add = 0.5
+		state_turmoil_effects_mult = -0.5
+	}
+}
+
 #love to australia
 INJECT_OR_CREATE:state_trait_great_dividing_range = {
 	modifier = {
@@ -99,8 +110,11 @@ INJECT_OR_CREATE:state_trait_oder_river = {
 	modifier = {
 		building_tooling_workshop_throughput_add = 0.1
 		building_group_bg_extraction_throughput_add = 0.1
-		state_pop_qualifications_mult = 0.1
-		building_group_bg_extraction_employee_mult = -0.2
+		state_pop_qualifications_mult = 0.4
+		building_group_bg_extraction_employee_mult = -0.4
+		building_group_bg_extraction_construction_efficiency_add = 0.5
+		state_infrastructure_add  = 15
+		state_market_access_price_impact = 0.2
 	}
 }
 
