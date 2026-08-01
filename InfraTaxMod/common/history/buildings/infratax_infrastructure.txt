@@ -7,6 +7,70 @@
 # (sakoku/canton block them everywhere). Country-owned, default PM. Verify in error.log.
 # =============================================================================
 BUILDINGS = {
+	s:STATE_FRIESLAND = {
+		region_state:NET = {
+			create_building={
+				building="building_artillery_foundry"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:NET"
+						levels = 1
+						region = "STATE_FRIESLAND"
+					}
+				}
+				reserves=1
+			}
+			create_building={
+				building="building_coal_mine"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:NET"
+						levels = 1
+						region = "STATE_FRIESLAND"
+					}
+				}
+				reserves=1
+			}
+			create_building={
+				building="building_iron_mine"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:NET"
+						levels = 1
+						region = "STATE_FRIESLAND"
+					}
+				}
+				reserves=1
+			}
+			create_building={
+				building="building_lead_mine"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:NET"
+						levels = 1
+						region = "STATE_FRIESLAND"
+					}
+				}
+				reserves=1
+			}
+			create_building={
+				building="building_sulfur_mine"
+				add_ownership = {
+					building = {
+						type = "building_financial_district"
+						country = "c:NET"
+						levels = 1
+						region = "STATE_FRIESLAND"
+					}
+				}
+				reserves=1
+			}
+		}
+	}
 	s:STATE_BRANDENBURG = {
 		region_state:PRU = {
 			create_building={

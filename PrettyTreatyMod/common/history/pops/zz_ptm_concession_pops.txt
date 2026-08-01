@@ -86,11 +86,11 @@ POPS = {
 	s:STATE_SHENGJING = {
 		region_state:RUS = {
 			create_pop = { pop_type = laborers culture = han size = 18280 }
-			create_pop = { pop_type = clerks culture = han size = 7680 }
-			create_pop = { pop_type = shopkeepers culture = russian religion = orthodox size = 4400 }
-			create_pop = { pop_type = clergymen culture = russian religion = orthodox size = 400 }
-			create_pop = { pop_type = clerks culture = russian religion = orthodox size = 2000 }
-			create_pop = { pop_type = bureaucrats culture = russian religion = orthodox size = 40 }
+			create_pop = { pop_type = clerks culture = russian size = 7680 }
+			create_pop = { pop_type = shopkeepers culture = russian religion = orthodox size = 14400 }
+			create_pop = { pop_type = clergymen culture = russian religion = orthodox size = 1400 }
+			create_pop = { pop_type = clerks culture = russian religion = orthodox size = 12000 }
+			create_pop = { pop_type = bureaucrats culture = russian religion = orthodox size = 1140 }
 			create_pop = { pop_type = aristocrats culture = russian religion = orthodox size = 250 }
 		}
 	}

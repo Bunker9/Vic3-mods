@@ -58,7 +58,7 @@ pm_mnc_thralls_salon = {
 		}
 
 		level_scaled = {
-			building_employment_laborers_add = 10
+			building_employment_laborers_add = 20
 		}
 
 		# unscaled = flat, once per building, never by level or staffing, and it
@@ -92,12 +92,11 @@ pm_mnc_salon_option_a = {
 			goods_output_services_add = 1 # 30, so -15 profit if baseline goods costs same
 		}
 		level_scaled = {
-			building_employment_laborers_add = 10
+			building_employment_clerks_add = 10
 		}
 
 		# Workers cut in beside the HQ's capitalists (10 shares, 14_companies.txt:20).
 		unscaled = {
-			building_laborers_shares_add = 1
 			building_clerks_shares_add = 1
 		}
 	}
@@ -114,12 +113,11 @@ pm_mnc_salon_option_b = {
 			goods_output_services_add = 1 # 30, so -15 profit if baseline goods costs same
 		}
 		level_scaled = {
-			building_employment_laborers_add = 10
+			building_employment_clerks_add = 10
 		}
 
 		# Workers cut in beside the HQ's capitalists (10 shares, 14_companies.txt:20).
 		unscaled = {
-			building_laborers_shares_add = 1
 			building_clerks_shares_add = 1
 		}
 	}

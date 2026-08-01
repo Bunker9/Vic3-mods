@@ -39,4 +39,25 @@ COUNTRIES = {
 	c:NET ?= {
 		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
 	}
+	c:ARG ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:CLM ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:MEX ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:BRZ ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:FIN ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:DEN ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:DEI ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
 }
