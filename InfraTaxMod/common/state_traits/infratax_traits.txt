@@ -173,7 +173,7 @@ INJECT_OR_CREATE:state_trait_pampas = {
 # UK — London as commercial/industrial hub, not absurd minting exploit
 INJECT_OR_CREATE:state_trait_london_docklands = {
 	modifier = {
-		building_throughput_add = 0.2
+		building_throughput_add = 0.5
 		building_shipyard_throughput_add = 0.45
 		building_group_bg_ship_construction_employee_mult = -0.5
 	}
@@ -183,6 +183,8 @@ INJECT_OR_CREATE:state_trait_black_country = {
 	modifier = {
 		building_group_bg_mining_employee_mult = -0.4
 		building_group_bg_mining_engineers_standard_of_living_add = 3
+		building_group_bg_extraction_throughput_add = 0.2
+		building_group_bg_heavy_industry_throughput_add = 0.25
 	}
 }
 INJECT_OR_CREATE:state_trait_central_belt_coalfield = {

@@ -60,4 +60,10 @@ COUNTRIES = {
 	c:DEI ?= {
 		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
 	}
+	c:GBR ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:SAR ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
 }

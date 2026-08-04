@@ -12,15 +12,15 @@
 mnc_counts_library = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
 	country_weekly_innovation_add = 100
-	building_group_bg_manufacturing_employee_mult = -0.5
-	building_group_bg_mining_employee_mult = -0.5
-	building_group_bg_logging_employee_mult = -0.5
-	building_group_bg_fishing_employee_mult = -0.5
-	building_group_bg_agriculture_employee_mult = -0.5
-	building_group_bg_government_employee_mult =  -0.5
-	building_group_bg_infrastructure_employee_mult =  -0.5
-	building_group_bg_service_employee_mult = -0.5
-	building_group_bg_plantations_employee_mult = -0.5
+	building_group_bg_manufacturing_employee_mult = -0.4
+	building_group_bg_mining_employee_mult = -0.4
+	building_group_bg_logging_employee_mult = -0.4
+	building_group_bg_fishing_employee_mult = -0.4
+	building_group_bg_agriculture_employee_mult = -0.4
+	building_group_bg_government_employee_mult =  -0.4
+	building_group_bg_infrastructure_employee_mult =  -0.4
+	building_group_bg_service_employee_mult = -0.4
+	building_group_bg_plantations_employee_mult = -0.4
 }
 
 mnc_private_suez_purchase = {

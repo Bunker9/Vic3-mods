@@ -106,44 +106,8 @@ desi_unify_india = {
 }
 
 
-# ---- Decision 3: Bounce from War defaults ------------------------
-desi_rebuild_war_machine = {
-	is_shown = {
-		is_subject = no
-		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
-		NOT = {
-			AND = {
-				has_variable = desi_default_count
-				var:desi_default_count >= 5
-			}
-		}
-	}
-
-	possible = {
-		is_subject = no
-		in_default = yes
-	}
-
-	when_taken = {
-		clear_debt = yes
-		add_treasury = { value = gold_reserves_limit }
-		# Instantly pass whatever law the player is currently enacting (rally the legislature behind the war
-		# effort). currently_enacting_law = the in-progress law scope; activate_law wants a law_type, so use
-		# .type (vanilla 00_ep2_victoria_scripted_triggers.txt: currently_enacting_law.type). Guard with exists
-		# so the decision is safe when no enactment is in progress.
-		if = {
-			limit = { exists = currently_enacting_law }
-			activate_law = currently_enacting_law.type
-		}
-		if = {
-			limit = { NOT = { has_variable = desi_default_count } }
-			set_variable = { name = desi_default_count value = 0 }
-		}
-		change_variable = { name = desi_default_count add = 1 }
-	}
-
-	ai_chance = { value = 10000 }
-}
+# Decision 3 (desi_rebuild_war_machine) MOVED to EnglishBankMod 2026-08-01,
+# generalized from an Indian only default rescue into the bank bailout chain.
 
 
 # ---- Decision 4: incorporate a frontier state (India / Burma / Afghan / Himalaya ONLY) -------
