@@ -50,14 +50,37 @@ def _is_active(line, marker):
     return s.split(marker, 1)[0].strip() != ""
 
 
+_MARKER_STMT = re.compile(r'\bdebug_log(_scopes)?\s*=\s*("[^"]*"|\S+)')
+_FP_STMT = re.compile(r'\b\w+\s*=\s*\{[^{}]*_fingerprint_[^{}]*\}')
+_BARE_FP = re.compile(r'\b\w*_fingerprint_\w*\b')
+
+
+def _line_is_marker_only(code, cfg):
+    """True if every statement on this ONE line is a marker or a wrapper around one, so commenting the
+    whole line cannot delete real gameplay code. Guards the unanchored patterns (T125)."""
+    rest = re.sub(r'"[^"]*"', '""', code)
+    rest = _MARKER_STMT.sub(" ", rest)
+    rest = _FP_STMT.sub(" ", rest)
+    rest = re.sub(r'\blimit\s*=\s*\{[^{}]*\}', " ", rest)
+    for kw in sorted(cfg["scopes"], key=len, reverse=True):        # `else = {`, `if = {`, ...
+        rest = re.sub(r'\b' + re.escape(kw) + r'\s*=\s*\{', " ", rest)
+        rest = re.sub(r'\b' + re.escape(kw) + r'\s*=\s*yes\b', " ", rest)
+    rest = _BARE_FP.sub(" ", rest)
+    return re.sub(r'[{}\s="]', "", rest) == ""
+
+
 def _toggle_line(line, on, cfg):
-    """Return (new_line, changed). Operates on the leading part only, so the trailing newline is preserved."""
+    """Return (new_line, changed). Operates on the leading part only, so the trailing newline is preserved.
+    A line whose marker shares space with real effects is left untouched (chk-toggle-scopes reports it)."""
     marker = cfg["marker"]
     lead = re.match(r"^(\s*)", line).group(1)
     stripped = line.lstrip()
     commented = stripped.startswith(marker)
     code = stripped[len(marker):].lstrip() if commented else stripped
     if not any(p.search(code) for p in cfg["pats"]):
+        return line, False
+    # _logical drops the trailing line-comment, so an end-of-line note (or a BDD tag) is not residue.
+    if not _line_is_marker_only(_logical(line, marker), cfg):
         return line, False
     if on and commented:
         return re.sub(r"^(\s*)" + re.escape(marker) + r"\s?", r"\1", line, count=1), True
@@ -154,6 +177,8 @@ def check_scopes(lines, cfg):
     for b in blocks:
         if b["close"] is None or b["key"] not in cfg["scopes"]:
             continue
+        if b["close"] == b["open"]:
+            continue                                              # single-line block: body shares the line (T126)
         if not _is_active(lines[b["open"]], marker):
             continue                                              # a commented-out scope is fine
         limit_lines = set()

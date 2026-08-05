@@ -7,8 +7,13 @@ comment_marker = "#"
 # A line is toggleable if (after stripping a leading comment marker) it matches ANY of these regexes.
 # Single-quoted = TOML literal strings (no escaping). DEV-RULES makes debug_log + _fingerprint_ names greppable,
 # and the fingerprint statements are single-line, so these anchored/substring patterns suffice.
+# UNANCHORED since 2026-08-05 (T125): an anchored ^\s*debug_log misses a marker sharing a line with
+# its wrapper, e.g. `else = { debug_log = "..." }`. Five of those shipped live in PrettyTreatyMod and
+# the Ceremony 3 verification grep is anchored the same way, so it reported silent while they fired.
+# Whole-line commenting is gated by lib_toggle._line_is_marker_only, so a line that also carries real
+# effects is left alone and reported instead.
 patterns = [
-  '^\s*debug_log(_scopes)?\s*=',   # debug_log / debug_log_scopes emit lines
+  '\bdebug_log(_scopes)?\s*=',     # debug_log / debug_log_scopes emit lines, anywhere on the line
   '_fingerprint_',                 # any save-fingerprint set/change/has line
 ]
 

@@ -41,6 +41,12 @@ python chk-toggle-scopes.py <file.txt>
 
 > **Promote / Ceremony 3 = `--off --commit`** per mod, then verify ZERO active `debug_log` / `_fingerprint_`
 > lines remain (DEV-RULES save-fingerprint / debug-var promote discipline).
+>
+> **Verify UNANCHORED (2026-08-05, T125).** The DEV-RULES verification grep is
+> `grep -rnE "^[[:space:]]*debug_log"`, which misses a marker sharing a line with its wrapper
+> (`else = { debug_log = "..." }`). Five such lines were live in PrettyTreatyMod while both the toggle and
+> the ceremony reported silent. Use a pattern with no `^\s*` anchor, e.g.
+> `grep -rnE "debug_log|_fingerprint_" mod1/ --include=*.txt | grep -vE ":[0-9]+:[[:space:]]*#"`.
 
 ## Config — `config_toggle.toml`
 `comment_marker`, the toggle `patterns`, the `extensions` touched, and the `scope_keywords` set the collapse/check
