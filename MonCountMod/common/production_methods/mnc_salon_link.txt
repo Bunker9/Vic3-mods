@@ -1,0 +1,10 @@
+﻿# DELIBERATE DUPLICATE of InfraTaxMod's generic salon off-state.
+# Identical definition in both mods, so either can load alone: whichever loads
+# last wins and the content is the same. Keep the two copies in step.
+# Without it, a lone MonCountMod leaves pmg_salon with no PM an HQ outside
+# Montenegro could run.
+
+pm_infratax_no_salons = {
+	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
+	is_default = yes
+}

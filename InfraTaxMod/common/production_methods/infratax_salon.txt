@@ -1,0 +1,34 @@
+﻿# Generic company headquarter salon. Any HQ, any country.
+# No decision drives this: inputs are set near the services income, so the AI's
+# most_profitable pick turns the salon on only while services run dear.
+
+pm_infratax_no_salons = {
+	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
+	is_default = yes
+}
+
+pm_infratax_salon_option_a = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wine_add = 0.2 # 10
+			goods_input_tobacco_add = 0.4 # 16
+
+			goods_output_services_add = 1 # 30, so 15% over cost
+		}
+	}
+}
+
+pm_infratax_salon_option_b = {
+	texture = "gfx/interface/icons/production_method_icons/privately_owned.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 0.44 # 13.2
+			goods_input_paper_add = 0.44 # 13.2
+
+			goods_output_services_add = 1 # 30, so 14% over cost
+		}
+	}
+}

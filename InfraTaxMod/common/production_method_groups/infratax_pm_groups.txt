@@ -1,0 +1,14 @@
+﻿# The salon gets its own group so it never displaces the HQ ownership PM.
+# Linked to the HQ in common/buildings/infratax_buildings.txt.
+# Other mods add their own variants by injecting into this group.
+
+pmg_infratax_salon = {
+	texture = "gfx/interface/icons/generic_icons/mixed_icon_base.dds"
+	ai_selection = most_profitable # the AI runs the salon only while it pays
+
+	production_methods = {
+		pm_infratax_no_salons
+		pm_infratax_salon_option_a
+		pm_infratax_salon_option_b
+	}
+}
