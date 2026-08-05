@@ -1,0 +1,124 @@
+﻿# The two thrall PMs are gated to ONE state by unlocking_geographic_regions
+# (vanilla idiom: coffee_plantation_wet_process_manual, 04_plantations.txt:30).
+# The salon options below are ungated, for every other HQ. Groups: mnc_pm_groups.txt.
+# Every goods modifier verified in cwtools script-docs/modifiers.log.
+
+# Gold mines, Northern Transylvania only. Sits in the steam automation group,
+# so taking it gives up pm_steam_donkey_mine's -1000 laborers.
+pm_mnc_thralls = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation4.dds"
+	is_hidden_when_unavailable = yes
+
+	unlocking_geographic_regions = {
+		geographic_region_mnc_transylvania
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_meat_add = 5 # 150
+			goods_input_hardwood_add = 5 # 200
+			goods_output_gold_add = 20 # 2000
+		}
+
+		# Same shed as pm_steam_donkey_mine: the thralls replace the shift.
+		level_scaled = {
+			building_employment_laborers_add = -1000
+		}
+
+		unscaled = {
+			building_laborers_mortality_mult = 0.5
+		}
+	}
+}
+
+# Company headquarter, Montenegro only. No decision drives it: the group's
+# most_profitable pick runs it while services are dear.
+pm_mnc_thralls_salon = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation3.dds"
+	is_hidden_when_unavailable = yes
+
+	unlocking_geographic_regions = {
+		geographic_region_mnc_montenegro
+	}
+
+	# No PM field takes a company, so this is the nearest filter: the Concordat's
+	# own category. Region + category is as close to Concordat-only as PMs get.
+	unlocking_company_categories = {
+		capitalist_owned
+	}
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_output_services_add = 4 # 30
+			goods_output_fine_art_add = 0.1 # 10, so 60% over goods cost
+			goods_output_luxury_clothes_add = 1
+			goods_output_luxury_furniture_add = 1
+			goods_output_groceries_add = 2
+			goods_output_porcelain_add = 0.2
+		}
+
+		level_scaled = {
+			building_employment_laborers_add = 20
+		}
+
+		# unscaled = flat, once per building, never by level or staffing, and it
+		# reaches only this building's own laborers. Vanilla coal mines use 0.3.
+		unscaled = {
+			building_laborers_mortality_mult = 0.5
+
+			# Workers cut in beside the HQ's capitalists (10 shares, 14_companies.txt:20).
+			building_laborers_shares_add = 1
+			building_clerks_shares_add = 1
+		}
+	}
+}
+
+# Off state, so an HQ can sit the salon out. Default of the group.
+pm_mnc_no_salons = {
+	texture = "gfx/interface/icons/production_method_icons/no_automation.dds"
+	is_default = yes
+}
+
+# The two ordinary recipes, any HQ anywhere. Kept tight so the AI only runs
+# them while services are dear.
+pm_mnc_salon_option_a = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation1.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_wine_add = 0.5 # 50 - 25
+			goods_input_tobacco_add = 0.5 # 40 - 20
+
+			goods_output_services_add = 1 # 30, so -15 profit if baseline goods costs same
+		}
+		level_scaled = {
+			building_employment_clerks_add = 10
+		}
+
+		# Workers cut in beside the HQ's capitalists (10 shares, 14_companies.txt:20).
+		unscaled = {
+			building_clerks_shares_add = 1
+		}
+	}
+}
+
+pm_mnc_salon_option_b = {
+	texture = "gfx/interface/icons/production_method_icons/unused/automation2.dds"
+
+	building_modifiers = {
+		workforce_scaled = {
+			goods_input_liquor_add = 1 # 30
+			goods_input_paper_add = 0.5 # 30 -15
+
+			goods_output_services_add = 1 # 30, so -15 profit if baseline goods costs same
+		}
+		level_scaled = {
+			building_employment_clerks_add = 10
+		}
+
+		# Workers cut in beside the HQ's capitalists (10 shares, 14_companies.txt:20).
+		unscaled = {
+			building_clerks_shares_add = 1
+		}
+	}
+}

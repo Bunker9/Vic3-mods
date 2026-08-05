@@ -59,3 +59,28 @@ desi_event.1 = {
 		}
 	}
 }
+
+# -----------------------------------------------------------------------------
+# desi_event.2 - Peacock Throne payload. Seats the capital in Delhi.
+# set_capital guard copied from vanilla india_decisions.txt:107.
+# -----------------------------------------------------------------------------
+desi_event.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "desi - peacock-throne - decision fired"
+		set_variable = { name = desi_peacock_throne_done value = yes }
+
+		if = {
+			limit = { NOT = { capital = { state_region = s:STATE_DELHI } } }
+			set_capital = STATE_DELHI
+		}
+
+		# if = {
+			# limit = { NOT = { has_variable = desi_fingerprint_peacock_throne } }
+			# set_variable = { name = desi_fingerprint_peacock_throne value = 0 }
+		# }
+		# change_variable = { name = desi_fingerprint_peacock_throne add = 1 }
+	}
+}

@@ -7,18 +7,29 @@
 mdp_is_expand_country = {
     OR = {
         c:MEX ?= this   c:BRZ ?= this   c:PAN ?= this   c:DEI ?= this
-        c:PER ?= this   c:SWE ?= this   c:DAI ?= this   c:SOK ?= this
+        c:PER ?= this   c:DAI ?= this   c:SOK ?= this   c:BUR ?= this
         c:NEP ?= this   c:CLM ?= this   c:ARG ?= this   c:SIA ?= this
         c:MOR ?= this   c:OMA ?= this   c:SHW ?= this   c:SAF ?= this
-        c:ETH ?= this   c:BUR ?= this
+        c:ETH ?= this
     }
+}
+
+# Target guard: capital sits in Europe. PTM grants European powers treaty-port provinces
+# INSIDE expander homelands (e.g. BEL in Oman/Congo), which otherwise makes those European
+# minors look adjacent + small enough to attack. Vanilla idiom (00_geography_triggers.txt).
+mdp_capital_in_europe = {
+    capital.state_region = { is_in_geographic_region = geographic_region_europe }
 }
 
 # Runtime-safe subject-annexer check: mdp_startup sets var:mdp_subject_annexer on the SEA+Punjab
 # annexer tags (DAI/BUR/SIA/PAN). Single source of truth used by BOTH mdp.3 and the on_action
 # dispatch — replaces the duplicated OR={...} list (cleaner, performant, tag-death-safe).
 mdp_is_subject_annexer = {
-    OR = { c:DAI ?= this  c:BUR ?= this  c:SIA ?= this  c:PAN ?= this  c:OMA ?= this  c:DEI ?= this  c:PER ?= this }
+    OR = {
+        c:DAI ?= this  c:BUR ?= this  c:SIA ?= this  c:PAN ?= this
+        c:OMA ?= this  c:DEI ?= this  c:PER ?= this  c:SWE ?= this
+        c:JAP ?= this
+    }
 }
 
 # -----------------------------------------------------------------------------
@@ -92,6 +103,8 @@ mdp_valid_generic_target = {
     NOT = { country_rank >= rank_value:major_power } # not a GP OR major power — valid proxy for
                                                      # "very large country (~3M+)"; also covers GPs-with-treaty-ports.
                                                      # (Vic3 has NO country_population trigger — rank is the correct lever.)
+    NOT = { mdp_capital_in_europe = yes }           # never attack a European power (BEL etc. become
+                                                     # falsely adjacent via PTM treaty ports in expander homelands)
     is_subject = no                                 # not a formal subject
     NOT = { mdp_is_in_power_bloc = yes }            # ← KEY: not in any power bloc at all
     NOT = { this = scope:mdp_attacker }             # don't self-target
@@ -153,6 +166,7 @@ mdp_has_conquerable_minor = {
     any_country = {
         exists = this
         NOT = { is_country_type = decentralized }
+        NOT = { mdp_capital_in_europe = yes }
         mdp_is_expand_country = no
         NOT = { country_rank >= rank_value:minor_power }
         is_subject = no

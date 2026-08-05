@@ -1,0 +1,169 @@
+﻿namespace = mnc_event
+
+# mnc_event.1 - payload for mnc_reclaim_montenegro. Hidden + triggered only.
+# Sets the once-guard the decision's is_shown tests.
+mnc_event.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "mnc - reclaim - decision fired"
+		set_variable = { name = mnc_reclaim_done value = yes }
+
+		# Permanent: no years, so it never expires.
+		add_modifier = { name = mnc_counts_library }
+
+		c:AUS ?= {
+			random_scope_state = {
+				limit = { state_region = s:STATE_MONTENEGRO }
+				set_state_owner = c:MON
+			}
+			add_treasury = 1000000
+		}
+
+		# MON pays: obligation owed to Austria, and the pool covers the price.
+		set_owes_obligation_to = { country = c:AUS setting = yes }
+		add_investment_pool = -1000000
+
+		# if = {
+			# limit = { NOT = { has_variable = mnc_fingerprint_reclaim } }
+			# set_variable = { name = mnc_fingerprint_reclaim value = 0 }
+		# }
+		# change_variable = { name = mnc_fingerprint_reclaim add = 1 }
+	}
+}
+
+# mnc_event.2 - payload for mnc_suez_rush, one week after the decision.
+# Also stamps the variable state a concluded vanilla Suez chain leaves behind,
+# so the survey decision stops offering to the AI and to a future GP Montenegro.
+mnc_event.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "mnc - suez - rush purchase concluded"
+		set_variable = { name = mnc_suez_done value = yes }
+
+		s:STATE_SINAI = {
+			# the seller is paid exactly as vanilla suez_canal_purchase pays them
+			random_scope_state = {
+				limit = { NOT = { owner = ROOT } }
+				owner = { add_modifier = { name = suez_sale months = 120 } }
+			}
+			# port + city tile, same pair vanilla transfers
+			set_owner_of_provinces = {
+				country = ROOT
+				provinces = { xC01060 x8ED45E }
+			}
+		}
+		add_modifier = { name = suez_purchase months = 120 }
+
+		# hides suez_survey_decision from us once we own a Sinai state
+		set_variable = { name = survey_suez_taken value = 0 }
+		# building_suez_canal.possible requires this
+		set_variable = suez_survey_complete
+		# closes the vanilla purchase and the survey for everyone else
+		set_global_variable = suez_canal_purchase_var
+		set_global_variable = suez_canal_complete
+
+		if = {
+			limit = { has_modifier = modifier_surveying_suez }
+			remove_modifier = modifier_surveying_suez
+		}
+
+		trigger_event = { id = mnc_event.3 weeks = 2 }
+
+		# if = {
+			# limit = { NOT = { has_variable = mnc_fingerprint_suez } }
+			# set_variable = { name = mnc_fingerprint_suez value = 0 }
+		# }
+		# change_variable = { name = mnc_fingerprint_suez add = 1 }
+	}
+}
+
+# mnc_event.3 - four months on, private money takes the canal off the treasury.
+mnc_event.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "mnc - suez - private backing takes over"
+
+		if = {
+			limit = { has_modifier = suez_purchase }
+			remove_modifier = suez_purchase
+		}
+		add_modifier = { name = mnc_private_suez_purchase months = 120 }
+
+		# the private pool settles the price, once only
+		add_investment_pool = -5000000
+	}
+}
+
+# mnc_event.4 - payload for mnc_landowner_persuasion. Shown, not hidden: the
+# player picks. Cost and cooldown are charged in immediate, so every choice pays.
+mnc_event.4 = {
+	type = country_event
+
+	title = mnc_event.4.t
+	desc = mnc_event.4.d
+	flavor = mnc_event.4.f
+
+	icon = "gfx/interface/icons/event_icons/event_portrait.dds"
+
+	duration = 3
+
+	immediate = {
+		# debug_log = "mnc - persuasion - decision fired"
+
+		add_investment_pool = -10000000
+		add_modifier = { name = mnc_landowner_persuasion_cooldown months = 60 }
+
+		# if = {
+			# limit = { NOT = { has_variable = mnc_fingerprint_persuasion } }
+			# set_variable = { name = mnc_fingerprint_persuasion value = 0 }
+		# }
+		# change_variable = { name = mnc_fingerprint_persuasion add = 1 }
+	}
+
+	# Hidden once the leader already holds the ideology, so the money is never wasted.
+	option = {
+		name = mnc_event.4.a
+		default_option = yes
+
+		trigger = {
+			ig:ig_landowners ?= {
+				leader = { NOT = { has_ideology = ideology:ideology_reformer } }
+			}
+		}
+
+		ig:ig_landowners ?= {
+			leader = { set_ideology = ideology:ideology_reformer }
+		}
+	}
+
+	option = {
+		name = mnc_event.4.b
+
+		trigger = {
+			ig:ig_landowners ?= {
+				leader = { NOT = { has_ideology = ideology:ideology_market_liberal } }
+			}
+		}
+
+		ig:ig_landowners ?= {
+			leader = { set_ideology = ideology:ideology_market_liberal }
+		}
+	}
+
+	# Only offered mid enactment, otherwise the boost expires unused.
+	option = {
+		name = mnc_event.4.c
+
+		trigger = {
+			enacting_any_law = yes
+		}
+
+		add_modifier = { name = mnc_landowner_enactment_push months = 24 }
+	}
+}

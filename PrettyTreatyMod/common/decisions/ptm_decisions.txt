@@ -1,0 +1,177 @@
+﻿# =============================================================================
+# PrettyTreatyMod - the three Qing China build-out decisions.
+# HAND-WRITTEN.
+#
+# EVERY PAYLOAD LIVES IN A HIDDEN EVENT, not in when_taken. A decision's when_taken is
+# re-computed during tooltip preview, where var:ptm_cur evaluates to 'none' and spams
+# "Value of wrong type". The decision carries only a custom_tooltip + trigger_event.
+# Repo pattern, in-game verified: DesiStrategyMod desi_incorporate_state -> desi_event.1,
+# SteadyInnov uni_event.4. Payloads are in events/ptm_events.txt.
+#
+# ONCE-ONLY: every decision here fires exactly once. The guard variable is SET IN THE
+# EVENT (with the payload) and TESTED here in is_shown. Rice uses a country variable
+# (only CHI ever takes it); the two European decisions use GLOBAL variables because they
+# are RACES - first past the post closes them for everyone, not just the taker.
+#
+# AI: these are meant to be taken by the AI. ai_chance is deliberately HIGH, not 0.
+# ai_chance = { value = 0 } means the AI will NEVER take a decision.
+#
+# OWNERSHIP: the two European concessions grant FOREIGN-owned buildings. add_ownership
+# WAS proven to work at runtime (in-game verified 2026-07-21/22, test_todel scaffold): the
+# FD-form raises a financial district owned by the taker that in turn owns the created
+# building. The Chinese trunk railways are the exception, laid CHINESE-owned through the
+# construction QUEUE, which unlike create_building does not tech-gate on the low-tech host.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. Granary of the Empire. Qing rice build-out. Once only.
+# -----------------------------------------------------------------------------
+ptm_rice_expansion_decision = {
+
+	is_shown = {
+		c:CHI ?= this
+		NOT = { has_variable = ptm_rice_expansion_done }
+	}
+
+	possible = {
+		any_scope_state = {
+			can_construct_building = building_rice_farm
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_rice_expansion_tt
+		}
+		trigger_event = { id = ptm_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# -----------------------------------------------------------------------------
+# 2. Iron Road Concession. A European power holding a treaty port in Qing.
+#    RACE: once per game, globally.
+# -----------------------------------------------------------------------------
+ptm_china_railways_decision = {
+
+	is_shown = {
+		NOT = { has_global_variable = ptm_railway_race_won }
+		exists = c:CHI
+		country_rank >= rank_value:major_power
+	}
+
+	possible = {
+		ptm_is_great_power_with_a_china_treaty_port = yes
+		has_technology_researched = railways
+		is_at_war = no
+		c:CHI = {
+			is_at_war = no
+		}
+		game_date >= 1838.1.1
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_china_railways_tt
+		}
+		trigger_event = { id = ptm_event.2 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# -----------------------------------------------------------------------------
+# 3. Powder and Pit Concession. Same gate, on dynamite.
+#    RACE: once per game, globally.
+# -----------------------------------------------------------------------------
+ptm_china_mining_decision = {
+
+	is_shown = {
+		NOT = { has_global_variable = ptm_mining_race_won }
+		exists = c:CHI
+		country_rank >= rank_value:major_power
+	}
+
+	possible = {
+		ptm_is_great_power_with_a_china_treaty_port = yes
+		has_technology_researched = nitroglycerin
+		is_at_war = no
+		c:CHI = {
+			is_at_war = no
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_china_mining_tt
+		}
+		trigger_event = { id = ptm_event.3 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# 4. Reclaim Lapsed Treaty Port. Any grantee power. ptm_event.4 branches war/peace by relations.
+#    is_shown simple so it stays visible; existence test in possible tooltip. 5y cooldown.
+ptm_reclaim_lapsed_port = {
+
+	is_shown = {
+		ptm_is_grantee_power = yes
+		NOT = { has_variable = ptm_reclaim_cooldown }
+	}
+
+	possible = {
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+		infamy < 20
+		custom_tooltip = {
+			text = ptm_reclaimable_port_exists_tt
+			ptm_has_any_reclaimable_port = yes
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_reclaim_lapsed_port_tt
+		}
+		trigger_event = { id = ptm_event.4 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# 5. The Raj Settlement. Offered to BIC's overlord once BIC is a DOMINION.
+#    Own market for BIC, a Calcutta treaty port and a 25% tribute for the overlord.
+#    Dominion test copied from vanilla journal_entries/04_india_home_rule.txt:66.
+#    Once only, country variable set in ptm_event.5.
+ptm_raj_settlement_decision = {
+
+	is_shown = {
+		NOT = { has_variable = ptm_raj_settlement_done }
+		c:BIC ?= {
+			has_diplomatic_pact = {
+				who = root
+				type = dominion
+				is_initiator = no
+			}
+		}
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+			text = ptm_raj_calcutta_held_tt
+			exists = s:STATE_WEST_BENGAL.region_state:BIC
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = ptm_raj_settlement_tt
+		}
+		trigger_event = { id = ptm_event.5 }
+	}
+
+	ai_chance = { value = 10000 }
+}

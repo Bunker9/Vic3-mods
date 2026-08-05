@@ -131,6 +131,19 @@ DIPLOMATIC_PLAYS = {
 			}
 		}
 	}
+	c:SAR ?= {
+		create_diplomatic_play = {
+			target_state = s:STATE_EMILIA.region_state:MOD
+			war = yes
+			type = dp_return_state
+			add_war_goal = {
+				holder = c:SAR
+				type = return_state
+				target_state = s:STATE_EMILIA.region_state:MOD
+				primary_demand = yes
+			}
+		}
+	}
 	c:NEP ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_EASTERN_HIMALAYAS.region_state:SIK

@@ -501,7 +501,7 @@ STATE_KENTUCKY = {
     id = 289
     subsistence_building = "building_subsistence_farm"
     provinces = { "x07190B" "x0CE796" "x22372A" "x2BBF97" "x2C3DD6" "x2ED593" "x2EF726" "x345456" "x394A84" "x4987B9" "x4ADDB6" "x552EC3" "x5EBF40" "x5F08F6" "x72B7A5" "x7450B4" "x8ABB32" "x8C6574" "x8CF367" "x8D925C" "x9A4E18" "xB04080" "xB9F919" "xBC5C72" "xC010AA" "xC07000" "xD9E5F5" "xDECE20" "xE0446E" "xF00040" "xF56394" "xFDE30E" }
-    traits = { "state_trait_appalachian_coal" "state_trait_ohio_river" "state_trait_american_chestnuts" }
+    traits = { "state_trait_appalachian_coal" "state_trait_ohio_river" "state_trait_american_chestnuts" state_trait_infratax_ext_cheat }
     city = "xDECE20"
     farm = "x72B7A5"
     mine = "x2C3DD6"
@@ -510,8 +510,8 @@ STATE_KENTUCKY = {
     arable_resources = { "building_maize_farm" "building_livestock_ranch" "building_cotton_plantation" "building_tobacco_plantation" "building_vineyard" }
     capped_resources = {
         building_coal_mine = 140
-        building_iron_mine = 33
-        building_logging_camp = 17
+        building_iron_mine = 71
+        building_logging_camp = 51
     }
 }
 
@@ -752,7 +752,7 @@ STATE_RHODE_ISLAND = {
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" "building_vineyard" }
     capped_resources = {
         building_logging_camp = 2
-        building_whaling_station = 2
+        building_whaling_station = 11
         building_fishing_wharf = 3
     }
     naval_exit_id = 3067
@@ -772,7 +772,7 @@ STATE_CONNECTICUT = {
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" "building_vineyard" }
     capped_resources = {
         building_iron_mine = 15
-        building_whaling_station = 3
+        building_whaling_station = 11
         building_fishing_wharf = 5
         building_logging_camp = 6
     }
@@ -795,7 +795,7 @@ STATE_MASSACHUSETTS = {
         building_coal_mine = 56
         building_iron_mine = 36
         building_logging_camp = 14
-        building_whaling_station = 8
+        building_whaling_station = 16
         building_fishing_wharf = 10
     }
     naval_exit_id = 3067
@@ -815,7 +815,7 @@ STATE_NEW_HAMPSHIRE = {
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_tobacco_plantation" }
     capped_resources = {
         building_logging_camp = 14
-        building_whaling_station = 2
+        building_whaling_station = 11
         building_fishing_wharf = 2
     }
     naval_exit_id = 3017
@@ -852,7 +852,7 @@ STATE_MAINE = {
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" }
     capped_resources = {
         building_logging_camp = 35
-        building_whaling_station = 4
+        building_whaling_station = 16
         building_fishing_wharf = 8
     }
     naval_exit_id = 3017
@@ -999,7 +999,7 @@ STATE_QUEBEC = {
     capped_resources = {
         building_iron_mine = 60
         building_logging_camp = 100
-        building_whaling_station = 16
+        building_whaling_station = 31
         building_fishing_wharf = 31
     }
     naval_exit_id = 3045

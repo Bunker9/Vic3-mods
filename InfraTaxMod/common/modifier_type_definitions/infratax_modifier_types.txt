@@ -1,0 +1,16 @@
+﻿# InfraTaxMod - new building_group employee modifier types.
+# Bootstrap = this block plus a name/_desc loc pair. The key name is the contract.
+
+building_group_bg_ship_construction_employee_mult = {
+	decimals = 1
+	color = bad
+	percent = yes
+	game_data = { ai_value = 0 }
+}
+
+building_group_bg_extraction_employee_mult = {
+	decimals = 1
+	color = bad
+	percent = yes
+	game_data = { ai_value = 0 }
+}

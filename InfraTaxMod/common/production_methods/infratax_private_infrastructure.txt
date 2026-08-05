@@ -52,9 +52,10 @@ INJECT_OR_CREATE:pm_industrial_port = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_liquor_add = 3 #90
+			goods_input_liquor_add = 2 #90
 			goods_input_grain_add = 2 #40
 			goods_input_wine_add = 2 #100
+			goods_input_tobacco_add = 1
 			goods_output_transportation_add = 8 #240
 			goods_output_services_add = 4 #120
 			#profit - 360 - 230 = 130
@@ -73,9 +74,10 @@ INJECT_OR_CREATE:pm_modern_port = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
-			goods_input_liquor_add = 4 #120
-			goods_input_grain_add = 3 #60
+			goods_input_liquor_add = 3 #120
+			goods_input_grain_add = 2 #60
 			goods_input_wine_add = 4 #200
+			goods_input_tobacco_add = 2
 			goods_output_transportation_add = 12 #390
 			goods_output_services_add = 5 #150
 			#profit - 540 - 380 = 130
@@ -192,8 +194,14 @@ INJECT_OR_CREATE:pm_diesel_trains = {
 	building_modifiers = {
 		workforce_scaled = {
 			goods_input_fabric_add = 4 # 20
+			goods_input_steamers_add = 1
+			goods_input_engines_add = -2 # 180
+			goods_input_oil_add = -2 # 320
+			goods_input_electricity_add = 2 # 240
+			goods_input_aeroplanes_add = 1
 			goods_input_merchant_marine_add = 4 #50
 			goods_output_transportation_add = 10
+			goods_output_automobiles_add = 1
 		}
 	}
 }
@@ -212,9 +220,15 @@ INJECT_OR_CREATE:pm_diesel_trains_principle_transport_3 = {
 	}
 	building_modifiers = {
 		workforce_scaled = {
+			goods_input_engines_add = -4 # 360
+			goods_input_oil_add = -4 # 320
+			goods_input_electricity_add = 3 # 240
+			goods_input_steamers_add = 2
+			goods_input_aeroplanes_add = 2
 			goods_input_fabric_add = 4 # 80
 			goods_input_merchant_marine_add = 4 #200
 			goods_output_transportation_add = 10 #300
+			goods_output_automobiles_add = 3
 		}
 	}
 }

@@ -1,0 +1,76 @@
+﻿# InfraTaxMod - Suez Custodian decision
+# HAND-WRITTEN. Adapted from vanilla common/decisions/canal_decisions.txt (suez_canal_purchase).
+#
+# Purpose: if you own the whole STATE_SINAI (e.g. you seized it in a war) you can hand the
+# peninsula to a bordering SUBJECT while keeping the two Suez canal tiles for yourself,
+# leaving a split state where you retain only the canal.
+#
+# Recipient is auto-picked: a subject of yours that owns a state bordering your Sinai state.
+# Canal-keep provinces verified against InfraTaxMod/map_data/state_regions/03_north_africa.txt:
+#   STATE_SINAI port = xC01060, city = x8ED45E (same as vanilla suez_canal_purchase claws back).
+
+infratax_suez_custodian_decision = {
+	is_shown = {
+		is_subject = no
+		# once-only: after a successful handover this variable is set, so the decision
+		# stops showing (ROOT still owns the clawed-back canal tiles, which would
+		# otherwise keep is_shown true and let the canal be handed away on a re-take).
+		NOT = { has_variable = infratax_suez_custodian_done }
+		s:STATE_SINAI = {
+			any_scope_state = { owner = ROOT }
+		}
+	}
+
+	possible = {
+		#NOT = { is_at_war = yes }
+		# green only when a subject of ours owns a state bordering our Sinai state
+		custom_tooltip = {
+			text = infratax_suez_custodian_heir_tt
+			s:STATE_SINAI = {
+				any_scope_state = {
+					owner = ROOT
+					any_neighbouring_state = {
+						owner = { is_subject_of = ROOT }
+					}
+				}
+			}
+		}
+	}
+
+	when_taken = {
+		# find a bordering subject to receive the peninsula, save it as the heir
+		s:STATE_SINAI = {
+			random_scope_state = {
+				limit = {
+					owner = ROOT
+					any_neighbouring_state = {
+						owner = { is_subject_of = ROOT }
+					}
+				}
+				random_neighbouring_state = {
+					limit = { owner = { is_subject_of = ROOT } }
+					owner = { save_scope_as = suez_heir }
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:suez_heir }
+			s:STATE_SINAI = {
+				# hand every Sinai sub-state you own to the heir
+				every_scope_state = {
+					limit = { owner = ROOT }
+					set_state_owner = scope:suez_heir
+				}
+				# claw the two canal tiles back to you: split state, canal stays yours
+				set_owner_of_provinces = {
+					country = ROOT
+					provinces = { xC01060 x8ED45E }
+				}
+			}
+			# mark done so the decision is offered only once
+			set_variable = { name = infratax_suez_custodian_done value = yes }
+		}
+	}
+
+	ai_chance = { value = 0 }
+}

@@ -1,0 +1,235 @@
+﻿# =============================================================================
+# PrettyTreatyMod - shared effects for the China concession race.
+# HAND-WRITTEN.
+#
+# THE RACE: the two European build-out decisions are each ONCE PER GAME globally.
+# Whoever researches the gating tech first AND holds a treaty port in Qing takes it,
+# and nobody else can. Modelled on the vanilla Suez pattern the user pointed at
+# (fastest qualifying nation takes the prize, decision then closes for everyone).
+# The guards are GLOBAL variables, not country variables - a country variable would
+# only stop the SAME country retaking it.
+#
+# TWO PRIZES, one per race, each guarded once (awarded_rails / awarded_mines): the rails
+# prize grants a motor industry, the mines prize explosives + fertilizer. Both-race winner gets both.
+#
+# REWARD MODIFIERS ARE VANILLA, NOT NEW (user directive: reuse, do not create):
+#   opium_wars_export_modifier      state modifier, state_trade_advantage_mult = 0.10
+#                                   (content_1_modifiers.txt:33 - thematically exact,
+#                                   treaty ports ARE the Opium War settlement)
+#   modifier_relations_with_west    country modifier, state_trade_advantage_mult = 0.15
+#                                   + country_influence_mult = 0.10 (content_4_modifiers.txt:363)
+#   0.10 in the port + 0.15 country-wide = the +25% trade advantage asked for, in the port.
+#
+# POP CULTURE IS BRANCHED PER TAG, NOT DYNAMIC. Every vanilla create_pop passes a LITERAL
+# culture key; passing a scope (ROOT.primary_culture) is not a pattern vanilla uses anywhere
+# and is unverified, so the six possible takers are enumerated instead. Cultures and
+# religions verified in common/country_definitions/00_countries.txt + common/cultures/00_cultures.txt.
+#
+# PORT-FINDING IS INLINE, NOT A SHARED SCRIPTED EFFECT. is_treaty_port is a real state-scope
+# trigger; the state_region clause keeps the pick IN CHINA (a taker can hold treaty ports
+# elsewhere - FRANCE ships with STATE_FORMOSA host CHI and STATE_TONKIN host DAI - and a bare
+# is_treaty_port landed the prize in Vietnam half the time). "in China" = the port's STATE REGION
+# still contains a region_state owned by Qing (the treaty port is a sibling region_state carved
+# out of the host's, so the host is not the port's owner). NO STATE IS NAMED, deliberately.
+# The random_scope_state + save_scope_as is duplicated in both prizes ON PURPOSE - the proven
+# working form. Hiding it behind ROOT = { helper = yes } and relying on the scripted effect's
+# save_scope_as to propagate out was fragile and is not used here.
+# =============================================================================
+
+# RAILWAY concession prize: port build-out + a motor industry, in the taker's Chinese port.
+# Pays once (its own global guard). The port state is the taker's region_state, so its
+# buildings are taker-owned automatically - no add_ownership needed here.
+ptm_grant_concession_prize_rails = {
+	if = {
+		limit = { NOT = { has_global_variable = ptm_concession_prize_awarded_rails } }
+
+		ROOT = {
+			random_scope_state = {
+				limit = {
+					is_treaty_port = yes
+					state_region = {
+						any_scope_state = {
+							owner = c:CHI
+						}
+					}
+				}
+				save_scope_as = ptm_port_state
+			}
+		}
+
+		if = {
+			limit = { exists = scope:ptm_port_state }
+			set_global_variable = { name = ptm_concession_prize_awarded_rails value = yes }
+			# debug_log = "ptm - concession-prize-rails - port found, prize granted"
+
+			scope:ptm_port_state = {
+				create_building = { building = building_trade_center level = 8 reserves = 1 }
+				create_building = { building = building_motor_industry level = 4 reserves = 1 }
+				create_building = { building = building_steel_mill level = 2 reserves = 1 }
+				create_building = { building = building_port level = 2 reserves = 1 }
+				create_building = { building = building_railway level = 2 reserves = 1 }
+				ptm_settle_concession_pops = yes
+
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_concession_prize_rails } }
+					# set_variable = { name = ptm_fingerprint_concession_prize_rails value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_concession_prize_rails add = 1 }
+			}
+		}
+		# else = { debug_log = "ptm - concession-prize-rails - no China treaty port state found" }
+	}
+}
+
+# MINING concession prize: port build-out + explosives and fertilizer plants, in the taker's
+# Chinese port. Pays once (its own global guard). building_chemical_plant is the fertilizer plant.
+ptm_grant_concession_prize_mines = {
+	if = {
+		limit = { NOT = { has_global_variable = ptm_concession_prize_awarded_mines } }
+
+		ROOT = {
+			random_scope_state = {
+				limit = {
+					is_treaty_port = yes
+					state_region = {
+						any_scope_state = {
+							owner = c:CHI
+						}
+					}
+				}
+				save_scope_as = ptm_port_state
+			}
+		}
+
+		if = {
+			limit = { exists = scope:ptm_port_state }
+			set_global_variable = { name = ptm_concession_prize_awarded_mines value = yes }
+			# debug_log = "ptm - concession-prize-mines - port found, prize granted"
+
+			scope:ptm_port_state = {
+				create_building = { building = building_trade_center level = 10 reserves = 1 }
+				create_building = { building = building_explosives_factory level = 4 reserves = 1 }
+				create_building = { building = building_chemical_plant level = 2 reserves = 1 }
+				create_building = { building = building_port level = 3 reserves = 1 }
+				create_building = { building = building_railway level = 3 reserves = 1 }
+
+				ptm_settle_concession_pops = yes
+
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_concession_prize_mines } }
+					# set_variable = { name = ptm_fingerprint_concession_prize_mines value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_concession_prize_mines add = 1 }
+			}
+		}
+		# else = { debug_log = "ptm - concession-prize-mines - no China treaty port state found" }
+	}
+}
+
+# The race prize's OWN pops: ~6000 settlers of the taker's culture and religion, to help staff the
+# concession's new trade centers. ON TOP OF the day-1 seeding in
+# common/history/pops/zz_ptm_concession_pops.txt (deliberate overlap, per that file's header).
+# NB the RUNTIME create_pop effect takes ONLY culture/religion/size - pop_type is a HISTORY-only
+# key. Vanilla verified: events/iberia_events/struggle_for_the_highveld_events.txt:652. A pop_type
+# passed here is silently dropped and NO pop is made (that was the earlier bug). The settlers
+# migrate into the new trade-center jobs from the market.
+ptm_settle_concession_pops = {
+	# if = {
+		# limit = { exists = scope:ptm_port_state }
+		# debug_log = "ptm - concession-pops - port state present"
+	# }
+	# else = {
+		# debug_log = "ptm - concession-pops - NO port state found"
+	# }
+	scope:ptm_port_state = {
+		if = {
+			limit = { ROOT = { this = c:FRA } }
+			create_pop = { culture = french religion = catholic size = 6000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:NET } }
+			create_pop = { culture = dutch religion = protestant size = 6000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:BEL } }
+			create_pop = { culture = flemish religion = catholic size = 6000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:SWE } }
+			create_pop = { culture = swedish religion = protestant size = 6000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:PRU } }
+			create_pop = { culture = north_german religion = protestant size = 6000 }
+		}
+		else_if = {
+			limit = { ROOT = { this = c:RUS } }
+			create_pop = { culture = russian religion = orthodox size = 6000 }
+		}
+		# any other winner (conquest taker or a formed tag) staffs with local han labour
+		else = {
+			create_pop = { culture = han religion = confucian size = 6000 }
+		}
+	}
+}
+
+# =============================================================================
+# LAPSED-PORT RECLAIM. ptm_event.4 payload.
+# =============================================================================
+
+# Find ROOT's coastal foothold whose region holds a host, then branch war/peace by relations.
+# treaty_port article: source = host, target = root, input = host state.
+ptm_reclaim_lapsed_ports = {
+	if = {
+		limit = { is_active_in_diplomatic_play = no }
+		random_scope_state = {
+			limit = {
+				owner = root
+				is_coastal = yes
+				is_under_colonization = no
+				state_region = {
+					any_scope_state = { ptm_is_reclaimable_host_port = yes }
+				}
+			}
+			state_region = {
+				random_scope_state = {
+					limit = { ptm_is_reclaimable_host_port = yes }
+					save_scope_as = ptm_reclaim_state
+					owner = { save_scope_as = ptm_reclaim_target }
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:ptm_reclaim_target }
+			if = {
+				limit = {
+					scope:ptm_reclaim_target = { relations:root < relations_threshold:neutral }
+				}
+				create_diplomatic_play = {
+					name = ptm_reclaim_treaty_port
+					target_country = scope:ptm_reclaim_target
+					type = dp_take_treaty_port
+					target_state = scope:ptm_reclaim_state
+				}
+				# debug_log = "ptm - reclaim - WAR dp_take_treaty_port started"
+			}
+			else = {
+				create_treaty = {
+					first_country = root
+					second_country = scope:ptm_reclaim_target
+					is_draft = no
+					binding_period = { years = 99 }
+					articles_to_create = {
+						{
+							article = treaty_port
+							source_country = scope:ptm_reclaim_target
+							target_country = root
+							inputs = { { state = scope:ptm_reclaim_state } }
+						}
+					}
+				}
+				# debug_log = "ptm - reclaim - PEACE create_treaty treaty_port"
+			}
+		}
+	}
+}

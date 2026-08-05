@@ -60,9 +60,9 @@ STATE_ABU_DHABI = {
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 80
+        undiscovered_amount = 100
     }
-    traits = { "state_trait_infratax_cheat" }
+    traits = { "state_trait_infratax_ext_cheat" }
     naval_exit_id = 3046
 }
 
@@ -477,7 +477,7 @@ STATE_ISFAHAN = {
 
 STATE_MAZANDARAN = {
     id = 420
-    traits = { "state_trait_hyrcanian_forests" "state_trait_alborz_mountains" "state_trait_infratax_cheat"}
+    traits = { "state_trait_hyrcanian_forests" "state_trait_alborz_mountains" "state_trait_infratax_ext_cheat"}
     subsistence_building = "building_subsistence_farm"
     provinces = { "x0FF449" "x129FA5" "x241E43" "x3834CF" "x4070A0" "x40EFA0" "x51E7A3" "x5694AE" "x5ADBFF" "x63F238" "x7417A0" "x8070DF" "xC0B0E0" "xE697E6" "xE6DB67" }
     city = "xE697E6"
@@ -487,13 +487,15 @@ STATE_MAZANDARAN = {
     arable_land = 70
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_silk_plantation" "building_opium_plantation" "building_tea_plantation" "building_sugar_plantation" "building_tobacco_plantation" }
     capped_resources = {
-        building_coal_mine = 22
-        building_iron_mine = 11
-        building_logging_camp = 20
+        building_coal_mine = 41
+        building_iron_mine = 31
+        building_sulfur_mine = 21
+        building_lead_mine = 21
+        building_logging_camp = 41
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 20
+        undiscovered_amount = 41
     }
 }
 

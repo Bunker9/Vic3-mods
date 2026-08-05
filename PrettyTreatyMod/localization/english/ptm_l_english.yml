@@ -1,0 +1,67 @@
+﻿l_english:
+ # 10-year commerce half (investment rights + goods supply)
+ treaty_name_ptm_franco_chinese_formosa:0 "Franco Chinese Commercial Accord of Formosa"
+ treaty_name_ptm_franco_daiviet_tonkin:0 "Franco Annamese Commercial Accord of Tonkin"
+ treaty_name_ptm_russo_chinese_shengjing:0 "Russo Chinese Commercial Accord of Shengjing"
+ treaty_name_ptm_dutch_persian_fars:0 "Dutch Persian Commercial Accord of Fars"
+ treaty_name_ptm_belgo_omani_muscat:0 "Belgo Omani Commercial Accord of Muscat"
+ treaty_name_ptm_swedo_merina_tulear:0 "Swedish Merina Commercial Accord of Tulear"
+ treaty_name_ptm_prusso_colombian_antioquia:0 "Prusso Colombian Commercial Accord of Antioquia"
+ treaty_name_ptm_austro_bruneian_borneo:0 "Austro Bruneian Commercial Accord of North Borneo"
+ treaty_name_ptm_belgo_kongolese_lower_congo:0 "Belgo Kongolese Commercial Accord of the Lower Congo"
+ treaty_name_ptm_american_nejdi_hail:0 "American Nejdi Commercial Accord of Hail"
+ treaty_name_ptm_american_egyptian_dongola:0 "American Egyptian Commercial Accord of Dongola"
+ treaty_name_ptm_sardo_shewan_accord:0 "Sardinian Shewan Accord of Commerce"
+
+ # 99-year treaty port half (the concession proper, never lapses)
+ treaty_name_ptm_franco_chinese_formosa_port:0 "Franco Chinese Perpetual Concession of Formosa"
+ treaty_name_ptm_franco_daiviet_tonkin_port:0 "Franco Annamese Perpetual Concession of Tonkin"
+ treaty_name_ptm_russo_chinese_shengjing_port:0 "Russo Chinese Perpetual Concession of Shengjing"
+ treaty_name_ptm_dutch_persian_fars_port:0 "Dutch Persian Perpetual Concession of Fars"
+ treaty_name_ptm_belgo_omani_muscat_port:0 "Belgo Omani Perpetual Concession of Muscat"
+ treaty_name_ptm_swedo_merina_tulear_port:0 "Swedish Merina Perpetual Concession of Tulear"
+ treaty_name_ptm_prusso_colombian_antioquia_port:0 "Prusso Colombian Perpetual Concession of Antioquia"
+ treaty_name_ptm_austro_bruneian_borneo_port:0 "Austro Bruneian Perpetual Concession of North Borneo"
+ treaty_name_ptm_belgo_kongolese_lower_congo_port:0 "Belgo Kongolese Perpetual Concession of the Lower Congo"
+ treaty_name_ptm_american_nejdi_hail_port:0 "American Nejdi Perpetual Concession of Hail"
+ treaty_name_ptm_american_egyptian_dongola_port:0 "American Egyptian Perpetual Concession of Dongola"
+
+ ptm_rice_expansion_decision:0 "The Granary of the Empire"
+ ptm_rice_expansion_decision_desc:0 "Our provinces feed an empire, yet the paddies lie half worked. Order the magistrates to flood every terrace that will hold water and bring the harvest up to what the land can truly bear."
+ ptm_china_railways_decision:0 "Iron Road Concession"
+ ptm_china_railways_decision_desc:0 "Our concession gives us the standing to lay track far beyond the treaty port. Raise the construction works and fund a trunk line through every populous Chinese province. The rails will be Chinese property, but the trade they carry passes through our wharves, where new trade houses and motor works rise under our own flag."
+ ptm_china_mining_decision:0 "Powder and Pit Concession"
+ ptm_china_mining_decision_desc:0 "Modern blasting powder opens seams that hand tools never reached. Put our engineers to work in the coal, iron, lead and sulfur of the populous provinces, all held under our own flag, and raise powder mills in the treaty port to feed them."
+
+ ptm_gp_china_treaty_port_tt:0 "Is a great power holding a treaty port in China"
+
+ ptm_reclaim_lapsed_port:0 "Reclaim Our Lapsed Treaty Port"
+ ptm_reclaim_lapsed_port_desc:0 "A port once ceded to us by treaty has slipped from our grasp, taken by another power. Where relations are cordial we press the old claim as a fresh concession, and where they have soured we take it back by force."
+ ptm_reclaim_lapsed_port_tt:0 "Retake our lapsed treaty port from whoever now holds it, by treaty if relations are neutral or better, otherwise by a diplomatic play"
+ ptm_reclaimable_port_exists_tt:0 "A large power outside Europe holds a port in a coastal region where we keep a foothold of our own"
+ ptm_reclaim_treaty_port:0 "Reclaim Treaty Port"
+
+ ptm_rice_expansion_tt:0 "Brings every rice paddy the land can support up to full working strength"
+ ptm_china_railways_tt:0 "Funds the construction works and queues a trunk line in every populous Chinese province, and raises foreign owned trade houses and motor works in the treaty port"
+ ptm_china_mining_tt:0 "Deepens the coal, iron, lead and sulfur workings of every populous Chinese province under our own flag, and raises powder mills in the treaty port"
+
+ treaty_name_ptm_anglo_raj_calcutta:0 "Perpetual Concession of Calcutta"
+
+ ptm_raj_settlement_decision:0 "The Raj Settlement"
+ ptm_raj_settlement_decision_desc:0 "The Company has become a dominion in all but name, and the fiction of a merchant house governing India can no longer be maintained. Let the Raj keep its own market and answer for its own accounts, while Calcutta passes to us as a concession under our own flag and a quarter of every rupee raised in India comes home."
+ ptm_raj_settlement_tt:0 "Grants the Raj its own market centred on Calcutta, takes the Calcutta concession as our treaty port under a perpetual treaty, and binds the Raj to pass us a quarter of its tax income"
+ ptm_raj_calcutta_held_tt:0 "The Raj still holds Calcutta"
+
+ ptm_raj_tribute:0 "Raj Tribute"
+ ptm_raj_tribute_desc:0 "A share of every rupee the Raj raises passes to us, for as long as it remains our subject."
+ ptm_raj_tribute_pact_desc:0 "[SCOPE.GetRootScope.GetDiplomaticPact.GetSecondCountry.GetName] passes a share of its tax income to [SCOPE.GetRootScope.GetDiplomaticPact.GetFirstCountry.GetName] under the Raj Settlement."
+ ptm_raj_tribute_action_propose_name:0 "$ptm_raj_tribute$"
+ ptm_raj_tribute_action_break_name:0 "End the Raj Tribute"
+ ptm_raj_tribute_action_notification_name:0 "[INITIATOR_COUNTRY.GetName] claims the Raj tribute"
+ ptm_raj_tribute_action_notification_desc:0 "[INITIATOR_COUNTRY.GetName] has bound us to pass a share of our tax income to them under the Raj Settlement."
+ ptm_raj_tribute_action_notification_break_name:0 "[INITIATOR_COUNTRY.GetName] ended the Raj tribute"
+ ptm_raj_tribute_action_notification_break_desc:0 "[INITIATOR_COUNTRY.GetName] has released us from the Raj tribute."
+ ptm_raj_tribute_trigger_desc_global:0 "Collects the Raj tribute"
+
+ ptm_treaty_port_order:0 "Concession Order"
+ ptm_treaty_port_order_desc:0 "The concession is policed and rebuilt at its holder's expense."

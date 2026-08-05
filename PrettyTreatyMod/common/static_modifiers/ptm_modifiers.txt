@@ -1,0 +1,12 @@
+﻿# =============================================================================
+# PrettyTreatyMod - static modifiers. HAND-WRITTEN.
+# =============================================================================
+
+# The concession is policed and rebuilt by its holder.
+# Signs follow modifier colour: turmoil is color=bad, decay color=good.
+ptm_treaty_port_order = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	state_turmoil_effects_mult = -0.5
+	state_devastation_decay_mult = 0.5
+}

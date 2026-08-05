@@ -20,7 +20,7 @@ COUNTRIES = {
 	# --- short-war expanders: 48-month war footing ---
 	c:DAI ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 48 } }
 	c:ARG ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
-	c:NEP ?= { add_technology_researched = army_reserves   add_modifier = { name = expfight_warboost months = 48 } }
+	c:NEP ?= { add_technology_researched = army_reserves   add_modifier = { name = expfight_warboost months = 120 } }
 	c:CLM ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warboost months = 48 } }
 	c:MOR ?= { add_technology_researched = army_reserves   add_technology_researched = general_staff   add_modifier = { name = expfight_warboost months = 48 } }
 	# --- strong powers: 60-month warbump ---
@@ -28,4 +28,5 @@ COUNTRIES = {
 	c:BRZ ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
 	c:PER ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
 	c:SIA ?= { add_technology_researched = army_reserves      add_modifier = { name = expfight_warbump months = 60 } }
+	c:GBR ?= { add_modifier = { name = expfight_warboost months = 36 } }
 }

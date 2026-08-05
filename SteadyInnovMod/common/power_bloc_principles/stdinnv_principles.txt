@@ -1,0 +1,33 @@
+﻿# SteadyInnovMod - Creative Legislature principle buff
+# HAND-WRITTEN. REPLACE_OR_CREATE the three vanilla Creative Legislature principles
+# (00_power_bloc_principles.txt) to add +5% law enactment success chance
+# (country_law_enactment_success_add = 0.05) to every level's member_modifier.
+#
+# Why REPLACE_OR_CREATE, not INJECT_OR_CREATE: each vanilla principle ALREADY defines
+# a member_modifier block; INJECT would append a SECOND member_modifier key -> duplicate
+# key load error (documented gotcha). REPLACE_OR_CREATE redefines the whole object once.
+# The blocks below are copied verbatim from vanilla (icon/background/visible/ai_weight)
+# with only the one success_add line added, so the tier ladder + AI weights are preserved.
+# Token verified 2026-07-14: country_law_enactment_success_add is a country modifier type
+# (modifier_type_definitions); member_modifier applies country modifiers to bloc members.
+
+INJECT_OR_CREATE:principle_creative_legislature_1 = {
+	member_modifier = {
+		# SteadyInnovMod: +5% enactment success chance
+		country_law_enactment_success_add = 0.05
+	}
+}
+
+INJECT_OR_CREATE:principle_creative_legislature_2 = {
+	member_modifier = {
+		# SteadyInnovMod: +5% enactment success chance
+		country_law_enactment_success_add = 0.05
+	}
+}
+
+INJECT_OR_CREATE:principle_creative_legislature_3 = {
+	member_modifier = {
+		# SteadyInnovMod: +5% enactment success chance
+		country_law_enactment_success_add = 0.05
+	}
+}

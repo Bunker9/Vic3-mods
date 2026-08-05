@@ -1,0 +1,69 @@
+﻿# Montenegro day one: the Concordat, the Count, and the laws to run them.
+# stock_exchange is in no starting tech tier; MON has its prerequisite
+# international_trade from the tier 3 bundle.
+
+COUNTRIES = {
+	c:MON ?= {
+		add_technology_researched = stock_exchange
+		add_technology_researched = corporate_charters
+		add_modifier = { name = mnc_count_of_montenegro }
+		add_modifier = { name = mnc_counts_greed years = 5 }
+		add_company = company_type:company_lovcen_concordat
+		company:company_lovcen_concordat = {
+			set_company_establishment_date = 1463.1.26
+			set_company_state_region = s:STATE_MONTENEGRO
+		}
+		activate_law = law_type:law_interventionism
+		activate_law = law_type:law_closed_borders
+		activate_law = law_type:law_land_based_taxation
+		set_tax_level = very_low
+		# The Count. Defined in common/character_templates/mnc_characters.txt,
+		# which is where the company binding has to live.
+		create_character = {
+			template = mnc_lovcen_count
+		}
+	}
+	c:SPA ?= {
+		add_technology_researched = stock_exchange
+		add_technology_researched = corporate_charters
+		add_modifier = { name = mnc_spa_hosts_van_helsing }
+		add_company = company_type:company_van_helsing
+		company:company_van_helsing = {
+			set_company_establishment_date = 1765.1.26
+			set_company_state_region = s:STATE_MONTENEGRO
+		}
+	}
+	c:PRU ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_endorsements }
+	}
+	c:NET ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:ARG ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:CLM ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:MEX ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:BRZ ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:FIN ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:DEN ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:DEI ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:GBR ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+	c:SAR ?= {
+		add_modifier = { name = mnc_spa_hosts_van_helsing_banking }
+	}
+}

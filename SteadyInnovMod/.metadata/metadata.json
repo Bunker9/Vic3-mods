@@ -2,7 +2,7 @@
 	"name": "SteadyInnovMod",
 	"id": "SteadyInnovMod",
 	"game_id": "victoria3",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"supported_game_version": "1.13.*",
 	"short_description": "Innovate to get on the world stage",
 	"tags": [

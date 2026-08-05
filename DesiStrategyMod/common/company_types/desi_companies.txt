@@ -1,5 +1,78 @@
 ﻿# common/company_types/desi_companies.txt
 
+INJECT_OR_CREATE:company_hbc = {
+    building_types = {
+        building_iron_mine
+        building_coal_mine
+        building_whaling_station
+        building_oil_rig
+    }
+}
+
+INJECT_OR_CREATE:company_east_india_company = {
+    building_types = {
+        building_banana_plantation
+        building_coffee_plantation
+        building_rice_farm
+        building_livestock_ranch
+        building_wheat_farm
+    }
+}
+
+INJECT_OR_CREATE:company_russian_american_company = {
+    building_types = {
+        building_livestock_ranch
+        building_tooling_workshop
+        building_iron_mine
+        building_coal_mine
+    }
+    prosperity_modifier = {
+        state_conversion_mult = 0.15
+        country_max_weekly_construction_progress_add = 10
+    }
+}
+
+INJECT_OR_CREATE:company_assam_company = {
+    building_types = {
+        building_wheat_farm
+        building_cotton_plantation
+        building_tobacco_plantation
+        building_coffee_plantation
+        building_silk_plantation
+    }
+    prosperity_modifier = {
+        building_group_bg_oil_extraction_throughput_add = 0.2
+        building_group_bg_light_industry_throughput_add = 0.1
+    }
+}
+
+INJECT_OR_CREATE:company_panama_company = {
+    building_types = {
+        building_maize_farm
+        building_cotton_plantation
+        building_sulfur_mine
+        building_coffee_plantation
+        building_whaling_station
+    }
+    prosperity_modifier = {
+        country_tax_income_add = 150000
+    }
+}
+
+INJECT_OR_CREATE:company_suez_company = {
+    building_types = {
+        building_rice_farm
+        building_food_industry
+        building_rubber_plantation
+        building_banana_plantation
+        building_sugar_plantation
+        building_gold_mine
+    }
+    prosperity_modifier = {
+        country_tax_income_add = 150000
+    }
+}
+
 INJECT_OR_CREATE:company_basic_metalworks={
 
     building_types = {
@@ -52,6 +125,7 @@ INJECT_OR_CREATE:company_krupp = {
         building_coal_mine
         building_iron_mine
         building_explosives_factory
+        building_tooling_workshop
     }
 
     prosperity_modifier = {

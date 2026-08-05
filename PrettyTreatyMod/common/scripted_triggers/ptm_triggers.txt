@@ -1,0 +1,92 @@
+﻿# =============================================================================
+# PrettyTreatyMod - scripted triggers.
+# HAND-WRITTEN.
+#
+# ONE trigger file for the whole mod, dependencies first - the PDX language plugin
+# throws unknown-trigger errors when a mod scatters triggers across per-feature files.
+# =============================================================================
+
+# COUNTRY scope. True when ROOT is a great power AND holds a treaty port anywhere in China.
+# Used by the two China race decisions in common/decisions/ptm_decisions.txt.
+#
+# Replaces the earlier hardcoded pair (STATE_FORMOSA / STATE_SHENGJING). The race opens for
+# ANY great power that has forced a concession out of the Qing, including ports taken by
+# conquest or added by another mod, not just the two this mod happens to ship. NO STATE OR
+# STATE-REGION IS NAMED ANYWHERE IN THIS TRIGGER - that is the point of it.
+#
+# "IN CHINA" = the state region still contains a region_state owned by the Qing. Testing the
+# whole STATE REGION rather than the treaty-port state itself is vanilla's own idiom, and
+# vanilla explains why in a comment at common/ai_strategies/00_default_strategy.txt:2019:
+# "Because the target state in a treaty article is not actually the treaty port state, we need
+# to check the entire state region". The treaty port is a separate region_state carved out of
+# the host's, so the host is a SIBLING region_state, not the port's owner.
+#
+# This is preferred over a strategic-region sweep (sr:region_north_china / sr:region_south_china):
+# those two miss Shengjing, which sits in sr:region_northeast_asia, and patching that hole meant
+# either naming Shengjing outright - the hardcode this trigger exists to remove - or reaching for
+# geographic_region_manchuria_old, which also drags in the four Korean states.
+#
+# country_rank >= rank_value:great_power is how vanilla's own country_is_great_power
+# scripted trigger is written (common/scripted_triggers/00_ip4_victoria_scripted_triggers.txt:297).
+# THE custom_tooltip WRAPPER IS NOT OPTIONAL. Without it the engine auto-generates the
+# requirement text in the decision panel by walking the raw trigger tree, and a doubly nested
+# list scope (any_scope_state -> state_region -> any_scope_state) renders as an unreadable blob
+# of "any state where any state in its state region where owner is China". Wrapping the whole
+# condition in one custom_tooltip collapses it to a single readable line and the trigger still
+# evaluates normally - the conditions inside AND together exactly as they would bare.
+# Vanilla does this for the same reason on every non-trivial scripted trigger, including the
+# country_is_great_power referenced below and is_in_civil_war
+# (common/scripted_triggers/00_scripted_triggers.txt:1015), which wraps a list scope just like
+# this one does.
+ptm_is_great_power_with_a_china_treaty_port = {
+	custom_tooltip = {
+		text = ptm_gp_china_treaty_port_tt
+		country_rank >= rank_value:great_power
+		any_scope_state = {
+			is_treaty_port = yes
+			state_region = {
+				any_scope_state = {
+					owner = c:CHI
+				}
+			}
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# LAPSED-PORT RECLAIM - generic, no tags. Covers formed/renamed nations (GERMANY from PRU).
+#
+# ptm_is_grantee_power: PTM colonizer set = capital in Europe OR USA.
+ptm_is_grantee_power = {
+	OR = {
+		capital.state_region = { is_in_geographic_region = geographic_region_europe }
+		c:USA ?= this
+	}
+}
+
+# ptm_is_reclaimable_host_port: STATE scope. A part owned by a host ROOT can reclaim from.
+# Article uses ROOT's own coastal province, so no coastal/port check on the host part.
+ptm_is_reclaimable_host_port = {
+	owner = {
+		NOT = { this = root }
+		NOT = { is_subject_of = root }
+		NOT = { market = root.market }              # same market area (covers customs unions, subject markets)
+		NOT = { is_in_customs_union_with = root }   # explicit customs-union partner
+		NOT = { is_country_type = decentralized }
+		NOT = { ptm_is_grantee_power = yes }         # host is not a grantee (not Europe, not USA)
+	}
+}
+
+# ptm_has_any_reclaimable_port: COUNTRY scope. Grantee ROOT keeps a settled (non-colonizing) coastal
+# foothold in a region a qualifying host holds a reclaimable port of.
+ptm_has_any_reclaimable_port = {
+	ptm_is_grantee_power = yes
+	any_scope_state = {
+		owner = root
+		is_coastal = yes
+		is_under_colonization = no
+		state_region = {
+			any_scope_state = { ptm_is_reclaimable_host_port = yes }
+		}
+	}
+}

@@ -8,11 +8,13 @@ mdp_nepal_trigger_event  = {
 	possible = {
 		is_at_war = no
 		is_active_in_diplomatic_play = no
-		# China must have the opium wars
+		# China distracted: under attack, or crippled by widespread opium addiction
 		c:CHI = {
 			exists = yes
-			is_at_war = yes
-			# China is under attack
+			OR = {
+				is_at_war = yes                                # China is under attack
+				has_modifier = opium_wars_addiction_modifier   # "Widespread Opium Addiction"
+			}
 		}
 	}
 

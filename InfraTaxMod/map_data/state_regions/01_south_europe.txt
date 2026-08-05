@@ -945,12 +945,12 @@ STATE_MONTENEGRO = {
     farm = "x8C6292"
     mine = "xA12F82"
     wood = "xA12F82"
-    arable_land = 38
+    arable_land = 58
     arable_resources = { "building_wheat_farm" "building_livestock_ranch" "building_vineyard" }
     capped_resources = {
         building_coal_mine = 50
-        building_logging_camp = 15
-        building_fishing_wharf = 15
+        building_logging_camp = 25
+        building_fishing_wharf = 21
     }
     naval_exit_id = 3093
 }

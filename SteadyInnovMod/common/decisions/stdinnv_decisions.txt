@@ -26,19 +26,19 @@ stdinnv_uni_built = {
 		NOT = { has_modifier = stdinnv_reward }
 		OR = {
 		    NOR = {
-		        this = c:BIC
-		        this = c:DEI
-		        this = c:CHI
+		        c:BIC ?= ROOT
+		        c:DEI ?= ROOT
+		        c:CHI ?= ROOT
 		    }
             AND = {
                 OR = {
-                    this = c:BIC
-                    this = c:DEI
+                    c:BIC ?= ROOT
+                    c:DEI ?= ROOT
                 }
                 is_subject = no
             }
             AND = {
-                this = c:CHI
+                c:CHI ?= ROOT
                 is_country_type = recognized
             }
 		}
@@ -55,7 +55,7 @@ stdinnv_uni_built = {
 stdinnv_austria_uni_art_paper_built = {
 
 	is_shown = {
-		this = c:AUS
+		c:AUS ?= ROOT
 		has_modifier = aus_crownland_management_50y
 		NOT = { has_variable = aus_crownland_reform_done }
 	}
@@ -99,10 +99,6 @@ stdinnv_building_bridges = {
 
 	possible = {
 		NOT = { has_modifier = stdinnv_building_bridges_cost_1y }
-		# power bloc mandate gate: NOT spammable once the bloc has banked 9+ mandates.
-		# num_mandates is a power_bloc-scope trigger (vanilla 00_alert_types.txt:
-		# `power_bloc ?= { num_mandates > 0 }`); is_shown already guarantees a bloc leader.
-		power_bloc ?= { num_mandates < 9 }
 		# gap between #1 (this) and #2 exceeds 1000
 		any_country = {
 			global_country_ranking = 2
@@ -127,7 +123,7 @@ stdinnv_building_bridges = {
 		trigger_event = { id = uni_event.3 popup = yes }
 	}
 
-	ai_chance = { value = 0 } # player-only; is_shown gates the AI out anyway
+	ai_chance = { value = 100 }
 }
 
 
@@ -178,7 +174,7 @@ stdinnv_gp1_burden = {
 		trigger_event = { id = uni_event.4 }
 	}
 
-	ai_chance = { value = 10000 }
+	ai_chance = { value = 100 }
 }
 
 # --- 3b "Lift Up the Vassals" -------------------------------------------------
@@ -202,7 +198,7 @@ stdinnv_uplift_subjects = {
 	}
 
 	possible = {
-		has_technology_researched = civilizing_mission   # gate: the imperial "civilizing" reach
+		has_technology_researched = central_planning   # gate: the imperial "civilizing" reach
 		NOT = { has_modifier = stdinnv_uplift_cost }      # 5yr cooldown (and the cost)
 		any_subject_or_below = {
 			has_modifier = stdinnv_subject
@@ -271,4 +267,93 @@ stdinnv_gp_shot_at_greatness = {
 	}
 
 	ai_chance = { value = 10000 }
+}
+
+
+# =============================================================================
+# "Offer of Protection" - peaceful protectorate of friendly minor bloc members
+# (2026-07-14). A rank #1 great power that LEADS a Religious Convocation bloc
+# (identity_religious) may fold the friendly, insignificant, still-independent
+# members of its OWN bloc into protectorates - no war, no infamy. When taken it
+# subjugates EVERY eligible member at once via create_diplomatic_pact
+# type=protectorate (the same no-war mechanism vanilla force_become_subject uses)
+# and grants a one-off cohesion bump; the new subjects then feed bloc mandate
+# income organically. Player-only (ai_chance = 0) like stdinnv_building_bridges.
+# NO debug_log (decision when_taken re-runs in tooltip preview).
+# Tokens verified vs game files 2026-07-14:
+#   create_diplomatic_pact type=protectorate + country_rank < rank_value:minor_power
+#     + is_subject=no (diplomatic_actions/31_power_bloc_force_become_subject.txt);
+#   power_bloc has_identity = identity:identity_religious (00_power_bloc_principles
+#     ai_weight idiom; power_bloc_identities/00: identity_religious);
+#   relations:root >= relations_threshold:friendly (=80; decisions/canal_decisions.txt
+#     + defines RELATIONS_THRESHOLD_FRIENDLY); add_cohesion_percent (effect, reused
+#     from stdinnv_building_bridges); global_country_ranking / country_rank /
+#     is_power_bloc_leader reused from master-vetted stdinnv decisions.
+# NOTE: no vanilla effect ADDS a mandate directly (mandates accrue only when the
+# bloc's weekly mandate_progress reaches 2000); the "mandate bump" is the organic
+# income from locking the new subjects into the bloc (design decision 2026-07-14).
+# Leverage gate dropped: Vic3 exposes no leverage TRIGGER (add_leverage is an
+# effect only), so it cannot gate a decision.
+# =============================================================================
+stdinnv_offer_protectorate = {
+
+	is_shown = {
+		global_country_ranking = 1
+		country_rank >= rank_value:great_power
+		is_power_bloc_leader = yes
+		power_bloc ?= { has_identity = identity:identity_religious }
+	}
+
+	possible = {
+		# green only when at least one friendly, insignificant, independent member of
+		# OUR bloc is available to take under protection
+		custom_tooltip = {
+			text = stdinnv_offer_protectorate_tt
+			any_country = {
+				is_subject = no
+				country_rank < rank_value:minor_power
+				relations:root >= relations_threshold:friendly
+				power_bloc ?= { this = root.power_bloc }
+			}
+		}
+	}
+
+	when_taken = {
+		# subjugate EVERY eligible bloc member as a protectorate (no war / no infamy)
+		every_country = {
+			limit = {
+				is_subject = no
+				country_rank < rank_value:minor_power
+				relations:root >= relations_threshold:friendly
+				power_bloc ?= { this = root.power_bloc }
+			}
+			save_scope_as = stdinnv_protectorate_target
+			root = {
+				# subject TYPE depends on the target's country type (mirrors vanilla
+				# force_become_subject): a COLONIAL nation cannot become a protectorate,
+				# so it is made a dominion; everyone else (recognized / unrecognized)
+				# becomes a protectorate.
+				if = {
+					limit = { scope:stdinnv_protectorate_target = { is_country_type = colonial } }
+					create_diplomatic_pact = {
+						country = scope:stdinnv_protectorate_target
+						type = dominion
+					}
+				}
+				else = {
+					create_diplomatic_pact = {
+						country = scope:stdinnv_protectorate_target
+						type = protectorate
+					}
+				}
+			}
+		}
+		# one-off reward: a bump in bloc cohesion (the mandate gain is organic - the
+		# new subjects keep feeding mandate income as bloc members). 0.1 = +10%, tunable.
+		power_bloc ?= {
+			add_cohesion_percent = 0.3
+		}
+	}
+
+	ai_chance = { value = 0 } # player-only; is_shown gates typical AI out anyway
 }

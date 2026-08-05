@@ -28,17 +28,36 @@ state_trait_infratax_cheat = {
 
 	modifier = {
 		building_group_bg_manufacturing_employee_mult = -0.4
-		building_group_bg_service_employee_mult = -0.5
+		building_group_bg_service_employee_mult = -0.2
+		building_group_bg_extraction_employee_mult = -0.2
 		state_construction_mult = 0.5
 		state_pollution_reduction_health_mult = -0.5
 		state_turmoil_effects_mult = -0.5
 	}
 }
 
+state_trait_infratax_ext_cheat = {
+	icon = "gfx/interface/icons/state_trait_icons/fjords.dds"
+
+	modifier = {
+		building_group_bg_extraction_employee_mult = -0.4
+		building_group_bg_extraction_throughput_add = 0.2
+		building_group_bg_extraction_construction_efficiency_add = 0.5
+		state_turmoil_effects_mult = -0.5
+	}
+}
+
+#love to australia
+INJECT_OR_CREATE:state_trait_great_dividing_range = {
+	modifier = {
+		building_group_bg_extraction_employee_mult = -0.4
+	}
+}
+
 #North America whaling buffs
 INJECT_OR_CREATE:state_trait_new_england_whaling = {
 	modifier = {
-		building_group_bg_whaling_employee_mult = -0.2
+		building_group_bg_whaling_employee_mult = -0.5
 		building_group_bg_manufacturing_employee_mult = -0.2
 		building_group_bg_service_employee_mult = -0.2
 		building_group_bg_extraction_construction_efficiency_add = 0.5
@@ -82,6 +101,7 @@ INJECT_OR_CREATE:state_trait_loire_river = {
 	modifier = {
 		state_construction_mult = 0.2
 		building_group_bg_light_industry_throughput_add = 0.1
+		building_group_bg_extraction_employee_mult = -0.2
 	}
 }
 
@@ -90,7 +110,11 @@ INJECT_OR_CREATE:state_trait_oder_river = {
 	modifier = {
 		building_tooling_workshop_throughput_add = 0.1
 		building_group_bg_extraction_throughput_add = 0.1
-		state_pop_qualifications_mult = 0.1
+		state_pop_qualifications_mult = 0.4
+		building_group_bg_extraction_employee_mult = -0.4
+		building_group_bg_extraction_construction_efficiency_add = 0.5
+		state_infrastructure_add  = 15
+		state_market_access_price_impact = 0.2
 	}
 }
 
@@ -103,13 +127,84 @@ INJECT_OR_CREATE:state_trait_drava_river = {
 	}
 }
 
+INJECT_OR_CREATE:state_trait_terra_rossa = {
+	modifier = {
+		state_infrastructure_add  = 20
+		state_market_access_price_impact = 0.5
+	}
+}
+
+# BRAZIL - this is for Maria
+INJECT_OR_CREATE:state_trait_amazon_rainforest = {
+	modifier = {
+		building_group_bg_extraction_employee_mult = -0.2
+		building_group_bg_extraction_throughput_add = 0.2
+	}
+}
+
+INJECT_OR_CREATE:state_trait_mata_atlantica = {
+	modifier = {
+		building_group_bg_extraction_employee_mult = -0.4
+		building_group_bg_extraction_throughput_add = 0.2
+		state_infrastructure_add  = 20
+		state_market_access_price_impact = 0.5
+		state_trade_capacity_add = 0.2
+	}
+}
+INJECT_OR_CREATE:state_trait_terra_roxa = {
+	modifier = {
+		building_group_bg_plantations_employee_mult = -0.4
+		building_coffee_plantation_throughput_add = 0.4
+		state_infrastructure_add  = 10
+		state_market_access_price_impact = 0.5
+	}
+}
+INJECT_OR_CREATE:state_trait_pampas = {
+	modifier = {
+		building_group_bg_plantations_employee_mult = -0.4
+		building_group_bg_ranching_standard_of_living_add = 5
+		building_livestock_ranch_throughput_add = 0.3
+		state_infrastructure_add  = 10
+		state_market_access_price_impact = 0.5
+		state_trade_capacity_add = 0.2
+	}
+}
+
 # UK — London as commercial/industrial hub, not absurd minting exploit
 INJECT_OR_CREATE:state_trait_london_docklands = {
 	modifier = {
-		building_throughput_add = 0.1
-		state_construction_mult = 0.25
-		building_urban_center_throughput_add = 0.25
-		building_shipyard_throughput_add = 0.15
+		building_throughput_add = 0.5
+		building_shipyard_throughput_add = 0.45
+		building_group_bg_ship_construction_employee_mult = -0.5
+	}
+}
+
+INJECT_OR_CREATE:state_trait_black_country = {
+	modifier = {
+		building_group_bg_mining_employee_mult = -0.4
+		building_group_bg_mining_engineers_standard_of_living_add = 3
+		building_group_bg_extraction_throughput_add = 0.2
+		building_group_bg_heavy_industry_throughput_add = 0.25
+	}
+}
+INJECT_OR_CREATE:state_trait_central_belt_coalfield = {
+	modifier = {
+		building_steel_mill_throughput_add = 0.25
+		building_group_bg_heavy_industry_throughput_add = 0.15
+	}
+}
+INJECT_OR_CREATE:state_trait_south_yorkshire_coalfield = {
+	modifier = {
+		building_textile_mill_throughput_add = 0.25
+		building_group_bg_light_industry_throughput_add = 0.15
+		building_group_bg_manufacturing_employee_mult = -0.2
+	}
+}
+INJECT_OR_CREATE:state_trait_south_wales_valleys = {
+	modifier = {
+		building_food_industry_throughput_add = 0.25
+		building_group_bg_light_industry_throughput_add = 0.15
+		building_group_bg_manufacturing_employee_mult = -0.2
 	}
 }
 
@@ -118,6 +213,22 @@ INJECT_OR_CREATE:state_trait_volga_river = {
 	modifier = {
 		state_construction_mult = 0.1
 		building_group_bg_logging_throughput_add = 0.2
+		state_dependent_wage_mult = 0.5
+	}
+}
+
+INJECT_OR_CREATE:state_trait_ural_iron = {
+	modifier = {
+		building_group_bg_mining_standard_of_living_add = 5
+		building_group_bg_mining_employee_mult = -0.2
+		state_dependent_wage_mult = 0.2
+	}
+}
+
+INJECT_OR_CREATE:state_trait_western_steppe = {
+	modifier = {
+		building_group_bg_ranching_standard_of_living_add = 5
+		building_group_bg_ranching_throughput_add = 0.2
 		state_dependent_wage_mult = 0.2
 	}
 }

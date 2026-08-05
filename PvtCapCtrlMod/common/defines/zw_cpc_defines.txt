@@ -1,0 +1,28 @@
+﻿# PvtCapCtrlMod - defines override. HAND-WRITTEN.
+# Partial override: only the NEconomy group + the changed keys (defines merge key-by-key; this
+# file loads after vanilla 00_defines.txt so these values win). Do NOT copy the whole vanilla file.
+# ALL keys below are ENGINE-GLOBAL scalars: they apply to every country incl. the player and every
+# building type - Vic3 has no per-building-group / AI-only / scriptable override for these. Tunable.
+NEconomy = {
+	# ---------------- Autonomous downsizing: TIMER ----------------
+	# Vanilla waits 6 months after a building decides to auto-downsize before it actually shrinks;
+	# drop to 1 so overbuilt, understaffed levels are shed quickly (complements the PCC construction
+	# / expansion caps - same overbuild problem, teardown side). Bites PRIVATELY-owned levels mostly;
+	# government-run rail / ports / power are largely insulated (they are not privately held).
+	AUTO_DOWNSIZE_BUILDING_MONTHS_TO_WAIT = 1	# vanilla 6
+
+	# ---------------- Autonomous downsizing: ELIGIBILITY (buffer) ----------------
+	# Both gates must hold before a building even considers shedding. Raising them makes downsizing
+	# PICKIER - it acts only on CLEARLY overbuilt buildings and tolerates minor vacancy, so the fast
+	# 1-month timer does not strip marginally-understaffed buildings. This is the "leave a buffer" knob.
+	AUTO_DOWNSIZE_BUILDING_MIN_EMPTY_FRACTION = 0.15	# vanilla 0.10 (needs >=15% empty, not 10%)
+	AUTO_DOWNSIZE_BUILDING_MIN_EMPTY_PRIVATE_LEVELS = 2.0	# vanilla 1.0 (needs >=2 empty private levels; soft floor protects small buildings)
+
+	# ---------------- Wage competitiveness (retention) ----------------
+	# So viable buildings keep staff instead of bleeding to empty (empty levels are what trigger the
+	# downsize above). Lowering the profit target makes a profitable building willing to raise wages
+	# to RETAIN at a slimmer margin; raising the employment-fraction cap lets it keep bidding for
+	# staff up to a higher staffing level before it stops competing.
+	BUILDING_PROFIT_TARGET_TO_RAISE_WAGES = 0.20	# vanilla 0.25
+	BUILDING_MAX_EMPLOYMENT_FRACTION_TO_RAISE_WAGES = 0.65	# vanilla 0.50
+}

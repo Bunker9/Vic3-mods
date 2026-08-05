@@ -1,0 +1,387 @@
+﻿namespace = ptm_event
+
+# =============================================================================
+# PrettyTreatyMod - hidden effect-engine events.
+# HAND-WRITTEN.
+#
+# WHY EVENTS AND NOT when_taken: a decision's when_taken is re-computed during
+# TOOLTIP PREVIEW. Every payload here reads var:ptm_cur to compute a create_building
+# level, and in preview that variable evaluates to 'none' -> "Value of wrong type"
+# error spam on every hover. A hidden triggered-only event's immediate never runs in
+# preview. Same fix as DesiStrategyMod desi_event.1 and SteadyInnov uni_event.4, both
+# in-game verified. The decision carries only a custom_tooltip + trigger_event.
+#
+# ONCE-ONLY GUARDS LIVE HERE, in the payload, so they are set exactly when the payload
+# actually runs:
+#   ptm_event.1  country variable ptm_rice_expansion_done  (CHI only ever takes it)
+#   ptm_event.2  GLOBAL variable  ptm_railway_race_won     (first European wins, race)
+#   ptm_event.3  GLOBAL variable  ptm_mining_race_won      (first European wins, race)
+# Global, not country, for the two races: a country variable would only stop the SAME
+# country retaking it, and the whole point is that it closes for everyone.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# ptm_event.1 - Granary of the Empire payload. Qing rice build-out.
+# -----------------------------------------------------------------------------
+ptm_event.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "ptm - rice-expansion - CHI rice build-out fired"
+		set_variable = { name = ptm_rice_expansion_done value = yes }
+
+		every_scope_state = {
+			limit = {
+				can_construct_building = building_rice_farm
+			}
+
+			set_variable = { name = ptm_cur value = 0 }
+			if = {
+				limit = { has_building = building_rice_farm }
+				set_variable = { name = ptm_cur value = b:building_rice_farm.level }
+			}
+			if = {
+				limit = { var:ptm_cur < 10 }
+				create_building = { building = building_rice_farm level = 10 reserves = 1 }
+			}
+			remove_variable = ptm_cur
+
+			# if = {
+				# limit = { NOT = { has_variable = ptm_fingerprint_rice_expansion } }
+				# set_variable = { name = ptm_fingerprint_rice_expansion value = 0 }
+			# }
+			# change_variable = { name = ptm_fingerprint_rice_expansion add = 1 }
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.2 - Iron Road Concession payload. Level 2 railways across populous China.
+# -----------------------------------------------------------------------------
+ptm_event.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "ptm - china-railways - treaty port power funds Chinese railways"
+
+		# close the race first, so no other power can take it
+		set_global_variable = { name = ptm_railway_race_won value = yes }
+
+		# rails winner collects its own concession prize (guarded once inside)
+		ptm_grant_concession_prize_rails = yes
+
+		c:KOR ?= {
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+		}
+		c:JAP ?= {
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+		}
+		c:CHI ?= {
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+				}
+
+				# China deletes its own construction sectors mid-game, starving the build
+				# queue. Give each populous province a fresh sector so the queued track
+				# actually gets laid. (create_building tech-gates on the state owner CHI;
+				# the base construction sector is start-available to every country.)
+				create_building = { building = building_construction_sector level = 1 reserves = 1 }
+
+				# The construction QUEUE does NOT tech-gate on the low-tech host the way
+				# create_building does (in-game verified 2026-07-22, test_todel.2). Queue one
+				# railway in each of the government and private queues; both build out to
+				# CHINESE ownership, which is intended for the trunk line.
+				start_building_construction = building_railway
+				start_privately_funded_building_construction = building_railway
+
+				# fingerprint: SET before CHANGE in STATE scope (was set in country scope -> empty-var error)
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_railways } }
+					# set_variable = { name = ptm_fingerprint_china_railways value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_railways add = 2 } # 2 rails queued per state
+			}
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.3 - Powder and Pit Concession payload. +4 levels of each mine.
+# Coal, iron, lead and sulfur are capped_resources, NOT discoverable, so
+# can_construct_building is the complete and sufficient gate for all four.
+# -----------------------------------------------------------------------------
+ptm_event.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "ptm - china-mining - treaty port power funds Chinese mines"
+
+		# close the race first, so no other power can take it
+		set_global_variable = { name = ptm_mining_race_won value = yes }
+
+		# mines winner collects its own concession prize (guarded once inside)
+		ptm_grant_concession_prize_mines = yes
+
+		# fingerprint set-before-change now lives INSIDE each state loop (below), in STATE scope.
+		# A state that qualifies for several mines is initialised once (guard) then +4 per mine.
+
+		c:CHI ?= {
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_coal_mine
+				}
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
+				}
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+			}
+
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_iron_mine
+				}
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
+				}
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+			}
+
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_lead_mine
+				}
+				create_building = {
+					building = building_lead_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
+				}
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+			}
+
+			every_scope_state = {
+				limit = {
+					state_population > 1000000
+					can_construct_building = building_sulfur_mine
+				}
+				create_building = {
+					building = building_sulfur_mine
+					add_ownership = { country = { country = root levels = 4 } }
+					reserves = 1
+				}
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+			}
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.4 - Reclaim Lapsed Treaty Port payload.
+# Sets a 5-year anti-spam cooldown, then hands off to the enumerated reclaim effect.
+# -----------------------------------------------------------------------------
+ptm_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "ptm - reclaim-lapsed-port - decision fired"
+		set_variable = { name = ptm_reclaim_cooldown value = yes years = 10 }
+		ptm_reclaim_lapsed_ports = yes
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.5 - Raj Settlement payload. ROOT is BIC's overlord.
+# THREE STAGES, deliberately spread: .5 market + tribute, .6 the port 14 days later,
+# .7 incorporation 7 days after that. The port is carved out of BIC's market capital
+# state, so BIC must own its market before the carve.
+# The tribute is a PACT (ptm_raj_tribute), not a modifier - see that file's header.
+# -----------------------------------------------------------------------------
+ptm_event.5 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		# debug_log = "ptm - raj-settlement - decision fired"
+		set_variable = { name = ptm_raj_settlement_done value = yes }
+
+		# 1. BIC leaves the overlord market. set_market_capital ALONE did nothing (save
+		# 2026-07-25: GBR and BIC both market 0) - it moves a market's centre, it does not
+		# create one. Market OWNERSHIP moves via the pact field market_owner = second_country
+		# in vanilla 36_subjects_grant_own_market.txt, so take that action first.
+		create_diplomatic_pact = {
+			country = c:BIC
+			type = grant_own_market
+		}
+		c:BIC ?= {
+			set_market_capital = STATE_WEST_BENGAL
+		}
+
+		# 2. The port follows two weeks later, once the new market has settled
+		trigger_event = { id = ptm_event.6 days = 14 }
+
+		# 3. Tribute to the overlord, forced for 100 years. The two debug_log branches say
+		# whether the PACT ITSELF took: SaveParse does not read diplomatic pacts, so this
+		# marker is the only evidence of it (2026-07-25 run showed no money moving).
+		create_diplomatic_pact = {
+			country = c:BIC
+			type = ptm_raj_tribute
+		}
+		# if = {
+			# limit = { has_diplomatic_pact = { who = c:BIC type = ptm_raj_tribute } }
+			# debug_log = "ptm - raj-settlement - tribute pact created"
+		# }
+		# else = { debug_log = "ptm - raj-settlement - tribute pact NOT created" }
+
+		# if = {
+			# limit = { has_diplomatic_pact = { who = c:BIC type = grant_own_market } }
+			# debug_log = "ptm - raj-settlement - own market pact created"
+		# }
+		# else = { debug_log = "ptm - raj-settlement - own market pact NOT created" }
+
+		# if = {
+			# limit = { NOT = { has_variable = ptm_fingerprint_raj_settlement } }
+			# set_variable = { name = ptm_fingerprint_raj_settlement value = 0 }
+		# }
+		# change_variable = { name = ptm_fingerprint_raj_settlement add = 1 }
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.6 - Raj Settlement stage 2: the Calcutta treaty port, 14 days after .5.
+# 99 years like every other PTM concession. Hands off to .7 for incorporation.
+# -----------------------------------------------------------------------------
+ptm_event.6 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { exists = s:STATE_WEST_BENGAL.region_state:BIC }
+			create_treaty = {
+				name = treaty_name_ptm_anglo_raj_calcutta
+				first_country = root
+				second_country = c:BIC
+				is_draft = no
+				binding_period = { years = 99 }
+				articles_to_create = {
+					{
+						article = treaty_port
+						source_country = c:BIC
+						target_country = root
+						inputs = { { state = s:STATE_WEST_BENGAL.region_state:BIC } }
+					}
+				}
+			}
+			# debug_log = "ptm - raj-settlement - Calcutta treaty port created"
+			trigger_event = { id = ptm_event.7 days = 7 }
+		}
+		# else = { debug_log = "ptm - raj-settlement - BIC holds no West Bengal state" }
+	}
+}
+
+# -----------------------------------------------------------------------------
+# ptm_event.7 - Raj Settlement stage 3: incorporate the port, 7 days after the carve.
+# INCORPORATED, still a treaty port: the two are independent (vanilla incorporates
+# states wholesale via set_state_type, 04_sepoy_mutiny.txt:497). Delayed so the
+# article's land transfer has resolved before we look for our own region_state.
+# -----------------------------------------------------------------------------
+ptm_event.7 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		s:STATE_WEST_BENGAL = {
+			random_scope_state = {
+				limit = { owner = root }
+				set_state_type = incorporated
+				add_modifier = { name = ptm_treaty_port_order }
+				# debug_log = "ptm - raj-settlement - port incorporated and pacified"
+			}
+		}
+	}
+}
