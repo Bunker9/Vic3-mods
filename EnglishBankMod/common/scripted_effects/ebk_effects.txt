@@ -1,0 +1,218 @@
+﻿# EnglishBankMod scripted effects.
+# scope:ebk_borrower is the rescued country, scope:ebk_creditor pays.
+# The money is exact: the creditor's pool loses the borrower's whole debt.
+
+# ---- 1. find who pays. Runs in the BORROWER's scope ----------------------
+# Overlord first, then its overlord, then the richest friend that can cover it.
+
+ebk_effect_find_rescuer = {
+	if = {
+		limit = { overlord ?= { ebk_trigger_can_fund_root = yes } }
+		overlord = { save_scope_as = ebk_creditor }
+	}
+	else_if = {
+		limit = { top_overlord ?= { ebk_trigger_can_fund_root = yes } }
+		top_overlord = { save_scope_as = ebk_creditor }
+	}
+	else = {
+		ordered_country = {
+			limit = {
+				ebk_trigger_can_fund_root = yes
+				NOT = { is_country_type = unrecognized }
+				relations:root >= 0
+			}
+			order_by = investment_pool
+			position = 0
+			check_range_bounds = no
+			save_scope_as = ebk_creditor
+		}
+	}
+}
+
+# ---- 2. find who is rescued. Runs in the CREDITOR's scope ----------------
+# Subjects come first: an overlord looks to its own before strangers.
+
+ebk_effect_find_debtor = {
+	if = {
+		limit = { any_subject_or_below = { ebk_trigger_is_needy_debtor = yes } }
+		ordered_subject_or_below = {
+			limit = { ebk_trigger_is_needy_debtor = yes }
+			order_by = principal
+			position = 0
+			save_scope_as = ebk_borrower
+		}
+	}
+	else = {
+		ordered_country = {
+			limit = { ebk_trigger_is_needy_debtor = yes }
+			order_by = principal
+			position = 0
+			check_range_bounds = no
+			save_scope_as = ebk_borrower
+		}
+	}
+}
+
+# ---- 3. the money. Runs in the BORROWER's scope --------------------------
+# add_investment_pool with a NEGATIVE value: vanilla only shows positive
+# literals (test_events.txt:2617). IN-GAME CHECK the pool actually drops.
+
+ebk_effect_pay_the_debt = {
+	scope:ebk_creditor = {
+		add_investment_pool = ebk_value_debt_paid
+		add_modifier = {
+			name = ebk_creditor_industrialists
+			months = 24
+		}
+	}
+
+	clear_debt = yes
+
+	# The rescue is the industrialists' win here too, and the poor pay for it.
+	add_modifier = {
+		name = ebk_debtor_industrialists
+		months = 24
+	}
+	add_radicals = { value = 0.02 }
+
+	ebk_effect_stamp_rescue = yes
+	debug_log = "ebk - rescue - debt paid from creditor pool"
+}
+
+# Counter fingerprint: a country can be rescued more than once.
+# The has_variable read is the genuine reader the engine needs.
+ebk_effect_stamp_rescue = {
+	if = {
+		limit = { NOT = { has_variable = ebk_fingerprint_rescue } }
+		set_variable = { name = ebk_fingerprint_rescue value = 0 }
+	}
+	change_variable = { name = ebk_fingerprint_rescue add = 1 } # BDD(EBK-RESCUE) for rescue
+	if = {
+		limit = { has_variable = ebk_fingerprint_rescue }
+		debug_log = "ebk - rescue - fingerprint stamped"
+	}
+}
+
+# ---- 4. the reward rungs. Each runs in the BORROWER's scope --------------
+# Rung order is preserved in the option ai_chance values, not in a chain.
+
+ebk_effect_reward_obligation = {
+	set_owes_obligation_to = { country = scope:ebk_creditor setting = yes }
+	debug_log = "ebk - reward - obligation set"
+}
+
+ebk_effect_reward_investment_rights = {
+	create_treaty = {
+		name = ebk_treaty_rescue_terms
+		first_country = scope:ebk_creditor
+		second_country = root
+		is_draft = no
+		binding_period = { years = 2 }
+		articles_to_create = {
+			{
+				article = foreign_investment_rights
+				source_country = scope:ebk_creditor
+				target_country = root
+			}
+		}
+	}
+	debug_log = "ebk - reward - investment rights treaty"
+}
+
+ebk_effect_reward_disband_lobby = {
+	random_political_lobby = {
+		limit = {
+			is_political_lobby_type = lobby_anti_country
+			target ?= scope:ebk_creditor
+		}
+		disband_political_lobby = yes
+	}
+	debug_log = "ebk - reward - hostile lobby disbanded"
+}
+
+# The lobby is created WITH its members. v1 created it empty and hunted for
+# it afterwards, which is what the left-in TODO was about.
+ebk_effect_reward_form_lobby = {
+	random_interest_group = {
+		limit = { is_in_government = yes }
+		save_scope_as = ebk_gov_ig
+	}
+	if = {
+		limit = { exists = scope:ebk_gov_ig }
+		create_political_lobby = {
+			type = lobby_pro_country
+			target = scope:ebk_creditor
+			add_interest_group = scope:ebk_gov_ig
+		}
+		debug_log = "ebk - reward - pro creditor lobby formed"
+	}
+}
+
+ebk_effect_reward_relations = {
+	change_relations = { country = scope:ebk_creditor value = 30 }
+	debug_log = "ebk - reward - relations improved"
+}
+
+# ---- 5. the uplift. Runs in the COUNTRY's scope --------------------------
+# Price is charged BEFORE the state gets anything.
+# Richest state first, and always one that is not covered yet. Once every
+# incorporated state carries the modifier the subscription doubles up on the
+# richest, so a big country stacks its top states over the years.
+# order_by = gdp position = 0 is the highest, per expmkt_effects.txt:48.
+
+ebk_effect_run_uplift = {
+	if = {
+		limit = { any_scope_state = { ebk_trigger_state_needs_first_uplift = yes } }
+		ordered_scope_state = {
+			limit = { ebk_trigger_state_needs_first_uplift = yes }
+			order_by = gdp
+			position = 0
+			check_range_bounds = no
+			save_scope_as = ebk_uplift_state
+		}
+	}
+	else = {
+		ordered_scope_state = {
+			limit = { ebk_trigger_state_can_be_uplifted = yes }
+			order_by = gdp
+			position = 0
+			check_range_bounds = no
+			save_scope_as = ebk_uplift_state
+		}
+	}
+
+	if = {
+		limit = { exists = scope:ebk_uplift_state }
+		add_investment_pool = ebk_value_uplift_paid
+
+		scope:ebk_uplift_state = {
+			add_modifier = {
+				name = ebk_state_uplift
+				months = 120
+			}
+		}
+
+		# No state scoped per-IG modifier exists, so the country modifier is
+		# sized by the state's share of the nation. See T183.
+		add_modifier = {
+			name = ebk_uplift_industrialists
+			months = 120
+			multiplier = ebk_value_uplift_state_share
+		}
+
+		ebk_effect_stamp_uplift = yes
+		debug_log = "ebk - uplift - state funded from pool"
+	}
+}
+
+ebk_effect_stamp_uplift = {
+	if = {
+		limit = { NOT = { has_variable = ebk_fingerprint_uplift } }
+		set_variable = { name = ebk_fingerprint_uplift value = 0 }
+	}
+	change_variable = { name = ebk_fingerprint_uplift add = 1 } # BDD(EBK-UPLIFT) for uplift
+	if = {
+		limit = { has_variable = ebk_fingerprint_uplift }
+		debug_log = "ebk - uplift - fingerprint stamped"
+	}
+}

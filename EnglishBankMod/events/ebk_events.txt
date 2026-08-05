@@ -1,0 +1,141 @@
+﻿namespace = ebk_event
+
+# ebk_event.1 - hidden router for D1. ROOT = the debtor asking for help.
+ebk_event.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - rescue - debtor asked for help"
+		save_scope_as = ebk_borrower
+		ebk_effect_find_rescuer = yes
+
+		if = {
+			limit = { exists = scope:ebk_creditor }
+			ebk_effect_pay_the_debt = yes
+			scope:ebk_creditor = { trigger_event = { id = ebk_event.3 } }
+		}
+		else = {
+			debug_log = "ebk - rescue - nobody could cover the debt"
+		}
+	}
+}
+
+# ebk_event.2 - hidden router for D2. ROOT = the patron paying.
+ebk_event.2 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - rescue - patron went looking for a debtor"
+		save_scope_as = ebk_creditor
+		ebk_effect_find_debtor = yes
+
+		if = {
+			limit = { exists = scope:ebk_borrower }
+			scope:ebk_borrower = { ebk_effect_pay_the_debt = yes }
+			trigger_event = { id = ebk_event.3 }
+		}
+		else = {
+			debug_log = "ebk - rescue - no debtor worth saving"
+		}
+	}
+}
+
+# ebk_event.3 - the reward. SHOWN to the creditor, ROOT = the creditor.
+# The old five rung ladder, order intact. It no longer decides for the player:
+# every rung the player could take is offered, and the AI weights descend in
+# ladder order so it still lands on the first rung open to it.
+ebk_event.3 = {
+	type = country_event
+	placement = ROOT
+
+	title = ebk_event_3_title
+	desc = ebk_event_3_desc
+	flavor = ebk_event_3_flavor
+
+	duration = 3
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		debug_log = "ebk - reward - creditor naming its price"
+	}
+
+	# Rung 1. Hidden once owed, and rung 5 carries that case.
+	option = {
+		name = ebk_event_3_opt_obligation
+
+		trigger = {
+			NOT = { scope:ebk_borrower = { owes_obligation_to = root } }
+		}
+
+		scope:ebk_borrower = { ebk_effect_reward_obligation = yes }
+
+		ai_chance = { value = ebk_value_reward_obligation }
+	}
+
+	# Rung 2. Hidden when such an article already binds the pair.
+	option = {
+		name = ebk_event_3_opt_investment
+
+		trigger = {
+			scope:ebk_borrower = {
+				NOT = { ebk_trigger_investment_rights_exist = yes }
+			}
+		}
+
+		scope:ebk_borrower = { ebk_effect_reward_investment_rights = yes }
+
+		ai_chance = { value = ebk_value_reward_investment }
+	}
+
+	# Rung 3. Only when a hostile lobby is actually standing.
+	option = {
+		name = ebk_event_3_opt_disband_lobby
+
+		trigger = {
+			scope:ebk_borrower = { ebk_trigger_hostile_lobby_exists = yes }
+		}
+
+		scope:ebk_borrower = { ebk_effect_reward_disband_lobby = yes }
+
+		ai_chance = { value = ebk_value_reward_lobby_disband }
+	}
+
+	# Rung 4. Needs rung 3 done first: no friendly lobby under a hostile one.
+	option = {
+		name = ebk_event_3_opt_form_lobby
+
+		trigger = {
+			scope:ebk_borrower = { ebk_trigger_can_form_pro_lobby = yes }
+		}
+
+		scope:ebk_borrower = { ebk_effect_reward_form_lobby = yes }
+
+		ai_chance = { value = ebk_value_reward_lobby_form }
+	}
+
+	# Rung 5. Always open, and the fallback when rung 1 is closed.
+	option = {
+		name = ebk_event_3_opt_relations
+		default_option = yes
+
+		scope:ebk_borrower = { ebk_effect_reward_relations = yes }
+
+		ai_chance = { value = ebk_value_reward_relations }
+	}
+}
+
+# ebk_event.4 - hidden payload for D3. ROOT = the country with the fat pool.
+ebk_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - uplift - decision fired"
+		ebk_effect_run_uplift = yes
+	}
+}

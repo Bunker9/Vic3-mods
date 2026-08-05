@@ -1,0 +1,134 @@
+﻿# EnglishBankMod - ALL scripted triggers, dependencies first.
+# Distress, who can afford a rescue, the uplift state, and the reward rungs.
+# Affordability is always "pool covers the whole debt", never a flat threshold.
+
+# ---------------- distress ----------------
+
+# Real distress only. A fat idle pool is NOT distress; that is D3's business.
+ebk_trigger_in_distress = {
+	OR = {
+		scaled_debt > 0.5
+		in_default = yes
+	}
+}
+
+# ---------------- who can pay ----------------
+
+# Current scope = a candidate creditor, ROOT = the debtor.
+# investment_pool is a trigger, principal is not, so the pool must be on the left.
+# prev/scope chaining into a value: vanilla does scope:x.value, prev.value is the
+# same shape but unproven. IN-GAME CHECK.
+ebk_trigger_can_fund_root = {
+	NOT = { this = root }
+	NOT = { has_war_with = root }
+	investment_pool >= root.principal
+}
+
+# ROOT = the debtor. Overlord first, then its overlord, then any solvent friend.
+ebk_trigger_has_rescuer = {
+	OR = {
+		overlord ?= { ebk_trigger_can_fund_root = yes }
+		top_overlord ?= { ebk_trigger_can_fund_root = yes }
+		any_country = {
+			ebk_trigger_can_fund_root = yes
+			NOT = { is_country_type = unrecognized }
+			relations:root >= 0
+		}
+	}
+}
+
+# Current scope = a candidate debtor, ROOT = the creditor.
+ebk_trigger_is_needy_debtor = {
+	ebk_trigger_in_distress = yes
+	NOT = { this = root }
+	NOT = { has_war_with = root }
+	root = { investment_pool >= prev.principal }
+}
+
+# ROOT = the creditor. Subjects first, then anyone.
+ebk_trigger_has_debtor_to_save = {
+	OR = {
+		any_subject_or_below = { ebk_trigger_is_needy_debtor = yes }
+		any_country = { ebk_trigger_is_needy_debtor = yes }
+	}
+}
+
+# ---------------- the uplift state ----------------
+
+# State scope. The owner's pool must cover this state's whole ten year price.
+ebk_trigger_state_can_be_uplifted = {
+	is_incorporated = yes
+	owner = { investment_pool >= prev.ebk_value_uplift_cost }
+}
+
+# Not yet covered. The subscription works down the states before it doubles up.
+ebk_trigger_state_needs_first_uplift = {
+	ebk_trigger_state_can_be_uplifted = yes
+	NOT = { has_modifier = ebk_state_uplift }
+}
+
+ebk_trigger_has_uplift_state = {
+	any_scope_state = { ebk_trigger_state_can_be_uplifted = yes }
+}
+
+# ---------------- reward rungs ----------------
+# All run in the DEBTOR's scope with scope:ebk_creditor saved.
+
+ebk_trigger_hostile_lobby_exists = {
+	any_political_lobby = {
+		is_political_lobby_type = lobby_anti_country
+		target ?= scope:ebk_creditor
+	}
+}
+
+ebk_trigger_pro_lobby_exists = {
+	any_political_lobby = {
+		is_political_lobby_type = lobby_pro_country
+		target ?= scope:ebk_creditor
+	}
+}
+
+# A pro-creditor lobby is only formable once no hostile one stands.
+# That ordering is what the old first-match ladder guaranteed by running first.
+ebk_trigger_can_form_pro_lobby = {
+	NOT = { ebk_trigger_pro_lobby_exists = yes }
+	NOT = { ebk_trigger_hostile_lobby_exists = yes }
+}
+
+ebk_trigger_investment_rights_exist = {
+	any_scope_treaty = {
+		any_scope_article = { has_type = foreign_investment_rights }
+	}
+}
+
+# ---------------- player facing tooltip wrappers ----------------
+# Every trigger read in a decision's possible gets one, so the panel never
+# renders the raw trigger tree.
+
+ebk_trigger_in_distress_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_in_distress_tt
+		ebk_trigger_in_distress = yes
+	}
+}
+
+ebk_trigger_has_rescuer_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_has_rescuer_tt
+		ebk_trigger_has_rescuer = yes
+	}
+}
+
+ebk_trigger_has_debtor_to_save_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_has_debtor_to_save_tt
+		ebk_trigger_has_debtor_to_save = yes
+	}
+}
+
+ebk_trigger_has_uplift_state_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_has_uplift_state_tt
+		ebk_trigger_has_uplift_state = yes
+	}
+}

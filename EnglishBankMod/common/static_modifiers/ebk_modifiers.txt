@@ -1,0 +1,26 @@
+﻿# EnglishBankMod - ALL modifiers in one file.
+
+# The bank that carried the rescue. Its financiers are vindicated.
+ebk_creditor_industrialists = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	interest_group_ig_industrialists_pol_str_mult = 0.05
+}
+
+# The rescued country. The men who arranged the loan now matter more.
+ebk_debtor_industrialists = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	interest_group_ig_industrialists_pol_str_mult = 0.15
+}
+
+# Ten years of funded wages in one state. Nothing else, by design.
+ebk_state_uplift = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	state_lower_strata_standard_of_living_add = 2
+}
+
+# Credit for the uplift. Scaled at runtime by the state's share of the nation.
+ebk_uplift_industrialists = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	interest_group_ig_industrialists_pol_str_mult = 0.25
+	interest_group_ig_industrialists_pop_attraction_mult = 0.25
+}

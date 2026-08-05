@@ -1,0 +1,16 @@
+{
+	"name": "EnglishBankMod",
+	"id": "EnglishBankMod",
+	"game_id": "victoria3",
+	"version": "0.2.0",
+	"supported_game_version": "1.13.*",
+	"short_description": "Rich patrons pay off the debts of the nations they sponsor, and bloated investment pools can be spent lifting a state at home.",
+	"tags": [
+		"Gameplay",
+		"Economy"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}

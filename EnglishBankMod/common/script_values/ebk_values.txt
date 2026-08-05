@@ -1,0 +1,40 @@
+﻿# EnglishBankMod script values. Money is exact: the creditor pays the debt, no fractions.
+
+# The borrower's outstanding debt, as a NEGATIVE, to debit the creditor's pool.
+# principal is read the same way in vanilla 04_take_on_debt.txt.
+ebk_value_debt_paid = {
+	value = scope:ebk_borrower.principal
+	multiply = -1
+}
+
+# The uplift price for the state in scope: dependents x 0.5 x 10 years.
+# 0.75 stands in for the dependent fraction; dependents/workforce are pop scope only.
+ebk_value_uplift_cost = {
+	value = state_population
+	multiply = 0.75
+	multiply = 0.5
+	multiply = 10
+}
+
+# Same price as a NEGATIVE, to debit the pool.
+ebk_value_uplift_paid = {
+	value = scope:ebk_uplift_state.ebk_value_uplift_cost
+	multiply = -1
+}
+
+# The chosen state's share of the nation, sizing a country modifier to one state.
+ebk_value_uplift_state_share = {
+	value = scope:ebk_uplift_state.state_population
+	divide = total_population
+	min = 0.01
+	max = 1
+}
+
+# ---------------- AI weights for the reward ladder ----------------
+# Descending in ladder order, so the AI lands on the first rung still open to it.
+
+ebk_value_reward_obligation = { value = 100 }
+ebk_value_reward_investment = { value = 80 }
+ebk_value_reward_lobby_disband = { value = 60 }
+ebk_value_reward_lobby_form = { value = 40 }
+ebk_value_reward_relations = { value = 20 }

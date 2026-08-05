@@ -1,0 +1,33 @@
+﻿l_english:
+ ebk_request_rescue:0 "Petition Our Creditors"
+ ebk_request_rescue_desc:0 "The treasury cannot carry another year like the last one. Somewhere there is a patron with money idle enough to settle our debts outright, and a price they will want for it."
+ ebk_request_rescue_tt:0 "A wealthy patron settles our entire debt out of their investment pool, and will name their price."
+
+ ebk_underwrite_debtor:0 "Underwrite a Debtor Nation"
+ ebk_underwrite_debtor_desc:0 "Our investment pool sits idle while nations we sponsor drown in interest. Their books can be cleared with money that is presently doing nothing at all."
+ ebk_underwrite_debtor_tt:0 "We settle a debtor nation's entire debt from our investment pool, then choose what we take in return."
+
+ ebk_national_uplift:0 "A National Subscription"
+ ebk_national_uplift_desc:0 "The financiers propose that the idle pool be spent at home for once. Ten years of subscribed wages for one province, the wealthiest we have not yet reached, and the credit for it will be theirs. They can be asked again next year."
+ ebk_national_uplift_tt:0 "Ten years of funded wages for our wealthiest state that is not already covered, paid from the investment pool. Once every state is covered the subscription doubles up on the richest. The industrialists take the credit."
+
+ ebk_trigger_in_distress_tt:0 "We are in default, or more than half our credit is spent"
+ ebk_trigger_has_rescuer_tt:0 "Some country can cover our whole debt from its investment pool"
+ ebk_trigger_has_debtor_to_save_tt:0 "Our investment pool can cover some distressed nation's whole debt"
+ ebk_trigger_has_uplift_state_tt:0 "Our investment pool can fund ten years of wages in an incorporated state"
+
+ ebk_event_3_title:0 "The Price of Rescue"
+ ebk_event_3_desc:0 "The money has gone out. Ledgers that were red this morning are settled, and a government that could not pay its soldiers last week can pay them tonight. Gratitude of that size does not stay warm for long, so our people are asking what we intend to take while it lasts."
+ ebk_event_3_flavor:0 "Nothing is quite so expensive as a debt of honour."
+ ebk_event_3_opt_obligation:0 "They will owe us an obligation"
+ ebk_event_3_opt_investment:0 "Our investors will have the run of their country"
+ ebk_event_3_opt_disband_lobby:0 "The faction that agitates against us will be bought off"
+ ebk_event_3_opt_form_lobby:0 "Their government will keep friends of ours in it"
+ ebk_event_3_opt_relations:0 "Their goodwill is payment enough"
+
+ ebk_creditor_industrialists:0 "Vindicated Financiers"
+ ebk_debtor_industrialists:0 "The Men Who Arranged the Loan"
+ ebk_state_uplift:0 "Subscribed Wages"
+ ebk_uplift_industrialists:0 "Patrons of the Nation"
+
+ ebk_treaty_rescue_terms:0 "Terms of Rescue"
