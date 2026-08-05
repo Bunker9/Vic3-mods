@@ -1,0 +1,58 @@
+﻿# EnglishBankMod - script values for the bailout maths and the AI bank weights.
+# principal = the country's outstanding debt. Read from vanilla usage in
+# common/treaty_articles/04_take_on_debt.txt, not from a triggers.log entry.
+
+# The borrower's weekly deficit as a POSITIVE number. Must be evaluated
+# BEFORE clear_debt, since wiping the debt removes the interest expense.
+ebk_value_deficit = {
+	value = 0
+	subtract = net_total_income
+	min = 0
+}
+
+# What the bank's pool pays: two thirds of the borrower's debt, negative.
+# Evaluated in the BANK's scope, so the borrower is the saved scope.
+ebk_value_bailout_cost = {
+	value = scope:ebk_borrower.principal
+	multiply = -0.667
+}
+
+# Same two thirds, but the borrower is paying itself, so read own principal.
+ebk_value_bailout_cost_self = {
+	value = principal
+	multiply = -0.667
+}
+
+# The global creditor decision drains the creditor's own GDP from its pool.
+ebk_value_creditor_drain = {
+	value = gdp
+	multiply = -1
+}
+
+# ---------------- AI bank weights ----------------
+# 100 when that bank is available to ROOT, 0 when it is not, so a small pool
+# nation never picks its own pool and a country with no friend never picks one.
+
+ebk_value_weight_bank_self = {
+	value = 0
+	if = {
+		limit = { ebk_trigger_bank_self = yes }
+		add = 100
+	}
+}
+
+ebk_value_weight_bank_gp1 = {
+	value = 0
+	if = {
+		limit = { exists = scope:ebk_bank_gp1 }
+		add = 100
+	}
+}
+
+ebk_value_weight_bank_friendly = {
+	value = 0
+	if = {
+		limit = { exists = scope:ebk_bank_friendly }
+		add = 100
+	}
+}

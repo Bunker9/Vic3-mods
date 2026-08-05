@@ -1,0 +1,67 @@
+﻿l_english:
+
+ # ---- decisions ----
+ ebk_seek_bailout_a:0 "Appeal to the Bankers"
+ ebk_seek_bailout_a_desc:0 "A third of our credit is spent and the treasury loses money every week. Someone must be persuaded to carry the paper before the interest carries us."
+ ebk_seek_bailout_b:0 "Restart the Works"
+ ebk_seek_bailout_b_desc:0 "The scaffolding stands idle and the credit is a fifth gone. Nothing will be built again until the ledgers are settled."
+ ebk_seek_bailout_c:0 "Terms of Default"
+ ebk_seek_bailout_c_desc:0 "The state cannot pay. What follows is not whether we are rescued, but who does the rescuing and what they ask in return."
+ ebk_seek_bailout_d:0 "Put the Idle Money to Work"
+ ebk_seek_bailout_d_desc:0 "Our investors sit on more capital than the vaults can hold, and it earns nothing where it is. Better it clears debts and closes dead works than gathers dust."
+
+ ebk_become_global_creditor:0 "Banker to the World"
+ ebk_become_global_creditor_desc:0 "Open our vaults to any government that asks. It costs a year of our own accumulated capital, and buys standing in every capital that owes us."
+
+ ebk_pool_expand_only_on:0 "Restrain Private Speculation"
+ ebk_pool_expand_only_on_desc:0 "Instruct our investors to enlarge the works we already have rather than break new ground. No new enterprise will be founded from private capital until the order is lifted."
+ ebk_pool_expand_only_off:0 "Release Private Speculation"
+ ebk_pool_expand_only_off_desc:0 "Lift the restraint. Private capital may found new enterprises wherever it pleases again."
+
+ ebk_force_nationalization:0 "Seize Enemy Holdings"
+ ebk_force_nationalization_desc:0 "Our enemy's investors own a substantial share of what stands on our soil. In wartime, ownership is a matter of who holds the ground."
+
+ # ---- decision tooltips ----
+ ebk_seek_bailout_tt:0 "Our finances are put before a lender, who may be our own investors, the leading power, or a friendly nation."
+ ebk_become_global_creditor_tt:0 "Our accumulated capital, equal to a year of national product, is committed abroad. In return we gain prestige and warmer relations everywhere for a year."
+ ebk_pool_expand_only_on_tt:0 "Private capital may only enlarge existing works, never found new ones."
+ ebk_pool_expand_only_off_tt:0 "Private capital may found new works again."
+ ebk_force_nationalization_tt:0 "An enemy owns more than a twentieth of our economy."
+ ebk_force_nationalization_effect_tt:0 "Enemy held industry passes into our hands. Our own capitalists will not forget that property can be taken."
+
+ # ---- scripted trigger tooltips ----
+ ebk_trigger_bank_self_tt:0 "Our own investors hold more capital than the whole national product, and at least one million in the pool."
+ ebk_trigger_is_creditor_grade_tt:0 "We are a recognized nation holding at least thirty million in the investment pool, and the pool is not shrinking."
+ ebk_trigger_in_distress_tt:0 "Our finances meet at least one of the conditions that bring the lenders to the door."
+ ebk_trigger_pool_may_found_tt:0 "Private capital may found this work here."
+
+ # ---- modifiers ----
+ ebk_minting_relief:0 "Emergency Minting"
+ ebk_minting_relief_desc:0 "The presses run to cover the shortfall that was there on the day the debts were cleared. It buys two years, and no more than that."
+ ebk_capitalists_ascendant:0 "The Bankers' Hour"
+ ebk_capitalists_ascendant_desc:0 "The men who paid for the rescue now expect to be heard, and for a while they are heard above everyone else."
+ ebk_global_creditor:0 "Banker to the World"
+ ebk_global_creditor_desc:0 "Our paper is good in every capital, and doors open a little faster for the nation that holds the notes."
+ ebk_pool_expand_only_mod:0 "Restrained Speculation"
+ ebk_pool_expand_only_mod_desc:0 "Capital that cannot chase new ventures is put back into the works already standing, and the owners find they rather like the returns."
+ ebk_nationalization_backlash:0 "Property Is Not Safe"
+ ebk_nationalization_backlash_desc:0 "A government that has taken property once may take it again. Our own investors have noticed, and so has every foreign ministry."
+
+ # ---- treaty ----
+ ebk_treaty_bailout_terms:0 "Terms of the Rescue"
+
+ # ---- ebk_event.1, the bank choice ----
+ ebk_event_1_title:0 "Who Will Carry the Paper"
+ ebk_event_1_desc:0 "The ministers have stopped pretending. The debts cannot be serviced out of revenue, and the only question left on the table is whose money settles them. Each answer carries a price, and the cheapest money is rarely the cheapest in the end."
+ ebk_event_1_flavor:0 "A loan is a rope. It matters a great deal who is holding the other end."
+ ebk_event_1_opt_self:0 "Our own investors will settle it."
+ ebk_event_1_opt_gp1:0 "Approach the leading power."
+ ebk_event_1_opt_friendly:0 "Approach a friend with deep pockets."
+ ebk_event_1_opt_none:0 "There is no one to ask."
+
+ # ---- ebk_event.2, the player as bank ----
+ ebk_event_2_title:0 "A Request from Abroad"
+ ebk_event_2_desc:0 "Their ambassador has come with the accounts open and very little dignity left to spend. They ask us to carry their debts. What they offer in return is whatever they still have that we might want."
+ ebk_event_2_flavor:0 "Every empire begins as somebody's creditor."
+ ebk_event_2_opt_accept:0 "Carry their debts. They will owe us more than money."
+ ebk_event_2_opt_refuse:0 "Let them find another lender."

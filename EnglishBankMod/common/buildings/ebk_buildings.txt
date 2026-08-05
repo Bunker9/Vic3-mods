@@ -1,0 +1,192 @@
+﻿# EnglishBankMod - the pool expand only rule.
+# can_build_private gates the private and foreign investment pool's NEW
+# construction; auto expansion of existing buildings runs off the separate
+# default_auto_expand_rule and is untouched. Same INJECT pattern as
+# PvtCapCtrlMod/common/buildings/zw_cpc_01_industry.txt.
+# Only privately built types are listed. Government funded buildings
+# (administration, university, construction sector, barracks) never come out
+# of the pool, so injecting them would be dead weight.
+
+INJECT_OR_CREATE:building_arms_industry = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_arms_industry } }
+}
+
+INJECT_OR_CREATE:building_art_academy = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_art_academy } }
+}
+
+INJECT_OR_CREATE:building_artillery_foundry = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_artillery_foundry } }
+}
+
+INJECT_OR_CREATE:building_automotive_industry = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_automotive_industry } }
+}
+
+INJECT_OR_CREATE:building_banana_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_banana_plantation } }
+}
+
+INJECT_OR_CREATE:building_chemical_plant = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_chemical_plant } }
+}
+
+INJECT_OR_CREATE:building_coffee_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_coffee_plantation } }
+}
+
+INJECT_OR_CREATE:building_cotton_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_cotton_plantation } }
+}
+
+INJECT_OR_CREATE:building_dye_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_dye_plantation } }
+}
+
+INJECT_OR_CREATE:building_electrics_industry = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_electrics_industry } }
+}
+
+INJECT_OR_CREATE:building_explosives_factory = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_explosives_factory } }
+}
+
+INJECT_OR_CREATE:building_financial_district = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_financial_district } }
+}
+
+INJECT_OR_CREATE:building_fishing_wharf = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_fishing_wharf } }
+}
+
+INJECT_OR_CREATE:building_food_industry = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_food_industry } }
+}
+
+INJECT_OR_CREATE:building_furniture_manufactory = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_furniture_manufactory } }
+}
+
+INJECT_OR_CREATE:building_glassworks = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_glassworks } }
+}
+
+INJECT_OR_CREATE:building_gold_field = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_gold_field } }
+}
+
+INJECT_OR_CREATE:building_gold_mine = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_gold_mine } }
+}
+
+INJECT_OR_CREATE:building_iron_mine = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_iron_mine } }
+}
+
+INJECT_OR_CREATE:building_lead_mine = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_lead_mine } }
+}
+
+INJECT_OR_CREATE:building_livestock_ranch = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_livestock_ranch } }
+}
+
+INJECT_OR_CREATE:building_maize_farm = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_maize_farm } }
+}
+
+INJECT_OR_CREATE:building_manor_house = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_manor_house } }
+}
+
+INJECT_OR_CREATE:building_millet_farm = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_millet_farm } }
+}
+
+INJECT_OR_CREATE:building_motor_industry = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_motor_industry } }
+}
+
+INJECT_OR_CREATE:building_munition_plant = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_munition_plant } }
+}
+
+INJECT_OR_CREATE:building_oil_rig = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_oil_rig } }
+}
+
+INJECT_OR_CREATE:building_opium_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_opium_plantation } }
+}
+
+INJECT_OR_CREATE:building_paper_mill = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_paper_mill } }
+}
+
+INJECT_OR_CREATE:building_power_plant = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_power_plant } }
+}
+
+INJECT_OR_CREATE:building_rice_farm = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_rice_farm } }
+}
+
+INJECT_OR_CREATE:building_rubber_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_rubber_plantation } }
+}
+
+INJECT_OR_CREATE:building_rye_farm = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_rye_farm } }
+}
+
+INJECT_OR_CREATE:building_shipyard = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_shipyard } }
+}
+
+INJECT_OR_CREATE:building_silk_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_silk_plantation } }
+}
+
+INJECT_OR_CREATE:building_steel_mill = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_steel_mill } }
+}
+
+INJECT_OR_CREATE:building_sugar_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_sugar_plantation } }
+}
+
+INJECT_OR_CREATE:building_sulfur_mine = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_sulfur_mine } }
+}
+
+INJECT_OR_CREATE:building_synthetics_plant = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_synthetics_plant } }
+}
+
+INJECT_OR_CREATE:building_tea_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_tea_plantation } }
+}
+
+INJECT_OR_CREATE:building_textile_mill = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_textile_mill } }
+}
+
+INJECT_OR_CREATE:building_tobacco_plantation = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_tobacco_plantation } }
+}
+
+INJECT_OR_CREATE:building_tooling_workshop = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_tooling_workshop } }
+}
+
+INJECT_OR_CREATE:building_vineyard = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_vineyard } }
+}
+
+INJECT_OR_CREATE:building_whaling_station = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_whaling_station } }
+}
+
+INJECT_OR_CREATE:building_wheat_farm = {
+	can_build_private = { ebk_trigger_pool_may_found_tt = { BUILDING = building_wheat_farm } }
+}

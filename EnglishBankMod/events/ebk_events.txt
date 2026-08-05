@@ -1,0 +1,245 @@
+﻿namespace = ebk_event
+
+# ebk_event.1 - the bank choice. SHOWN to the borrower, ROOT = the borrower.
+# A shown, triggered only event has no tooltip preview hazard: its immediate
+# never runs in preview. The hidden = yes half of the payload rule applies to
+# when_taken, not here.
+# Candidate banks are found in the immediate and saved, so the option triggers
+# and the AI weights can just test whether the scope exists.
+ebk_event.1 = {
+	type = country_event
+	placement = ROOT
+
+	title = ebk_event_1_title
+	desc = ebk_event_1_desc
+	flavor = ebk_event_1_flavor
+
+	duration = 3
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		debug_log = "ebk - bailout - bank choice opened"
+		save_scope_as = ebk_borrower
+
+		# The top ranked power, if it can lend to us.
+		random_country = {
+			limit = {
+				ebk_trigger_bank_gp1 = yes
+				NOT = { has_variable = ebk_refused_var }
+			}
+			save_scope_as = ebk_bank_gp1
+		}
+
+		# Any solvent friend. relations:root is why this must run in the
+		# borrower's own event.
+		random_country = {
+			limit = {
+				ebk_trigger_bank_friendly = yes
+				NOT = { has_variable = ebk_refused_var }
+				NOT = { this ?= scope:ebk_bank_gp1 }
+			}
+			save_scope_as = ebk_bank_friendly
+		}
+	}
+
+	# Option 1: our own investment pool covers it. Nobody is owed anything.
+	option = {
+		name = ebk_event_1_opt_self
+
+		trigger = {
+			ebk_trigger_bank_self = yes
+		}
+
+		ebk_effect_capture_deficit = yes
+		add_investment_pool = ebk_value_bailout_cost_self
+		ebk_effect_bailout_money = yes
+		ebk_effect_social_fallout = yes
+		ebk_effect_demolition_sweep = yes
+		ebk_effect_stamp_bailout = yes
+		debug_log = "ebk - bailout - self funded"
+
+		ai_chance = { value = ebk_value_weight_bank_self }
+	}
+
+	# Option 2: the leading power underwrites us.
+	option = {
+		name = ebk_event_1_opt_gp1
+
+		trigger = {
+			exists = scope:ebk_bank_gp1
+		}
+
+		scope:ebk_bank_gp1 = { save_scope_as = ebk_bank }
+		ebk_effect_route_to_bank = yes
+
+		ai_chance = { value = ebk_value_weight_bank_gp1 }
+	}
+
+	# Option 3: a friend with deep pockets.
+	option = {
+		name = ebk_event_1_opt_friendly
+
+		trigger = {
+			exists = scope:ebk_bank_friendly
+		}
+
+		scope:ebk_bank_friendly = { save_scope_as = ebk_bank }
+		ebk_effect_route_to_bank = yes
+
+		ai_chance = { value = ebk_value_weight_bank_friendly }
+	}
+
+	# Option 4 always exists so the event can never present zero options.
+	option = {
+		name = ebk_event_1_opt_none
+		default_option = yes
+
+		trigger = {
+			NOT = { ebk_trigger_bank_self = yes }
+			NOT = { exists = scope:ebk_bank_gp1 }
+			NOT = { exists = scope:ebk_bank_friendly }
+		}
+
+		debug_log = "ebk - bailout - no bank available"
+
+		ai_chance = { value = 1 }
+	}
+}
+
+# ebk_event.2 - the player as bank is asked to consent. ROOT = the bank.
+# scope:ebk_borrower carries through from ebk_event.1.
+ebk_event.2 = {
+	type = country_event
+	placement = ROOT
+
+	title = ebk_event_2_title
+	desc = ebk_event_2_desc
+	flavor = ebk_event_2_flavor
+
+	duration = 3
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		debug_log = "ebk - bailout - player bank asked to consent"
+	}
+
+	option = {
+		name = ebk_event_2_opt_accept
+
+		save_scope_as = ebk_bank
+		scope:ebk_borrower = { ebk_effect_run_funded_bailout = yes }
+		debug_log = "ebk - bailout - player bank accepted"
+
+		ai_chance = { value = 100 }
+	}
+
+	option = {
+		name = ebk_event_2_opt_refuse
+		default_option = yes
+
+		# Marked for a year so the re-search cannot pick us again.
+		set_variable = { name = ebk_refused_var value = yes days = 365 }
+		change_relations = { country = scope:ebk_borrower value = -10 }
+		# Someone else gets asked.
+		scope:ebk_borrower = { trigger_event = { id = ebk_event.1 } }
+		debug_log = "ebk - bailout - player bank refused"
+
+		ai_chance = { value = 0 }
+	}
+}
+
+# ebk_event.4 - payload for ebk_become_global_creditor. Hidden + triggered only.
+ebk_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - creditor - declared"
+
+		add_modifier = {
+			name = ebk_global_creditor
+			months = 12
+		}
+		add_investment_pool = ebk_value_creditor_drain
+
+		# The one off goodwill bump. The modifier only changes the RATE.
+		every_country = {
+			limit = { NOT = { this = root } }
+			change_relations = { country = root value = 1 }
+		}
+
+		if = {
+			limit = { NOT = { has_variable = ebk_fingerprint_creditor } }
+			set_variable = { name = ebk_fingerprint_creditor value = 0 }
+		}
+		change_variable = { name = ebk_fingerprint_creditor add = 1 } # BDD(EBK-CREDITOR) for global-creditor
+		# Genuine reader, so the engine does not log "set but never used".
+		if = {
+			limit = { has_variable = ebk_fingerprint_creditor }
+			debug_log = "ebk - creditor - fingerprint stamped"
+		}
+	}
+}
+
+# ebk_event.5 / .6 - the pool expand only toggle. Hidden + triggered only.
+ebk_event.5 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - pool rule - expand only enabled"
+		set_variable = { name = ebk_pool_expand_only value = yes }
+		add_modifier = { name = ebk_pool_expand_only_mod }
+	}
+}
+
+ebk_event.6 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - pool rule - expand only disabled"
+		remove_variable = ebk_pool_expand_only
+		if = {
+			limit = { has_modifier = ebk_pool_expand_only_mod }
+			remove_modifier = ebk_pool_expand_only_mod
+		}
+	}
+}
+
+# ebk_event.7 - payload for ebk_force_nationalization. Hidden + triggered only.
+ebk_event.7 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		debug_log = "ebk - nationalization - decision fired"
+
+		random_country = {
+			limit = { ebk_trigger_nationalize_target = yes }
+			save_scope_as = ebk_target
+		}
+
+		if = {
+			limit = { exists = scope:ebk_target }
+			ebk_effect_nationalize_holdings = yes
+
+			if = {
+				limit = { NOT = { has_variable = ebk_fingerprint_nationalize } }
+				set_variable = { name = ebk_fingerprint_nationalize value = 0 }
+			}
+			change_variable = { name = ebk_fingerprint_nationalize add = 1 } # BDD(EBK-NATIONALIZE) for nationalization
+			# Genuine reader, so the engine does not log "set but never used".
+			if = {
+				limit = { has_variable = ebk_fingerprint_nationalize }
+				debug_log = "ebk - nationalization - fingerprint stamped"
+			}
+		}
+	}
+}

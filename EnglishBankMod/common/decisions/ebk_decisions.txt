@@ -1,0 +1,179 @@
+﻿# EnglishBankMod decisions.
+# Four distress entries (A to D) all open the SAME bank choice event; they differ
+# only in what counts as distress. No on_action anywhere: a decision re-evaluated
+# by the engine plus a timed variable IS the recurring driver.
+# Every when_taken is custom_tooltip + trigger_event only, payload in the event.
+# Setting a LITERAL cooldown in when_taken is safe: the hazard is READING a var:
+# during tooltip preview, not writing one (vanilla tibet_expedition_decision).
+
+# ---- A: a third of the credit line burnt and losing money every week --------
+
+ebk_seek_bailout_a = {
+	is_shown = {
+		NOT = { has_variable = ebk_bailout_cooldown_var }
+		ebk_trigger_distress_a = yes
+	}
+
+	possible = {
+		ebk_trigger_in_distress_tt = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_seek_bailout_tt }
+		set_variable = { name = ebk_bailout_cooldown_var value = yes days = 1825 }
+		trigger_event = { id = ebk_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- B: construction has stopped and a fifth of the credit line is gone -----
+
+ebk_seek_bailout_b = {
+	is_shown = {
+		NOT = { has_variable = ebk_bailout_cooldown_var }
+		ebk_trigger_distress_b = yes
+	}
+
+	possible = {
+		ebk_trigger_in_distress_tt = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_seek_bailout_tt }
+		set_variable = { name = ebk_bailout_cooldown_var value = yes days = 1825 }
+		trigger_event = { id = ebk_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- C: in default, the old desi_rebuild_war_machine case ------------------
+
+ebk_seek_bailout_c = {
+	is_shown = {
+		NOT = { has_variable = ebk_bailout_cooldown_var }
+		ebk_trigger_distress_c = yes
+	}
+
+	possible = {
+		ebk_trigger_in_distress_tt = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_seek_bailout_tt }
+		set_variable = { name = ebk_bailout_cooldown_var value = yes days = 1825 }
+		trigger_event = { id = ebk_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- D: a pool bigger than the reserve limit, with money coming in ---------
+# Not distress at all. A fat idle pool looking for somewhere to go.
+
+ebk_seek_bailout_d = {
+	is_shown = {
+		NOT = { has_variable = ebk_bailout_cooldown_var }
+		ebk_trigger_distress_d = yes
+	}
+
+	possible = {
+		ebk_trigger_in_distress_tt = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_seek_bailout_tt }
+		set_variable = { name = ebk_bailout_cooldown_var value = yes days = 1825 }
+		trigger_event = { id = ebk_event.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Declare yourself a bank to the world ---------------------------------
+# Costs the country its own GDP out of the pool. In return, a year of prestige
+# and warmer relations everywhere. Also the cheap marker for who lends.
+
+ebk_become_global_creditor = {
+	is_shown = {
+		NOT = { has_variable = ebk_creditor_cooldown_var }
+		ebk_trigger_is_creditor_grade = yes
+	}
+
+	possible = {
+		ebk_trigger_is_creditor_grade_tt = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_become_global_creditor_tt }
+		set_variable = { name = ebk_creditor_cooldown_var value = yes days = 365 }
+		trigger_event = { id = ebk_event.4 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Pool builds only what already exists (player only, this test pass) ----
+
+ebk_pool_expand_only_on = {
+	is_shown = {
+		is_player = yes
+		NOT = { has_variable = ebk_pool_expand_only }
+	}
+
+	possible = {
+		always = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_pool_expand_only_on_tt }
+		trigger_event = { id = ebk_event.5 }
+	}
+
+	# Player lever by design. The AI has no use for a self imposed build ban.
+	ai_chance = { value = 0 }
+}
+
+ebk_pool_expand_only_off = {
+	is_shown = {
+		is_player = yes
+		has_variable = ebk_pool_expand_only
+	}
+
+	possible = {
+		always = yes
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_pool_expand_only_off_tt }
+		trigger_event = { id = ebk_event.6 }
+	}
+
+	ai_chance = { value = 0 }
+}
+
+# ---- Seize foreign owned industry from a wartime enemy ---------------------
+# Few foreign buildings, but a big slice of the economy. No compensation.
+
+ebk_force_nationalization = {
+	is_shown = {
+		is_at_war = yes
+		NOT = { has_variable = ebk_nationalize_cooldown_var }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = ebk_force_nationalization_tt
+			any_country = { ebk_trigger_nationalize_target = yes }
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = { text = ebk_force_nationalization_effect_tt }
+		set_variable = { name = ebk_nationalize_cooldown_var value = yes days = 1825 }
+		trigger_event = { id = ebk_event.7 }
+	}
+
+	ai_chance = { value = 10000 }
+}

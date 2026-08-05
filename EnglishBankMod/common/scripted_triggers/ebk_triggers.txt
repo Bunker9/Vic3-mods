@@ -1,0 +1,172 @@
+﻿# EnglishBankMod - ALL scripted triggers, dependencies first.
+# Bank tests, distress conditions, demolition filter, pool founding gate.
+# scope:ebk_borrower is the distressed country in every bank test.
+
+# ---------------- bank solvency (shared by bank 2 and bank 3) ----------------
+
+# A bank must be liquid and not bleeding its own pool.
+ebk_trigger_solvent_bank = {
+	investment_pool >= 30000000
+	investment_pool_net_income >= 0
+}
+
+# Not at war with the borrower, and not the borrower itself.
+ebk_trigger_can_lend_to_borrower = {
+	NOT = { this = scope:ebk_borrower }
+	NOT = { has_war_with = scope:ebk_borrower }
+}
+
+# ---------------- the three banks ----------------
+
+# Bank 1: the borrower's own pool. Credit limit is NOT readable in script;
+# 00_defines.txt:480 makes it building cash reserves + 0.5 x GDP, so the
+# pool > gdp arm is the stricter test unless reserves exceed half of GDP.
+ebk_trigger_bank_self = {
+	investment_pool >= 1000000
+	investment_pool > gdp
+}
+
+# Bank 2: the top ranked power, solvent and at peace with the borrower.
+ebk_trigger_bank_gp1 = {
+	global_country_ranking = 1
+	ebk_trigger_solvent_bank = yes
+	ebk_trigger_can_lend_to_borrower = yes
+}
+
+# Bank 3: any friendly recognized country, solvent and at peace.
+# ROOT MUST BE THE BORROWER here. relations: takes root or a tag, never a
+# saved scope (no vanilla usage of relations:scope:), so the caller must
+# evaluate this from inside the borrower's own event.
+ebk_trigger_bank_friendly = {
+	NOT = { is_country_type = unrecognized }
+	ebk_trigger_solvent_bank = yes
+	ebk_trigger_can_lend_to_borrower = yes
+	relations:root >= 0
+}
+
+# Any country that could act as bank 2 or bank 3 for someone.
+ebk_trigger_is_creditor_grade = {
+	NOT = { is_country_type = unrecognized }
+	ebk_trigger_solvent_bank = yes
+}
+
+# ---------------- distress conditions A to D ----------------
+
+# scaled_debt is debt as a fraction of the credit ceiling.
+ebk_trigger_distress_a = {
+	scaled_debt > 0.33
+	net_total_income < 0
+}
+
+ebk_trigger_distress_b = {
+	scaled_debt > 0.20
+	OR = {
+		is_construction_paused = yes
+		construction_queue_num_queued_levels = 0
+	}
+}
+
+ebk_trigger_distress_c = {
+	in_default = yes
+}
+
+ebk_trigger_distress_d = {
+	investment_pool > gold_reserves_limit
+	net_total_income > 0
+}
+
+# Any of the four opens the bailout.
+ebk_trigger_in_distress = {
+	OR = {
+		ebk_trigger_distress_a = yes
+		ebk_trigger_distress_b = yes
+		ebk_trigger_distress_c = yes
+		ebk_trigger_distress_d = yes
+	}
+}
+
+# ---------------- demolition filter (building scope) ----------------
+
+# Dead industry: barely staffed and small. Universities and construction
+# sectors ARE in scope. Railways and ports are spared, they carry infrastructure.
+# Both are bg_private_infrastructure, so the exclusion must be by type.
+ebk_trigger_dead_building = {
+	occupancy < 0.10
+	level < 10
+	NOT = { is_building_type = building_railway }
+	NOT = { is_building_type = building_port }
+	NOT = { is_subsistence_building = yes }
+	is_under_construction = no
+}
+
+# ---------------- pool founding gate (state scope) ----------------
+
+# Passes unless the owner opted into expand only. Player gated for this test pass.
+ebk_trigger_owner_is_expand_only = {
+	owner = {
+		is_player = yes
+		has_variable = ebk_pool_expand_only
+	}
+}
+
+# The pool may found a NEW building unless the owner opted out. Under the
+# opt out it may only add to a type the state already has, so autonomous
+# expansion still works and only level 1 foundings are blocked.
+ebk_trigger_pool_may_found = {
+	OR = {
+		NOT = { ebk_trigger_owner_is_expand_only = yes }
+		state_has_building_type_levels = {
+			target = bt:$BUILDING$
+			value >= 1
+		}
+	}
+}
+
+ebk_trigger_pool_may_found_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_pool_may_found_tt
+		ebk_trigger_pool_may_found = { BUILDING = $BUILDING$ }
+	}
+}
+
+# ---------------- nationalization target (country scope) ----------------
+
+# Current scope = the candidate enemy, ROOT = the seizer.
+# gdp_ownership_ratio is read in the OWNED country's scope with the OWNER as
+# target (vanilla 06_cuba.txt:194), so it must be evaluated inside root.
+# NOT EXPRESSIBLE: the "fewer than 100 foreign owned buildings" arm. No trigger
+# counts a country's holdings abroad. Only the 5 pct GDP arm is implemented.
+ebk_trigger_nationalize_target = {
+	has_war_with = root
+	root = {
+		gdp_ownership_ratio = {
+			target = prev
+			value > 0.05
+		}
+	}
+}
+
+# ---------------- player facing tooltip wrappers ----------------
+# Every trigger read in a decision is_shown or possible gets one, so the
+# engine never renders the raw trigger tree in the decision panel.
+
+ebk_trigger_bank_self_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_bank_self_tt
+		ebk_trigger_bank_self = yes
+	}
+}
+
+ebk_trigger_is_creditor_grade_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_is_creditor_grade_tt
+		ebk_trigger_is_creditor_grade = yes
+	}
+}
+
+ebk_trigger_in_distress_tt = {
+	custom_tooltip = {
+		text = ebk_trigger_in_distress_tt
+		ebk_trigger_in_distress = yes
+	}
+}

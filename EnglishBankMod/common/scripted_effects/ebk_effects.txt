@@ -1,0 +1,430 @@
+﻿# EnglishBankMod scripted effects. All of them run with ROOT = the borrower.
+# scope:ebk_bank is the lender (absent when the borrower banks itself).
+
+# ---- 1. capture the deficit BEFORE the debt is wiped -----------------------
+# Clearing the debt removes the interest expense, so the relief must be
+# sized first or it always reads as zero.
+
+ebk_effect_capture_deficit = {
+	set_variable = {
+		name = ebk_minting_relief_var
+		value = ebk_value_deficit
+	}
+}
+
+# ---- 2. the money -------------------------------------------------------
+
+ebk_effect_bailout_money = {
+	# Emergency minting for two years, scaled to the captured deficit.
+	add_modifier = {
+		name = ebk_minting_relief
+		months = 24
+		multiplier = var:ebk_minting_relief_var
+	}
+	clear_debt = yes
+	add_modifier = {
+		name = ebk_capitalists_ascendant
+		months = 24
+	}
+}
+
+# ---- 2b. routing and the full funded bailout ----------------------------
+# Both run in the BORROWER's scope with scope:ebk_bank saved.
+
+# A player bank is asked first. An AI bank just pays.
+ebk_effect_route_to_bank = {
+	if = {
+		limit = { scope:ebk_bank ?= { is_player = yes } }
+		scope:ebk_bank = { trigger_event = { id = ebk_event.2 } }
+		debug_log = "ebk - bailout - routed to player bank"
+	}
+	else = {
+		ebk_effect_run_funded_bailout = yes
+	}
+}
+
+ebk_effect_run_funded_bailout = {
+	ebk_effect_capture_deficit = yes
+	scope:ebk_bank = { add_investment_pool = ebk_value_bailout_cost }
+	ebk_effect_bailout_money = yes
+	ebk_effect_concession_ladder = yes
+	ebk_effect_social_fallout = yes
+	ebk_effect_demolition_sweep = yes
+	ebk_effect_stamp_bailout = yes
+	debug_log = "ebk - bailout - funded by another country"
+}
+
+# Fingerprint. Counter, because a country can be bailed out more than once.
+# The has_variable read below is the genuine reader the engine needs, so it
+# does not log "set but never used".
+ebk_effect_stamp_bailout = {
+	if = {
+		limit = { NOT = { has_variable = ebk_fingerprint_bailout } }
+		set_variable = { name = ebk_fingerprint_bailout value = 0 }
+	}
+	change_variable = { name = ebk_fingerprint_bailout add = 1 } # BDD(EBK-BAILOUT) for bailout
+	if = {
+		limit = { has_variable = ebk_fingerprint_bailout }
+		debug_log = "ebk - bailout - fingerprint stamped"
+	}
+}
+
+# ---- 3. the concession ladder, first match wins --------------------------
+# Banks 2 and 3 only. A country that bailed itself out owes nobody.
+
+ebk_effect_concession_ladder = {
+	if = {
+		# Nothing owed yet: the obligation is the cheapest price.
+		limit = { NOT = { owes_obligation_to = scope:ebk_bank } }
+		set_owes_obligation_to = { country = scope:ebk_bank setting = yes }
+		debug_log = "ebk - concession - obligation set"
+	}
+	else_if = {
+		# Already owes: the bank takes investment rights for two years.
+		limit = {
+			NOT = {
+				any_scope_treaty = {
+					any_scope_article = { has_type = foreign_investment_rights }
+				}
+			}
+		}
+		create_treaty = {
+			name = ebk_treaty_bailout_terms
+			first_country = scope:ebk_bank
+			second_country = root
+			is_draft = no
+			binding_period = { years = 2 }
+			articles_to_create = {
+				{
+					article = foreign_investment_rights
+					source_country = scope:ebk_bank
+					target_country = root
+				}
+			}
+		}
+		debug_log = "ebk - concession - investment rights treaty"
+	}
+	else_if = {
+		# An anti bank lobby is bought off and dissolved.
+		limit = {
+			any_political_lobby = {
+				is_political_lobby_type = lobby_anti_country
+				target ?= scope:ebk_bank
+			}
+		}
+		random_political_lobby = {
+			limit = {
+				is_political_lobby_type = lobby_anti_country
+				target ?= scope:ebk_bank
+			}
+			disband_political_lobby = yes
+		}
+		debug_log = "ebk - concession - anti lobby disbanded"
+	}
+	else_if = {
+		# No friends of the bank yet: the government IGs become them.
+		limit = {
+			NOT = {
+				any_political_lobby = {
+					is_political_lobby_type = lobby_pro_country
+					target ?= scope:ebk_bank
+				}
+			}
+		}
+		#TODO Ask claude to fix this - Missing key expression `add_interest_group` (expect at least 1, actual 0)
+		create_political_lobby = {
+			type = lobby_pro_country
+			target = scope:ebk_bank
+		}
+		random_political_lobby = {
+			limit = {
+				is_political_lobby_type = lobby_pro_country
+				target ?= scope:ebk_bank
+			}
+			save_scope_as = ebk_new_lobby
+		}
+		every_interest_group = {
+			limit = { is_in_government = yes }
+			save_scope_as = ebk_gov_ig
+			scope:ebk_new_lobby ?= {
+				add_lobby_member = scope:ebk_gov_ig
+			}
+		}
+		debug_log = "ebk - concession - pro bank lobby formed"
+	}
+	else_if = {
+		# A coastal state is opened to the bank as a treaty port.
+		limit = {
+			NOT = { is_subject_of = scope:ebk_bank }
+			NOT = { scope:ebk_bank.market ?= root.market }
+			any_scope_state = { is_potential_treaty_port = scope:ebk_bank }
+		}
+		random_scope_state = {
+			limit = { is_potential_treaty_port = scope:ebk_bank }
+			cede_treaty_port = scope:ebk_bank
+		}
+		debug_log = "ebk - concession - treaty port ceded"
+	}
+	else = {
+		# Nothing left to give but goodwill.
+		change_relations = { country = scope:ebk_bank value = 30 }
+		# Tier 2+ strategic interest is not readable in script. An interest
+		# marker in the borrower's region is the nearest expressible proxy.
+		every_country = {
+			limit = {
+				NOT = { this = root }
+				NOT = { this = scope:ebk_bank }
+				has_interest_marker_in_region = root.capital.region
+			}
+			change_relations = { country = root value = 10 }
+		}
+		debug_log = "ebk - concession - relations only"
+	}
+}
+
+# ---- 4. who pays politically --------------------------------------------
+
+ebk_effect_social_fallout = {
+	# The poor carry the austerity. Strata key is lower, not poor.
+	add_radicals = {
+		value = 0.01
+		strata = lower
+	}
+
+	# The biggest IG's leader, then the biggest governing IG's leader.
+	ordered_interest_group = {
+		order_by = ig_clout
+		position = 0
+		save_scope_as = ebk_top_ig
+		leader = { ebk_effect_flip_leader_ideology = yes }
+	}
+	ordered_interest_group = {
+		limit = {
+			is_in_government = yes
+			NOT = { this = scope:ebk_top_ig }
+		}
+		order_by = ig_clout
+		position = 0
+		check_range_bounds = no
+		leader = { ebk_effect_flip_leader_ideology = yes }
+	}
+}
+
+# Runs in CHARACTER scope. Reads the borrower's laws off root.
+ebk_effect_flip_leader_ideology = {
+	if = {
+		limit = {
+			root = { has_law = law_type:law_slave_trade }
+			NOT = { has_ideology = ideology:ideology_abolitionist }
+		}
+		set_ideology = ideology:ideology_abolitionist
+	}
+	else_if = {
+		limit = {
+			root = { has_law = law_type:law_isolationism }
+			NOT = { has_ideology = ideology:ideology_market_liberal }
+		}
+		set_ideology = ideology:ideology_market_liberal
+	}
+	else_if = {
+		limit = {
+			root = {
+				OR = {
+					has_law = law_type:law_traditionalism
+					has_law = law_type:law_serfdom
+				}
+			}
+			NOT = { has_ideology = ideology:ideology_reformer }
+		}
+		set_ideology = ideology:ideology_reformer
+	}
+}
+
+# ---- 5. tear down the dead industry -------------------------------------
+# remove_building takes a LITERAL building key (config/effects.cwt:1134,
+# alias[effect:remove_building] = <building>), so the sweep cannot iterate
+# building scopes and every type must be named. Curated list: the productive
+# economy plus universities, government administration and construction
+# sectors, per the brief. EXCLUDED by design: monuments and landmarks, canals,
+# urban and trade centres, company headquarters, railways and ports.
+# Runs in COUNTRY scope. ebk_trigger_dead_building holds the real test.
+
+ebk_effect_demolition_sweep = {
+	every_scope_state = { ebk_effect_demolish_dead_in_state = yes }
+}
+
+# Runs in STATE scope. Removes the type only if a building of it is dead.
+ebk_effect_demolish_type = {
+	if = {
+		limit = {
+			has_building = $BUILDING$
+			any_scope_building = {
+				is_building_type = $BUILDING$
+				ebk_trigger_dead_building = yes
+			}
+		}
+		remove_building = $BUILDING$
+		debug_log = "ebk - demolition - removed a dead building"
+	}
+}
+
+# Runs in STATE scope. One call per curated building type.
+ebk_effect_demolish_dead_in_state = {
+	ebk_effect_demolish_type = { BUILDING = building_arms_industry }
+	ebk_effect_demolish_type = { BUILDING = building_army_logistics_center }
+	ebk_effect_demolish_type = { BUILDING = building_art_academy }
+	ebk_effect_demolish_type = { BUILDING = building_artillery_foundry }
+	ebk_effect_demolish_type = { BUILDING = building_automotive_industry }
+	ebk_effect_demolish_type = { BUILDING = building_banana_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_barrack }
+	ebk_effect_demolish_type = { BUILDING = building_chemical_plant }
+	ebk_effect_demolish_type = { BUILDING = building_coffee_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_conscription_center }
+	ebk_effect_demolish_type = { BUILDING = building_construction_sector }
+	ebk_effect_demolish_type = { BUILDING = building_cotton_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_dye_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_electrics_industry }
+	ebk_effect_demolish_type = { BUILDING = building_explosives_factory }
+	ebk_effect_demolish_type = { BUILDING = building_financial_district }
+	ebk_effect_demolish_type = { BUILDING = building_fishing_wharf }
+	ebk_effect_demolish_type = { BUILDING = building_food_industry }
+	ebk_effect_demolish_type = { BUILDING = building_furniture_manufactory }
+	ebk_effect_demolish_type = { BUILDING = building_glassworks }
+	ebk_effect_demolish_type = { BUILDING = building_gold_field }
+	ebk_effect_demolish_type = { BUILDING = building_gold_mine }
+	ebk_effect_demolish_type = { BUILDING = building_government_administration }
+	ebk_effect_demolish_type = { BUILDING = building_iron_mine }
+	ebk_effect_demolish_type = { BUILDING = building_lead_mine }
+	ebk_effect_demolish_type = { BUILDING = building_livestock_ranch }
+	ebk_effect_demolish_type = { BUILDING = building_maize_farm }
+	ebk_effect_demolish_type = { BUILDING = building_manor_house }
+	ebk_effect_demolish_type = { BUILDING = building_millet_farm }
+	ebk_effect_demolish_type = { BUILDING = building_motor_industry }
+	ebk_effect_demolish_type = { BUILDING = building_munition_plant }
+	ebk_effect_demolish_type = { BUILDING = building_naval_administration }
+	ebk_effect_demolish_type = { BUILDING = building_naval_logistics_center }
+	ebk_effect_demolish_type = { BUILDING = building_oil_rig }
+	ebk_effect_demolish_type = { BUILDING = building_opium_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_paper_mill }
+	ebk_effect_demolish_type = { BUILDING = building_power_plant }
+	ebk_effect_demolish_type = { BUILDING = building_rice_farm }
+	ebk_effect_demolish_type = { BUILDING = building_rubber_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_rye_farm }
+	ebk_effect_demolish_type = { BUILDING = building_shipyard }
+	ebk_effect_demolish_type = { BUILDING = building_silk_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_steel_mill }
+	ebk_effect_demolish_type = { BUILDING = building_sugar_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_sulfur_mine }
+	ebk_effect_demolish_type = { BUILDING = building_synthetics_plant }
+	ebk_effect_demolish_type = { BUILDING = building_tea_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_textile_mill }
+	ebk_effect_demolish_type = { BUILDING = building_tobacco_plantation }
+	ebk_effect_demolish_type = { BUILDING = building_tooling_workshop }
+	ebk_effect_demolish_type = { BUILDING = building_university }
+	ebk_effect_demolish_type = { BUILDING = building_vineyard }
+	ebk_effect_demolish_type = { BUILDING = building_whaling_station }
+	ebk_effect_demolish_type = { BUILDING = building_wheat_farm }
+}
+
+# ---- 6. forced nationalization ------------------------------------------
+# SCOPE REDUCTION, flagged: remove-then-rebuild cannot preserve the level,
+# because create_building's level and add_ownership are mutually exclusive
+# and add_ownership.levels needs a literal. So this GRANTS ROOT ownership
+# levels in the existing building instead of destroying it. create_building
+# on an existing building keeps max(scripted, existing) level, so nothing is
+# lost. Fixed 10 levels seized per building. See TODO.
+# scope:ebk_target is the enemy whose holdings are seized.
+
+# Runs in STATE scope. Injects ROOT owned levels into one building type.
+# create_building on an existing building keeps max(scripted, existing) level,
+# so this adds ownership without shrinking the building.
+ebk_effect_seize_type = {
+	if = {
+		limit = {
+			has_building = $BUILDING$
+			any_scope_building = {
+				is_building_type = $BUILDING$
+				levels_owned_by_country = {
+					target = scope:ebk_target
+					value >= 1
+				}
+			}
+		}
+		create_building = {
+			building = $BUILDING$
+			add_ownership = {
+				country = {
+					country = root
+					levels = 10
+				}
+			}
+		}
+		debug_log = "ebk - nationalization - seized foreign held levels"
+	}
+}
+
+# Runs in STATE scope. Same curated list as the demolition sweep.
+ebk_effect_seize_foreign_in_state = {
+	ebk_effect_seize_type = { BUILDING = building_arms_industry }
+	ebk_effect_seize_type = { BUILDING = building_army_logistics_center }
+	ebk_effect_seize_type = { BUILDING = building_art_academy }
+	ebk_effect_seize_type = { BUILDING = building_artillery_foundry }
+	ebk_effect_seize_type = { BUILDING = building_automotive_industry }
+	ebk_effect_seize_type = { BUILDING = building_banana_plantation }
+	ebk_effect_seize_type = { BUILDING = building_barrack }
+	ebk_effect_seize_type = { BUILDING = building_chemical_plant }
+	ebk_effect_seize_type = { BUILDING = building_coffee_plantation }
+	ebk_effect_seize_type = { BUILDING = building_conscription_center }
+	ebk_effect_seize_type = { BUILDING = building_construction_sector }
+	ebk_effect_seize_type = { BUILDING = building_cotton_plantation }
+	ebk_effect_seize_type = { BUILDING = building_dye_plantation }
+	ebk_effect_seize_type = { BUILDING = building_electrics_industry }
+	ebk_effect_seize_type = { BUILDING = building_explosives_factory }
+	ebk_effect_seize_type = { BUILDING = building_financial_district }
+	ebk_effect_seize_type = { BUILDING = building_fishing_wharf }
+	ebk_effect_seize_type = { BUILDING = building_food_industry }
+	ebk_effect_seize_type = { BUILDING = building_furniture_manufactory }
+	ebk_effect_seize_type = { BUILDING = building_glassworks }
+	ebk_effect_seize_type = { BUILDING = building_gold_field }
+	ebk_effect_seize_type = { BUILDING = building_gold_mine }
+	ebk_effect_seize_type = { BUILDING = building_government_administration }
+	ebk_effect_seize_type = { BUILDING = building_iron_mine }
+	ebk_effect_seize_type = { BUILDING = building_lead_mine }
+	ebk_effect_seize_type = { BUILDING = building_livestock_ranch }
+	ebk_effect_seize_type = { BUILDING = building_maize_farm }
+	ebk_effect_seize_type = { BUILDING = building_manor_house }
+	ebk_effect_seize_type = { BUILDING = building_millet_farm }
+	ebk_effect_seize_type = { BUILDING = building_motor_industry }
+	ebk_effect_seize_type = { BUILDING = building_munition_plant }
+	ebk_effect_seize_type = { BUILDING = building_naval_administration }
+	ebk_effect_seize_type = { BUILDING = building_naval_logistics_center }
+	ebk_effect_seize_type = { BUILDING = building_oil_rig }
+	ebk_effect_seize_type = { BUILDING = building_opium_plantation }
+	ebk_effect_seize_type = { BUILDING = building_paper_mill }
+	ebk_effect_seize_type = { BUILDING = building_power_plant }
+	ebk_effect_seize_type = { BUILDING = building_rice_farm }
+	ebk_effect_seize_type = { BUILDING = building_rubber_plantation }
+	ebk_effect_seize_type = { BUILDING = building_rye_farm }
+	ebk_effect_seize_type = { BUILDING = building_shipyard }
+	ebk_effect_seize_type = { BUILDING = building_silk_plantation }
+	ebk_effect_seize_type = { BUILDING = building_steel_mill }
+	ebk_effect_seize_type = { BUILDING = building_sugar_plantation }
+	ebk_effect_seize_type = { BUILDING = building_sulfur_mine }
+	ebk_effect_seize_type = { BUILDING = building_synthetics_plant }
+	ebk_effect_seize_type = { BUILDING = building_tea_plantation }
+	ebk_effect_seize_type = { BUILDING = building_textile_mill }
+	ebk_effect_seize_type = { BUILDING = building_tobacco_plantation }
+	ebk_effect_seize_type = { BUILDING = building_tooling_workshop }
+	ebk_effect_seize_type = { BUILDING = building_university }
+	ebk_effect_seize_type = { BUILDING = building_vineyard }
+	ebk_effect_seize_type = { BUILDING = building_whaling_station }
+	ebk_effect_seize_type = { BUILDING = building_wheat_farm }
+}
+
+ebk_effect_nationalize_holdings = {
+	every_scope_state = { ebk_effect_seize_foreign_in_state = yes }
+	add_modifier = {
+		name = ebk_nationalization_backlash
+		months = 60
+	}
+}

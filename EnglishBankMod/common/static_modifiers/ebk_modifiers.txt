@@ -1,0 +1,36 @@
+﻿# EnglishBankMod - ALL static modifiers for the mod, one file.
+
+# Emergency minting while the bailout settles. Scaled at grant by the
+# deficit captured BEFORE the debt was wiped, via multiplier = var:.
+ebk_minting_relief = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	country_minting_add = 1
+}
+
+# The men who paid for the rescue collect their political due.
+ebk_capitalists_ascendant = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	country_capitalists_pol_str_mult = 1.0
+}
+
+# The visible badge of a bank. Also the cheap in game marker for who lends.
+ebk_global_creditor = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
+	country_prestige_mult = 0.05
+	country_improve_relations_speed_mult = 0.05
+}
+
+# Charged to a country that refuses to found new private buildings.
+# Pure flavour, so the toggle shows the player something in the panel.
+ebk_pool_expand_only_mod = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_documents_positive.dds"
+	# No country level pool modifier exists, only state_<poptype>_ ones.
+	state_capitalists_investment_pool_efficiency_mult = 0.05
+}
+
+# Seizing foreign property is not free. Applied to the seizer.
+ebk_nationalization_backlash = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_negative.dds"
+	country_capitalists_pol_str_mult = -0.25
+	country_improve_relations_speed_mult = -0.25
+}
