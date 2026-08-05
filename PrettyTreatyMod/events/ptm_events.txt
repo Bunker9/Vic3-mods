@@ -28,7 +28,7 @@ ptm_event.1 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ptm - rice-expansion - CHI rice build-out fired"
+		# debug_log = "ptm - rice-expansion - CHI rice build-out fired"
 		set_variable = { name = ptm_rice_expansion_done value = yes }
 
 		every_scope_state = {
@@ -47,11 +47,11 @@ ptm_event.1 = {
 			}
 			remove_variable = ptm_cur
 
-			if = {
-				limit = { NOT = { has_variable = ptm_fingerprint_rice_expansion } }
-				set_variable = { name = ptm_fingerprint_rice_expansion value = 0 }
-			}
-			change_variable = { name = ptm_fingerprint_rice_expansion add = 1 }
+			# if = {
+				# limit = { NOT = { has_variable = ptm_fingerprint_rice_expansion } }
+				# set_variable = { name = ptm_fingerprint_rice_expansion value = 0 }
+			# }
+			# change_variable = { name = ptm_fingerprint_rice_expansion add = 1 }
 		}
 	}
 }
@@ -64,7 +64,7 @@ ptm_event.2 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ptm - china-railways - treaty port power funds Chinese railways"
+		# debug_log = "ptm - china-railways - treaty port power funds Chinese railways"
 
 		# close the race first, so no other power can take it
 		set_global_variable = { name = ptm_railway_race_won value = yes }
@@ -156,11 +156,11 @@ ptm_event.2 = {
 				start_privately_funded_building_construction = building_railway
 
 				# fingerprint: SET before CHANGE in STATE scope (was set in country scope -> empty-var error)
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_china_railways } }
-					set_variable = { name = ptm_fingerprint_china_railways value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_china_railways add = 2 } # 2 rails queued per state
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_railways } }
+					# set_variable = { name = ptm_fingerprint_china_railways value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_railways add = 2 } # 2 rails queued per state
 			}
 		}
 	}
@@ -176,7 +176,7 @@ ptm_event.3 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ptm - china-mining - treaty port power funds Chinese mines"
+		# debug_log = "ptm - china-mining - treaty port power funds Chinese mines"
 
 		# close the race first, so no other power can take it
 		set_global_variable = { name = ptm_mining_race_won value = yes }
@@ -198,11 +198,11 @@ ptm_event.3 = {
 					add_ownership = { country = { country = root levels = 4 } }
 					reserves = 1
 				}
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
-					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 
 			every_scope_state = {
@@ -215,11 +215,11 @@ ptm_event.3 = {
 					add_ownership = { country = { country = root levels = 4 } }
 					reserves = 1
 				}
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
-					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 
 			every_scope_state = {
@@ -232,11 +232,11 @@ ptm_event.3 = {
 					add_ownership = { country = { country = root levels = 4 } }
 					reserves = 1
 				}
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
-					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 
 			every_scope_state = {
@@ -249,11 +249,11 @@ ptm_event.3 = {
 					add_ownership = { country = { country = root levels = 4 } }
 					reserves = 1
 				}
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
-					set_variable = { name = ptm_fingerprint_china_mining value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_china_mining add = 4 }
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_china_mining } }
+					# set_variable = { name = ptm_fingerprint_china_mining value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_china_mining add = 4 }
 			}
 		}
 	}
@@ -268,7 +268,7 @@ ptm_event.4 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ptm - reclaim-lapsed-port - decision fired"
+		# debug_log = "ptm - reclaim-lapsed-port - decision fired"
 		set_variable = { name = ptm_reclaim_cooldown value = yes years = 10 }
 		ptm_reclaim_lapsed_ports = yes
 	}
@@ -286,7 +286,7 @@ ptm_event.5 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "ptm - raj-settlement - decision fired"
+		# debug_log = "ptm - raj-settlement - decision fired"
 		set_variable = { name = ptm_raj_settlement_done value = yes }
 
 		# 1. BIC leaves the overlord market. set_market_capital ALONE did nothing (save
@@ -311,23 +311,23 @@ ptm_event.5 = {
 			country = c:BIC
 			type = ptm_raj_tribute
 		}
-		if = {
-			limit = { has_diplomatic_pact = { who = c:BIC type = ptm_raj_tribute } }
-			debug_log = "ptm - raj-settlement - tribute pact created"
-		}
-		else = { debug_log = "ptm - raj-settlement - tribute pact NOT created" }
+		# if = {
+			# limit = { has_diplomatic_pact = { who = c:BIC type = ptm_raj_tribute } }
+			# debug_log = "ptm - raj-settlement - tribute pact created"
+		# }
+		# else = { debug_log = "ptm - raj-settlement - tribute pact NOT created" }
 
-		if = {
-			limit = { has_diplomatic_pact = { who = c:BIC type = grant_own_market } }
-			debug_log = "ptm - raj-settlement - own market pact created"
-		}
-		else = { debug_log = "ptm - raj-settlement - own market pact NOT created" }
+		# if = {
+			# limit = { has_diplomatic_pact = { who = c:BIC type = grant_own_market } }
+			# debug_log = "ptm - raj-settlement - own market pact created"
+		# }
+		# else = { debug_log = "ptm - raj-settlement - own market pact NOT created" }
 
-		if = {
-			limit = { NOT = { has_variable = ptm_fingerprint_raj_settlement } }
-			set_variable = { name = ptm_fingerprint_raj_settlement value = 0 }
-		}
-		change_variable = { name = ptm_fingerprint_raj_settlement add = 1 }
+		# if = {
+			# limit = { NOT = { has_variable = ptm_fingerprint_raj_settlement } }
+			# set_variable = { name = ptm_fingerprint_raj_settlement value = 0 }
+		# }
+		# change_variable = { name = ptm_fingerprint_raj_settlement add = 1 }
 	}
 }
 
@@ -357,10 +357,10 @@ ptm_event.6 = {
 					}
 				}
 			}
-			debug_log = "ptm - raj-settlement - Calcutta treaty port created"
+			# debug_log = "ptm - raj-settlement - Calcutta treaty port created"
 			trigger_event = { id = ptm_event.7 days = 7 }
 		}
-		else = { debug_log = "ptm - raj-settlement - BIC holds no West Bengal state" }
+		# else = { debug_log = "ptm - raj-settlement - BIC holds no West Bengal state" }
 	}
 }
 
@@ -380,7 +380,7 @@ ptm_event.7 = {
 				limit = { owner = root }
 				set_state_type = incorporated
 				add_modifier = { name = ptm_treaty_port_order }
-				debug_log = "ptm - raj-settlement - port incorporated and pacified"
+				# debug_log = "ptm - raj-settlement - port incorporated and pacified"
 			}
 		}
 	}

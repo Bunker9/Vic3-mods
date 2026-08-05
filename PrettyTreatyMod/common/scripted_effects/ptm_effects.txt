@@ -60,7 +60,7 @@ ptm_grant_concession_prize_rails = {
 		if = {
 			limit = { exists = scope:ptm_port_state }
 			set_global_variable = { name = ptm_concession_prize_awarded_rails value = yes }
-			debug_log = "ptm - concession-prize-rails - port found, prize granted"
+			# debug_log = "ptm - concession-prize-rails - port found, prize granted"
 
 			scope:ptm_port_state = {
 				create_building = { building = building_trade_center level = 8 reserves = 1 }
@@ -70,14 +70,14 @@ ptm_grant_concession_prize_rails = {
 				create_building = { building = building_railway level = 2 reserves = 1 }
 				ptm_settle_concession_pops = yes
 
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_concession_prize_rails } }
-					set_variable = { name = ptm_fingerprint_concession_prize_rails value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_concession_prize_rails add = 1 }
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_concession_prize_rails } }
+					# set_variable = { name = ptm_fingerprint_concession_prize_rails value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_concession_prize_rails add = 1 }
 			}
 		}
-		else = { debug_log = "ptm - concession-prize-rails - no China treaty port state found" }
+		# else = { debug_log = "ptm - concession-prize-rails - no China treaty port state found" }
 	}
 }
 
@@ -104,7 +104,7 @@ ptm_grant_concession_prize_mines = {
 		if = {
 			limit = { exists = scope:ptm_port_state }
 			set_global_variable = { name = ptm_concession_prize_awarded_mines value = yes }
-			debug_log = "ptm - concession-prize-mines - port found, prize granted"
+			# debug_log = "ptm - concession-prize-mines - port found, prize granted"
 
 			scope:ptm_port_state = {
 				create_building = { building = building_trade_center level = 10 reserves = 1 }
@@ -115,14 +115,14 @@ ptm_grant_concession_prize_mines = {
 
 				ptm_settle_concession_pops = yes
 
-				if = {
-					limit = { NOT = { has_variable = ptm_fingerprint_concession_prize_mines } }
-					set_variable = { name = ptm_fingerprint_concession_prize_mines value = 0 }
-				}
-				change_variable = { name = ptm_fingerprint_concession_prize_mines add = 1 }
+				# if = {
+					# limit = { NOT = { has_variable = ptm_fingerprint_concession_prize_mines } }
+					# set_variable = { name = ptm_fingerprint_concession_prize_mines value = 0 }
+				# }
+				# change_variable = { name = ptm_fingerprint_concession_prize_mines add = 1 }
 			}
 		}
-		else = { debug_log = "ptm - concession-prize-mines - no China treaty port state found" }
+		# else = { debug_log = "ptm - concession-prize-mines - no China treaty port state found" }
 	}
 }
 
@@ -134,13 +134,13 @@ ptm_grant_concession_prize_mines = {
 # passed here is silently dropped and NO pop is made (that was the earlier bug). The settlers
 # migrate into the new trade-center jobs from the market.
 ptm_settle_concession_pops = {
-	if = {
-		limit = { exists = scope:ptm_port_state }
-		debug_log = "ptm - concession-pops - port state present"
-	}
-	else = {
-		debug_log = "ptm - concession-pops - NO port state found"
-	}
+	# if = {
+		# limit = { exists = scope:ptm_port_state }
+		# debug_log = "ptm - concession-pops - port state present"
+	# }
+	# else = {
+		# debug_log = "ptm - concession-pops - NO port state found"
+	# }
 	scope:ptm_port_state = {
 		if = {
 			limit = { ROOT = { this = c:FRA } }
@@ -211,7 +211,7 @@ ptm_reclaim_lapsed_ports = {
 					type = dp_take_treaty_port
 					target_state = scope:ptm_reclaim_state
 				}
-				debug_log = "ptm - reclaim - WAR dp_take_treaty_port started"
+				# debug_log = "ptm - reclaim - WAR dp_take_treaty_port started"
 			}
 			else = {
 				create_treaty = {
@@ -228,7 +228,7 @@ ptm_reclaim_lapsed_ports = {
 						}
 					}
 				}
-				debug_log = "ptm - reclaim - PEACE create_treaty treaty_port"
+				# debug_log = "ptm - reclaim - PEACE create_treaty treaty_port"
 			}
 		}
 	}

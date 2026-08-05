@@ -7,7 +7,7 @@ mnc_event.1 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "mnc - reclaim - decision fired"
+		# debug_log = "mnc - reclaim - decision fired"
 		set_variable = { name = mnc_reclaim_done value = yes }
 
 		# Permanent: no years, so it never expires.
@@ -25,11 +25,11 @@ mnc_event.1 = {
 		set_owes_obligation_to = { country = c:AUS setting = yes }
 		add_investment_pool = -1000000
 
-		if = {
-			limit = { NOT = { has_variable = mnc_fingerprint_reclaim } }
-			set_variable = { name = mnc_fingerprint_reclaim value = 0 }
-		}
-		change_variable = { name = mnc_fingerprint_reclaim add = 1 }
+		# if = {
+			# limit = { NOT = { has_variable = mnc_fingerprint_reclaim } }
+			# set_variable = { name = mnc_fingerprint_reclaim value = 0 }
+		# }
+		# change_variable = { name = mnc_fingerprint_reclaim add = 1 }
 	}
 }
 
@@ -41,7 +41,7 @@ mnc_event.2 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "mnc - suez - rush purchase concluded"
+		# debug_log = "mnc - suez - rush purchase concluded"
 		set_variable = { name = mnc_suez_done value = yes }
 
 		s:STATE_SINAI = {
@@ -73,11 +73,11 @@ mnc_event.2 = {
 
 		trigger_event = { id = mnc_event.3 weeks = 2 }
 
-		if = {
-			limit = { NOT = { has_variable = mnc_fingerprint_suez } }
-			set_variable = { name = mnc_fingerprint_suez value = 0 }
-		}
-		change_variable = { name = mnc_fingerprint_suez add = 1 }
+		# if = {
+			# limit = { NOT = { has_variable = mnc_fingerprint_suez } }
+			# set_variable = { name = mnc_fingerprint_suez value = 0 }
+		# }
+		# change_variable = { name = mnc_fingerprint_suez add = 1 }
 	}
 }
 
@@ -87,7 +87,7 @@ mnc_event.3 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "mnc - suez - private backing takes over"
+		# debug_log = "mnc - suez - private backing takes over"
 
 		if = {
 			limit = { has_modifier = suez_purchase }
@@ -114,16 +114,16 @@ mnc_event.4 = {
 	duration = 3
 
 	immediate = {
-		debug_log = "mnc - persuasion - decision fired"
+		# debug_log = "mnc - persuasion - decision fired"
 
 		add_investment_pool = -10000000
 		add_modifier = { name = mnc_landowner_persuasion_cooldown months = 60 }
 
-		if = {
-			limit = { NOT = { has_variable = mnc_fingerprint_persuasion } }
-			set_variable = { name = mnc_fingerprint_persuasion value = 0 }
-		}
-		change_variable = { name = mnc_fingerprint_persuasion add = 1 }
+		# if = {
+			# limit = { NOT = { has_variable = mnc_fingerprint_persuasion } }
+			# set_variable = { name = mnc_fingerprint_persuasion value = 0 }
+		# }
+		# change_variable = { name = mnc_fingerprint_persuasion add = 1 }
 	}
 
 	# Hidden once the leader already holds the ideology, so the money is never wasted.

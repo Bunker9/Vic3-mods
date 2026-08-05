@@ -69,7 +69,7 @@ desi_event.2 = {
 	hidden = yes
 
 	immediate = {
-		debug_log = "desi - peacock-throne - decision fired"
+		# debug_log = "desi - peacock-throne - decision fired"
 		set_variable = { name = desi_peacock_throne_done value = yes }
 
 		if = {
@@ -77,10 +77,10 @@ desi_event.2 = {
 			set_capital = STATE_DELHI
 		}
 
-		if = {
-			limit = { NOT = { has_variable = desi_fingerprint_peacock_throne } }
-			set_variable = { name = desi_fingerprint_peacock_throne value = 0 }
-		}
-		change_variable = { name = desi_fingerprint_peacock_throne add = 1 }
+		# if = {
+			# limit = { NOT = { has_variable = desi_fingerprint_peacock_throne } }
+			# set_variable = { name = desi_fingerprint_peacock_throne value = 0 }
+		# }
+		# change_variable = { name = desi_fingerprint_peacock_throne add = 1 }
 	}
 }
