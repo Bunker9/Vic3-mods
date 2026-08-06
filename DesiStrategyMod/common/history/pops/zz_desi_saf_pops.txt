@@ -1,0 +1,11 @@
+﻿# Gujarati Hindu community in the Cape at 1836, so an Indian heritage pop exists
+# in Africa for desi_gandhi_in_africa to find. Shape copied from PrettyTreatyMod.
+# NET NEUTRAL: zz_desi_countries.txt kills 20000 khoisan to pay for these.
+# pop_type is explicit, else they land as unemployed subsistence peasants.
+POPS = {
+	s:STATE_CAPE_COLONY = {
+		region_state:SAF = {
+			create_pop = { pop_type = clergymen culture = gujarati religion = hindu size = 20000 }
+		}
+	}
+}

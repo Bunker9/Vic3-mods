@@ -84,3 +84,131 @@ desi_event.2 = {
 		# change_variable = { name = desi_fingerprint_peacock_throne add = 1 }
 	}
 }
+
+# -----------------------------------------------------------------------------
+# desi_event.3 - Gandhi spawn payload for desi_gandhi_in_africa.
+# gandhi_spawn is VANILLA's own guard (india_nationalism_events.txt:470,476), so
+# setting it here retires vanilla's SAF-only event .4 for good.
+# Vanilla template is deliberate: .5, the pan-national movement and the
+# achievement all match on has_template, so the 1910 move to BIC still works.
+# Popularity: template gives charismatic 50 + inspirational_orator 25, and
+# masterful_diplomat adds 50, so he sits at the MAX_POPULARITY cap of 100.
+# -----------------------------------------------------------------------------
+desi_event.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		set_global_variable = gandhi_spawn
+
+		# The African state that qualified us; carries the congress modifier.
+		random_scope_state = {
+			limit = {
+				is_in_geographic_region = geographic_region_africa
+				any_scope_pop = {
+					religion = rel:hindu
+					culture = { has_discrimination_trait_group = heritage_group_south_asian }
+				}
+			}
+			save_scope_as = desi_gandhi_state
+			add_modifier = {
+				name = modifier_natal_indian_congress
+				days = long_modifier_time
+			}
+		}
+
+		create_character = {
+			template = BIC_mohandas_karamchand_gandhi
+			save_scope_as = desi_gandhi_scope
+		}
+		scope:desi_gandhi_scope = {
+			add_trait = masterful_diplomat
+		}
+
+		# debug_log = "desi - gandhi-africa - Gandhi spawned in an African state"
+
+		# Boolean fp: the decision is once-only, so a counter could only read 1.
+		# if = {
+			# limit = { NOT = { has_variable = desi_fingerprint_gandhi_spawn } }
+			# set_variable = { name = desi_fingerprint_gandhi_spawn value = yes } # BDD(DESI-GANDHI) for gandhi-africa
+		# }
+	}
+}
+
+# -----------------------------------------------------------------------------
+# desi_event.4 - Gandhi leads India payload for desi_gandhi_leads_india.
+# Three-way search copied from vanilla india_nationalism_events.5:570-611: take
+# him off whichever country holds him, else out of the exile pool, else create
+# him. gandhi_spawn is set here too, so calling him home also retires vanilla .4.
+# -----------------------------------------------------------------------------
+desi_event.4 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		set_variable = { name = desi_gandhi_leads_done value = yes }
+		set_global_variable = gandhi_spawn
+
+		if = {
+			limit = {
+				any_country = {
+					any_scope_character = { has_template = BIC_mohandas_karamchand_gandhi }
+				}
+			}
+			random_country = {
+				limit = {
+					any_scope_character = { has_template = BIC_mohandas_karamchand_gandhi }
+				}
+				random_scope_character = {
+					limit = { has_template = BIC_mohandas_karamchand_gandhi }
+					transfer_character = ROOT
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				any_character_in_exile_pool = { has_template = BIC_mohandas_karamchand_gandhi }
+			}
+			random_character_in_exile_pool = {
+				limit = { has_template = BIC_mohandas_karamchand_gandhi }
+				transfer_character = ROOT
+				hidden_effect = { free_from_exile_effect = yes }
+			}
+		}
+		else = {
+			create_character = { template = BIC_mohandas_karamchand_gandhi }
+		}
+
+		# He is in ROOT now whichever branch ran, so find him once and promote.
+		random_scope_character = {
+			limit = { has_template = BIC_mohandas_karamchand_gandhi }
+			save_scope_as = desi_gandhi_leader
+		}
+		scope:desi_gandhi_leader = {
+			if = {
+				limit = { NOT = { has_trait = masterful_diplomat } }
+				add_trait = masterful_diplomat
+			}
+			set_as_interest_group_leader = yes
+		}
+
+		# set_character_as_ruler carries a documented CAUTION against chartered
+		# companies: "the character's country will be affected" (effects.log:12754).
+		# BIC is one (00_subject_relationships.txt:134), so it is guarded, and the
+		# Company gets him as IG leader only. T192 covers testing the unguarded case.
+		if = {
+			limit = { NOT = { is_subject_type = subject_type_chartered_company } }
+			scope:desi_gandhi_leader = {
+				set_character_as_ruler = yes
+			}
+		}
+
+		# debug_log = "desi - gandhi-leads - Gandhi installed as IG leader"
+
+		# Boolean fp: once-only decision, so a counter could only read 1.
+		# if = {
+			# limit = { NOT = { has_variable = desi_fingerprint_gandhi_leads } }
+			# set_variable = { name = desi_fingerprint_gandhi_leads value = yes } # BDD(DESI-GANDHI) for gandhi-leads
+		# }
+	}
+}

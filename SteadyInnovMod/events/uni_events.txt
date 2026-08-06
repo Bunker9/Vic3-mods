@@ -32,6 +32,7 @@ uni_event.1 = {
 				leader = { set_ideology = ideology:ideology_abolitionist }
 			}
 			ordered_interest_group = {
+				limit = { NOT = { is_interest_group_type = ig_landowners } }
 				order_by = ig_clout
 				position = 0
 				check_range_bounds = no
@@ -43,6 +44,7 @@ uni_event.1 = {
 				leader = { set_ideology = ideology:ideology_market_liberal }
 			}
 			ordered_interest_group = {
+				limit = { NOT = { is_interest_group_type = ig_landowners } }
 				order_by = ig_clout
 				position = 0
 				check_range_bounds = no
@@ -96,7 +98,6 @@ uni_event.2 = {
 				owner = c:AUS
 				is_incorporated = no
 			}
-			save_scope_as = target_crownland
 
 			# Incorporate the state
 			set_state_type = incorporated
@@ -173,6 +174,10 @@ uni_event.3 = {
 			# ban it OUTRIGHT and strip the pro-slavery party ideology from every IG.
 			# Tokens: every_interest_group + guarded remove_ideology of ideology_pro_slavery /
 			# _colonial copied from vanilla law_events/slavery_laws.txt:613 (verified 2026-07-07).
+			if = {
+				limit = { NOT = { has_law = law_type:law_no_migration_controls } }
+				activate_law = law_type:law_no_migration_controls
+			}
 			if = {
 				limit = { NOT = { has_law = law_type:law_slavery_banned } }
 				activate_law = law_type:law_slavery_banned
