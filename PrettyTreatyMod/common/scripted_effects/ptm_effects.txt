@@ -189,6 +189,7 @@ ptm_reclaim_lapsed_ports = {
 				is_under_colonization = no
 				state_region = {
 					any_scope_state = { ptm_is_reclaimable_host_port = yes }
+					ptm_region_has_no_root_treaty_port = yes   # keep in step with the decision
 				}
 			}
 			state_region = {
