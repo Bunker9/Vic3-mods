@@ -1,0 +1,50 @@
+﻿# =============================================================================
+# Top40EcoBoostMod - the two day-1 country modifiers. HAND-WRITTEN.
+#
+# Was eco_setup_<TAG>, run from the retired on_game_started on_action. Each tag gets its
+# champ-category throughput modifier for 240 months plus the permanent SoL/education one.
+# Definitions stay in common/static_modifiers/eco_modifiers.txt.
+# Category per tag is unchanged from the retired eco_setup_generated.txt.
+# =============================================================================
+COUNTRIES = {
+	c:CHI = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:RUS = { add_modifier = { name = eco_champ_tp_log   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:BIC = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:USA = { add_modifier = { name = eco_champ_tp_ranch months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:FRA = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:GBR = { add_modifier = { name = eco_champ_tp_mine  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:TUR = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:JAP = { add_modifier = { name = eco_champ_tp_fish  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:PRU = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SPA = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:AUS = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:MEX = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:KOR = { add_modifier = { name = eco_champ_tp_log   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:BRZ = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:PER = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:EGY = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:PAN = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:DEI = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:HUN = { add_modifier = { name = eco_champ_tp_ranch months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:POR = { add_modifier = { name = eco_champ_tp_fish  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SIC = { add_modifier = { name = eco_champ_tp_mine  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:NET = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SOK = { add_modifier = { name = eco_champ_tp_ranch months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SAR = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SWE = { add_modifier = { name = eco_champ_tp_mine  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:HYD = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:GRE = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:DAI = { add_modifier = { name = eco_champ_tp_fish  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:NEP = { add_modifier = { name = eco_champ_tp_log   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:CLM = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:ARG = { add_modifier = { name = eco_champ_tp_ranch months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SIA = { add_modifier = { name = eco_champ_tp_fish  months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:MOR = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:OMA = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SHW = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:SAF = { add_modifier = { name = eco_champ_tp_ranch months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:PHI = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:BEL = { add_modifier = { name = eco_champ_tp_ind   months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:BAV = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+	c:BUR = { add_modifier = { name = eco_champ_tp_plant months = 240 }  add_modifier = { name = eco_sol_edu_global } }
+}

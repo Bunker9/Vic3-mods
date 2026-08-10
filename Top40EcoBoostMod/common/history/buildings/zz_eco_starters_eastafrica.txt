@@ -25,9 +25,11 @@ BUILDINGS = {
 			create_building = {
 				building = "building_logging_camp"
 				add_ownership = {
-					country = {
+					building = {
+						type = "building_financial_district"
 						country = "c:SHW"
 						levels = 1
+						region = "STATE_OROMIA"
 					}
 				}
 				reserves = 1
@@ -45,9 +47,11 @@ BUILDINGS = {
 			create_building = {
 				building = "building_iron_mine"
 				add_ownership = {
-					country = {
+					building = {
+						type = "building_financial_district"
 						country = "c:SHW"
 						levels = 1
+						region = "STATE_OROMIA"
 					}
 				}
 				reserves = 1
