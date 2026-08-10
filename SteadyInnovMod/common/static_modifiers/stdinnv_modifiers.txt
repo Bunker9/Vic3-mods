@@ -22,6 +22,14 @@ stdinnv_unrecognized = {
 	country_prestige_mult = -0.2
 }
 
+stdinnv_fighting_addiction = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	building_group_bg_manufacturing_employee_mult = -0.2
+	building_group_bg_manufacturing_throughput_add = 0.15
+	country_prestige_mult = 0.2
+}
+
 stdinnv_subject = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
 

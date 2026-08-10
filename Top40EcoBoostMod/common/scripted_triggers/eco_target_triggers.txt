@@ -1,7 +1,0 @@
-﻿# =============================================================================
-# Top40EcoBoostMod - target-nation check (GENERATED). RUNTIME-SAFE: checks the flag set
-# by eco_set_target_flags at startup; never compares this = c:DEADTAG. DO NOT HAND-EDIT.
-# =============================================================================
-eco_is_target_country = {
-	has_variable = eco_target
-}

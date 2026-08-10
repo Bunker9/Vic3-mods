@@ -1,5 +1,7 @@
 ﻿l_english:
  modifier_desi_warbonds:0 "War Bonds"
+ modifier_desi_nepal_special:0 "Gorkha Rearmament"
+ modifier_desi_nepal_special_desc:0 "The Gorkha regiments drill without pause, and the Durbar's coffers keep the arsenals working."
  desi_claim_heartland:0 "Reclaim the Punjab and Delhi"
  desi_claim_heartland_desc:0 "The plains of the Punjab and the throne at Delhi are the cradle of our people, yet they lie under a foreign flag. Lay our claim to them so that one day they may return home."
  desi_unify_india:0 "From the Himalayas to the Indian Ocean"
@@ -21,3 +23,10 @@
  desi_peacock_throne_tt:0 "Moves our capital to Delhi"
  desi_holds_incorporated_delhi_tt:0 "We hold an incorporated state in Delhi"
  desi_holds_part_of_delhi_tt:0 "We hold at least part of Delhi"
+ desi_gandhi_in_africa:0 "A Young Lawyer Sails for Africa"
+ desi_gandhi_in_africa_desc:0 "Indian labourers work the plantations and the docks of Africa under a law that treats them as lesser men. A young Gujarati lawyer is willing to take their case, and the cause will make him the most beloved man of his age."
+ desi_gandhi_in_africa_tt:0 "Gandhi takes up the cause in that state. He joins us as an agitator of the highest standing, and the Indian congress there grows in strength for ten years."
+ desi_gandhi_leads_india:0 "Call the Mahatma Home"
+ desi_gandhi_leads_india_desc:0 "Delhi, Bombay and Bengal answer to us, and the man every Indian already listens to is not yet ours. Invite him to lead the intelligentsia, and let him take the seat at the head of the nation."
+ desi_holds_the_three_presidencies_tt:0 "We hold Delhi, Bombay and Bengal in full"
+ desi_gandhi_leads_india_tt:0 "Gandhi joins us as leader of the intelligentsia and takes his place as our head of state. A chartered company may seat him only at the head of the intelligentsia."

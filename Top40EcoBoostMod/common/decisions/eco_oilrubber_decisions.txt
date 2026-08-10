@@ -1,0 +1,60 @@
+﻿# =============================================================================
+# Top40EcoBoostMod - oil and rubber partnership decisions. HAND-WRITTEN.
+#
+# REWORK 2026-08-09: replaces eco_oilrubber_on_actions.txt (on_acquired_technology).
+# ANY country that researches the gating tech first can open the deal; a global variable
+# closes each race for everyone once won.
+#
+# Payloads live in hidden events (events/eco_oilrubber_events.txt) per the repo rule:
+# when_taken is re-run during tooltip preview.
+# =============================================================================
+
+# 1. OIL. Whoever first researches pumpjacks partners with Oman.
+eco_oil_partnership = {
+
+	is_shown = {
+		has_technology_researched = pumpjacks
+		NOT = { has_global_variable = eco_oil_deal_done }
+		exists = c:OMA
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+			text = eco_oil_partnership_gate_tt
+			c:OMA = { is_at_war = no }
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = { text = eco_oil_partnership_tt }
+		trigger_event = { id = ecoor.1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# 2. RUBBER. Whoever first researches rubber_mastication partners with Brazil.
+eco_rubber_partnership = {
+
+	is_shown = {
+		has_technology_researched = rubber_mastication
+		NOT = { has_global_variable = eco_rubber_deal_done }
+		exists = c:BRZ
+	}
+
+	possible = {
+		is_at_war = no
+		custom_tooltip = {
+			text = eco_rubber_partnership_gate_tt
+			c:BRZ = { is_at_war = no }
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = { text = eco_rubber_partnership_tt }
+		trigger_event = { id = ecoor.2 }
+	}
+
+	ai_chance = { value = 10000 }
+}

@@ -15,3 +15,9 @@ modifier_desi_incorporation_cost = {
 	country_bureaucracy_add = -10    # per 1,000,000 incorporated pop (scaled by the add_modifier multiplier)
 	country_expenses_add = 100       # +100/week expenses per 1,000,000 incorporated pop (cost), scaled likewise
 }
+
+modifier_desi_nepal_special = {
+	icon = gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds
+	country_authority_mult = 0.5
+	country_minting_add = 20000
+}

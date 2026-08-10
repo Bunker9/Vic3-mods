@@ -1,0 +1,9 @@
+﻿
+DIPLOMACY = {
+	c:NEP ?= {
+		# Replaces the old EGY-OMA bidirectional truce (removed from zz_mdp_truces.txt).
+		set_relations = { country = c:PAN value = 20 }
+		set_relations = { country = c:GBR value = 20 }
+		set_relations = { country = c:CHI value = -50 }
+	}
+}

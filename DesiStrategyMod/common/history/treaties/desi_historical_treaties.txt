@@ -15,6 +15,51 @@
 				source_country = c:GBR
 				target_country = c:NEP
 			}
+			{ # NEP supplies lead
+				article = goods_transfer
+				source_country = c:NEP
+				target_country = c:GBR
+				inputs = {
+					{ goods = g:lead }
+					{ quantity = 20 }
+				}
+			}
+			{ # GBR supplies merchant_marine
+				article = goods_transfer
+				source_country = c:GBR
+				target_country = c:NEP
+				inputs = {
+					{ goods = g:merchant_marine }
+					{ quantity = 10 }
+				}
+			}
+			{ # GBR supplies wine
+				article = goods_transfer
+				source_country = c:GBR
+				target_country = c:NEP
+				inputs = {
+					{ goods = g:wine }
+					{ quantity = 10 }
+				}
+			}
+			{ # GBR supplies liquor
+				article = goods_transfer
+				source_country = c:GBR
+				target_country = c:NEP
+				inputs = {
+					{ goods = g:dye }
+					{ quantity = 20 }
+				}
+			}
+			{ # GBR supplies liquor
+				article = goods_transfer
+				source_country = c:GBR
+				target_country = c:NEP
+				inputs = {
+					{ goods = g:silk }
+					{ quantity = 10 }
+				}
+			}
 		}
 	}
 	# Transit Rights Agreement for Panjab

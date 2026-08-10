@@ -1,0 +1,51 @@
+﻿# =============================================================================
+# Top40EcoBoostMod - military-readiness techs for the 40 target nations. HAND-WRITTEN.
+#
+# SEPARATE FILE ON PURPOSE (user 2026-08-09): tech grants are the easiest part of the mod
+# to reconsider, so they live alone. Delete this file and nothing else breaks.
+#
+# Was eco_grant_military_techs, run from the retired on_game_started on_action.
+# line_infantry + artillery = the units; gunsmithing = the artillery foundry building.
+# =============================================================================
+COUNTRIES = {
+	c:CHI = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:RUS = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:BIC = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:USA = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:FRA = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:GBR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:TUR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:JAP = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:PRU = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SPA = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:AUS = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:MEX = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:KOR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:BRZ = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:PER = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:EGY = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:PAN = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:DEI = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:HUN = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:POR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SIC = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:NET = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SOK = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SAR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SWE = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:HYD = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:GRE = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:DAI = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:NEP = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:CLM = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:ARG = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SIA = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:MOR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:OMA = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SHW = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:SAF = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:PHI = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:BEL = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:BAV = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+	c:BUR = { add_technology_researched = line_infantry  add_technology_researched = artillery  add_technology_researched = gunsmithing }
+}

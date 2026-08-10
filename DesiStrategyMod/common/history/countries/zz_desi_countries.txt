@@ -1,0 +1,23 @@
+﻿# Pays for the 20000 Gujarati in zz_desi_saf_pops.txt out of the native khoisan,
+# so SAF's day-1 headcount is unchanged (late-game balance, user call 2026-08-05).
+# khoisan is the Cape's largest pop, 148692 in vanilla 04_subsaharan_africa.txt:3206.
+# s:STATE_X.region_state:TAG ?= is vanilla's own idiom, india_nationalism_events.txt:483.
+#commenting out by HUMAN -- i will test it sepeartely
+# COUNTRIES = {
+# 	c:SAF ?= {
+# 		s:STATE_CAPE_COLONY.region_state:SAF ?= {
+# 			kill_population_in_state = {
+# 				value = 20000
+# 				culture = cu:khoisan
+# 			}
+# 		}
+# 	}
+# }
+
+COUNTRIES = {
+	c:NEP ?= {
+        add_modifier = { name = modifier_desi_nepal_special years=10 }
+		add_technology_researched = line_infantry
+		activate_law = law_type:law_tenant_farmers
+	}
+}

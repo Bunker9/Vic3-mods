@@ -276,3 +276,80 @@ desi_peacock_throne = {
 
 	ai_chance = { value = 10000 }
 }
+
+# ---- Decision: Gandhi answers the call in Africa -----------------------------
+# Vanilla india_nationalism_events.4 spawns Gandhi only for SAF, only from Zululand
+# or Eastern Cape, and only out of a yearly random pool that rarely fires. This is
+# the same spawn opened to ANY country holding an African state with an Indian
+# heritage Hindu pop. Payload in desi_event.3 per the decision-payload rule.
+# Once only: the payload sets vanilla's gandhi_spawn global, tested here.
+desi_gandhi_in_africa = {
+	# SHOWS ONLY for a British-linked nation (or the player) that actually holds the
+	# pop. is_subject_of covers subject-of-subject too (triggers.log:6748), so it is
+	# the general class, not a tag list: GBR holds BIC as chartered_company and SAF
+	# as colony (00_subject_relationships.txt:134,150), and both fall out of it.
+	# c:TAG ?= this, never this = c:TAG: the ?= form no-ops on an absent tag.
+	is_shown = {
+		# He is born 1869.10.2 (country_bic.txt:1027), so no spawning an unborn
+		# Gandhi at 1836. Vanilla gates its own version at 1893.
+		game_date >= 1890.1.1
+		OR = {
+			c:GBR ?= this
+			is_subject_of = c:GBR
+			is_player = yes
+		}
+		any_scope_state = {
+			is_in_geographic_region = geographic_region_africa
+			any_scope_pop = {
+				religion = rel:hindu
+				culture = { has_discrimination_trait_group = heritage_group_south_asian }
+			}
+		}
+		NOT = { has_global_variable = gandhi_spawn }
+		# NOT = { has_variable = desi_fingerprint_gandhi_spawn }
+	}
+
+	# No `possible`: is_shown already carries every condition, so a possible block
+	# restating them could never fail and would only be cruft.
+
+	when_taken = {
+		custom_tooltip = {
+			text = desi_gandhi_in_africa_tt
+		}
+		trigger_event = { id = desi_event.3 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision: Gandhi leads India -------------------------------------------
+# Whoever holds Delhi, Bombay and Bengal after 1895 runs India, so the Raj, a free
+# India, or any conqueror can call Gandhi home to lead. Payload in desi_event.4,
+# which sources him from any country, then the exile pool, then creates him
+# (vanilla india_nationalism_events.5:570-611 does the same three-way search).
+# Calcutta is the CITY of STATE_WEST_BENGAL (hub_names_l_english.yml:1759); there
+# is no STATE_CALCUTTA. owns_entire_state_region matches desi_peacock_throne.
+desi_gandhi_leads_india = {
+	is_shown = {
+		game_date >= 1895.1.1
+		NOT = { has_variable = desi_gandhi_leads_done }
+	}
+
+	possible = {
+		custom_tooltip = {
+			text = desi_holds_the_three_presidencies_tt
+			owns_entire_state_region = STATE_DELHI
+			owns_entire_state_region = STATE_BOMBAY
+			owns_entire_state_region = STATE_WEST_BENGAL
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = {
+			text = desi_gandhi_leads_india_tt
+		}
+		trigger_event = { id = desi_event.4 }
+	}
+
+	ai_chance = { value = 10000 }
+}

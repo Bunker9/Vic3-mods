@@ -77,8 +77,26 @@ ptm_is_reclaimable_host_port = {
 	}
 }
 
+# ptm_region_has_no_root_treaty_port: STATE_REGION scope. ROOT holds no port here yet.
+#
+# A treaty port is a root-owned coastal region_state, so without this ROOT's OWN existing port
+# counts as the coastal foothold below and the region qualifies forever - one more port off the
+# same host every cooldown. One region, one reclaim.
+#
+# owns_treaty_port_in is country scope and takes a literal state-region KEY in every vanilla use
+# (00_scripted_triggers.txt:544, canal_decisions.txt:96), so it cannot test the scoped region.
+# is_treaty_port is state scope (triggers.log:6848), matching the China trigger above.
+ptm_region_has_no_root_treaty_port = {
+	NOT = {
+		any_scope_state = {
+			is_treaty_port = yes
+			owner = root
+		}
+	}
+}
+
 # ptm_has_any_reclaimable_port: COUNTRY scope. Grantee ROOT keeps a settled (non-colonizing) coastal
-# foothold in a region a qualifying host holds a reclaimable port of.
+# foothold in a region a qualifying host holds a reclaimable port of, and holds no port there yet.
 ptm_has_any_reclaimable_port = {
 	ptm_is_grantee_power = yes
 	any_scope_state = {
@@ -87,6 +105,7 @@ ptm_has_any_reclaimable_port = {
 		is_under_colonization = no
 		state_region = {
 			any_scope_state = { ptm_is_reclaimable_host_port = yes }
+			ptm_region_has_no_root_treaty_port = yes
 		}
 	}
 }

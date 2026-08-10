@@ -3,7 +3,7 @@
 # Shown to any nation that lacks eco_sol_edu_global AND is eligible:
 #   - is_player = yes     -> human player always eligible
 #   - gdp_ranking <= 40   -> AI in the top 40 economies (dynamic; gdp_ranking 1 = highest GDP)
-# The 40 hardcoded mod tags already hold eco_sol_edu_global (eco_setup_generated.txt), so the
+# The 40 mod tags hold eco_sol_edu_global from history (zz_eco_modifiers.txt), so the
 # NOT-has-modifier guard naturally excludes them; this decision serves the DYNAMIC top-40.
 # Fires eco_picker.1 (the 6 sector choices). "Once only" is natural: once a sector
 # modifier is held, eco_sol_edu_global is present -> is_shown fails. Re-appears if lost.

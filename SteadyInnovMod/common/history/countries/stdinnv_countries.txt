@@ -17,6 +17,13 @@
 		}
 	}
 
+	c:CHI ?= {
+		add_modifier = {
+			name = stdinnv_fighting_addiction
+			years = 5
+		}
+	}
+
 	# =========================================================================
 	# SteadyInnov startup innovation tiers (2026-07-09) - MOVED here from the
 	# stdinnv_startup on_action, which stamped stdinnv_subject on EVERY subject

@@ -1,83 +1,291 @@
 ﻿namespace = ecoor
 
 # =============================================================================
-# Top40EcoBoostMod - oil & rubber reward chain (REDESIGN 2026-06-15; FIXED 2026-06-16).
+# Top40EcoBoostMod - oil & rubber partnership payloads. HAND-WRITTEN.
 #
-# oil_rig / rubber_plantation are DISCOVERABLE RGOs gated behind techs (oil_rig <- pumpjacks,
-# rubber_plantation <- rubber_mastication). on_acquired_technology (eco_oilrubber_on_actions.txt)
-# fires ecoor.1 (oil -> OMA) / ecoor.2 (rubber -> BRZ/SIA) the first time the world unlocks each tech.
+# REWORK 2026-08-09: driven by the two decisions in common/decisions/eco_oilrubber_decisions.txt,
+# not by on_acquired_technology. ROOT is the DISCOVERER (the country that took the decision) in
+# every event here, which is what lets add_ownership hand the new RGOs to it - the same
+# root-owns-what-it-funds shape as PrettyTreatyMod's ptm_event.3 China mines.
 #
-# 2026-06-16 fix — nothing built before because:
-#   (1) the deposits were never DISCOVERED (SIA/OMA had no RGO slot) -> force_resource_discovery,
-#   (2) the build ran in the SAME tick as the tech grant, so can_construct didn't see the tech yet
-#       (this is why even BRZ, which has visible rubber slots, built nothing).
-# So the grant event now grants the tech + force_resource_discovery in every potential state, then
-# DEFERS the build to ecoor.3/.4 (days=5) when tech+discovery are registered. ROOT = beneficiary
-# throughout (eco_seed_spread_n relies on ROOT).
+# KEPT FROM THE 2026-06-16 FIX: oil_rig / rubber_plantation are DISCOVERABLE RGOs, so the
+# partner's deposits must be revealed with force_resource_discovery BEFORE anything can be
+# built, and the build must wait a tick - in the same tick as the tech grant can_construct
+# still reads false. Hence the 5-day deferral to ecoor.3/.4.
 # =============================================================================
 
-# ---- OIL grant (Root = OMA): tech + discover, then deferred build ----
+# ---- OIL deal (Root = the discoverer). Oman is the partner. ----
 ecoor.1 = {
 	type = country_event
 	hidden = yes
 
 	immediate = {
-		#debug_log = "ecoor.1 oil grant FIRED"
-		#debug_log_scopes = yes
-		if = {
-			limit = { NOT = { has_technology_researched = pumpjacks } }
-			add_technology_researched = pumpjacks
+		#debug_log = "eco - oil-partnership - deal struck"
+		set_global_variable = { name = eco_oil_deal_done value = yes }
+
+		c:OMA ?= {
+			if = {
+				limit = { NOT = { has_technology_researched = pumpjacks } }
+				add_technology_researched = pumpjacks
+			}
+			every_scope_state = {
+				limit = { has_potential_resource = building_oil_rig }
+				force_resource_discovery = building_oil_rig
+			}
 		}
-		# reveal oil deposits so the RGO slot exists (verified vs vanilla: has_potential_resource
-		# + force_resource_discovery = building_oil_rig, in state scope)
-		every_scope_state = {
-			limit = { has_potential_resource = building_oil_rig }
-			force_resource_discovery = building_oil_rig
+
+		# The bargain: Oman ships the oil and grants trade privileges, the discoverer pays,
+		# guarantees military assistance, and carries an obligation for the favour.
+		create_treaty = {
+			name = treaty_name_eco_oil_concord
+			first_country = root
+			second_country = c:OMA
+			is_draft = no
+			binding_period = { years = 5 }
+			articles_to_create = {
+				{
+					article = trade_privilege
+					source_country = c:OMA
+					target_country = root
+				}
+				{
+					article = goods_transfer
+					source_country = c:OMA
+					target_country = root
+					inputs = {
+						{ goods = g:oil }
+						{ quantity = 100 }
+					}
+				}
+				{
+					article = money_transfer
+					source_country = root
+					target_country = c:OMA
+					inputs = {
+						{ quantity = 4000 }
+					}
+				}
+				{
+					article = military_assistance
+					source_country = root
+					target_country = c:OMA
+				}
+			}
 		}
-		trigger_event = { id = ecoor.3 days = 5 }   # build NEXT tick (can_construct gotcha)
+		set_owes_obligation_to = { country = c:OMA setting = yes }
+
+		trigger_event = { id = ecoor.3 days = 5 }    # build after the discovery registers
+		trigger_event = { id = ecoor.5 days = 90 }   # combustion engine follow-up
 	}
 }
 
-# ---- OIL build (Root = OMA, deferred) ----
-ecoor.3 = {
-	type = country_event
-	hidden = yes
-
-	immediate = {
-		#debug_log = "ecoor.3 oil build FIRED"
-		#debug_log_scopes = yes
-		eco_seed_spread_n = { B = building_oil_rig N = 5 }   # max 5, 1 per best constructible state
-	}
-}
-
-# ---- RUBBER grant (Root = BRZ/SIA): tech + discover, then deferred build ----
+# ---- RUBBER deal (Root = the discoverer). Brazil is the partner. ----
 ecoor.2 = {
 	type = country_event
 	hidden = yes
 
 	immediate = {
-		#debug_log = "ecoor.2 rubber grant FIRED"
-		#debug_log_scopes = yes
+		#debug_log = "eco - rubber-partnership - deal struck"
+		set_global_variable = { name = eco_rubber_deal_done value = yes }
+
+		# Both rubber partners: Brazil and Siam.
+		c:BRZ ?= {
+			if = {
+				limit = { NOT = { has_technology_researched = rubber_mastication } }
+				add_technology_researched = rubber_mastication
+			}
+			every_scope_state = {
+				limit = { has_potential_resource = building_rubber_plantation }
+				force_resource_discovery = building_rubber_plantation
+			}
+		}
+		c:SIA ?= {
+			if = {
+				limit = { NOT = { has_technology_researched = rubber_mastication } }
+				add_technology_researched = rubber_mastication
+			}
+			every_scope_state = {
+				limit = { has_potential_resource = building_rubber_plantation }
+				force_resource_discovery = building_rubber_plantation
+			}
+		}
+
+		create_treaty = {
+			name = treaty_name_eco_rubber_concord
+			first_country = root
+			second_country = c:BRZ
+			is_draft = no
+			binding_period = { years = 5 }
+			articles_to_create = {
+				{
+					article = trade_privilege
+					source_country = c:BRZ
+					target_country = root
+				}
+				{
+					article = goods_transfer
+					source_country = c:BRZ
+					target_country = root
+					inputs = {
+						{ goods = g:rubber }
+						{ quantity = 100 }
+					}
+				}
+				{
+					article = money_transfer
+					source_country = root
+					target_country = c:BRZ
+					inputs = {
+						{ quantity = 4000 }
+					}
+				}
+				{
+					article = military_assistance
+					source_country = root
+					target_country = c:BRZ
+				}
+			}
+		}
+		set_owes_obligation_to = { country = c:BRZ setting = yes }
+
+		# Siam gets its own Concord on identical terms. Guarded: SIA may not exist.
 		if = {
-			limit = { NOT = { has_technology_researched = rubber_mastication } }
-			add_technology_researched = rubber_mastication
+			limit = { exists = c:SIA }
+			create_treaty = {
+				name = treaty_name_eco_rubber_concord_siam
+				first_country = root
+				second_country = c:SIA
+				is_draft = no
+				binding_period = { years = 5 }
+				articles_to_create = {
+					{
+						article = trade_privilege
+						source_country = c:SIA
+						target_country = root
+					}
+					{
+						article = goods_transfer
+						source_country = c:SIA
+						target_country = root
+						inputs = {
+							{ goods = g:rubber }
+							{ quantity = 100 }
+						}
+					}
+					{
+						article = money_transfer
+						source_country = root
+						target_country = c:SIA
+						inputs = {
+							{ quantity = 4000 }
+						}
+					}
+					{
+						article = military_assistance
+						source_country = root
+						target_country = c:SIA
+					}
+				}
+			}
+			set_owes_obligation_to = { country = c:SIA setting = yes }
 		}
-		every_scope_state = {
-			limit = { has_potential_resource = building_rubber_plantation }
-			force_resource_discovery = building_rubber_plantation
-		}
+
 		trigger_event = { id = ecoor.4 days = 5 }
+		trigger_event = { id = ecoor.6 days = 90 }
 	}
 }
 
-# ---- RUBBER build (Root = BRZ/SIA, deferred) ----
+# ---- OIL build, 5 days on (Root = the discoverer, who ends up owning the rigs) ----
+ecoor.3 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		#debug_log = "eco - oil-partnership - rigs built"
+		c:OMA ?= {
+			every_scope_state = {
+				limit = { can_construct_building = building_oil_rig }
+				create_building = {
+					building = building_oil_rig
+					add_ownership = { country = { country = root levels = 2 } }
+					reserves = 1
+				}
+			}
+		}
+	}
+}
+
+# ---- RUBBER build, 5 days on (Root = the discoverer) ----
 ecoor.4 = {
 	type = country_event
 	hidden = yes
 
 	immediate = {
-		#debug_log = "ecoor.4 rubber build FIRED"
-		#debug_log_scopes = yes
-		eco_seed_spread_n = { B = building_rubber_plantation N = 5 }
+		#debug_log = "eco - rubber-partnership - plantations built"
+		c:BRZ ?= {
+			every_scope_state = {
+				limit = { can_construct_building = building_rubber_plantation }
+				create_building = {
+					building = building_rubber_plantation
+					add_ownership = { country = { country = root levels = 2 } }
+					reserves = 1
+				}
+			}
+		}
+		c:SIA ?= {
+			every_scope_state = {
+				limit = { can_construct_building = building_rubber_plantation }
+				create_building = {
+					building = building_rubber_plantation
+					add_ownership = { country = { country = root levels = 2 } }
+					reserves = 1
+				}
+			}
+		}
+	}
+}
+
+# ---- Follow-up techs, 90 days on. The discoverer AND its partners; each skipped if held. ----
+ecoor.5 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_technology_researched = combustion_engine } }
+			add_technology_researched = combustion_engine
+			#debug_log = "eco - oil-partnership - combustion engine granted"
+		}
+		c:OMA ?= {
+			if = {
+				limit = { NOT = { has_technology_researched = combustion_engine } }
+				add_technology_researched = combustion_engine
+			}
+		}
+	}
+}
+
+ecoor.6 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = { NOT = { has_technology_researched = vulcanization } }
+			add_technology_researched = vulcanization
+			#debug_log = "eco - rubber-partnership - vulcanization granted"
+		}
+		c:BRZ ?= {
+			if = {
+				limit = { NOT = { has_technology_researched = vulcanization } }
+				add_technology_researched = vulcanization
+			}
+		}
+		c:SIA ?= {
+			if = {
+				limit = { NOT = { has_technology_researched = vulcanization } }
+				add_technology_researched = vulcanization
+			}
+		}
 	}
 }
