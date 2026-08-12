@@ -365,8 +365,9 @@ ptm_event.6 = {
 }
 
 # -----------------------------------------------------------------------------
-# ptm_event.7 - Raj Settlement stage 3:  7 days after the carve.
-# DONT incorpoate the treaty port ! It stops being one then!!
+# ptm_event.7 - Raj Settlement stage 3: pacify the port, 7 days after the carve.
+# Do NOT incorporate it: set_state_type = incorporated (the vanilla idiom at
+# 04_sepoy_mutiny.txt:497) ends its treaty-port status. Removed 2026-08.
 # -----------------------------------------------------------------------------
 ptm_event.7 = {
 	type = country_event

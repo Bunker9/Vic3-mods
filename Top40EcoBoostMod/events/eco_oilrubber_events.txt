@@ -237,7 +237,7 @@ ecoor.4 = {
 				}
 				can_construct_building = building_coffee_plantation
 			}
-			add_modifier = { name = eco_coffee_pre_transplant years = 5 }
+			add_modifier = { name = eco_coffee_pre_transplant years = 25 }
 		}
 		#debug_log = "eco - rubber-partnership - plantations built"
 		c:BRZ ?= {

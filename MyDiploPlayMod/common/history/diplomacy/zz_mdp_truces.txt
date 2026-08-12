@@ -201,14 +201,10 @@ DIPLOMACY = {
 			country = c:BUR
 			months = 360
 		}
-	}
-	c:GBR ?= {
 		create_bidirectional_truce = {
 			country = c:DAI
 			months = 360
 		}
-	}
-	c:GBR ?= {
 		create_bidirectional_truce = {
 			country = c:SIA
 			months = 360

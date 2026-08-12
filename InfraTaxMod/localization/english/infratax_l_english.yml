@@ -10,5 +10,5 @@
  building_group_bg_ship_construction_employee_mult_desc:0 "A bonus or penalty to the number of employees in Shipyards"
  building_group_bg_extraction_employee_mult:0 "Extraction Employees"
  building_group_bg_extraction_employee_mult_desc:0 "A bonus or penalty to the number of employees in Extraction Buildings"
- building_group_bg_subsistence_agriculture_employee_mult:0 "Subsistance Employees"
- building_group_bg_subsistence_agriculture_employee_mult_desc:0 "A bonus or penalty to the number of employees in Subsistance Buildings"
+ building_group_bg_subsistence_agriculture_employee_mult:0 "Subsistence Employees"
+ building_group_bg_subsistence_agriculture_employee_mult_desc:0 "A bonus or penalty to the number of employees in Subsistence Buildings"

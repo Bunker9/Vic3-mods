@@ -63,7 +63,24 @@ eco_sol_edu_global = {
 }
 
 # ---- Coffee is still a New World crop; plantations elsewhere underperform until transplanted. ----
+eco_coffee_pre_transplant_bic_spl = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+	building_coffee_plantation_throughput_add = -0.4
+	building_tea_plantation_throughput_add = -0.4
+	building_sugar_plantation_throughput_add = -0.4
+}
+
 eco_coffee_pre_transplant = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+	building_coffee_plantation_throughput_add = -0.5
+	building_tea_plantation_throughput_add = -0.5
+	building_sugar_plantation_throughput_add = -0.5
+	building_subsistence_output_add = 1
+	state_peasants_consumption_multiplier_add = 0.2
+	state_standard_of_living_add = -1
+}
+
+eco_coffee_disease = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
 	building_coffee_plantation_throughput_add = -1
 }

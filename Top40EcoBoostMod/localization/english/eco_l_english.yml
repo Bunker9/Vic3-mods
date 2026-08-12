@@ -17,4 +17,6 @@
  treaty_name_eco_oil_concord:0 "The Omani Oil Concord"
  treaty_name_eco_rubber_concord:0 "The Brazilian Rubber Concord"
  treaty_name_eco_rubber_concord_siam:0 "The Siamese Rubber Concord"
- eco_coffee_pre_transplant:0 "Coffee Remains a New World Crop"
+ eco_coffee_pre_transplant:0 "Plantations of a New World Crop"
+ eco_coffee_pre_transplant_bic_spl:0 "Plantations of a New World Crop"
+ eco_coffee_disease:0 "Coffee Crop Disease"

@@ -5,7 +5,7 @@
 # Modifier defined in common/static_modifiers/eco_modifiers.txt.
 # =============================================================================
 COUNTRIES = {
-	c:BIC = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BIC = { add_modifier = { name = eco_coffee_pre_transplant_bic_spl years = 40 } }
 	c:KUT = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
 	c:BHO = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
 	c:AWA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
