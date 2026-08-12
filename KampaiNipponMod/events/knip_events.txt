@@ -24,30 +24,30 @@ knip.1 = {
 		# +1 fishing wharf in every state that can STILL build one (target level = current + 1, so empty
 		# states get level 1 and existing ones grow by 1). can_construct false once a state hits its cap,
 		# so unincorporated / low-capacity states stop at their real max. Idiom = eco_pulse_spread STACK.
-		every_scope_state = {
-			limit = { can_construct_building = building_fishing_wharf }
-			# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
-			# 	limit = {
-			# 		# NOT = { has_variable = knip_fingerprint_fishing_built }
-			# 	}
-			# 	set_variable = {
-			# 		# name = knip_fingerprint_fishing_built
-			# 		value = 0
-			# 	}
-			# }
-		}
-		every_scope_state = {
-			limit = { can_construct_building = building_whaling_station }
-			# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
-			# 	limit = {
-			# 		# NOT = { has_variable = knip_fingerprint_whaling_built }
-			# 	}
-			# 	set_variable = {
-			# 		# name = knip_fingerprint_whaling_built
-			# 		value = 0
-			# 	}
-			# }
-		}
+		# every_scope_state = {
+		# 	limit = { can_construct_building = building_fishing_wharf }
+		# 	# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+		# 	# 	limit = {
+		# 	# 		# NOT = { has_variable = knip_fingerprint_fishing_built }
+		# 	# 	}
+		# 	# 	set_variable = {
+		# 	# 		# name = knip_fingerprint_fishing_built
+		# 	# 		value = 0
+		# 	# 	}
+		# 	# }
+		# }
+		# every_scope_state = {
+		# 	limit = { can_construct_building = building_whaling_station }
+		# 	# if = { #TODO fingerprint toggle script missed  taking care of empty if stmt
+		# 	# 	limit = {
+		# 	# 		# NOT = { has_variable = knip_fingerprint_whaling_built }
+		# 	# 	}
+		# 	# 	set_variable = {
+		# 	# 		# name = knip_fingerprint_whaling_built
+		# 	# 		value = 0
+		# 	# 	}
+		# 	# }
+		# }
 		every_scope_state = {
 			limit = { can_construct_building = building_fishing_wharf }
 			set_variable = { name = knip_cur value = 0 }
@@ -106,7 +106,11 @@ knip.2 = {
 	hidden = yes
 
 	immediate = {
-		add_modifier = { name = knip_marine_hiring months = 600}
+		add_modifier = { name = knip_marine_hiring years = 50}
+		every_scope_state = {
+			limit = { can_construct_building = building_construction_sector }
+			create_building = { building = building_construction_sector level = 1 }
+		}
 
 		# FINGERPRINT (additive). Comment out at promote.
 		# set_variable = { name = knip_fingerprint_marine_modifier value = yes }

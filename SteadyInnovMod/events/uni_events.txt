@@ -62,6 +62,10 @@ uni_event.1 = {
 			limit = { has_law = law_type:law_serfdom }
 			activate_law = law_type:law_tenant_farmers
 		}
+		if = {
+			limit = { has_law = law_type:law_closed_borders }
+			activate_law = law_type:law_migration_controls
+		}
 		#HUMAN - removing this. Frontier colonization is now being handled with an mdp mod event this here is NOT needed
 		# "No colonial affairs" = none of the lawgroup_colonization laws active. Grant
 		# Frontier Colonization, plus the colonial-affairs institution at level 1 so it
@@ -119,7 +123,6 @@ uni_event.2 = {
 				building = building_government_administration
 				level = 1
 			}
-
 		}
 	}
 	option = {
@@ -156,6 +159,23 @@ uni_event.3 = {
 		name = uni_event.3.a
 		add_modifier = { name = stdinnv_building_bridges_cost_1y months = 12 }
 		add_modifier = { name = stdinnv_building_bridges_diplo_1y months = 12 }
+		if = {
+			limit = {
+				ig:ig_landowners = {
+					leader = { has_conservative_ideology = yes }
+				}
+			}
+			ig:ig_landowners = {
+				leader = { set_ideology = ideology:ideology_market_liberal }
+			}
+		}
+		ordered_interest_group = {
+			limit = { NOT = { is_interest_group_type = ig_landowners } }
+			order_by = ig_clout
+			position = 0
+			check_range_bounds = no
+			leader = { set_ideology = ideology:ideology_modernizer_leader }
+		}
 	}
 	option = {
 		name = uni_event.3.b

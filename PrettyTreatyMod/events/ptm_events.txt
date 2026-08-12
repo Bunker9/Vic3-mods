@@ -365,10 +365,8 @@ ptm_event.6 = {
 }
 
 # -----------------------------------------------------------------------------
-# ptm_event.7 - Raj Settlement stage 3: incorporate the port, 7 days after the carve.
-# INCORPORATED, still a treaty port: the two are independent (vanilla incorporates
-# states wholesale via set_state_type, 04_sepoy_mutiny.txt:497). Delayed so the
-# article's land transfer has resolved before we look for our own region_state.
+# ptm_event.7 - Raj Settlement stage 3:  7 days after the carve.
+# DONT incorpoate the treaty port ! It stops being one then!!
 # -----------------------------------------------------------------------------
 ptm_event.7 = {
 	type = country_event
@@ -378,7 +376,6 @@ ptm_event.7 = {
 		s:STATE_WEST_BENGAL = {
 			random_scope_state = {
 				limit = { owner = root }
-				set_state_type = incorporated
 				add_modifier = { name = ptm_treaty_port_order }
 				# debug_log = "ptm - raj-settlement - port incorporated and pacified"
 			}

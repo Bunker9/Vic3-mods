@@ -1,5 +1,6 @@
 ﻿l_english:
  stdinnv_fighting_addiction:0 "War on Drugs"
+ stdinnv_harmonious_giant:0 "Harmonious Giant"
  stdinnv_unrecognized:0 "A Society Behind the Times"
  stdinnv_unrecognized_desc:0 "Our workshops copy what others invented decades ago, and word of new methods reaches us slowly. Until our scholars catch up, our industry will lag the recognized powers."
  stdinnv_subject:0 "Knowledge in Foreign Hands"
@@ -27,6 +28,9 @@
  stdinnv_building_bridges:0 "Building Bridges"
  stdinnv_building_bridges_tooltip:0 "Building bridges in the power bloc"
  stdinnv_building_bridges_desc:0 "Dispatch envoys, gifts and grand receptions across our power bloc to bind its members closer to us."
+ stdinnv_building_bridges_pru:0 "German Statecraft"
+ stdinnv_building_bridges_pru_tooltip:0 "Building bridges in the power bloc"
+ stdinnv_building_bridges_pru_desc:0 "Dispatch envoys, gifts and grand receptions across our power bloc to bind its members closer to us."
  stdinnv_building_bridges_cost_1y:0 "The Price of Friendship"
  stdinnv_building_bridges_cost_1y_desc:0 "Summits, gifts and grand receptions do not pay for themselves. Our treasury and our administrators carry the burden of this diplomatic season."
  stdinnv_building_bridges_diplo_1y:0 "Building Bridges"
@@ -54,3 +58,5 @@
  stdinnv_offer_protectorate_tt:0 "A friendly, independent minor member of our bloc is willing to become our protectorate"
  stdinnv_lapsed_treaty_port_desc:0 "Restoring a lapsed treaty port to a friendly leading power"
  stdinnv_reclaim_lapsed_port_desc:0 "Recovering our lapsed treaty port in a harbour we still hold"
+ building_group_bg_subsistence_agriculture_employee_mult:0 "Subsistance Employees"
+ building_group_bg_subsistence_agriculture_employee_mult_desc:0 "A bonus or penalty to the number of employees in Subsistance Buildings"

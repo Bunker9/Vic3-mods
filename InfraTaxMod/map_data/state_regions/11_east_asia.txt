@@ -637,13 +637,13 @@ STATE_FORMOSA = {
     arable_land = 80
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_banana_plantation" }
     capped_resources = {
-        building_coal_mine = 6
-        building_logging_camp = 7
-        building_fishing_wharf = 13
+        building_coal_mine = 26
+        building_logging_camp = 26
+        building_fishing_wharf = 26
     }
     resource = {
         type = "building_oil_rig"
-        undiscovered_amount = 6
+        undiscovered_amount = 26
     }
     naval_exit_id = 3056
 }
@@ -688,8 +688,8 @@ STATE_SUZHOU = {
     arable_land = 400
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_silk_plantation" "building_tea_plantation" "building_tobacco_plantation" }
     capped_resources = {
-        building_logging_camp = 5
-        building_fishing_wharf = 5
+        building_logging_camp = 21
+        building_fishing_wharf = 21
     }
     naval_exit_id = 3058
 }
@@ -768,12 +768,12 @@ STATE_BANGKOK = {
     arable_land = 50
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_silk_plantation" "building_opium_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_sugar_plantation" "building_banana_plantation" }
     capped_resources = {
-        building_logging_camp = 17
-        building_fishing_wharf = 8
+        building_logging_camp = 31
+        building_fishing_wharf = 21
     }
     resource = {
         type = "building_rubber_plantation"
-        undiscovered_amount = 16
+        undiscovered_amount = 21
     }
     naval_exit_id = 3072
 }
@@ -1141,9 +1141,9 @@ STATE_KYUSHU = {
     arable_land = 101
     arable_resources = { "building_rice_farm" "building_livestock_ranch" "building_cotton_plantation" "building_silk_plantation" "building_dye_plantation" "building_tea_plantation" "building_tobacco_plantation" "building_sugar_plantation" }
     capped_resources = {
-        building_iron_mine = 6
+        building_iron_mine = 16
         building_coal_mine = 72
-        building_logging_camp = 7
+        building_logging_camp = 17
         building_lead_mine = 36
         building_sulfur_mine = 40
         building_fishing_wharf = 18

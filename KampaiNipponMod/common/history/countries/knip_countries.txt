@@ -1,0 +1,11 @@
+﻿
+COUNTRIES = {
+	c:JAP ?= {
+		add_technology_researched = cotton_gin
+		add_company = company_type:company_mitsui
+		company:company_mitsui = {
+			set_company_establishment_date = 1821.1.26
+			set_company_state_region = s:STATE_KANSAI
+		}
+	}
+}

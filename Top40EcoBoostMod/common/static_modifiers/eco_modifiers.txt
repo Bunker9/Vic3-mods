@@ -61,3 +61,9 @@ eco_sol_edu_global = {
 	state_dependent_wage_mult = 0.2
 	state_dependent_wage_add = 0.2
 }
+
+# ---- Coffee is still a New World crop; plantations elsewhere underperform until transplanted. ----
+eco_coffee_pre_transplant = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+	building_coffee_plantation_throughput_add = -1
+}

@@ -21,6 +21,11 @@ mdp_nepal_trigger_event  = {
 	when_taken = {
 		set_variable = { name = mdp_nep_tib_done value = yes }
 		trigger_event = { id = mdp.1 months=6 popup = yes }
+		# instantly pass whatever law is currently being enacted
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
 	}
 
 	ai_chance = { value = 10000 }

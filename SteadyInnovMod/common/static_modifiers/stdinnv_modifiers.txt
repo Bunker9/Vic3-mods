@@ -20,14 +20,25 @@ stdinnv_unrecognized = {
 	building_group_bg_manufacturing_throughput_add = -0.2
 	state_dependent_wage_mult  = 0.2
 	country_prestige_mult = -0.2
+	state_standard_of_living_add = -1
+	state_pop_qualifications_mult = -0.05
 }
 
 stdinnv_fighting_addiction = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
-
-	building_group_bg_manufacturing_employee_mult = -0.2
-	building_group_bg_manufacturing_throughput_add = 0.15
 	country_prestige_mult = 0.2
+	unit_offense_mult = -0.2
+	unit_defense_mult = -0.2
+}
+
+stdinnv_harmonious_giant = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	building_subsistence_output_add = 2
+	state_dependent_wage_add = 0.2
+	building_group_bg_subsistence_agriculture_employee_mult = 2
+	building_group_bg_agriculture_throughput_add = 0.2
+	state_peasants_consumption_multiplier_add = 0.5
 }
 
 stdinnv_subject = {
@@ -35,6 +46,9 @@ stdinnv_subject = {
 
 	country_tech_spread_mult = -0.5
 	country_weekly_innovation_mult = -0.2
+	unit_defense_mult = -0.2
+	state_standard_of_living_add = -2
+	state_pop_qualifications_mult = -0.1
 	country_prestige_mult = -0.7
 	building_group_bg_manufacturing_throughput_add = -0.3
 	building_group_bg_manufacturing_employee_mult = 1

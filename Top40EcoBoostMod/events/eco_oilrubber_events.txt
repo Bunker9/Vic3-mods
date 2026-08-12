@@ -41,7 +41,7 @@ ecoor.1 = {
 			first_country = root
 			second_country = c:OMA
 			is_draft = no
-			binding_period = { years = 5 }
+			binding_period = { years = 10 }
 			articles_to_create = {
 				{
 					article = trade_privilege
@@ -75,7 +75,7 @@ ecoor.1 = {
 		set_owes_obligation_to = { country = c:OMA setting = yes }
 
 		trigger_event = { id = ecoor.3 days = 5 }    # build after the discovery registers
-		trigger_event = { id = ecoor.5 days = 90 }   # combustion engine follow-up
+		trigger_event = { id = ecoor.5 days = 7 }   # combustion engine follow-up
 	}
 }
 
@@ -94,6 +94,10 @@ ecoor.2 = {
 				limit = { NOT = { has_technology_researched = rubber_mastication } }
 				add_technology_researched = rubber_mastication
 			}
+			if = {
+				limit = { has_law = law_type:law_isolationism }
+				activate_law = law_type:law_mercantilism
+			}
 			every_scope_state = {
 				limit = { has_potential_resource = building_rubber_plantation }
 				force_resource_discovery = building_rubber_plantation
@@ -103,6 +107,10 @@ ecoor.2 = {
 			if = {
 				limit = { NOT = { has_technology_researched = rubber_mastication } }
 				add_technology_researched = rubber_mastication
+			}
+			if = {
+				limit = { has_law = law_type:law_isolationism }
+				activate_law = law_type:law_mercantilism
 			}
 			every_scope_state = {
 				limit = { has_potential_resource = building_rubber_plantation }
@@ -115,7 +123,7 @@ ecoor.2 = {
 			first_country = root
 			second_country = c:BRZ
 			is_draft = no
-			binding_period = { years = 5 }
+			binding_period = { years = 10 }
 			articles_to_create = {
 				{
 					article = trade_privilege
@@ -156,7 +164,7 @@ ecoor.2 = {
 				first_country = root
 				second_country = c:SIA
 				is_draft = no
-				binding_period = { years = 5 }
+				binding_period = { years = 10 }
 				articles_to_create = {
 					{
 						article = trade_privilege
@@ -191,7 +199,7 @@ ecoor.2 = {
 		}
 
 		trigger_event = { id = ecoor.4 days = 5 }
-		trigger_event = { id = ecoor.6 days = 90 }
+		trigger_event = { id = ecoor.6 days = 7 }
 	}
 }
 
@@ -221,6 +229,16 @@ ecoor.4 = {
 	hidden = yes
 
 	immediate = {
+		every_scope_state = {
+			limit = {
+				NOR = {
+					region = sr:region_brazil
+					region = sr:region_gran_colombia
+				}
+				can_construct_building = building_coffee_plantation
+			}
+			add_modifier = { name = eco_coffee_pre_transplant years = 5 }
+		}
 		#debug_log = "eco - rubber-partnership - plantations built"
 		c:BRZ ?= {
 			every_scope_state = {
@@ -228,6 +246,70 @@ ecoor.4 = {
 				create_building = {
 					building = building_rubber_plantation
 					add_ownership = { country = { country = root levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_sugar_plantation }
+				create_building = {
+					building = building_sugar_plantation
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_coffee_plantation }
+				create_building = {
+					building = building_coffee_plantation
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_rice_farm }
+				create_building = {
+					building = building_rice_farm
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_vineyard }
+				create_building = {
+					building = building_vineyard
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_coal_mine }
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_iron_mine }
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_logging_camp }
+				create_building = {
+					building = building_logging_camp
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_trade_center }
+				create_building = {
+					building = building_trade_center
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
 					reserves = 1
 				}
 			}
@@ -241,11 +323,19 @@ ecoor.4 = {
 					reserves = 1
 				}
 			}
+			every_scope_state = {
+				limit = { can_construct_building = building_rice_farm }
+				create_building = {
+					building = building_rice_farm
+					add_ownership = { country = { country = c:SIA levels = 5 } }
+					reserves = 1
+				}
+			}
 		}
 	}
 }
 
-# ---- Follow-up techs, 90 days on. The discoverer AND its partners; each skipped if held. ----
+# ---- Follow-up techs, 7 days on. The discoverer AND its partners; each skipped if held. ----
 ecoor.5 = {
 	type = country_event
 	hidden = yes

@@ -216,4 +216,19 @@ BUILDINGS = {
 			}
 		}
 	}
+
+	s:STATE_UUSIMAA = {
+		region_state:FIN = {
+			create_building = {
+				building = "building_paper_mill"
+				add_ownership = {
+					country = {
+						country = "c:FIN"
+						levels = 5
+					}
+				}
+				reserves = 1
+			}
+		}
+	}
 }

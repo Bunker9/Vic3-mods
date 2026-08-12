@@ -14,3 +14,10 @@ building_group_bg_extraction_employee_mult = {
 	percent = yes
 	game_data = { ai_value = 0 }
 }
+
+building_group_bg_subsistence_agriculture_employee_mult = {
+	decimals = 1
+	color = bad
+	percent = yes
+	game_data = { ai_value = 0 }
+}

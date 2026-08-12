@@ -9,4 +9,8 @@ ptm_treaty_port_order = {
 
 	state_turmoil_effects_mult = -0.5
 	state_devastation_decay_mult = 0.5
+	state_market_access_price_impact = 0.5
+	state_trade_capacity_add = 50
+	state_weekly_trades_add = 5
+	state_infrastructure_add = 50
 }
