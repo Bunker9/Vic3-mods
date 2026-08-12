@@ -68,6 +68,8 @@ eco_coffee_pre_transplant_bic_spl = {
 	building_coffee_plantation_throughput_add = -0.4
 	building_tea_plantation_throughput_add = -0.4
 	building_sugar_plantation_throughput_add = -0.4
+	building_group_bg_plantations_employee_mult = 0.5
+	building_group_bg_government_employee_mult = 0.5
 }
 
 eco_coffee_pre_transplant = {
