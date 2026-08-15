@@ -166,6 +166,7 @@ STATE_CHUKOTKA = {
     naval_exit_id = 3041
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 9
     }
 }
@@ -196,6 +197,7 @@ STATE_KAMCHATKA = {
     naval_exit_id = 3132
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 3
     }
 }

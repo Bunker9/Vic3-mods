@@ -69,20 +69,18 @@ zw_trigger_under_power_cap_tt = {
 	}
 }
 
-# -------- RAILWAY build gate (anti subsidy-bankruptcy) --------
-# Allow building railways only while infrastructure is strained (usage >= 80% of total) OR the
-# state still has fewer than 3 railway levels (always keep a baseline). FAIL-OPEN not needed: the
-# infra reads work in every inhabited state.
-zw_trigger_railway_buildable = {
-	OR = {
-		zw_sv_state_railway_levels <= 2
-		#infrastructure_usage >= zw_sv_state_infra_strain_threshold
-		infrastructure_delta <= 5
-	}
-}
-zw_trigger_railway_buildable_tt = {
-	custom_tooltip = {
-		text = zw_cpc_railway_tt
-		zw_trigger_railway_buildable = yes
-	}
-}
+# -------- RAILWAY build gate SOFT DROPPED 2026-08-13 --------
+# Never wired to a can_build_*; 1.13.10 demand-gates railway auto-expand itself.
+#zw_trigger_railway_buildable = {
+#	OR = {
+#		zw_sv_state_railway_levels <= 2
+#		#infrastructure_usage >= zw_sv_state_infra_strain_threshold
+#		infrastructure_delta <= 5
+#	}
+#}
+#zw_trigger_railway_buildable_tt = {
+#	custom_tooltip = {
+#		text = zw_cpc_railway_tt
+#		zw_trigger_railway_buildable = yes
+#	}
+#}

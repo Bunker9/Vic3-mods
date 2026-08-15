@@ -27,13 +27,16 @@ mdp_brazil_consolidate_amazon = {
 	when_taken = {
 		set_variable = { name = mdp_brz_amazon_done value = yes }
 		# transfer every region_state of both regions to Brazil.
+		# Guard: BRZ already owns part of both regions; re-setting throws a script error.
 		s:STATE_AMAZONAS = {
 			every_scope_state = {
+				limit = { NOT = { owner = c:BRZ } }
 				set_state_owner = c:BRZ
 			}
 		}
 		s:STATE_MATO_GROSSO = {
 			every_scope_state = {
+				limit = { NOT = { owner = c:BRZ } }
 				set_state_owner = c:BRZ
 			}
 		}

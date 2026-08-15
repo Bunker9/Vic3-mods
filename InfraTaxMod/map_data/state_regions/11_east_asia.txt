@@ -968,6 +968,7 @@ STATE_HOKKAIDO = {
     naval_exit_id = 3059
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 8
     }
 }
@@ -1004,7 +1005,8 @@ STATE_TOHOKU = {
     naval_exit_id = 3059
 }
 
-# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 117->130; capped:building_iron_mine 1->36; capped:building_whaling_station 2->7
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 117->130; capped:building_iron_mine 3->36; capped:building_whaling_station 2->7
+# 2026-08-15: iron base was 1 at copy time; the 2026-06-25 patch moved it to 3
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_KANTO = {
     id = 530

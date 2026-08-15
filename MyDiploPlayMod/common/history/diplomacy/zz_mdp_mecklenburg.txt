@@ -1,0 +1,24 @@
+﻿# =============================================================================
+# MyDiploPlayMod - bind Mecklenburg to Prussia so it stops defecting to foreign blocs.
+# HISTORY, not a day-1 event (project rule: prefer history).
+#
+# OBSERVED IN GAME: TUR pulls MEC out of the Zollverein into its own bloc.
+# Vanilla already makes MEC and MST founding Zollverein members
+# (history/power_blocs/00_power_blocs.txt:75) and sets PRU relations to 30 with every
+# German minor (history/diplomacy/00_relations.txt:210). This file only moves the numbers.
+# Tags: MEC = Mecklenburg, MST = Mecklenburg-Strelitz (both Zollverein, both snipeable).
+#
+# NOT VERIFIED: whether relations alone stop the AI defection. In-game check.
+# =============================================================================
+DIPLOMACY = {
+	c:PRU ?= {
+		set_relations = { country = c:MEC value = 80 }  # vanilla 30
+		set_relations = { country = c:MST value = 80 }  # vanilla 30
+	}
+
+	# Cold enough that a bloc invitation is implausible.
+	c:TUR ?= {
+		set_relations = { country = c:MEC value = -20 }
+		set_relations = { country = c:MST value = -20 }
+	}
+}

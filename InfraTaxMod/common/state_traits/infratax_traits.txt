@@ -69,6 +69,7 @@ INJECT_OR_CREATE:state_trait_new_england_whaling = {
 # INDIA — strong revenue/admin regions, but no crazy stacking
 INJECT_OR_CREATE:state_trait_ganges_river = {
 	modifier = {
+		building_group_bg_subsistence_agriculture_employee_mult =0.5
 		state_infrastructure_add  = 25
 		state_tax_capacity_add  = 75
 		state_tax_capacity_mult = 0.1
@@ -78,6 +79,7 @@ INJECT_OR_CREATE:state_trait_ganges_river = {
 
 INJECT_OR_CREATE:state_trait_bengal_delta = {
 	modifier = {
+		building_group_bg_subsistence_agriculture_employee_mult = 1
 		state_infrastructure_add  = 25
 		state_tax_capacity_add  = 100
 		state_tax_capacity_mult = 0.25

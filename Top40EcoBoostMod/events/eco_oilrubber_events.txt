@@ -66,7 +66,7 @@ ecoor.1 = {
 					}
 				}
 				{
-					article = military_assistance
+					article = trade_privilege
 					source_country = root
 					target_country = c:OMA
 				}
@@ -148,7 +148,7 @@ ecoor.2 = {
 					}
 				}
 				{
-					article = military_assistance
+					article = trade_privilege
 					source_country = root
 					target_country = c:BRZ
 				}
@@ -189,7 +189,7 @@ ecoor.2 = {
 						}
 					}
 					{
-						article = military_assistance
+						article = trade_privilege
 						source_country = root
 						target_country = c:SIA
 					}
@@ -229,15 +229,18 @@ ecoor.4 = {
 	hidden = yes
 
 	immediate = {
-		every_scope_state = {
-			limit = {
-				NOR = {
-					region = sr:region_brazil
-					region = sr:region_gran_colombia
+		# 2026-08-15: was every_scope_state, which iterates only ROOT's own states, and ROOT here
+		# is the discoverer, so the malus never reached the world's coffee growers. Now a COUNTRY
+		# modifier on every grower except Brazil, to hand Brazil leading_producer_of = g:coffee.
+		if = {
+			limit = { exists = c:BRZ }
+			every_country = {
+				limit = {
+					NOT = { this = c:BRZ }
+					has_building = building_coffee_plantation
 				}
-				can_construct_building = building_coffee_plantation
+				add_modifier = { name = eco_coffee_disease years = 3 }
 			}
-			add_modifier = { name = eco_coffee_pre_transplant years = 25 }
 		}
 		#debug_log = "eco - rubber-partnership - plantations built"
 		c:BRZ ?= {

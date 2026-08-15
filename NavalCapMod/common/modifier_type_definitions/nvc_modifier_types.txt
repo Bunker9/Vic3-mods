@@ -1,0 +1,15 @@
+﻿# NavalCapMod - display definitions for the two dynamic max level modifiers.
+# Shape copied from vanilla 00_modifier_types.txt:2124 (state_building_barrack_max_level_add).
+# Bootstrap = this block plus a name/_desc loc pair.
+
+state_building_port_max_level_add = {
+	decimals = 0
+	color = good
+	game_data = { ai_value = 0 }
+}
+
+state_building_naval_administration_max_level_add = {
+	decimals = 0
+	color = good
+	game_data = { ai_value = 0 }
+}

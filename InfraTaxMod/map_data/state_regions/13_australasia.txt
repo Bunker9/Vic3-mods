@@ -83,6 +83,7 @@ STATE_TASMANIA = {
     naval_exit_id = 3122
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 16
     }
 }
@@ -246,6 +247,7 @@ STATE_SOUTH_ISLAND = {
     naval_exit_id = 3156
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 16
     }
 }

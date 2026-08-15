@@ -1249,6 +1249,7 @@ STATE_VRYSTAAT = {
     
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         undiscovered_amount = 26
     }
 }
@@ -1336,6 +1337,7 @@ STATE_NORTHERN_CAPE = {
     
     resource = {
         type = "building_gold_field"
+        depleted_type = "building_gold_mine"
         discovered_amount = 5
         undiscovered_amount = 26
     }

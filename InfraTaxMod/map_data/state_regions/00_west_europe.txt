@@ -610,7 +610,8 @@ STATE_RHONE = {
     }
 }
 
-# [InfraTaxMod] state buffs (signal: capped_5x+1) — capped:building_iron_mine 15->36; capped:building_lead_mine 0->18; capped:building_coal_mine 0->8
+# [InfraTaxMod] state buffs (signal: capped_5x+1) - capped:building_logging_camp 3->11; traits +state_trait_infratax
+# 2026-08-15: was a stray copy of the GOTALAND comment; corrected to this state's real delta
 # HUMAN COMMIT - increasting the wood cap here so the AI scripts for ecoPulse dont keep giving errors in logs
 STATE_FRENCH_LOW_COUNTRIES = {
     id = 33
