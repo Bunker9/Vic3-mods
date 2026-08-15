@@ -1,18 +1,17 @@
 ﻿# MyDiploPlayMod — curated day-1 war set (stabilized). Correct matchups; bad/GP-dragging wars commented
 # out). Restored from commit c6216fb, war goals corrected to return_state (low infamy; backed
 # by add_claim in zz_mdp_claims.txt). The generator no longer writes this file.
+#
+# 2026-08-15: every play here also restated its own primary goal via add_war_goal, which put TWO
+# return_state goals on the target_state. dp_return_state carries war_goal = return_state
+# (00_diplomatic_plays.txt), so the play type makes that goal itself. The 15 duplicate blocks are
+# removed; the add_war_goal entries that remain all target DIFFERENT states and are intentional.
 DIPLOMATIC_PLAYS = {
 	c:BIC ?= {
 		create_diplomatic_play = {
 			target_state = s:STATE_CEYLON.region_state:MLD
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:BIC
-				type = return_state
-				target_state = s:STATE_CEYLON.region_state:MLD
-				primary_demand = yes
-			}
 		}
 	}
 	c:MEX ?= {
@@ -20,12 +19,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_GUATEMALA.region_state:UCA
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:MEX
-				type = return_state
-				target_state = s:STATE_GUATEMALA.region_state:UCA
-				primary_demand = yes
-			}
 			add_war_goal = {
 				holder = c:MEX
 				type = return_state
@@ -58,12 +51,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_DARFUR.region_state:DFR
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:EGY
-				type = return_state
-				target_state = s:STATE_DARFUR.region_state:DFR
-				primary_demand = yes
-			}
 		}
 	}
 	c:EGY ?= {
@@ -71,12 +58,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_ERITREA.region_state:AWS
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:EGY
-				type = return_state
-				target_state = s:STATE_ERITREA.region_state:AWS
-				primary_demand = yes
-			}
 		}
 	}
 	c:PAN ?= {
@@ -84,12 +65,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_SINDH.region_state:SIN
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:PAN
-				type = return_state
-				target_state = s:STATE_SINDH.region_state:SIN
-				primary_demand = yes
-			}
 		}
 	}
 	c:SOK ?= {
@@ -97,12 +72,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_BENIN.region_state:BEN
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:SOK
-				type = return_state
-				target_state = s:STATE_BENIN.region_state:BEN
-				primary_demand = yes
-			}
 		}
 	}
 	c:SAR ?= {
@@ -110,12 +79,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_EMILIA.region_state:PAR
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:SAR
-				type = return_state
-				target_state = s:STATE_EMILIA.region_state:PAR
-				primary_demand = yes
-			}
 		}
 	}
 	c:SAR ?= {
@@ -123,12 +86,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_TUSCANY.region_state:TUS
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:SAR
-				type = return_state
-				target_state = s:STATE_TUSCANY.region_state:TUS
-				primary_demand = yes
-			}
 		}
 	}
 	c:SAR ?= {
@@ -136,12 +93,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_EMILIA.region_state:MOD
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:SAR
-				type = return_state
-				target_state = s:STATE_EMILIA.region_state:MOD
-				primary_demand = yes
-			}
 		}
 	}
 	c:NEP ?= {
@@ -149,12 +100,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_EASTERN_HIMALAYAS.region_state:SIK
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:NEP
-				type = return_state
-				target_state = s:STATE_EASTERN_HIMALAYAS.region_state:SIK
-				primary_demand = yes
-			}
 		}
 	}
 	c:NEP ?= {
@@ -162,12 +107,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_EASTERN_HIMALAYAS.region_state:BHU
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:NEP
-				type = return_state
-				target_state = s:STATE_EASTERN_HIMALAYAS.region_state:BHU
-				primary_demand = yes
-			}
 		}
 	}
 	c:CLM ?= {
@@ -175,12 +114,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_ZULIA.region_state:VNZ
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:CLM
-				type = return_state
-				target_state = s:STATE_ZULIA.region_state:VNZ
-				primary_demand = yes
-			}
 			add_war_goal = {
 				holder = c:CLM
 				type = return_state
@@ -203,12 +136,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_URUGUAY.region_state:URU
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:ARG
-				type = return_state
-				target_state = s:STATE_URUGUAY.region_state:URU
-				primary_demand = yes
-			}
 		}
 	}
 	c:SIA ?= {
@@ -216,12 +143,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_MALAYA.region_state:JOH
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:SIA
-				type = return_state
-				target_state = s:STATE_MALAYA.region_state:JOH
-				primary_demand = yes
-			}
 		}
 	}
 	c:MOR ?= {
@@ -229,12 +150,6 @@ DIPLOMATIC_PLAYS = {
 			target_state = s:STATE_ORAN.region_state:MAS
 			war = yes
 			type = dp_return_state
-			add_war_goal = {
-				holder = c:MOR
-				type = return_state
-				target_state = s:STATE_ORAN.region_state:MAS
-				primary_demand = yes
-			}
 			add_war_goal = {
 				holder = c:MOR
 				type = return_state

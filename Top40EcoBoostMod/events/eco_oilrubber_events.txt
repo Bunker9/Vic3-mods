@@ -136,6 +136,42 @@ ecoor.2 = {
 					target_country = root
 					inputs = {
 						{ goods = g:rubber }
+						{ quantity = 300 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = c:BRZ
+					target_country = root
+					inputs = {
+						{ goods = g:coffee }
+						{ quantity = 1000 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = c:BRZ
+					target_country = root
+					inputs = {
+						{ goods = g:sugar }
+						{ quantity = 300 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = root
+					target_country = c:BRZ
+					inputs = {
+						{ goods = g:tools }
+						{ quantity = 300 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = root
+					target_country = c:BRZ
+					inputs = {
+						{ goods = g:engines }
 						{ quantity = 100 }
 					}
 				}
@@ -239,7 +275,7 @@ ecoor.4 = {
 					NOT = { this = c:BRZ }
 					has_building = building_coffee_plantation
 				}
-				add_modifier = { name = eco_coffee_disease years = 3 }
+				add_modifier = { name = eco_coffee_disease years = 2 }
 			}
 		}
 		#debug_log = "eco - rubber-partnership - plantations built"

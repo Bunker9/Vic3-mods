@@ -111,13 +111,13 @@ mdp_try_next_war = {
         }
 
         # ---------------------------------------------------------------------
-        # Step 6: grab the freshly-created play and add a return_state war goal for
-        # EVERY target state, including the capital — create_diplomatic_play's
-        # target_state alone does not register a war goal (mirrors the hand-curated
-        # zz_mdp_wars.txt pattern, which always pairs target_state with an explicit
-        # add_war_goal). The capital gets primary_demand = yes; add_war_goal must run
-        # in the diplomatic_play scope, so we can't loop inside create_diplomatic_play
-        # — we re-enter the play here.
+        # Step 6: grab the freshly-created play and add a return_state war goal for every
+        # target state EXCEPT the capital. The old comment here claimed "target_state alone
+        # does not register a war goal" - that was WRONG and contradicted line 101 above.
+        # dp_return_state carries war_goal = return_state (00_diplomatic_plays.txt), so the
+        # play already made the capital's primary goal; re-adding it gave TWO goals on the
+        # same state (fixed 2026-08-15). add_war_goal must run in the diplomatic_play scope,
+        # so we re-enter the play here rather than looping inside create_diplomatic_play.
         # ---------------------------------------------------------------------
         random_diplomatic_play = {
             limit = {
@@ -132,25 +132,13 @@ mdp_try_next_war = {
             limit = { exists = scope:mdp_play }
             scope:mdp_tgt = {
                 every_scope_state = {
+                    limit = { NOT = { this = scope:mdp_tgt.capital } }
                     save_scope_as = mdp_goal_state
-                    if = {
-                        limit = { this = scope:mdp_tgt.capital }
-                        scope:mdp_play = {
-                            add_war_goal = {
-                                holder       = scope:mdp_attacker
-                                type         = return_state
-                                target_state = scope:mdp_goal_state
-                                primary_demand = yes
-                            }
-                        }
-                    }
-                    else = {
-                        scope:mdp_play = {
-                            add_war_goal = {
-                                holder       = scope:mdp_attacker
-                                type         = return_state
-                                target_state = scope:mdp_goal_state
-                            }
+                    scope:mdp_play = {
+                        add_war_goal = {
+                            holder       = scope:mdp_attacker
+                            type         = return_state
+                            target_state = scope:mdp_goal_state
                         }
                     }
                 }
