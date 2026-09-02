@@ -1,0 +1,17 @@
+{
+	"name": "HappyHalloweenMod",
+	"id": "HappyHalloweenMod",
+	"game_id": "victoria3",
+	"version": "0.0.1",
+	"supported_game_version": "1.13.*",
+	"short_description": "Frankenstein in exile: promethean monster superpower vs the world. Builds on the vanilla Ingolstadt/promethean Halloween easter egg.",
+	"tags": [
+		"Alternative History",
+		"Events",
+		"Gameplay"
+	],
+	"relationships": [],
+	"game_custom_data": {
+		"multiplayer_synchronized": true
+	}
+}
