@@ -122,7 +122,7 @@ zw_sv_state_heavy_cap_effective = {
 zw_sv_state_arts_cap = {
 	value = zw_sv_state_light_cap_effective
 	multiply = 0.1
-	min = 3
+	min = 5
 }
 
 # POWER cap = proportional to the industry it serves, NOT population: (light + heavy levels) x ratio
@@ -133,7 +133,7 @@ zw_sv_state_power_cap = {
 	value = zw_sv_state_light_levels
 	add = zw_sv_state_heavy_levels
 	multiply = 0.34
-	add = 2
+	add = 10
 }
 
 # Railway strain threshold SOFT DROPPED 2026-08-13 with the railway gate.

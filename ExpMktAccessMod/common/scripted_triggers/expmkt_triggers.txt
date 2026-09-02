@@ -2,6 +2,18 @@
 # ExpMktAccessMod — the expand-tag set (expanding=yes in hk-config/tools/mod-nations.csv).
 # Own copy per mod (load-order safe). Keep the 20 tags in sync with the csv.
 # =============================================================================
+# Country scope = a CANDIDATE grantor; root = the cut off China successor asking.
+# Coastal so it can actually reach the sea, and the state that borders us must itself
+# be market connected, or the passage runs into another dead end.
+expmkt_is_transit_grantor = {
+	NOT = { this = root }
+	any_scope_state = { is_coastal = yes }
+	any_scope_state = {
+		market_access >= 1
+		any_neighbouring_state = { owner = root }
+	}
+}
+
 expmkt_is_expand_country = {
 	OR = {
 		this = c:BIC   this = c:PRU   this = c:MEX   this = c:BRZ

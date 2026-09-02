@@ -53,6 +53,7 @@ INJECT_OR_CREATE:company_panama_company = {
         building_sulfur_mine
         building_coffee_plantation
         building_whaling_station
+        building_motor_industry
     }
     prosperity_modifier = {
         country_tax_income_add = 150000

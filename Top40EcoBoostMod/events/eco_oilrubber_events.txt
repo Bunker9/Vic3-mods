@@ -180,7 +180,7 @@ ecoor.2 = {
 					source_country = root
 					target_country = c:BRZ
 					inputs = {
-						{ quantity = 4000 }
+						{ quantity = 500 }
 					}
 				}
 				{
@@ -232,6 +232,81 @@ ecoor.2 = {
 				}
 			}
 			set_owes_obligation_to = { country = c:SIA setting = yes }
+		}
+
+		# 2026-08-19: Brazil also ships coffee to the three great consumers, GBR/RUS/CHI only.
+		# Skipped where the discoverer IS that country, it already takes coffee in the Concord.
+		if = {
+			limit = {
+				exists = c:GBR
+				NOT = { this = c:GBR }
+			}
+			create_treaty = {
+				name = treaty_name_eco_coffee_accord_gbr
+				first_country = c:BRZ
+				second_country = c:GBR
+				is_draft = no
+				binding_period = { years = 10 }
+				articles_to_create = {
+					{
+						article = goods_transfer
+						source_country = c:BRZ
+						target_country = c:GBR
+						inputs = {
+							{ goods = g:coffee }
+							{ quantity = 1500 }
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:RUS
+				NOT = { this = c:RUS }
+			}
+			create_treaty = {
+				name = treaty_name_eco_coffee_accord_rus
+				first_country = c:BRZ
+				second_country = c:RUS
+				is_draft = no
+				binding_period = { years = 10 }
+				articles_to_create = {
+					{
+						article = goods_transfer
+						source_country = c:BRZ
+						target_country = c:RUS
+						inputs = {
+							{ goods = g:coffee }
+							{ quantity = 1500 }
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:CHI
+				NOT = { this = c:CHI }
+			}
+			create_treaty = {
+				name = treaty_name_eco_coffee_accord_chi
+				first_country = c:BRZ
+				second_country = c:CHI
+				is_draft = no
+				binding_period = { years = 10 }
+				articles_to_create = {
+					{
+						article = goods_transfer
+						source_country = c:BRZ
+						target_country = c:CHI
+						inputs = {
+							{ goods = g:coffee }
+							{ quantity = 1500 }
+						}
+					}
+				}
+			}
 		}
 
 		trigger_event = { id = ecoor.4 days = 5 }

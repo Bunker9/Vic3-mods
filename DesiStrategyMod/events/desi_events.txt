@@ -149,6 +149,12 @@ desi_event.4 = {
 		set_variable = { name = desi_gandhi_leads_done value = yes }
 		set_global_variable = gandhi_spawn
 
+
+		add_modifier = {
+			name = modifier_desi_inc
+			years = 10
+		}
+
 		if = {
 			limit = {
 				any_country = {

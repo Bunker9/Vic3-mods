@@ -38,7 +38,7 @@
  ptm_reclaim_lapsed_port:0 "Reclaim Our Lapsed Treaty Port"
  ptm_reclaim_lapsed_port_desc:0 "A port once ceded to us by treaty has slipped from our grasp, taken by another power. Where relations are cordial we press the old claim as a fresh concession, and where they have soured we take it back by force."
  ptm_reclaim_lapsed_port_tt:0 "Retake our lapsed treaty port from whoever now holds it, by treaty if relations are neutral or better, otherwise by a diplomatic play"
- ptm_reclaimable_port_exists_tt:0 "A large power outside Europe holds a port in a coastal region where we keep a foothold of our own"
+ ptm_reclaimable_port_exists_tt:0 "A weaker power outside Europe holds a port in a coastal region where we keep a foothold of our own"
  ptm_reclaim_treaty_port:0 "Reclaim Treaty Port"
 
  ptm_rice_expansion_tt:0 "Brings every rice paddy the land can support up to full working strength"

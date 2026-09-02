@@ -16,3 +16,9 @@
  expfight_antarctic_rescue_desc:0 "Word can be sent south to push the stalled expedition to its conclusion, whatever the cost to the crew's nerves."
  expfight_antarctic_rescue_tooltip:0 "Force the ongoing Antarctic expedition toward a successful conclusion."
 
+ expfight_workforce_catchup_decision:0 "Put the Nation to Work"
+ expfight_workforce_catchup_decision_desc:0 "Too few of our people hold a place of work, and the burden falls on those who do. Open the workshops, the yards and the offices to every hand willing to labour, and let the whole nation earn its keep."
+ expfight_workforce_catchup_tt:0 "Fewer than 20% of our people in incorporated states are in the workforce"
+ expfight_workforce_catchup_effect_tt:0 "For one year, every incorporated state draws its full working population"
+ expfight_workforce_catchup:0 "The Nation at Work"
+ expfight_workforce_catchup_desc:0 "Every hand that can work is at work."

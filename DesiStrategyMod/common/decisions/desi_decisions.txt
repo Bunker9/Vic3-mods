@@ -106,8 +106,44 @@ desi_unify_india = {
 }
 
 
-# Decision 3 (desi_rebuild_war_machine) MOVED to EnglishBankMod 2026-08-01,
-# generalized from an Indian only default rescue into the bank bailout chain.
+# ---- Decision 3: Bounce from War defaults ------------------------
+desi_rebuild_war_machine = {
+	is_shown = {
+		is_subject = no
+		any_primary_culture = { has_discrimination_trait_group = heritage_group_south_asian }
+		NOT = {
+			AND = {
+				has_variable = desi_default_count
+				var:desi_default_count >= 5
+			}
+		}
+	}
+
+	possible = {
+		is_subject = no
+		in_default = yes
+	}
+
+	when_taken = {
+		clear_debt = yes
+		add_treasury = { value = gold_reserves_limit }
+		# Instantly pass whatever law the player is currently enacting (rally the legislature behind the war
+		# effort). currently_enacting_law = the in-progress law scope; activate_law wants a law_type, so use
+		# .type (vanilla 00_ep2_victoria_scripted_triggers.txt: currently_enacting_law.type). Guard with exists
+		# so the decision is safe when no enactment is in progress.
+		if = {
+			limit = { exists = currently_enacting_law }
+			activate_law = currently_enacting_law.type
+		}
+		if = {
+			limit = { NOT = { has_variable = desi_default_count } }
+			set_variable = { name = desi_default_count value = 0 }
+		}
+		change_variable = { name = desi_default_count add = 1 }
+	}
+
+	ai_chance = { value = 10000 }
+}
 
 
 # ---- Decision 4: incorporate a frontier state (India / Burma / Afghan / Himalaya ONLY) -------
@@ -333,6 +369,7 @@ desi_gandhi_leads_india = {
 	is_shown = {
 		game_date >= 1895.1.1
 		NOT = { has_variable = desi_gandhi_leads_done }
+		owns_entire_state_region = STATE_WEST_BENGAL
 	}
 
 	possible = {
@@ -349,6 +386,108 @@ desi_gandhi_leads_india = {
 			text = desi_gandhi_leads_india_tt
 		}
 		trigger_event = { id = desi_event.4 }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision: a famous face for the Panama company --------------------------
+# charismatic 50 + expert_entrepreneur 25 popularity, while the company is new.
+desi_panama_executive = {
+	is_shown = {
+		has_company = company_type:company_panama_company
+		NOT = { has_variable = desi_panama_executive_done }
+		company:company_panama_company ?= {
+			company_is_prosperous = no
+		}
+	}
+
+	possible = {
+		# Only while the company is still new: prosperity bonuses not yet active.
+		custom_tooltip = {
+			text = desi_panama_executive_tt
+			company:company_panama_company ?= {
+				company_is_prosperous = no
+				exists = executive
+			}
+		}
+	}
+
+	when_taken = {
+		company:company_panama_company ?= {
+			executive = {
+				# Skip a trait he already carries.
+				if = {
+					limit = { NOT = { has_trait = charismatic } }
+					add_trait = charismatic
+				}
+				# Expert replaces the lower entrepreneur rungs.
+				if = {
+					limit = { has_trait = basic_entrepreneur }
+					remove_trait = basic_entrepreneur
+				}
+				if = {
+					limit = { has_trait = experienced_entrepreneur }
+					remove_trait = experienced_entrepreneur
+				}
+				if = {
+					limit = { NOT = { has_trait = expert_entrepreneur } }
+					add_trait = expert_entrepreneur
+				}
+			}
+		}
+		set_variable = { name = desi_panama_executive_done value = yes }
+	}
+
+	ai_chance = { value = 10000 }
+}
+
+# ---- Decision: a famous face for the Suez company ----------------------------
+# charismatic 50 + expert_entrepreneur 25 popularity, while the company is new.
+desi_suez_executive = {
+	is_shown = {
+		has_company = company_type:company_suez_company
+		NOT = { has_variable = desi_suez_executive_done }
+		company:company_suez_company ?= {
+			company_is_prosperous = no
+		}
+	}
+
+	possible = {
+		# Only while the company is still new: prosperity bonuses not yet active.
+		custom_tooltip = {
+			text = desi_suez_executive_tt
+			company:company_suez_company ?= {
+				company_is_prosperous = no
+				exists = executive
+			}
+		}
+	}
+
+	when_taken = {
+		company:company_suez_company ?= {
+			executive = {
+				# Skip a trait he already carries.
+				if = {
+					limit = { NOT = { has_trait = charismatic } }
+					add_trait = charismatic
+				}
+				# Expert replaces the lower entrepreneur rungs.
+				if = {
+					limit = { has_trait = basic_entrepreneur }
+					remove_trait = basic_entrepreneur
+				}
+				if = {
+					limit = { has_trait = experienced_entrepreneur }
+					remove_trait = experienced_entrepreneur
+				}
+				if = {
+					limit = { NOT = { has_trait = expert_entrepreneur } }
+					add_trait = expert_entrepreneur
+				}
+			}
+		}
+		set_variable = { name = desi_suez_executive_done value = yes }
 	}
 
 	ai_chance = { value = 10000 }

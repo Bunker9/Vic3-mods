@@ -38,7 +38,8 @@ knip_naval_buildup = {
 }
 
 # ---- Decision 2: claim Korea (gated on a real navy, i.e. decision 1 paid off) ----
-# Recognized Japan with a navy larger than 30 presses claims on every Korean state. Once-only.
+# Recognized Japan with a navy larger than 30 claims every Korean state, seizes the
+# Yangho port province, and drops relations with Korea to -50. Once-only.
 knip_claim_korea = {
 	#icon = "gfx/interface/icons/decision_icons/decision_generic.dds"
 
@@ -60,6 +61,18 @@ knip_claim_korea = {
 		s:STATE_YANGHO    = { add_claim = scope:knip_actor }
 		s:STATE_SARIWON   = { add_claim = scope:knip_actor }
 		s:STATE_PYONGYANG = { add_claim = scope:knip_actor }
+		# Yangho's port tile turns Japanese; Korea keeps the rest of the state
+		s:STATE_YANGHO = {
+			set_owner_of_provinces = {
+				country = ROOT
+				provinces = { x8ACAAA }
+			}
+		}
+		# both sides primed for war; guarded, Korea may be gone by now
+		if = {
+			limit = { exists = c:KOR }
+			set_relations = { country = c:KOR value = -50 }
+		}
 		set_variable = { name = knip_korea_claimed_done value = yes }          # load-bearing guard
 		# set_variable = { name = knip_fingerprint_korea_claimed value = yes }   # additive fingerprint
 	}

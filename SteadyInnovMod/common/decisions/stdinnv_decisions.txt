@@ -389,3 +389,27 @@ stdinnv_offer_protectorate = {
 
 	ai_chance = { value = 0 } # player-only; is_shown gates typical AI out anyway
 }
+
+# ---- Decision: a Chinese major reclaims the harmonious giant ------------------
+# Shape copied from expmkt_china_relief. The modifier is the once-only guard.
+stdinnv_restore_harmonious_giant = {
+	# WHO: a Chinese nation that no longer carries the modifier.
+	is_shown = {
+		capital = { is_in_geographic_region = geographic_region_china }
+		NOT = { has_modifier = stdinnv_harmonious_giant }
+	}
+
+	# WHETHER: only a giant qualifies.
+	possible = {
+		custom_tooltip = {
+			text = stdinnv_harmonious_giant_pop_tt
+			total_population >= 30000000
+		}
+	}
+
+	when_taken = {
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
+
+	ai_chance = { value = 10000 }
+}

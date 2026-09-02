@@ -1,0 +1,19 @@
+﻿namespace = exf_workforce
+
+# ExpFightMod - hidden payload for expfight_workforce_catchup_decision.
+# Kept out of the decision's when_taken because when_taken re-runs during tooltip preview.
+# Applies the state modifier to every INCORPORATED state the caller owns, for 1 year.
+exf_workforce.1 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		every_scope_state = {
+			limit = { is_incorporated = yes }
+			add_modifier = {
+				name = expfight_workforce_catchup
+				years = 1
+			}
+		}
+	}
+}

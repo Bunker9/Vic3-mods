@@ -36,6 +36,7 @@
 	c:BIC ?= { add_modifier = { name = stdinnv_subject } }
 	c:CHI ?= {
 		add_modifier = { name = stdinnv_subject }
+		add_modifier = { name = stdinnv_china_pop }
 		add_modifier = { name = stdinnv_fighting_addiction years = 8 }
 		add_modifier = { name = stdinnv_harmonious_giant }
 	}
@@ -88,4 +89,52 @@
 		add_modifier = { name = stdinnv_unrecognized }
 		add_modifier = { name = stdinnv_harmonious_giant }
 	}
+
+
+
+
+	c:KUT = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BHO = { add_modifier = { name = stdinnv_unrecognized } }
+	c:AWA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BUN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:NAG = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BAS = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MYS = { add_modifier = { name = stdinnv_unrecognized } }
+	c:TRA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:IND = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BER = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MEW = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JAI = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JOD = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BIK = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JAS = { add_modifier = { name = stdinnv_unrecognized } }
+	c:COO = { add_modifier = { name = stdinnv_unrecognized } }
+	c:ASM = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MNP = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JHN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PUD = { add_modifier = { name = stdinnv_unrecognized } }
+	c:KOT = { add_modifier = { name = stdinnv_unrecognized } }
+	c:IDA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:NAW = { add_modifier = { name = stdinnv_unrecognized } }
+	c:DHA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JUN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BHV = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PLP = { add_modifier = { name = stdinnv_unrecognized } }
+	c:SAT = { add_modifier = { name = stdinnv_unrecognized } }
+	c:KHP = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BAG = { add_modifier = { name = stdinnv_unrecognized } }
+	c:SUR = { add_modifier = { name = stdinnv_unrecognized } }
+	c:KNO = { add_modifier = { name = stdinnv_unrecognized } }
+	c:ALW = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PTA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:GAR = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MUG = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JEY = { add_modifier = { name = stdinnv_unrecognized } }
+	c:NAR = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PTN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MYB = { add_modifier = { name = stdinnv_unrecognized } }
+	c:COC = { add_modifier = { name = stdinnv_unrecognized } }
+	c:GWA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BHW = { add_modifier = { name = stdinnv_unrecognized } }
+
 }

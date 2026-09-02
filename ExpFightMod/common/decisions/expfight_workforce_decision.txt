@@ -1,0 +1,42 @@
+﻿# ExpFightMod - workforce catch-up decision.
+#
+# ASK: any major power from 1860 whose workforce ratio across its INCORPORATED states is under 20%
+# may spend a year drawing its full working population, raising the working adult ratio target in
+# those states. GBR-only probe first, opened to all majors 2026-08-16 after the in-game test moved
+# Wales from 8.5% to 9.2%.
+#
+# WHY A DECISION AND NOT A PULSE: on_action is banned in this project; a decision plus a guard is
+# the recurring driver. The guard is the modifier itself, so it re-offers only once the year lapses
+# and only while the ratio is still under 20%. It therefore stops on its own at the 20% target.
+#
+# PAYLOAD IS IN A HIDDEN EVENT, not when_taken: when_taken is re-evaluated during tooltip preview.
+expfight_workforce_catchup_decision = {
+	is_shown = {
+		# Vanilla idiom, both verified in shipped decisions:
+		# country_rank >= rank_value:major_power (01_russia_decisions.txt:5)
+		# game_date > <date> (india_decisions.txt:244)
+		game_date > 1860.1.1
+		country_rank >= rank_value:major_power
+		# re-offer only after the previous year has lapsed everywhere
+		NOT = {
+			any_scope_state = { has_modifier = expfight_workforce_catchup }
+		}
+	}
+
+	possible = {
+		# 20% measured against INCORPORATED states only, which is where the modifier lands.
+		# GBR at the 1922 test read 15.41% incorporated vs 17.60% country-wide.
+		custom_tooltip = {
+			text = expfight_workforce_catchup_tt
+			exf_country_workforce_ratio < 0.20
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = { text = expfight_workforce_catchup_effect_tt }
+		trigger_event = { id = exf_workforce.1 }
+	}
+
+	# AI facing: most majors are AI, so never 0.
+	ai_chance = { value = 10000 }
+}

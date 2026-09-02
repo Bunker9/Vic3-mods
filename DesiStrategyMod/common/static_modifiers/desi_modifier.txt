@@ -21,3 +21,16 @@ modifier_desi_nepal_special = {
 	country_authority_mult = 0.5
 	country_minting_add = 20000
 }
+
+modifier_desi_inc = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	country_authority_add = 500
+	# boost + pol strength boost
+	interest_group_ig_intelligentsia_pop_attraction_mult = 0.25
+	interest_group_ig_intelligentsia_pol_str_mult = 0.25
+	interest_group_ig_intelligentsia_approval_add = 5
+
+	building_group_bg_light_industry_construction_efficiency_add = 0.2
+	building_group_bg_light_industry_throughput_add = 0.1
+}

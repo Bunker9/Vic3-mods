@@ -16,6 +16,7 @@ uni_event.1 = {
 	immediate = {
 	    if = { limit = { has_modifier = stdinnv_unrecognized } remove_modifier = stdinnv_unrecognized }
 	    if = { limit = { has_modifier = stdinnv_subject } remove_modifier = stdinnv_subject }
+	    if = { limit = { has_modifier = stdinnv_china_pop } remove_modifier = stdinnv_china_pop }
 	}
 	option = {
 		name = uni_event.1.a

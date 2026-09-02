@@ -1,0 +1,10 @@
+﻿# Modifier type used by expmkt_china_harmony. Defined here so the mod runs standalone.
+# Bootstrap = this block plus a name/_desc loc pair. The key name is the contract.
+
+building_group_bg_subsistence_agriculture_employee_mult = {
+	decimals = 1
+	color = bad
+	percent = yes
+	game_data = { ai_value = 0 }
+}
+

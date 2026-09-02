@@ -1,0 +1,37 @@
+﻿# ExpFightMod - workforce ratio over INCORPORATED states only, for the catch-up test decision.
+#
+# Scoped to incorporated states because that is where the modifier lands. Measured from the save:
+# GBR incorporated 15.41% (16 states), unincorporated 21.93% (14), whole country 17.60%. Using the
+# country-wide figure would have measured colonies the decision never touches.
+#
+# There is NO `workforce` value link in Vic3; it exists only as a pop TRIGGER. The pop-scope VALUE
+# links are `total_size` and `dependents` (links.cwt:2970 and :2738), so workforce is derived per
+# pop:  workforce = total_size - dependents
+# `every_scope_state` and `every_scope_pop` are legal inside a script value and accept `limit`
+# (lists.cwt:2103, :2045, :69). Operations apply in order to the running total.
+# Order matters: the denominator must be defined before the value that divides by it.
+
+# Population of the incorporated states.
+exf_incorporated_population = {
+	value = 0
+	every_scope_state = {
+		limit = { is_incorporated = yes }
+		every_scope_pop = {
+			add = total_size
+		}
+	}
+}
+
+# Workforce as a share of population, incorporated states only, 0 to 1.
+# No divide-by-zero guard: the caller is gated to major powers, which always hold incorporated states.
+exf_country_workforce_ratio = {
+	value = 0
+	every_scope_state = {
+		limit = { is_incorporated = yes }
+		every_scope_pop = {
+			add = total_size
+			subtract = dependents
+		}
+	}
+	divide = exf_incorporated_population
+}

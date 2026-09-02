@@ -1,5 +1,6 @@
 ﻿l_english:
  stdinnv_fighting_addiction:0 "War on Drugs"
+ stdinnv_china_pop:0 "Chinese Prudence"
  stdinnv_harmonious_giant:0 "Harmonious Giant"
  stdinnv_unrecognized:0 "A Society Behind the Times"
  stdinnv_unrecognized_desc:0 "Our workshops copy what others invented decades ago, and word of new methods reaches us slowly. Until our scholars catch up, our industry will lag the recognized powers."
@@ -58,5 +59,8 @@
  stdinnv_offer_protectorate_tt:0 "A friendly, independent minor member of our bloc is willing to become our protectorate"
  stdinnv_lapsed_treaty_port_desc:0 "Restoring a lapsed treaty port to a friendly leading power"
  stdinnv_reclaim_lapsed_port_desc:0 "Recovering our lapsed treaty port in a harbour we still hold"
+ stdinnv_restore_harmonious_giant:0 "Restore the Harmonious Giant"
+ stdinnv_restore_harmonious_giant_desc:0 "Our millions must be fed before anything else is possible. Put the villages back in order."
+ stdinnv_harmonious_giant_pop_tt:0 "We have at least 30 million people"
  building_group_bg_subsistence_agriculture_employee_mult:0 "Subsistence Employees"
  building_group_bg_subsistence_agriculture_employee_mult_desc:0 "A bonus or penalty to the number of employees in Subsistence Buildings"

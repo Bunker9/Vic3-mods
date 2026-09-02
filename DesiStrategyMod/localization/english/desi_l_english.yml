@@ -1,4 +1,8 @@
 ﻿l_english:
+ modifier_desi_inc: "Forming the Indian Congress"
+ desi_rebuild_war_machine: "Rebuild the War Machine"
+ desi_rebuild_war_machine_desc: "Clear our debts and restore our financial footing."
+ desi_rebuild_war_machine_tooltip: "Clears all outstanding debt."
  modifier_desi_warbonds:0 "War Bonds"
  modifier_desi_nepal_special:0 "Gorkha Rearmament"
  modifier_desi_nepal_special_desc:0 "The Gorkha regiments drill without pause, and the Durbar's coffers keep the arsenals working."
@@ -30,3 +34,9 @@
  desi_gandhi_leads_india_desc:0 "Delhi, Bombay and Bengal answer to us, and the man every Indian already listens to is not yet ours. Invite him to lead the intelligentsia, and let him take the seat at the head of the nation."
  desi_holds_the_three_presidencies_tt:0 "We hold Delhi, Bombay and Bengal in full"
  desi_gandhi_leads_india_tt:0 "Gandhi joins us as leader of the intelligentsia and takes his place as our head of state. A chartered company may seat him only at the head of the intelligentsia."
+ desi_panama_executive:0 "A Famous Face for Panama"
+ desi_panama_executive_desc:0 "A canal is sold long before it is dug. Make our man a name the subscribers trust."
+ desi_panama_executive_tt:0 "The Panama company is still young and its executive can still be made famous"
+ desi_suez_executive:0 "A Famous Face for Suez"
+ desi_suez_executive_desc:0 "A canal is sold long before it is dug. Make our man a name the subscribers trust."
+ desi_suez_executive_tt:0 "The Suez company is still young and its executive can still be made famous"

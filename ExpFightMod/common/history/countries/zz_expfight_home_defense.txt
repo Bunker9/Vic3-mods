@@ -15,5 +15,6 @@ COUNTRIES = {
 	c:POR ?= { add_modifier = { name = expfight_home_defense } }
 	c:SHW ?= { add_modifier = { name = expfight_home_defense } }
 	c:NET ?= { add_modifier = { name = expfight_home_defense } }
+	c:SAR ?= { add_modifier = { name = expfight_home_defense } }
 	c:MON ?= { add_modifier = { name = expfight_home_defense } }
 }
