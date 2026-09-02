@@ -1,7 +1,7 @@
 name: vic3-static-checks
 
 # Gate for promotion to master. Runs the SAME static structure/encoding/syntax
-# checks the local harness runs (v2/testkit/generic/structure.py, sourced from the
+# checks the local harness runs (v2/testkit/chk_structure.py, sourced from the
 # testbook branch so there is one source of truth — no drifting copy in this repo).
 #
 # Scope (v1): per-mod encoding (UTF-8 BOM on .txt/.yml, no BOM on metadata.json),
@@ -35,7 +35,7 @@ jobs:
         shell: bash
         run: |
           set -uo pipefail
-          checker="_harness/v2/testkit/generic/structure.py"
+          checker="_harness/v2/testkit/chk_structure.py"
           if [ ! -f "$checker" ]; then
             echo "::error::static checker not found at $checker (testbook branch checkout failed?)"
             exit 1
