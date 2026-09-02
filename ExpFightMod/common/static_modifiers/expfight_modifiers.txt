@@ -58,3 +58,11 @@ expfight_home_defense = {
 	# +30% defence for armies fighting in provinces this country owns.
 	battle_defense_owned_province_mult = 0.3
 }
+
+# TEST modifier for the workforce catch-up decision. STATE scope, applied per incorporated state.
+# 0.70 on top of the 0.25 base plus 0.05 from law_women_own_property lands the target at 1.00.
+# If the women's law changes the total drifts; this is a probe, not a balanced value.
+expfight_workforce_catchup = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	state_working_adult_ratio_add = 1
+}

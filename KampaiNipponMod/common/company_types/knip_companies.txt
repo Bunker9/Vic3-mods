@@ -1,0 +1,26 @@
+﻿
+INJECT_OR_CREATE:company_mitsubishi = {
+	building_types = {
+		building_coal_mine
+		building_steel_mill
+		building_motor_industry
+		building_tooling_workshop
+	}
+
+	ai_weight = {
+		value = 300 # Higher base value for flavored companies
+	}
+}
+INJECT_OR_CREATE:company_mitsui = {
+	building_types = {
+		building_food_industry
+		building_rice_farm
+		building_banana_plantation
+		building_sugar_plantation
+	}
+
+	ai_weight = {
+		value = 300 # Higher base value for flavored companies
+	}
+}
+

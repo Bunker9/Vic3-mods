@@ -17,13 +17,6 @@
 		}
 	}
 
-	c:CHI ?= {
-		add_modifier = {
-			name = stdinnv_fighting_addiction
-			years = 5
-		}
-	}
-
 	# =========================================================================
 	# SteadyInnov startup innovation tiers (2026-07-09) - MOVED here from the
 	# stdinnv_startup on_action, which stamped stdinnv_subject on EVERY subject
@@ -41,26 +34,107 @@
 
 	# Subject penalty - ONLY the big Asian economies (India / China / Dutch East Indies).
 	c:BIC ?= { add_modifier = { name = stdinnv_subject } }
-	c:CHI ?= { add_modifier = { name = stdinnv_subject } }
-	c:DEI ?= { add_modifier = { name = stdinnv_subject } }
+	c:CHI ?= {
+		add_modifier = { name = stdinnv_subject }
+		add_modifier = { name = stdinnv_china_pop }
+		add_modifier = { name = stdinnv_fighting_addiction years = 8 }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
+	c:DEI ?= {
+		add_modifier = { name = stdinnv_subject }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
 
 	# Unrecognized penalty - major/minor unrecognized powers (save-survivors >3M + day-1
 	# majors conquered in the save) + TIB/KOR (subjects, but the SOFT penalty) + EcoBoost
 	# unrecognized targets (EGY/HYD/OMA/SHW).
-	c:SOK ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:SIA ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:BUR ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:SOK ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
+	c:SIA ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
+	c:BUR ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
 	c:MAD ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:PER ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:PER ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
 	c:AFG ?= { add_modifier = { name = stdinnv_unrecognized } }
 	c:MOR ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:DAI ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:DAI ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
 	c:NEP ?= { add_modifier = { name = stdinnv_unrecognized } }
 	c:PAN ?= { add_modifier = { name = stdinnv_unrecognized } }
 	c:TIB ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:KOR ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:KOR ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
 	c:EGY ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:HYD ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:HYD ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
 	c:OMA ?= { add_modifier = { name = stdinnv_unrecognized } }
-	c:SHW ?= { add_modifier = { name = stdinnv_unrecognized } }
+	c:ARG ?= { add_modifier = { name = stdinnv_harmonious_giant } }
+	c:SHW ?= {
+		add_modifier = { name = stdinnv_unrecognized }
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
+
+
+
+
+	c:KUT = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BHO = { add_modifier = { name = stdinnv_unrecognized } }
+	c:AWA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BUN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:NAG = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BAS = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MYS = { add_modifier = { name = stdinnv_unrecognized } }
+	c:TRA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:IND = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BER = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MEW = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JAI = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JOD = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BIK = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JAS = { add_modifier = { name = stdinnv_unrecognized } }
+	c:COO = { add_modifier = { name = stdinnv_unrecognized } }
+	c:ASM = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MNP = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JHN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PUD = { add_modifier = { name = stdinnv_unrecognized } }
+	c:KOT = { add_modifier = { name = stdinnv_unrecognized } }
+	c:IDA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:NAW = { add_modifier = { name = stdinnv_unrecognized } }
+	c:DHA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JUN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BHV = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PLP = { add_modifier = { name = stdinnv_unrecognized } }
+	c:SAT = { add_modifier = { name = stdinnv_unrecognized } }
+	c:KHP = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BAG = { add_modifier = { name = stdinnv_unrecognized } }
+	c:SUR = { add_modifier = { name = stdinnv_unrecognized } }
+	c:KNO = { add_modifier = { name = stdinnv_unrecognized } }
+	c:ALW = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PTA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:GAR = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MUG = { add_modifier = { name = stdinnv_unrecognized } }
+	c:JEY = { add_modifier = { name = stdinnv_unrecognized } }
+	c:NAR = { add_modifier = { name = stdinnv_unrecognized } }
+	c:PTN = { add_modifier = { name = stdinnv_unrecognized } }
+	c:MYB = { add_modifier = { name = stdinnv_unrecognized } }
+	c:COC = { add_modifier = { name = stdinnv_unrecognized } }
+	c:GWA = { add_modifier = { name = stdinnv_unrecognized } }
+	c:BHW = { add_modifier = { name = stdinnv_unrecognized } }
+
 }

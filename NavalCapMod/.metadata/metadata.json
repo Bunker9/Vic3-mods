@@ -1,0 +1,13 @@
+{
+  "name": "NavalCapMod",
+  "id": "NavalCapMod",
+  "game_id": "victoria3",
+  "version": "0.1.0",
+  "supported_game_version": "1.13.*",
+  "short_description": "Caps port and naval administration levels per state by the active Navy Model law",
+  "tags": [],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}

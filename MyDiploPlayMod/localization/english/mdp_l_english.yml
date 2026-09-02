@@ -34,3 +34,7 @@
  mdp_bic_imperial_overstretch_desc:0 "The Company governs a subcontinent with a merchant board and a borrowed army. London tolerates its adventures, but the ledger and the garrisons are stretched thin."
  mdp_brazil_consolidate_amazon:0 "Consolidate the Amazon"
  mdp_brazil_consolidate_amazon_desc:0 "The deep interior answers to no one. Extend the Empire's writ over the Amazonas and Mato Grosso frontiers and make the borders of Brazil whole."
+ mdp_france_reclaim_breakaway:0 "The Nation is Indivisible"
+ mdp_france_reclaim_breakaway_desc:0 "A rival capital flies French colours on French soil. Whatever banner it has raised, its people are ours and its provinces are ours. There will be no peace in Europe until the Republic is whole again."
+ mdp_french_breakaway_in_europe_tt:0 "A French speaking state rules from a capital in Europe"
+ mdp_france_reclaim_breakaway_tt:0 "Press our claim on their capital and force the question by arms"

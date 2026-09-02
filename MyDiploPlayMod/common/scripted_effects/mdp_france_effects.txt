@@ -1,0 +1,53 @@
+﻿# =============================================================================
+# MyDiploPlayMod - payload for mdp_france_reclaim_breakaway.
+# COPIED from master nous_restart_csa_war_effect (in-game tested): claim the target's
+# capital state region, then one decisive return_state play on that capital.
+# Scope when called = c:FRA (the decision is country-scoped).
+#
+# NO debug_log here: a decision's when_taken is re-evaluated during TOOLTIP PREVIEW, which
+# is what produced the 925x marker spam on the nous Mexico effect. Same reason no var: value
+# is read here - only a country is picked and passed straight to the play.
+# =============================================================================
+mdp_france_reclaim_breakaway_effect = {
+	random_country = {
+		limit = {
+			NOT = { this = c:FRA }
+			country_has_primary_culture = cu:french
+			capital = {
+				OR = {
+					region = sr:region_western_europe
+					region = sr:region_southern_europe
+				}
+			}
+			NOT = { has_war_with = c:FRA }
+		}
+		save_scope_as = mdp_french_breakaway
+	}
+
+	if = {
+		limit = { exists = scope:mdp_french_breakaway }
+
+		# add_claim is a state_region effect, so hop from the capital STATE into its region.
+		scope:mdp_french_breakaway.capital = { state_region = { add_claim = c:FRA } }
+
+		c:FRA = {
+			# NO add_war_goal for our own primary demand: dp_return_state already declares
+			# war_goal = return_state (00_diplomatic_plays.txt), so the play type generates
+			# the goal on target_state. Restating it produced TWO return_state goals on the
+			# same state. Vanilla only ever adds a goal for the OTHER side or of another type.
+			create_diplomatic_play = {
+				target_state = scope:mdp_french_breakaway.capital
+				war          = no
+				type         = dp_return_state
+			}
+			# FINGERPRINT (DEV-RULES "Save-fingerprint debugging") - additive, no logic change.
+			# Counter, not boolean: this effect can re-fire after every white peace.
+			# Comment out at Ceremony 3 promote.
+			# if = {
+			#	limit = { NOT = { has_variable = mdp_fingerprint_france_reclaim } }
+			#	set_variable = { name = mdp_fingerprint_france_reclaim value = 0 }
+			# }
+			# change_variable = { name = mdp_fingerprint_france_reclaim add = 1 }
+		}
+	}
+}

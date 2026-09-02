@@ -8,6 +8,6 @@
 
 knip_marine_hiring = {
 	icon = "gfx/interface/icons/timed_modifier_icons/modifier_coins_positive.dds"
-	building_group_bg_fishing_employee_mult = -0.25
-	building_group_bg_whaling_employee_mult = -0.25
+	building_group_bg_fishing_employee_mult = -0.4
+	building_group_bg_whaling_employee_mult = -0.4
 }

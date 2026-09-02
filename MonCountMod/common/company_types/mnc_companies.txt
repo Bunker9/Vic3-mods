@@ -116,3 +116,22 @@ company_van_helsing = {
 		value = 5
 	}
 }
+
+INJECT_OR_CREATE:company_nokia = {
+	building_types = {
+		building_electrics_industry
+		building_glassworks
+		building_iron_mine
+		building_steel_mill
+	}
+
+	prosperity_modifier = {
+		country_max_weekly_construction_progress_add = 10
+		country_weekly_innovation_max_add = 20
+	}
+
+	ai_weight = {
+		value = 30 # Higher base value for flavored companies
+	}
+}
+

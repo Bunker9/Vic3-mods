@@ -65,9 +65,10 @@ mdp.1 = {
                 }
             }
 
-            # Add return_state war goals for EVERY target state, including the capital
-            # (primary_demand = yes) — mirrors the hand-curated zz_mdp_wars.txt pattern,
-            # which always pairs target_state with an explicit add_war_goal.
+            # Add return_state goals for the target's OTHER states. The CAPITAL is skipped:
+            # dp_return_state declares war_goal = return_state (00_diplomatic_plays.txt), so the
+            # play above already made the primary goal on scope:mdp_tgt.capital. Adding it again
+            # is what put TWO return_state goals on the capital in game (2026-08-15).
             random_diplomatic_play = {
                 limit = {
                     is_diplomatic_play_type = dp_return_state
@@ -81,25 +82,13 @@ mdp.1 = {
                 limit = { exists = scope:mdp_play }
                 scope:mdp_tgt = {
                     every_scope_state = {
+                        limit = { NOT = { this = scope:mdp_tgt.capital } }
                         save_scope_as = mdp_goal_state
-                        if = {
-                            limit = { this = scope:mdp_tgt.capital }
-                            scope:mdp_play = {
-                                add_war_goal = {
-                                    holder = scope:mdp_attacker
-                                    type = return_state
-                                    target_state = scope:mdp_goal_state
-                                    primary_demand = yes
-                                }
-                            }
-                        }
-                        else = {
-                            scope:mdp_play = {
-                                add_war_goal = {
-                                    holder = scope:mdp_attacker
-                                    type = return_state
-                                    target_state = scope:mdp_goal_state
-                                }
+                        scope:mdp_play = {
+                            add_war_goal = {
+                                holder = scope:mdp_attacker
+                                type = return_state
+                                target_state = scope:mdp_goal_state
                             }
                         }
                     }

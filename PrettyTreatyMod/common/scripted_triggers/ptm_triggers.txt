@@ -74,6 +74,7 @@ ptm_is_reclaimable_host_port = {
 		NOT = { is_in_customs_union_with = root }   # explicit customs-union partner
 		NOT = { is_country_type = decentralized }
 		NOT = { ptm_is_grantee_power = yes }         # host is not a grantee (not Europe, not USA)
+		prestige < root.prestige                     # host weaker than us
 	}
 }
 

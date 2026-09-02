@@ -1,0 +1,51 @@
+﻿# =============================================================================
+# MyDiploPlayMod - "France is not allowed to rest" (the NoUSChicken CSA shape, for FRA).
+# While a FRENCH-CULTURE breakaway holds a capital in EUROPE, France re-declares to
+# reclaim it. A French-culture secession OUTSIDE Europe (Africa, Asia) is left alone.
+#
+# THE EUROPE GATE is what separates the two cases: the breakaway's CAPITAL must sit in
+# sr:region_western_europe or sr:region_southern_europe (common/strategic_regions/
+# europe_strategic_regions.txt:4 and :29). An Algerian or Indochinese French republic
+# has its capital outside both, so this decision never shows for it.
+#
+# ONCE-ONLY STORY: none, deliberately - same as nous_restart_csa_war_decision. It re-fires
+# after every white peace for as long as a qualifying breakaway exists. The brake is in
+# POSSIBLE (not already at war with it, not in a play), not a variable.
+#
+# Tokens verified 2026-08-15: any_country / random_country (global iterators, effects.log
+# and triggers.log "Supported Scopes: none"); country_has_primary_culture (triggers.log:4094,
+# country scope, culture target); capital as a state scope link (master nous_effects.txt:45);
+# region = sr:<strategic region> at state scope (master desi_decisions.txt:122).
+# =============================================================================
+mdp_france_reclaim_breakaway = {
+
+	is_shown = {
+		c:FRA ?= this
+	}
+
+	possible = {
+		is_active_in_diplomatic_play = no
+
+		custom_tooltip = {
+			text = mdp_french_breakaway_in_europe_tt
+			any_country = {
+				NOT = { this = c:FRA }
+				country_has_primary_culture = cu:french
+				capital = {
+					OR = {
+						region = sr:region_western_europe
+						region = sr:region_southern_europe
+					}
+				}
+				NOT = { has_war_with = c:FRA }
+			}
+		}
+	}
+
+	when_taken = {
+		custom_tooltip = { text = mdp_france_reclaim_breakaway_tt }
+		mdp_france_reclaim_breakaway_effect = yes
+	}
+
+	ai_chance = { value = 100000 }
+}

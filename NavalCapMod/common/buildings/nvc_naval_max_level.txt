@@ -1,0 +1,13 @@
+﻿# NavalCapMod - arm the engine max level cap on the two overbuilt naval buildings.
+# buildings.md:9 "has_max_level = yes, a dynamic modifier is created to determine max level".
+# That dynamic modifier is state_building_<key>_max_level_add, fed by the Navy Model laws
+# in nvc_navy_model_caps.txt. Same mechanism the Army Model laws use on barracks.
+# Base is 0, so a state can build these ONLY up to what its navy law grants.
+
+INJECT_OR_CREATE:building_port = {
+	has_max_level = yes
+}
+
+INJECT_OR_CREATE:building_naval_administration = {
+	has_max_level = yes
+}

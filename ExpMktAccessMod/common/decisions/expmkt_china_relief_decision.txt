@@ -1,0 +1,66 @@
+﻿# =============================================================================
+# ExpMktAccessMod - relief for a cut off successor state of a collapsed China.
+# Restores the harmonious-giant buffer, frees migration, and buys transit rights.
+# No hidden event: nothing here reads a var, so tooltip preview is safe.
+# The granted modifier is the once-only guard.
+# =============================================================================
+expmkt_china_relief = {
+	# WHO: a China successor that has not taken this yet.
+	is_shown = {
+		capital = { is_in_geographic_region = geographic_region_china }
+		NOT = { has_modifier = expmkt_china_harmony }
+	}
+
+	# WHETHER: are we actually cut off. Tested over EVERY state, so a country with one
+	# connected part does not qualify on the strength of its landlocked part.
+	possible = {
+		custom_tooltip = {
+			text = expmkt_china_relief_tt
+			NOT = { any_scope_state = { market_access >= 1 } }
+		}
+	}
+
+	when_taken = {
+		add_modifier = { name = expmkt_china_harmony }
+
+		# Let idle pops leave the states that cannot employ them.
+		if = {
+			limit = { NOT = { has_law = law_type:law_no_migration_controls } }
+			activate_law = law_type:law_no_migration_controls
+		}
+
+		# Transit is a BONUS, not a condition: a successor with no qualifying neighbour
+		# still gets the buffer and the migration law. The tooltip is custom because the
+		# engine would otherwise render the whole ordered_country walk.
+		custom_tooltip = {
+			text = expmkt_china_relief_transit_tt
+
+			# ordered_country sorts descending, so position 0 = richest grantor.
+			ordered_country = {
+				order_by = gdp
+				position = 0
+				check_range_bounds = no
+				limit = { expmkt_is_transit_grantor = yes }
+				save_scope_as = expmkt_transit_grantor
+
+				create_treaty = {
+					name = treaty_name_expmkt_china_transit
+					first_country = root
+					second_country = scope:expmkt_transit_grantor
+					is_draft = no
+					binding_period = { years = 99 }   # the repo's perpetual form
+					articles_to_create = {
+						{
+							article = transit_rights
+							source_country = scope:expmkt_transit_grantor
+							target_country = root
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_chance = { value = 10000 }
+}
+

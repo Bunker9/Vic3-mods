@@ -1,0 +1,40 @@
+﻿#common/production_methods/01_industry.txt
+
+INJECT_OR_CREATE:pm_herring_meal_farming_building_rice_farm = {
+
+    building_modifiers = {
+        workforce_scaled = {
+            # output goods
+            goods_output_grain_add = 5	# 20
+            goods_output_groceries_add = 5 #30
+            goods_output_sugar_add = 5 #30
+        }
+
+        level_scaled = {
+            building_employment_laborers_add = 1000
+        }
+    }
+}
+
+INJECT_OR_CREATE:pm_samurai_training = {
+    state_modifiers = {
+        unscaled = {
+            state_turmoil_effects_mult = -0.1
+            state_devastation_decay_mult = 0.1	# POSITIVE = devastation clears FASTER
+        }
+    }
+    country_modifiers = {
+        unscaled = {
+            country_officers_pol_str_mult = 0.05	# per fortified state, stacks on purpose
+        }
+    }
+    building_modifiers = {
+        unscaled = {
+            building_training_rate_add = 5
+        }
+
+        level_scaled = {
+            building_training_rate_add = 5
+        }
+    }
+}

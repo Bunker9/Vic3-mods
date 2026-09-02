@@ -16,6 +16,7 @@ eco_oil_partnership = {
 		has_technology_researched = pumpjacks
 		NOT = { has_global_variable = eco_oil_deal_done }
 		exists = c:OMA
+		country_rank >= rank_value:major_power
 	}
 
 	possible = {
@@ -41,6 +42,8 @@ eco_rubber_partnership = {
 		has_technology_researched = rubber_mastication
 		NOT = { has_global_variable = eco_rubber_deal_done }
 		exists = c:BRZ
+		exists = c:SIA
+		country_rank >= rank_value:major_power
 	}
 
 	possible = {
@@ -48,6 +51,7 @@ eco_rubber_partnership = {
 		custom_tooltip = {
 			text = eco_rubber_partnership_gate_tt
 			c:BRZ = { is_at_war = no }
+			c:SIA = { is_at_war = no }
 		}
 	}
 

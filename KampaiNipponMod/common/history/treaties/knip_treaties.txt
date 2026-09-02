@@ -1,0 +1,86 @@
+﻿TREATIES = {
+	create_treaty = {
+		name = treaty_name_jap_chi_food
+		first_country = c:JAP
+		second_country = c:CHI
+
+		is_draft = no
+		entered_into_force_on = 1836.1.1
+		binding_period = { years = 30 } # 30 years
+
+		articles_to_create = {
+			{
+				article = military_assistance
+				source_country = c:CHI
+				target_country = c:JAP
+			}
+			{
+				article = foreign_investment_rights
+				source_country = c:CHI
+				target_country = c:JAP
+			}
+			{
+				article = money_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ quantity = 30000 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:fish } #20
+					{ quantity = 5000 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:meat } #30
+					{ quantity = 500 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:oil } #30
+					{ quantity = 500 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:JAP
+				target_country = c:CHI
+				inputs = {
+					{ goods = g:grain } #20
+					{ quantity = 2000 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:clippers }
+					{ quantity = 50 }
+				}
+			}
+			{
+				article = goods_transfer
+				source_country = c:CHI
+				target_country = c:JAP
+				inputs = {
+					{ goods = g:tools }
+					{ quantity = 100 }
+				}
+			}
+		}
+	}
+}

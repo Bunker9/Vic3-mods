@@ -45,16 +45,13 @@ nous_restart_csa_war_effect = {
 	c:CSA.capital = { state_region = { add_claim = c:USA } }
 
 	c:USA = {
+		# 2026-08-15: the add_war_goal here restated the play's OWN primary goal, giving two
+		# return_state goals on the CSA capital. dp_return_state carries war_goal = return_state
+		# (00_diplomatic_plays.txt), so the play type makes that goal itself.
 		create_diplomatic_play = {
 			target_state = c:CSA.capital
 			war          = no
 			type         = dp_return_state
-			add_war_goal = {
-				holder         = c:USA
-				type           = return_state
-				target_state   = c:CSA.capital
-				primary_demand = yes
-			}
 		}
 		add_modifier = { name = modifier_nous_warbonds months = 12 }
 		# FINGERPRINT (variable; DEV-RULES "Save-fingerprint debugging"). set_variable persists as

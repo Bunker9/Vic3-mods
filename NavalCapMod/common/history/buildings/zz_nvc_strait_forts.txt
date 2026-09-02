@@ -1,0 +1,223 @@
+﻿# Level 1 naval fortification each side of every strait, from data_strait_states.csv.
+# Commented blocks are vanilla duplicates; uncomment to restore.
+
+BUILDINGS = {
+	# canal_panama
+	s:STATE_PANAMA = {
+		region_state:CLM = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:CLM" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# canal_suez
+	s:STATE_SINAI = {
+		region_state:EGY = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:EGY" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# canal_kiel
+	s:STATE_SCHLESWIG_HOLSTEIN = {
+		region_state:HOL = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:HOL" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+		region_state:SCH = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:SCH" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_gibraltar
+	# s:STATE_UPPER_ANDALUSIA = {
+	# 	region_state:GBR = {
+	# 		create_building = {
+	# 			building = "building_naval_fortification"
+	# 			add_ownership = { country = { country = "c:GBR" levels = 1 } }
+	# 			activate_production_methods = { "pm_naval_fortification_basic" }
+	# 		}
+	# 	}
+	# }
+	s:STATE_AL_RIF = {
+		region_state:SPA = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:SPA" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_bosporus
+	# s:STATE_EASTERN_THRACE = {
+	# 	region_state:TUR = {
+	# 		create_building = {
+	# 			building = "building_naval_fortification"
+	# 			add_ownership = { country = { country = "c:TUR" levels = 1 } }
+	# 			activate_production_methods = { "pm_naval_fortification_basic" }
+	# 		}
+	# 	}
+	# }
+	s:STATE_HUDAVENDIGAR = {
+		region_state:TUR = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:TUR" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_bab_el_mandeb
+	s:STATE_YEMEN = {
+		region_state:LAH = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:LAH" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+	s:STATE_ERITREA = {
+		region_state:AWS = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:AWS" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_oresund
+	# s:STATE_SCANIA = {
+	# 	region_state:SWE = {
+	# 		create_building = {
+	# 			building = "building_naval_fortification"
+	# 			add_ownership = { country = { country = "c:SWE" levels = 1 } }
+	# 			activate_production_methods = { "pm_naval_fortification_basic" }
+	# 		}
+	# 	}
+	# }
+	# s:STATE_ZEALAND = {
+	# 	region_state:DEN = {
+	# 		create_building = {
+	# 			building = "building_naval_fortification"
+	# 			add_ownership = { country = { country = "c:DEN" levels = 1 } }
+	# 			activate_production_methods = { "pm_naval_fortification_basic" }
+	# 		}
+	# 	}
+	# }
+
+	# strait_malacca
+	s:STATE_MALAYA = {
+		region_state:GBR = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:GBR" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+	s:STATE_NORTH_SUMATRA = {
+		region_state:SAK = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:SAK" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_tsugaru
+	s:STATE_TOHOKU = {
+		region_state:JAP = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:JAP" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+	s:STATE_HOKKAIDO = {
+		region_state:JAP = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:JAP" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_sunda
+	s:STATE_SOUTH_SUMATRA = {
+		region_state:DEI = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:DEI" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+	# s:STATE_WEST_JAVA = {
+	# 	region_state:DEI = {
+	# 		create_building = {
+	# 			building = "building_naval_fortification"
+	# 			add_ownership = { country = { country = "c:DEI" levels = 1 } }
+	# 			activate_production_methods = { "pm_naval_fortification_basic" }
+	# 		}
+	# 	}
+	# }
+
+	# strait_lombok, forted per owner
+	s:STATE_SUNDA_ISLANDS = {
+		region_state:BAL = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:BAL" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+		region_state:POR = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:POR" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+
+	# strait_hormuz
+	s:STATE_LARISTAN = {
+		region_state:OMA = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:OMA" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+	s:STATE_ABU_DHABI = {
+		region_state:OMA = {
+			create_building = {
+				building = "building_naval_fortification"
+				add_ownership = { country = { country = "c:OMA" levels = 1 } }
+				activate_production_methods = { "pm_naval_fortification_basic" }
+			}
+		}
+	}
+}
+

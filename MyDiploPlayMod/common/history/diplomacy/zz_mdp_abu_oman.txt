@@ -19,4 +19,10 @@ DIPLOMACY = {
 		# Replaces the old EGY-OMA bidirectional truce (removed from zz_mdp_truces.txt).
 		set_relations = { country = c:EGY value = 50 }
 	}
+	c:CHI ?= {
+		# Set up for Qing Russian Wars
+		set_relations = { country = c:RUS value = -20 }
+		set_relations = { country = c:FRA value = -10 }
+		set_relations = { country = c:GBR value = -10 }
+	}
 }

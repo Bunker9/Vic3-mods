@@ -11,3 +11,13 @@ expmkt_industrialist_boost = {
 	interest_group_ig_industrialists_pol_str_mult = 1.0       # ~double their political strength
 	interest_group_ig_industrialists_approval_add = 20        # keep them in the government, content
 }
+
+# Permanent subsistence buffer for a collapsed China's successor states, granted by
+# expmkt_china_market_relief. Values copied from the in-game-vetted
+# SteadyInnovMod stdinnv_harmonious_giant, which the successor tags lose on the split.
+expmkt_china_harmony = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+
+	building_subsistence_output_add = 1
+	building_group_bg_subsistence_agriculture_employee_mult = 1.5
+}

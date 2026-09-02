@@ -2,7 +2,7 @@
 	"name": "MyDiploPlayMod",
 	"id": "MyDiploPlayMod",
 	"game_id": "victoria3",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"supported_game_version": "1.13.*",
 	"short_description": "allow regional powers to blob",
 	"tags": [

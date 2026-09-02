@@ -1,0 +1,102 @@
+﻿# =============================================================================
+# Top40EcoBoostMod - coffee stays a New World crop: BIC and its day-1 subjects are
+# penalised 40 years, until the transplant to Asian plantations.
+# Subject tags from vanilla common/history/diplomacy/00_subject_relationships.txt (c:BIC block).
+# Modifier defined in common/static_modifiers/eco_modifiers.txt.
+# =============================================================================
+COUNTRIES = {
+	c:BIC = { add_modifier = { name = eco_coffee_pre_transplant_bic_spl years = 40 } }
+	c:KUT = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BHO = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:AWA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BUN = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:NAG = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BAS = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:HYD = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:MYS = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:TRA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:IND = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BER = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:MEW = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:JAI = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:JOD = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BIK = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:JAS = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:COO = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:ASM = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:MNP = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:JHN = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:PUD = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:KOT = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:IDA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:NAW = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:DHA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:JUN = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BHV = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:PLP = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:SAT = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:KHP = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BAG = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:SUR = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:KNO = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:ALW = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:PTA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:GAR = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:MUG = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:JEY = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:NAR = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:PTN = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:MYB = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:COC = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:GWA = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+	c:BHW = { add_modifier = { name = eco_coffee_pre_transplant years = 40 } }
+
+
+
+
+	c:KUT = { add_modifier = { name = eco_india_bazaars } }
+	c:BHO = { add_modifier = { name = eco_india_bazaars } }
+	c:AWA = { add_modifier = { name = eco_india_bazaars } }
+	c:BUN = { add_modifier = { name = eco_india_bazaars } }
+	c:NAG = { add_modifier = { name = eco_india_bazaars } }
+	c:BAS = { add_modifier = { name = eco_india_bazaars } }
+	c:HYD = { add_modifier = { name = eco_india_bazaars } }
+	c:MYS = { add_modifier = { name = eco_india_bazaars } }
+	c:TRA = { add_modifier = { name = eco_india_bazaars } }
+	c:IND = { add_modifier = { name = eco_india_bazaars } }
+	c:BER = { add_modifier = { name = eco_india_bazaars } }
+	c:MEW = { add_modifier = { name = eco_india_bazaars } }
+	c:JAI = { add_modifier = { name = eco_india_bazaars } }
+	c:JOD = { add_modifier = { name = eco_india_bazaars } }
+	c:BIK = { add_modifier = { name = eco_india_bazaars } }
+	c:JAS = { add_modifier = { name = eco_india_bazaars } }
+	c:COO = { add_modifier = { name = eco_india_bazaars } }
+	c:ASM = { add_modifier = { name = eco_india_bazaars } }
+	c:MNP = { add_modifier = { name = eco_india_bazaars } }
+	c:JHN = { add_modifier = { name = eco_india_bazaars } }
+	c:PUD = { add_modifier = { name = eco_india_bazaars } }
+	c:KOT = { add_modifier = { name = eco_india_bazaars } }
+	c:IDA = { add_modifier = { name = eco_india_bazaars } }
+	c:NAW = { add_modifier = { name = eco_india_bazaars } }
+	c:DHA = { add_modifier = { name = eco_india_bazaars } }
+	c:JUN = { add_modifier = { name = eco_india_bazaars } }
+	c:BHV = { add_modifier = { name = eco_india_bazaars } }
+	c:PLP = { add_modifier = { name = eco_india_bazaars } }
+	c:SAT = { add_modifier = { name = eco_india_bazaars } }
+	c:KHP = { add_modifier = { name = eco_india_bazaars } }
+	c:BAG = { add_modifier = { name = eco_india_bazaars } }
+	c:SUR = { add_modifier = { name = eco_india_bazaars } }
+	c:KNO = { add_modifier = { name = eco_india_bazaars } }
+	c:ALW = { add_modifier = { name = eco_india_bazaars } }
+	c:PTA = { add_modifier = { name = eco_india_bazaars } }
+	c:GAR = { add_modifier = { name = eco_india_bazaars } }
+	c:MUG = { add_modifier = { name = eco_india_bazaars } }
+	c:JEY = { add_modifier = { name = eco_india_bazaars } }
+	c:NAR = { add_modifier = { name = eco_india_bazaars } }
+	c:PTN = { add_modifier = { name = eco_india_bazaars } }
+	c:MYB = { add_modifier = { name = eco_india_bazaars } }
+	c:COC = { add_modifier = { name = eco_india_bazaars } }
+	c:GWA = { add_modifier = { name = eco_india_bazaars } }
+	c:BHW = { add_modifier = { name = eco_india_bazaars } }
+	
+}

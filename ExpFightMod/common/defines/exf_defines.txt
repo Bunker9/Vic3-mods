@@ -1,0 +1,56 @@
+﻿# ExpFightMod - defines override. HAND-WRITTEN. Partial: defines merge key by key, so only
+# the changed keys go here. Do NOT copy the whole vanilla 00_defines.txt.
+# ALL keys below are ENGINE-GLOBAL: every country, not just the one being tested.
+#
+# WHY: GBR states sit far under their stated working adult ratio target (Wales 8.6 vs 30).
+# Baseline measured from two saves, 1922.6.30 vs 1922.11.1, before any change:
+#   pop 15693 (Welsh servicemen, Wales) 8.361% -> 8.604%, about 0.06 pp per month
+#   Wales state total 9.528% -> 9.695%, about 0.04 pp per month
+# NOTE the ratio rose by SHEDDING dependents (-6,908) while workforce held flat (-6), so
+# re-measure BOTH sides after any change, not just the percentage.
+#
+# TESTED AND IT DID NOT WORK. Same 1922.6.30 start, clamp 6.0, save NEW_6TEST.v3:
+#   pop 15693 8.361% -> 8.563% over 4.47 months = 0.045 pp per month
+#   vs the 2.0 baseline above at 0.060 pp per month over 4.07 months
+# Raising 2.0 to 6.0 gave NO acceleration; the 6.0 arm was slower on both pop and state.
+# So the theory that correction scales with skew and this value caps it is NOT supported.
+# 30.0 below is the next, stronger test of the same question, not a working fix.
+
+NPops = {
+	# Vanilla comment: skewed ratios self correct, this value clamps the effect.
+	# 6.0 was measured and changed nothing (see the test note above). 30.0 is the next probe.
+	WORKING_ADULT_RATIO_SKEW_MAXIMUM = 30.0	# vanilla 2.0; 6.0 tested, no effect
+
+	# ---- OTHER LEVERS, all commented. Uncomment ONE at a time and re-measure. ----
+
+	# Raises the TARGET for every pop, not the speed. 0.25 is the base every pop type
+	# starts from; GBR reaches 0.30 today via law_women_own_property.
+	# WORKING_ADULT_RATIO_BASE = 0.35	# vanilla 0.25
+
+	# Vanilla: unemployed pops whose workforce to dependent ratio is this much worse than
+	# ideal are turned ENTIRELY into dependents. Raising it spares more of them.
+	# Which tier is live depends on the pop consolidation game rule.
+	# WORKFORCE_RATIO_MAX_UNEMPLOYMENT_FACTOR_MINOR_CONSOLIDATION = 5		# vanilla 2.5
+	# WORKFORCE_RATIO_MAX_UNEMPLOYMENT_FACTOR_MODERATE_CONSOLIDATION = 4	# vanilla 2
+	# WORKFORCE_RATIO_MAX_UNEMPLOYMENT_FACTOR_AGGRESSIVE_CONSOLIDATION = 3	# vanilla 1.5
+	# WORKFORCE_RATIO_MAX_UNEMPLOYMENT_FACTOR_MAX_CONSOLIDATION = 2			# vanilla 1
+
+	# Dependents left behind when troops take casualties. First weight is the lower strata
+	# share. Lowering it leaves fewer dependents per soldier lost.
+	# LOWER_STRATA_CASUALTY_DEPENDENTS_DISTRIBUTION_WEIGHTS = { 0.5 0.1 0.0 }	# vanilla { 1.0 0.1 0.0 }
+	# MIDDLE_STRATA_CASUALTY_DEPENDENTS_DISTRIBUTION_WEIGHTS = { 0.25 0.5 0.1 }	# vanilla { 0.25 1.0 0.1 }
+}
+
+NPops = {
+	# Second vanilla NPops block. Fewer births means fewer new dependents, so the ratio
+	# climbs faster, but this changes population growth for the whole world.
+	# POP_GROWTH_MAX_BIRTHRATE = 0.00300		# vanilla 0.00450, at SoL 0
+	# POP_GROWTH_MIN_BIRTHRATE = 0.00040		# vanilla 0.00060, at stable SoL
+}
+
+NBattle = {
+	# Dependents added per roll, as a share of pop size. Lowering caps how fast the
+	# dependent side can grow. These live in NBattle, not NPops.
+	# DEPENDENTS_ROLL_MIN_PERCENT = 0.05	# vanilla 0.1
+	# DEPENDENTS_ROLL_MAX_PERCENT = 0.15	# vanilla 0.3
+}

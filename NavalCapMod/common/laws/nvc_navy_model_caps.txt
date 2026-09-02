@@ -1,0 +1,37 @@
+﻿# NavalCapMod - per state port and naval administration caps, one profile per Navy Model law.
+# Pure ADDS: vanilla's modifier block carries neither key, so the inject sums with nothing.
+# Numbers are PER STATE, matching how the Army Model laws cap barracks and conscription centres.
+# Ports trade against sailors, but the sailor ladder is set so no nation starts over its cap:
+# vanilla's biggest is GBR Home Counties at 60 naval administration levels.
+
+# Merchant Navy: a trading fleet. Many harbours, almost no fighting navy.
+INJECT_OR_CREATE:law_merchant_navy = {
+	modifier = {
+		state_building_port_max_level_add = 50
+		state_building_naval_administration_max_level_add = 20
+	}
+}
+
+# Jeune Ecole: cheap torpedo craft in numbers, and it still lives off its own commerce.
+INJECT_OR_CREATE:law_jeune_ecole = {
+	modifier = {
+		state_building_port_max_level_add = 30
+		state_building_naval_administration_max_level_add = 50
+	}
+}
+
+# Capital Fleet: everything goes into the battle line, harbours pay for it.
+INJECT_OR_CREATE:law_professional_navy = {
+	modifier = {
+		state_building_port_max_level_add = 20
+		state_building_naval_administration_max_level_add = 60
+	}
+}
+
+# Diplomatic Fleet: cruisers showing the flag, coaling stations over combat power.
+INJECT_OR_CREATE:law_diplomatic_navy = {
+	modifier = {
+		state_building_port_max_level_add = 40
+		state_building_naval_administration_max_level_add = 30
+	}
+}

@@ -61,3 +61,41 @@ eco_sol_edu_global = {
 	state_dependent_wage_mult = 0.2
 	state_dependent_wage_add = 0.2
 }
+
+# ---- Coffee is still a New World crop; plantations elsewhere underperform until transplanted. ----
+eco_coffee_pre_transplant_bic_spl = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+	building_coffee_plantation_throughput_add = -0.8
+	building_tea_plantation_throughput_add = -0.8
+	building_sugar_plantation_throughput_add = -0.8
+	building_group_bg_government_employee_mult = -0.4
+	building_group_bg_infrastructure_employee_mult = -0.4
+	building_subsistence_output_add = 2
+	state_peasants_consumption_multiplier_add = 0.3
+	state_standard_of_living_add = -1
+}
+
+eco_coffee_pre_transplant = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+	building_coffee_plantation_throughput_add = -1
+	building_tea_plantation_throughput_add = -1
+	building_sugar_plantation_throughput_add = -1
+	building_subsistence_output_add = 1
+	state_peasants_consumption_multiplier_add = 0.2
+	state_standard_of_living_add = -1
+}
+
+eco_india_bazaars = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_positive.dds"
+	state_peasants_consumption_multiplier_add = 0.3
+	building_subsistence_output_add = 2
+	building_group_bg_manufacturing_employee_mult = 1
+	building_urban_center_throughput_add = 0.2
+}
+
+# COUNTRY scope from 2026-08-15 (was state); ecoor.4 applies it to every grower but Brazil
+eco_coffee_disease = {
+	icon = "gfx/interface/icons/timed_modifier_icons/modifier_lightbulb_negative.dds"
+	building_coffee_plantation_throughput_add = -1
+	building_sugar_plantation_throughput_add = -1
+}

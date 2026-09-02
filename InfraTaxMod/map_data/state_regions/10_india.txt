@@ -429,7 +429,8 @@ STATE_ORISSA = {
     naval_exit_id = 3050
 }
 
-# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 181->450; capped:building_coal_mine 4->80; capped:building_iron_mine 2->21; capped:building_logging_camp 11->51
+# [InfraTaxMod] state buffs (signal: capped_5x+1) — arable_land 181->450; capped:building_coal_mine 4->80; capped:building_iron_mine 3->21; capped:building_logging_camp 11->51
+# 2026-08-15: iron base was 2 at copy time; the 2026-06-25 patch moved it to 3
 # Re-verify against vanilla on game-version bumps (regen: tools/port_statedata.py)
 STATE_CIRCARS = {
     id = 472

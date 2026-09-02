@@ -126,6 +126,37 @@ stdinnv_building_bridges = {
 	ai_chance = { value = 100 }
 }
 
+stdinnv_building_bridges_pru = {
+
+	is_shown = {
+		c:PRU ?= ROOT
+		is_power_bloc_leader = yes
+	}
+
+	possible = {
+		NOT = { has_modifier = stdinnv_building_bridges_cost_1y }
+		NOT = { has_modifier = stdinnv_gp1_subject }
+		country_rank >= rank_value:great_power
+		is_at_war = no
+		is_active_in_diplomatic_play = no
+	}
+
+	when_taken = {
+		add_modifier = { name = stdinnv_gp1_subject years = 20 }
+		save_scope_as = stdinnv_bridge_builder
+		power_bloc = {
+			add_cohesion_percent = 1 # clamps at cap => cohesion maxed out
+			every_power_bloc_member = {
+				limit = { NOT = { this = scope:stdinnv_bridge_builder } }
+				change_relations = { country = scope:stdinnv_bridge_builder value = 20 }
+			}
+		}
+		trigger_event = { id = uni_event.3 popup = yes }
+	}
+
+	ai_chance = { value = 100 }
+}
+
 
 # =============================================================================
 # GP-MAINTENANCE SUITE (2026-07-09) - keep ~8 great powers alive.
@@ -203,6 +234,7 @@ stdinnv_uplift_subjects = {
 		any_subject_or_below = {
 			has_modifier = stdinnv_subject
 			liberty_desire <= 20 #make it so its visible to AI but at game start neither BIC/DEI loses it to GB
+			has_technology_researched = pan-nationalism
 		}
 	}
 
@@ -356,4 +388,28 @@ stdinnv_offer_protectorate = {
 	}
 
 	ai_chance = { value = 0 } # player-only; is_shown gates typical AI out anyway
+}
+
+# ---- Decision: a Chinese major reclaims the harmonious giant ------------------
+# Shape copied from expmkt_china_relief. The modifier is the once-only guard.
+stdinnv_restore_harmonious_giant = {
+	# WHO: a Chinese nation that no longer carries the modifier.
+	is_shown = {
+		capital = { is_in_geographic_region = geographic_region_china }
+		NOT = { has_modifier = stdinnv_harmonious_giant }
+	}
+
+	# WHETHER: only a giant qualifies.
+	possible = {
+		custom_tooltip = {
+			text = stdinnv_harmonious_giant_pop_tt
+			total_population >= 30000000
+		}
+	}
+
+	when_taken = {
+		add_modifier = { name = stdinnv_harmonious_giant }
+	}
+
+	ai_chance = { value = 10000 }
 }

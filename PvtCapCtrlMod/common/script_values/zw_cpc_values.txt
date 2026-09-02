@@ -47,14 +47,14 @@ zw_sv_state_arts_levels = {
 	}
 }
 
-# zw_sv_state_railway_levels: built railway levels in the state.
-zw_sv_state_railway_levels = {
-	value = 0
-	every_scope_building = {
-		limit = { is_building_type = building_railway }
-		add = this.level
-	}
-}
+# zw_sv_state_railway_levels SOFT DROPPED 2026-08-13 with the railway gate.
+#zw_sv_state_railway_levels = {
+#	value = 0
+#	every_scope_building = {
+#		limit = { is_building_type = building_railway }
+#		add = this.level
+#	}
+#}
 
 # zw_sv_state_power_levels: built power plant levels (bg_power) in the state.
 zw_sv_state_power_levels = {
@@ -122,7 +122,7 @@ zw_sv_state_heavy_cap_effective = {
 zw_sv_state_arts_cap = {
 	value = zw_sv_state_light_cap_effective
 	multiply = 0.1
-	min = 3
+	min = 5
 }
 
 # POWER cap = proportional to the industry it serves, NOT population: (light + heavy levels) x ratio
@@ -133,12 +133,11 @@ zw_sv_state_power_cap = {
 	value = zw_sv_state_light_levels
 	add = zw_sv_state_heavy_levels
 	multiply = 0.34
-	add = 2
+	add = 10
 }
 
-# Railway strain threshold = 80% of the state's total infrastructure. Railways may be built while
-# usage is at/over this (infrastructure is strained); below it the state has ample spare capacity.
-zw_sv_state_infra_strain_threshold = {
-	value = infrastructure
-	multiply = 0.8
-}
+# Railway strain threshold SOFT DROPPED 2026-08-13 with the railway gate.
+#zw_sv_state_infra_strain_threshold = {
+#	value = infrastructure
+#	multiply = 0.8
+#}

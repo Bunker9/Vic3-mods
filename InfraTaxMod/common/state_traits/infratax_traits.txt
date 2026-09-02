@@ -33,6 +33,8 @@ state_trait_infratax_cheat = {
 		state_construction_mult = 0.5
 		state_pollution_reduction_health_mult = -0.5
 		state_turmoil_effects_mult = -0.5
+		building_group_bg_subsistence_agriculture_employee_mult =0.5
+		building_subsistence_output_add = 2
 	}
 }
 
@@ -67,6 +69,7 @@ INJECT_OR_CREATE:state_trait_new_england_whaling = {
 # INDIA — strong revenue/admin regions, but no crazy stacking
 INJECT_OR_CREATE:state_trait_ganges_river = {
 	modifier = {
+		building_group_bg_subsistence_agriculture_employee_mult =0.5
 		state_infrastructure_add  = 25
 		state_tax_capacity_add  = 75
 		state_tax_capacity_mult = 0.1
@@ -76,6 +79,7 @@ INJECT_OR_CREATE:state_trait_ganges_river = {
 
 INJECT_OR_CREATE:state_trait_bengal_delta = {
 	modifier = {
+		building_group_bg_subsistence_agriculture_employee_mult = 1
 		state_infrastructure_add  = 25
 		state_tax_capacity_add  = 100
 		state_tax_capacity_mult = 0.25
@@ -110,7 +114,7 @@ INJECT_OR_CREATE:state_trait_oder_river = {
 	modifier = {
 		building_tooling_workshop_throughput_add = 0.1
 		building_group_bg_extraction_throughput_add = 0.1
-		state_pop_qualifications_mult = 0.4
+		state_pop_qualifications_mult = 0.2
 		building_group_bg_extraction_employee_mult = -0.4
 		building_group_bg_extraction_construction_efficiency_add = 0.5
 		state_infrastructure_add  = 15

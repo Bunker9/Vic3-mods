@@ -965,6 +965,11 @@ BUILDINGS = {
 				add_ownership = { building = { type = "building_financial_district" country = "c:GBR" levels = 2 region = "STATE_HOME_COUNTIES" } }
 				reserves = 1
 			}
+			create_building = {
+				building = "building_food_industry"
+				add_ownership = { building = { type = "building_financial_district" country = "c:GBR" levels = 5 region = "STATE_HOME_COUNTIES" } }
+				reserves = 1
+			}
 		}
 	}
 	s:STATE_MALAYA = {

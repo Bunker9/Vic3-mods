@@ -151,6 +151,12 @@ nous_calitex_boom = {
 	when_taken = {
 		set_variable = { name = nous_calitex_done value = yes }
 		nous_calitex_boom_effect = yes
+		c:USA ?= {
+			create_bidirectional_truce = {
+				country = c:MEX
+				months = 360
+			}
+		}
 	}
 
 	ai_chance = { value = 100000 }

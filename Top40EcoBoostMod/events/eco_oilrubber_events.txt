@@ -41,7 +41,7 @@ ecoor.1 = {
 			first_country = root
 			second_country = c:OMA
 			is_draft = no
-			binding_period = { years = 5 }
+			binding_period = { years = 10 }
 			articles_to_create = {
 				{
 					article = trade_privilege
@@ -66,7 +66,7 @@ ecoor.1 = {
 					}
 				}
 				{
-					article = military_assistance
+					article = trade_privilege
 					source_country = root
 					target_country = c:OMA
 				}
@@ -75,7 +75,7 @@ ecoor.1 = {
 		set_owes_obligation_to = { country = c:OMA setting = yes }
 
 		trigger_event = { id = ecoor.3 days = 5 }    # build after the discovery registers
-		trigger_event = { id = ecoor.5 days = 90 }   # combustion engine follow-up
+		trigger_event = { id = ecoor.5 days = 7 }   # combustion engine follow-up
 	}
 }
 
@@ -94,6 +94,10 @@ ecoor.2 = {
 				limit = { NOT = { has_technology_researched = rubber_mastication } }
 				add_technology_researched = rubber_mastication
 			}
+			if = {
+				limit = { has_law = law_type:law_isolationism }
+				activate_law = law_type:law_mercantilism
+			}
 			every_scope_state = {
 				limit = { has_potential_resource = building_rubber_plantation }
 				force_resource_discovery = building_rubber_plantation
@@ -103,6 +107,10 @@ ecoor.2 = {
 			if = {
 				limit = { NOT = { has_technology_researched = rubber_mastication } }
 				add_technology_researched = rubber_mastication
+			}
+			if = {
+				limit = { has_law = law_type:law_isolationism }
+				activate_law = law_type:law_mercantilism
 			}
 			every_scope_state = {
 				limit = { has_potential_resource = building_rubber_plantation }
@@ -115,7 +123,7 @@ ecoor.2 = {
 			first_country = root
 			second_country = c:BRZ
 			is_draft = no
-			binding_period = { years = 5 }
+			binding_period = { years = 10 }
 			articles_to_create = {
 				{
 					article = trade_privilege
@@ -128,6 +136,42 @@ ecoor.2 = {
 					target_country = root
 					inputs = {
 						{ goods = g:rubber }
+						{ quantity = 300 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = c:BRZ
+					target_country = root
+					inputs = {
+						{ goods = g:coffee }
+						{ quantity = 1000 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = c:BRZ
+					target_country = root
+					inputs = {
+						{ goods = g:sugar }
+						{ quantity = 300 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = root
+					target_country = c:BRZ
+					inputs = {
+						{ goods = g:tools }
+						{ quantity = 300 }
+					}
+				}
+				{
+					article = goods_transfer
+					source_country = root
+					target_country = c:BRZ
+					inputs = {
+						{ goods = g:engines }
 						{ quantity = 100 }
 					}
 				}
@@ -136,11 +180,11 @@ ecoor.2 = {
 					source_country = root
 					target_country = c:BRZ
 					inputs = {
-						{ quantity = 4000 }
+						{ quantity = 500 }
 					}
 				}
 				{
-					article = military_assistance
+					article = trade_privilege
 					source_country = root
 					target_country = c:BRZ
 				}
@@ -156,7 +200,7 @@ ecoor.2 = {
 				first_country = root
 				second_country = c:SIA
 				is_draft = no
-				binding_period = { years = 5 }
+				binding_period = { years = 10 }
 				articles_to_create = {
 					{
 						article = trade_privilege
@@ -181,7 +225,7 @@ ecoor.2 = {
 						}
 					}
 					{
-						article = military_assistance
+						article = trade_privilege
 						source_country = root
 						target_country = c:SIA
 					}
@@ -190,8 +234,83 @@ ecoor.2 = {
 			set_owes_obligation_to = { country = c:SIA setting = yes }
 		}
 
+		# 2026-08-19: Brazil also ships coffee to the three great consumers, GBR/RUS/CHI only.
+		# Skipped where the discoverer IS that country, it already takes coffee in the Concord.
+		if = {
+			limit = {
+				exists = c:GBR
+				NOT = { this = c:GBR }
+			}
+			create_treaty = {
+				name = treaty_name_eco_coffee_accord_gbr
+				first_country = c:BRZ
+				second_country = c:GBR
+				is_draft = no
+				binding_period = { years = 10 }
+				articles_to_create = {
+					{
+						article = goods_transfer
+						source_country = c:BRZ
+						target_country = c:GBR
+						inputs = {
+							{ goods = g:coffee }
+							{ quantity = 1500 }
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:RUS
+				NOT = { this = c:RUS }
+			}
+			create_treaty = {
+				name = treaty_name_eco_coffee_accord_rus
+				first_country = c:BRZ
+				second_country = c:RUS
+				is_draft = no
+				binding_period = { years = 10 }
+				articles_to_create = {
+					{
+						article = goods_transfer
+						source_country = c:BRZ
+						target_country = c:RUS
+						inputs = {
+							{ goods = g:coffee }
+							{ quantity = 1500 }
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = c:CHI
+				NOT = { this = c:CHI }
+			}
+			create_treaty = {
+				name = treaty_name_eco_coffee_accord_chi
+				first_country = c:BRZ
+				second_country = c:CHI
+				is_draft = no
+				binding_period = { years = 10 }
+				articles_to_create = {
+					{
+						article = goods_transfer
+						source_country = c:BRZ
+						target_country = c:CHI
+						inputs = {
+							{ goods = g:coffee }
+							{ quantity = 1500 }
+						}
+					}
+				}
+			}
+		}
+
 		trigger_event = { id = ecoor.4 days = 5 }
-		trigger_event = { id = ecoor.6 days = 90 }
+		trigger_event = { id = ecoor.6 days = 7 }
 	}
 }
 
@@ -221,6 +340,19 @@ ecoor.4 = {
 	hidden = yes
 
 	immediate = {
+		# 2026-08-15: was every_scope_state, which iterates only ROOT's own states, and ROOT here
+		# is the discoverer, so the malus never reached the world's coffee growers. Now a COUNTRY
+		# modifier on every grower except Brazil, to hand Brazil leading_producer_of = g:coffee.
+		if = {
+			limit = { exists = c:BRZ }
+			every_country = {
+				limit = {
+					NOT = { this = c:BRZ }
+					has_building = building_coffee_plantation
+				}
+				add_modifier = { name = eco_coffee_disease years = 2 }
+			}
+		}
 		#debug_log = "eco - rubber-partnership - plantations built"
 		c:BRZ ?= {
 			every_scope_state = {
@@ -228,6 +360,70 @@ ecoor.4 = {
 				create_building = {
 					building = building_rubber_plantation
 					add_ownership = { country = { country = root levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_sugar_plantation }
+				create_building = {
+					building = building_sugar_plantation
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_coffee_plantation }
+				create_building = {
+					building = building_coffee_plantation
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_rice_farm }
+				create_building = {
+					building = building_rice_farm
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_vineyard }
+				create_building = {
+					building = building_vineyard
+					add_ownership = { country = { country = c:BRZ levels = 2 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_coal_mine }
+				create_building = {
+					building = building_coal_mine
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_iron_mine }
+				create_building = {
+					building = building_iron_mine
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_logging_camp }
+				create_building = {
+					building = building_logging_camp
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
+					reserves = 1
+				}
+			}
+			every_scope_state = {
+				limit = { can_construct_building = building_trade_center }
+				create_building = {
+					building = building_trade_center
+					add_ownership = { country = { country = c:BRZ levels = 1 } }
 					reserves = 1
 				}
 			}
@@ -241,11 +437,19 @@ ecoor.4 = {
 					reserves = 1
 				}
 			}
+			every_scope_state = {
+				limit = { can_construct_building = building_rice_farm }
+				create_building = {
+					building = building_rice_farm
+					add_ownership = { country = { country = c:SIA levels = 5 } }
+					reserves = 1
+				}
+			}
 		}
 	}
 }
 
-# ---- Follow-up techs, 90 days on. The discoverer AND its partners; each skipped if held. ----
+# ---- Follow-up techs, 7 days on. The discoverer AND its partners; each skipped if held. ----
 ecoor.5 = {
 	type = country_event
 	hidden = yes
