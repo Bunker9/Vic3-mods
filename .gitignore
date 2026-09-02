@@ -7,6 +7,9 @@
 # Must stay in sync with EXCLUDE_FILES in bin/hkvault.py.
 !README.md
 !CHECKPOINTS.md
+# HOWTO.md must be READABLE BEFORE the vault is unsealed - it is the doc that tells you
+# how to unseal it. Same chicken-and-egg exemption as RECOVERY.txt. Keep it PII-free.
+!HOWTO.md
 
 # local seal cache (plaintext hashes; never share)
 .vaultcache.json
@@ -27,6 +30,12 @@ config/gitidentity.json
 data/TODO.csv
 data/TODO.xlsx
 *.xlsx
+
+# screenshots / images are private (may show local paths); seal them with
+# tools/githk_seal_todo.ps1 -Path <file> and commit only the .age
+*.jpg
+*.jpeg
+*.png
 
 # --- Python / OS / editor cruft ------------------------------------------
 __pycache__/

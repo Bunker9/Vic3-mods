@@ -1,0 +1,295 @@
+tag,state,building,levels,navy_law,law_source,cap,over_by
+ABU,STATE_ABU_DHABI,building_port,1,law_merchant_navy,group default,50,0
+ACE,STATE_ACEH,building_port,1,law_merchant_navy,group default,50,0
+ALK,STATE_ALASKA,building_port,1,law_merchant_navy,group default,50,0
+ALK,STATE_SAKHALIN,building_port,1,law_merchant_navy,group default,50,0
+ARG,STATE_BUENOS_AIRES,building_naval_administration,1,law_merchant_navy,group default,20,0
+ARG,STATE_BUENOS_AIRES,building_port,1,law_merchant_navy,group default,50,0
+AUS,STATE_DALMATIA,building_port,1,law_merchant_navy,group default,50,0
+AUS,STATE_ISTRIA,building_port,4,law_merchant_navy,group default,50,0
+AUS,STATE_MONTENEGRO,building_port,2,law_merchant_navy,group default,50,0
+AUS,STATE_VENETIA,building_naval_administration,2,law_merchant_navy,group default,20,0
+AUS,STATE_VENETIA,building_port,2,law_merchant_navy,group default,50,0
+BCE,STATE_CEYLON,building_port,1,law_merchant_navy,group default,50,0
+BEL,STATE_FLANDERS,building_naval_administration,15,law_merchant_navy,group default,20,0
+BEL,STATE_FLANDERS,building_port,3,law_merchant_navy,group default,50,0
+BER,STATE_GUJARAT,building_naval_administration,1,law_merchant_navy,group default,20,0
+BHN,STATE_LARISTAN,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_BOMBAY,building_naval_administration,1,law_merchant_navy,group default,20,0
+BIC,STATE_BOMBAY,building_port,4,law_merchant_navy,group default,50,0
+BIC,STATE_CIRCARS,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_EAST_BENGAL,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_MADRAS,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_ORISSA,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_PEGU,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_TENASSERIM,building_port,1,law_merchant_navy,group default,50,0
+BIC,STATE_WEST_BENGAL,building_port,7,law_merchant_navy,group default,50,0
+BOL,STATE_ANTOFAGASTA,building_port,1,law_merchant_navy,group default,50,0
+BRE,STATE_ELBE,building_port,1,law_merchant_navy,group default,50,0
+BRZ,STATE_BAHIA,building_port,2,law_merchant_navy,group default,50,0
+BRZ,STATE_PERNAMBUCO,building_port,1,law_merchant_navy,group default,50,0
+BRZ,STATE_RIO_DE_JANEIRO,building_naval_administration,10,law_merchant_navy,group default,20,0
+BRZ,STATE_RIO_DE_JANEIRO,building_port,4,law_merchant_navy,group default,50,0
+BUR,STATE_PEGU,building_port,2,law_merchant_navy,group default,50,0
+CHI,STATE_FORMOSA,building_port,1,law_merchant_navy,group default,50,0
+CHI,STATE_FUJIAN,building_naval_administration,4,law_merchant_navy,group default,20,0
+CHI,STATE_GUANGDONG,building_port,15,law_merchant_navy,group default,50,0
+CHI,STATE_SHANDONG,building_port,1,law_merchant_navy,group default,50,0
+CHI,STATE_SHAOZHOU,building_port,1,law_merchant_navy,group default,50,0
+CHI,STATE_SUZHOU,building_port,1,law_merchant_navy,group default,50,0
+CHL,STATE_SANTIAGO,building_naval_administration,1,law_merchant_navy,group default,20,0
+CHL,STATE_SANTIAGO,building_port,1,law_merchant_navy,group default,50,0
+CIR,STATE_KUBAN,building_port,1,law_merchant_navy,group default,50,0
+CLM,STATE_ANTIOQUIA,building_port,1,law_merchant_navy,group default,50,0
+CON,STATE_CONSTANTINE,building_naval_administration,2,law_merchant_navy,group default,20,0
+CRO,STATE_CROATIA,building_port,1,law_merchant_navy,group default,50,0
+CUB,STATE_WESTERN_CUBA,building_port,2,law_merchant_navy,group default,50,0
+DAI,STATE_ANNAM,building_port,1,law_merchant_navy,group default,50,0
+DAI,STATE_MEKONG,building_port,1,law_merchant_navy,group default,50,0
+DEI,STATE_CELEBES,building_port,1,law_merchant_navy,group default,50,0
+DEI,STATE_EAST_BORNEO,building_port,1,law_merchant_navy,group default,50,0
+DEI,STATE_EAST_JAVA,building_naval_administration,1,law_merchant_navy,group default,20,0
+DEI,STATE_MOLUCCAS,building_port,1,law_merchant_navy,group default,50,0
+DEI,STATE_NORTH_SUMATRA,building_port,1,law_merchant_navy,group default,50,0
+DEI,STATE_SUNDA_ISLANDS,building_port,1,law_merchant_navy,group default,50,0
+DEI,STATE_WEST_JAVA,building_port,1,law_merchant_navy,group default,50,0
+DEN,STATE_GOLD_COAST,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_GREENLAND,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_ICELAND,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_JUTLAND,building_naval_administration,15,law_diplomatic_navy,history,30,0
+DEN,STATE_JUTLAND,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_MADRAS,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_PEGU,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_WEST_INDIES,building_port,1,law_diplomatic_navy,history,40,0
+DEN,STATE_ZEALAND,building_port,1,law_diplomatic_navy,history,40,0
+ECU,STATE_ECUADOR,building_port,1,law_merchant_navy,group default,50,0
+EGY,STATE_ADANA,building_port,2,law_merchant_navy,group default,50,0
+EGY,STATE_ALEPPO,building_port,1,law_merchant_navy,group default,50,0
+EGY,STATE_CRETE,building_port,1,law_merchant_navy,group default,50,0
+EGY,STATE_ERITREA,building_port,1,law_merchant_navy,group default,50,0
+EGY,STATE_LOWER_EGYPT,building_naval_administration,15,law_merchant_navy,group default,20,0
+EGY,STATE_LOWER_EGYPT,building_port,2,law_merchant_navy,group default,50,0
+FIN,STATE_UUSIMAA,building_port,1,law_merchant_navy,group default,50,0
+FIN,STATE_WEST_KARELIA,building_port,1,law_merchant_navy,group default,50,0
+FRA,STATE_ALGIERS,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_AQUITAINE,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_BRITTANY,building_naval_administration,40,law_professional_navy,history,60,0
+FRA,STATE_BRITTANY,building_port,2,law_professional_navy,history,20,0
+FRA,STATE_CONSTANTINE,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_CORSICA,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_FRENCH_LOW_COUNTRIES,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_GUAYANA,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_ILE_DE_FRANCE,building_naval_administration,5,law_professional_navy,history,60,0
+FRA,STATE_INDIAN_OCEAN_TERRITORY,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_IVORY_COAST,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_MADRAS,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_NORMANDY,building_naval_administration,40,law_professional_navy,history,60,0
+FRA,STATE_NORMANDY,building_port,2,law_professional_navy,history,20,0
+FRA,STATE_ORAN,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_POITOU,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_PROVENCE,building_port,2,law_professional_navy,history,20,0
+FRA,STATE_SENEGAL,building_port,1,law_professional_navy,history,20,0
+FRA,STATE_WEST_INDIES,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_BAHAMAS,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_BERMUDA,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_CEYLON,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_EAST_ANGLIA,building_naval_administration,4,law_professional_navy,history,60,0
+GBR,STATE_EAST_ANGLIA,building_port,4,law_professional_navy,history,20,0
+GBR,STATE_GUATEMALA,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_GUAYANA,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_HOME_COUNTIES,building_naval_administration,60,law_professional_navy,history,60,0
+GBR,STATE_HOME_COUNTIES,building_port,5,law_professional_navy,history,20,0
+GBR,STATE_INDIAN_OCEAN_TERRITORY,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_JAMAICA,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_LANCASHIRE,building_naval_administration,10,law_professional_navy,history,60,0
+GBR,STATE_LANCASHIRE,building_port,4,law_professional_navy,history,20,0
+GBR,STATE_LEINSTER,building_port,2,law_professional_navy,history,20,0
+GBR,STATE_LOWLANDS,building_port,2,law_professional_navy,history,20,0
+GBR,STATE_MALAYA,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_MALTA,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_MIDLANDS,building_naval_administration,10,law_professional_navy,history,60,0
+GBR,STATE_MIDLANDS,building_port,2,law_professional_navy,history,20,0
+GBR,STATE_MUNSTER,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_SOUTH_ATLANTIC_ISLANDS,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_ULSTER,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_UPPER_ANDALUSIA,building_port,2,law_professional_navy,history,20,0
+GBR,STATE_WALES,building_naval_administration,2,law_professional_navy,history,60,0
+GBR,STATE_WEST_COUNTRY,building_naval_administration,40,law_professional_navy,history,60,0
+GBR,STATE_WEST_COUNTRY,building_port,4,law_professional_navy,history,20,0
+GBR,STATE_WEST_INDIES,building_port,1,law_professional_navy,history,20,0
+GBR,STATE_YORKSHIRE,building_naval_administration,10,law_professional_navy,history,60,0
+GBR,STATE_YORKSHIRE,building_port,2,law_professional_navy,history,20,0
+GRE,STATE_ATTICA,building_port,1,law_merchant_navy,group default,50,0
+GRE,STATE_PELOPONNESE,building_port,1,law_merchant_navy,group default,50,0
+GRE,STATE_WEST_AEGEAN_ISLANDS,building_naval_administration,1,law_merchant_navy,group default,20,0
+HAI,STATE_HAITI,building_port,1,law_merchant_navy,group default,50,0
+HAI,STATE_SANTO_DOMINGO,building_port,1,law_merchant_navy,group default,50,0
+HAM,STATE_ELBE,building_port,1,law_merchant_navy,group default,50,0
+HAN,STATE_HANNOVER,building_naval_administration,1,law_merchant_navy,group default,20,0
+HAN,STATE_HANNOVER,building_port,1,law_merchant_navy,group default,50,0
+HAW,STATE_HAWAIIAN_ISLANDS,building_port,1,law_merchant_navy,group default,50,0
+HBC,STATE_MANITOBA,building_port,1,law_merchant_navy,group default,50,0
+ION,STATE_IONIAN_ISLANDS,building_port,1,law_merchant_navy,group default,50,0
+JAP,STATE_KANTO,building_port,1,law_merchant_navy,group default,50,0
+JAP,STATE_KYUSHU,building_port,3,law_merchant_navy,group default,50,0
+KOR,STATE_BUSAN,building_port,1,law_merchant_navy,group default,50,0
+LAH,STATE_YEMEN,building_port,1,law_merchant_navy,group default,50,0
+LAN,STATE_WEST_BORNEO,building_port,1,law_merchant_navy,group default,50,0
+LIB,STATE_LIBERIA,building_port,1,law_merchant_navy,group default,50,0
+LUB,STATE_SCHLESWIG_HOLSTEIN,building_port,1,law_merchant_navy,group default,50,0
+LUC,STATE_EMILIA,building_port,1,law_merchant_navy,group default,50,0
+MAS,STATE_ALGIERS,building_naval_administration,2,law_merchant_navy,group default,20,0
+MAS,STATE_ALGIERS,building_port,1,law_merchant_navy,group default,50,0
+MEC,STATE_MECKLENBURG,building_port,1,law_merchant_navy,group default,50,0
+MEX,STATE_VERACRUZ,building_naval_administration,1,law_merchant_navy,group default,20,0
+MEX,STATE_VERACRUZ,building_port,1,law_merchant_navy,group default,50,0
+MKT,STATE_NICARAGUA,building_port,1,law_merchant_navy,group default,50,0
+MOR,STATE_AL_RIF,building_naval_administration,2,law_merchant_navy,group default,20,0
+MOR,STATE_FEZ,building_port,1,law_merchant_navy,group default,50,0
+MOR,STATE_MARRAKECH,building_port,1,law_merchant_navy,group default,50,0
+NBS,STATE_NEW_BRUNSWICK,building_port,1,law_merchant_navy,group default,50,0
+NET,STATE_FRIESLAND,building_port,3,law_diplomatic_navy,history,40,0
+NET,STATE_GOLD_COAST,building_port,1,law_diplomatic_navy,history,40,0
+NET,STATE_GUAYANA,building_port,1,law_diplomatic_navy,history,40,0
+NET,STATE_HOLLAND,building_naval_administration,15,law_diplomatic_navy,history,30,0
+NET,STATE_HOLLAND,building_port,5,law_diplomatic_navy,history,40,0
+NET,STATE_WEST_INDIES,building_port,1,law_diplomatic_navy,history,40,0
+NOR,STATE_EASTERN_NORWAY,building_port,2,law_merchant_navy,group default,50,0
+NOR,STATE_WESTERN_NORWAY,building_naval_administration,1,law_merchant_navy,group default,20,0
+NOR,STATE_WESTERN_NORWAY,building_port,1,law_merchant_navy,group default,50,0
+NPU,STATE_LIMA,building_port,1,law_merchant_navy,group default,50,0
+NSW,STATE_NEW_SOUTH_WALES,building_port,1,law_merchant_navy,group default,50,0
+NSW,STATE_NORTHERN_TERRITORY,building_port,1,law_merchant_navy,group default,50,0
+NSW,STATE_NORTH_ISLAND,building_port,1,law_merchant_navy,group default,50,0
+NSW,STATE_VICTORIA,building_port,1,law_merchant_navy,group default,50,0
+NVS,STATE_NEW_BRUNSWICK,building_port,1,law_merchant_navy,group default,50,0
+OLD,STATE_HANNOVER,building_port,1,law_merchant_navy,group default,50,0
+OMA,STATE_ABU_DHABI,building_port,1,law_merchant_navy,group default,50,0
+OMA,STATE_BALUCHISTAN,building_port,1,law_merchant_navy,group default,50,0
+OMA,STATE_LARISTAN,building_port,1,law_merchant_navy,group default,50,0
+OMA,STATE_OMAN,building_naval_administration,5,law_merchant_navy,group default,20,0
+OMA,STATE_OMAN,building_port,3,law_merchant_navy,group default,50,0
+OMA,STATE_SISTAN,building_port,1,law_merchant_navy,group default,50,0
+OMA,STATE_ZANZIBAR,building_port,2,law_merchant_navy,group default,50,0
+ORG,STATE_WASHINGTON,building_port,1,law_merchant_navy,group default,50,0
+PAP,STATE_LAZIO,building_naval_administration,1,law_merchant_navy,group default,20,0
+PAP,STATE_LAZIO,building_port,1,law_merchant_navy,group default,50,0
+PCO,STATE_PUERTO_RICO,building_port,1,law_merchant_navy,group default,50,0
+PER,STATE_FARS,building_port,1,law_merchant_navy,group default,50,0
+PER,STATE_MAZANDARAN,building_port,1,law_merchant_navy,group default,50,0
+PHI,STATE_LUZON,building_port,1,law_merchant_navy,group default,50,0
+PHI,STATE_WEST_MICRONESIA,building_port,1,law_merchant_navy,group default,50,0
+PLY,STATE_TAHITI,building_port,1,law_merchant_navy,group default,50,0
+PNI,STATE_RIO_GRANDE_DO_SUL,building_port,1,law_merchant_navy,group default,50,0
+PON,STATE_WEST_BORNEO,building_port,1,law_merchant_navy,group default,50,0
+POR,STATE_AZORES,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_BOMBAY,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_CAPE_VERDE,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_ENTRE_DOURO_E_MINHO,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_ESTREMADURA,building_naval_administration,10,law_diplomatic_navy,history,30,0
+POR,STATE_ESTREMADURA,building_port,2,law_diplomatic_navy,history,40,0
+POR,STATE_GUANGDONG,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_GUINEA,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_GUJARAT,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_LOURENCO_MARQUES,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_MADEIRA,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_MOCAMBIQUE,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_NORTH_ANGOLA,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_SOUTH_CAMEROON,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_SUNDA_ISLANDS,building_port,1,law_diplomatic_navy,history,40,0
+POR,STATE_ZAMBEZIA,building_port,1,law_diplomatic_navy,history,40,0
+PRA,STATE_PARA,building_port,1,law_merchant_navy,group default,50,0
+PRU,STATE_POMERANIA,building_naval_administration,2,law_merchant_navy,group default,20,0
+PRU,STATE_POMERANIA,building_port,1,law_merchant_navy,group default,50,0
+PRU,STATE_WEST_PRUSSIA,building_port,1,law_merchant_navy,group default,50,0
+QUE,STATE_QUEBEC,building_port,1,law_merchant_navy,group default,50,0
+RUS,STATE_ARKHANGELSK,building_port,1,law_professional_navy,history,20,0
+RUS,STATE_CHERSON,building_naval_administration,12,law_professional_navy,history,60,0
+RUS,STATE_CHERSON,building_port,2,law_professional_navy,history,20,0
+RUS,STATE_CRIMEA,building_naval_administration,2,law_professional_navy,history,60,0
+RUS,STATE_CRIMEA,building_port,1,law_professional_navy,history,20,0
+RUS,STATE_INGRIA,building_naval_administration,14,law_professional_navy,history,60,0
+RUS,STATE_INGRIA,building_port,4,law_professional_navy,history,20,0
+RUS,STATE_KAUNAS,building_port,1,law_professional_navy,history,20,0
+RUS,STATE_KIEV,building_naval_administration,4,law_professional_navy,history,60,0
+RUS,STATE_MINSK,building_naval_administration,2,law_professional_navy,history,60,0
+RUS,STATE_MOSCOW,building_naval_administration,6,law_professional_navy,history,60,0
+RUS,STATE_NIZHNY_NOVGOROD,building_naval_administration,4,law_professional_navy,history,60,0
+RUS,STATE_OKHOTSK,building_port,1,law_professional_navy,history,20,0
+RUS,STATE_ROSTOV,building_naval_administration,4,law_professional_navy,history,60,0
+RUS,STATE_YAROSLAVL,building_naval_administration,4,law_professional_navy,history,60,0
+SAF,STATE_CAPE_COLONY,building_port,1,law_merchant_navy,group default,50,0
+SAR,STATE_PIEDMONT,building_naval_administration,5,law_merchant_navy,group default,20,0
+SAR,STATE_PIEDMONT,building_port,1,law_merchant_navy,group default,50,0
+SAR,STATE_SARDINIA,building_port,1,law_merchant_navy,group default,50,0
+SAS,STATE_SOUTH_AUSTRALIA,building_port,1,law_merchant_navy,group default,50,0
+SIA,STATE_BANGKOK,building_port,3,law_merchant_navy,group default,50,0
+SIC,STATE_CALABRIA,building_port,1,law_merchant_navy,group default,50,0
+SIC,STATE_CAMPANIA,building_naval_administration,10,law_merchant_navy,group default,20,0
+SIC,STATE_CAMPANIA,building_port,3,law_merchant_navy,group default,50,0
+SIC,STATE_SICILY,building_port,2,law_merchant_navy,group default,50,0
+SIL,STATE_GOLD_COAST,building_port,1,law_merchant_navy,group default,50,0
+SIL,STATE_SENEGAL,building_port,1,law_merchant_navy,group default,50,0
+SIL,STATE_SIERRA_LEONE,building_port,1,law_merchant_navy,group default,50,0
+SIL,STATE_SOUTH_CAMEROON,building_port,1,law_merchant_navy,group default,50,0
+SMB,STATE_WEST_BORNEO,building_port,1,law_merchant_navy,group default,50,0
+SPA,STATE_AL_RIF,building_port,1,law_diplomatic_navy,history,40,0
+SPA,STATE_ASTURIAS,building_port,1,law_diplomatic_navy,history,40,0
+SPA,STATE_BALEARIC_ISLANDS,building_port,1,law_diplomatic_navy,history,40,0
+SPA,STATE_CANARY_ISLANDS,building_port,1,law_diplomatic_navy,history,40,0
+SPA,STATE_CATALONIA,building_port,2,law_diplomatic_navy,history,40,0
+SPA,STATE_GALICIA,building_port,1,law_diplomatic_navy,history,40,0
+SPA,STATE_LOWER_ANDALUSIA,building_port,3,law_diplomatic_navy,history,40,0
+SPA,STATE_MURCIA,building_port,1,law_diplomatic_navy,history,40,0
+SPA,STATE_VALENCIA,building_naval_administration,10,law_diplomatic_navy,history,30,0
+SPA,STATE_VALENCIA,building_port,1,law_diplomatic_navy,history,40,0
+SPC,STATE_BASQUE_COUNTRY,building_port,1,law_merchant_navy,group default,50,0
+SUL,STATE_MINDANAO,building_port,1,law_merchant_navy,group default,50,0
+SUL,STATE_NORTH_BORNEO,building_port,1,law_merchant_navy,group default,50,0
+SWE,STATE_GOTALAND,building_naval_administration,5,law_professional_navy,history,60,0
+SWE,STATE_GOTALAND,building_port,1,law_professional_navy,history,20,0
+SWE,STATE_GOTLAND,building_port,1,law_professional_navy,history,20,0
+SWE,STATE_SCANIA,building_port,1,law_professional_navy,history,20,0
+SWE,STATE_SVEALAND,building_naval_administration,10,law_professional_navy,history,60,0
+SWE,STATE_SVEALAND,building_port,1,law_professional_navy,history,20,0
+TEX,STATE_TEXAS,building_naval_administration,1,law_merchant_navy,group default,20,0
+TID,STATE_MOLUCCAS,building_port,1,law_merchant_navy,group default,50,0
+TID,STATE_WESTERN_NEW_GUINEA,building_port,1,law_merchant_navy,group default,50,0
+TRI,STATE_TRIPOLI,building_port,1,law_merchant_navy,group default,50,0
+TUN,STATE_TUNISIA,building_naval_administration,1,law_merchant_navy,group default,20,0
+TUN,STATE_TUNISIA,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_ALBANIA,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_AYDIN,building_port,2,law_merchant_navy,group default,50,0
+TUR,STATE_BASRA,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_BULGARIA,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_CYPRUS,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_DOBRUDJA,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_EASTERN_THRACE,building_naval_administration,20,law_merchant_navy,group default,20,0
+TUR,STATE_EASTERN_THRACE,building_port,3,law_merchant_navy,group default,50,0
+TUR,STATE_HUDAVENDIGAR,building_naval_administration,5,law_merchant_navy,group default,20,0
+TUR,STATE_HUDAVENDIGAR,building_port,2,law_merchant_navy,group default,50,0
+TUR,STATE_TRABZON,building_port,1,law_merchant_navy,group default,50,0
+TUR,STATE_WESTERN_THRACE,building_port,1,law_merchant_navy,group default,50,0
+TUS,STATE_TUSCANY,building_naval_administration,1,law_merchant_navy,group default,20,0
+TUS,STATE_TUSCANY,building_port,2,law_merchant_navy,group default,50,0
+UBD,STATE_RIGA,building_port,2,law_merchant_navy,group default,50,0
+UBD,STATE_TALINN,building_port,1,law_merchant_navy,group default,50,0
+UBD,STATE_TARTU,building_port,1,law_merchant_navy,group default,50,0
+UCA,STATE_HONDURAS,building_port,1,law_merchant_navy,group default,50,0
+URU,STATE_URUGUAY,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_ALABAMA,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_CONNECTICUT,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_DISTRICT_OF_COLUMBIA,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_GEORGIA,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_LOUISIANA,building_port,2,law_merchant_navy,group default,50,0
+USA,STATE_MAINE,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_MARYLAND,building_port,2,law_merchant_navy,group default,50,0
+USA,STATE_MASSACHUSETTS,building_naval_administration,15,law_merchant_navy,group default,20,0
+USA,STATE_MASSACHUSETTS,building_port,3,law_merchant_navy,group default,50,0
+USA,STATE_NEW_YORK,building_port,3,law_merchant_navy,group default,50,0
+USA,STATE_NORTH_CAROLINA,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_SOUTH_CAROLINA,building_port,1,law_merchant_navy,group default,50,0
+USA,STATE_VIRGINIA,building_port,3,law_merchant_navy,group default,50,0
+VNZ,STATE_MIRANDA,building_port,1,law_merchant_navy,group default,50,0
+VNZ,STATE_WEST_INDIES,building_port,1,law_merchant_navy,group default,50,0
+WAS,STATE_WESTERN_AUSTRALIA,building_port,1,law_merchant_navy,group default,50,0

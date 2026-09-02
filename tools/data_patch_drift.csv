@@ -1,0 +1,41 @@
+severity,kind,mod,file,object,field,vanilla,ours,note
+BALANCE,CONFLICT,MonCountMod + Top40EcoBoostMod,,STATE_AGRA,building_opium_plantation,,MonCountMod=5; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_BAS_CONGO,building_port,,InfraTaxMod=1; PrettyTreatyMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_BAS_CONGO,building_trade_center,,InfraTaxMod=1; PrettyTreatyMod=3,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + Top40EcoBoostMod,,STATE_BRANDENBURG,building_steel_mill,,InfraTaxMod=2; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_DONGOLA,building_port,,InfraTaxMod=1; PrettyTreatyMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_DONGOLA,building_trade_center,,InfraTaxMod=1; PrettyTreatyMod=3,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,PrettyTreatyMod + Top40EcoBoostMod,,STATE_FARS,building_textile_mill,,PrettyTreatyMod=1; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_FARS,building_trade_center,,InfraTaxMod=1; PrettyTreatyMod=3,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,PrettyTreatyMod + Top40EcoBoostMod,,STATE_FORMOSA,building_tooling_workshop,,PrettyTreatyMod=1; Top40EcoBoostMod=10,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,DesiStrategyMod + Top40EcoBoostMod,,STATE_HIMALAYAS,building_logging_camp,,DesiStrategyMod=2; Top40EcoBoostMod=8,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,DesiStrategyMod + Top40EcoBoostMod,,STATE_HIMALAYAS,building_opium_plantation,,DesiStrategyMod=1; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,DesiStrategyMod + Top40EcoBoostMod,,STATE_HIMALAYAS,building_tea_plantation,,DesiStrategyMod=2; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,DesiStrategyMod + InfraTaxMod,,STATE_HIMALAYAS,building_trade_center,,DesiStrategyMod=3; InfraTaxMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,MonCountMod + Top40EcoBoostMod,,STATE_MADRAS,building_coffee_plantation,,MonCountMod=5; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,MonCountMod + Top40EcoBoostMod,,STATE_MONTENEGRO,building_logging_camp,,MonCountMod=2; Top40EcoBoostMod=4,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,MonCountMod + Top40EcoBoostMod,,STATE_MONTENEGRO,building_wheat_farm,,MonCountMod=2; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,MonCountMod + Top40EcoBoostMod,,STATE_NEW_CASTILE,building_food_industry,,MonCountMod=5; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,PrettyTreatyMod + Top40EcoBoostMod,,STATE_SHENGJING,building_iron_mine,,PrettyTreatyMod=1; Top40EcoBoostMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_SHENGJING,building_port,,InfraTaxMod=1; PrettyTreatyMod=2,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_SOMALILAND,building_trade_center,,InfraTaxMod=1; PrettyTreatyMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_SOUTH_MADAGASCAR,building_port,,InfraTaxMod=1; PrettyTreatyMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_SOUTH_MADAGASCAR,building_trade_center,,InfraTaxMod=1; PrettyTreatyMod=3,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_TONKIN,building_port,,InfraTaxMod=1; PrettyTreatyMod=1,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod + PrettyTreatyMod,,STATE_TONKIN,building_trade_center,,InfraTaxMod=1; PrettyTreatyMod=3,same state and building seeded by more than one of our mods
+BALANCE,CONFLICT,InfraTaxMod,01_south_europe.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,MonCountMod,02_east_europe.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,06_central_america.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,07_south_america.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,08_middle_east.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,09_central_asia.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,10_india.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,,,changed in this patch layer,whole-file override,the patch edited a file we replace wholesale; nothing of it survives
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_HOKUSHINETSU,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_KANSAI,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_NINGXIA,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_SHANXI,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_SICHUAN,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_TOHOKU,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_XIAN,arable_resources,building_vineyard,absent,vanilla entry dropped by our override
+BALANCE,CONFLICT,InfraTaxMod,11_east_asia.txt,STATE_YUNNAN,arable_resources,building_vineyard,absent,vanilla entry dropped by our override

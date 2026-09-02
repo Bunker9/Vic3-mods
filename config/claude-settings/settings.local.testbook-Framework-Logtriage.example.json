@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/<USER>/Projects/victoria-3-mod/**)",
+      "Bash(python -c \"import openpyxl; wb=openpyxl.load_workbook\\(r'hk-config/data/TODO.xlsx',data_only=True\\); ws=wb.active; [print\\(' | '.join\\('' if c is None else str\\(c\\) for c in r\\)\\) for r in ws.iter_rows\\(values_only=True\\)]\")",
+      "Bash(git -C \"C:/Users/<USER>/Projects/victoria-3-mod/testbook\" status -sb)",
+      "Bash(git -C \"C:/Users/<USER>/Projects/victoria-3-mod/mod1\" status -sb)",
+      "Bash(git -C \"C:/Users/<USER>/Projects/victoria-3-mod/hk-config\" status -sb)"
+    ]
+  }
+}

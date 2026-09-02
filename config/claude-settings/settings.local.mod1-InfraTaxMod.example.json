@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import openpyxl; wb=openpyxl.load_workbook\\(r'hk-config/data/TODO.xlsx',data_only=True\\); ws=wb.active; rows=[r for r in ws.iter_rows\\(values_only=True\\)]; [print\\(' | '.join\\('' if c is None else str\\(c\\) for c in r\\)\\) for r in rows if any\\(c is not None for c in r\\)]\")",
+      "Read(//c/Program Files \\\\\\(x86\\\\\\)/Steam/steamapps/common/Victoria 3/game/common/power_bloc_principles/**)",
+      "Bash(grep -rzoP 'create_diplomatic_pact\\\\s*=\\\\s*\\\\{[^{}]*?type\\\\s*=\\\\s*protectorate[^{}]*?\\\\}' __TRACKED_VAR__/common/ __TRACKED_VAR__/events/)",
+      "Bash(python -c ' *)",
+      "Bash(python testbook/v2/testkit/chk_structure.py SteadyInnovMod \"mod1/SteadyInnovMod\")",
+      "Bash(python testbook/v2/testkit/chk_structure.py mod1/SteadyInnovMod)",
+      "Bash(python -c \"import openpyxl; wb=openpyxl.load_workbook\\(r'C:/Users/<USER>/Projects/victoria-3-mod/hk-config/data/TODO.xlsx',data_only=True\\); ws=wb.active; [print\\(' | '.join\\('' if c is None else str\\(c\\) for c in r\\)\\) for r in ws.iter_rows\\(values_only=True\\)]\")",
+      "Bash(git -C \"C:/Users/<USER>/Projects/victoria-3-mod/mod1\" status)",
+      "Bash(git -C \"C:/Users/<USER>/Projects/victoria-3-mod/mod1\" log --oneline -5)"
+    ]
+  }
+}
