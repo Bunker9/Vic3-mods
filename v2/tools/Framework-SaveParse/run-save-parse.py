@@ -40,6 +40,8 @@ def main():
     for stage in STAGES:
         subprocess.run([sys.executable, os.path.join(HERE, stage), "--save", save], check=True)
     subprocess.run([sys.executable, os.path.join(HERE, "aggr-save-census.py")], check=True)
+    # employment census depends on the enriched census (owner tag/region) -> runs after it
+    subprocess.run([sys.executable, os.path.join(HERE, "aggr-save-employment.py")], check=True)
     print(f"== save-parse done -> {ROOT} ==")
 
 

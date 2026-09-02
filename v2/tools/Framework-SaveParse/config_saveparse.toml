@@ -9,19 +9,38 @@ fixed_point_factor = 100000   # Vic3 stores a numeric 'value' var as int(real * 
 # (columns: id + the listed top-level scalar fields). Raw-ID only — enrichment is a separate join (UAT SP-02).
 [managers.building_manager]
 out = "raw_buildings"
-fields = ["building", "levels", "last_updated_level", "active", "state", "subsidized", "establishment_date"]
+# staffing/previous_staffing = OCCUPANCY in level-equivalents (staffing < levels => under-staffed "empty"
+# building); last_layoff_date dates the most recent firing; salary_rate/throughput/profit_after_reserves
+# separate "no job" from "job but destitute wages". All are top-level scalars in the building block.
+fields = ["building", "levels", "last_updated_level", "active", "state", "subsidized", "establishment_date",
+          "staffing", "previous_staffing", "hiring_rate", "salary_rate", "throughput",
+          "last_layoff_date", "last_failed_hire_date", "cash_reserves", "profit_after_reserves"]
 [managers.states]
 out = "raw_states"
 fields = ["country", "capital", "incorporation", "region", "province"]
 [managers.country_manager]
 out = "raw_countries"
 fields = ["definition", "tag", "country_type", "market", "capital"]
+# Every law slot a country holds; active=yes marks the one in force. Join on country id.
+[managers.laws]
+out = "raw_laws"
+fields = ["law", "country", "active", "activation_date"]
 [managers.state_region_manager]
 out = "raw_state_regions"
 fields = ["template"]
 [managers.pops]
 out = "raw_pops"
-fields = ["type", "workforce", "dependents", "location", "culture", "religion", "wealth", "num_literate"]
+# workplace = the building id the pop works in; the join that attributes employment to a building.
+fields = ["type", "workforce", "dependents", "location", "workplace", "culture", "religion", "wealth", "num_literate"]
+
+[employment]
+# aggr-save-employment thresholds (externalized literals; no magic numbers in the script).
+# A pop workforce at/below this wealth counts DESTITUTE (idle-or-starving). Vic3 wealth is an integer
+# level; employed middle-strata pops in this save sit at 15-26, unemployed ones at 1.
+destitute_wealth_max = 2
+# A building staffed at/below this fraction of its levels counts EMPTY (staffing is occupancy in
+# level-equivalents: staffing=0.288 on levels=34 => 0.8% occupied).
+empty_occupancy_max = 0.5
 
 [goods]
 # market/goods price extraction (T103): market_manager price_trend channels are keyed by NUMERIC goods id

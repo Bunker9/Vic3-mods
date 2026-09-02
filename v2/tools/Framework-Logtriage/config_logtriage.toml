@@ -1,7 +1,13 @@
 # config_logtriage.toml — Framework-Logtriage settings (externalized literals; vision §A/§B). Read-only TOML.
 [logs]
 # (filename, severity) scanned in order. severity tags the match rows (error lines drive the verdict).
-files = [["error.log", "error"], ["debug.log", "debug"], ["game.log", "info"]]
+# ROTATED logs (.1 .2 .3) are INCLUDED: Vic3 rotates on every launch, so a marker from an earlier
+# launch of the same play session is otherwise reported unfired. log_file carries the source, so a
+# hit in a .N file can still be told apart from the current run.
+files = [["error.log", "error"], ["debug.log", "debug"], ["game.log", "info"],
+         ["error.1.log", "error"], ["debug.1.log", "debug"], ["game.1.log", "info"],
+         ["error.2.log", "error"], ["debug.2.log", "debug"], ["game.2.log", "info"],
+         ["error.3.log", "error"], ["debug.3.log", "debug"], ["game.3.log", "info"]]
 
 [analysis]
 refire_flag = 100   # marker hit-count above which a re-fire loop is suspected
