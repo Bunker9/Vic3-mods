@@ -2,7 +2,7 @@
 	"name": "MonCountMod",
 	"id": "MonCountMod",
 	"game_id": "victoria3",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"supported_game_version": "1.13.*",
 	"short_description": "The Count of Montenegro and his Lovcen Golden Concordat, mining Transylvanian gold from the Black Mountain.",
 	"tags": [

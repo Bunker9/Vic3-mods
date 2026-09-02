@@ -2,7 +2,7 @@
   "name": "PrettyTreatyMod",
   "id": "PrettyTreatyMod",
   "game_id": "victoria3",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "supported_game_version": "1.13.*",
   "short_description": "An alternate 1836 in which France, the Netherlands, Belgium, Sweden, Prussia and Russia all hold treaty ports and investment rights outside Europe, each paid for with a standing goods tribute, plus decisions that let the powers industrialise Qing China.",
   "tags": [],

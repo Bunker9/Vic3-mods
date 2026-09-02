@@ -2,7 +2,7 @@
   "name": "KampaiNipponMod",
   "id": "KampaiNipponMod",
   "game_id": "victoria3",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "supported_game_version": "1.13.*",
   "short_description": "Japan flavour: a naval build up decision (troop ships, naval administrations, and a marine industry boom) and, once a strong navy is built, a decision to lay claims across Korea.",
   "tags": [],
